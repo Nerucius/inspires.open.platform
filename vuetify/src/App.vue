@@ -62,7 +62,7 @@ export default {
 
   data() {
     return {
-      loading: true
+      loading: false
     };
   },
 
@@ -76,6 +76,10 @@ export default {
   },
 
   async mounted() {
+    setTimeout(()=>{
+      document.dispatchEvent(new Event('x-app-rendered'))
+    }, 200)
+
     // Block on the user status before allowing to show the app
     await this.$store.dispatch("user/load");
     this.loading = false;

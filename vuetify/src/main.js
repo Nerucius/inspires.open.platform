@@ -17,6 +17,6 @@ export default new Vue({
   router,
   store,
   i18n,
-  mounted: () => document.dispatchEvent(new Event('x-app-rendered')),
-  render: h => h(App), // Prerender SPA
+  // mounted: () => document.dispatchEvent(new Event('x-app-rendered')),
+  render: h => h(App),
 }).$mount("#app");

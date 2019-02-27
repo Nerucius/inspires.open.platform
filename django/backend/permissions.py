@@ -11,12 +11,12 @@ class CustomPermissionSet(permissions.DjangoModelPermissions):
     CREATE_METHOD = "POST"
 
     def has_permission(self, request, view):
-        if not request.user or not request.user.is_authenticated:
-            return False
-
         # Next line skips views without a queryset (API root)
         if not hasattr(view, "get_queryset"):
             return True
+
+        if not request.user or not request.user.is_authenticated:
+            return False
 
         if request.method in permissions.SAFE_METHODS:
             return self.has_read_permission(request, view)
@@ -25,10 +25,6 @@ class CustomPermissionSet(permissions.DjangoModelPermissions):
     def has_object_permission(self, request, view, obj):
         if not request.user or not request.user.is_authenticated:
             return False
-
-        # Next line skips views without a queryset (API root)
-        if not hasattr(view, "get_queryset"):
-            return True
 
         if request.method in permissions.SAFE_METHODS:
             return self.has_object_read_permission(request, view, obj)

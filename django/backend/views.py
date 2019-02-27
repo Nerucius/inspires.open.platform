@@ -5,6 +5,7 @@ from django.http.response import HttpResponseBadRequest, HttpResponse
 from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework.permissions import AllowAny
 
 from . import models
 from . import serializers
@@ -43,6 +44,7 @@ class CurrentUserView(viewsets.ReadOnlyModelViewSet):
     """ Returns the currently logged in user """
 
     serializer_class = serializers.UserSerializer
+    permission_classes = [AllowAny]
 
     def get_queryset(self):
         queryset = models.User.objects

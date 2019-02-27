@@ -38,8 +38,8 @@ class CustomPermissionSet(permissions.DjangoModelPermissions):
         # print("has_write_permission", request.user, view.get_queryset().model)
         # Return default Django model permissions for WRITE unsafe methods
         has_model_perm = super(CustomPermissionSet, self).has_permission(request, view)
-        model_class = view.get_queryset().model
         if request.method == self.CREATE_METHOD:
+            model_class = view.get_queryset().model
             return has_model_perm and model_class.can_create(request.user, request.data)
         return has_model_perm
 

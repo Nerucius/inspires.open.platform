@@ -12,4 +12,3 @@ router.register("users", views.UsersVS)
 router.register("groups", views.GroupsVS)
 
 # Nested Objects Views
-

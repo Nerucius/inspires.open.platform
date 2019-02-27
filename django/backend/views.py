@@ -78,4 +78,3 @@ class GroupsVS(viewsets.ReadOnlyModelViewSet):
 # ===========================
 # RELATED OBJECTS ENDPOINTS
 # ===========================
-

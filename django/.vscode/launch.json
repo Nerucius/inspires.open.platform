@@ -1,0 +1,30 @@
+{
+    "version": "0.2.0",
+    "configurations": [{
+            "name": "PyLint (Black)",
+            "type": "python",
+            "request": "launch",
+            "module": "black",
+            "args": [
+                "backend",
+                "--exclude",
+                "backend/migrations"
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Python: Django",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/manage.py",
+            "args": [
+                "runserver",
+                "localhost:8080",
+                "--noreload",
+                "--nothreading"
+            ],
+            "console": "integratedTerminal",
+            "django": true
+        }
+    ]
+}

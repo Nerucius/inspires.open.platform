@@ -1,0 +1,65 @@
+{
+  "pages": {
+    "dashboard": {
+      "title":"dashboard"
+    },
+    "login": {
+      "welcomeMessage":"Welcome to the InSPIRES Platform"
+    }
+  },
+  "navigation": {
+    "courses": "My Courses",
+    "calendar": "My Calendar"
+  },
+  "actions": {
+    "add": "Add",
+    "create": "Create",
+    "delete": "Delete",
+    "login": "Login",
+    "logout": "Logout",
+    "save": "Save",
+    "cancel": "Cancel",
+    "calendar": {
+      "editEvent": "Edit event"
+    }
+  },
+  "errors":{
+    "404":{
+      "title": "Oops! This page was not found",
+      "text": "The page at '{route}' does not exist. Are you sure you've typed it correctly?"
+    }
+  },
+  "forms": {
+    "titles": {
+      "login": "Log In"
+    },
+    "errors": {
+      "invalidCredentials": "Invalid credentials, please verify your username and password."
+    },
+    "rules": {
+      "requiredField": "This is a required field",
+      "namedRequiredField": "{name} is a required field"
+    },
+    "fields": {
+      "name": "Name",
+      "username": "Username",
+      "password": "Password",
+      "title": "Title",
+      "author": "Author"
+    }
+  },
+  "$vuetify": {
+    "dataIterator": {
+      "rowsPerPageText": "Items per page:",
+      "rowsPerPageAll": "All",
+      "pageText": "{0}-{1} of {2}",
+      "noResultsText": "No matching records found",
+      "nextPage": "Next page",
+      "prevPage": "Previous page"
+    },
+    "dataTable": {
+      "rowsPerPageText": "Rows per page:"
+    },
+    "noDataText": "No data available"
+  }
+}

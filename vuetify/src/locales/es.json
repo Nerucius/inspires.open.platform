@@ -1,0 +1,30 @@
+{
+  "buttons": {
+    "add": "Añadir",
+    "create": "Crear",
+    "delete": "Eliminar"
+  },
+  "actions": {
+    "login": "Entrar",
+    "logout": "Salir"
+  },
+  "forms": {
+    "titles": {
+      "login": "Entrar"
+    },
+    "errors": {
+      "invalidCredentials": "Usuario o contraseña incorrectos, vuelve a intentarlo."
+    },
+    "rules": {
+      "requiredField": "Este campo no puede estar vacio.",
+      "namedRequiredField": "El campo {name} no puede estar vacio"
+    },
+    "fields": {
+      "name": "Nombre",
+      "username": "Usuario",
+      "password": "Contraseña",
+      "title": "Titulo",
+      "author": "Autor"
+    }
+  }
+}

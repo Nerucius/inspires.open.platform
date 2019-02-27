@@ -1,0 +1,66 @@
+# Development Version
+# Using Debug Django Server
+# Using Watcher Node
+version: '2'
+
+services:
+  django:
+    build: './django'
+    depends_on:
+      - db
+    environment:
+      - DEBUG=${DJANGO_DEBUG}
+      - SECRET_KEY=${DJANGO_SECRET_KEY}
+      - STATIC_URL=${DJANGO_STATIC_URL}
+      - ALLOWED_HOST=${DJANGO_ALLOWED_HOST}
+      - CORS_ORIGIN=${DJANGO_CORS_ORIGIN}
+    ports:
+      - '${DJANGO_PORT}:8080'
+    volumes:
+      - './django/backend:/app/backend'
+      - './django/server:/app/server'
+      - 'static_files:/static'
+
+  vuetify:
+    build: './vuetify'
+    environment:
+      - VUE_APP_API_SERVER
+    volumes:
+      - './vuetify/src:/vuetify/src'
+      - 'static_files:/vuetify/dist'
+
+  # httpd:
+  #   build: './httpd'
+  #   ports:
+  #     - '${HTTPD_PORT}:80'
+  #   volumes:
+  #     - 'static_files:/usr/local/apache2/htdocs'
+
+  nginx:
+    build: './nginx'
+    ports:
+      - '${HTTPD_PORT}:80'
+    volumes:
+      - 'static_files:/usr/share/nginx/html'
+
+  db:
+    image: postgres:11-alpine
+    # expose:
+    #   - 5432
+    # ports:
+    #   - '${POSTGRES_EXT_PORT}:5432'
+    environment:
+      - POSTGRES_DB=django
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - PGDATA=/data/postgres
+    volumes:
+      - 'db_files:/data'
+
+  # shell:
+  #   image: alpine
+  #   command: ["ping", "database"]
+
+volumes:
+  db_files: {}
+  static_files: {}

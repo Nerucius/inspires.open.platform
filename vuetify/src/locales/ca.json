@@ -1,0 +1,35 @@
+{
+  "pages": {
+    "dashboard": {
+      "title":"continguts"
+    }
+  },
+  "buttons": {
+    "add": "Afegir",
+    "create": "Crear",
+    "delete": "Borrar"
+  },
+  "actions": {
+    "login": "Entrar",
+    "logout": "Sortir"
+  },
+  "forms": {
+    "titles": {
+      "login": "Entrar"
+    },
+    "errors": {
+      "invalidCredentials": "Usuari o contrasenya incorrectes, torna a intentar-ho."
+    },
+    "rules": {
+      "requiredField": "Aquest camp es obligatori",
+      "namedRequiredField": "El camp {name} es obligatori"
+    },
+    "fields": {
+      "name": "Nom",
+      "username": "Usuari",
+      "password": "Contrasenya",
+      "title": "Titol",
+      "author": "Autor"
+    }
+  }
+}

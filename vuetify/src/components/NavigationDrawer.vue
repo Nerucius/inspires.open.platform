@@ -15,32 +15,30 @@
 
 
 <template>
-  <v-navigation-drawer app v-model="showDrawer">
+  <v-navigation-drawer v-model="showDrawer" app>
     <v-layout column justify-start fill-height>
-
       <v-flex class="pa-2 pt-3 px-4 sidebar-header" shrink>
-          <v-flex>
-            <v-avatar size="80">
-              <img
-                :src="`https://www.gravatar.com/avatar/${'205e460b479e2e5b48aec07710c08d50'}?s=256`"
-                alt="avatar"
-              >
-            </v-avatar>
-          </v-flex>
-          <v-flex class="mt-3 subheading">
-            <v-layout>
-              <v-flex>
+        <v-flex>
+          <v-avatar size="80">
+            <img
+              :src="`https://www.gravatar.com/avatar/${'205e460b479e2e5b48aec07710c08d50'}?s=256`"
+              alt="avatar"
+            >
+          </v-avatar>
+        </v-flex>
+        <v-flex class="mt-3 subheading">
+          <v-layout>
+            <v-flex>
               {{ currentUser.first_name || "Anonymous" }}<br>
               <small>{{ currentUser.email || "anonymous@campus.edu" }}</small>
-              </v-flex>
-              <v-flex shrink class="py-1">
-                  <v-icon dark @click="toggleAccountMenu()">
-                    {{showAccountMenu ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}}
-                  </v-icon>
-              </v-flex>
-            </v-layout>
-          </v-flex>
-
+            </v-flex>
+            <v-flex shrink class="py-1">
+              <v-icon dark @click="toggleAccountMenu()">
+                {{ showAccountMenu ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}
+              </v-icon>
+            </v-flex>
+          </v-layout>
+        </v-flex>
       </v-flex>
 
       <v-flex shrink>
@@ -70,13 +68,13 @@
         </v-list>
       </v-flex>
 
-      <v-divider></v-divider>
+      <v-divider />
 
-      <v-spacer></v-spacer>
+      <v-spacer />
 
-      <v-divider></v-divider>
+      <v-divider />
       <v-flex shrink>
-        <ThemeSelector/>
+        <ThemeSelector />
       </v-flex>
     </v-layout>
   </v-navigation-drawer>
@@ -99,6 +97,12 @@ export default {
     };
   },
 
+  computed: {
+    currentUser() {
+      return this.$store.getters["user/current"];
+    }
+  },
+
   methods: {
     toggleDrawer() {
       this.showDrawer = !this.showDrawer;
@@ -106,12 +110,6 @@ export default {
     toggleAccountMenu() {
       this.showAccountMenu = !this.showAccountMenu;
     },
-  },
-
-  computed: {
-    currentUser() {
-      return this.$store.getters["user/current"];
-    }
   }
 };
 </script>

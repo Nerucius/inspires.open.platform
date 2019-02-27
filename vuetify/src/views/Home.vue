@@ -1,5 +1,4 @@
 <template>
-
   <v-layout row wrap align-content-start>
     <v-flex xs12>
       <v-card flat>
@@ -13,13 +12,15 @@
         <v-card-text>
           <h1>What we do</h1>
           <br>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo vero quisquam
-            quibusdam voluptatibus aut officia corrupti molestias iure ducimus, nemo iste
-            dignissimos sint praesentium ab dolorem nesciunt inventore deserunt quam!
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo vero quisquam
+          quibusdam voluptatibus aut officia corrupti molestias iure ducimus, nemo iste
+          dignissimos sint praesentium ab dolorem nesciunt inventore deserunt quam!
         </v-card-text>
         <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn flat :to="{name:'about'}">More about us!</v-btn>
+          <v-spacer />
+          <v-btn flat :to="{name:'about'}">
+            More about us!
+          </v-btn>
         </v-card-actions>
       </v-card>
     </v-flex>
@@ -28,26 +29,28 @@
       <v-card flat>
         <v-card-text>
           <h1>Projects</h1>
-          <p></p>
+          <p />
 
           <v-container grid-list-xl>
             <v-layout row wrap>
-              <v-flex xs12 sm6 md4 mb-3 v-for="i in 6" :key="i">
+              <v-flex v-for="i in 6" :key="i" xs12 sm6 md4 mb-3>
                 <v-card>
                   <v-img
                     src="https://cdn.vuetifyjs.com/images/cards/desert.jpg"
                     aspect-ratio="2.00"
                   >
-                    <v-avatar v-for="i in round(random()*2)" :key="i"
-                      class="ma-2 elevation-3" size="48px">
-                      <img src="https://avatars0.githubusercontent.com/u/9064066?v=4&s=460" >
+                    <v-avatar v-for="a in round(random()*2)" :key="a"
+                              class="ma-2 elevation-3"
+                              size="48px"
+                    >
+                      <img src="https://avatars0.githubusercontent.com/u/9064066?v=4&s=460">
                     </v-avatar>
                   </v-img>
 
                   <v-card-text style="text-overflow: ellipsis;">
-                    <v-sheet height=150>
+                    <v-sheet height="150">
                       <h3>Project Title</h3>
-                      <p></p>
+                      <p />
                       <p>
                         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem, vitae
                         facere aperiam expedita esse et iure eos cum laborum eveniet. Praesentium
@@ -60,12 +63,14 @@
                       readonly
                       color="orange"
                       background-color="orange"
-                      :value="random() * 4 + 2">
-                    </v-rating>
-                    <v-spacer></v-spacer>
+                      :value="random() * 4 + 2"
+                    />
+                    <v-spacer />
                     <v-btn flat :to="{name:'about'}">
                       More
-                      <v-icon right>mdi-chevron-right</v-icon>
+                      <v-icon right>
+                        mdi-chevron-right
+                      </v-icon>
                     </v-btn>
                   </v-card-actions>
                 </v-card>
@@ -74,9 +79,10 @@
           </v-container>
 
           <p class="text-xs-center">
-            <v-btn large color="primary">See More Projects</v-btn>
+            <v-btn large color="primary">
+              See More Projects
+            </v-btn>
           </p>
-
         </v-card-text>
       </v-card>
     </v-flex>
@@ -88,10 +94,14 @@
           <h3>Footer Content</h3>
           <v-layout row>
             <v-flex xs4>
-              <a href="#">Link one</a><br>
-              <a href="#">Link two</a>
+              <a href="#">
+                Link one
+              </a><br>
+              <a href="#">
+                Link two
+              </a>
             </v-flex>
-            <v-spacer></v-spacer>
+            <v-spacer />
             <v-flex xs4>
               &copy; Some Company LTD 2019
             </v-flex>
@@ -99,9 +109,7 @@
         </v-card-text>
       </v-card>
     </v-flex>
-
   </v-layout>
-
 </template>
 
 <script>

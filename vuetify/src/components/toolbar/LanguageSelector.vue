@@ -1,8 +1,10 @@
 <template>
   <v-menu offset-y>
-    <v-btn flat slot="activator">
+    <v-btn slot="activator" flat>
       {{ currentLanguage }}
-      <v-icon right>expand_more</v-icon>
+      <v-icon right>
+        expand_more
+      </v-icon>
     </v-btn>
     <v-list>
       <v-list-tile
@@ -14,7 +16,7 @@
           <small>{{ lang | uppercase }}</small>
         </v-list-tile-title>
 
-        <flag :iso="flag[lang]" :squared="false" style="width:40px"/>
+        <flag :iso="flag[lang]" :squared="false" style="width:40px" />
       </v-list-tile>
     </v-list>
   </v-menu>
@@ -38,15 +40,15 @@ export default {
     };
   },
 
-  methods: {
-    selectLanguage(lang) {
-      this.$store.dispatch("preferences/set", { lang });
-    }
-  },
-
   computed: {
     currentLanguage() {
       return this.$store.getters["preferences/lang"];
+    }
+  },
+
+  methods: {
+    selectLanguage(lang) {
+      this.$store.dispatch("preferences/set", { lang });
     }
   }
 };

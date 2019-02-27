@@ -13,18 +13,18 @@
     <v-text-field
       slot="activator"
       v-model="innerDate"
-      :label="this.label"
+      :label="label"
       prepend-icon="event"
       readonly
-    ></v-text-field>
+    />
     <v-date-picker
-      first-day-of-week=1
+      v-model="innerDate"
+      first-day-of-week="1"
       :locale="$i18n.locale"
       no-title
       scrollable
-      v-model="innerDate"
       @input="innerDate = $event; $emit('change', $event); menu=false"
-      >
+    >
       <!-- <v-spacer></v-spacer>
       <v-btn flat color="primary" @click="menu = false;">OK</v-btn> -->
     </v-date-picker>

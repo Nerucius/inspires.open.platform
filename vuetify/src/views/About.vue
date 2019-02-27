@@ -1,6 +1,5 @@
 <template>
   <v-layout>
-
     <v-flex xs12>
       <v-card>
         <v-toolbar card dense dark color="info">
@@ -20,21 +19,22 @@
           </p>
         </v-card-text>
         <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn flat>Create!</v-btn>
+          <v-spacer />
+          <v-btn flat>
+            Create!
+          </v-btn>
         </v-card-actions>
       </v-card>
     </v-flex>
-
   </v-layout>
 </template>
 
 <script>
 export default {
   name: "About",
+  components: {},
   data() {
     return {};
-  },
-  components: {}
+  }
 };
 </script>

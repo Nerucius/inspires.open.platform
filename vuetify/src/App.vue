@@ -15,42 +15,36 @@
 
 <template>
   <v-app :[theme]="true">
-
     <template v-if="loading">
       <v-content>
         <v-container fill-height>
-
           <v-layout align-center justify-center>
             <v-flex xs12 class="text-xs-center">
-            <v-btn fab large outline loading></v-btn>
+              <v-btn fab large outline loading />
             </v-flex>
           </v-layout>
-
         </v-container>
       </v-content>
     </template>
 
     <template v-else>
       <!-- Navigation Drawer -->
-      <NavigationDrawer ref="navigationDrawer" v-if="shouldShowNavigation"/>
-      <Toolbar ref="toolbar" :showToggleDrawer="shouldShowNavigation" @toggleDrawer="toggleDrawer()"/>
+      <NavigationDrawer v-if="shouldShowNavigation" ref="navigationDrawer" />
+      <Toolbar ref="toolbar" :show-toggle-drawer="shouldShowNavigation" @toggleDrawer="toggleDrawer()" />
       <!-- Content -->
       <v-content>
         <v-container grid-list-xl fill-height>
-
-                <transition
-        name="fade"
-        mode="out-in"
-      >
-        <router-view/>
-      </transition>
+          <transition
+            name="fade"
+            mode="out-in"
+          >
+            <router-view />
+          </transition>
 
           <!-- <router-view :key="$route.fullPath"></router-view> -->
-
         </v-container>
       </v-content>
     </template>
-
   </v-app>
 </template>
 
@@ -72,6 +66,15 @@ export default {
     };
   },
 
+  computed: {
+    theme() {
+      return this.$store.getters["preferences/theme"];
+    },
+    shouldShowNavigation(){
+      return this.$store.getters['user/isLoggedIn']
+    },
+  },
+
   async mounted() {
     // Block on the user status before allowing to show the app
     await this.$store.dispatch("user/load");
@@ -82,15 +85,6 @@ export default {
     toggleDrawer() {
       this.$refs.navigationDrawer.toggleDrawer();
     }
-  },
-
-  computed: {
-    theme() {
-      return this.$store.getters["preferences/theme"];
-    },
-    shouldShowNavigation(){
-      return this.$store.getters['user/isLoggedIn']
-    },
   }
 };
 </script>

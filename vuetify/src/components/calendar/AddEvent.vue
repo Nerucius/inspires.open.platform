@@ -1,77 +1,73 @@
 <template>
-
   <v-dialog
+    v-model="dialog"
     max-width="600px"
-    v-model="dialog">
-
-    <v-btn absolute right bottom fab dark color="success" slot="activator">
+  >
+    <v-btn slot="activator" absolute right bottom fab dark color="success">
       <v-icon>add</v-icon>
     </v-btn>
 
-      <v-card class="">
-        <v-toolbar dense dark color="primary" class="elevation-0">
-          <v-toolbar-title>
-            <v-icon left>calendar_today</v-icon>
-            Add event
-          </v-toolbar-title>
-          <v-spacer></v-spacer>
-          <v-toolbar-items>
-          </v-toolbar-items>
-        </v-toolbar>
+    <v-card class="">
+      <v-toolbar dense dark color="primary" class="elevation-0">
+        <v-toolbar-title>
+          <v-icon left>
+            calendar_today
+          </v-icon>
+          Add event
+        </v-toolbar-title>
+        <v-spacer />
+        <v-toolbar-items />
+      </v-toolbar>
 
-        <v-card-text>
+      <v-card-text>
+        <v-form
+          ref="form"
+          v-model="valid"
+          @keyup.native.enter="valid && saveEvent()"
+          @submit.prevent="saveEvent()"
+        >
+          <v-text-field
+            v-model="addedEvent.title"
+            prepend-icon="edit"
+            label="Event title"
+            :rules="rules"
+          />
+          <v-textarea
+            v-model="addedEvent.content"
+            prepend-icon="edit"
+            label="Event content"
+            :rules="rules"
+          />
 
-          <v-form
-            ref="form"
-            v-model="valid"
-            @keyup.native.enter="valid && saveEvent()"
-            @submit.prevent="saveEvent()"
-          >
-
-            <v-text-field
-              v-model="addedEvent.title"
-              prepend-icon="edit"
-              label="Event title"
-              :rules="rules"
-            ></v-text-field>
-            <v-textarea
-              v-model="addedEvent.content"
-              prepend-icon="edit"
-              label="Event content"
-              :rules="rules"
-            ></v-textarea>
-
-            <v-layout>
-              <v-flex xs5>
-                <FieldDatePicker
-                  label="Pick event Date"
-                  :date="format(addedEvent.date_start, 'YYYY-MM-DD')"
-                  @change="changeDateStart($event)"
-                  ></FieldDatePicker>
-              </v-flex>
-              <v-spacer></v-spacer>
-              <v-flex xs5>
-                <FieldTimePicker
-                  label="Pick event Time"
-                  :time="format(addedEvent.date_start, 'HH:mm')"
-                  @change="changeTimeStart($event)"
-                  ></FieldTimePicker>
-              </v-flex>
-            </v-layout>
-
-          </v-form>
-        </v-card-text>
-        <v-card-actions class="pb-3 pr-3">
-          <v-btn @click="dialog=false" flat >
-            {{ $t("actions.cancel") }}
-          </v-btn>
-          <v-spacer></v-spacer>
-          <v-btn @click="saveEvent()" :disabled="!valid" color="primary">
-            {{ $t("actions.save") }}
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-
+          <v-layout>
+            <v-flex xs5>
+              <FieldDatePicker
+                label="Pick event Date"
+                :date="format(addedEvent.date_start, 'YYYY-MM-DD')"
+                @change="changeDateStart($event)"
+              />
+            </v-flex>
+            <v-spacer />
+            <v-flex xs5>
+              <FieldTimePicker
+                label="Pick event Time"
+                :time="format(addedEvent.date_start, 'HH:mm')"
+                @change="changeTimeStart($event)"
+              />
+            </v-flex>
+          </v-layout>
+        </v-form>
+      </v-card-text>
+      <v-card-actions class="pb-3 pr-3">
+        <v-btn flat @click="dialog=false">
+          {{ $t("actions.cancel") }}
+        </v-btn>
+        <v-spacer />
+        <v-btn :disabled="!valid" color="primary" @click="saveEvent()">
+          {{ $t("actions.save") }}
+        </v-btn>
+      </v-card-actions>
+    </v-card>
   </v-dialog>
 </template>
 
@@ -81,12 +77,12 @@ import FieldTimePicker from "@/components/calendar/FieldTimePicker";
 import { format, addHours, setHours, setMinutes, setYear, setMonth, setDate} from 'date-fns';
 
 export default {
-  props: ["event_type"],
 
   components:{
     FieldDatePicker,
     FieldTimePicker,
   },
+  props: ["eventType"],
 
   data() {
     return {
@@ -104,6 +100,10 @@ export default {
       },
       rules: [v => !!v || this.$t("forms.rules.requiredField")]
     };
+  },
+
+  computed: {
+
   },
 
 
@@ -150,10 +150,6 @@ export default {
       date_start = setMinutes(date_start, m)
       this.addedEvent.date_start = format(date_start)
     },
-  },
-
-  computed: {
-
   }
 };
 </script>

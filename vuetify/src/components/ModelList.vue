@@ -9,14 +9,16 @@
         <template v-for="item in items">
           <v-list-tile :key="item.url">
             <v-list-tile-content>
-              <v-list-tile-title v-html="item.name"></v-list-tile-title>
-              <v-list-tile-sub-title v-html="item.author"></v-list-tile-sub-title>
+              <v-list-tile-title>{{ item.name }}</v-list-tile-title>
+              <v-list-tile-sub-title>{{ item.author }}</v-list-tile-sub-title>
             </v-list-tile-content>
             <v-btn small icon color="error" @click="deleteBook(item)">
-              <v-icon small>delete</v-icon>
+              <v-icon small>
+                delete
+              </v-icon>
             </v-btn>
           </v-list-tile>
-          <v-divider :key="item.url"></v-divider>
+          <v-divider :key="item.url" />
         </template>
         <!-- /list item -->
       </v-list>
@@ -32,15 +34,17 @@
             :rules="rules"
             :label="$t('forms.fields.title')"
             required
-          ></v-text-field>
+          />
           <v-text-field
             v-model="book.author"
             :rules="rules"
             :label="$t('forms.fields.author')"
             required
-          ></v-text-field>
+          />
           <br>
-          <v-btn type="submit" :disabled="!valid" color="success">{{ $t("actions.add") }}</v-btn>
+          <v-btn type="submit" :disabled="!valid" color="success">
+            {{ $t("actions.add") }}
+          </v-btn>
         </v-form>
       </div>
 
@@ -67,6 +71,15 @@ export default {
     };
   },
 
+  computed: {
+    items() {
+      return this.$store.getters.books;
+    },
+    rules() {
+      return [v => !!v || this.$t("forms.rules.requiredField")];
+    }
+  },
+
   mounted() {
     this.$store.dispatch("loadBooks");
   },
@@ -86,15 +99,6 @@ export default {
       if (confirm(this.$t("book.removeBookPrompt"))) {
         this.$store.dispatch("deleteBook", book);
       }
-    }
-  },
-
-  computed: {
-    items() {
-      return this.$store.getters.books;
-    },
-    rules() {
-      return [v => !!v || this.$t("forms.rules.requiredField")];
     }
   }
 };

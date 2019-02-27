@@ -13,6 +13,12 @@ Vue.filter('uppercase', value => {
   return value.toUpperCase()
 })
 
+Vue.filter('ellipsis', (value, maxChars) => {
+  value = value.toString()
+  if (value.length < maxChars) return value
+  return value.substring(0, maxChars-3) + '...'
+})
+
 Vue.filter('localize', value => {
     return i18n.t(value)
 })

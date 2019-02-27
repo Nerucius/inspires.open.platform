@@ -2,7 +2,7 @@
   <v-layout align-center justify-center>
     <v-flex xs12 sm10>
       <v-card class="elevation-12">
-        <v-toolbar dense flat dark color="teal">
+        <v-toolbar dense flat dark color="teal darken-2">
           <v-toolbar-title>{{ $t('forms.titles.login') }}</v-toolbar-title>
           <v-spacer />
           <v-toolbar-items>

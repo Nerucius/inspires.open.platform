@@ -1,35 +1,68 @@
 {
   "pages": {
-    "dashboard": {
-      "title":"continguts"
+    "login": {
+      "welcomeMessage": "Benvingut a la plataforma InSPIRES"
+    },
+    "home": {
+      "mainTitle": "Benvingut a InSPIRES",
+      "aboutTitle": "Que fem?",
+      "aboutLink": "Coneixen's!",
+      "projectsTitle": "Projectes",
+      "projectsSeeMore": "Veure tots els projectes"
+    },
+    "last": {}
+  },
+  "navigation": {},
+  "actions": {
+    "add": "Add",
+    "create": "Create",
+    "delete": "Delete",
+    "login": "Entrar",
+    "logout": "Sortir",
+    "save": "Save",
+    "cancel": "Cancel",
+    "more": "Veure més",
+    "calendar": {
+      "editEvent": "Edit event"
     }
   },
-  "buttons": {
-    "add": "Afegir",
-    "create": "Crear",
-    "delete": "Borrar"
-  },
-  "actions": {
-    "login": "Entrar",
-    "logout": "Sortir"
+  "errors": {
+    "404": {
+      "title": "Oops! This page was not found",
+      "text": "The page at '{route}' does not exist. Are you sure you've typed it correctly?"
+    }
   },
   "forms": {
     "titles": {
-      "login": "Entrar"
+      "login": "Log In"
     },
     "errors": {
-      "invalidCredentials": "Usuari o contrasenya incorrectes, torna a intentar-ho."
+      "invalidCredentials": "Invalid credentials, please verify your username and password."
     },
     "rules": {
-      "requiredField": "Aquest camp es obligatori",
-      "namedRequiredField": "El camp {name} es obligatori"
+      "requiredField": "This is a required field",
+      "namedRequiredField": "{name} is a required field"
     },
     "fields": {
-      "name": "Nom",
-      "username": "Usuari",
-      "password": "Contrasenya",
-      "title": "Titol",
-      "author": "Autor"
+      "name": "Name",
+      "username": "Username",
+      "password": "Password",
+      "title": "Title",
+      "author": "Author"
     }
+  },
+  "$vuetify": {
+    "dataIterator": {
+      "rowsPerPageText": "Items per page:",
+      "rowsPerPageAll": "All",
+      "pageText": "{0}-{1} of {2}",
+      "noResultsText": "No matching records found",
+      "nextPage": "Next page",
+      "prevPage": "Previous page"
+    },
+    "dataTable": {
+      "rowsPerPageText": "Rows per page:"
+    },
+    "noDataText": "No data available"
   }
 }

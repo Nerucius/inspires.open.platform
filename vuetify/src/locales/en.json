@@ -1,15 +1,22 @@
 {
   "pages": {
-    "dashboard": {
-      "title":"dashboard"
-    },
     "login": {
       "welcomeMessage":"Welcome to the InSPIRES Platform"
-    }
+    },
+    "home": {
+      "mainTitle":"Welcome to InSPIRES",
+      "aboutTitle":"What we do",
+      "aboutLink":"More about us!",
+      "projectsTitle": "Projects",
+      "projectsSeeMore": "See all projects"
+    },
+    "last": {}
   },
   "navigation": {
-    "courses": "My Courses",
-    "calendar": "My Calendar"
+    "links":{
+      "home" : "Home",
+      "about" : "About Us"
+    }
   },
   "actions": {
     "add": "Add",
@@ -19,6 +26,7 @@
     "logout": "Logout",
     "save": "Save",
     "cancel": "Cancel",
+    "more": "More",
     "calendar": {
       "editEvent": "Edit event"
     }

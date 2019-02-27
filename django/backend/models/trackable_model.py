@@ -60,22 +60,26 @@ class TrackableModel(models.Model):
 
 def get_current_request_user():
     """ Hack the python stack to find the request user. """
-    user = None
     for entry in reversed(inspect.stack()):
         if "request" in entry[0].f_locals:
             try:
                 user = entry[0].f_locals["request"].user
-                break
+                return user
             except:
                 continue
-    return user
+    return None
 
 
 @receiver(models.signals.pre_save)
 def update_trackable(sender, instance, raw, using, update_fields, **kwargs):
     is_trackable = hasattr(sender, "is_trackable")
     if is_trackable:
+
+        # Abort on shell scripts and such
         request_user = get_current_request_user()
+        if not request_user:
+            return
+
         print("Tracked model %s by %s" % (sender, request_user.username))
 
         # If we are editing a user, set the owner to itself

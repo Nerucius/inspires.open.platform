@@ -1,5 +1,7 @@
 from rest_framework import permissions
 
+from backend.models import TrackableModel
+
 
 class CustomPermissionSet(permissions.DjangoModelPermissions):
     """ Custom application logic Permissions. Premise is user MUST
@@ -10,7 +12,20 @@ class CustomPermissionSet(permissions.DjangoModelPermissions):
 
     CREATE_METHOD = "POST"
 
+    # Custom permission map with VIEW permission added
+    perms_map = {
+        "GET": ["%(app_label)s.view_%(model_name)s"],
+        "OPTIONS": ["%(app_label)s.view_%(model_name)s"],
+        "HEAD": ["%(app_label)s.view_%(model_name)s"],
+        "POST": ["%(app_label)s.add_%(model_name)s"],
+        "PUT": ["%(app_label)s.change_%(model_name)s"],
+        "PATCH": ["%(app_label)s.change_%(model_name)s"],
+        "DELETE": ["%(app_label)s.delete_%(model_name)s"],
+    }
+
     def has_permission(self, request, view):
+        """ Separate into read VS modify. """
+
         # Next line skips views without a queryset (API root)
         if not hasattr(view, "get_queryset"):
             return True
@@ -23,6 +38,8 @@ class CustomPermissionSet(permissions.DjangoModelPermissions):
         return self.has_write_permission(request, view)
 
     def has_object_permission(self, request, view, obj):
+        """ Separate into read VS modify. """
+
         if not request.user or not request.user.is_authenticated:
             return False
 
@@ -31,24 +48,49 @@ class CustomPermissionSet(permissions.DjangoModelPermissions):
         return self.has_object_write_permission(request, view, obj)
 
     def has_read_permission(self, request, view):
-        # print("has_read_permission", request.user, view.get_queryset().model)
-        return True
+        """ For read check only the `view_XXX` model permission. """
+
+        has_model_perm = super(CustomPermissionSet, self).has_permission(request, view)
+        return has_model_perm
 
     def has_write_permission(self, request, view):
-        # print("has_write_permission", request.user, view.get_queryset().model)
-        # Return default Django model permissions for WRITE unsafe methods
+        """ Define write permission to a model as two different options:
+            1. Is creating a new Object: check "can_create" class method.
+            2. Is patching an existing object: check django permission.
+            In all cases the model permission is checked.
+        """
+
         has_model_perm = super(CustomPermissionSet, self).has_permission(request, view)
+
         if request.method == self.CREATE_METHOD:
             model_class = view.get_queryset().model
-            return has_model_perm and model_class.can_create(request.user, request.data)
+            if issubclass(model_class, TrackableModel):
+                return has_model_perm and model_class.can_create(
+                    request.user, request.data
+                )
+
         return has_model_perm
 
     def has_object_read_permission(self, request, view, obj):
-        # print("has_object_read_permission", request.user, obj)
+        has_model_perm = super(CustomPermissionSet, self).has_permission(request, view)
         user = request.user
-        return obj.created_by == user or obj.owner == user or obj.can_read(user)
+
+        # Workaround for non trackable models
+        if not isinstance(obj, TrackableModel):
+            return has_model_perm
+
+        return has_model_perm and (
+            obj.created_by == user or obj.owner == user or obj.can_read(user)
+        )
 
     def has_object_write_permission(self, request, view, obj):
-        # print("has_object_write_permission", request.user, obj)
+        has_model_perm = super(CustomPermissionSet, self).has_permission(request, view)
+
+        # Workaround for non trackable models
+        if not isinstance(obj, TrackableModel):
+            return has_model_perm
+
         user = request.user
-        return obj.created_by == user or obj.owner == user or obj.can_write(user)
+        return has_model_perm and (
+            obj.created_by == user or obj.owner == user or obj.can_write(user)
+        )

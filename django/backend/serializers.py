@@ -5,7 +5,10 @@ from backend.serializers_base import *
 
 
 class UserSerializer(serializers.ModelSerializer):
-    groups = SimpleGroupSerializer(many=True, read_only=True)
+    groups = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
+    managed_projects = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
+    researched_projects = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
+    managed_structures = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
 
     class Meta:
         model = models.User
@@ -17,4 +20,44 @@ class UserSerializer(serializers.ModelSerializer):
             "email",
             "avatar_url",
             "groups",
+            "managed_projects",
+            "researched_projects",
+            "managed_structures",
         ]
+
+
+class ProjectSerializer(TrackableModelSerializer):
+    collaboration = CollaborationSerializer(read_only=True)
+    managers = serializers.PrimaryKeyRelatedField(
+        many=True, required=False, queryset=models.User.objects
+    )
+    researchers = serializers.PrimaryKeyRelatedField(
+        many=True, required=False, queryset=models.User.objects
+    )
+    keywords = serializers.PrimaryKeyRelatedField(
+        many=True, required=False, queryset=models.Keyword.objects
+    )
+
+    class Meta:
+        model = models.Project
+        fields = "__all__"
+
+
+class StructureSerializer(TrackableModelSerializer):
+    managers = serializers.PrimaryKeyRelatedField(
+        many=True, queryset=models.User.objects
+    )
+    collaborations = CollaborationSerializer(many=True, read_only=True)
+    partnerships = CollaborationSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = models.Structure
+        fields = "__all__"
+
+
+class KeywordSerializer(serializers.ModelSerializer):
+    projects = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
+
+    class Meta:
+        model = models.Keyword
+        fields = ["pk", "name", "projects"]

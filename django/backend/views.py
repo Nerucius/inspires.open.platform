@@ -40,7 +40,7 @@ def logout(request):
     return HttpResponse("Logged out")
 
 
-class CurrentUserView(viewsets.ReadOnlyModelViewSet):
+class CurrentUserVS(viewsets.ReadOnlyModelViewSet):
     """ Returns the currently logged in user """
 
     serializer_class = serializers.UserSerializer
@@ -53,6 +53,11 @@ class CurrentUserView(viewsets.ReadOnlyModelViewSet):
         return queryset.filter(pk="-1")
 
 
+# ===========================
+# Utility Mixins
+# ===========================
+
+
 class RequirePKMixin(object):
     """ Mixin to require a pk parameter"""
 
@@ -62,19 +67,74 @@ class RequirePKMixin(object):
         return super().get_queryset()
 
 
+class ListDetail(object):
+    """ Custom ViewSet that can have a simple serializer for LIST and one
+        for the rest of views. use `detail_serializer_class`. """
+
+    def get_serializer_class(self):
+        if self.action != "list":
+            if hasattr(self, "detail_serializer_class"):
+                return self.detail_serializer_class
+        return super(ListDetail, self).get_serializer_class()
+
+
+class Orderable(object):
+    ordering_fields = "__all__"
+
+
 # ===========================
-# SIMPLE List Views
+# Default Objects Serializers
 # ===========================
 
 
-class UsersVS(viewsets.ReadOnlyModelViewSet):
+class UsersVS(ListDetail, viewsets.ReadOnlyModelViewSet):
     queryset = models.User.objects
     serializer_class = serializers.SimpleUserSerializer
+    detail_serializer_class = serializers.UserSerializer
 
 
 class GroupsVS(viewsets.ReadOnlyModelViewSet):
     queryset = models.Group.objects
     serializer_class = serializers.SimpleGroupSerializer
+
+
+# ===========================
+# Custom Serializers
+# ===========================
+
+
+class ProjectsVS(ListDetail, Orderable, viewsets.ModelViewSet):
+    queryset = models.Project.objects
+    filterset_fields = ["name", "collaboration__structure", "keywords", "managers"]
+
+    serializer_class = serializers.SimpleProjectSerializer
+    detail_serializer_class = serializers.ProjectSerializer
+
+    def get_queryset(self):
+        """ Filter out non-approved projects from main listing. """
+        queryset = super(ProjectsVS, self).get_queryset()
+        if self.action == "list":
+            queryset = queryset.filter(collaboration__is_approved=True)
+        return queryset
+
+
+class StructuresVS(ListDetail, viewsets.ModelViewSet):
+    queryset = models.Structure.objects
+    filterset_fields = ["name", "collaboration__project", "managers"]
+
+    serializer_class = serializers.SimpleStructureSerializer
+    detail_serializer_class = serializers.StructureSerializer
+
+
+class CollaborationsVS(ListDetail, viewsets.ModelViewSet):
+    queryset = models.Collaboration.objects
+    serializer_class = serializers.CollaborationSerializer
+
+
+class KeywordsVS(ListDetail, viewsets.ModelViewSet):
+    queryset = models.Keyword.objects
+    serializer_class = serializers.SimpleKeywordSerializer
+    detail_serializer_class = serializers.KeywordSerializer
 
 
 # ===========================

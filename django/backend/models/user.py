@@ -15,3 +15,11 @@ class User(TrackableModel, AbstractUser):
         return "https://www.gravatar.com/avatar/%s.jpg?s=128&d=mp&r=g" % (
             md5(email).hexdigest()
         )
+
+    def can_read(self, user):
+        """ Only the own user can view the detailed user info """
+        return self.pk == user.pk
+
+    def can_write(self, user):
+        """ Only the own user can modify the user info """
+        return self.pk == user.pk

@@ -22,5 +22,13 @@ def column_lister(model):
 
 admin.site.register(models.User, UserAdmin)
 
-for model in [ContentType]:
+for model in [
+    ContentType,
+    models.Collaboration,
+    models.Structure,
+    models.Project,
+    models.Keyword,
+    models.MultilangField,
+    models.MultilangFieldEntry,
+]:
     admin.site.register(model, column_lister(model))

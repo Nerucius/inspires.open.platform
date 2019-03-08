@@ -44,8 +44,9 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "backend",
-    "rest_framework",
     "corsheaders",
+    "rest_framework",
+    "django_filters",
 ]
 
 # Custom User Model from Backend App
@@ -88,7 +89,11 @@ WSGI_APPLICATION = "server.wsgi.application"
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
-    "DEFAULT_PERMISSION_CLASSES": ["backend.permissions.CustomPermissionSet"]
+    "DEFAULT_PERMISSION_CLASSES": ["backend.permissions.CustomPermissionSet"],
+    "DEFAULT_FILTER_BACKENDS": [
+        "django_filters.rest_framework.DjangoFilterBackend",
+        "rest_framework.filters.OrderingFilter",
+    ],
 }
 
 # Database

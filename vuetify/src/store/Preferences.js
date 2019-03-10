@@ -1,6 +1,4 @@
-import {
-  setI18nLanguage
-} from "../plugins/i18n";
+import { setI18nLanguage } from "../plugins/i18n";
 
 const LOCAL_STORAGE_KEY = "vue-app/preferences"
 

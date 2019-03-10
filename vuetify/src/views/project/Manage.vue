@@ -10,7 +10,8 @@
           <ProjectForm
             :project-id="projectId"
             :processing="buttonLoading"
-            @submit="updateProject($event)" />
+            @submit="updateProject($event)"
+          />
         </v-card-text>
       </v-card>
     </v-flex>

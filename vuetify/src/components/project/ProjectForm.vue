@@ -82,10 +82,11 @@
     </v-combobox>
 
     <v-btn block large color="success"
-      :disabled="!valid || processing"
-      :loading="processing"
-      @click="attemptSubmit()">
-      {{$t('actions.save')}}
+           :disabled="!valid || processing"
+           :loading="processing"
+           @click="attemptSubmit()"
+    >
+      {{ $t('actions.save') }}
     </v-btn>
   </v-form>
 </template>

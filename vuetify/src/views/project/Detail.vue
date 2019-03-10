@@ -17,9 +17,11 @@ table th{
       <h1><small>Project |</small> {{ project.name }}</h1>
     </v-flex>
 
-    <v-flex xs12 v-if="!isApprovedProject">
+    <v-flex v-if="!isApprovedProject" xs12>
       <v-alert :value="true" class="title">
-        <v-icon dark left>warning</v-icon>
+        <v-icon dark left>
+          warning
+        </v-icon>
         This project is not approved, it will not show up in listings
       </v-alert>
     </v-flex>

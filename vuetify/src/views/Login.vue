@@ -16,7 +16,7 @@
           </div>
 
           <!-- Logo -->
-          <v-layout row justify-space-around align-center px-2>
+          <v-layout row wrap justify-space-around align-center px-2>
             <v-flex md3 class="hidden-sm-and-down">
               <v-img src="/img/branding/inspires.png" />
             </v-flex>
@@ -55,11 +55,19 @@
             </v-flex>
           </v-layout>
         </v-card-text>
-        <v-card-actions class="pb-3 pr-3">
+        <v-card-actions class="mt-2 pb-3 px-3">
+          <v-flex>
+            <h3>Not a member yet?</h3>
+            <v-btn :to="{name:'register'}" dark flat color="teal darken-2" class="mt-1">
+              Register now!
+            </v-btn>
+          </v-flex>
           <v-spacer />
-          <v-btn :disabled="!valid" color="primary" @click="submitLogin()">
-            {{ $t("actions.login") }}
-          </v-btn>
+          <v-flex shrink>
+            <v-btn :disabled="!valid" color="primary" @click="submitLogin()">
+              {{ $t("actions.login") }}
+            </v-btn>
+          </v-flex>
         </v-card-actions>
       </v-card>
     </v-flex>

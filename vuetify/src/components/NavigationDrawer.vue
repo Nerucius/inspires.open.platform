@@ -11,6 +11,10 @@
   .sidebar-header small{
     color:lightgray
   }
+
+  .v-list > div{
+    margin-bottom: 4px
+  }
 </style>
 
 
@@ -21,7 +25,7 @@
         <v-flex>
           <v-avatar size="80">
             <img
-              :src="`https://www.gravatar.com/avatar/${'205e460b479e2e5b48aec07710c08d50'}?s=256`"
+              :src="currentUser.avatar_url"
               alt="avatar"
             >
           </v-avatar>
@@ -29,8 +33,8 @@
         <v-flex class="mt-3 subheading">
           <v-layout>
             <v-flex>
-              {{ currentUser.first_name || "Anonymous" }}<br>
-              <small>{{ currentUser.email || "anonymous@campus.edu" }}</small>
+              {{ currentUser.first_name }} {{ currentUser.last_name }} <br>
+              <small>{{ currentUser.email }}</small>
             </v-flex>
             <v-flex shrink class="py-1">
               <v-icon dark @click="toggleAccountMenu()">
@@ -41,29 +45,53 @@
         </v-flex>
       </v-flex>
 
-      <v-flex shrink>
+      <!-- Account Menu -->
+      <v-flex v-if="showAccountMenu" shrink>
         <v-list>
-          <v-list-tile :to="{name:'home'}" exact>
+          <v-list-tile :to="{name:'account'}" exact>
+            <v-list-tile-action>
+              <v-icon>person</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>
+              <v-list-tile-title>My Account</v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
+        </v-list>
+      </v-flex>
+
+      <v-divider />
+
+      <!-- User Menu -->
+      <v-flex v-if="!showAccountMenu" shrink>
+        <v-list>
+          <v-list-tile :to="{name:'my-dashboard'}" exact>
             <v-list-tile-action>
               <v-icon>dashboard</v-icon>
             </v-list-tile-action>
             <v-list-tile-content>
-              <v-list-tile-title>Home Page</v-list-tile-title>
+              <v-list-tile-title>{{ $t("navigation.dashboard") }}</v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
 
-          <v-list-tile :to="{name:'courses'}" exact>
+          <v-list-tile :to="{name:'account-projects'}" exact>
             <v-list-tile-action>
-              <v-icon>view_agenda</v-icon>
+              <v-icon>work</v-icon>
             </v-list-tile-action>
-            <v-list-tile-title>{{ $t("navigation.courses") }}</v-list-tile-title>
+            <v-list-tile-title>{{ $t("navigation.projects") }}</v-list-tile-title>
           </v-list-tile>
 
-          <v-list-tile :to="{name:'calendar'}" exact>
+          <v-list-tile :to="{name:'account-structures'}" exact>
             <v-list-tile-action>
-              <v-icon>calendar_today</v-icon>
+              <v-icon>school</v-icon>
             </v-list-tile-action>
-            <v-list-tile-title>{{ $t("navigation.calendar") }}</v-list-tile-title>
+            <v-list-tile-title>{{ $t("navigation.structures") }}</v-list-tile-title>
+          </v-list-tile>
+
+          <v-list-tile :to="{name:'account-commissioners'}" exact>
+            <v-list-tile-action>
+              <v-icon>public</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-title>{{ $t("navigation.commissioners") }}</v-list-tile-title>
           </v-list-tile>
         </v-list>
       </v-flex>

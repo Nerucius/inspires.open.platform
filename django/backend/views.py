@@ -89,6 +89,8 @@ class Orderable(object):
 
 class UsersVS(ListDetail, viewsets.ReadOnlyModelViewSet):
     queryset = models.User.objects
+    filterset_fields = ["id", "username"]
+
     serializer_class = serializers.SimpleUserSerializer
     detail_serializer_class = serializers.UserSerializer
 

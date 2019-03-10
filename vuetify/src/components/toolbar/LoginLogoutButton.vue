@@ -2,7 +2,7 @@
   <v-btn v-if="!isLoggedIn" flat :to="{name:'login'}">
     {{ $t('actions.login') }}
     <v-icon right>
-      person
+      lock_open
     </v-icon>
   </v-btn>
 

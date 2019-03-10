@@ -13,16 +13,22 @@ Vue.filter('uppercase', value => {
   return value.toUpperCase()
 })
 
-Vue.filter('ellipsis', (value, maxChars) => {
+Vue.filter('ellipsis', (value, maxChars, dots=true) => {
+  if (!value) return ""
+
   value = value.toString()
   if (value.length < maxChars) return value
-  return value.substring(0, maxChars-3) + '...'
+  if(dots)
+    return value.substring(0, maxChars-3) + '...'
+    else
+    return value.substring(0, maxChars)
 })
 
 Vue.filter('localize', value => {
     return i18n.t(value)
 })
 
-Vue.filter('md5', value => {
-    return value
+
+Vue.filter('slug', value => {
+  return value.toString().substring(0,20).toLowerCase().replace(" ", "-")
 })

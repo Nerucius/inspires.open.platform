@@ -13,7 +13,7 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.User
         fields = [
-            "pk",
+            "id",
             "username",
             "first_name",
             "last_name",
@@ -60,4 +60,4 @@ class KeywordSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.Keyword
-        fields = ["pk", "name", "projects"]
+        fields = ["id", "name", "projects"]

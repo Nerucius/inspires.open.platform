@@ -28,67 +28,21 @@
     <v-flex xs12>
       <v-card flat>
         <v-card-text>
-          <h1>{{ $t('pages.home.projectsTitle') }}</h1>
+          <h1>
+            {{ $t('pages.home.projectsTitle') }}
+            <small class="subheading">
+              | Latest updates
+            </small>
+          </h1>
           <p />
 
           <v-container grid-list-xl>
             <v-layout row wrap>
-              <v-flex v-for="i in 6" :key="i"
-                      xs12 sm6 lg4 mb-3
-              >
-                <v-card>
-                  <v-img
-                    style="overflow: visible"
-                    :src="randomImage()"
-                    aspect-ratio="1.75"
-                  >
-                    <v-btn v-for="(a, idx) in round(random()*2)+1" :key="a" icon fab absolute bottom
-                           right class="mb-3"
-                           :style="`margin-right: ${idx*38}px`"
-                    >
-                      <v-avatar size="90%">
-                        <img
-                          alt="researcher"
-                          :src="`https://avatars0.githubusercontent.com/u/${round(random()*100000)}?v=4&s=48`"
-                        >
-                      </v-avatar>
-                    </v-btn>
-                  </v-img>
-
-                  <v-card-text style="overflow: hidden;">
-                    <v-sheet height="150">
-                      <h3>Project Title</h3>
-                      <br>
-                      <p>
-                        {{ projectSummary | ellipsis(220) }}
-                      </p>
-                    </v-sheet>
-                  </v-card-text>
-                  <v-card-actions>
-                    <v-rating
-                      class="hidden-sm-and-down"
-                      readonly
-                      color="orange darken-3"
-                      background-color="orange darken-3"
-                      :value="random() * 4 + 2"
-                    />
-                    <v-rating
-                      class="hidden-md-and-up"
-                      dense
-                      readonly
-                      color="orange darken-3"
-                      background-color="orange darken-3"
-                      :value="random() * 4 + 2"
-                    />
-                    <v-spacer />
-                    <v-btn flat :to="{name:'about'}" alt="project-see-more">
-                      {{ $t('actions.more') }}
-                      <v-icon right class="hidden-sm-and-down">
-                        mdi-chevron-right
-                      </v-icon>
-                    </v-btn>
-                  </v-card-actions>
-                </v-card>
+              <v-flex xs12 sm6 lg4 mb-3
+                v-for="project in projects"
+                :key="project.id"
+                >
+                <ProjectCard :project="project" />
               </v-flex>
             </v-layout>
           </v-container>
@@ -128,24 +82,37 @@
 </template>
 
 <script>
+import ProjectCard from "@/components/project/ProjectCard";
+
 export default {
-  name: "Home",
+  components:{
+    ProjectCard,
+  },
 
   data(){
     return{
+      slug,
       random: Math.random,
       round: Math.round,
-      projectSummary: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem, vitae facere aperiam expedita esse et iure eos cum laborum eveniet. Praesentium blanditiis similique commodi."
+      researchers: {},
     }
   },
 
-  methods: {
-    createSubject: function() {
-      this.$store.dispatch("subject/add");
+  computed:{
+    projects(){
+      return this.$store.getters["project/all"].slice(0, 6)
     },
 
-    deleteSubject: function(subject) {
-      this.$store.dispatch("subject/delete", subject);
+  },
+
+  async mounted(){
+    await this.$store.dispatch("project/load")
+  },
+
+  methods: {
+
+    users(userIds){
+      return userIds.map(uid => this.$store.getters["user/get"](uid) )
     },
 
     randomImage(){
@@ -155,9 +122,7 @@ export default {
         "https://png.pngtree.com/thumb_back/fw800/back_pic/03/53/70/335798720153c21.jpg",
         "https://png.pngtree.com/thumb_back/fw800/back_pic/00/06/32/355628fc243b919.jpg",
         "https://png.pngtree.com/thumb_back/fw800/back_pic/02/65/63/65578876d4f20e9.jpg",
-
       ]
-
       let ridx = Math.floor(Math.random() * images.length)
       return images[ridx]
     }

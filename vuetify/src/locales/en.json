@@ -10,13 +10,17 @@
       "projectsTitle": "Projects",
       "projectsSeeMore": "See all projects"
     },
-    "last": {}
+    "projectDetail":{
+      "information": "Information"
+    },
+    "_": ""
   },
   "navigation": {
-    "links":{
-      "home" : "Home",
-      "about" : "About Us"
-    }
+    "dashboard" : "Dashboard",
+    "projects" : "My Projects",
+    "structures" : "My Structures",
+    "commissioners" : "My Commissioners",
+    "_" : ""
   },
   "actions": {
     "add": "Add",
@@ -50,6 +54,8 @@
     },
     "fields": {
       "name": "Name",
+      "summary": "Summary",
+      "researchers": "Researchers",
       "username": "Username",
       "password": "Password",
       "title": "Title",

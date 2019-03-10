@@ -30,6 +30,33 @@ const router = new Router({
             name: "about",
             component: () => import( /* webpackChunkName: "about" */ "./views/About.vue")
         },
+        // ======= PROJECTS =======
+        {
+            path: "/projects",
+            name: "project-list",
+            component: () => import( /* webpackChunkName: "project-list" */ "./views/project/List.vue")
+        },
+        {
+            path: "/projects/create",
+            name: "project-create",
+            component: () => import( /* webpackChunkName: "project-create" */ "./views/project/Create.vue")
+        },
+        {
+            path: "/projects/:id",
+            name: "project-detail",
+            component: () => import( /* webpackChunkName: "project-detail" */ "./views/project/Detail.vue")
+        },
+        {
+            path: "/projects/:id/manage",
+            name: "project-manage",
+            component: () => import( /* webpackChunkName: "project-manage" */ "./views/project/Manage.vue")
+        },
+        // ======= ACCOUNT =======
+        {
+            path: "/account/projects",
+            name: "account-projects",
+            component: () => import( /* webpackChunkName: "account-projects" */ "./views/account/MyProjects.vue")
+        },
         {
             path: "*",
             name: "404",

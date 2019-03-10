@@ -14,25 +14,56 @@ export default {
   namespaced: true,
 
   state: {
-    user: null,
-    users: [],
+    current: null,
+    items: [],
+    itemMap: {},
   },
 
   mutations: {
-    SET_USER(state, user) {
-      state.user = user;
+    SET_CURRENT(state, user) {
+      state.current = user;
+    },
+    SET(state, items) {
+      state.items = items;
+    },
+    SET_MAP(state, {id, item}) {
+      state.itemMap = { ...state.itemMap, [id]:item }
     },
   },
 
   actions: {
-    load: async function (context) {
+    load: async function (context, ids) {
+      if (!ids){
+        // No ids provided, just get list of all
+        context.dispatch("loadCurrent")
+        let items = (await UserResource.get()).body.results
+        context.commit("SET", items)
+      }else{
+        // Ids provided, get detailed information on given pids
+        let items = (await Promise.all(
+          ids.map(id => ProjectResource.get({id}) )
+        ))
+        items = items.map(i => i.body)
+        items.map(item => context.commit("SET_MAP", {id:item.id, item}))
+      }
+    },
+
+    loadCurrent: async function (context) {
       try{
-        let user = (await CurrentUserResource.get()).body[0];
-        context.commit("SET_USER", user);
+        let user = (await CurrentUserResource.get()).body.results[0];
+        context.commit("SET_CURRENT", user);
       }catch(err){
         // no auth
-        context.commit("SET_USER", null)
+        context.commit("SET_CURRENT", null)
       }
+    },
+
+    get: async function(context, userIds){
+      let users = await Promise.all(
+        userIds.map(id => UserResource.get({id}) )
+      )
+      users = users.map(u => u.body[0])
+      return users
     },
 
     login: async function (context, credentials) {
@@ -42,7 +73,7 @@ export default {
             emulateJSON: true
           });
           await refreshCSRFCookie();
-          await context.dispatch("load");
+          await context.dispatch("loadCurrent");
           resolve();
 
         } catch (err) {
@@ -55,15 +86,26 @@ export default {
     logout: async function (context) {
       await Vue.http.get(userLogoutUrl);
       await refreshCSRFCookie();
-      await context.dispatch("load");
+      await context.dispatch("loadCurrent");
     }
   },
 
   getters: {
+    all: state =>{
+      return state.items
+    },
+
+    get: state =>{
+      return ( id ) => state.items.filter(item => item.id == id)[0] || {}
+    },
+
+    detail: state =>{
+      return ( id ) => state.itemMap[id] || {}
+    },
+
     current: state => {
-      if (state.user) return state.user;
-      return {
-        pk: -1,
+      return state.current || {
+        id: -1,
         first_name: "Anonymous",
         last_name: "",
         email: ""
@@ -71,7 +113,7 @@ export default {
     },
 
     isLoggedIn: state => {
-      return state.user != null && state.user.pk > 0;
+      return state.current != null && state.current.id > 0;
     }
   }
 };

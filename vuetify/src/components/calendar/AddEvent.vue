@@ -114,7 +114,7 @@ export default {
       this.addedEvent = {
         ...this.addedEvent,
         content_type: 6,
-        content_id: this.$store.getters["user/current"].pk
+        content_id: this.$store.getters["user/current"].id
       }
     }
   },

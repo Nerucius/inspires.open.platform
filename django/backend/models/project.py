@@ -23,6 +23,9 @@ class Project(TrackableModel):
     )
 
     name = models.CharField(max_length=254)
+    summary = models.TextField(blank=True)
+    description = models.TextField(blank=True)
+    image_url = models.CharField(max_length=1024, blank=True)
 
     def can_write(self, user):
         return self.managers.filter(pk=user.pk).exists()

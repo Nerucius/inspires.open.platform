@@ -26,6 +26,8 @@ refreshCSRFCookie();
 const PATCH =  {patch: {method: "PATCH"}}
 
 export const CurrentUserResource = Vue.resource(API_SERVER + "/v1/user/");
-export const UserResource = Vue.resource(API_SERVER + "/v1/users{/id}/", {}, PATCH);
+export const UserResource = Vue.resource(API_SERVER + "/v1/users/", {}, PATCH);
+export const ProjectResource = Vue.resource(API_SERVER + "/v1/projects{/id}/", {}, PATCH);
+export const StructureResource = Vue.resource(API_SERVER + "/v1/structures{/id}/", {}, PATCH);
 
 export default Vue

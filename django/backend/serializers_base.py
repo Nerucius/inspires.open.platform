@@ -22,13 +22,13 @@ class TrackableModelSerializer(serializers.ModelSerializer):
 class SimpleGroupSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.Group
-        fields = ["pk", "name"]
+        fields = ["id", "name"]
 
 
 class SimpleUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.User
-        fields = ["pk", "username", "first_name", "last_name", "avatar_url"]
+        fields = ["id", "username", "first_name", "last_name", "avatar_url"]
 
 
 class CollaborationSerializer(serializers.ModelSerializer):
@@ -40,22 +40,22 @@ class CollaborationSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.Collaboration
-        fields = ["pk", "is_approved", "project", "structure", "partners"]
+        fields = ["id", "is_approved", "project", "structure", "partners"]
 
 
 class SimpleProjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Project
-        fields = ["pk", "name", "managers"]
+        fields = ["id", "name", "researchers", "keywords", "summary", "image_url"]
 
 
 class SimpleStructureSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Structure
-        fields = ["pk", "name"]
+        fields = ["id", "name"]
 
 
 class SimpleKeywordSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Keyword
-        fields = ["pk", "name"]
+        fields = ["id", "name"]

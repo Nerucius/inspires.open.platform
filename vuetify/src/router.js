@@ -46,14 +46,14 @@ const router = new Router({
             component: () => import( /* webpackChunkName: "project-create" */ "./views/project/Create.vue")
         },
         {
-            path: "/projects/:id",
-            name: "project-detail",
-            component: () => import( /* webpackChunkName: "project-detail" */ "./views/project/Detail.vue")
-        },
-        {
-            path: "/projects/:id/manage",
+            path: "/projects/:slug/manage",
             name: "project-manage",
             component: () => import( /* webpackChunkName: "project-manage" */ "./views/project/Manage.vue")
+        },
+        {
+            path: "/projects/:slug",
+            name: "project-detail",
+            component: () => import( /* webpackChunkName: "project-detail" */ "./views/project/Detail.vue")
         },
         // ======= ACCOUNT =======
         {

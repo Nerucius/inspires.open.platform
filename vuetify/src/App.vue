@@ -29,8 +29,15 @@
 
     <template v-else>
       <!-- Navigation Drawer -->
-      <NavigationDrawer v-if="shouldShowNavigation" ref="navigationDrawer" />
-      <Toolbar ref="toolbar" :show-toggle-drawer="shouldShowNavigation" @toggleDrawer="toggleDrawer()" />
+      <NavigationDrawer
+        v-if="shouldShowNavigation"
+        ref="navigationDrawer"
+      />
+      <Toolbar
+        ref="toolbar"
+        :show-toggle-drawer="shouldShowNavigation"
+        @toggleDrawer="toggleDrawer()"
+      />
       <!-- Content -->
       <v-content>
         <v-container grid-list-xl fill-height>
@@ -78,7 +85,7 @@ export default {
 
   data() {
     return {
-      loading: false
+      loading: true
     };
   },
 

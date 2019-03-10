@@ -89,5 +89,6 @@ def update_trackable(sender, instance, raw, using, update_fields, **kwargs):
         # Update created_by and modified_by
         if not instance.created_by:
             instance.created_by = request_user
+            instance.owner = request_user
         else:
             instance.modified_by = request_user

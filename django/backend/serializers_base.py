@@ -7,7 +7,9 @@ class TrackableModelSerializer(serializers.ModelSerializer):
     created_at = serializers.DateTimeField(read_only=True)
     modified_by = serializers.PrimaryKeyRelatedField(read_only=True)
     modified_at = serializers.DateTimeField(read_only=True)
-    owner = serializers.PrimaryKeyRelatedField(queryset=models.User.objects)
+    owner = serializers.PrimaryKeyRelatedField(
+        required=False, queryset=models.User.objects
+    )
 
     # def get_field_names(self, declared_fields, info):
     #     print("get_field_names")

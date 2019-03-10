@@ -40,8 +40,6 @@
         </v-list-tile>
       </v-list>
     </v-menu>
-
-    <!-- <LoginDialog/> -->
   </v-toolbar>
 </template>
 

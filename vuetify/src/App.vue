@@ -34,14 +34,24 @@
       <!-- Content -->
       <v-content>
         <v-container grid-list-xl fill-height>
+          <!-- Main Content Area -->
           <transition
             name="fade"
             mode="out-in"
           >
-            <router-view />
+            <router-view :key="$route.fullPath" />
           </transition>
+          <!-- /Main Content Area -->
+        </v-container>
 
-          <!-- <router-view :key="$route.fullPath"></router-view> -->
+        <v-container>
+          <!-- Footer Area -->
+          <v-layout row>
+            <v-flex xs12>
+              <Footer />
+            </v-flex>
+          </v-layout>
+          <!-- /Footer Area -->
         </v-container>
       </v-content>
     </template>
@@ -51,13 +61,19 @@
 <script>
 import NavigationDrawer from "@/components/NavigationDrawer";
 import Toolbar from "@/components/Toolbar";
-import { USE_REQUIRED_AUTH } from "@/router";
+import Footer from "@/components/Footer";
 
 export default {
   name: "App",
   components: {
     NavigationDrawer,
-    Toolbar
+    Toolbar,
+    Footer,
+  },
+
+  metaInfo:{
+    title: "InSPIRES Platform",
+    titleTemplate: '%s | InSPIRES',
   },
 
   data() {

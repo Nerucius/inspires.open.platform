@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
+import Cookies from "js-cookie";
+
 
 Vue.use(VueI18n)
 
@@ -29,6 +31,7 @@ export function setI18nLanguage(lang) {
   if (listOfLocales.indexOf(lang) < 0) {
     throw new Error(`Language not in list of locales: ${lang}`)
   }
+  Cookies.set("lang", lang)
   if(i18n.locale == lang) {
       console.log("Ignored same language change")
       return

@@ -28,9 +28,11 @@
     "delete": "Delete",
     "login": "Login",
     "logout": "Logout",
+    "register": "Register",
     "save": "Save",
     "cancel": "Cancel",
     "more": "More",
+    "next": "Next",
     "calendar": {
       "editEvent": "Edit event"
     }

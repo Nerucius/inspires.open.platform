@@ -31,9 +31,11 @@
                       :complete="registrationStep > idx"
                       :step="idx+1"
                       editable
-                    >{{ step.title }}</v-stepper-step>
+                    >
+                      {{ step.title }}
+                    </v-stepper-step>
 
-                    <v-divider v-if="idx !== steps.length-1" :key="idx"/>
+                    <v-divider v-if="idx !== steps.length-1" :key="idx" />
                   </template>
                 </v-stepper-header>
 
@@ -44,23 +46,27 @@
                       <v-layout row wrap>
                         <v-flex xs12>
                           <h3>Prequisites for Registering</h3>
-                          <p/>
+                          <p />
                           <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis
                             debitis illum nulla magni tempora dolorem qui recusandae rerum
                             sed ipsam, dolorum nisi at aperiam laudantium distinctio itaque
                             delectus nesciunt ipsum.
-                            <router-link to="/terms">Terms of service</router-link>
+                            <router-link to="/terms">
+                              Terms of service
+                            </router-link>
                           </p>
                           <p class="text-xs-center my-5">
                             <v-btn
-                              @click="steps[0].required.acceptedTerms=true"
                               :readonly="steps[0].required.acceptedTerms"
                               :depressed="steps[0].required.acceptedTerms"
                               :color="steps[0].required.acceptedTerms ? 'success' : 'primary'"
                               large
+                              @click="steps[0].required.acceptedTerms=true"
                             >
-                              <v-icon left v-if="steps[0].required.acceptedTerms">check</v-icon>I Accept the Terms of Service
+                              <v-icon v-if="steps[0].required.acceptedTerms" left>
+                                check
+                              </v-icon>I Accept the Terms of Service
                             </v-btn>
                           </p>
                           <p v-if="steps[0].required.acceptedTerms">
@@ -79,7 +85,7 @@
                       <v-layout row wrap justify-center>
                         <v-flex xs12>
                           <h3>Your Login Details</h3>
-                          <p/>
+                          <p />
                           <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis
                             debitis illum nulla magni tempora dolorem qui recusandae rerum
@@ -88,10 +94,9 @@
                           </p>
                         </v-flex>
                         <v-flex xs12 sm8>
-
                           <v-form
                             v-model="steps[1].required.valid"
-                            >
+                          >
                             <v-text-field
                               v-model="user.username"
                               prepend-icon="person"
@@ -114,7 +119,6 @@
                               type="password"
                             />
                           </v-form>
-
                         </v-flex>
                       </v-layout>
                     </v-sheet>
@@ -126,20 +130,24 @@
         </v-card-text>
 
         <v-card-actions class="mt-2 pb-3 px-3">
-          <v-spacer/>
+          <v-spacer />
           <v-flex shrink>
             <v-btn
               v-if="registrationStep == steps.length"
               :disabled="!valid"
               color="primary"
               @click="submitLogin()"
-            >{{ $t("actions.register") }}</v-btn>
+            >
+              {{ $t("actions.register") }}
+            </v-btn>
             <v-btn
               v-else
               color="primary"
               :disabled="!isCompleted(registrationStep)"
               @click="nextStep()"
-            >{{ $t("actions.next") }}</v-btn>
+            >
+              {{ $t("actions.next") }}
+            </v-btn>
           </v-flex>
         </v-card-actions>
       </v-card>
@@ -148,12 +156,8 @@
 </template>
 
 <script>
-import LanguageSelector from "@/components/toolbar/LanguageSelector";
 
 export default {
-  components: {
-    LanguageSelector
-  },
 
   metaInfo: {
     title: "Register"

@@ -39,13 +39,13 @@
             <p class="text-xs-right">
               <v-btn
                 v-if="isManager(project)"
-                :to="{name:'project-manage', params:{id:project.id}}"
+                :to="{name:'project-manage', params:{slug:slug(project.id,project.name)}}"
                 outline color="warning"
               >
                 Manage
               </v-btn>
               <v-btn
-                :to="{name:'project-detail', params:{id:slug(project.id,project.name)}}"
+                :to="{name:'project-detail', params:{slug:slug(project.id,project.name)}}"
                 outline color="success"
               >
                 View

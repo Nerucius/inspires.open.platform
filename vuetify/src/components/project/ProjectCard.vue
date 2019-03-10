@@ -23,7 +23,7 @@
       <v-sheet height="150">
         <h3>{{ project.name }}</h3>
         <br>
-        <p>{{ project.summary | ellipsis(220) }}</p>
+        <p>{{ project.summary | ellipsis(200) }}</p>
       </v-sheet>
     </v-card-text>
     <v-card-actions>
@@ -42,14 +42,16 @@
         background-color="orange darken-3"
         :value="project.rating"
       />-->
-      <v-spacer/>
+      <v-spacer />
       <v-btn
         flat
         alt="project-see-more"
-        :to="{name:'project-detail', params:{id:slug(project.id,project.name)}}"
+        :to="{name:'project-detail', params:{slug:slug(project.id, project.name)}}"
       >
         {{ $t('actions.more') }}
-        <v-icon right class="hidden-sm-and-down">mdi-chevron-right</v-icon>
+        <v-icon right class="hidden-sm-and-down">
+          mdi-chevron-right
+        </v-icon>
       </v-btn>
     </v-card-actions>
   </v-card>

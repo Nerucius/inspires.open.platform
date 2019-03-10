@@ -13,6 +13,13 @@
     "projectDetail":{
       "information": "Information"
     },
+    "projectCreate":{
+      "title": "Create a new Project"
+    },
+    "projectManage":{
+      "title": "Manage this Project",
+      "success": "The project was updated!"
+    },
     "_": ""
   },
   "navigation": {
@@ -30,12 +37,18 @@
     "logout": "Logout",
     "register": "Register",
     "save": "Save",
+    "close": "Close",
     "cancel": "Cancel",
     "more": "More",
     "next": "Next",
     "calendar": {
       "editEvent": "Edit event"
     }
+  },
+  "noums": {
+    "user": "User",
+    "project": "Project",
+    "structure": "Structure"
   },
   "errors":{
     "404":{
@@ -52,6 +65,8 @@
     },
     "rules": {
       "requiredField": "This is a required field",
+      "maximunLength": "Must be at most {length} characters long.",
+      "minimunLength": "Must be at least {length} characters long.",
       "namedRequiredField": "{name} is a required field"
     },
     "fields": {

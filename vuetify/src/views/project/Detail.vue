@@ -17,8 +17,15 @@ table th{
       <h1><small>Project |</small> {{ project.name }}</h1>
     </v-flex>
 
+    <v-flex xs12 v-if="!isApprovedProject">
+      <v-alert :value="true" class="title">
+        <v-icon dark left>warning</v-icon>
+        This project is not approved, it will not show up in listings
+      </v-alert>
+    </v-flex>
+
     <v-flex xs12>
-      <v-card>
+      <v-card flat>
         <v-toolbar dense flat color="teal darken-2" dark>
           <v-toolbar-title>{{ $t('pages.projectDetail.information') }}</v-toolbar-title>
         </v-toolbar>
@@ -69,8 +76,11 @@ export default {
       return this.$store.getters['project/detail'](this.projectId)
     },
     projectId(){
-      return this.$route.params.id.split('-')[0]
-    }
+      return slug2id(this.$route.params.slug)
+    },
+    isApprovedProject(){
+      return (this.project.collaboration != null && this.project.collaboration.is_approved)
+    },
   },
 
   async mounted(){

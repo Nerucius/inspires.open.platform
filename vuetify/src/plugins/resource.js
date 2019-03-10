@@ -23,7 +23,7 @@ export const refreshCSRFCookie = async function () {
 refreshCSRFCookie();
 
 // Add patch method to API resources
-const PATCH =  {patch: {method: "PATCH"}}
+const PATCH =  {patch: {method: "PATCH"}, update: {method: "PATCH"}}
 
 export const CurrentUserResource = Vue.resource(API_SERVER + "/v1/user/");
 export const UserResource = Vue.resource(API_SERVER + "/v1/users/", {}, PATCH);

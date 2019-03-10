@@ -9,7 +9,14 @@ window.onlyUnique = function(value, index, self) {
   return self.indexOf(value) === index;
 }
 window.slug = function(id, value) {
-  return id+'-'+value.toString().substring(0,30).toLowerCase().replace(/\s/g, "-")
+  let slug = id+'-'+value.toString()
+    .substring(0,40)
+    .replace(/\s/g, "-")
+    .toLowerCase()
+  return encodeURI(slug)
+}
+window.slug2id = function(slug) {
+  return slug.split('-')[0]
 }
 
 import preferences from "./store/Preferences";

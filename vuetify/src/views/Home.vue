@@ -11,8 +11,7 @@
 
         <v-card-text>
           <h1>{{ $t('pages.home.aboutTitle') }}</h1>
-          <br>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo vero quisquam
+          <br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo vero quisquam
           quibusdam voluptatibus aut officia corrupti molestias iure ducimus, nemo iste
           dignissimos sint praesentium ab dolorem nesciunt inventore deserunt quam!
         </v-card-text>
@@ -26,9 +25,8 @@
     </v-flex>
 
     <v-flex xs12>
-      <ProjectGrid />
+      <ProjectGrid :projects="projects" />
     </v-flex>
-
   </v-layout>
 </template>
 
@@ -36,22 +34,22 @@
 import ProjectGrid from "@/components/home/ProjectGrid";
 
 export default {
-
-components:{
+  components: {
     ProjectGrid
   },
 
-  data(){
-    return{
-      slug,
-      random: Math.random,
-      round: Math.round,
+  data() {
+    return {};
+  },
+
+  computed: {
+    projects() {
+      return this.$store.getters["project/all"].slice(0, 6);
     }
   },
 
-  methods: {
-
-
+  mounted(){
+    this.$store.dispatch("project/load")
   }
 };
 </script>

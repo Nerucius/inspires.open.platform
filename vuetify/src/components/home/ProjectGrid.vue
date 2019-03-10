@@ -6,61 +6,8 @@
 
       <v-container grid-list-xl>
         <v-layout row wrap>
-          <v-flex v-for="i in 6" :key="i" xs12 sm6 lg4 mb-3>
-            <v-card>
-              <v-img style="overflow: visible" :src="randomImage()" aspect-ratio="1.75">
-                <v-btn
-                  v-for="(a, idx) in round(random()*2)+1"
-                  :key="a"
-                  icon
-                  fab
-                  absolute
-                  bottom
-                  right
-                  class="mb-3"
-                  :style="`margin-right: ${idx*38}px`"
-                >
-                  <v-avatar size="90%">
-                    <img
-                      alt="researcher"
-                      :src="`https://avatars0.githubusercontent.com/u/${round(random()*100000)}?v=4&s=48`"
-                    >
-                  </v-avatar>
-                </v-btn>
-              </v-img>
-
-              <v-card-text style="overflow: hidden;">
-                <v-sheet height="150">
-                  <h3>Project Title</h3>
-                  <br>
-                  <p>{{ projectSummary | ellipsis(220) }}</p>
-                </v-sheet>
-              </v-card-text>
-              <v-card-actions>
-                <v-rating
-                  class="hidden-sm-and-down"
-                  readonly
-                  color="orange darken-3"
-                  background-color="orange darken-3"
-                  :value="random() * 4 + 2"
-                />
-                <v-rating
-                  class="hidden-md-and-up"
-                  dense
-                  readonly
-                  color="orange darken-3"
-                  background-color="orange darken-3"
-                  :value="random() * 4 + 2"
-                />
-                <v-spacer />
-                <v-btn flat :to="{name:'about'}" alt="project-see-more">
-                  {{ $t('actions.more') }}
-                  <v-icon right class="hidden-sm-and-down">
-                    mdi-chevron-right
-                  </v-icon>
-                </v-btn>
-              </v-card-actions>
-            </v-card>
+          <v-flex v-for="project in projects" :key="project.id" xs12 sm6 lg4 mb-3>
+            <ProjectCard :project="project" />
           </v-flex>
         </v-layout>
       </v-container>
@@ -75,8 +22,16 @@
 </template>
 
 <script>
+import ProjectCard from "@/components/project/ProjectCard";
+
 export default {
-  name: "ProjectGrid",
+
+  components:{
+    ProjectCard
+  },
+
+  props: ["projects"],
+
   data() {
     return {
       random: Math.random,

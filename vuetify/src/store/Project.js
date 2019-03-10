@@ -32,6 +32,16 @@ export default {
         items.map(item => context.commit("SET_MAP", {id:item.id, item}))
       }
     },
+
+    create: async function (context, object){
+      let result = (await ProjectResource.save(object))
+    },
+
+    update: async function (context, object){
+      let result = (await ProjectResource.update({id:object.id}, object))
+      context.dispatch("load")
+      context.dispatch("load", [object.id])
+    },
   },
 
   getters: {

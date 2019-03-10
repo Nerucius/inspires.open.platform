@@ -30,19 +30,16 @@
         <v-list-tile v-for="link in links" :key="link.name" exact :to="{name:link.name}">
           {{ $t(link.label) }}
         </v-list-tile>
-        <v-divider></v-divider>
+        <v-divider />
 
-        <v-list-tile v-if="!userIsLoggedIn" exact :to="{name:'login'}" >
+        <v-list-tile v-if="!userIsLoggedIn" exact :to="{name:'login'}">
           {{ $t("actions.login") }}
         </v-list-tile>
         <v-list-tile v-else @click="logout()">
           {{ $t("actions.logout") }}
         </v-list-tile>
-
       </v-list>
     </v-menu>
-
-    <!-- <LoginDialog/> -->
   </v-toolbar>
 </template>
 

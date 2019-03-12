@@ -1,0 +1,274 @@
+[{
+    "model": "backend.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$120000$UCjUOvgt3okn$xTIe5XPhYzTsv92p0Ggz74nXirFAFYybbvGZd+tiVZk=",
+        "last_login": "2019-03-12T10:50:41Z",
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "Administrador",
+        "last_name": "Sistema",
+        "email": "admin@localhost",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2019-03-10T20:14:48Z",
+        "created_by": 1,
+        "created_at": "2019-03-10T20:14:48.638Z",
+        "modified_by": 1,
+        "modified_at": "2019-03-12T10:53:42.649Z",
+        "owner": 1,
+        "groups": [],
+        "user_permissions": []
+    }
+}, {
+    "model": "backend.user",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$120000$TulpTSOZPgVw$KIvxS2jTJeRs0UVYVhRFRIj43kh1/MDST7Bdo6/P6eg=",
+        "last_login": "2019-03-11T19:20:36.026Z",
+        "is_superuser": false,
+        "username": "eloi.puertas",
+        "first_name": "Eloi",
+        "last_name": "Puertas",
+        "email": "eloi.puertas@ub.edu",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2019-03-10T20:15:55Z",
+        "created_by": 1,
+        "created_at": "2019-03-10T20:15:55.727Z",
+        "modified_by": 1,
+        "modified_at": "2019-03-10T20:16:17.991Z",
+        "owner": 2,
+        "groups": [1],
+        "user_permissions": []
+    }
+}, {
+    "model": "backend.user",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$120000$U279JJ9f9BM6$iU4n2o1ANFe+411FJlqb37BWzwX+2WTvU8l44zv7lXQ=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "mireia.ribera",
+        "first_name": "Mireia",
+        "last_name": "Ribera",
+        "email": "ribera@ub.edu",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2019-03-10T20:16:23Z",
+        "created_by": 1,
+        "created_at": "2019-03-10T20:16:23.943Z",
+        "modified_by": 1,
+        "modified_at": "2019-03-10T20:16:35.562Z",
+        "owner": 3,
+        "groups": [1],
+        "user_permissions": []
+    }
+}, {
+    "model": "backend.user",
+    "pk": 4,
+    "fields": {
+        "password": "pbkdf2_sha256$120000$pErOvOoyTwzH$VMHgseHSnSc9F6AR6FSgB5iDB3bjZqi/61ZeBfsd3Zo=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "anne.sophie",
+        "first_name": "Anne-Sohpie",
+        "last_name": "Gresle",
+        "email": "anne.sophie@isg.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2019-03-10T20:16:44Z",
+        "created_by": 1,
+        "created_at": "2019-03-10T20:16:44.797Z",
+        "modified_by": 1,
+        "modified_at": "2019-03-10T20:17:03.100Z",
+        "owner": 4,
+        "groups": [1],
+        "user_permissions": []
+    }
+}, {
+    "model": "backend.user",
+    "pk": 5,
+    "fields": {
+        "password": "pbkdf2_sha256$120000$6weBCDX4B9iI$qYV9ibHa3i+Da6gClbsnFi5RzclmFRSUk2tKvjz391s=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "maria.jesus",
+        "first_name": "Mar\u00eda Jes\u00fas",
+        "last_name": "Pinazo",
+        "email": "mariajesus.pinazo@isglobal.org",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2019-03-12T10:52:54Z",
+        "created_by": 1,
+        "created_at": "2019-03-12T10:52:54.240Z",
+        "modified_by": 1,
+        "modified_at": "2019-03-12T10:53:14.570Z",
+        "owner": 5,
+        "groups": [1],
+        "user_permissions": []
+    }
+}, {
+    "model": "backend.user",
+    "pk": 6,
+    "fields": {
+        "password": "pbkdf2_sha256$120000$hfnuK878vcIZ$8HsYY9fZrs4hGR+bM2l3nr/JUWKNHWO1VTgKouwZCt8=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "joan.vericat",
+        "first_name": "Joan",
+        "last_name": "Vericat",
+        "email": "joan.vericat@isglobal.org",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2019-03-12T10:54:08Z",
+        "created_by": 1,
+        "created_at": "2019-03-12T10:54:08.197Z",
+        "modified_by": 1,
+        "modified_at": "2019-03-12T10:54:16.388Z",
+        "owner": 6,
+        "groups": [1],
+        "user_permissions": []
+    }
+}, {
+    "model": "backend.structure",
+    "pk": 1,
+    "fields": {
+        "created_by": 1,
+        "created_at": "2019-03-10T20:17:24.088Z",
+        "modified_by": null,
+        "modified_at": "2019-03-10T20:17:24.088Z",
+        "owner": 4,
+        "name": "ISGlobal",
+        "managers": [4]
+    }
+}, {
+    "model": "backend.structure",
+    "pk": 2,
+    "fields": {
+        "created_by": 1,
+        "created_at": "2019-03-12T11:12:39.259Z",
+        "modified_by": 1,
+        "modified_at": "2019-03-12T11:12:44.932Z",
+        "owner": 4,
+        "name": "IRSI Caixa",
+        "managers": [4]
+    }
+}, {
+    "model": "backend.structure",
+    "pk": 3,
+    "fields": {
+        "created_by": 1,
+        "created_at": "2019-03-12T11:13:17.407Z",
+        "modified_by": null,
+        "modified_at": "2019-03-12T11:13:17.407Z",
+        "owner": 1,
+        "name": "Environmental SCRG",
+        "managers": [4]
+    }
+}, {
+    "model": "backend.structure",
+    "pk": 4,
+    "fields": {
+        "created_by": 1,
+        "created_at": "2019-03-12T11:13:44.131Z",
+        "modified_by": null,
+        "modified_at": "2019-03-12T11:13:44.131Z",
+        "owner": 1,
+        "name": "CEADES",
+        "managers": [4]
+    }
+}, {
+    "model": "backend.project",
+    "pk": 1,
+    "fields": {
+        "created_by": 1,
+        "created_at": "2019-03-10T20:18:17.335Z",
+        "modified_by": 1,
+        "modified_at": "2019-03-12T11:14:44.138Z",
+        "owner": 4,
+        "name": "R&D Project to Research Developments",
+        "summary": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using.",
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using.",
+        "image_url": "",
+        "managers": [4],
+        "researchers": [2, 3, 4],
+        "keywords": []
+    }
+}, {
+    "model": "backend.project",
+    "pk": 2,
+    "fields": {
+        "created_by": 1,
+        "created_at": "2019-03-10T20:19:11.194Z",
+        "modified_by": null,
+        "modified_at": "2019-03-10T20:19:11.194Z",
+        "owner": 2,
+        "name": "Expanding on Expandable Research",
+        "summary": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur.",
+        "description": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur.",
+        "image_url": "",
+        "managers": [2],
+        "researchers": [2, 3],
+        "keywords": []
+    }
+}, {
+    "model": "backend.project",
+    "pk": 3,
+    "fields": {
+        "created_by": 2,
+        "created_at": "2019-03-10T20:59:55.753Z",
+        "modified_by": 1,
+        "modified_at": "2019-03-12T11:14:28.834Z",
+        "owner": 2,
+        "name": "Another Project Created in Account",
+        "summary": "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form",
+        "description": "",
+        "image_url": "",
+        "managers": [2],
+        "researchers": [2],
+        "keywords": []
+    }
+}, {
+    "model": "backend.collaboration",
+    "pk": 1,
+    "fields": {
+        "created_by": 1,
+        "created_at": "2019-03-10T20:18:32.355Z",
+        "modified_by": null,
+        "modified_at": "2019-03-10T20:18:32.355Z",
+        "owner": 4,
+        "is_approved": true,
+        "project": 1,
+        "structure": 1,
+        "partners": []
+    }
+}, {
+    "model": "backend.collaboration",
+    "pk": 2,
+    "fields": {
+        "created_by": 1,
+        "created_at": "2019-03-10T20:19:29.450Z",
+        "modified_by": null,
+        "modified_at": "2019-03-10T20:19:29.450Z",
+        "owner": 4,
+        "is_approved": true,
+        "project": 2,
+        "structure": 1,
+        "partners": []
+    }
+}, {
+    "model": "backend.collaboration",
+    "pk": 3,
+    "fields": {
+        "created_by": 2,
+        "created_at": "2019-03-11T19:40:16.863Z",
+        "modified_by": 1,
+        "modified_at": "2019-03-12T11:14:00.992Z",
+        "owner": 2,
+        "is_approved": true,
+        "project": 3,
+        "structure": 1,
+        "partners": []
+    }
+}]

@@ -19,8 +19,8 @@ class TrackableModel(models.Model):
         editable=False,
         blank=True,
         null=True,
-        related_name="created_%(class)s",
-        related_query_name="created_%(class)ss",
+        related_name="created_%(class)ss",
+        related_query_name="created_%(class)s",
     )
     created_at = models.DateTimeField(auto_now_add=True, editable=False)
     modified_by = models.ForeignKey(
@@ -29,8 +29,8 @@ class TrackableModel(models.Model):
         blank=True,
         null=True,
         editable=False,
-        related_name="modified_%(class)s",
-        related_query_name="modified_%(class)ss",
+        related_name="modified_%(class)ss",
+        related_query_name="modified_%(class)s",
     )
     modified_at = models.DateTimeField(auto_now=True, null=True, editable=False)
     owner = models.ForeignKey(
@@ -38,8 +38,8 @@ class TrackableModel(models.Model):
         on_delete=models.SET_NULL,
         blank=True,
         null=True,
-        related_name="owned_%(class)s",
-        related_query_name="owned_%(class)ss",
+        related_name="owned_%(class)ss",
+        related_query_name="owned_%(class)s",
         help_text="Owner of the instance. This user will be able to edit the\
             instance or even delete it.",
     )

@@ -30,14 +30,21 @@ class SimpleGroupSerializer(serializers.HyperlinkedModelSerializer):
 class SimpleUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.User
-        fields = ["id", "username", "first_name", "last_name", "avatar_url"]
+        fields = [
+            "id",
+            "username",
+            "first_name",
+            "last_name",
+            "full_name",
+            "avatar_url",
+        ]
 
 
 class CollaborationSerializer(serializers.ModelSerializer):
     project = serializers.PrimaryKeyRelatedField(queryset=models.Project.objects)
     structure = serializers.PrimaryKeyRelatedField(queryset=models.Structure.objects)
     partners = serializers.PrimaryKeyRelatedField(
-        many=True, queryset=models.Project.objects
+        many=True, required=False, queryset=models.Project.objects
     )
 
     class Meta:

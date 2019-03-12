@@ -15,11 +15,13 @@ class UserSerializer(serializers.ModelSerializer):
         fields = [
             "id",
             "username",
+            "full_name",
             "first_name",
             "last_name",
             "email",
             "avatar_url",
             "groups",
+            "owned_projects",
             "managed_projects",
             "researched_projects",
             "managed_structures",

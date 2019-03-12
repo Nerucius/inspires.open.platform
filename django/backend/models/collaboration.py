@@ -1,6 +1,6 @@
 from django.db import models
 
-from backend.models import TrackableModel
+from backend.models import TrackableModel, Project
 
 
 class Collaboration(TrackableModel):
@@ -26,7 +26,18 @@ class Collaboration(TrackableModel):
         related_query_name="partnership",
     )
 
+    @classmethod
+    def can_create(cls, user, data):
+        # Can only create in a state of not approved and when user is manager
+        print(data)
+        project = Project.objects.get(pk=data["project"])
+
+        return (not hasattr(data, "is_approved")) and project.managers.filter(
+            pk=user.pk
+        ).exists()
+
     def can_write(self, user):
+        # Only structure may change the instance
         return self.structure.managers.filter(pk=user.pk).exists()
 
     def __str__(self):

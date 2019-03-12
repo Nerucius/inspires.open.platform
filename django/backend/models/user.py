@@ -10,10 +10,16 @@ class User(TrackableModel, AbstractUser):
     """ Custom Application User. Is both a valid auth user and a trackable model. """
 
     @property
+    def full_name(self):
+        return "%s %s" % (self.first_name, self.last_name)
+
+    @property
     def avatar_url(self):
         email = self.email.encode("ascii")
-        return "https://www.gravatar.com/avatar/%s.jpg?s=128&d=mp&r=g" % (
-            md5(email).hexdigest()
+        default = "identicon"
+        return "https://www.gravatar.com/avatar/%s.jpg?s=128&d=%s&r=g" % (
+            md5(email).hexdigest(),
+            default,
         )
 
     def can_read(self, user):

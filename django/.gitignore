@@ -9,7 +9,7 @@
 **/__pycache__
 ._*
 *.py[cod]
-*.sqlite3
+/*.sqlite3
 *.log
 *.pot
 local_settings.py

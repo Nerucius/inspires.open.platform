@@ -11,6 +11,10 @@ Vue.use(Meta);
 
 const router = new Router({
     mode: 'history',
+    scrollBehavior (to, from, savedPosition) {
+        // Scroll to top on any route changes
+        return { x: 0, y: 0 }
+    },
     routes: [
         {
             path: "/login",

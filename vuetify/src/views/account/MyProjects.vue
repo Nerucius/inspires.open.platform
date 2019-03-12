@@ -70,11 +70,12 @@ export default {
   computed:{
     projects(){
       let detail = this.$store.getters["project/detail"]
-      return this.projectIds.map(pid => detail(pid)).filter(e => e != {})
+      return this.projectIds.map(pid => detail(pid)).filter(e => !!e.id)
     },
 
     projectIds(){
       let pids = [
+        ...this.$store.getters['user/current'].owned_projects,
         ...this.$store.getters['user/current'].managed_projects,
         ...this.$store.getters['user/current'].researched_projects,
       ]
@@ -94,7 +95,7 @@ export default {
     },
     isManager(project){
       let userId = this.$store.getters['user/current'].id
-      return project.managers.indexOf(userId) >= 0
+      return project.managers.indexOf(userId) >= 0 || project.owner == userId
     }
   }
 }

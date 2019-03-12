@@ -1,4 +1,4 @@
-import { StructureResource } from "../plugins/resource";
+import { CollaborationResource } from "../plugins/resource";
 
 export default {
   namespaced: true,
@@ -21,16 +21,26 @@ export default {
     load: async function (context, ids) {
       if (!ids){
         // No ids provided, just get list of all
-        let items = (await StructureResource.get()).body.results
+        let items = (await CollaborationResource.get({ordering: "-modified_at"})).body.results
         context.commit("SET", items)
       }else{
         // Ids provided, get detailed information on given pids
         let items = (await Promise.all(
-          ids.map(id => StructureResource.get({id}) )
+          ids.map(id => CollaborationResource.get({id}) )
         ))
         items = items.map(i => i.body)
         items.map(item => context.commit("SET_MAP", {id:item.id, item}))
       }
+    },
+
+    create: async function (context, object){
+      let result = (await CollaborationResource.save(object))
+    },
+
+    update: async function (context, object){
+      let result = (await CollaborationResource.update({id:object.id}, object))
+      context.dispatch("load")
+      context.dispatch("load", [object.id])
     },
   },
 
@@ -46,7 +56,6 @@ export default {
     detail: state =>{
       return ( id ) => ({...state.itemMap[id]}) || {}
     },
-
 
   }
 };

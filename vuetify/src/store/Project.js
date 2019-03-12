@@ -1,4 +1,5 @@
 import { ProjectResource } from "../plugins/resource";
+import { cloneDeep } from "lodash";
 
 export default {
   namespaced: true,
@@ -35,6 +36,7 @@ export default {
 
     create: async function (context, object){
       let result = (await ProjectResource.save(object))
+      context.dispatch("load")
     },
 
     update: async function (context, object){
@@ -50,11 +52,11 @@ export default {
     },
 
     get: state =>{
-      return ( id ) => state.items.filter(item => item.id == id)[0] || {}
+      return ( id ) => cloneDeep(state.items.filter(item => item.id == id)[0] || {})
     },
 
     detail: state =>{
-      return ( id ) => state.itemMap[id] || {}
+      return ( id ) => cloneDeep(state.itemMap[id] || {})
     },
 
   }

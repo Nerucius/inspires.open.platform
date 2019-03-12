@@ -16,13 +16,14 @@ window.slug = function(id, value) {
   return encodeURI(slug)
 }
 window.slug2id = function(slug) {
-  return slug.split('-')[0]
+  return parseInt(slug.split('-')[0])
 }
 
 import preferences from "./store/Preferences";
 import user from "./store/User";
 import project from "./store/Project";
 import structure from "./store/Structure";
+import collaboration from "./store/Collaboration";
 
 // CRUD Models
 
@@ -34,5 +35,6 @@ export default new Vuex.Store({
     user,
     project,
     structure,
+    collaboration
   }
 });

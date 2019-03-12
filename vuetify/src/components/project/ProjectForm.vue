@@ -3,7 +3,7 @@
     <h2>Project Details</h2>
     <p />
     <p class="subheading">
-      Define the characteristics of your project
+      Define the characteristics of your project.
     </p>
     <v-text-field
       v-model="editedProject.name"
@@ -26,60 +26,40 @@
     <h2>Researchers and Managers</h2>
     <p />
     <p class="subheading">
-      People involved in the project
+      People involved in the project.
     </p>
 
-    <v-combobox
-      ref="researchersCB"
-      v-model="editedProject.researcherUsernames"
-      box
-      :items="userSearch"
-      label="Project Researchers"
-      hint="Search by username all people involved in this project."
-      chips
-      multiple
-      no-filter
-      clearable
-      @update:searchInput="updateUserSearch($event)"
-      @input="clearSearch('researchersCB')"
-    >
-      <template v-slot:selection="data">
-        <v-chip
-          close
-          class="subheading"
-          :selected="data.selected"
-          @input="removeResearcher(data.item)"
-        >
-          {{ data.item }}
-        </v-chip>
-      </template>
-    </v-combobox>
+    <v-combobox ref="managersCB"
+                v-model="editedProject.managers"
+                box
+                :items="userSearch"
+                :rules="[rules.isUser]"
+                label="Project Managers"
+                item-text="full_name"
+                item-value="id"
+                cache-items
+                multiple
+                chips
+                deletable-chips
+                @update:searchInput="updateUserSearch($event)"
+                @input="clearSearch('managersCB')"
+    />
 
-    <v-combobox
-      ref="managersCB"
-      v-model="editedProject.managerUsernames"
-      box
-      :items="userSearch"
-      label="Project Managers"
-      hint="Search by username all people who should be able to manage the project."
-      chips
-      multiple
-      no-filter
-      clearable
-      @update:searchInput="updateUserSearch($event)"
-      @input="clearSearch('managersCB')"
-    >
-      <template v-slot:selection="data">
-        <v-chip
-          close
-          class="subheading"
-          :selected="data.selected"
-          @input="removeManager(data.item)"
-        >
-          {{ data.item }}
-        </v-chip>
-      </template>
-    </v-combobox>
+    <v-combobox ref="researchersCB"
+                v-model="editedProject.researchers"
+                box
+                :items="userSearch"
+                :rules="[rules.isUser]"
+                label="Project Researchers"
+                item-text="full_name"
+                item-value="id"
+                cache-items
+                multiple
+                chips
+                deletable-chips
+                @update:searchInput="updateUserSearch($event)"
+                @input="clearSearch('researchersCB')"
+    />
 
     <v-btn block large color="success"
            :disabled="!valid || processing"
@@ -101,6 +81,7 @@ export default {
       valid: null,
       rules: {
         required: v => !!v || this.$t("forms.rules.requiredField"),
+        isUser: v => this.isUser(v) || this.$t("forms.rules.mustBeUser"),
         minlen: v =>
           v.length > 10 || this.$t("forms.rules.minimunLength", { length: 10 })
       },
@@ -109,76 +90,54 @@ export default {
         name: "",
         summary: "",
         researchers: [],
-        researcherUsernames: [],
         managers: [],
-        managerUsernames: []
       }
     };
   },
 
-  computed: {
-    structures() {
-      return this.$store.getters["structure/all"].map(s => s.name);
-    }
-  },
-
   async mounted() {
-    this.$store.dispatch("structure/load");
+    let store = this.$store
 
+    store.dispatch("structure/load");
 
     if (this.projectId != null) {
-      await this.$store.dispatch("project/load", [this.projectId]);
-      let originalProject = this.$store.getters["project/detail"](
+      // Editing existing project
+      await store.dispatch("project/load", [this.projectId]);
+      let originalProject = store.getters["project/detail"](
         this.projectId
       );
       this.editedProject = { ...this.editedProject, ...originalProject };
-      this.editedProject.managerUsernames = this.mapIdsToUsernames(this.editedProject.managers)
-      this.editedProject.researcherUsernames = this.mapIdsToUsernames(this.editedProject.researchers)
+      this.editedProject.researchers = this.editedProject.researchers.map(id => store.getters['user/get'](id))
+      this.editedProject.managers = this.editedProject.managers.map(id => store.getters['user/get'](id))
+
     }else{
-      this.editedProject.managerUsernames = [
-        this.$store.getters["user/current"].username
+      // New Project
+      this.editedProject.managers = [
+        this.$store.getters["user/current"]
       ];
     }
+
+    // Initialize user search with all visible users
+    this.userSearch = [...this.editedProject.researchers, ...this.editedProject.managers]
   },
 
   methods: {
     attemptSubmit() {
       if (this.$refs.form.validate()) {
         let project = { ...this.editedProject };
-
-        project.managers = this.mapUsernamesToIds(project.managerUsernames);
-        project.researchers = this.mapUsernamesToIds(
-          project.researcherUsernames
-        );
-        delete project.managerUsernames;
-        delete project.researcherUsernames;
+        project.managers = project.managers.map(u => u.id)
+        project.researchers = project.researchers.map(u => u.id)
         this.$emit("submit", project);
       }
     },
 
-    mapUsernamesToIds(usernames) {
-      let users = this.$store.getters["user/all"];
-      return usernames.map(un => users.filter(u => u.username == un)[0].id);
-    },
-
-    mapIdsToUsernames(ids) {
-      return ids.map(id => this.$store.getters["user/get"](id).username);
+    isUser(value){
+      // Check that all object are user instances
+      return !value.map(item => item.id == undefined).some(v => !!v)
     },
 
     clearSearch(ref) {
       this.$refs[ref].lazySearch = "";
-    },
-
-    removeResearcher(username) {
-      let usernames = this.project.researcherUsernames;
-      usernames.splice(usernames.indexOf(username), 1);
-      this.project.researcherUsernames = [...usernames];
-    },
-
-    removeManager(username) {
-      let usernames = this.project.managerUsernames;
-      usernames.splice(usernames.indexOf(username), 1);
-      this.project.managerUsernames = [...usernames];
     },
 
     updateUserSearch(term) {
@@ -187,10 +146,9 @@ export default {
         this.userSearch = [];
         return;
       }
-      term = new RegExp(term, "g");
+      term = new RegExp(term, "gi");
       this.userSearch = this.$store.getters["user/all"]
-        .map(u => u.username)
-        .filter(u => u.match(term))
+        .filter(u => u.username.match(term))
         .slice(0, 5);
     }
   }

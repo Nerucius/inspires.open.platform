@@ -39,13 +39,13 @@
             <p class="text-xs-right">
               <v-btn
                 v-if="isManager(project)"
-                :to="{name:'project-manage', params:{slug:slug(project.id,project.name)}}"
+                :to="{name:'project-manage', params:{slug:obj2slug(project)}}"
                 outline color="warning"
               >
                 Manage
               </v-btn>
               <v-btn
-                :to="{name:'project-detail', params:{slug:slug(project.id,project.name)}}"
+                :to="{name:'project-detail', params:{slug:obj2slug(project)}}"
                 outline color="success"
               >
                 View
@@ -60,10 +60,12 @@
 
 
 <script>
+import { onlyUnique, obj2slug } from "@/plugins/utils";
+
 export default {
   data(){
     return {
-      slug
+      obj2slug
     }
   },
 

@@ -7,15 +7,27 @@
     <v-flex xs12>
       <v-card flat>
         <v-card-text>
-          <ProjectForm @submit="createProject($event)" />
+          <ProjectForm
+            @submit="createProject($event)"
+            :processing="buttonLoading"
+            />
         </v-card-text>
       </v-card>
     </v-flex>
+
+    <v-snackbar v-model="snackbar.active" top auto-height>
+      {{ snackbar.message }}
+      <v-btn color="pink" flat @click="snackbar.active = false">
+        {{ $t('actions.close') }}
+      </v-btn>
+    </v-snackbar>
+
   </v-layout>
 </template>
 
 <script>
 import ProjectForm from "@/components/project/ProjectForm";
+import { obj2slug } from "@/plugins/utils";
 
 export default {
 
@@ -23,11 +35,34 @@ export default {
     ProjectForm,
   },
 
+  data(){
+    return{
+      buttonLoading: false,
+      snackbar: {
+        message:"",
+        active:false,
+      },
+    }
+  },
+
   methods: {
 
-    createProject(project){
-      console.log(project)
-      // this.$store.dispatch("project/create", project)
+    async createProject(projectData){
+      this.buttonLoading = true
+      this.snackbar.active = true
+
+      try{
+        let project = await this.$store.dispatch("project/create", projectData)
+        this.snackbar.message = this.$t('pages.projectCreate.success')
+        let slug = obj2slug(project)
+        this.$router.push({name:"project-manage", params:{slug}})
+
+      } catch(err){
+        console.log(err)
+        this.snackbar.message = this.$t('pages.projectCreate.failure')
+      }
+
+      this.buttonLoading = false
     }
 
   }

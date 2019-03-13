@@ -65,18 +65,17 @@ table th{
 
 
 <script>
+import { slug2id } from "@/plugins/utils";
+
 export default {
 
   data(){
     return {
-
+      project: null
     }
   },
 
   computed:{
-    project(){
-      return this.$store.getters['project/detail'](this.projectId)
-    },
     projectId(){
       return slug2id(this.$route.params.slug)
     },
@@ -86,7 +85,13 @@ export default {
   },
 
   async mounted(){
-    this.$store.dispatch("project/load", [this.projectId])
+    try{
+      await this.$store.dispatch("project/load", [this.projectId])
+      this.project = this.$store.getters['project/detail'](this.projectId)
+    }catch(err){
+      // TODO: Show error instead
+      this.$router.push("/project-not-found")
+    }
   },
 
   methods:{

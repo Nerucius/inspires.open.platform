@@ -46,7 +46,7 @@
       <v-btn
         flat
         alt="project-see-more"
-        :to="{name:'project-detail', params:{slug:slug(project.id, project.name)}}"
+        :to="{name:'project-detail', params:{slug:obj2slug(project)}}"
       >
         {{ $t('actions.more') }}
         <v-icon right class="hidden-sm-and-down">
@@ -59,12 +59,14 @@
 
 
 <script>
+import { obj2slug } from "@/plugins/utils";
+
 export default {
   props: ['project'],
 
   data(){
     return{
-      slug
+      obj2slug
     }
   },
 

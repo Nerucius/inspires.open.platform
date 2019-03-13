@@ -53,6 +53,7 @@
 <script>
 import ProjectForm from "@/components/project/ProjectForm";
 import ProjectStructureForm from "@/components/project/ProjectStructureForm";
+import { slug2id } from "@/plugins/utils";
 
 export default {
   components: {

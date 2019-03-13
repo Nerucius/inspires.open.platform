@@ -103,7 +103,6 @@ export default {
   mounted(){
     // Avoid showing this page if the user is logged in
     if (this.isLoggedIn){
-      console.log("isloggedin")
       this.redirectToPage();
     }
   },

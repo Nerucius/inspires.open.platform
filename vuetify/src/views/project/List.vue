@@ -1,9 +1,37 @@
 <template>
-  <h1>Projects Homepage</h1>
+  <v-layout row wrap align-content-start>
+    <v-flex xs12>
+      <ProjectGrid :projects="projects" />
+    </v-flex>
+  </v-layout>
+
+
+
+
 </template>
 
-<script>
-export default {
 
-}
+<script>
+import ProjectGrid from "@/components/home/ProjectGrid";
+
+export default {
+  components: {
+    ProjectGrid
+  },
+
+  data() {
+    return {};
+  },
+
+  computed: {
+    projects() {
+      return this.$store.getters["project/all"];
+    }
+  },
+
+  mounted(){
+    this.$store.dispatch("project/load", {params:{limit:20}})
+  }
+};
 </script>
+

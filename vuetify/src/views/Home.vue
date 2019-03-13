@@ -26,7 +26,15 @@
 
     <v-flex xs12>
       <ProjectGrid :projects="projects" />
+
+      <p class="text-xs-center mt-3">
+        <v-btn large dark color="teal darken-2">
+          {{ $t('pages.home.projectsSeeMore') }}
+        </v-btn>
+      </p>
+
     </v-flex>
+
   </v-layout>
 </template>
 
@@ -44,12 +52,12 @@ export default {
 
   computed: {
     projects() {
-      return this.$store.getters["project/all"].slice(0, 6);
+      return this.$store.getters["project/all"];
     }
   },
 
   mounted(){
-    this.$store.dispatch("project/load")
+    this.$store.dispatch("project/load", {params:{limit:6}})
   }
 };
 </script>

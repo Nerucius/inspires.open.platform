@@ -12,11 +12,6 @@
         </v-layout>
       </v-container>
 
-      <p class="text-xs-center">
-        <v-btn large dark color="teal darken-2">
-          {{ $t('pages.home.projectsSeeMore') }}
-        </v-btn>
-      </p>
     </v-card-text>
   </v-card>
 </template>

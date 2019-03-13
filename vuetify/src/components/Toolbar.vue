@@ -76,7 +76,7 @@ export default {
     },
     getCalendar() {},
     logout() {
-      $store.dispatch["user/logout"]
+      this.$store.dispatch["user/logout"]
     }
   }
 };

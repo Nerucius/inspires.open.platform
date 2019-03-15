@@ -23,6 +23,7 @@ urlpatterns = [
     path("csrf_token/", views.csrf_token),
     path("user/login/", views.login),
     path("user/logout/", views.logout),
+    path("user/register/", views.register),
     path("v1/", include(routers.router.urls)),
 ]
 

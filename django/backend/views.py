@@ -40,6 +40,13 @@ def logout(request):
     return HttpResponse("Logged out")
 
 
+def register(request):
+    print(request.POST)
+    eloi = models.User.objects.get(username="eloi.puertas")
+    auth.login(request, eloi)
+    return HttpResponse("OK")
+
+
 class CurrentUserVS(viewsets.ReadOnlyModelViewSet):
     """ Returns the currently logged in user """
 

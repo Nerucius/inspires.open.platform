@@ -9,6 +9,7 @@ import {
 
 const userLoginUrl = API_SERVER + "/user/login/";
 const userLogoutUrl = API_SERVER + "/user/logout/";
+const userRegisterUrl = API_SERVER + "/user/register/";
 
 export default {
   namespaced: true,
@@ -87,6 +88,23 @@ export default {
       await Vue.http.get(userLogoutUrl);
       await refreshCSRFCookie();
       await context.dispatch("loadCurrent");
+    },
+
+    register: async function(context, newUser){
+      return new Promise(async (resolve, reject) => {
+        try {
+          await Vue.http.post(userRegisterUrl, newUser, {
+            emulateJSON: true
+          });
+          await refreshCSRFCookie();
+          await context.dispatch("loadCurrent");
+          resolve();
+
+        } catch (err) {
+          // Failed to login
+          reject();
+        }
+      })
     }
   },
 

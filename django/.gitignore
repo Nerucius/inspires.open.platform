@@ -1,7 +1,8 @@
 # Project Config
 .env
 # Virtualenv
-/env/
+/env*/
+
 
 # Django
 /static/

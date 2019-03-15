@@ -37,7 +37,6 @@
                 label="Project Managers"
                 item-text="full_name"
                 item-value="id"
-                cache-items
                 multiple
                 chips
                 deletable-chips
@@ -53,7 +52,6 @@
                 label="Project Researchers"
                 item-text="full_name"
                 item-value="id"
-                cache-items
                 multiple
                 chips
                 deletable-chips

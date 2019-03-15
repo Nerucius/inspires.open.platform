@@ -28,7 +28,7 @@
       <ProjectGrid :projects="projects" />
 
       <p class="text-xs-center mt-3">
-        <v-btn large dark color="primary">
+        <v-btn large dark color="primary" :to="{name:'project-list'}">
           {{ $t('pages.home.projectsSeeMore') }}
         </v-btn>
       </p>

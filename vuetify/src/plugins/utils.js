@@ -7,6 +7,10 @@ export const obj2slug = function(obj) {
   let id = obj.id
   let value = obj.name
 
+  if (!value){
+    return id
+  }
+
   let slug = id+'-'+value.toString()
     .substring(0,40)
     .replace(/\s/g, "-")

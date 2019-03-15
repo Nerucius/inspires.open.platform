@@ -3,6 +3,9 @@
     "login": {
       "welcomeMessage":"Welcome to the InSPIRES Platform"
     },
+    "register": {
+      "acceptTOS":"Accept the Terms and Conditions"
+    },
     "home": {
       "mainTitle":"Welcome to InSPIRES",
       "aboutTitle":"What we do",

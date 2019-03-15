@@ -12,17 +12,17 @@ table th{
 
 
 <template>
-  <v-layout v-if="project.id" row wrap align-content-start>
+  <v-layout v-if="project" row wrap align-content-start>
     <v-flex xs12>
       <h1><small>Project |</small> {{ project.name }}</h1>
     </v-flex>
 
     <v-flex v-if="!isApprovedProject" xs12>
-      <v-alert :value="true" class="title">
+      <v-alert color="info" :value="true" class="title">
         <v-icon dark left>
-          warning
+          info
         </v-icon>
-        This project is not approved, it will not show up in listings
+        This project is not approved yet, it will not show up in public lists.
       </v-alert>
     </v-flex>
 

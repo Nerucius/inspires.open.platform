@@ -288,8 +288,10 @@ export default {
   methods: {
 
     async submitRegister(){
-      let postUser = {...this.user}
-      console.log(postUser)
+      let newUser = {...this.user}
+      await this.$store.dispatch("user/register", newUser);
+
+      this.$router.push("/account")
     },
 
     isEmail(value=""){
@@ -308,7 +310,6 @@ export default {
     },
 
     isCompleted(stepIdx) {
-      return true
       let required = this.steps[stepIdx - 1].required;
       required = Object.values(required);
       return required == [] || required.every(v => !!v);

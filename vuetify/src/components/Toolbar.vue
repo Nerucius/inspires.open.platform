@@ -1,5 +1,5 @@
 <template>
-  <v-toolbar scroll-off-screen app dark flat color="teal darken-2">
+  <v-toolbar scroll-off-screen app dark flat color="primary">
     <v-toolbar-side-icon v-if="showToggleDrawer" @click="$emit('toggleDrawer')" />
     <v-toolbar-title class="headline text-uppercase">
       <span>InSPIRES</span>&nbsp;

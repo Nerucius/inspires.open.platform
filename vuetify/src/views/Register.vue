@@ -1,3 +1,12 @@
+<style scoped>
+
+  th, td{
+    padding-bottom:10px
+  }
+
+</style>
+
+
 <template>
   <v-layout align-content-start row wrap>
     <v-flex sm3 class="hidden-xs-only">
@@ -5,12 +14,11 @@
     </v-flex>
 
     <v-flex sm9 xs12>
-      <h2>Registration</h2>
+      <h1 class="headline">Registration</h1>
       <p class="subheading">
         Welcome to the registration page for the InSPIRES Open Platform. Here you can create
         your own user to log into the site.
       </p>
-      <h3>Why Register?</h3>
       <p class="subheading">
         Registering allows you to start contributing to the site! You can also register Intermediation
         Organizations and Research Projects to your or your Organization's name.
@@ -30,7 +38,7 @@
                       :key="`${idx}-step`"
                       :complete="registrationStep > idx"
                       :step="idx+1"
-                      editable
+                      :editable="isCompleted(idx+1)"
                     >
                       {{ step.title }}
                     </v-stepper-step>
@@ -40,40 +48,51 @@
                 </v-stepper-header>
 
                 <v-stepper-items>
+
                   <!-- Step 1 -->
                   <v-stepper-content step="1">
-                    <v-sheet height="300px">
-                      <v-layout row wrap>
+                    <v-sheet>
+                      <v-layout row wrap justify-center>
                         <v-flex xs12>
-                          <h3>Prequisites for Registering</h3>
-                          <p />
+                          <h2 class="title">First things first</h2>
+                          <br>
                           <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis
                             debitis illum nulla magni tempora dolorem qui recusandae rerum
                             sed ipsam, dolorum nisi at aperiam laudantium distinctio itaque
                             delectus nesciunt ipsum.
-                            <router-link to="/terms">
-                              Terms of service
-                            </router-link>
                           </p>
-                          <p class="text-xs-center my-5">
-                            <v-btn
-                              :readonly="steps[0].required.acceptedTerms"
-                              :depressed="steps[0].required.acceptedTerms"
-                              :color="steps[0].required.acceptedTerms ? 'success' : 'primary'"
-                              large
-                              @click="steps[0].required.acceptedTerms=true"
-                            >
-                              <v-icon v-if="steps[0].required.acceptedTerms" left>
-                                check
-                              </v-icon>I Accept the Terms of Service
-                            </v-btn>
-                          </p>
-                          <p v-if="steps[0].required.acceptedTerms">
-                            Great! we can continue with the rest of the registration. Lorem
-                            ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus
-                            provident, hic ab molestias voluptates ducimus.
-                          </p>
+                        </v-flex>
+                        <v-flex xs12 sm8>
+                          <v-form
+                            ref="userPassForm"
+                            v-model="steps[0].required.valid"
+                          >
+                            <v-text-field
+                              v-model="user.username"
+                              :label="$t('forms.fields.username')"
+                              :hint="$t('forms.hints.username')"
+                              :rules="[rules.required, rules.minimunLength6]"
+                              prepend-icon="person"
+                              type="text"
+                            />
+                            <v-text-field
+                              v-model="user.password"
+                              @input="$refs.userPassForm.validate()"
+                              :label="$t('forms.fields.password')"
+                              :hint="$t('forms.hints.password')"
+                              :rules="[rules.required, rules.minimunLength, rules.passwordValid]"
+                              prepend-icon="lock"
+                              type="password"
+                            />
+                            <v-text-field
+                              v-model="user.password2"
+                              prepend-icon="lock"
+                              :label="$t('forms.fields.passwordRepeat')"
+                              :rules="[rules.passwordMatch]"
+                              type="password"
+                            />
+                          </v-form>
                         </v-flex>
                       </v-layout>
                     </v-sheet>
@@ -84,7 +103,7 @@
                     <v-sheet>
                       <v-layout row wrap justify-center>
                         <v-flex xs12>
-                          <h3>Your Login Details</h3>
+                          <h2 class="title">Tell us a bit about yourself</h2>
                           <p />
                           <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis
@@ -98,31 +117,113 @@
                             v-model="steps[1].required.valid"
                           >
                             <v-text-field
-                              v-model="user.username"
+                              v-model="user.first_name"
                               prepend-icon="person"
-                              :label="$t('forms.fields.username')"
-                              :rules="rules.required"
+                              :label="$t('forms.fields.firstName')"
                               type="text"
                             />
                             <v-text-field
-                              v-model="user.password"
+                              v-model="user.last_name"
                               prepend-icon="lock"
-                              :label="$t('forms.fields.password')"
-                              :rules="rules.password"
-                              type="password"
+                              :label="$t('forms.fields.lastName')"
                             />
                             <v-text-field
-                              v-model="user.password2"
+                              v-model="user.email"
                               prepend-icon="lock"
-                              :label="$t('forms.fields.passwordRepeat')"
-                              :rules="rules.passwordMatch"
-                              type="password"
+                              :label="$t('forms.fields.email')"
+                              type="email"
+                              :rules="[rules.required, rules.isEmail]"
                             />
                           </v-form>
                         </v-flex>
                       </v-layout>
                     </v-sheet>
                   </v-stepper-content>
+
+                  <!-- Step 3 -->
+                  <v-stepper-content step="3">
+                    <v-sheet min-height="300px">
+                      <v-layout row wrap>
+                        <v-flex xs12>
+                          <h2 class="title">Terms of Service</h2>
+                          <p />
+                          <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis
+                            debitis illum nulla magni tempora dolorem qui recusandae rerum
+                            sed ipsam, dolorum nisi at aperiam laudantium distinctio itaque
+                            delectus nesciunt ipsum.
+                            <router-link to="/terms">
+                              Terms of service
+                            </router-link>
+                          </p>
+                          <p class="text-xs-center my-5">
+                            <v-btn
+                              :readonly="steps[2].required.acceptedTerms"
+                              :depressed="steps[2].required.acceptedTerms"
+                              :color="steps[2].required.acceptedTerms ? 'success' : 'primary'"
+                              large
+                              @click="steps[2].required.acceptedTerms=true"
+                            >
+                              <v-icon v-if="steps[2].required.acceptedTerms" left>
+                                check
+                              </v-icon>{{$t('pages.register.acceptTOS')}}
+                            </v-btn>
+                          </p>
+                          <p v-if="steps[2].required.acceptedTerms">
+                            Great! we can continue with the rest of the registration. Lorem
+                            ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus
+                            provident, hic ab molestias voluptates ducimus.
+                          </p>
+                        </v-flex>
+                      </v-layout>
+                    </v-sheet>
+                  </v-stepper-content>
+
+                  <!-- Step 4 -->
+                  <v-stepper-content step="4">
+                    <v-sheet min-height="300px">
+                      <v-layout row wrap>
+                        <v-flex xs12>
+                          <h2 class="title">Review and Register</h2>
+                          <br>
+                          <p>
+                            Please review the following information. If everything seems correct
+                            you can proceed with registering.
+                          </p>
+                          <br>
+                          <table width="100%">
+                            <tr>
+                              <th width="50%" class="text-xs-right pr-3">
+                                {{ $t('forms.fields.username') }}:
+                              </th>
+                              <td class="text-xs-left pl-3">{{user.username || "Not specified"}}</td>
+                            </tr>
+                            <tr>
+                              <th width="50%" class="text-xs-right pr-3">
+                                {{ $t('forms.fields.firstName') }}:
+                              </th>
+                              <td class="text-xs-left pl-3">{{user.first_name || "Not specified"}}</td>
+                            </tr>
+                            <tr>
+                              <th width="50%" class="text-xs-right pr-3">
+                                {{ $t('forms.fields.lastName') }}:
+                              </th>
+                              <td class="text-xs-left pl-3">{{user.last_name || "Not specified"}}</td>
+                            </tr>
+                            <tr>
+                              <th width="50%" class="text-xs-right pr-3">
+                                {{ $t('forms.fields.email') }}:
+                              </th>
+                              <td class="text-xs-left pl-3">{{user.email || "Not specified"}}</td>
+                            </tr>
+                          </table>
+                        </v-flex>
+                      </v-layout>
+                    </v-sheet>
+                  </v-stepper-content>
+
+
+
                 </v-stepper-items>
               </v-stepper>
             </v-flex>
@@ -133,20 +234,19 @@
           <v-spacer />
           <v-flex shrink>
             <v-btn
-              v-if="registrationStep == steps.length"
-              :disabled="!valid"
-              color="primary"
-              @click="submitLogin()"
-            >
-              {{ $t("actions.register") }}
-            </v-btn>
-            <v-btn
-              v-else
+              v-if="registrationStep != steps.length"
               color="primary"
               :disabled="!isCompleted(registrationStep)"
               @click="nextStep()"
             >
               {{ $t("actions.next") }}
+            </v-btn>
+            <v-btn
+              v-else
+              color="primary"
+              @click="submitRegister()"
+            >
+              {{ $t("actions.register") }}
             </v-btn>
           </v-flex>
         </v-card-actions>
@@ -167,27 +267,53 @@ export default {
     return {
       registrationStep: 1,
       steps: [
-        { title: "Welcome", required: { acceptedTerms: false } },
         { title: "Login", required: { valid: false } },
-        { title: "Personal", required: { valid: false } },
-        { title: "Done!", required: {} }
+        { title: "About you", required: { valid: false } },
+        { title: "ToS", required: { acceptedTerms: false } },
+        { title: "Done!", required: { noedit:false } }
       ],
 
       user: {},
       rules: {
-        required: [v => !!v || this.$t("forms.rules.requiredField")],
-        password: [v => !!v || this.$t("forms.rules.requiredField")],
-        passwordMatch: [v => (this.user.password == this.user.password2) || this.$t("forms.rules.passwordMatch")],
+        required: v => !!v || this.$t("forms.rules.requiredField"),
+        minimunLength6: v => (v||"").length >= 6 || this.$t("forms.rules.minimunLength", {'length':6}),
+        minimunLength: v => (v||"").length >= 8 || this.$t("forms.rules.minimunLength", {'length':8}),
+        passwordValid: v => this.isValidPassword(v) || this.$t("forms.rules.passwordField"),
+        passwordMatch: v => (this.user.password == this.user.password2) || this.$t("forms.rules.passwordMatch"),
+        isEmail: v => this.isEmail(v) || this.$t("forms.rules.requiredField"),
       }
     };
   },
 
   methods: {
+
+    async submitRegister(){
+      let postUser = {...this.user}
+      console.log(postUser)
+    },
+
+    isEmail(value=""){
+      let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(String(value).toLowerCase());
+    },
+
+    isValidPassword(value=""){
+      value = value.toLowerCase()
+      return true
+        && value != "12345678"
+        && value != "password"
+        && value != "password1"
+        && value != "password1234"
+        && value != this.user.username
+    },
+
     isCompleted(stepIdx) {
+      return true
       let required = this.steps[stepIdx - 1].required;
       required = Object.values(required);
       return required == [] || required.every(v => !!v);
     },
+
     nextStep() {
       this.registrationStep = Math.min(
         this.steps.length,

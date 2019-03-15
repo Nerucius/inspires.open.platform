@@ -65,18 +65,27 @@
     },
     "rules": {
       "requiredField": "This is a required field",
-      "maximunLength": "Must be at most {length} characters long.",
-      "minimunLength": "Must be at least {length} characters long.",
+      "passwordField": "The password you entered is not valid",
+      "passwordMatch": "The two passwords do not match",
+      "maximunLength": "Must be at most {length} characters long",
+      "minimunLength": "Must be at least {length} characters long",
       "namedRequiredField": "{name} is a required field"
     },
     "fields": {
       "name": "Name",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
       "summary": "Summary",
       "researchers": "Researchers",
       "username": "Username",
       "password": "Password",
+      "passwordRepeat": "Repeat your password",
       "title": "Title",
       "author": "Author"
+    },
+    "hints":{
+      "password": "Your password must be at least 8 characters, not be a common password and not contain your username."
     }
   },
   "$vuetify": {

@@ -28,7 +28,7 @@ table th{
 
     <v-flex xs12>
       <v-card flat>
-        <v-toolbar dense flat color="teal darken-2" dark>
+        <v-toolbar dense flat color="primary" dark>
           <v-toolbar-title>{{ $t('pages.projectDetail.information') }}</v-toolbar-title>
         </v-toolbar>
         <v-card-text class="subheading">

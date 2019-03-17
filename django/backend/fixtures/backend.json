@@ -3,7 +3,7 @@
     "pk": 1,
     "fields": {
         "password": "pbkdf2_sha256$120000$UCjUOvgt3okn$xTIe5XPhYzTsv92p0Ggz74nXirFAFYybbvGZd+tiVZk=",
-        "last_login": "2019-03-12T10:50:41Z",
+        "last_login": "2019-03-17T16:17:48.797Z",
         "is_superuser": true,
         "username": "admin",
         "first_name": "Administrador",
@@ -25,7 +25,7 @@
     "pk": 2,
     "fields": {
         "password": "pbkdf2_sha256$120000$TulpTSOZPgVw$KIvxS2jTJeRs0UVYVhRFRIj43kh1/MDST7Bdo6/P6eg=",
-        "last_login": "2019-03-11T19:20:36.026Z",
+        "last_login": "2019-03-17T16:13:42.608Z",
         "is_superuser": false,
         "username": "eloi.puertas",
         "first_name": "Eloi",
@@ -131,6 +131,28 @@
         "user_permissions": []
     }
 }, {
+    "model": "backend.user",
+    "pk": 8,
+    "fields": {
+        "password": "pbkdf2_sha256$120000$O20tJB6Rc1kL$TlFJcRqqRO2OJSdwzE+AFgJVNI0DLTjBuLumW+lc5cU=",
+        "last_login": "2019-03-17T15:47:53.364Z",
+        "is_superuser": false,
+        "username": "test.user",
+        "first_name": "Test",
+        "last_name": "User",
+        "email": "test.user@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2019-03-17T15:47:53.225Z",
+        "created_by": null,
+        "created_at": "2019-03-17T15:47:53.297Z",
+        "modified_by": null,
+        "modified_at": "2019-03-17T15:47:53.341Z",
+        "owner": null,
+        "groups": [1],
+        "user_permissions": []
+    }
+}, {
     "model": "backend.structure",
     "pk": 1,
     "fields": {
@@ -185,15 +207,20 @@
         "created_by": 1,
         "created_at": "2019-03-10T20:18:17.335Z",
         "modified_by": 1,
-        "modified_at": "2019-03-12T11:14:44.138Z",
+        "modified_at": "2019-03-17T23:44:07.384Z",
         "owner": 4,
-        "name": "R&D Project to Research Developments",
+        "acronym": "RDPDR",
+        "name": "R&D Project to Develop Researchments",
         "summary": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using.",
         "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using.",
-        "image_url": "",
+        "image_url": "https://png.pngtree.com/thumb_back/fw800/back_pic/03/53/70/335798720153c21.jpg",
+        "date_start": null,
+        "date_end": null,
+        "project_type": "research",
+        "knowledge_area": 13,
         "managers": [4],
-        "researchers": [2, 3, 4],
-        "keywords": []
+        "keywords": [],
+        "related_projects": []
     }
 }, {
     "model": "backend.project",
@@ -201,16 +228,21 @@
     "fields": {
         "created_by": 1,
         "created_at": "2019-03-10T20:19:11.194Z",
-        "modified_by": null,
-        "modified_at": "2019-03-10T20:19:11.194Z",
+        "modified_by": 1,
+        "modified_at": "2019-03-17T23:43:18.509Z",
         "owner": 2,
+        "acronym": "EER",
         "name": "Expanding on Expandable Research",
         "summary": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur.",
         "description": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur.",
-        "image_url": "",
-        "managers": [2],
-        "researchers": [2, 3],
-        "keywords": []
+        "image_url": "https://png.pngtree.com/thumb_back/fw800/back_pic/00/03/14/92561d1ba31f9fe.jpg",
+        "date_start": null,
+        "date_end": null,
+        "project_type": "publicEngagement",
+        "knowledge_area": 6,
+        "managers": [2, 4],
+        "keywords": [],
+        "related_projects": []
     }
 }, {
     "model": "backend.project",
@@ -219,15 +251,249 @@
         "created_by": 2,
         "created_at": "2019-03-10T20:59:55.753Z",
         "modified_by": 1,
-        "modified_at": "2019-03-12T11:14:28.834Z",
+        "modified_at": "2019-03-17T23:42:52.382Z",
         "owner": 2,
+        "acronym": "YAP",
         "name": "Another Project Created in Account",
         "summary": "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form",
         "description": "",
-        "image_url": "",
+        "image_url": "https://png.pngtree.com/thumb_back/fw800/back_pic/00/01/92/33560de30f1df69.jpg",
+        "date_start": null,
+        "date_end": null,
+        "project_type": "research",
+        "knowledge_area": 3,
         "managers": [2],
-        "researchers": [2],
-        "keywords": []
+        "keywords": [],
+        "related_projects": []
+    }
+}, {
+    "model": "backend.knowledgearea",
+    "pk": 1,
+    "fields": {
+        "parent": null,
+        "code": "11",
+        "name": "Logic"
+    }
+}, {
+    "model": "backend.knowledgearea",
+    "pk": 2,
+    "fields": {
+        "parent": null,
+        "code": "12",
+        "name": "Mathematics"
+    }
+}, {
+    "model": "backend.knowledgearea",
+    "pk": 3,
+    "fields": {
+        "parent": null,
+        "code": "21",
+        "name": "Astronomy and astrophysics"
+    }
+}, {
+    "model": "backend.knowledgearea",
+    "pk": 4,
+    "fields": {
+        "parent": null,
+        "code": "22",
+        "name": "Physics"
+    }
+}, {
+    "model": "backend.knowledgearea",
+    "pk": 5,
+    "fields": {
+        "parent": null,
+        "code": "23",
+        "name": "Chemistry"
+    }
+}, {
+    "model": "backend.knowledgearea",
+    "pk": 6,
+    "fields": {
+        "parent": null,
+        "code": "24",
+        "name": "Life Sciences"
+    }
+}, {
+    "model": "backend.knowledgearea",
+    "pk": 7,
+    "fields": {
+        "parent": null,
+        "code": "25",
+        "name": "Earth and Space Sciences"
+    }
+}, {
+    "model": "backend.knowledgearea",
+    "pk": 8,
+    "fields": {
+        "parent": null,
+        "code": "31",
+        "name": "Agricultural Sciences"
+    }
+}, {
+    "model": "backend.knowledgearea",
+    "pk": 9,
+    "fields": {
+        "parent": null,
+        "code": "32",
+        "name": "Medical Sciences"
+    }
+}, {
+    "model": "backend.knowledgearea",
+    "pk": 10,
+    "fields": {
+        "parent": null,
+        "code": "33",
+        "name": "Technological Sciences"
+    }
+}, {
+    "model": "backend.knowledgearea",
+    "pk": 11,
+    "fields": {
+        "parent": null,
+        "code": "51",
+        "name": "Anthropology"
+    }
+}, {
+    "model": "backend.knowledgearea",
+    "pk": 12,
+    "fields": {
+        "parent": null,
+        "code": "52",
+        "name": "Demographics"
+    }
+}, {
+    "model": "backend.knowledgearea",
+    "pk": 13,
+    "fields": {
+        "parent": null,
+        "code": "53",
+        "name": "Economic Sciences"
+    }
+}, {
+    "model": "backend.knowledgearea",
+    "pk": 14,
+    "fields": {
+        "parent": null,
+        "code": "54",
+        "name": "Geography"
+    }
+}, {
+    "model": "backend.knowledgearea",
+    "pk": 15,
+    "fields": {
+        "parent": null,
+        "code": "55",
+        "name": "History"
+    }
+}, {
+    "model": "backend.knowledgearea",
+    "pk": 16,
+    "fields": {
+        "parent": null,
+        "code": "56",
+        "name": "Juridical Sciences and Law"
+    }
+}, {
+    "model": "backend.knowledgearea",
+    "pk": 17,
+    "fields": {
+        "parent": null,
+        "code": "57",
+        "name": "Linguistics"
+    }
+}, {
+    "model": "backend.knowledgearea",
+    "pk": 18,
+    "fields": {
+        "parent": null,
+        "code": "58",
+        "name": "Pedagogy"
+    }
+}, {
+    "model": "backend.knowledgearea",
+    "pk": 19,
+    "fields": {
+        "parent": null,
+        "code": "59",
+        "name": "Political Science"
+    }
+}, {
+    "model": "backend.knowledgearea",
+    "pk": 20,
+    "fields": {
+        "parent": null,
+        "code": "61",
+        "name": "Psychology"
+    }
+}, {
+    "model": "backend.knowledgearea",
+    "pk": 21,
+    "fields": {
+        "parent": null,
+        "code": "62",
+        "name": "Science of Arts and Letters"
+    }
+}, {
+    "model": "backend.knowledgearea",
+    "pk": 22,
+    "fields": {
+        "parent": null,
+        "code": "63",
+        "name": "Sociology"
+    }
+}, {
+    "model": "backend.knowledgearea",
+    "pk": 23,
+    "fields": {
+        "parent": null,
+        "code": "71",
+        "name": "Ethics"
+    }
+}, {
+    "model": "backend.knowledgearea",
+    "pk": 24,
+    "fields": {
+        "parent": null,
+        "code": "72",
+        "name": "Philosophy"
+    }
+}, {
+    "model": "backend.participation",
+    "pk": 6,
+    "fields": {
+        "project": 2,
+        "user": 3,
+        "role": 1
+    }
+}, {
+    "model": "backend.participation",
+    "pk": 10,
+    "fields": {
+        "project": 2,
+        "user": 2,
+        "role": 2
+    }
+}, {
+    "model": "backend.participationrole",
+    "pk": 1,
+    "fields": {
+        "tag": "SCI",
+        "name": "Scientist"
+    }
+}, {
+    "model": "backend.participationrole",
+    "pk": 2,
+    "fields": {
+        "tag": "STU",
+        "name": "Student"
+    }
+}, {
+    "model": "backend.participationrole",
+    "pk": 3,
+    "fields": {
+        "tag": "CSM",
+        "name": "Civil Society"
     }
 }, {
     "model": "backend.collaboration",

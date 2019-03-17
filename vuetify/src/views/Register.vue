@@ -14,14 +14,14 @@
     </v-flex>
 
     <v-flex sm9 xs12>
-      <h1 class="headline">Registration</h1>
+      <h1 class="headline">
+        Registration
+      </h1>
       <p class="subheading">
-        Welcome to the registration page for the InSPIRES Open Platform. Here you can create
-        your own user to log into the site.
+        {{ $t('pages.register.welcomeMessage') }}
       </p>
-      <p class="subheading">
-        Registering allows you to start contributing to the site! You can also register Intermediation
-        Organizations and Research Projects to your or your Organization's name.
+      <p class="subheading hidden-xs-only">
+        {{ $t('pages.register.welcomeMessage2') }}
       </p>
     </v-flex>
 
@@ -48,19 +48,17 @@
                 </v-stepper-header>
 
                 <v-stepper-items>
-
                   <!-- Step 1 -->
                   <v-stepper-content step="1">
                     <v-sheet>
                       <v-layout row wrap justify-center>
                         <v-flex xs12>
-                          <h2 class="title">First things first</h2>
+                          <h2 class="title">
+                            {{ $t('pages.register.titles.step1') }}
+                          </h2>
                           <br>
                           <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis
-                            debitis illum nulla magni tempora dolorem qui recusandae rerum
-                            sed ipsam, dolorum nisi at aperiam laudantium distinctio itaque
-                            delectus nesciunt ipsum.
+                            {{ $t('pages.register.step1Message') }}
                           </p>
                         </v-flex>
                         <v-flex xs12 sm8>
@@ -78,12 +76,12 @@
                             />
                             <v-text-field
                               v-model="user.password"
-                              @input="$refs.userPassForm.validate()"
                               :label="$t('forms.fields.password')"
                               :hint="$t('forms.hints.password')"
                               :rules="[rules.required, rules.minimunLength, rules.passwordValid]"
                               prepend-icon="lock"
                               type="password"
+                              @input="$refs.userPassForm.validate()"
                             />
                             <v-text-field
                               v-model="user.password2"
@@ -103,13 +101,12 @@
                     <v-sheet>
                       <v-layout row wrap justify-center>
                         <v-flex xs12>
-                          <h2 class="title">Tell us a bit about yourself</h2>
+                          <h2 class="title">
+                            {{ $t('pages.register.titles.step2') }}
+                          </h2>
                           <p />
                           <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis
-                            debitis illum nulla magni tempora dolorem qui recusandae rerum
-                            sed ipsam, dolorum nisi at aperiam laudantium distinctio itaque
-                            delectus nesciunt ipsum.
+                            {{ $t('pages.register.step2Message') }}
                           </p>
                         </v-flex>
                         <v-flex xs12 sm8>
@@ -120,12 +117,14 @@
                               v-model="user.first_name"
                               prepend-icon="person"
                               :label="$t('forms.fields.firstName')"
+                              :rules="[rules.required]"
                               type="text"
                             />
                             <v-text-field
                               v-model="user.last_name"
                               prepend-icon="lock"
                               :label="$t('forms.fields.lastName')"
+                              :rules="[rules.required]"
                             />
                             <v-text-field
                               v-model="user.email"
@@ -145,34 +144,32 @@
                     <v-sheet min-height="300px">
                       <v-layout row wrap>
                         <v-flex xs12>
-                          <h2 class="title">Terms of Service</h2>
+                          <h2 class="title">
+                            {{ $t('pages.register.titles.step3') }}
+                          </h2>
                           <p />
                           <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis
-                            debitis illum nulla magni tempora dolorem qui recusandae rerum
-                            sed ipsam, dolorum nisi at aperiam laudantium distinctio itaque
-                            delectus nesciunt ipsum.
+                            {{ $t('pages.register.step3Message') }}
                             <router-link to="/terms">
-                              Terms of service
+                              {{ $t('pages.register.readTOSHere') }}
                             </router-link>
                           </p>
                           <p class="text-xs-center my-5">
                             <v-btn
+                              large
+                              class="px-2"
                               :readonly="steps[2].required.acceptedTerms"
                               :depressed="steps[2].required.acceptedTerms"
                               :color="steps[2].required.acceptedTerms ? 'success' : 'primary'"
-                              large
                               @click="steps[2].required.acceptedTerms=true"
                             >
-                              <v-icon v-if="steps[2].required.acceptedTerms" left>
+                              <v-icon v-if="steps[2].required.acceptedTerms">
                                 check
-                              </v-icon>{{$t('pages.register.acceptTOS')}}
+                              </v-icon>&nbsp;{{ $t('pages.register.acceptTOS') }}
                             </v-btn>
                           </p>
                           <p v-if="steps[2].required.acceptedTerms">
-                            Great! we can continue with the rest of the registration. Lorem
-                            ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus
-                            provident, hic ab molestias voluptates ducimus.
+                            {{ $t('pages.register.step3MessageAccepted') }}
                           </p>
                         </v-flex>
                       </v-layout>
@@ -182,48 +179,82 @@
                   <!-- Step 4 -->
                   <v-stepper-content step="4">
                     <v-sheet min-height="300px">
-                      <v-layout row wrap>
+                      <v-layout row wrap justify-center>
                         <v-flex xs12>
-                          <h2 class="title">Review and Register</h2>
+                          <h2 class="title">
+                            {{ $t('pages.register.titles.step4') }}
+                          </h2>
                           <br>
                           <p>
-                            Please review the following information. If everything seems correct
-                            you can proceed with registering.
+                            {{ $t('pages.register.step4Message') }}
                           </p>
-                          <br>
                           <table width="100%">
                             <tr>
                               <th width="50%" class="text-xs-right pr-3">
                                 {{ $t('forms.fields.username') }}:
                               </th>
-                              <td class="text-xs-left pl-3">{{user.username || "Not specified"}}</td>
+                              <td class="text-xs-left pl-3">
+                                {{ user.username || "Not specified" }}
+                              </td>
                             </tr>
                             <tr>
                               <th width="50%" class="text-xs-right pr-3">
                                 {{ $t('forms.fields.firstName') }}:
                               </th>
-                              <td class="text-xs-left pl-3">{{user.first_name || "Not specified"}}</td>
+                              <td class="text-xs-left pl-3">
+                                {{ user.first_name || "Not specified" }}
+                              </td>
                             </tr>
                             <tr>
                               <th width="50%" class="text-xs-right pr-3">
                                 {{ $t('forms.fields.lastName') }}:
                               </th>
-                              <td class="text-xs-left pl-3">{{user.last_name || "Not specified"}}</td>
+                              <td class="text-xs-left pl-3">
+                                {{ user.last_name || "Not specified" }}
+                              </td>
                             </tr>
                             <tr>
                               <th width="50%" class="text-xs-right pr-3">
                                 {{ $t('forms.fields.email') }}:
                               </th>
-                              <td class="text-xs-left pl-3">{{user.email || "Not specified"}}</td>
+                              <td class="text-xs-left pl-3">
+                                {{ user.email || "Not specified" }}
+                              </td>
                             </tr>
                           </table>
+                        </v-flex>
+
+                        <v-flex xs12 py-0>
+                          <p>
+                            {{ $t('pages.register.step4MessageInvite') }}
+                          </p>
+                        </v-flex>
+
+                        <v-flex pt-0 sm8 lg6>
+                          <v-form
+                            v-model="steps[3].required.valid"
+                          >
+                            <v-text-field
+                              v-model="user.invitation"
+                              prepend-icon="code"
+                              :label="$t('forms.fields.invitationCode')"
+                              :rules="[rules.required]"
+                              type="text"
+                              @input="failedRegistration = false"
+                            />
+                          </v-form>
+                        </v-flex>
+
+                        <v-flex xs12>
+                          <v-alert :value="failedRegistration">
+                            <v-icon dark left>
+                              warning
+                            </v-icon>The registration has failed. Please check your invitation code.
+                          </v-alert>
                         </v-flex>
                       </v-layout>
                     </v-sheet>
                   </v-stepper-content>
-
-
-
                 </v-stepper-items>
               </v-stepper>
             </v-flex>
@@ -244,6 +275,7 @@
             <v-btn
               v-else
               color="primary"
+              :disabled="!isCompleted(registrationStep)"
               @click="submitRegister()"
             >
               {{ $t("actions.register") }}
@@ -265,12 +297,13 @@ export default {
 
   data() {
     return {
+      failedRegistration: false,
       registrationStep: 1,
       steps: [
         { title: "Login", required: { valid: false } },
         { title: "About you", required: { valid: false } },
         { title: "ToS", required: { acceptedTerms: false } },
-        { title: "Done!", required: { noedit:false } }
+        { title: "Done!", required: { valid:false } }
       ],
 
       user: {},
@@ -289,9 +322,13 @@ export default {
 
     async submitRegister(){
       let newUser = {...this.user}
-      await this.$store.dispatch("user/register", newUser);
+      try{
+        let response = (await this.$store.dispatch("user/register", newUser))
+        this.$router.push({ name: 'account', query: { newUser: true } })
 
-      this.$router.push("/account")
+      } catch(err){
+        this.failedRegistration = true
+      }
     },
 
     isEmail(value=""){

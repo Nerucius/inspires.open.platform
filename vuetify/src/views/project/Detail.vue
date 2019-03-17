@@ -42,16 +42,17 @@ table th{
               <td>{{ project.summary }}</td>
             </tr>
             <tr>
-              <th>{{ $t('forms.fields.researchers') }}:</th>
+              <th>{{ $t('forms.fields.participants') }}:</th>
               <td>
                 <v-chip
-                  v-for="user in users(project.researchers)" :key="user.id"
-                  :to="{name:'login'}"
+                  v-for="part in project.participants" :key="part.id"
+                  @click="$router.push({name:'account', params:{slug:obj2slug(user(part.user), 'username')} })"
                 >
                   <v-avatar>
-                    <img :src="user.avatar_url" :alt="user.username">
+                    <img :src="user(part.user).avatar_url">
                   </v-avatar>
-                  {{ user.first_name }} {{ user.last_name }}
+                  {{ user(part.user).full_name }}
+                  [ {{ part.role }} ]
                 </v-chip>
               </td>
             </tr>
@@ -65,12 +66,13 @@ table th{
 
 
 <script>
-import { slug2id } from "@/plugins/utils";
+import { slug2id, obj2slug } from "@/plugins/utils";
 
 export default {
 
   data(){
     return {
+      obj2slug,
       project: null
     }
   },
@@ -95,6 +97,9 @@ export default {
   },
 
   methods:{
+    user(uid){
+      return this.$store.getters["user/get"](uid)
+    },
     users(userIds){
       return userIds.map(uid => this.$store.getters["user/get"](uid))
     }

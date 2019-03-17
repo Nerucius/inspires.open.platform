@@ -28,6 +28,7 @@ const PATCH =  {patch: {method: "PATCH"}, update: {method: "PATCH"}}
 export const CurrentUserResource = Vue.resource(API_SERVER + "/v1/user/");
 export const UserResource = Vue.resource(API_SERVER + "/v1/users/", {}, PATCH);
 export const ProjectResource = Vue.resource(API_SERVER + "/v1/projects{/id}/", {}, PATCH);
+export const ParticipationResource = Vue.resource(API_SERVER + "/v1/participations{/id}/", {}, PATCH);
 export const StructureResource = Vue.resource(API_SERVER + "/v1/structures{/id}/", {}, PATCH);
 export const CollaborationResource = Vue.resource(API_SERVER + "/v1/collaborations{/id}/", {}, PATCH);
 

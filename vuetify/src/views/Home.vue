@@ -1,6 +1,5 @@
 <template>
   <v-layout row wrap align-content-start>
-
     <v-flex xs12>
       <v-card flat>
         <v-parallax
@@ -8,7 +7,9 @@
           src="https://png.pngtree.com/thumb_back/fw800/back_pic/03/51/70/585791ffa147edc.jpg"
         >
           <div>
-            <h1 class="text-truncate title">{{ $t('pages.home.mainTitle') }}</h1>
+            <h1 class="text-truncate title">
+              {{ $t('pages.home.mainTitle') }}
+            </h1>
             <br>
             <p class="text-truncate">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo vero quisquam
@@ -32,9 +33,7 @@
           {{ $t('pages.home.projectsSeeMore') }}
         </v-btn>
       </p>
-
     </v-flex>
-
   </v-layout>
 </template>
 

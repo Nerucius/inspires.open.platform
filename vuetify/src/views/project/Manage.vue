@@ -7,12 +7,12 @@
     <v-flex xs12>
       <v-card flat>
         <v-card-text>
-        <h3>
-          Project Owner: {{ projectOwner.full_name }}
-          <v-btn v-if="isOwner" flat>
-            Transfer Ownership
-          </v-btn>
-        </h3>
+          <h3>
+            Project Owner: {{ projectOwner.full_name }}
+            <v-btn v-if="isOwner" flat>
+              Transfer Ownership
+            </v-btn>
+          </h3>
         </v-card-text>
       </v-card>
     </v-flex>
@@ -54,6 +54,7 @@
 import ProjectForm from "@/components/project/ProjectForm";
 import ProjectStructureForm from "@/components/project/ProjectStructureForm";
 import { slug2id } from "@/plugins/utils";
+import toastr from 'toastr'
 
 export default {
   components: {

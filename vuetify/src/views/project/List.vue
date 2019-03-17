@@ -4,10 +4,6 @@
       <ProjectGrid :projects="projects" />
     </v-flex>
   </v-layout>
-
-
-
-
 </template>
 
 

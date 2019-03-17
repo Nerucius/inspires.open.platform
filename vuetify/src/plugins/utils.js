@@ -3,9 +3,9 @@ export const onlyUnique = function(value, index, self) {
   return self.indexOf(value) === index;
 }
 
-export const obj2slug = function(obj) {
+export const obj2slug = function(obj, nameAttr="name") {
   let id = obj.id
-  let value = obj.name
+  let value = obj[nameAttr]
 
   if (!value){
     return id

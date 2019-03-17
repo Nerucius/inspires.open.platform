@@ -1,7 +1,9 @@
 <template>
   <v-card flat>
     <v-card-text>
-      <h1 class="subheading">Other Links</h1>
+      <h1 class="subheading">
+        Other Links
+      </h1>
 
       <v-layout row>
         <v-flex xs4>

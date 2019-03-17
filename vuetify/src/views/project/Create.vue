@@ -8,9 +8,9 @@
       <v-card flat>
         <v-card-text>
           <ProjectForm
-            @submit="createProject($event)"
             :processing="buttonLoading"
-            />
+            @submit="createProject($event)"
+          />
         </v-card-text>
       </v-card>
     </v-flex>
@@ -21,7 +21,6 @@
         {{ $t('actions.close') }}
       </v-btn>
     </v-snackbar>
-
   </v-layout>
 </template>
 

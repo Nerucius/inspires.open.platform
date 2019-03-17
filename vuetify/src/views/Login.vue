@@ -11,17 +11,13 @@
         </v-toolbar>
 
         <v-card-text>
-
           <!-- <div class="text-xs-center mb-3">
             <h1 class="title">{{ $t("pages.login.welcomeMessage") }}</h1>
           </div> -->
 
           <!-- Logo -->
           <v-layout row wrap justify-space-around align-center px-2>
-
-
-
-            <v-flex xs12 pa-0></v-flex>
+            <v-flex xs12 pa-0 />
 
             <v-flex md3 class="hidden-sm-and-down">
               <v-img src="/img/branding/inspires.png" />
@@ -58,11 +54,10 @@
                   type="password"
                 />
               </v-form>
-
             </v-flex>
           </v-layout>
         </v-card-text>
-        <v-card-actions class="mt-2 pb-3 px-3 text-xs-center" >
+        <v-card-actions class="mt-2 pb-3 px-3 text-xs-center">
           <v-flex shrink>
             <v-btn :to="{name:'register'}" dark flat outline color="primary">
               Register now!

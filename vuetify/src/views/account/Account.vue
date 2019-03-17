@@ -3,17 +3,28 @@ th{
   text-align: right;
   padding-right: 8px;
 }
+.gray-hover:hover{
+  background-color: #F8F8F8
+}
 </style>
 
 
 <template>
-
   <v-layout row wrap align-content-start>
-
     <v-flex xs12>
       <h1>Account Dashboard</h1>
     </v-flex>
 
+    <v-flex v-if="$route.query.newUser" xs12>
+      <v-alert color="success" :value="true">
+        <v-icon dark>
+          check
+        </v-icon>&nbsp;
+        Your new account has been created successfully. You can now access all of the features of the platform.
+      </v-alert>
+    </v-flex>
+
+    <!-- Account Details -->
     <v-flex xs12 pb-0>
       <h2>Details</h2>
     </v-flex>
@@ -24,15 +35,15 @@ th{
           <table style="max-width:400px">
             <tr>
               <th>First Name</th>
-              <td>{{current.first_name}}</td>
+              <td>{{ current.first_name }}</td>
             </tr>
             <tr>
               <th>Last Name</th>
-              <td>{{current.last_name}}</td>
+              <td>{{ current.last_name }}</td>
             </tr>
             <tr>
               <th>Email</th>
-              <td>{{current.email}}</td>
+              <td>{{ current.email }}</td>
             </tr>
           </table>
         </v-card-text>
@@ -45,44 +56,55 @@ th{
       <h2>Latest Updates</h2>
     </v-flex>
     <v-flex xs12>
-        <v-layout row wrap>
-          <v-flex sm6 md4>
-            <v-card flat>
-              <v-card-text>
-                <h3>Projects</h3>
-                <v-list three-line>
-                  <v-list-tile
-                    v-for="(project, idx) in projects"
-                    :to="{name:'project-detail', params:{slug:obj2slug(project)}}"
-                    :key="project.id">
-                    <v-list-tile-content>
-                      <v-list-tile-title>
-                        {{project.name}}
-                      </v-list-tile-title>
-                      <v-list-tile-sub-title>
-                        {{project.summary}}
-                      </v-list-tile-sub-title>
-                    </v-list-tile-content>
-                  </v-list-tile>
-                </v-list>
-              </v-card-text>
-            </v-card>
-          </v-flex>
-          <v-flex sm6 md4>
-            <v-card flat>
-              <v-card-title>
-                <h3>Structures</h3>
-              </v-card-title>
-            </v-card>
-          </v-flex>
-          <v-flex sm6 md4>
-            <v-card flat>
-              <v-card-title>
-                <h3>Commissioners</h3>
-              </v-card-title>
-            </v-card>
-          </v-flex>
-        </v-layout>
+      <v-layout row wrap>
+        <v-flex xs12 sm6 md4>
+          <v-card flat>
+            <v-card-text>
+              <v-btn fab small absolute top right
+                     title="Create new Project"
+                     color="success"
+                     :to="{name:'project-create'}"
+              >
+                <v-icon>add</v-icon>
+              </v-btn>
+              <h3>
+                Projects
+              </h3>
+              <br>
+
+              <template v-for="(project,idx) in projects">
+                <v-card
+                  :key="project.id"
+                  class="gray-hover"
+                  flat
+                  :to="{name:'project-detail', params:{slug:obj2slug(project)}}"
+                >
+                  <v-img :src="project.image_url" :height="idx==0 ? '125' : '50'" />
+                  <v-card-text class="px-0">
+                    <b>{{ project.name }}</b><br>
+                    {{ project.summary | ellipsis(100) }}
+                  </v-card-text>
+                </v-card>
+                <v-divider :key="project.id+'-div'" class="mb-3" />
+              </template>
+            </v-card-text>
+          </v-card>
+        </v-flex>
+        <v-flex xs12 sm6 md4>
+          <v-card flat>
+            <v-card-title>
+              <h3>Structures</h3>
+            </v-card-title>
+          </v-card>
+        </v-flex>
+        <v-flex xs12 sm6 md4>
+          <v-card flat>
+            <v-card-title>
+              <h3>Commissioners</h3>
+            </v-card-title>
+          </v-card>
+        </v-flex>
+      </v-layout>
     </v-flex>
   </v-layout>
 </template>
@@ -96,10 +118,6 @@ export default {
     return{
       obj2slug
     }
-  },
-
-  mounted(){
-    this.$store.dispatch("project/load", this.projectIds)
   },
 
   computed:{
@@ -117,6 +135,10 @@ export default {
     projects(){
       return this.projectIds.map(id => this.$store.getters['project/detail'](id))
     }
+  },
+
+  mounted(){
+    this.$store.dispatch("project/load", this.projectIds)
   }
 
 };

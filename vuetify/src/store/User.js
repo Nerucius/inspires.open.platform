@@ -93,6 +93,7 @@ export default {
     register: async function(context, newUser){
       return new Promise(async (resolve, reject) => {
         try {
+          await refreshCSRFCookie();
           await Vue.http.post(userRegisterUrl, newUser, {
             emulateJSON: true
           });

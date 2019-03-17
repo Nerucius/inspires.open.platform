@@ -10,13 +10,16 @@
     <v-spacer />
 
     <v-toolbar-items class="hidden-sm-and-down">
-      <v-btn exact :to="{name:'home'}" flat>
-        Home
+      <v-btn v-for="link in links" :key="link.name"
+             flat
+             exact
+             :to="{name:link.name}"
+      >
+        {{ $t(link.label) }}
       </v-btn>
-      <v-btn exact :to="{path:'/projects'}" flat>
-        Projects
-      </v-btn>
+
       <v-divider vertical />
+
       <LanguageSelector />
       <LoginLogoutButton />
     </v-toolbar-items>
@@ -59,7 +62,7 @@ export default {
     return{
       links: [
         {name: "home", label:"navigation.links.home"},
-        {name: "about", label:"navigation.links.about"}
+        {name: "project-list", label:"navigation.links.projects"}
       ]
     }
   },
@@ -76,7 +79,8 @@ export default {
     },
     getCalendar() {},
     logout() {
-      this.$store.dispatch["user/logout"]
+      this.$store.dispatch("user/logout")
+      this.$router.push({name:'home'});
     }
   }
 };

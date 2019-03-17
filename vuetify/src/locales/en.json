@@ -4,7 +4,22 @@
       "welcomeMessage":"Welcome to the InSPIRES Platform"
     },
     "register": {
-      "acceptTOS":"Accept the Terms and Conditions"
+      "titles":{
+        "step1":"First things first",
+        "step2":"Tell us a bit about yourself",
+        "step3":"Terms of Service",
+        "step4":"Almost done!"
+      },
+      "acceptTOS":"Accept Terms & Conditions",
+      "welcomeMessage":"Welcome to the registration page for the InSPIRES Open Platform. Here you can create your own user to log into the site.",
+      "welcomeMessage2":"Registering allows you to start contributing to the site! You can also register Intermediation Organizations and Research Projects to your or your Organization's name.",
+      "step1Message": "Please write down your prefered user name and password. This user name is what you will use to login to the platform.",
+      "step2Message": "Tell us your full name and email so it can be displayed along your projects and other activities in the platform. Your email will only be used for alerts and notifications.",
+      "step3Message": "Before you can register, you will have to agree to our terms of service for the platform.",
+      "readTOSHere": "You can read the terms of service here.",
+      "step3MessageAccepted": "Great! we can continue with the rest of the registration.",
+      "step4Message": "Please review the following information. If everything seems correct you can proceed with the registration.",
+      "step4MessageInvite": "During the first period of testing, we are restricting the registration to those personally invited. Please enter the code provided to you below:"
     },
     "home": {
       "mainTitle":"Welcome to InSPIRES",
@@ -26,6 +41,11 @@
     "_": ""
   },
   "navigation": {
+    "links":{
+      "home": "Home",
+      "projects": "Projects",
+      "about": "About"
+    },
     "dashboard" : "Dashboard",
     "projects" : "My Projects",
     "structures" : "My Structures",
@@ -80,15 +100,21 @@
       "lastName": "Last Name",
       "email": "Email",
       "summary": "Summary",
-      "researchers": "Researchers",
+      "participants": "Participants",
       "username": "Username",
       "password": "Password",
       "passwordRepeat": "Repeat your password",
       "title": "Title",
-      "author": "Author"
+      "role": "Role",
+      "invitationCode": "Invitation Code"
     },
     "hints":{
       "password": "Your password must be at least 8 characters, not be a common password and not contain your username."
+    }
+  },
+  "dialog":{
+    "confirm":{
+      "participationDeletion" : "Are you sure you want to remove this person from the project?\n\nThis action can't be undone and you will lose all content related to this user.\n\nPress OK to confirm."
     }
   },
   "$vuetify": {

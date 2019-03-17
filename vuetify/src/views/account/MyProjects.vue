@@ -24,11 +24,11 @@
               {{ "Manager" | ellipsis(1, false) }}
             </v-btn>
             <v-btn
-              v-if="isResearcher(project)" fab small
-              title="You are a researcher"
+              v-if="isParticipants(project)" fab small
+              title="You are a participant"
               color="success" class="elevation-0"
             >
-              {{ "Researcher" | ellipsis(1, false) }}
+              {{ "Participants" | ellipsis(1, false) }}
             </v-btn>
           </v-flex>
           <v-flex pr-4>
@@ -91,9 +91,9 @@ export default {
   },
 
   methods:{
-    isResearcher(project){
+    isParticipants(project){
       let userId = this.$store.getters['user/current'].id
-      return project.researchers.indexOf(userId) >= 0
+      return project.participants.indexOf(userId) >= 0
     },
     isManager(project){
       let userId = this.$store.getters['user/current'].id

@@ -7,8 +7,9 @@ import './plugins/vuetify'
 import "./plugins/filters";
 import "./plugins/resource";
 import "./registerServiceWorker";
-import FlagIcon from "vue-flag-icon";
+import "./plugins/toastr"
 
+import FlagIcon from "vue-flag-icon";
 Vue.use(FlagIcon);
 
 Vue.config.productionTip = false;

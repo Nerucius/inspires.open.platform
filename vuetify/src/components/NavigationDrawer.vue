@@ -64,7 +64,7 @@
       <!-- User Menu -->
       <v-flex v-if="!showAccountMenu" shrink>
         <v-list>
-          <v-list-tile :to="{name:'my-dashboard'}" exact>
+          <v-list-tile :to="{name:'account'}" exact>
             <v-list-tile-action>
               <v-icon>dashboard</v-icon>
             </v-list-tile-action>

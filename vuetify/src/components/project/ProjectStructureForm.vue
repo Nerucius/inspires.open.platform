@@ -1,39 +1,41 @@
 <template>
-  <v-form ref="form" v-model="valid" v-if="project">
+  <v-form v-if="project" ref="form" v-model="valid">
     <h2>Associated Intermediation Structure</h2>
     <p class="subheading">
       Select under which Intermediation Structure your project is established.
     </p>
 
     <v-alert color="info"
-      :value="isReadOnly && !project.collaboration.is_approved"
-      class="subheading"
-      >
-      <v-icon dark>info</v-icon>
+             :value="isReadOnly && !project.collaboration.is_approved"
+             class="subheading"
+    >
+      <v-icon dark>
+        info
+      </v-icon>
       The structure has yet to approve your Project before it will be shown in
       the website.
     </v-alert>
-    <p v-if="isReadOnly && !project.collaboration.is_approved"></p>
+    <p v-if="isReadOnly && !project.collaboration.is_approved" />
 
     <v-combobox
-                box
-                ref="structureCB"
-                v-model="project.collaboration.structure"
-                @update:searchInput="updateStructureSearch($event)"
-                @input="clearSearch('structureCB')"
-                :items="structureSearch"
-                :rules="[rules.isStructure, rules.required]"
-                :readonly="isReadOnly"
-                label="Intermediation Structure"
-                cache-items
-                item-text="name"
-                item-value="id"
-                chips
-                deletable-chips
+      ref="structureCB"
+      v-model="project.collaboration.structure"
+      box
+      :items="structureSearch"
+      :rules="[rules.isStructure, rules.required]"
+      :readonly="isReadOnly"
+      label="Intermediation Structure"
+      cache-items
+      item-text="name"
+      item-value="id"
+      chips
+      deletable-chips
+      @update:searchInput="updateStructureSearch($event)"
+      @input="clearSearch('structureCB')"
     />
 
-    <v-btn block large color="success"
-            v-if="!isReadOnly"
+    <v-btn v-if="!isReadOnly" block large
+           color="success"
            :disabled="!valid || processing"
            :loading="processing"
            @click="attemptSubmit()"
@@ -41,8 +43,8 @@
       {{ $t('actions.save') }}
     </v-btn>
 
-    <v-btn block large color="error"
-            v-if="isReadOnly"
+    <v-btn v-if="isReadOnly" block large
+           color="error"
            :disabled="!valid || processing"
            :loading="processing"
            @click="deleteCollaboration()"

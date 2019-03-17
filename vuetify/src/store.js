@@ -8,6 +8,7 @@ import user from "./store/User";
 import project from "./store/Project";
 import structure from "./store/Structure";
 import collaboration from "./store/Collaboration";
+import participation from "./store/Participation";
 
 // CRUD Models
 
@@ -19,6 +20,7 @@ export default new Vuex.Store({
     user,
     project,
     structure,
-    collaboration
+    collaboration,
+    participation
   }
 });

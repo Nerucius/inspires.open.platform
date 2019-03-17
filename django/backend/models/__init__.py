@@ -10,6 +10,11 @@ from django.contrib.auth.models import Group
 # Other models
 from backend.models.multilang_field import MultilangField, MultilangFieldEntry
 from backend.models.structure import Structure
-from backend.models.project import Project
+from backend.models.project import (
+    Project,
+    KnowledgeArea,
+    Participation,
+    ParticipationRole,
+)
 from backend.models.collaboration import Collaboration
 from backend.models.keyword import Keyword

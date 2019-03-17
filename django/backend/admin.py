@@ -27,8 +27,9 @@ for model in [
     models.Collaboration,
     models.Structure,
     models.Project,
+    models.KnowledgeArea,
     models.Keyword,
-    models.MultilangField,
-    models.MultilangFieldEntry,
+    models.Participation,
+    models.ParticipationRole,
 ]:
     admin.site.register(model, column_lister(model))

@@ -28,8 +28,12 @@ class Collaboration(TrackableModel):
 
     @classmethod
     def can_create(cls, user, data):
+        # Check performed by framework
+        if len(data) == 0:
+            return True
+
         # Can only create in a state of not approved and when user is manager
-        print(data)
+
         project = Project.objects.get(pk=data["project"])
 
         return (not hasattr(data, "is_approved")) and project.managers.filter(

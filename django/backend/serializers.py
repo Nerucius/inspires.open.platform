@@ -30,10 +30,11 @@ class UserSerializer(serializers.ModelSerializer):
 
 class ProjectSerializer(TrackableModelSerializer):
     collaboration = CollaborationSerializer(read_only=True)
-    managers = serializers.PrimaryKeyRelatedField(
-        many=True, required=False, queryset=models.User.objects
+    participants = ParticipationSerializer(
+        source="participation_set", many=True, read_only=True
     )
-    researchers = serializers.PrimaryKeyRelatedField(
+
+    managers = serializers.PrimaryKeyRelatedField(
         many=True, required=False, queryset=models.User.objects
     )
     keywords = serializers.PrimaryKeyRelatedField(
@@ -43,6 +44,7 @@ class ProjectSerializer(TrackableModelSerializer):
     class Meta:
         model = models.Project
         fields = "__all__"
+        # fields = ["collaboration", "participants", "managers", "keywords"]
 
 
 class StructureSerializer(TrackableModelSerializer):

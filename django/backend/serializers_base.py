@@ -52,10 +52,20 @@ class CollaborationSerializer(serializers.ModelSerializer):
         fields = ["id", "is_approved", "project", "structure", "partners"]
 
 
+class ParticipationSerializer(serializers.ModelSerializer):
+    project = serializers.PrimaryKeyRelatedField(queryset=models.Project.objects)
+    user = serializers.PrimaryKeyRelatedField(queryset=models.User.objects)
+    role = serializers.PrimaryKeyRelatedField(queryset=models.ParticipationRole.objects)
+
+    class Meta:
+        model = models.Participation
+        fields = ["id", "user", "project", "role"]
+
+
 class SimpleProjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Project
-        fields = ["id", "name", "researchers", "keywords", "summary", "image_url"]
+        fields = ["id", "name", "participants", "keywords", "summary", "image_url"]
 
 
 class SimpleStructureSerializer(serializers.ModelSerializer):

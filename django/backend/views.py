@@ -37,13 +37,45 @@ def login(request):
 
 def logout(request):
     auth.logout(request)
-    return HttpResponse("Logged out")
+    return HttpResponse("OK")
 
 
 def register(request):
     print(request.POST)
-    eloi = models.User.objects.get(username="eloi.puertas")
-    auth.login(request, eloi)
+    try:
+        invitation = request.POST["invitation"]
+
+        assert invitation == "join-inspires-2019", "000 Invitation code does not match"
+
+        username = request.POST["username"]
+        password = request.POST["password"]
+        password2 = request.POST["password2"]
+        first_name = request.POST["first_name"]
+        last_name = request.POST["last_name"]
+        email = request.POST["email"]
+
+        assert password == password2, "001 Passwords don't match"
+        assert not models.User.objects.filter(
+            username=username
+        ).exists(), "002 Username already exists"
+
+        newUser = models.User.objects.create_user(
+            username,
+            email=email,
+            password=password,
+            first_name=first_name,
+            last_name=last_name,
+        )
+        userGroup = models.Group.objects.get(name="Users")
+        newUser.groups.add(userGroup)
+        newUser.save()
+        auth.login(request, newUser)
+
+    except:
+        import sys
+
+        return HttpResponseBadRequest(sys.exc_info())
+
     return HttpResponse("OK")
 
 
@@ -135,9 +167,14 @@ class StructuresVS(ListDetail, viewsets.ModelViewSet):
     detail_serializer_class = serializers.StructureSerializer
 
 
-class CollaborationsVS(ListDetail, viewsets.ModelViewSet):
-    queryset = models.Collaboration.objects
+class CollaborationsVS(viewsets.ModelViewSet):
+    queryset = models.Collaboration.objects.all()
     serializer_class = serializers.CollaborationSerializer
+
+
+class ParticipationVS(viewsets.ModelViewSet):
+    queryset = models.Participation.objects.all()
+    serializer_class = serializers.ParticipationSerializer
 
 
 class KeywordsVS(ListDetail, viewsets.ModelViewSet):

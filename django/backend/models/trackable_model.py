@@ -3,6 +3,7 @@ import os, inspect
 from django.db import models
 from django.dispatch import receiver
 from django.conf import settings
+from django.contrib.auth.models import AnonymousUser
 
 from hashlib import md5
 
@@ -77,7 +78,7 @@ def update_trackable(sender, instance, raw, using, update_fields, **kwargs):
 
         # Abort on shell scripts and such
         request_user = get_current_request_user()
-        if not request_user:
+        if not request_user or isinstance(request_user, AnonymousUser):
             return
 
         if settings.DEBUG:

@@ -34,80 +34,27 @@
                 Suggested to keep it under 200 characters."
     />
 
-    <h2>Participants and Managers</h2>
+    <h2>Project Managers</h2>
     <p />
     <p class="subheading">
-      People involved in the project.
+      Project managers have full access to the project and can edit the project's
+      details as well as add and remove managers and participants.
     </p>
 
-    <v-layout row wrap>
-      <!-- Managers -->
-      <v-flex sm12 md6>
-        <v-combobox ref="managersCB"
-                    v-model="editedProject.managers"
-                    box
-                    :items="userSearch"
-                    :rules="[rules.isUser]"
-                    label="Project Managers"
-                    item-text="full_name"
-                    item-value="id"
-                    multiple
-                    chips
-                    deletable-chips
-                    @update:searchInput="updateUserSearch($event)"
-                    @input="clearSearch('managersCB')"
-        />
-      </v-flex>
-
-      <!-- Participants -->
-      <v-flex sm12 md6>
-        <v-combobox ref="participantsCB"
-                    v-model="editedProject.participants"
-                    box
-                    :items="userSearch"
-                    :rules="[rules.isUser]"
-                    label="Project Participants"
-                    item-text="full_name"
-                    item-value="id"
-                    multiple
-                    chips
-                    deletable-chips
-                    @update:searchInput="updateUserSearch($event)"
-                    @input="clearSearch('participantsCB')"
-        >
-          <template v-slot:selection="data">
-            <v-card class="mt-2 mb-3" style="width:100%">
-              <v-card-text style="margin: -20px 0">
-                <v-layout row justify-center align-center>
-                  <v-flex pa-0>
-                    <v-btn small icon color="error" outline
-                           @click="removeParticipant(data.item)"
-                    >
-                      <v-icon small>
-                        remove
-                      </v-icon>
-                    </v-btn>
-                  </v-flex>
-                  <v-flex xs6 py-0 px-2>
-                    {{ data.item.full_name }}
-                  </v-flex>
-                  <v-flex xs6 py-0 px-1>
-                    <v-select
-                      v-model="data.item.role"
-                      :label="$t('forms.fields.role')"
-                      :rules="[rules.required]"
-                      :items="roles"
-                      item-text="name"
-                      item-value="id"
-                    />
-                  </v-flex>
-                </v-layout>
-              </v-card-text>
-            </v-card>
-          </template>
-        </v-combobox>
-      </v-flex>
-    </v-layout>
+    <v-combobox ref="managersCB"
+                v-model="editedProject.managers"
+                box
+                :items="userSearch"
+                :rules="[rules.isUser]"
+                label="Project Managers"
+                item-text="full_name"
+                item-value="id"
+                multiple
+                chips
+                deletable-chips
+                @update:searchInput="updateUserSearch($event)"
+                @input="clearSearch('managersCB')"
+    />
 
 
     <v-btn block large color="success"

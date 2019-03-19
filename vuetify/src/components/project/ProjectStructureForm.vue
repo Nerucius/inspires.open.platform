@@ -1,6 +1,8 @@
 <template>
   <v-form v-if="project" ref="form" v-model="valid">
     <h2>Associated Intermediation Structure</h2>
+    <p />
+
     <p class="subheading">
       Select under which Intermediation Structure your project is established.
     </p>

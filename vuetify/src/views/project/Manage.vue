@@ -41,6 +41,17 @@
       </v-card>
     </v-flex>
 
+    <v-flex xs12>
+      <v-card flat>
+        <v-card-text>
+          <ProjectParticipantsForm
+            :project-id="projectId"
+            :processing="buttonLoading"
+          />
+        </v-card-text>
+      </v-card>
+    </v-flex>
+
     <v-snackbar v-model="snackbar.active" top auto-height>
       {{ snackbar.message }}
       <v-btn color="pink" flat @click="snackbar.active = false">
@@ -52,13 +63,15 @@
 
 <script>
 import ProjectForm from "@/components/project/ProjectForm";
+import ProjectParticipantsForm from "@/components/project/ProjectParticipantsForm";
 import ProjectStructureForm from "@/components/project/ProjectStructureForm";
 import { slug2id } from "@/plugins/utils";
-import toastr from 'toastr'
+// import toastr from 'toastr'
 
 export default {
   components: {
     ProjectForm,
+    ProjectParticipantsForm,
     ProjectStructureForm,
   },
 

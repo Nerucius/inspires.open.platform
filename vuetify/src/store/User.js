@@ -16,36 +16,63 @@ export default {
 
   state: {
     current: null,
-    items: [],
-    itemMap: {},
+    items: {},
+    itemsDetail: {},
   },
 
   mutations: {
-    SET_CURRENT(state, user) {
-      state.current = user;
+    SET(state, {id, item}) {
+      state.items = { ...state.items, [id]:item }
     },
-    SET(state, items) {
-      state.items = items;
+
+    SET_DETAIL(state, {id, item}) {
+      state.itemsDetail = { ...state.itemsDetail, [id]:item }
     },
-    SET_MAP(state, {id, item}) {
-      state.itemMap = { ...state.itemMap, [id]:item }
+
+    SET_ALL(state, items){
+      let newItems = {}
+      items.forEach(i => {newItems[i.id] = i})
+      state.items = { ...state.items, ...newItems}
     },
+
+    SET_DETAIL_ALL(state, items) {
+      let newItems = {}
+      items.forEach(i => {newItems[i.id] = i})
+      state.itemsDetail = { ...state.itemsDetail, ...newItems }
+    },
+
+    SET_CURRENT(state, item){
+      state.current = item
+    }
   },
 
   actions: {
-    load: async function (context, ids) {
-      if (!ids){
-        // No ids provided, just get list of all
-        context.dispatch("loadCurrent")
-        let items = (await UserResource.get()).body.results
-        context.commit("SET", items)
-      }else{
+    load: async function (context, payload={}) {
+      if (Array.isArray(payload)){
         // Ids provided, get detailed information on given pids
-        let items = (await Promise.all(
-          ids.map(id => ProjectResource.get({id}) )
-        ))
+        let ids = payload
+        let items = await Promise.all(ids.map(id => UserResource.get({id})))
         items = items.map(i => i.body)
-        items.map(item => context.commit("SET_MAP", {id:item.id, item}))
+        context.commit("SET_DETAIL_ALL", items)
+
+      }else{
+        context.dispatch("loadCurrent")
+        // No ids provided, just get list of all
+        let params = payload.params || {}
+        let query = {...params}
+
+        let response = (await UserResource.get(query)).body
+        let items = response.results
+
+        // Iteratively get all pages
+        let next = response.next
+        while(next){
+          response = (await Vue.http.get(next)).body
+          items = [...items, ...response.results]
+          next = response.next
+        }
+
+        context.commit("SET_ALL", items)
       }
     },
 
@@ -57,14 +84,6 @@ export default {
         // no auth
         context.commit("SET_CURRENT", null)
       }
-    },
-
-    get: async function(context, userIds){
-      let users = await Promise.all(
-        userIds.map(id => UserResource.get({id}) )
-      )
-      users = users.map(u => u.body[0])
-      return users
     },
 
     login: async function (context, credentials) {
@@ -110,16 +129,16 @@ export default {
   },
 
   getters: {
-    all: state =>{
-      return state.items
+    all: state => {
+      return Object.values(state.items)
     },
 
     get: state =>{
-      return ( id ) => state.items.filter(item => item.id == id)[0] || {}
+      return ( id ) => (state.items[id] || {})
     },
 
     detail: state =>{
-      return ( id ) => state.itemMap[id] || {}
+      return ( id ) => (state.itemsDetail[id] || {})
     },
 
     current: state => {

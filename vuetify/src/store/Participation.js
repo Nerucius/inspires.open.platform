@@ -24,8 +24,8 @@ export default {
     },
 
     delete: async function (context, id){
-      let patcheObject = (await ParticipationResource.delete({id}))
-      return patcheObject
+      let result = (await ParticipationResource.delete({id}))
+      return result
     },
   },
 

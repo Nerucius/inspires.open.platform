@@ -81,8 +81,11 @@
                 <v-layout row justify-center align-center>
                   <v-flex pa-0>
                     <v-btn small icon color="error" outline
-                      @click="removeParticipant(data.item)">
-                      <v-icon small>remove</v-icon>
+                           @click="removeParticipant(data.item)"
+                    >
+                      <v-icon small>
+                        remove
+                      </v-icon>
                     </v-btn>
                   </v-flex>
                   <v-flex xs6 py-0 px-2>

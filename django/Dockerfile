@@ -13,9 +13,5 @@ RUN pip install --no-cache-dir uwsgi
 
 # Copy and install django app
 COPY . .
-RUN chmod a+x /app/docker-entrypoint.sh
 
-ENTRYPOINT [ "sh", "-c", "/app/docker-entrypoint.sh" ]
-
-# CMD [ "uwsgi", "--ini", "uwsgi.ini", "--py-autoreload", "1" ]
-# CMD python manage.py runserver 0:8080
+ENTRYPOINT [ "sh", "-c", "docker-entrypoint.sh" ]

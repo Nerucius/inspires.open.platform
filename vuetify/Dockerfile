@@ -14,8 +14,4 @@ RUN npm install
 # Copy project and build
 COPY . .
 
-# Setup env variables for debug
-# ENV VUE_APP_API_SERVER=http://localhost:8080
-# ENV NODE_ENV=development
-
-CMD [ "npm", "run", "build:docker" ]
+ENTRYPOINT [ "sh", "-c", "docker-entrypoint.sh" ]

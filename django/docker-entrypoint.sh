@@ -16,4 +16,5 @@ python manage.py loaddata participationrole
 # | python manage.py shell
 
 # Start Server
-uwsgi --ini uwsgi.ini --py-autoreload 1
+uwsgi --ini uwsgi.ini
+# uwsgi --ini uwsgi.ini --py-autoreload 1

@@ -13,7 +13,6 @@ table th{
 
 <template>
   <v-layout v-if="project" row wrap align-content-start>
-
     <v-flex v-if="!isApprovedProject" xs12>
       <v-alert color="info" :value="true" class="title">
         <v-icon dark left>
@@ -26,7 +25,9 @@ table th{
     <v-flex sm4 class="hidden-xs-only">
       <v-card flat>
         <v-toolbar dense flat color="primary" dark>
-            <h1 class="title">{{ $t('pages.projectDetail.information') }}</h1>
+          <h1 class="title">
+            {{ $t('pages.projectDetail.information') }}
+          </h1>
         </v-toolbar>
         <v-card-text class="subheading">
           <table>
@@ -37,15 +38,15 @@ table th{
               </th>
             </tr>
             <tr>
-              <td colspan="2" >
+              <td colspan="2">
                 <v-chip
-                  v-for="user in users(project.managers)" :key="user.id"
-                  @click="$router.push({name:'account', params:{slug:obj2slug(user, 'username')} })"
+                  v-for="uid in project.managers" :key="uid"
+                  @click="$router.push({name:'account', params:{slug:obj2slug(user(uid), 'username')} })"
                 >
                   <v-avatar>
-                    <img :src="user.avatar_url">
+                    <img :src="user(uid).avatar_url">
                   </v-avatar>
-                  {{ user.full_name }}
+                  {{ user(uid).full_name }}
                 </v-chip>
               </td>
             </tr>
@@ -56,7 +57,7 @@ table th{
               </th>
             </tr>
             <tr>
-              <td colspan="2" >
+              <td colspan="2">
                 <v-chip
                   v-for="part in project.participants" :key="part.id"
                   @click="$router.push({name:'account', params:{slug:obj2slug(user(part.user), 'username')} })"
@@ -65,7 +66,7 @@ table th{
                     <img :src="user(part.user).avatar_url">
                   </v-avatar>
                   {{ user(part.user).full_name }}
-                   ({{ role(part.role) }})
+                  ({{ role(part.role) }})
                 </v-chip>
               </td>
             </tr>
@@ -76,31 +77,34 @@ table th{
 
     <v-flex xs12 sm8>
       <v-card flat>
-
-
         <v-img :src="project.image_url || defaultImage" height="200">
           <v-toolbar dense flat style="background-color:rgba(0,0,0,.3)" dark>
-              <h1 class="title">{{ project.name }}</h1>
+            <h1 class="title">
+              {{ project.name }}
+            </h1>
           </v-toolbar>
         </v-img>
 
         <v-card-text>
-          <h2 class="headline">Summary</h2>
+          <h2 class="headline">
+            Summary
+          </h2>
           <p>
-            {{project.summary}}
+            {{ project.summary }}
           </p>
 
-          <h2 class="headline">Description</h2>
+          <h2 class="headline">
+            Description
+          </h2>
           <p>
-            {{project.description}}
+            {{ project.description }}
           </p>
 
-          <h2 class="headline">Related projects</h2>
-          <p>
-          </p>
-
+          <h2 class="headline">
+            Related projects
+          </h2>
+          <p />
         </v-card-text>
-
       </v-card>
     </v-flex>
   </v-layout>
@@ -143,9 +147,6 @@ export default {
   methods:{
     user(uid){
       return this.$store.getters["user/get"](uid)
-    },
-    users(userIds){
-      return userIds.map(uid => this.$store.getters["user/get"](uid))
     },
 
     role(rid){

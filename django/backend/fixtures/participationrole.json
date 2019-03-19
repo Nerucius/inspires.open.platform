@@ -1,0 +1,22 @@
+[{
+    "model": "backend.participationrole",
+    "pk": 1,
+    "fields": {
+        "tag": "SCI",
+        "name": "Scientist"
+    }
+}, {
+    "model": "backend.participationrole",
+    "pk": 2,
+    "fields": {
+        "tag": "STU",
+        "name": "Student"
+    }
+}, {
+    "model": "backend.participationrole",
+    "pk": 3,
+    "fields": {
+        "tag": "CSM",
+        "name": "Civil Society"
+    }
+}]

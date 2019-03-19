@@ -5,6 +5,11 @@ echo "Running migrations..."
 # python manage.py makemigrations
 python manage.py migrate
 python manage.py collectstatic --no-input
+# Load necessary fixtures
+python loaddata auth-group
+python loaddata auth-user
+python loaddata knowledgearea
+python loaddata participationrole
 # echo "from backend.models import User; \
 # User.objects.create_superuser('admin', 'admin@localhost', '123456')" \
 # | python manage.py shell

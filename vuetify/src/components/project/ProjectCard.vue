@@ -3,7 +3,8 @@
     <v-img
       style="overflow: visible"
       :src="project.image_url || defaultImage"
-      aspect-ratio="1.75">
+      aspect-ratio="1.75"
+    >
       <v-btn
         v-for="(user,idx) in users(project.participants)"
         :key="user.id"

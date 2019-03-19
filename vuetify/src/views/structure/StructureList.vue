@@ -1,6 +1,5 @@
 <template>
   <v-layout row wrap align-content-start>
-
     <v-flex xs12>
       <v-card flat>
         <v-card-text>
@@ -17,11 +16,7 @@
         </v-card-text>
       </v-card>
     </v-flex>
-
   </v-layout>
-
-
-
 </template>
 
 

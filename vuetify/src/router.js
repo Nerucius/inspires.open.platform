@@ -47,7 +47,7 @@ const router = new Router({
         {
             path: "/structures/:slug",
             name: "structure-detail",
-            component: () => import( /* webpackChunkName: "structure-list" */ "./views/structure/StructureList.vue")
+            component: () => import( /* webpackChunkName: "structure-list" */ "./views/structure/StructureDetail.vue")
         },
         // ======= PROJECTS =======
         {

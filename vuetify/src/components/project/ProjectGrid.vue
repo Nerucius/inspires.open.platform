@@ -1,7 +1,7 @@
 <template>
   <v-card flat>
     <v-card-text>
-      <h1>{{ $t('pages.home.projectsTitle') }}</h1>
+      <h1 v-if="!hideTitle">{{ $t('pages.home.projectsTitle') }}</h1>
       <p />
 
       <v-container grid-list-xl>
@@ -24,7 +24,7 @@ export default {
     ProjectCard
   },
 
-  props: ["projects"],
+  props: ["projects", "hideTitle"],
 
   data() {
     return {

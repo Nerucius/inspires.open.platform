@@ -14,4 +14,5 @@ RUN npm install
 # Copy project and build
 COPY . .
 
-ENTRYPOINT [ "sh", "-c", "docker-entrypoint.sh" ]
+WORKDIR /vuetify
+ENTRYPOINT [ "sh", "-c", "./docker-entrypoint.sh" ]

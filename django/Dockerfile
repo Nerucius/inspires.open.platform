@@ -14,4 +14,5 @@ RUN pip install --no-cache-dir uwsgi
 # Copy and install django app
 COPY . .
 
-ENTRYPOINT [ "sh", "-c", "docker-entrypoint.sh" ]
+WORKDIR /app
+ENTRYPOINT [ "sh", "-c", "./docker-entrypoint.sh" ]

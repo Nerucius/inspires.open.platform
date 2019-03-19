@@ -15,4 +15,5 @@ RUN pip install --no-cache-dir uwsgi
 COPY . .
 
 WORKDIR /app
+RUN chmod a+x docker-entrypoint.sh
 ENTRYPOINT [ "sh", "-c", "./docker-entrypoint.sh" ]

@@ -15,4 +15,5 @@ RUN npm install
 COPY . .
 
 WORKDIR /vuetify
+RUN chmod a+x docker-entrypoint.sh
 ENTRYPOINT [ "sh", "-c", "./docker-entrypoint.sh" ]

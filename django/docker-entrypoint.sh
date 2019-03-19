@@ -6,6 +6,7 @@ echo "Running migrations..."
 python manage.py migrate
 python manage.py collectstatic --no-input
 # Load necessary fixtures
+echo "Loading Fixtures..."
 python loaddata auth-group
 python loaddata auth-user
 python loaddata knowledgearea

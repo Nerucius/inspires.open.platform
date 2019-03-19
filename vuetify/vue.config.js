@@ -37,8 +37,8 @@ module.exports = {
     },
     // Route Prerenderer
     prerenderSpa: {
-      // renderRoutes: [ '/', '/about' ],
-      renderRoutes: [],
+      renderRoutes: [ '/' ],
+      // renderRoutes: [],
       headless: true,
       registry: undefined,
       onlyProduction: true,

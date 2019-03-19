@@ -1,6 +1,6 @@
 module.exports = {
   pwa: {
-    name: 'DjangoVue'
+    name: 'InSPIRES Platform'
   },
 
   // Allow npm run serve on local testing domain
@@ -37,7 +37,8 @@ module.exports = {
     },
     // Route Prerenderer
     prerenderSpa: {
-      renderRoutes: [ '/', '/about' ],
+      // renderRoutes: [ '/', '/about' ],
+      renderRoutes: [],
       headless: true,
       registry: undefined,
       onlyProduction: true,

@@ -7,7 +7,7 @@
     <v-flex xs12>
       <v-card flat>
         <v-card-text>
-          <ProjectForm
+          <FormProjectBase
             :processing="buttonLoading"
             @submit="createProject($event)"
           />
@@ -25,13 +25,13 @@
 </template>
 
 <script>
-import ProjectForm from "@/components/project/ProjectForm";
+import FormProjectBase from "@/components/project/FormProjectBase";
 import { obj2slug } from "@/plugins/utils";
 
 export default {
 
   components:{
-    ProjectForm,
+    FormProjectBase,
   },
 
   data(){

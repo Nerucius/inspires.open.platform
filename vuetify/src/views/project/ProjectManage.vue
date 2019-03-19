@@ -20,7 +20,7 @@
     <v-flex xs12>
       <v-card flat>
         <v-card-text>
-          <ProjectStructureForm
+          <FormProjectStructure
             :project-id="projectId"
             :processing="buttonLoading"
             @submit="createProjectCollaboration($event)"
@@ -32,7 +32,7 @@
     <v-flex xs12>
       <v-card flat>
         <v-card-text>
-          <ProjectForm
+          <FormProjectBase
             :project-id="projectId"
             :processing="buttonLoading"
             @submit="updateProject($event)"
@@ -44,7 +44,7 @@
     <v-flex xs12>
       <v-card flat>
         <v-card-text>
-          <ProjectParticipantsForm
+          <FormProjectParticipants
             :project-id="projectId"
             :processing="buttonLoading"
           />
@@ -62,17 +62,17 @@
 </template>
 
 <script>
-import ProjectForm from "@/components/project/ProjectForm";
-import ProjectParticipantsForm from "@/components/project/ProjectParticipantsForm";
-import ProjectStructureForm from "@/components/project/ProjectStructureForm";
+import FormProjectBase from "@/components/project/FormProjectBase";
+import FormProjectParticipants from "@/components/project/FormProjectParticipants";
+import FormProjectStructure from "@/components/project/FormProjectStructure";
 import { slug2id } from "@/plugins/utils";
 // import toastr from 'toastr'
 
 export default {
   components: {
-    ProjectForm,
-    ProjectParticipantsForm,
-    ProjectStructureForm,
+    FormProjectBase,
+    FormProjectParticipants,
+    FormProjectStructure,
   },
 
   data() {

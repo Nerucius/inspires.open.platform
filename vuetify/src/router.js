@@ -38,32 +38,43 @@ const router = new Router({
             name: "about",
             component: () => import( /* webpackChunkName: "about" */ "./views/About.vue")
         },
+        // ======= STRUCTURES =======
+        {
+            path: "/structures",
+            name: "structure-list",
+            component: () => import( /* webpackChunkName: "structure-list" */ "./views/structure/StructureList.vue")
+        },
+        {
+            path: "/structures/:slug",
+            name: "structure-detail",
+            component: () => import( /* webpackChunkName: "structure-list" */ "./views/structure/StructureList.vue")
+        },
         // ======= PROJECTS =======
         {
             path: "/projects",
             name: "project-list",
-            component: () => import( /* webpackChunkName: "project-list" */ "./views/project/List.vue")
+            component: () => import( /* webpackChunkName: "project-list" */ "./views/project/ProjectList.vue")
         },
         {
             path: "/projects/create",
             name: "project-create",
-            component: () => import( /* webpackChunkName: "project-create" */ "./views/project/Create.vue")
+            component: () => import( /* webpackChunkName: "project-create" */ "./views/project/ProjectCreate.vue")
         },
         {
             path: "/projects/:slug/manage",
             name: "project-manage",
-            component: () => import( /* webpackChunkName: "project-manage" */ "./views/project/Manage.vue")
+            component: () => import( /* webpackChunkName: "project-manage" */ "./views/project/ProjectManage.vue")
         },
         {
             path: "/projects/:slug",
             name: "project-detail",
-            component: () => import( /* webpackChunkName: "project-detail" */ "./views/project/Detail.vue")
+            component: () => import( /* webpackChunkName: "project-detail" */ "./views/project/ProjectDetail.vue")
         },
         // ======= ACCOUNT =======
         {
             path: "/account/projects",
             name: "account-projects",
-            component: () => import( /* webpackChunkName: "account-projects" */ "./views/account/MyProjects.vue")
+            component: () => import( /* webpackChunkName: "account-projects" */ "./views/account/AccountProjects.vue")
         },
         {
             path: "/account/:slug?",

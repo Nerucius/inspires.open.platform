@@ -8,7 +8,7 @@
 
 
 <script>
-import ProjectGrid from "@/components/home/ProjectGrid";
+import ProjectGrid from "@/components/project/ProjectGrid";
 
 export default {
   components: {

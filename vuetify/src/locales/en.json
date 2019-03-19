@@ -28,6 +28,9 @@
       "projectsTitle": "Projects",
       "projectsSeeMore": "See all projects"
     },
+    "structures":{
+      "title": "Structures"
+    },
     "projectDetail":{
       "information": "Information"
     },
@@ -44,6 +47,7 @@
     "links":{
       "home": "Home",
       "projects": "Projects",
+      "structures": "Structures",
       "about": "About"
     },
     "dashboard" : "Dashboard",

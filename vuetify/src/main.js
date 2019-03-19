@@ -7,7 +7,7 @@ import './plugins/vuetify'
 import "./plugins/filters";
 import "./plugins/resource";
 import "./registerServiceWorker";
-import "./plugins/toastr"
+// import "./plugins/toastr"
 
 import FlagIcon from "vue-flag-icon";
 Vue.use(FlagIcon);

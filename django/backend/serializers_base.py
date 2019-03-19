@@ -68,13 +68,28 @@ class SimpleProjectSerializer(serializers.ModelSerializer):
         fields = ["id", "name", "participants", "keywords", "summary", "image_url"]
 
 
-class SimpleStructureSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = models.Structure
-        fields = ["id", "name"]
-
-
 class SimpleKeywordSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Keyword
         fields = ["id", "name"]
+
+
+class KnowledgeAreaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.KnowledgeArea
+        fields = ["id", "code", "name"]
+
+
+class SimpleStructureSerializer(serializers.ModelSerializer):
+    knowledge_areas = KnowledgeAreaSerializer(many=True)
+
+    class Meta:
+        model = models.Structure
+        fields = [
+            "id",
+            "name",
+            "summary",
+            "image_url",
+            "year_founded",
+            "knowledge_areas",
+        ]

@@ -51,8 +51,8 @@ class StructureSerializer(TrackableModelSerializer):
     managers = serializers.PrimaryKeyRelatedField(
         many=True, queryset=models.User.objects
     )
+
     collaborations = CollaborationSerializer(many=True, read_only=True)
-    partnerships = CollaborationSerializer(many=True, read_only=True)
 
     class Meta:
         model = models.Structure

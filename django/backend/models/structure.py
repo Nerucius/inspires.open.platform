@@ -13,9 +13,41 @@ class Structure(TrackableModel):
     )
 
     name = models.CharField(max_length=254)
+    summary = models.TextField()
+    year_founded = models.PositiveIntegerField()
+    image_url = models.URLField(max_length=500)
+
+    knowledge_areas = models.ManyToManyField("KnowledgeArea", blank=True)
+
+    # TODO: Define if should be choice fields or foreign keys
+    # structure_type = models.CharField(max_length=254)
+    # structure_research_type = models.CharField(max_length=254)
+
+    # TODO: this will have to be like the form for "participants"
+    # funding = models.ManyToManyField("Funding")
+
+    networks = models.ManyToManyField(
+        "Network", blank=True, related_name="projects", related_query_name="project"
+    )
+
+    contact_email = models.EmailField(blank=True)
+    contact_postal_address = models.TextField(blank=True)
+    contact_website = models.URLField(max_length=500, blank=True)
+    contact_social_facebook = models.URLField(max_length=500, blank=True)
+    contact_social_twitter = models.URLField(max_length=500, blank=True)
+    contact_social_other = models.URLField(max_length=500, blank=True)
 
     def can_write(self, user):
         return self.managers.filter(pk=user.pk).exists()
+
+    def __str__(self):
+        return self.name
+
+
+class Network(models.Model):
+
+    name = models.CharField(max_length=254)
+    summary = models.TextField()
 
     def __str__(self):
         return self.name

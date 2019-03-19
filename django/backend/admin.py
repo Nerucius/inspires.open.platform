@@ -26,6 +26,7 @@ for model in [
     ContentType,
     models.Collaboration,
     models.Structure,
+    models.Network,
     models.Project,
     models.KnowledgeArea,
     models.Keyword,

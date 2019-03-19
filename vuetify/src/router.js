@@ -61,9 +61,9 @@ const router = new Router({
         },
         // ======= ACCOUNT =======
         {
-            path: "/account/:slug",
+            path: "/account/:slug?",
             name: "account",
-            component: () => import( /* webpackChunkName: "account-projects" */ "./views/account/Account.vue")
+            component: () => import( /* webpackChunkName: "account" */ "./views/account/Account.vue")
         },
         {
             path: "/account/projects",

@@ -87,7 +87,7 @@
             <v-list-tile-title>{{ $t("navigation.structures") }}</v-list-tile-title>
           </v-list-tile>
 
-          <v-list-tile :to="{name:'account-commissioners'}" exact>
+          <v-list-tile :to="{name:'account'}" exact>
             <v-list-tile-action>
               <v-icon>public</v-icon>
             </v-list-tile-action>

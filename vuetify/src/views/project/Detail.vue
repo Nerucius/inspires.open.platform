@@ -13,9 +13,6 @@ table th{
 
 <template>
   <v-layout v-if="project" row wrap align-content-start>
-    <v-flex xs12>
-      <h1><small>Project |</small> {{ project.name }}</h1>
-    </v-flex>
 
     <v-flex v-if="!isApprovedProject" xs12>
       <v-alert color="info" :value="true" class="title">
@@ -26,24 +23,40 @@ table th{
       </v-alert>
     </v-flex>
 
-    <v-flex xs12>
+    <v-flex sm4 class="hidden-xs-only">
       <v-card flat>
         <v-toolbar dense flat color="primary" dark>
-          <v-toolbar-title>{{ $t('pages.projectDetail.information') }}</v-toolbar-title>
+            <h1 class="title">{{ $t('pages.projectDetail.information') }}</h1>
         </v-toolbar>
         <v-card-text class="subheading">
           <table>
+            <!-- Managers -->
             <tr>
-              <th>{{ $t('forms.fields.name') }}:</th>
-              <td>{{ project.name }}</td>
+              <th colspan="2" style="text-align:left">
+                {{ $t('forms.fields.managers') }}:
+              </th>
             </tr>
             <tr>
-              <th>{{ $t('forms.fields.summary') }}:</th>
-              <td>{{ project.summary }}</td>
+              <td colspan="2" >
+                <v-chip
+                  v-for="user in users(project.managers)" :key="user.id"
+                  @click="$router.push({name:'account', params:{slug:obj2slug(user, 'username')} })"
+                >
+                  <v-avatar>
+                    <img :src="user.avatar_url">
+                  </v-avatar>
+                  {{ user.full_name }}
+                </v-chip>
+              </td>
+            </tr>
+            <!-- Participants -->
+            <tr>
+              <th colspan="2" style="text-align:left">
+                {{ $t('forms.fields.participants') }}:
+              </th>
             </tr>
             <tr>
-              <th>{{ $t('forms.fields.participants') }}:</th>
-              <td>
+              <td colspan="2" >
                 <v-chip
                   v-for="part in project.participants" :key="part.id"
                   @click="$router.push({name:'account', params:{slug:obj2slug(user(part.user), 'username')} })"
@@ -52,12 +65,42 @@ table th{
                     <img :src="user(part.user).avatar_url">
                   </v-avatar>
                   {{ user(part.user).full_name }}
-                  [ {{ part.role }} ]
+                   ({{ role(part.role) }})
                 </v-chip>
               </td>
             </tr>
           </table>
         </v-card-text>
+      </v-card>
+    </v-flex>
+
+    <v-flex xs12 sm8>
+      <v-card flat>
+
+
+        <v-img :src="project.image_url || defaultImage" height="200">
+          <v-toolbar dense flat style="background-color:rgba(0,0,0,.3)" dark>
+              <h1 class="title">{{ project.name }}</h1>
+          </v-toolbar>
+        </v-img>
+
+        <v-card-text>
+          <h2 class="headline">Summary</h2>
+          <p>
+            {{project.summary}}
+          </p>
+
+          <h2 class="headline">Description</h2>
+          <p>
+            {{project.description}}
+          </p>
+
+          <h2 class="headline">Related projects</h2>
+          <p>
+          </p>
+
+        </v-card-text>
+
       </v-card>
     </v-flex>
   </v-layout>
@@ -73,7 +116,8 @@ export default {
   data(){
     return {
       obj2slug,
-      project: null
+      project: null,
+      defaultImage : "https://png.pngtree.com/thumb_back/fw800/back_pic/00/03/14/92561d1ba31f9fe.jpg"
     }
   },
 
@@ -102,6 +146,12 @@ export default {
     },
     users(userIds){
       return userIds.map(uid => this.$store.getters["user/get"](uid))
+    },
+
+    role(rid){
+      if (rid==1) return "Sc"
+      if (rid==2) return "St"
+      if (rid==3) return "CS"
     }
   },
 

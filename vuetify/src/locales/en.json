@@ -101,6 +101,7 @@
       "email": "Email",
       "summary": "Summary",
       "participants": "Participants",
+      "managers": "Managers",
       "username": "Username",
       "password": "Password",
       "passwordRepeat": "Repeat your password",

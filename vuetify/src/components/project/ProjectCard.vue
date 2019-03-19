@@ -1,6 +1,6 @@
 <template>
   <v-card v-if="project.id">
-    <v-img style="overflow: visible" :src="project.image_url" aspect-ratio="1.75">
+    <v-img style="overflow: visible" :src="project.image_url || defaultImage" aspect-ratio="1.75">
       <v-btn
         v-for="(user,idx) in users(project.participants)"
         :key="user.id"
@@ -68,7 +68,8 @@ export default {
 
   data(){
     return{
-      obj2slug
+      obj2slug,
+      defaultImage : "https://png.pngtree.com/thumb_back/fw800/back_pic/00/03/14/92561d1ba31f9fe.jpg"
     }
   },
 

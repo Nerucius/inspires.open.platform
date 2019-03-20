@@ -1,7 +1,9 @@
 <template>
   <v-card flat>
     <v-card-text>
-      <h1 v-if="!hideTitle">{{ $t('pages.home.projectsTitle') }}</h1>
+      <h1 v-if="!hideTitle">
+        {{ $t('pages.home.projectsTitle') }}
+      </h1>
       <p />
 
       <v-container grid-list-xl>

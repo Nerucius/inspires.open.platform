@@ -14,25 +14,23 @@
       :src="structure.image_url || defaultImage"
       aspect-ratio="1.75"
     >
-
       <v-layout fill-height align-end>
         <v-flex xs12 pb-0>
           <v-toolbar style="background-color:rgba(0,0,0,.3)" dense flat>
-            <v-chip dark color="grey darken-4"
-              v-for="area in structure.knowledge_areas.slice(0,3)" :key="area.code"
-              @click="$router.push(`/structures/areas/${obj2slug(area)}`)"
-              :title="area.name"
+            <v-chip v-for="area in structure.knowledge_areas.slice(0,3)" :key="area.code"
+                    dark color="grey darken-4"
+                    :title="area.name"
+                    @click="$router.push(`/structures/areas/${obj2slug(area)}`)"
             >
               {{ area.name | ellipsis(10) }}
             </v-chip>
-            <v-chip dark color="grey darken-4"
-              v-if="structure.knowledge_areas.length > 3">
+            <v-chip v-if="structure.knowledge_areas.length > 3" dark
+                    color="grey darken-4"
+            >
               ...
             </v-chip>
           </v-toolbar>
-
         </v-flex>
-
       </v-layout>
     </v-img>
 
@@ -40,7 +38,7 @@
     <v-card-text>
       <v-sheet style="overflow: hidden;" height="150">
         <h2 style="font-size:125%">
-          {{ structure.name }} <small>| {{ structure.year_founded}}</small>
+          {{ structure.name }} <small>| {{ structure.year_founded }}</small>
         </h2>
         <br>
         <p>{{ structure.summary | ellipsis(200) }}</p>

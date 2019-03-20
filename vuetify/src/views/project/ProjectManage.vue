@@ -20,11 +20,7 @@
     <v-flex xs12>
       <v-card flat>
         <v-card-text>
-          <FormProjectStructure
-            :project-id="projectId"
-            :processing="buttonLoading"
-            @submit="createProjectCollaboration($event)"
-          />
+          <!-- <FormProjectStructure v-if="dataReady" :project="project" /> -->
         </v-card-text>
       </v-card>
     </v-flex>
@@ -32,11 +28,7 @@
     <v-flex xs12>
       <v-card flat>
         <v-card-text>
-          <FormProjectBase
-            :project-id="projectId"
-            :processing="buttonLoading"
-            @submit="updateProject($event)"
-          />
+          <!-- <FormProjectBase v-if="dataReady" :project="project" /> -->
         </v-card-text>
       </v-card>
     </v-flex>
@@ -44,20 +36,12 @@
     <v-flex xs12>
       <v-card flat>
         <v-card-text>
-          <FormProjectParticipants
-            :project-id="projectId"
-            :processing="buttonLoading"
-          />
+          <FormProjectParticipants v-if="dataReady" :project="project" />
         </v-card-text>
       </v-card>
     </v-flex>
 
-    <v-snackbar v-model="snackbar.active" top auto-height>
-      {{ snackbar.message }}
-      <v-btn color="pink" flat @click="snackbar.active = false">
-        {{ $t('actions.close') }}
-      </v-btn>
-    </v-snackbar>
+
   </v-layout>
 </template>
 
@@ -77,11 +61,7 @@ export default {
 
   data() {
     return {
-      buttonLoading: false,
-      snackbar: {
-        message:"",
-        active:false,
-      },
+      dataReady: false,
     }
   },
 
@@ -89,9 +69,11 @@ export default {
     projectId() {
       return slug2id(this.$route.params.slug);
     },
+    project(){
+      return this.$store.getters["project/detail"](this.projectId)
+    },
     projectOwner(){
-      let project = this.$store.getters["project/detail"](this.projectId)
-      return this.$store.getters["user/get"](project.owner)
+      return this.$store.getters["user/get"](this.project.owner)
     },
     isOwner(){
       return this.projectOwner.id == this.$store.getters['user/current'].id
@@ -99,33 +81,10 @@ export default {
   },
 
   async mounted() {
+    // Important to await before moving on here
+    await this.$store.dispatch("project/load", [this.projectId])
+    this.dataReady = true
   },
 
-  methods: {
-    async updateProject(project) {
-      this.buttonLoading = true
-      this.snackbar.active = true
-      try{
-        await this.$store.dispatch("project/update", project)
-        this.snackbar.message = this.$t('pages.projectManage.success')
-      } catch(err){
-        this.snackbar.message = this.$t('pages.projectManage.failure')
-      }
-      this.buttonLoading = false
-    },
-
-    async createProjectCollaboration(collaboration) {
-      console.log(collaboration)
-      this.buttonLoading = true
-      this.snackbar.active = true
-      try{
-        await this.$store.dispatch("collaboration/create", collaboration)
-        this.snackbar.message = this.$t('pages.projectManage.collaborationSuccess')
-      } catch(err){
-        this.snackbar.message = this.$t('pages.projectManage.collaborationFailure')
-      }
-      this.buttonLoading = false
-    }
-  }
 };
 </script>

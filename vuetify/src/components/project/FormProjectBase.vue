@@ -72,7 +72,7 @@
 import { cloneDeep } from "lodash";
 
 export default {
-  props: ["processing", "projectId"],
+  props: ["project"],
 
   data() {
     return {
@@ -84,26 +84,21 @@ export default {
           v.length > 10 || this.$t("forms.rules.minimunLength", { length: 10 })
       },
       userSearch: [],
-      editedProject: {
-        name: "",
-        summary: "",
-        participants: [],
-        managers: [],
-      },
+      editedProject: {},
       roles: [
         {id:1, name:"Scientist"},
         {id:2, name:"Student"},
         {id:3, name:"Civil Society"},
       ],
+      processing: false,
     };
   },
 
-  async mounted() {
-    this.$store.dispatch("structure/load");
+  mounted() {
 
-    if (this.projectId) {
+    if (this.project.id) {
       // Editing existing project
-      this.editedProject = this.loadProject(this.projectId)
+      this.editedProject = this.loadProject()
 
     }else{
       // New Project
@@ -121,63 +116,39 @@ export default {
       return this.$store.getters['user/get'](uid)
     },
 
-    loadProject: async function(project){
-      await this.$store.dispatch("project/load", [this.projectId]);
-      let originalProject = this.$store.getters["project/detail"](
-        this.projectId
-      );
+    loadProject: function(){
+      let loadedProject = cloneDeep(this.project)
 
       // Transform attributes to be compatible with Form
-      this.editedProject = { ...this.editedProject, ...originalProject };
-      this.editedProject.managers = this.editedProject.managers.map(id => this.user(id))
-      this.editedProject.participants = this.editedProject.participants.map(part =>
+      loadedProject.managers = (loadedProject.managers || []).map(id => this.user(id))
+      loadedProject.participants = (loadedProject.participants || []).map(part =>
         ({...this.user(part.user), role: part.role, partId: part.id})
       )
-    },
 
-    removeParticipant(user){
-      if(confirm(this.$t('dialog.confirm.participationDeletion'))){
-        if(user.partId){
-          this.$store.dispatch("participation/delete", user.partId)
-        }
-
-        this.editedProject.participants = this.editedProject.participants.filter(u => u.id != user.id)
-      }
+      return loadedProject
     },
 
     attemptSubmit: async function() {
       if (this.$refs.form.validate()) {
-        let project = { ...this.editedProject };
-
+        let project = cloneDeep(this.editedProject);
         project.managers = project.managers.map(u => u.id)
 
-        // De-transform the participation users back into participation objects
-        project.participants = project.participants.map(user => (
-          {
-            id: user.partId,
-            user: user.id,
-            role: user.role,
-            project: this.projectId,
-          }
-        ))
 
-        await (Promise.all(
-          project.participants.map(async part => {
-            if(part.id){
-              // Update
-              await this.$store.dispatch("participation/update", part)
-            }else{
-              // Create
-              await this.$store.dispatch("participation/create", part)
-            }
-          })
-        ))
+        this.processing = true
+        let message
+        try{
+          await this.$store.dispatch("project/update", project)
+          message = this.$t('pages.projectManage.success')
+        } catch(err){
+          message = this.$t('pages.projectManage.failure')
+        }
+        this.processing = false
 
-        if(this.projectId){
-          await this.loadProject(this.projectId)
+        // Reload project to get updated IDS
+        if(this.project.id){
+          this.editedProject = this.loadProject()
         }
 
-        this.$emit("submit", project);
       }
     },
 

@@ -93,28 +93,24 @@ table th{
             Overview of all the projects that are nested under this structure.
           </p>
 
-          <v-card class="mb-5" v-for="project in projects" :key="project.id">
+          <v-card v-for="project in projects" :key="project.id" class="mb-5">
             <v-layout row>
               <v-flex xs4 py-0>
-              <v-img height="100%" :src="project.image_url || defaultImage"></v-img>
+                <v-img height="100%" :src="project.image_url || defaultImage" />
               </v-flex>
 
               <v-flex xs8 py-2 pr-3>
                 <h3>{{ project.name }}</h3>
-                <p>{{project.summary | ellipsis(180)}}</p>
+                <p>{{ project.summary | ellipsis(180) }}</p>
 
                 <div class="text-xs-right">
                   <v-btn flat :to="{name:'project-detail', params:{slug:obj2slug(project)}}">
                     More
                   </v-btn>
                 </div>
-
               </v-flex>
-
             </v-layout>
           </v-card>
-
-
         </v-card-text>
       </v-card>
     </v-flex>
@@ -125,12 +121,10 @@ table th{
 
 <script>
 import { slug2id, obj2slug } from "@/plugins/utils";
-import ProjectGrid from "@/components/project/ProjectGrid";
 
 export default {
 
   components:{
-    ProjectGrid,
   },
 
   data(){

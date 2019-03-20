@@ -71,7 +71,7 @@
 import { cloneDeep } from "lodash";
 
 export default {
-  props: ["processing", "projectId"],
+  props: ["project"],
 
   data() {
     return {
@@ -81,6 +81,7 @@ export default {
         required: v => !!v || this.$t("forms.rules.requiredField"),
       },
       participants: null,
+      processing: false,
       userSearch: [],
       targetUser: null,
       roles: [
@@ -98,7 +99,7 @@ export default {
   },
 
   async mounted() {
-    this.loadProject()
+    this.loadParticipants()
   },
 
   methods: {
@@ -106,14 +107,9 @@ export default {
       return this.$store.getters['user/get'](uid)
     },
 
-    loadProject: async function(){
-      let store = this.$store
-
-      await store.dispatch("project/load", [this.projectId]);
-      let project = store.getters["project/detail"](this.projectId);
-
+    loadParticipants: async function(){
       // Transform attributes to be compatible with Form
-      this.participants = project.participants.map(part =>
+      this.participants = this.project.participants.map(part =>
         ({
           ...this.user(part.user),
           role: part.role,
@@ -131,7 +127,7 @@ export default {
             id: user.partId,
             user: user.id,
             role: user.role,
-            project: this.projectId,
+            project: this.project.id,
           }
         ))
 
@@ -146,6 +142,8 @@ export default {
             }
           })
         ))
+
+        this.loadParticipants()
       }
     },
 
@@ -162,6 +160,8 @@ export default {
     },
 
     removeParticipant(user){
+      console.log(user)
+
       if( confirm(this.$t('dialog.confirm.participationDeletion')) ) {
         // Delete only if participation was saved
         if(!!user.partId){

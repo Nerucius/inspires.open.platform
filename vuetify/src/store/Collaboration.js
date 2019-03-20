@@ -35,12 +35,18 @@ export default {
 
     create: async function (context, object){
       let result = (await CollaborationResource.save(object))
+      return result
     },
 
     update: async function (context, object){
       let result = (await CollaborationResource.update({id:object.id}, object))
       context.dispatch("load")
       context.dispatch("load", [object.id])
+    },
+
+    delete: async function (context, id){
+      let result = (await CollaborationResource.delete({id}))
+      return result
     },
   },
 

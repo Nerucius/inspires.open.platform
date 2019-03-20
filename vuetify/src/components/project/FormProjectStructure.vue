@@ -8,7 +8,7 @@
     </p>
 
     <v-alert color="info"
-             :value="isReadOnly && !project.collaboration.is_approved"
+             :value="isReadOnly && !collaboration.is_approved"
              class="subheading"
     >
       <v-icon dark>
@@ -17,17 +17,16 @@
       The structure has yet to approve your Project before it will be shown in
       the website.
     </v-alert>
-    <p v-if="isReadOnly && !project.collaboration.is_approved" />
+    <p v-if="isReadOnly && !collaboration.is_approved" />
 
     <v-combobox
       ref="structureCB"
-      v-model="project.collaboration.structure"
+      v-model="collaboration.structure"
       box
       :items="structureSearch"
       :rules="[rules.isStructure, rules.required]"
       :readonly="isReadOnly"
       label="Intermediation Structure"
-      cache-items
       item-text="name"
       item-value="id"
       chips
@@ -59,7 +58,7 @@
 
 <script>
 export default {
-  props: ["processing", "projectId"],
+  props: ["project"],
 
   data() {
     return {
@@ -68,15 +67,18 @@ export default {
         isStructure: v => this.isStructure(v) || this.$t("forms.rules.mustBeStructure"),
         required: v => !!v || this.$t("forms.rules.mustBeStructure"),
       },
+      collaboration: {},
       structureSearch: [],
-      project: null,
-      isReadOnly: false
+      processing: false,
     };
   },
 
   computed: {
     structures() {
       return this.$store.getters["structure/all"]
+    },
+    isReadOnly(){
+      return !!this.collaboration.id
     }
   },
 
@@ -85,37 +87,60 @@ export default {
 
     // Load structures and project
     await store.dispatch("structure/load");
-    await store.dispatch("project/load", [this.projectId]);
-
     this.structureSearch = this.structures.slice(0,5)
-    this.project = store.getters["project/detail"](this.projectId)
 
-    if(this.project.collaboration == null){
-      // Create new collab if project is currently free
-      this.project.collaboration = {
-        project: this.projectId,
-        structure: null
-      }
-    }else{
+    if(this.project.collaboration != null){
       // Existing Collaboration
       let structureId = this.project.collaboration.structure
-      this.project.collaboration.structure = store.getters['structure/get'](structureId)
-      this.isReadOnly = true
+      let structure = store.getters["structure/get"](structureId)
+      this.collaboration = {
+        id: this.project.collaboration.id,
+        project: this.projectId,
+        structure: structure
+      }
     }
 
   },
 
   methods: {
-    attemptSubmit() {
+    attemptSubmit: async function() {
       if (this.$refs.form.validate()) {
-        let collab = {...this.project.collaboration}
-        collab.structure = collab.structure.id
-        this.$emit("submit", collab);
+
+        let collab = {
+          project: this.project.id,
+          structure: this.collaboration.structure.id
+        }
+
+        this.processing = true
+        let message
+
+        try{
+          let result = (await this.$store.dispatch("collaboration/create", collab)).body
+          // overwrite data
+          this.collaboration = result
+          this.collaboration.structure = this.$store.getters["structure/get"](result.structure)
+          console.log(result)
+
+          message = this.$t('pages.projectManage.collaborationSuccess')
+        } catch(err){
+          message = this.$t('pages.projectManage.collaborationSuccess')
+        }
+
+        this.processing = false
+        // this.$store.dispatch("snackbar/show", {message})
       }
     },
 
     deleteCollaboration(){
-      alert("not implemented")
+      let alertMessage = this.$t('pages.projectManage.deleteCollaborationAlert')
+      if(confirm(alertMessage)){
+        this.$store.dispatch("collaboration/delete", this.collaboration.id)
+
+        // Reset collaboration
+        this.structureSearch = this.structures.slice(0,5)
+        this.collaboration = {}
+      }
+
     },
 
     isStructure(value){

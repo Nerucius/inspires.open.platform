@@ -24,9 +24,9 @@
     </v-img>
 
     <v-card-text>
-      <v-sheet style="overflow: hidden;" height="150">
-        <h2 style="font-size:125%">
-          {{ project.name }}
+      <v-sheet style="overflow: hidden;" height="175">
+        <h2 style="font-size:125%" :title="project.name">
+          {{ project.name | ellipsis(50) }}
         </h2>
         <br>
         <p>{{ project.summary | ellipsis(200) }}</p>

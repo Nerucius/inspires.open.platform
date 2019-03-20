@@ -30,6 +30,11 @@ export default {
       items.forEach(i => {newItems[i.id] = i})
       state.itemsDetail = { ...state.itemsDetail, ...newItems }
     },
+
+    DELETE(state, id){
+      delete state.items[id]
+      delete state.itemsDetail[id]
+    }
   },
 
   actions: {
@@ -68,15 +73,15 @@ export default {
     },
 
     update: async function (context, object){
-      let updatedItem = (await ProjectResource.update({id:object.id}, object))
-      context.dispatch("load")
-      context.dispatch("load", [object.id])
+      let updatedItem = (await ProjectResource.update({id:object.id}, object)).body
+      context.commit("SET_ALL", [updatedItem])
+      context.commit("SET_DETAIL_ALL", [updatedItem])
       return updatedItem
     },
 
     delete: async function (context, id){
       let result = (await ParticipationResource.delete({id}))
-      context.dispatch("load")
+      context.dispatch("DELETE", id)
       return result
     },
   },

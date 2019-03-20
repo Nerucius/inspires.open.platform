@@ -67,21 +67,6 @@ class Project(TrackableModel):
         return self.name
 
 
-class KnowledgeArea(models.Model):
-    parent = models.ForeignKey(
-        "KnowledgeArea", blank=True, null=True, on_delete=models.CASCADE
-    )
-
-    code = models.CharField(max_length=16)
-    name = models.CharField(max_length=128)
-
-    def __str__(self):
-        return "[%s] %s" % (self.code, self.name)
-
-    class Meta:
-        ordering = ["code"]
-
-
 class Participation(models.Model):
     project = models.ForeignKey("Project", on_delete=models.CASCADE)
     user = models.ForeignKey("User", on_delete=models.CASCADE)

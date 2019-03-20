@@ -127,7 +127,7 @@ class Orderable(object):
 
 
 class UsersVS(ListDetail, viewsets.ReadOnlyModelViewSet):
-    queryset = models.User.objects
+    queryset = models.User.objects.all()
     filterset_fields = ["id", "username"]
 
     serializer_class = serializers.SimpleUserSerializer
@@ -135,7 +135,7 @@ class UsersVS(ListDetail, viewsets.ReadOnlyModelViewSet):
 
 
 class GroupsVS(viewsets.ReadOnlyModelViewSet):
-    queryset = models.Group.objects
+    queryset = models.Group.objects.all()
     serializer_class = serializers.SimpleGroupSerializer
 
 
@@ -145,8 +145,8 @@ class GroupsVS(viewsets.ReadOnlyModelViewSet):
 
 
 class ProjectsVS(ListDetail, Orderable, viewsets.ModelViewSet):
-    queryset = models.Project.objects
-    filterset_fields = ["name", "collaboration__structure", "keywords", "managers"]
+    queryset = models.Project.objects.all()
+    filterset_fields = ["name", "collaboration__structure", "keywords", "participants"]
 
     serializer_class = serializers.SimpleProjectSerializer
     detail_serializer_class = serializers.ProjectSerializer
@@ -159,8 +159,8 @@ class ProjectsVS(ListDetail, Orderable, viewsets.ModelViewSet):
         return queryset
 
 
-class StructuresVS(ListDetail, viewsets.ModelViewSet):
-    queryset = models.Structure.objects
+class StructuresVS(ListDetail, Orderable, viewsets.ModelViewSet):
+    queryset = models.Structure.objects.all()
     filterset_fields = ["name", "collaboration__project", "managers"]
 
     serializer_class = serializers.SimpleStructureSerializer
@@ -171,14 +171,18 @@ class CollaborationsVS(viewsets.ModelViewSet):
     queryset = models.Collaboration.objects.all()
     serializer_class = serializers.CollaborationSerializer
 
+    filterset_fields = ["project", "structure"]
+
 
 class ParticipationVS(viewsets.ModelViewSet):
     queryset = models.Participation.objects.all()
     serializer_class = serializers.ParticipationSerializer
 
+    filterset_fields = ["project", "user"]
+
 
 class KeywordsVS(ListDetail, viewsets.ModelViewSet):
-    queryset = models.Keyword.objects
+    queryset = models.Keyword.objects.all()
     serializer_class = serializers.SimpleKeywordSerializer
     detail_serializer_class = serializers.KeywordSerializer
 

@@ -3,24 +3,15 @@ from backend import models
 
 
 class TrackableModelSerializer(serializers.ModelSerializer):
+    owner = serializers.PrimaryKeyRelatedField(
+        required=False, queryset=models.User.objects
+    )
     created_by = serializers.PrimaryKeyRelatedField(read_only=True)
     created_at = serializers.DateTimeField(read_only=True)
     modified_by = serializers.PrimaryKeyRelatedField(read_only=True)
     modified_at = serializers.DateTimeField(read_only=True)
-    owner = serializers.PrimaryKeyRelatedField(
-        required=False, queryset=models.User.objects
-    )
-
-    # def get_field_names(self, declared_fields, info):
-    #     print("get_field_names")
-    #     fields = super(TrackableModelSerializer, self).get_field_names(
-    #         declared_fields, info
-    #     )
-    #     fields += ["created_by", "created_at", "modified_by", "modified_at", "owner"]
-    #     return fields
 
 
-# Serializers define the API representation.
 class SimpleGroupSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.Group
@@ -62,12 +53,6 @@ class ParticipationSerializer(serializers.ModelSerializer):
         fields = ["id", "user", "project", "role"]
 
 
-class SimpleProjectSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = models.Project
-        fields = ["id", "name", "participants", "keywords", "summary", "image_url"]
-
-
 class SimpleKeywordSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Keyword
@@ -78,6 +63,22 @@ class KnowledgeAreaSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.KnowledgeArea
         fields = ["id", "code", "name"]
+
+
+class SimpleProjectSerializer(serializers.ModelSerializer):
+    knowledge_area = KnowledgeAreaSerializer()
+
+    class Meta:
+        model = models.Project
+        fields = [
+            "id",
+            "name",
+            "participants",
+            "keywords",
+            "summary",
+            "image_url",
+            "knowledge_area",
+        ]
 
 
 class SimpleStructureSerializer(serializers.ModelSerializer):

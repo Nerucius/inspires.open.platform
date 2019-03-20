@@ -32,13 +32,11 @@ class Collaboration(TrackableModel):
         if len(data) == 0:
             return True
 
-        # Can only create in a state of not approved and when user is manager
-
+        # Can only create in a state of not approved and when user has write perm
+        # to the project
         project = Project.objects.get(pk=data["project"])
 
-        return (not hasattr(data, "is_approved")) and project.managers.filter(
-            pk=user.pk
-        ).exists()
+        return (not hasattr(data, "is_approved")) and project.can_write(user)
 
     def can_write(self, user):
         # Only structure may change the instance

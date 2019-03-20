@@ -38,7 +38,7 @@ class Project(TrackableModel):
     summary = models.TextField(blank=True)
     description = models.TextField(blank=True)
 
-    image_url = models.URLField(max_length=500)
+    image_url = models.URLField(max_length=500, blank=True)
     contact_email = models.EmailField(max_length=500, blank=True)
     contact_website = models.URLField(max_length=500, blank=True)
 
@@ -61,7 +61,7 @@ class Project(TrackableModel):
     related_projects = models.ManyToManyField("Project", blank=True)
 
     def can_write(self, user):
-        return self.managers.filter(pk=user.pk).exists()
+        return self.managers.filter(pk=user.pk).exists() or user == self.owner
 
     def __str__(self):
         return self.name

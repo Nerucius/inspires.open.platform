@@ -11,6 +11,11 @@
 import ProjectGrid from "@/components/project/ProjectGrid";
 
 export default {
+
+  metaInfo:{
+    title: "All Projects"
+  },
+
   components: {
     ProjectGrid
   },

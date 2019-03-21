@@ -24,6 +24,11 @@
 import StructureCard from "@/components/structure/StructureCard";
 
 export default {
+
+  metaInfo:{
+    title: "All Structures"
+  },
+
   components: {
     StructureCard
   },

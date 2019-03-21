@@ -13,6 +13,16 @@ table th{
 
 <template>
   <v-layout v-if="project" row wrap align-content-start>
+    <v-flex v-if="project.owner == $store.getters['user/current'].id" pa-0 xs12
+            class="text-xs-right"
+    >
+      <v-btn flat outline color="warning" :to="manageLink">
+        <v-icon left>
+          edit
+        </v-icon>Manage this Project
+      </v-btn>
+    </v-flex>
+
     <v-flex v-if="!isApprovedProject" xs12>
       <v-alert color="info" :value="true" class="title">
         <v-icon dark left>
@@ -117,6 +127,12 @@ import { slug2id, obj2slug } from "@/plugins/utils";
 
 export default {
 
+  metaInfo(){
+    return {
+      title: (this.project || {}).name
+    }
+  },
+
   data(){
     return {
       obj2slug,
@@ -132,6 +148,9 @@ export default {
     isApprovedProject(){
       return (this.project.collaboration != null && this.project.collaboration.is_approved)
     },
+    manageLink() {
+      return ({name:"project-manage", params:{slug:obj2slug(this.project)}})
+    }
   },
 
   async mounted(){

@@ -28,7 +28,9 @@
         <h2 style="font-size:125%" :title="project.name">
           {{ project.name | ellipsis(50) }}
         </h2>
-        <br>
+        <v-btn flat class="my-1 mx-0 pa-2 grey lighten-5 caption font-weight-light text-uppercase">
+          {{ project.knowledge_area.name }}
+        </v-btn>
         <p>{{ project.summary | ellipsis(200) }}</p>
       </v-sheet>
     </v-card-text>
@@ -52,7 +54,7 @@
       <v-btn
         flat
         alt="project-see-more"
-        :to="{name:'project-detail', params:{slug:obj2slug(project)}}"
+        :to="link"
       >
         {{ $t('actions.more') }}
         <v-icon right class="hidden-sm-and-down">
@@ -72,8 +74,13 @@ export default {
 
   data(){
     return{
-      obj2slug,
       defaultImage : "https://png.pngtree.com/thumb_back/fw800/back_pic/00/03/14/92561d1ba31f9fe.jpg"
+    }
+  },
+
+  computed:{
+    link() {
+      return ({name:"project-detail", params:{slug:obj2slug(this.project)}})
     }
   },
 

@@ -10,7 +10,6 @@
 <template>
   <v-card v-if="structure.id">
     <v-img
-      style="overflow: visible"
       :src="structure.image_url || defaultImage"
       aspect-ratio="1.75"
     >
@@ -22,7 +21,7 @@
                     :title="area.name"
                     @click="$router.push(`/structures/areas/${obj2slug(area)}`)"
             >
-              {{ area.name | ellipsis(10) }}
+              {{ area.name | ellipsis(16) }}
             </v-chip>
             <v-chip v-if="structure.knowledge_areas.length > 3" dark
                     color="grey darken-4"
@@ -49,7 +48,7 @@
       <v-btn
         flat
         alt="project-see-more"
-        :to="{name:'structure-detail', params:{slug:obj2slug(structure)}}"
+        :to="link"
       >
         {{ $t('actions.more') }}
         <v-icon right class="hidden-sm-and-down">
@@ -69,8 +68,13 @@ export default {
 
   data(){
     return{
-      obj2slug,
       defaultImage : "https://png.pngtree.com/thumb_back/fw800/back_pic/00/03/14/92561d1ba31f9fe.jpg"
+    }
+  },
+
+  computed:{
+    link() {
+      return ({name:"structure-detail", params:{slug:obj2slug(this.structure)}})
     }
   },
 

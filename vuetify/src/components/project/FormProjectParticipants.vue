@@ -143,6 +143,7 @@ export default {
           })
         ))
 
+        await this.$store.dispatch("project/load",[this.project.id])
         this.loadParticipants()
       }
     },
@@ -159,7 +160,7 @@ export default {
       }
     },
 
-    removeParticipant(user){
+    removeParticipant: async function(user){
       console.log(user)
 
       if( confirm(this.$t('dialog.confirm.participationDeletion')) ) {
@@ -170,6 +171,9 @@ export default {
 
         this.participants = this.participants.filter(u => u.id != user.id)
       }
+
+      await this.$store.dispatch("project/load",[this.project.id])
+      this.loadParticipants()
     },
 
     clearSearch() {

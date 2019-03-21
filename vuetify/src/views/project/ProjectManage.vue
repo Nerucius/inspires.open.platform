@@ -4,15 +4,17 @@
       <h1>{{ $t('pages.projectManage.title') }}</h1>
     </v-flex>
 
-    <v-flex xs12>
+    <v-flex v-if="isOwner" xs12>
       <v-card flat>
         <v-card-text>
-          <h3>
-            Project Owner: {{ projectOwner.full_name }}
-            <v-btn v-if="isOwner" flat>
+          <p class="subheading mb-0">
+            <strong>
+              Project Owner: {{ projectOwner.full_name }}
+            </strong>
+            <v-btn flat>
               Transfer Ownership
             </v-btn>
-          </h3>
+          </p>
         </v-card-text>
       </v-card>
     </v-flex>
@@ -20,7 +22,7 @@
     <v-flex xs12>
       <v-card flat>
         <v-card-text>
-          <!-- <FormProjectStructure v-if="dataReady" :project="project" /> -->
+          <FormProjectStructure v-if="dataReady" :project="project" />
         </v-card-text>
       </v-card>
     </v-flex>
@@ -28,7 +30,7 @@
     <v-flex xs12>
       <v-card flat>
         <v-card-text>
-          <!-- <FormProjectBase v-if="dataReady" :project="project" /> -->
+          <FormProjectBase v-if="dataReady" :project="project" />
         </v-card-text>
       </v-card>
     </v-flex>
@@ -40,8 +42,6 @@
         </v-card-text>
       </v-card>
     </v-flex>
-
-
   </v-layout>
 </template>
 

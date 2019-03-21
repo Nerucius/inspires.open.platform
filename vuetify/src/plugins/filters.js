@@ -13,6 +13,12 @@ Vue.filter('uppercase', value => {
   return value.toUpperCase()
 })
 
+Vue.filter('nlbr', value => {
+  if (!value) return ''
+  value = value.toString()
+  return value.replace(/\n/g, "<br>")
+})
+
 Vue.filter('ellipsis', (value, maxChars, dots=true) => {
   if (!value) return ""
 
@@ -30,5 +36,5 @@ Vue.filter('localize', value => {
 
 
 Vue.filter('slug', value => {
-  return value.toString().substring(0,20).toLowerCase().replace(" ", "-")
+  return value.toString().substring(0,20).toLowerCase().replace(/\s/g, "-")
 })

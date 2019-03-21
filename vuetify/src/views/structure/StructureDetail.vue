@@ -6,7 +6,7 @@ table td, table th{
   padding: 0 8px 8px 8px;
 }
 table th{
-  text-align: right;
+  text-align: left;
 }
 </style>
 
@@ -22,7 +22,7 @@ table th{
       </v-alert>
     </v-flex>
 
-    <v-flex sm4 class="hidden-xs-only">
+    <v-flex sm4 xs12>
       <v-card flat>
         <v-toolbar dense flat color="primary" dark>
           <h1 class="title">
@@ -32,8 +32,22 @@ table th{
         <v-card-text class="subheading">
           <table>
             <tr>
-              <th>Year of Establishment:</th>
-              <td>{{ structure.year_founded }}</td>
+              <th>Email:</th>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <a :href="'mailto:'+structure.contact_email">
+                  {{ structure.contact_email }}
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <th>Address:</th>
+            </tr>
+            <tr>
+              <td colspan="2"
+                  :inner-html.prop="structure.contact_postal_address | nlbr"
+              />
             </tr>
 
             <!-- Managers -->
@@ -72,19 +86,25 @@ table th{
 
         <v-card-text>
           <h2 class="headline mb-2">
-            Summary
+            Introduction
           </h2>
           <p class="subheading">
             {{ structure.summary }}
           </p>
 
           <h2 class="headline mb-2">
-            Description
+            About Us
           </h2>
           <p class="subheading">
             {{ structure.description || "No description available..." }}
           </p>
+        </v-card-text>
+      </v-card>
+    </v-flex>
 
+    <v-flex xs12>
+      <v-card flat>
+        <v-card-text>
           <h2 class="headline mb-2">
             Projects under this Structure
           </h2>
@@ -123,6 +143,12 @@ table th{
 import { slug2id, obj2slug } from "@/plugins/utils";
 
 export default {
+
+  metaInfo(){
+    return {
+      title: (this.structure || {}).name
+    }
+  },
 
   components:{
   },

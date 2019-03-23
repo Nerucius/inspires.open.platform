@@ -187,6 +187,11 @@ class KeywordsVS(ListDetail, viewsets.ModelViewSet):
     detail_serializer_class = serializers.KeywordSerializer
 
 
+class KnowledgeAreasVS(ListDetail, viewsets.ModelViewSet):
+    queryset = models.KnowledgeArea.objects.all()
+    serializer_class = serializers.KnowledgeAreaSerializer
+
+
 # ===========================
 # RELATED OBJECTS ENDPOINTS
 # ===========================

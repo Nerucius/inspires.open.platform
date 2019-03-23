@@ -1,7 +1,6 @@
 <template>
   <v-form ref="form" v-model="valid">
-    <h2>Project Details</h2>
-    <p />
+    <h2 class="mb-2"> Project Details</h2>
 
     <p class="subheading">
       Define your project information.
@@ -16,6 +15,7 @@
       label="Project Acronym"
       hint="Choose a Project Acronim."
     />
+
     <v-text-field
       v-model="editedProject.name"
       box
@@ -25,6 +25,7 @@
       hint="Choose a name that characterizes your project.
                 Less than 50 characters suggested."
     />
+
     <v-textarea
       v-model="editedProject.summary"
       box
@@ -34,8 +35,7 @@
                 Suggested to keep it under 200 characters."
     />
 
-    <h2>Project Managers</h2>
-    <p />
+    <h2 class="mb-2">Project Managers</h2>
     <p class="subheading">
       Project managers have full access to the project and can edit the project's
       details as well as add and remove managers and participants.
@@ -55,6 +55,50 @@
                 @update:searchInput="updateUserSearch($event)"
                 @input="clearSearch('managersCB')"
     />
+
+    <!-- Expanded details, only after save -->
+    <template v-if="editedProject.id">
+
+      <h2 class="mb-2">Expand your project details</h2>
+
+      <v-text-field
+        box
+        v-model="editedProject.contact_email"
+        label="Contact Email"
+        hint="Where should people reach you with questions about the project?"
+      />
+      <v-text-field
+        box
+        v-model="editedProject.contact_website"
+        label="Project Homepage"
+        hint="Homepage or website of the project"
+      />
+
+      <v-select
+        box
+        v-model="editedProject.project_type"
+        :items="projectTypes"
+        label="Project Type"
+      />
+
+      <v-select
+        box
+        v-model="editedProject.knowledge_area"
+        :items="knowledgeAreas"
+        label="Knowledge Area"
+        item-text="code_name"
+        item-value="id"
+      />
+
+      <v-textarea
+        v-model="editedProject.description"
+        box
+        label="Project Description"
+        hint="Long-form project description."
+        rows=8
+      />
+
+    </template>
 
 
     <v-btn block large color="success"
@@ -76,6 +120,7 @@ export default {
 
   data() {
     return {
+      processing: false,
       valid: null,
       rules: {
         required: v => !!v || this.$t("forms.rules.requiredField"),
@@ -90,15 +135,26 @@ export default {
         {id:2, name:"Student"},
         {id:3, name:"Civil Society"},
       ],
-      processing: false,
+      projectTypes: [
+        {value:"research", text:"Research"},
+        {value:"publicEngagement", text:"Public Engagement"},
+        {value:"serviceLearning", text:"Service Learning"},
+      ],
     };
   },
 
-  mounted() {
+  computed:{
+    knowledgeAreas(){
+      return this.$store.getters["knowledgearea/all"]
+    }
+  },
+
+  mounted: async function() {
 
     if (this.project.id) {
       // Editing existing project
       this.editedProject = this.loadProject()
+      this.$store.dispatch("knowledgearea/load")
 
     }else{
       // New Project

@@ -11,21 +11,13 @@ export default {
   },
 
   mutations: {
-    SET(state, {id, item}) {
-      state.items = { ...state.items, [id]:item }
-    },
-
-    SET_DETAIL(state, {id, item}) {
-      state.itemsDetail = { ...state.itemsDetail, [id]:item }
-    },
-
-    SET_ALL(state, items){
+    ADD(state, items){
       let newItems = {}
       items.forEach(i => {newItems[i.id] = i})
       state.items = { ...state.items, ...newItems}
     },
 
-    SET_DETAIL_ALL(state, items) {
+    ADD_DETAIL(state, items) {
       let newItems = {}
       items.forEach(i => {newItems[i.id] = i})
       state.itemsDetail = { ...state.itemsDetail, ...newItems }
@@ -44,7 +36,7 @@ export default {
         let ids = payload
         let items = await Promise.all(ids.map(id => ProjectResource.get({id})))
         items = items.map(i => i.body)
-        context.commit("SET_DETAIL_ALL", items)
+        context.commit("ADD_DETAIL", items)
 
       }else{
         // No ids provided, just get list of all
@@ -62,7 +54,7 @@ export default {
           next = response.next
         }
 
-        context.commit("SET_ALL", items)
+        context.commit("ADD", items)
       }
     },
 
@@ -74,8 +66,7 @@ export default {
 
     update: async function (context, object){
       let updatedItem = (await ProjectResource.update({id:object.id}, object)).body
-      context.commit("SET_ALL", [updatedItem])
-      context.commit("SET_DETAIL_ALL", [updatedItem])
+      context.commit("ADD_DETAIL", [updatedItem])
       return updatedItem
     },
 

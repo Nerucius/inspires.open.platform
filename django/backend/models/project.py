@@ -75,6 +75,10 @@ class Participation(models.Model):
     def __str__(self):
         return "%s <-> %s" % (self.user.username, self.project.name)
 
+    def can_write(self, user):
+        project = self.project
+        return project.managers.filter(pk=user.pk).exists() or user == project.owner
+
     class Meta:
         unique_together = ("user", "project")
 

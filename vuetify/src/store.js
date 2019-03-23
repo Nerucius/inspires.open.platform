@@ -6,6 +6,7 @@ Vue.use(Vuex);
 import preferences from "./store/Preferences";
 import user from "./store/User";
 import project from "./store/Project";
+import knowledgearea from "./store/KnowledgeArea";
 import structure from "./store/Structure";
 import collaboration from "./store/Collaboration";
 import participation from "./store/Participation";
@@ -19,6 +20,7 @@ export default new Vuex.Store({
     preferences,
     user,
     project,
+    knowledgearea,
     structure,
     collaboration,
     participation

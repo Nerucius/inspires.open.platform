@@ -24,8 +24,9 @@ admin.site.register(models.User, UserAdmin)
 
 for model in [
     ContentType,
-    models.Collaboration,
     models.Structure,
+    models.StructureValidation,
+    models.Collaboration,
     models.Network,
     models.Project,
     models.KnowledgeArea,

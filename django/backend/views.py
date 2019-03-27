@@ -156,6 +156,9 @@ class ProjectsVS(ListDetail, Orderable, viewsets.ModelViewSet):
         queryset = super(ProjectsVS, self).get_queryset()
         if self.action == "list":
             queryset = queryset.filter(collaboration__is_approved=True)
+            queryset = queryset.filter(
+                collaboration__structure__validation__is_approved=True
+            )
         return queryset
 
 

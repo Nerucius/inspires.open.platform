@@ -1,6 +1,8 @@
 <template>
   <v-form ref="form" v-model="valid">
-    <h2 class="mb-2"> Project Details</h2>
+    <h2 class="mb-2">
+      Project Details
+    </h2>
 
     <p class="subheading">
       Define your project information.
@@ -35,7 +37,9 @@
                 Suggested to keep it under 200 characters."
     />
 
-    <h2 class="mb-2">Project Managers</h2>
+    <h2 class="mb-2">
+      Project Managers
+    </h2>
     <p class="subheading">
       Project managers have full access to the project and can edit the project's
       details as well as add and remove managers and participants.
@@ -58,32 +62,37 @@
 
     <!-- Expanded details, only after save -->
     <template v-if="editedProject.id">
+      <h2 class="mb-2">
+        Additional Information
+      </h2>
 
-      <h2 class="mb-2">Expand your project details</h2>
+      <p class="subheading">
+        Other useful details so that your project is well defined and can be found in searches.
+      </p>
 
       <v-text-field
-        box
         v-model="editedProject.contact_email"
+        box
         label="Contact Email"
         hint="Where should people reach you with questions about the project?"
       />
       <v-text-field
-        box
         v-model="editedProject.contact_website"
+        box
         label="Project Homepage"
         hint="Homepage or website of the project"
       />
 
       <v-select
-        box
         v-model="editedProject.project_type"
+        box
         :items="projectTypes"
         label="Project Type"
       />
 
       <v-select
-        box
         v-model="editedProject.knowledge_area"
+        box
         :items="knowledgeAreas"
         label="Knowledge Area"
         item-text="code_name"
@@ -95,9 +104,8 @@
         box
         label="Project Description"
         hint="Long-form project description."
-        rows=8
+        rows="8"
       />
-
     </template>
 
 
@@ -185,27 +193,35 @@ export default {
     },
 
     attemptSubmit: async function() {
-      if (this.$refs.form.validate()) {
-        let project = cloneDeep(this.editedProject);
-        project.managers = project.managers.map(u => u.id)
-
-
-        this.processing = true
-        let message
-        try{
-          await this.$store.dispatch("project/update", project)
-          message = this.$t('pages.projectManage.success')
-        } catch(err){
-          message = this.$t('pages.projectManage.failure')
-        }
-        this.processing = false
-
-        // Reload project to get updated IDS
-        if(this.project.id){
-          this.editedProject = this.loadProject()
-        }
-
+      if (!this.$refs.form.validate()) {
+        console.error("Form failed to validate")
+        return
       }
+
+      this.processing = true
+      let project = cloneDeep(this.editedProject);
+      project.managers = project.managers.map(u => u.id)
+
+      // In the case of no id, send event to parent to create project
+      if(!project.id){
+        this.$emit("create", project)
+        return
+      }
+
+      let message
+      try{
+        await this.$store.dispatch("project/update", project)
+        message = this.$t('pages.projectManage.success')
+      } catch(err){
+        message = this.$t('pages.projectManage.failure')
+      }
+      this.processing = false
+
+      // Reload project to get updated IDS
+      if(this.project.id){
+        this.editedProject = this.loadProject()
+      }
+
     },
 
     isUser(value){

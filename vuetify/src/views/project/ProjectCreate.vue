@@ -8,19 +8,11 @@
       <v-card flat>
         <v-card-text>
           <FormProjectBase
-            :processing="buttonLoading"
-            @submit="createProject($event)"
+            @create="createProject($event)"
           />
         </v-card-text>
       </v-card>
     </v-flex>
-
-    <v-snackbar v-model="snackbar.active" top auto-height>
-      {{ snackbar.message }}
-      <v-btn color="pink" flat @click="snackbar.active = false">
-        {{ $t('actions.close') }}
-      </v-btn>
-    </v-snackbar>
   </v-layout>
 </template>
 
@@ -36,7 +28,6 @@ export default {
 
   data(){
     return{
-      buttonLoading: false,
       snackbar: {
         message:"",
         active:false,
@@ -47,21 +38,22 @@ export default {
   methods: {
 
     async createProject(projectData){
-      this.buttonLoading = true
-      this.snackbar.active = true
+
+      let message
 
       try{
         let project = await this.$store.dispatch("project/create", projectData)
-        this.snackbar.message = this.$t('pages.projectCreate.success')
+        message = this.$t('pages.projectCreate.success')
         let slug = obj2slug(project)
         this.$router.push({name:"project-manage", params:{slug}})
 
       } catch(err){
         console.log(err)
-        this.snackbar.message = this.$t('pages.projectCreate.failure')
+        message = this.$t('pages.projectCreate.failure')
       }
 
-      this.buttonLoading = false
+    console.log(message)
+
     }
 
   }

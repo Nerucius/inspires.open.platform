@@ -28,7 +28,7 @@
         <h2 style="font-size:125%" :title="project.name">
           {{ project.name | ellipsis(50) }}
         </h2>
-        <v-btn flat class="my-1 mx-0 pa-2 grey lighten-5 caption font-weight-light text-uppercase">
+        <v-btn v-if="project.knowledge_area" flat class="my-1 mx-0 pa-2 grey lighten-5 caption font-weight-light text-uppercase">
           {{ project.knowledge_area.name }}
         </v-btn>
         <p>{{ project.summary | ellipsis(200) }}</p>

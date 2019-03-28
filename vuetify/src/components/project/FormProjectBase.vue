@@ -159,7 +159,7 @@ export default {
 
   mounted: async function() {
 
-    if (this.project.id) {
+    if (this.project && this.project.id) {
       // Editing existing project
       this.editedProject = this.loadProject()
       this.$store.dispatch("knowledgearea/load")

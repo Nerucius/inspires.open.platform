@@ -67,10 +67,10 @@ th{
               >
                 <v-icon>add</v-icon>
               </v-btn>
-              <h3>
+
+              <h3 class="mb-2">
                 Projects
               </h3>
-              <br>
 
               <template v-for="(project,idx) in projects">
                 <v-card
@@ -87,16 +87,44 @@ th{
                 </v-card>
                 <v-divider :key="project.id+'-div'" class="mb-3" />
               </template>
+
             </v-card-text>
           </v-card>
         </v-flex>
+
         <v-flex xs12 sm6 md4>
           <v-card flat>
-            <v-card-title>
-              <h3>Structures</h3>
-            </v-card-title>
+            <v-card-text>
+              <v-btn fab small absolute top right
+                     title="Create new Structure"
+                     color="success"
+                     :to="{name:'structure-create'}"
+              >
+                <v-icon>add</v-icon>
+              </v-btn>
+
+              <h3 class="mb-2">Structures</h3>
+
+              <template v-for="(structure,idx) in structures">
+                <v-card
+                  :key="structure.id"
+                  class="gray-hover"
+                  flat
+                  :to="{name:'structure-detail', params:{slug:obj2slug(structure)}}"
+                >
+                  <v-img :src="structure.image_url" :height="idx==0 ? '125' : '50'" />
+                  <v-card-text class="px-0">
+                    <b>{{ structure.name }}</b><br>
+                    {{ structure.summary | ellipsis(100) }}
+                  </v-card-text>
+                </v-card>
+                <v-divider :key="structure.id+'-div'" class="mb-3" />
+              </template>
+
+            </v-card-text>
           </v-card>
         </v-flex>
+
         <v-flex xs12 sm6 md4>
           <v-card flat>
             <v-card-title>
@@ -134,11 +162,22 @@ export default {
     },
     projects(){
       return this.projectIds.map(id => this.$store.getters['project/detail'](id))
-    }
+    },
+    structureIds(){
+      let pids = [
+        ...this.current.managed_structures,
+        ...this.current.owned_structures,
+      ]
+      return pids.filter(onlyUnique)
+    },
+    structures(){
+      return this.structureIds.map(id => this.$store.getters['structure/detail'](id))
+    },
   },
 
   mounted(){
     this.$store.dispatch("project/load", this.projectIds)
+    this.$store.dispatch("structure/load", this.structureIds)
   }
 
 };

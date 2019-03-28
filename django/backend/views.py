@@ -169,6 +169,13 @@ class StructuresVS(ListDetail, Orderable, viewsets.ModelViewSet):
     serializer_class = serializers.SimpleStructureSerializer
     detail_serializer_class = serializers.StructureSerializer
 
+    def get_queryset(self):
+        """ Filter out non-approved projects from main listing. """
+        queryset = super(StructuresVS, self).get_queryset()
+        if self.action == "list":
+            queryset = queryset.filter(validation__is_approved=True)
+        return queryset
+
 
 class CollaborationsVS(viewsets.ModelViewSet):
     queryset = models.Collaboration.objects.all()

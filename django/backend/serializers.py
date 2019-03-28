@@ -9,6 +9,7 @@ class UserSerializer(serializers.ModelSerializer):
     managed_projects = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
     researched_projects = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
     managed_structures = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
+    owned_structures = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
 
     class Meta:
         model = models.User
@@ -25,6 +26,7 @@ class UserSerializer(serializers.ModelSerializer):
             "managed_projects",
             "researched_projects",
             "managed_structures",
+            "owned_structures",
         ]
 
 
@@ -51,7 +53,7 @@ class StructureSerializer(TrackableModelSerializer):
     managers = serializers.PrimaryKeyRelatedField(
         many=True, queryset=models.User.objects
     )
-
+    validation = serializers.PrimaryKeyRelatedField(read_only=True)
     collaborations = CollaborationSerializer(many=True, read_only=True)
 
     class Meta:

@@ -2,6 +2,8 @@ import Vue from "../plugins/resource";
 import { ProjectResource } from "../plugins/resource";
 import { cloneDeep } from "lodash";
 
+const Resource = ProjectResource
+
 export default {
   namespaced: true,
 
@@ -34,7 +36,7 @@ export default {
       if (Array.isArray(payload)){
         // Ids provided, get detailed information on given pids
         let ids = payload
-        let items = await Promise.all(ids.map(id => ProjectResource.get({id})))
+        let items = await Promise.all(ids.map(id => Resource.get({id})))
         items = items.map(i => i.body)
         context.commit("ADD_DETAIL", items)
 
@@ -43,7 +45,7 @@ export default {
         let params = payload.params || {}
         let query = {ordering: "-modified_at", ...params}
 
-        let response = (await ProjectResource.get(query)).body
+        let response = (await Resource.get(query)).body
         let items = response.results
 
         // Iteratively get all pages
@@ -59,19 +61,19 @@ export default {
     },
 
     create: async function (context, object){
-      let newItem = (await ProjectResource.save(object)).body
+      let newItem = (await Resource.save(object)).body
       await context.dispatch("load", [newItem.id])
       return newItem
     },
 
     update: async function (context, object){
-      let updatedItem = (await ProjectResource.update({id:object.id}, object)).body
+      let updatedItem = (await Resource.update({id:object.id}, object)).body
       context.commit("ADD_DETAIL", [updatedItem])
       return updatedItem
     },
 
     delete: async function (context, id){
-      let result = (await ParticipationResource.delete({id}))
+      let result = (await Resource.delete({id}))
       context.dispatch("DELETE", id)
       return result
     },
@@ -89,6 +91,5 @@ export default {
     detail: state =>{
       return ( id ) => cloneDeep(state.itemsDetail[id] || {})
     },
-
   }
 };

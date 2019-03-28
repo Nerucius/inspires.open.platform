@@ -2,6 +2,8 @@ import Vue from "../plugins/resource";
 import { StructureResource } from "../plugins/resource";
 import { cloneDeep } from "lodash";
 
+const Resource = StructureResource
+
 export default {
   namespaced: true,
 
@@ -11,25 +13,22 @@ export default {
   },
 
   mutations: {
-    SET(state, {id, item}) {
-      state.items = { ...state.items, [id]:item }
-    },
-
-    SET_DETAIL(state, {id, item}) {
-      state.itemsDetail = { ...state.itemsDetail, [id]:item }
-    },
-
-    SET_ALL(state, items){
+    ADD(state, items){
       let newItems = {}
       items.forEach(i => {newItems[i.id] = i})
       state.items = { ...state.items, ...newItems}
     },
 
-    SET_DETAIL_ALL(state, items) {
+    ADD_DETAIL(state, items) {
       let newItems = {}
       items.forEach(i => {newItems[i.id] = i})
       state.itemsDetail = { ...state.itemsDetail, ...newItems }
     },
+
+    DELETE(state, id){
+      delete state.items[id]
+      delete state.itemsDetail[id]
+    }
   },
 
   actions: {
@@ -37,16 +36,16 @@ export default {
       if (Array.isArray(payload)){
         // Ids provided, get detailed information on given pids
         let ids = payload
-        let items = await Promise.all(ids.map(id => StructureResource.get({id})))
+        let items = await Promise.all(ids.map(id => Resource.get({id})))
         items = items.map(i => i.body)
-        context.commit("SET_DETAIL_ALL", items)
+        context.commit("ADD_DETAIL", items)
 
       }else{
         // No ids provided, just get list of all
         let params = payload.params || {}
         let query = {ordering: "-modified_at", ...params}
 
-        let response = (await StructureResource.get(query)).body
+        let response = (await Resource.get(query)).body
         let items = response.results
 
         // Iteratively get all pages
@@ -57,26 +56,25 @@ export default {
           next = response.next
         }
 
-        context.commit("SET_ALL", items)
+        context.commit("ADD", items)
       }
     },
 
     create: async function (context, object){
-      let newItem = (await StructureResource.save(object)).body
+      let newItem = (await Resource.save(object)).body
       await context.dispatch("load", [newItem.id])
       return newItem
     },
 
     update: async function (context, object){
-      let updatedItem = (await StructureResource.update({id:object.id}, object))
-      context.dispatch("load")
-      context.dispatch("load", [object.id])
+      let updatedItem = (await Resource.update({id:object.id}, object))
+      context.commit("ADD_DETAIL", [updatedItem])
       return updatedItem
     },
 
     delete: async function (context, id){
-      let result = (await StructureResource.delete({id}))
-      context.dispatch("load")
+      let result = (await Resource.delete({id}))
+      context.dispatch("DELETE", id)
       return result
     },
   },

@@ -13,6 +13,18 @@ table th{
 
 <template>
   <v-layout v-if="structure" row wrap align-content-start>
+
+    <v-flex v-if="structure.owner == $store.getters['user/current'].id" pa-0 xs12
+            class="text-xs-right"
+    >
+      <v-btn flat outline color="warning" :to="manageLink">
+        <v-icon left>
+          edit
+        </v-icon>Manage this Structure
+      </v-btn>
+    </v-flex>
+
+
     <v-flex v-if="!isApprovedStructure" xs12>
       <v-alert color="info" :value="true" class="title">
         <v-icon dark left>
@@ -174,6 +186,9 @@ export default {
     isApprovedStructure(){
       return true
     },
+    manageLink() {
+      return ({name:"structure-manage", params:{slug:obj2slug(this.structure)}})
+    }
   },
 
   async mounted(){

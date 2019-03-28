@@ -94,8 +94,7 @@ export default {
       let structureId = this.project.collaboration.structure
       let structure = store.getters["structure/get"](structureId)
       this.collaboration = {
-        id: this.project.collaboration.id,
-        project: this.projectId,
+        ...this.project.collaboration,
         structure: structure
       }
     }

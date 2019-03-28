@@ -43,6 +43,16 @@ const router = new Router({
             component: () => import( /* webpackChunkName: "structure" */ "./views/structure/StructureList.vue")
         },
         {
+            path: "/structures/create",
+            name: "structure-create",
+            component: () => import( /* webpackChunkName: "structure" */ "./views/structure/StructureCreate.vue")
+        },
+        {
+            path: "/structures/:slug/manage",
+            name: "structure-manage",
+            component: () => import( /* webpackChunkName: "structure" */ "./views/structure/StructureManage.vue")
+        },
+        {
             path: "/structures/:slug",
             name: "structure-detail",
             component: () => import( /* webpackChunkName: "structure" */ "./views/structure/StructureDetail.vue")

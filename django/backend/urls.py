@@ -16,6 +16,8 @@ Including another URLconf
 from django.conf import settings
 from django.urls import path, include
 
+from rest_framework.authtoken.views import obtain_auth_token
+
 from backend import views
 from backend import routers
 
@@ -25,6 +27,7 @@ urlpatterns = [
     path("user/logout/", views.logout),
     path("user/register/", views.register),
     path("v1/", include(routers.router.urls)),
+    path("api-token-auth/", obtain_auth_token, name="api_token_auth"),
 ]
 
 if settings.DEBUG:

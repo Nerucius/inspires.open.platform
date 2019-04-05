@@ -4,23 +4,20 @@ import VueResource from "vue-resource";
 import Cookies from "js-cookie";
 Vue.use(VueResource);
 
-// Enable cookie credentials for cross-domain
-Vue.http.options.credentials = true;
-
 export const API_SERVER = process.env.VUE_APP_API_SERVER
 
-// Setup VueResource to work with Django CSRF token
+// DEPRECATED
+// Enable cookie credentials for cross-domain
+// Vue.http.options.credentials = true;
 
-export const refreshCSRFCookie = async function () {
-  let response = await Vue.http.get(API_SERVER + '/csrf_token/')
-  let csrfToken = response.data.csrf_token
-  Cookies.set("csrftoken", csrfToken);
-  Vue.http.headers.common['X-CSRFToken'] = csrfToken
-
-  console.log("refreshCSRFCookie: ", csrfToken)
-}
-
-refreshCSRFCookie();
+// Setup VueResource to work with DRF Token Auth
+Vue.http.interceptors.push(function(request) {
+  let token = Cookies.get('authorization')
+  if(token){
+    console.log("Used auth token")
+    request.headers.set('Authorization', `Token ${token}`);
+  }
+});
 
 // Add patch method to API resources
 const PATCH =  {patch: {method: "PATCH"}, update: {method: "PATCH"}}

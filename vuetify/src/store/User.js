@@ -1,14 +1,13 @@
 import Vue from "../plugins/resource";
+import Cookies from "js-cookie";
 import {
   API_SERVER,
   UserResource,
   CurrentUserResource,
-  refreshCSRFCookie,
 } from "../plugins/resource";
 
 
-const userLoginUrl = API_SERVER + "/user/login/";
-const userLogoutUrl = API_SERVER + "/user/logout/";
+const userLoginUrl = API_SERVER + "/api-token-auth/";
 const userRegisterUrl = API_SERVER + "/user/register/";
 
 export default {
@@ -89,14 +88,14 @@ export default {
     login: async function (context, credentials) {
       return new Promise(async (resolve, reject) => {
         try {
-          await Vue.http.post(userLoginUrl, credentials, {
-            emulateJSON: true
-          });
-          await refreshCSRFCookie();
+          let authentication = (await Vue.http.post(userLoginUrl, credentials))
+          let token = authentication.body.token
+          Cookies.set('authorization', token)
           await context.dispatch("loadCurrent");
           resolve();
 
         } catch (err) {
+          console.log(err)
           // Failed to login
           reject();
         }
@@ -104,24 +103,20 @@ export default {
     },
 
     logout: async function (context) {
-      await Vue.http.get(userLogoutUrl);
-      await refreshCSRFCookie();
+      // await Vue.http.get(userLogoutUrl);
+      Cookies.remove('authorization')
       await context.dispatch("loadCurrent");
     },
 
     register: async function(context, newUser){
       return new Promise(async (resolve, reject) => {
         try {
-          await refreshCSRFCookie();
-          await Vue.http.post(userRegisterUrl, newUser, {
-            emulateJSON: true
-          });
-          await refreshCSRFCookie();
-          await context.dispatch("loadCurrent");
+          await Vue.http.get(userRegisterUrl, {params: {...newUser}});
+          // await context.dispatch("loadCurrent");
           resolve();
 
         } catch (err) {
-          // Failed to login
+          // Failed to register
           reject();
         }
       })

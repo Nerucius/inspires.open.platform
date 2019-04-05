@@ -25,6 +25,7 @@ class Structure(TrackableModel):
     summary = models.TextField()
     year_founded = models.PositiveIntegerField(blank=True, null=True)
     image_url = models.URLField(max_length=500, blank=True)
+    description = models.TextField(blank=True)
 
     knowledge_areas = models.ManyToManyField("KnowledgeArea", blank=True)
 

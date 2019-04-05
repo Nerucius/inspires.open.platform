@@ -56,8 +56,10 @@ export default {
   },
 
   methods: {
-    logout() {
-      this.$store.dispatch("user/logout");
+    async logout() {
+      await this.$store.dispatch("user/logout");
+      this.$store.dispatch("toast/info", "You have been logged out");
+      this.$router.push({ name: 'home'})
     }
   }
 };

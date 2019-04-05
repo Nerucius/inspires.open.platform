@@ -325,9 +325,14 @@ export default {
       try{
         let response = (await this.$store.dispatch("user/register", newUser))
         await this.$store.dispatch("user/load")
+        await this.$store.dispatch("user/login", {
+          username: newUser.username,
+          password: newUser.password
+        })
         this.$router.push({ name: 'account', query: { newUser: true } })
 
       } catch(err){
+        this.$store.dispatch("toast/error", "Failed to create account. Please try again later.")
         this.failedRegistration = true
       }
     },

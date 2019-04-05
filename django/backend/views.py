@@ -41,18 +41,19 @@ def logout(request):
 
 
 def register(request):
-    print(request.POST)
+    print(request.GET)
+    userdata = request.GET
     try:
-        invitation = request.POST["invitation"]
+        invitation = userdata["invitation"]
 
         assert invitation == "join-inspires-2019", "000 Invitation code does not match"
 
-        username = request.POST["username"]
-        password = request.POST["password"]
-        password2 = request.POST["password2"]
-        first_name = request.POST["first_name"]
-        last_name = request.POST["last_name"]
-        email = request.POST["email"]
+        username = userdata["username"]
+        password = userdata["password"]
+        password2 = userdata["password2"]
+        first_name = userdata["first_name"]
+        last_name = userdata["last_name"]
+        email = userdata["email"]
 
         assert password == password2, "001 Passwords don't match"
         assert not models.User.objects.filter(
@@ -69,7 +70,7 @@ def register(request):
         userGroup = models.Group.objects.get(name="Users")
         newUser.groups.add(userGroup)
         newUser.save()
-        auth.login(request, newUser)
+        # auth.login(request, newUser)
 
     except:
         import sys

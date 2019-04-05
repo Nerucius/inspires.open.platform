@@ -79,13 +79,13 @@ th{
                   flat
                   :to="{name:'project-detail', params:{slug:obj2slug(project)}}"
                 >
-                  <v-img :src="project.image_url" :height="idx==0 ? '125' : '50'" />
+                  <v-img v-if="project.image_url" :src="project.image_url" :height="idx==0 ? '125' : '50'" />
                   <v-card-text class="px-0">
                     <b>{{ project.name }}</b><br>
                     {{ project.summary | ellipsis(100) }}
                   </v-card-text>
                 </v-card>
-                <v-divider :key="project.id+'-div'" class="mb-3" />
+                <v-divider :key="idx+'-div'" class="mb-3" />
               </template>
             </v-card-text>
           </v-card>
@@ -113,13 +113,13 @@ th{
                   flat
                   :to="{name:'structure-detail', params:{slug:obj2slug(structure)}}"
                 >
-                  <v-img :src="structure.image_url" :height="idx==0 ? '125' : '50'" />
+                  <v-img v-if="structure.image_url" :src="structure.image_url" :height="idx==0 ? '125' : '50'" />
                   <v-card-text class="px-0">
                     <b>{{ structure.name }}</b><br>
                     {{ structure.summary | ellipsis(100) }}
                   </v-card-text>
                 </v-card>
-                <v-divider :key="structure.id+'-div'" class="mb-3" />
+                <v-divider :key="idx+'-div'" class="mb-3" />
               </template>
             </v-card-text>
           </v-card>
@@ -175,8 +175,8 @@ export default {
     },
   },
 
-  mounted(){
-    this.$store.dispatch("user/loadCurrent")
+  async mounted(){
+    await this.$store.dispatch("user/loadCurrent")
     this.$store.dispatch("project/load", this.projectIds)
     this.$store.dispatch("structure/load", this.structureIds)
   }

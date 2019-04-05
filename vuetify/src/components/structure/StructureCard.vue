@@ -21,7 +21,7 @@
                     :title="area.name"
                     @click="$router.push(`/structures/areas/${obj2slug(area)}`)"
             >
-              {{ area.name | ellipsis(16) }}
+              {{ area.name }}
             </v-chip>
             <v-chip v-if="structure.knowledge_areas.length > 3" dark
                     color="grey darken-4"

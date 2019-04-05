@@ -13,7 +13,6 @@ table th{
 
 <template>
   <v-layout v-if="structure" row wrap align-content-start>
-
     <v-flex v-if="structure.owner == $store.getters['user/current'].id" pa-0 xs12
             class="text-xs-right"
     >
@@ -25,7 +24,7 @@ table th{
     </v-flex>
 
 
-    <v-flex v-if="!isApprovedStructure" xs12>
+    <v-flex v-if="!structure.validation" xs12>
       <v-alert color="info" :value="true" class="title">
         <v-icon dark left>
           info
@@ -38,7 +37,7 @@ table th{
       <v-card flat>
         <v-toolbar dense flat color="primary" dark>
           <h1 class="title">
-            {{ $t('pages.structureDetail.information') }}
+            {{ $t('pages.structureDetail.about') }}
           </h1>
         </v-toolbar>
         <v-card-text class="subheading">

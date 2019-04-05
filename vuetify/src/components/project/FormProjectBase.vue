@@ -38,11 +38,12 @@
     />
 
     <h2 class="mb-2">
-      Project Managers
+      Project Administrators
     </h2>
     <p class="subheading">
-      Project managers have full access to the project and can edit the project's
-      details as well as add and remove managers and participants.
+      Project administrators have full access to the project and can edit the project's
+      details as well as add and remove other administrators and participants. These permissions
+      apply only within the platform.
     </p>
 
     <v-combobox ref="managersCB"

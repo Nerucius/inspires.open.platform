@@ -21,6 +21,9 @@
       <v-divider vertical />
 
       <LanguageSelector />
+
+      <v-divider vertical />
+
       <LoginLogoutButton />
     </v-toolbar-items>
 

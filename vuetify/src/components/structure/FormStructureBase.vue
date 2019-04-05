@@ -56,22 +56,26 @@
         Additional Information
       </h2>
 
-      <h3 class="mb-2">Knowledge Areas</h3>
+      <h3 class="mb-2">
+        Knowledge Areas
+      </h3>
 
-      <v-combobox box
-        label="List of Knowledge Areas"
-        hint="Select all knowledge areas of research under this structure."
-        multiple
-        chips
-        deletable-chips
-        :rules="[rules.isKnowledgeArea]"
-        v-model="editedStructure.knowledge_areas"
-        :items="knowledgeAreas"
-        item-text="code_name"
-        item-value="id"
+      <v-combobox v-model="editedStructure.knowledge_areas"
+                  box
+                  label="List of Knowledge Areas"
+                  hint="Select all knowledge areas of research under this structure."
+                  multiple
+                  chips
+                  deletable-chips
+                  :rules="[rules.isKnowledgeArea]"
+                  :items="knowledgeAreas"
+                  item-text="code_name"
+                  item-value="id"
       />
 
-      <h3 class="mb-2">Detailed description</h3>
+      <h3 class="mb-2">
+        Detailed description
+      </h3>
 
       <v-textarea
         v-model="editedStructure.description"
@@ -81,7 +85,19 @@
         rows="8"
       />
 
-      <h3 class="mb-2">Contact Information</h3>
+      <h3 class="mb-2">
+        Poster Image
+      </h3>
+      <v-text-field
+        v-model="editedStructure.image_url"
+        box
+        label="URL to an image"
+        hint="Shown in listings as well as the structures's page"
+      />
+
+      <h3 class="mb-2">
+        Contact Information
+      </h3>
 
       <v-text-field
         v-model="editedStructure.contact_email"
@@ -119,7 +135,6 @@
         label="Other social networks"
         hint=""
       />
-
     </template>
 
 

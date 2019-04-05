@@ -88,6 +88,7 @@ export default {
         {id:1, name:"Scientist"},
         {id:2, name:"Student"},
         {id:3, name:"Civil Society"},
+        {id:4, name:"Project Manager"},
       ],
     };
   },

@@ -32,10 +32,13 @@
       "title": "Structures"
     },
     "projectDetail":{
-      "information": "Information"
+      "about": "About"
     },
     "structureDetail":{
-      "information": "Information"
+      "about": "About"
+    },
+    "structureManage":{
+      "title": "Manage this Structure"
     },
     "projectCreate":{
       "title": "Create a new Project"

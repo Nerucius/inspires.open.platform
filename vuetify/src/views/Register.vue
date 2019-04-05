@@ -324,6 +324,7 @@ export default {
       let newUser = {...this.user}
       try{
         let response = (await this.$store.dispatch("user/register", newUser))
+        await this.$store.dispatch("user/load")
         this.$router.push({ name: 'account', query: { newUser: true } })
 
       } catch(err){

@@ -87,7 +87,6 @@ th{
                 </v-card>
                 <v-divider :key="project.id+'-div'" class="mb-3" />
               </template>
-
             </v-card-text>
           </v-card>
         </v-flex>
@@ -103,7 +102,9 @@ th{
                 <v-icon>add</v-icon>
               </v-btn>
 
-              <h3 class="mb-2">Structures</h3>
+              <h3 class="mb-2">
+                Structures
+              </h3>
 
               <template v-for="(structure,idx) in structures">
                 <v-card
@@ -120,7 +121,6 @@ th{
                 </v-card>
                 <v-divider :key="structure.id+'-div'" class="mb-3" />
               </template>
-
             </v-card-text>
           </v-card>
         </v-flex>
@@ -176,6 +176,7 @@ export default {
   },
 
   mounted(){
+    this.$store.dispatch("user/loadCurrent")
     this.$store.dispatch("project/load", this.projectIds)
     this.$store.dispatch("structure/load", this.structureIds)
   }

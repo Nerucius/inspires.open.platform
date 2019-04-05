@@ -6,7 +6,10 @@ table td, table th{
   padding: 0 8px 8px 8px;
 }
 table th{
-  text-align: right;
+  text-align: left;
+}
+table td{
+  /* text-align: right */
 }
 </style>
 
@@ -36,14 +39,40 @@ table th{
       <v-card flat>
         <v-toolbar dense flat color="primary" dark>
           <h1 class="title">
-            {{ $t('pages.projectDetail.information') }}
+            {{ $t('pages.projectDetail.about') }}
           </h1>
         </v-toolbar>
         <v-card-text class="subheading">
           <table>
+            <tr>
+              <th colspan="2">
+                Contact
+              </th>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <a :href="'mailto:'+project.contact_email">
+                  {{ project.contact_email }}
+                </a>
+              </td>
+            </tr>
+
+            <tr>
+              <th colspan="2">
+                Homepage
+              </th>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <a :href="project.contact_website">
+                  {{ project.contact_website }}
+                </a>
+              </td>
+            </tr>
+
             <!-- Managers -->
             <tr>
-              <th colspan="2" style="text-align:left">
+              <th colspan="2">
                 {{ $t('forms.fields.managers') }}:
               </th>
             </tr>
@@ -88,7 +117,7 @@ table th{
     <v-flex xs12 sm8>
       <v-card flat>
         <v-img :src="project.image_url || defaultImage" height="200">
-          <v-toolbar dense flat style="background-color:rgba(0,0,0,.3)" dark>
+          <v-toolbar flat style="background-color:rgba(0,0,0,.3)" dark>
             <h1 class="title">
               {{ project.name }}
             </h1>
@@ -96,24 +125,29 @@ table th{
         </v-img>
 
         <v-card-text>
-          <h2 class="headline">
+          <h2 class="headline mb-2">
             Summary
           </h2>
           <p>
             {{ project.summary }}
           </p>
 
-          <h2 class="headline">
+          <h2 class="headline mb-2">
             Description
           </h2>
-          <p>
-            {{ project.description }}
-          </p>
+          <p v-html="$options.filters.nlbr(project.description)" />
+        </v-card-text>
+      </v-card>
+    </v-flex>
 
-          <h2 class="headline">
+    <v-flex xs12 md-8>
+      <v-card flat>
+        <v-card-text>
+          <h2 class="headline mb-4">
             Related projects
           </h2>
-          <p />
+
+          <ProjectCardHorizontal v-for="pid in project.related_projects" :key="pid" :project="getProject(pid)" />
         </v-card-text>
       </v-card>
     </v-flex>
@@ -124,6 +158,7 @@ table th{
 
 <script>
 import { slug2id, obj2slug } from "@/plugins/utils";
+import ProjectCardHorizontal from "@/components/project/ProjectCardHorizontal";
 
 export default {
 
@@ -131,6 +166,10 @@ export default {
     return {
       title: (this.project || {}).name
     }
+  },
+
+  components:{
+    ProjectCardHorizontal
   },
 
   data(){
@@ -155,6 +194,7 @@ export default {
 
   async mounted(){
     try{
+      this.$store.dispatch("project/load")
       await this.$store.dispatch("project/load", [this.projectId])
       this.project = this.$store.getters['project/detail'](this.projectId)
     }catch(err){
@@ -164,6 +204,10 @@ export default {
   },
 
   methods:{
+    getProject(pid){
+      return this.$store.getters["project/get"](pid)
+    },
+
     user(uid){
       return this.$store.getters["user/get"](uid)
     },

@@ -38,14 +38,24 @@
       "about": "About"
     },
     "structureManage":{
-      "title": "Manage this Structure"
+      "title": "Manage this Structure",
+      "success": "Structure saved successfully.",
+      "failure": "Failed to save the Structure."
     },
     "projectCreate":{
-      "title": "Create a new Project"
+      "title": "Create a new Project",
+      "success": "New project created successfully.",
+      "failure": "Failed to create a new project."
     },
     "projectManage":{
       "title": "Manage this Project",
-      "success": "The project was updated!"
+      "collaborationSuccess": "Collaboration with structure requested successfully.",
+      "collaborationFailure": "Failed to request collaboration.",
+      "deleteCollaborationAlert": "Are you sure you want to cancel the collaboration?",
+      "collaborationDeleted": "Collaboration with structure has been withdrawn.",
+      "success": "Project saved successfully.",
+      "failure": "Failed to save the Project.",
+      "participantsSuccess": "Saved people involved in the project."
     },
     "_": ""
   },
@@ -64,6 +74,7 @@
   },
   "actions": {
     "add": "Add",
+    "approve": "Approve",
     "create": "Create",
     "delete": "Delete",
     "login": "Login",
@@ -102,7 +113,9 @@
       "passwordMatch": "The two passwords do not match",
       "maximunLength": "Must be at most {length} characters long",
       "minimunLength": "Must be at least {length} characters long",
-      "namedRequiredField": "{name} is a required field"
+      "namedRequiredField": "{name} is a required field",
+      "mustBeStructure": "Please enter a valid Structure",
+      "mustBeUser": "Please enter a valid list of Users"
     },
     "fields": {
       "name": "Name",

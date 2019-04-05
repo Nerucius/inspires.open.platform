@@ -19,4 +19,11 @@
         "tag": "CSM",
         "name": "Civil Society"
     }
+}, {
+    "model": "backend.participationrole",
+    "pk": 4,
+    "fields": {
+        "tag": "PM",
+        "name": "Project Manager"
+    }
 }]

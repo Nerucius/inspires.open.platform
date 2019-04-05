@@ -144,6 +144,8 @@ export default {
           })
         ))
 
+        this.$store.dispatch("toast/success", this.$t('pages.projectManage.participantsSuccess'))
+
         await this.$store.dispatch("project/load",[this.project.id])
         this.loadParticipants()
       }

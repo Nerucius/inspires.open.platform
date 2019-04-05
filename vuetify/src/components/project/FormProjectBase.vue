@@ -209,19 +209,22 @@ export default {
         return
       }
 
-      let message
       try{
         await this.$store.dispatch("project/update", project)
-        message = this.$t('pages.projectManage.success')
+        this.$store.dispatch("toast/success", this.$t('pages.projectManage.success'))
+
+        if(this.project.id){
+          // Reload project to get updated IDS
+          this.editedProject = this.loadProject()
+        }
+
       } catch(err){
-        message = this.$t('pages.projectManage.failure')
+        // Failed to save
+        this.$store.dispatch("toast/error", this.$t('pages.projectManage.failure'))
       }
+
       this.processing = false
 
-      // Reload project to get updated IDS
-      if(this.project.id){
-        this.editedProject = this.loadProject()
-      }
 
     },
 

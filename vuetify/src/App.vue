@@ -52,15 +52,32 @@
           <!-- /Main Content Area -->
         </v-container>
 
+        <!-- Footer Area -->
         <v-container>
-          <!-- Footer Area -->
           <v-layout row>
             <v-flex xs12>
               <Footer />
             </v-flex>
           </v-layout>
-          <!-- /Footer Area -->
         </v-container>
+        <!-- /Footer Area -->
+
+        <!-- Snackbars -->
+        <v-snackbar
+          v-for="toast in toasts"
+          v-model="toast.active"
+          auto-height
+          top
+          :key="toast.key"
+          :color="toast.color"
+          :timeout="toast.timeout"
+        >
+          {{ toast.message }}
+          <v-btn dark flat fab @click="toast.close()">
+            <v-icon>close</v-icon>
+          </v-btn>
+        </v-snackbar>
+        <!-- /Snackbars -->
       </v-content>
     </template>
   </v-app>
@@ -86,11 +103,15 @@ export default {
 
   data() {
     return {
-      loading: true
+      loading: true,
+      active: true,
     };
   },
 
   computed: {
+    toasts(){
+      return this.$store.getters['toast/all']
+    },
     theme() {
       return this.$store.getters["preferences/theme"];
     },

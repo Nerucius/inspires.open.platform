@@ -74,7 +74,7 @@ export default {
 
     delete: async function (context, id){
       let result = (await Resource.delete({id}))
-      context.dispatch("DELETE", id)
+      context.dispatch("delete", id)
       return result
     },
   },

@@ -28,7 +28,7 @@
     />
 
     <h2 class="mb-2">
-      Structure Managers
+      Structure Administrators
     </h2>
     <p class="subheading">
       Structure managers have full access to the structure and can edit the structure's
@@ -232,18 +232,21 @@ export default {
       // Map knowledge areas
       structure.knowledge_areas = structure.knowledge_areas.map(u => u.id)
 
-      let message
       try{
         await this.$store.dispatch("structure/update", structure)
-        message = this.$t('pages.structureManage.success')
-      } catch(err){
-        message = this.$t('pages.structureManage.failure')
-      }
-      this.processing = false
+        this.$store.dispatch("toast/success", this.$t('pages.structureManage.success'))
 
-      // Reload structure to get updated IDS
-      await this.$store.dispatch("structure/load", [structure.id])
-      this.editedStructure = this.loadStructure()
+        // Reload structure to get updated IDS
+        if(structure.id){
+          await this.$store.dispatch("structure/load", [structure.id])
+          this.editedStructure = this.loadStructure()
+        }
+
+      } catch(err){
+        this.$store.dispatch("toast/error", this.$t('pages.structureManage.failure'))
+      }
+
+      this.processing = false
 
     },
 

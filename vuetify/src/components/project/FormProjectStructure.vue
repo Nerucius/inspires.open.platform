@@ -118,22 +118,21 @@ export default {
           // overwrite data
           this.collaboration = result
           this.collaboration.structure = this.$store.getters["structure/get"](result.structure)
-          console.log(result)
+          this.$store.dispatch("toast/success", this.$t('pages.projectManage.collaborationSuccess'))
 
-          message = this.$t('pages.projectManage.collaborationSuccess')
         } catch(err){
-          message = this.$t('pages.projectManage.collaborationSuccess')
+          this.$store.dispatch("toast/error", this.$t('pages.projectManage.collaborationFailure'))
         }
-
         this.processing = false
-        // this.$store.dispatch("snackbar/show", {message})
       }
     },
 
     deleteCollaboration(){
       let alertMessage = this.$t('pages.projectManage.deleteCollaborationAlert')
       if(confirm(alertMessage)){
+
         this.$store.dispatch("collaboration/delete", this.collaboration.id)
+        this.$store.dispatch("toast/info", this.$t('pages.projectManage.collaborationDeleted'))
 
         // Reset collaboration
         this.structureSearch = this.structures.slice(0,5)

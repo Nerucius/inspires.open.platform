@@ -39,20 +39,16 @@ export default {
 
     async createProject(projectData){
 
-      let message
-
       try{
         let project = await this.$store.dispatch("project/create", projectData)
-        message = this.$t('pages.projectCreate.success')
+        this.$store.dispatch("toast/success", this.$t('pages.projectCreate.success'))
         let slug = obj2slug(project)
         this.$router.push({name:"project-manage", params:{slug}})
 
       } catch(err){
-        console.log(err)
-        message = this.$t('pages.projectCreate.failure')
+        console.error(err)
+        this.$store.dispatch("toast/error", this.$t('pages.projectCreate.failure'))
       }
-
-    console.log(message)
 
     }
 

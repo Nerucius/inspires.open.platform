@@ -50,7 +50,6 @@ import FormProjectBase from "@/components/project/FormProjectBase";
 import FormProjectParticipants from "@/components/project/FormProjectParticipants";
 import FormProjectStructure from "@/components/project/FormProjectStructure";
 import { slug2id } from "@/plugins/utils";
-// import toastr from 'toastr'
 
 export default {
   components: {

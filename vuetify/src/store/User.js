@@ -111,7 +111,10 @@ export default {
     register: async function(context, newUser){
       return new Promise(async (resolve, reject) => {
         try {
-          await Vue.http.get(userRegisterUrl, {params: {...newUser}});
+          // await Vue.http.get(userRegisterUrl, {params: {...newUser}});
+          await Vue.http.post(userRegisterUrl, newUser, {
+            emulateJSON: true
+          });
           // await context.dispatch("loadCurrent");
           resolve();
 

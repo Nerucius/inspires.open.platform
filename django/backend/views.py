@@ -41,8 +41,8 @@ def logout(request):
 
 
 def register(request):
-    print(request.GET)
-    userdata = request.GET
+    userdata = request.POST
+    print(userdata)
     try:
         invitation = userdata["invitation"]
 

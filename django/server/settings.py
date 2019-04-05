@@ -33,6 +33,8 @@ else:
 # This allows the browser to send COOKIES in the requests to the server
 CORS_ALLOW_CREDENTIALS = True
 
+# This forces HTTPS on REST_FRAMEWORK links
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 # Application definition
 

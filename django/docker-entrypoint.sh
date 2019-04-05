@@ -11,9 +11,6 @@ python manage.py loaddata auth-group
 python manage.py loaddata auth-user
 python manage.py loaddata knowledgearea
 python manage.py loaddata participationrole
-# echo "from backend.models import User; \
-# User.objects.create_superuser('admin', 'admin@localhost', '123456')" \
-# | python manage.py shell
 
 # Start Server
 uwsgi --ini uwsgi.ini

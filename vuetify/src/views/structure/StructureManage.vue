@@ -37,13 +37,12 @@
 
 
     <v-flex xs12>
-
       <!-- Tabulation Menu -->
       <v-tabs
         v-model="page.tab"
         grow
       >
-        <v-tabs-slider color="primary"></v-tabs-slider>
+        <v-tabs-slider color="primary" />
         <v-tab v-for="item in page.items" :key="item">
           {{ item }}
         </v-tab>
@@ -51,7 +50,6 @@
 
       <!-- Tabulation Items -->
       <v-tabs-items v-model="page.tab">
-
         <!-- Structure Form -->
         <v-tab-item key="This Structure">
           <v-card flat>
@@ -69,46 +67,45 @@
                 <template v-for="collab in structure.collaborations">
                   <v-list-tile
                     :key="collab.id"
-                    :style="{'border-left': collab.is_approved ? '' : '4px solid red'}">
+                    :style="{'border-left': collab.is_approved ? '' : '4px solid red'}"
+                  >
                     <v-list-tile-avatar>
                       <img :src="user(project(collab.project).owner).avatar_url">
                     </v-list-tile-avatar>
 
-                      <v-list-tile-content>
-                        <v-list-tile-title>
-                          {{ project(collab.project).name }}
-                        </v-list-tile-title>
-                        <v-list-tile-sub-title>
-                          {{ project(collab.project).summary }}
-                        </v-list-tile-sub-title>
-                      </v-list-tile-content>
+                    <v-list-tile-content>
+                      <v-list-tile-title>
+                        {{ project(collab.project).name }}
+                      </v-list-tile-title>
+                      <v-list-tile-sub-title>
+                        {{ project(collab.project).summary }}
+                      </v-list-tile-sub-title>
+                    </v-list-tile-content>
 
-                      <v-list-tile-action>
-                        <v-btn v-if="!collab.is_approved" small fab
-                          color="success"
-                          class="elevation-0"
-                          @click="approveCollab(collab.id)">
-                          <v-icon>check</v-icon>
-                        </v-btn>
-                        <v-btn v-else small fab
-                          color="error" class="elevation-0"
-                          @click="cancelCollab(collab.id)">
-                          <v-icon>close</v-icon>
-                        </v-btn>
-                      </v-list-tile-action>
+                    <v-list-tile-action>
+                      <v-btn v-if="!collab.is_approved" small fab
+                             color="success"
+                             class="elevation-0"
+                             @click="approveCollab(collab.id)"
+                      >
+                        <v-icon>check</v-icon>
+                      </v-btn>
+                      <v-btn v-else small fab
+                             color="error" class="elevation-0"
+                             @click="cancelCollab(collab.id)"
+                      >
+                        <v-icon>close</v-icon>
+                      </v-btn>
+                    </v-list-tile-action>
                   </v-list-tile>
-                  <v-divider :key="collab.id+'-d2'"></v-divider>
+                  <v-divider :key="collab.id+'-d2'" />
                 </template>
               </v-list>
             </v-card-text>
           </v-card>
         </v-tab-item>
-
       </v-tabs-items>
-
     </v-flex>
-
-
   </v-layout>
 </template>
 

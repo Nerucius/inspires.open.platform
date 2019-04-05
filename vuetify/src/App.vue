@@ -65,10 +65,10 @@
         <!-- Snackbars -->
         <v-snackbar
           v-for="toast in toasts"
+          :key="toast.key"
           v-model="toast.active"
           auto-height
           top
-          :key="toast.key"
           :color="toast.color"
           :timeout="toast.timeout"
         >

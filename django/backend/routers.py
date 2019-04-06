@@ -16,5 +16,7 @@ router.register("keywords", views.KeywordsVS)
 router.register("collaborations", views.CollaborationsVS)
 router.register("participations", views.ParticipationVS)
 router.register("knowledgeareas", views.KnowledgeAreasVS)
+router.register("projectphases", views.ProjectPhasesVS)
+router.register("projectatphases", views.ProjectAtPhasesVS)
 
 # Nested Objects Views

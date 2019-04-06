@@ -46,6 +46,9 @@ class Project(TrackableModel):
     date_end = models.DateField(blank=True, null=True)
 
     project_type = models.CharField(max_length=64, blank=True, choices=TYPES)
+    phases = models.ManyToManyField(
+        "ProjectPhase", through="ProjectAtPhase", blank=True
+    )
 
     # UNESCO Knowledge Area
     knowledge_area = models.ForeignKey(
@@ -67,6 +70,35 @@ class Project(TrackableModel):
         return self.name
 
 
+class ProjectPhase(models.Model):
+    order = models.SmallIntegerField()
+    name = models.CharField(max_length=254)
+    tag = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        ordering = ["order"]
+
+
+class ProjectAtPhase(models.Model):
+    date = models.DateField(auto_now_add=True)
+    is_active = models.BooleanField(default=False)
+    project = models.ForeignKey("Project", on_delete=models.CASCADE)
+    project_phase = models.ForeignKey("ProjectPhase", on_delete=models.CASCADE)
+
+    def can_create(self, user, data):
+        project = Project.objects.get(pk=data["project"])
+        return self.project.can_write(user)
+
+    def can_write(self, user):
+        return self.project.can_write(user)
+
+    class Meta:
+        unique_together = ("project", "project_phase")
+
+
 class Participation(models.Model):
     project = models.ForeignKey("Project", on_delete=models.CASCADE)
     user = models.ForeignKey("User", on_delete=models.CASCADE)
@@ -75,9 +107,12 @@ class Participation(models.Model):
     def __str__(self):
         return "%s <-> %s" % (self.user.username, self.project.name)
 
+    def can_create(self, user, data):
+        project = Project.objects.get(pk=data["project"])
+        return self.project.can_write(user)
+
     def can_write(self, user):
-        project = self.project
-        return project.managers.filter(pk=user.pk).exists() or user == project.owner
+        return self.project.can_write(user)
 
     class Meta:
         unique_together = ("user", "project")

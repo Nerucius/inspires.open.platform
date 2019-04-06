@@ -4,13 +4,16 @@ from django.contrib.contenttypes.models import ContentType
 
 from backend import models
 
-HIDDEN_FIELDS = ["password", "created_at", "modified_at", "modified_by"]
+HIDDEN_FIELDS = ["password", "created_at", "created_by", "modified_at", "modified_by"]
 
 
 def column_lister(model):
     """ Creates a new ModelAdmin that always lists the models in a table fashion. """
 
     class ListAdmin(admin.ModelAdmin):
+        readonly_fields = [
+            f.name for f in model._meta.fields if f.name in HIDDEN_FIELDS
+        ]
         list_display = [
             f.name for f in model._meta.fields if f.name not in HIDDEN_FIELDS
         ]
@@ -29,9 +32,11 @@ for model in [
     models.Collaboration,
     models.Network,
     models.Project,
-    models.KnowledgeArea,
-    models.Keyword,
+    models.ProjectPhase,
+    models.ProjectAtPhase,
     models.Participation,
     models.ParticipationRole,
+    models.KnowledgeArea,
+    models.Keyword,
 ]:
     admin.site.register(model, column_lister(model))

@@ -102,7 +102,7 @@ class RequirePKMixin(object):
     """ Mixin to require a pk parameter"""
 
     def get_queryset(self):
-        if "pk" not in self.kwargs:
+        if self.action == "list" and "pk" not in self.kwargs:
             raise Exception("Must provide a Query PK")
         return super().get_queryset()
 
@@ -198,9 +198,19 @@ class KeywordsVS(ListDetail, viewsets.ModelViewSet):
     detail_serializer_class = serializers.KeywordSerializer
 
 
-class KnowledgeAreasVS(ListDetail, viewsets.ModelViewSet):
+class KnowledgeAreasVS(viewsets.ModelViewSet):
     queryset = models.KnowledgeArea.objects.all()
     serializer_class = serializers.KnowledgeAreaSerializer
+
+
+class ProjectPhasesVS(viewsets.ModelViewSet):
+    queryset = models.ProjectPhase.objects.all()
+    serializer_class = serializers.ProjectPhaseSerializer
+
+
+class ProjectAtPhasesVS(RequirePKMixin, viewsets.ModelViewSet):
+    queryset = models.ProjectAtPhase.objects.all()
+    serializer_class = serializers.ProjectAtPhaseSerializer
 
 
 # ===========================

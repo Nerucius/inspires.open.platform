@@ -1,0 +1,33 @@
+[{
+    "model": "backend.projectphase",
+    "pk": 1,
+    "fields": {
+        "order": 1,
+        "name": "models.projectPhase.phase1",
+        "tag": "models.projectPhase.phase1Tag"
+    }
+}, {
+    "model": "backend.projectphase",
+    "pk": 2,
+    "fields": {
+        "order": 2,
+        "name": "models.projectPhase.phase2",
+        "tag": "models.projectPhase.phase2Tag"
+    }
+}, {
+    "model": "backend.projectphase",
+    "pk": 3,
+    "fields": {
+        "order": 3,
+        "name": "models.projectPhase.phase3",
+        "tag": "models.projectPhase.phase3Tag"
+    }
+}, {
+    "model": "backend.projectphase",
+    "pk": 4,
+    "fields": {
+        "order": 4,
+        "name": "models.projectPhase.phase4",
+        "tag": "models.projectPhase.phase4Tag"
+    }
+}]

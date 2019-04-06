@@ -43,6 +43,29 @@ class CollaborationSerializer(serializers.ModelSerializer):
         fields = ["id", "is_approved", "project", "structure", "partners"]
 
 
+class ProjectPhaseSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.ProjectPhase
+        fields = "__all__"
+
+
+class ProjectAtPhaseSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.ProjectAtPhase
+        fields = "__all__"
+
+
+class ProjectAtPhaseSerializer(serializers.ModelSerializer):
+    project = serializers.PrimaryKeyRelatedField(queryset=models.Project.objects)
+    project_phase = serializers.PrimaryKeyRelatedField(
+        queryset=models.ProjectPhase.objects
+    )
+
+    class Meta:
+        model = models.ProjectAtPhase
+        fields = "__all__"
+
+
 class ParticipationSerializer(serializers.ModelSerializer):
     project = serializers.PrimaryKeyRelatedField(queryset=models.Project.objects)
     user = serializers.PrimaryKeyRelatedField(queryset=models.User.objects)

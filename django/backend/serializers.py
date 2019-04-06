@@ -35,7 +35,9 @@ class ProjectSerializer(TrackableModelSerializer):
     participants = ParticipationSerializer(
         source="participation_set", many=True, read_only=True
     )
-
+    phases = ProjectAtPhaseSerializer(
+        source="projectatphase_set", many=True, read_only=True
+    )
     managers = serializers.PrimaryKeyRelatedField(
         many=True, required=False, queryset=models.User.objects
     )

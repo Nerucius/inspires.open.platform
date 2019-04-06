@@ -122,6 +122,8 @@ export default {
 
   data() {
     return {
+      dataReady: false,
+      hasPendingCollabs: false,
       page: {
         tab: null,
         items: [
@@ -129,8 +131,7 @@ export default {
           "Projects"
         ]
       },
-      dataReady: false,
-      hasPendingCollabs: false,
+
     }
   },
 

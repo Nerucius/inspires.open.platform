@@ -49,6 +49,14 @@
     },
     "projectManage":{
       "title": "Manage this Project",
+      "projectTab": "This Project",
+      "participantsTab": "Participants",
+      "phasesTab": "Project Phases",
+      "phasesTabDescription": "Projects can have a life-cycle of phases. Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident sapiente ullam perspiciatis, dolorum velit sequi at corrupti obcaecati laborum harum fugit unde porro ipsa pariatur aliquam repellendus placeat eaque culpa!",
+      "hasPhase": "This project is currently at this phase since {date}.",
+      "hadPhase": "This project was on this phase starting {date}.",
+      "notHasPhase": "This project has never been on this phase.",
+      "evaluationTab": "Evaluation",
       "collaborationSuccess": "Collaboration with structure requested successfully.",
       "collaborationFailure": "Failed to request collaboration.",
       "deleteCollaborationAlert": "Are you sure you want to cancel the collaboration?",
@@ -58,6 +66,23 @@
       "participantsSuccess": "Saved people involved in the project."
     },
     "_": ""
+  },
+  "models":  {
+    "projectPhase":{
+      "phase": "Phase",
+      "phase1": "Phase 1: Project Kick-off and Expectations",
+      "phase2": "Phase 2: Progress and Self-reflection",
+      "phase3": "Phase 3: End of Project Output",
+      "phase4": "Phase 4: Six months later",
+      "phase1Description": "TBD Project Kick-off and Expectations",
+      "phase2Description": "TBD Progress and Self-reflection",
+      "phase3Description": "TBD End of Project Output",
+      "phase4Description": "TBD Six months later",
+      "phase1Tag": "Kick-off",
+      "phase2Tag": "Self-reflection",
+      "phase3Tag": "Output",
+      "phase4Tag": "Effect"
+    }
   },
   "navigation": {
     "links":{
@@ -130,7 +155,8 @@
       "passwordRepeat": "Repeat your password",
       "title": "Title",
       "role": "Role",
-      "invitationCode": "Invitation Code"
+      "invitationCode": "Invitation Code",
+      "projectPhase": "Project Phase"
     },
     "hints":{
       "password": "Your password must be at least 8 characters, not be a common password and not contain your username."

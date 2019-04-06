@@ -12,11 +12,15 @@
   <v-card class="mb-5">
     <v-layout row>
       <v-flex xs4 py-0>
-        <v-img height="100%" :src="project.image_url" />
+        <v-img
+        height="100%"
+        :src="project.image_url"
+        @click="$router.push(project.link)"
+        />
       </v-flex>
 
       <v-flex xs8 py-2 pr-3>
-        <router-link :to="projectLink">
+        <router-link :to="project.link">
           <h3>{{ project.name }}</h3>
         </router-link>
         <p>{{ project.summary | ellipsis(180) }}</p>

@@ -1,10 +1,9 @@
 <style scoped>
-
+  .v-image{ cursor: pointer; }
   h2 > a{
     text-decoration: none;
     color:inherit;
   }
-
 </style>
 
 
@@ -12,7 +11,8 @@
   <v-card v-if="project.id">
     <v-img
       style="overflow: visible"
-      :src="project.image_url || defaultImage"
+      @click="$router.push(project.link)"
+      :src="project.image_url"
       aspect-ratio="1.75"
     >
       <v-btn
@@ -36,7 +36,7 @@
     <v-card-text>
       <v-sheet style="overflow: hidden;" height="175">
         <h2 style="font-size:125%" :title="project.name">
-          <router-link :to="link">
+          <router-link :to="project.link">
             {{ project.name | ellipsis(60) }}
           </router-link>
         </h2>
@@ -66,7 +66,7 @@
       <v-btn
         flat
         alt="project-see-more"
-        :to="link"
+        :to="project.link"
       >
         {{ $t('actions.more') }}
         <v-icon right class="hidden-sm-and-down">
@@ -86,15 +86,9 @@ export default {
 
   data(){
     return{
-      defaultImage : "https://png.pngtree.com/thumb_back/fw800/back_pic/00/03/14/92561d1ba31f9fe.jpg"
     }
   },
 
-  computed:{
-    link() {
-      return ({name:"project-detail", params:{slug:obj2slug(this.project)}})
-    }
-  },
 
   methods:{
     users(userIds){

@@ -116,7 +116,7 @@ table td{
 
     <v-flex xs12 sm8>
       <v-card flat>
-        <v-img :src="project.image_url || defaultImage" height="200">
+        <v-img :src="project.image_url" height="200">
           <v-toolbar flat style="background-color:rgba(0,0,0,.3)" dark>
             <h1 class="title">
               {{ project.name }}
@@ -176,7 +176,6 @@ export default {
     return {
       obj2slug,
       project: null,
-      defaultImage : "https://png.pngtree.com/thumb_back/fw800/back_pic/00/03/14/92561d1ba31f9fe.jpg"
     }
   },
 

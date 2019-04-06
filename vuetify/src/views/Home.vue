@@ -3,7 +3,7 @@
     <v-flex xs12>
       <v-card flat>
         <v-parallax
-          height="180"
+          height="220"
           src="https://png.pngtree.com/thumb_back/fw800/back_pic/03/51/70/585791ffa147edc.jpg"
         >
           <div>
@@ -11,9 +11,10 @@
               {{ $t('pages.home.mainTitle') }}
             </h1>
             <br>
-            <p class="text-truncate">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo vero quisquam
-              quibusdam voluptatibus aut officia corrupti.
+            <p class="">
+              Welcome to the InSPIRES online database and impact evaluation tool.
+              This platform features participatory research and innovation projects promoted
+              knowledge intermediary units, such as Science Shops.
             </p>
             <p class="text-xs-right ma-0">
               <v-btn flat outline dark :to="{name:'about'}">

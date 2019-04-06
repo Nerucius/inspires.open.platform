@@ -14,7 +14,6 @@ export const API_SERVER = process.env.VUE_APP_API_SERVER
 Vue.http.interceptors.push(function(request) {
   let token = Cookies.get('authorization')
   if(token){
-    console.log("Used auth token")
     request.headers.set('Authorization', `Token ${token}`);
   }
 });

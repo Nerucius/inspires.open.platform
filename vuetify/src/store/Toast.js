@@ -1,5 +1,8 @@
-import { setI18nLanguage } from "../plugins/i18n";
+import Vue from "../plugins/resource";
+import { API_SERVER} from "../plugins/resource";
 
+
+/** Generate unique random key for each toast */
 const key = function(){
   return Math.random().toString(36).replace(/[^a-z]+/g, '').substr(2, 10);
 }
@@ -34,6 +37,7 @@ export default {
       context.commit("ADD_TOAST", toast)
       setTimeout(toast.close, toast.timeout)
     },
+
     info: function (context, message) {
       context.dispatch("new", {color:"info", message});
     },
@@ -42,7 +46,12 @@ export default {
     },
     error: function (context, message) {
       context.dispatch("new", {color:"error", message});
+      context.dispatch("logError", message);
     },
+
+    logError: async function(context, message){
+      Vue.http.get(`${API_SERVER}/v1/log-error`, {params:{message}})
+    }
   },
 
   getters: {

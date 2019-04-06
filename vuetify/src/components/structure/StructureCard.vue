@@ -1,16 +1,18 @@
 <style scoped>
-
-  .v-chip{
-    cursor: pointer;
+  .v-image{ cursor: pointer; }
+  .v-chip{ cursor: pointer; }
+  h2 > a{
+    text-decoration: none;
+    color:inherit;
   }
-
 </style>
 
 
 <template>
   <v-card v-if="structure.id">
     <v-img
-      :src="structure.image_url || defaultImage"
+      :src="structure.image_url"
+      @click="$router.push(structure.link)"
       aspect-ratio="1.75"
     >
       <v-layout fill-height align-end>
@@ -37,7 +39,9 @@
     <v-card-text>
       <v-sheet style="overflow: hidden;" height="150">
         <h2 style="font-size:125%">
+          <router-link :to="structure.link">
           {{ structure.name }} <small>| {{ structure.year_founded }}</small>
+          </router-link>
         </h2>
         <br>
         <p>{{ structure.summary | ellipsis(200) }}</p>
@@ -48,7 +52,7 @@
       <v-btn
         flat
         alt="project-see-more"
-        :to="link"
+        :to="structure.link"
       >
         {{ $t('actions.more') }}
         <v-icon right class="hidden-sm-and-down">
@@ -68,13 +72,6 @@ export default {
 
   data(){
     return{
-      defaultImage : "https://png.pngtree.com/thumb_back/fw800/back_pic/00/03/14/92561d1ba31f9fe.jpg"
-    }
-  },
-
-  computed:{
-    link() {
-      return ({name:"structure-detail", params:{slug:obj2slug(this.structure)}})
     }
   },
 

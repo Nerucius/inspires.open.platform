@@ -5,10 +5,15 @@ import {
   UserResource,
   CurrentUserResource,
 } from "../plugins/resource";
-
+import { obj2slug } from "@/plugins/utils";
 
 const userLoginUrl = API_SERVER + "/api-token-auth/";
 const userRegisterUrl = API_SERVER + "/user/register/";
+
+function createLink(obj){
+  obj.link = {name:"account", params:{slug:obj2slug(obj)}}
+  return obj
+}
 
 export default {
   namespaced: true,
@@ -20,23 +25,15 @@ export default {
   },
 
   mutations: {
-    SET(state, {id, item}) {
-      state.items = { ...state.items, [id]:item }
-    },
-
-    SET_DETAIL(state, {id, item}) {
-      state.itemsDetail = { ...state.itemsDetail, [id]:item }
-    },
-
-    SET_ALL(state, items){
+    ADD(state, items){
       let newItems = {}
-      items.forEach(i => {newItems[i.id] = i})
+      items.map(createLink).forEach(i => {newItems[i.id] = i})
       state.items = { ...state.items, ...newItems}
     },
 
-    SET_DETAIL_ALL(state, items) {
+    ADD_DETAIL(state, items) {
       let newItems = {}
-      items.forEach(i => {newItems[i.id] = i})
+      items.map(createLink).forEach(i => {newItems[i.id] = i})
       state.itemsDetail = { ...state.itemsDetail, ...newItems }
     },
 
@@ -52,7 +49,7 @@ export default {
         let ids = payload
         let items = await Promise.all(ids.map(id => UserResource.get({id})))
         items = items.map(i => i.body)
-        context.commit("SET_DETAIL_ALL", items)
+        context.commit("ADD_DETAIL", items)
 
       }else{
         context.dispatch("loadCurrent")
@@ -71,7 +68,7 @@ export default {
           next = response.next
         }
 
-        context.commit("SET_ALL", items)
+        context.commit("ADD", items)
       }
     },
 
@@ -95,8 +92,8 @@ export default {
           resolve();
 
         } catch (err) {
-          console.log(err)
           // Failed to login
+          console.log(err)
           reject();
         }
       })
@@ -106,6 +103,12 @@ export default {
       // await Vue.http.get(userLogoutUrl);
       Cookies.remove('authorization')
       await context.dispatch("loadCurrent");
+    },
+
+    updateCurrent: async function(context, user){
+      let changed = (await UserResource.update({id:user.id}, user)).body
+      context.commit("SET_CURRENT", changed)
+      return changed
     },
 
     register: async function(context, newUser){

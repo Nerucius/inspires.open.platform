@@ -34,25 +34,19 @@ export default {
   methods: {
 
     async createStructure(structureData){
-
-      console.log(structureData)
-      let message
-
       try{
         let structure = await this.$store.dispatch("structure/create", structureData)
-        message = this.$t('pages.structureCreate.success')
         let slug = obj2slug(structure)
         this.$router.push({name:"structure-manage", params:{slug}})
 
+        this.$store.dispatch("toast/success", this.$t('pages.structureCreate.success'))
+
       } catch(err){
+        // Failed to create ???
         console.log(err)
-        message = this.$t('pages.structureCreate.failure')
+        this.$store.dispatch("toast/error", this.$t('pages.structureCreate.failure'))
       }
-
-    console.log(message)
-
     }
-
   }
 };
 </script>

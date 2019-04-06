@@ -12,7 +12,7 @@
   <v-card class="mb-5">
     <v-layout row>
       <v-flex xs4 py-0>
-        <v-img height="100%" :src="project.image_url || defaultImage" />
+        <v-img height="100%" :src="project.image_url" />
       </v-flex>
 
       <v-flex xs8 py-2 pr-3>
@@ -22,7 +22,7 @@
         <p>{{ project.summary | ellipsis(180) }}</p>
 
         <div class="text-xs-right">
-          <v-btn flat :to="projectLink">
+          <v-btn flat :to="project.link">
             More
           </v-btn>
         </div>
@@ -40,9 +40,6 @@ export default {
 
 
   computed:{
-    projectLink(){
-      return {name:'project-detail', params:{slug:obj2slug(this.project)}}
-    }
   }
 
 }

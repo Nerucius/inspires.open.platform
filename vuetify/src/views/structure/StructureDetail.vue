@@ -87,7 +87,7 @@ table th{
 
     <v-flex xs12 sm8>
       <v-card flat>
-        <v-img :src="structure.image_url || defaultImage" height="200">
+        <v-img :src="structure.image_url" height="200">
           <v-toolbar dense flat style="background-color:rgba(0,0,0,.3)" dark>
             <h1 class="title">
               {{ structure.name }}
@@ -126,7 +126,7 @@ table th{
           <v-card v-for="project in projects" :key="project.id" class="mb-5">
             <v-layout row>
               <v-flex xs4 py-0>
-                <v-img height="100%" :src="project.image_url || defaultImage" />
+                <v-img height="100%" :src="project.image_url" />
               </v-flex>
 
               <v-flex xs8 py-2 pr-3>
@@ -166,8 +166,7 @@ export default {
   data(){
     return {
       obj2slug,
-      structure: null,
-      defaultImage : "https://png.pngtree.com/thumb_back/fw800/back_pic/00/03/14/92561d1ba31f9fe.jpg"
+      structure: null
     }
   },
 

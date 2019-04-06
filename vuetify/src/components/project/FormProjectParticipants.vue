@@ -164,8 +164,6 @@ export default {
     },
 
     removeParticipant: async function(user){
-      console.log(user)
-
       if( confirm(this.$t('dialog.confirm.participationDeletion')) ) {
         // Delete only if participation was saved
         if(!!user.partId){

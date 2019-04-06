@@ -31,7 +31,7 @@ th{
 
     <v-flex xs12>
       <v-card flat>
-        <v-card-text>
+        <v-card-text v-if="!showEditForm">
           <table style="max-width:400px">
             <tr>
               <th>First Name</th>
@@ -47,6 +47,49 @@ th{
             </tr>
           </table>
         </v-card-text>
+        <v-card-text v-else>
+          <v-form ref="showEditForm">
+          <v-layout pt-3 row wrap>
+            <!-- Edit Profile Form -->
+
+              <v-flex xs12 sm6 py-0>
+                <v-text-field
+                  box
+                  :rules="[rules.required]"
+                  v-model="editUser.first_name"
+                  :label="$t('forms.fields.firstName')"
+                />
+              </v-flex>
+              <v-flex xs12 sm6 py-0>
+                <v-text-field
+                  box
+                  :rules="[rules.required]"
+                  v-model="editUser.last_name"
+                  :label="$t('forms.fields.lastName')"
+                />
+              </v-flex>
+              <v-flex xs12 py-0>
+                <v-text-field
+                  box
+                  :rules="[rules.required]"
+                  v-model="editUser.email"
+                  :label="$t('forms.fields.email')"
+                />
+              </v-flex>
+
+            <!-- /Edit Profile Form -->
+          </v-layout>
+          </v-form>
+        </v-card-text>
+        <v-card-actions class="px-3">
+          <v-spacer></v-spacer>
+          <v-btn flat v-if="showEditForm" @click="showEditForm = !showEditForm">
+            Save Profile
+          </v-btn>
+          <v-btn flat v-else @click="showEditForm = !showEditForm">
+            Edit Profile
+          </v-btn>
+        </v-card-actions>
       </v-card>
     </v-flex>
 
@@ -55,6 +98,7 @@ th{
     <v-flex xs12 pb-0>
       <h2>Latest Updates</h2>
     </v-flex>
+
     <v-flex xs12>
       <v-layout row wrap>
         <v-flex xs12 sm6 md4>
@@ -139,12 +183,20 @@ th{
 
 <script>
 import { onlyUnique, obj2slug } from "@/plugins/utils";
+import { cloneDeep } from "lodash";
 
 export default {
 
   data(){
     return{
-      obj2slug
+      obj2slug,
+      editUser: null,
+      showEditForm: true,
+      rules: {
+        required: v => !!v || this.$t("forms.rules.requiredField"),
+        minlen: v =>
+          v.length > 10 || this.$t("forms.rules.minimunLength", { length: 10 })
+      },
     }
   },
 
@@ -177,6 +229,7 @@ export default {
 
   async mounted(){
     await this.$store.dispatch("user/loadCurrent")
+    this.editUser = cloneDeep(this.current)
     this.$store.dispatch("project/load", this.projectIds)
     this.$store.dispatch("structure/load", this.structureIds)
   }

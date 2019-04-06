@@ -56,6 +56,17 @@
         Additional Information
       </h2>
 
+      <v-text-field
+        v-model="editedStructure.year_founded"
+        box
+        min="1900"
+        max="2019"
+        type="number"
+        label="Year the structure was founded / established"
+        hint="Shown in listings as well as the structures's page"
+      />
+
+
       <h3 class="mb-2">
         Knowledge Areas
       </h3>

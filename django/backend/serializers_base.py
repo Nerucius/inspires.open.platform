@@ -76,6 +76,38 @@ class ParticipationSerializer(serializers.ModelSerializer):
         fields = ["id", "user", "project", "role"]
 
 
+class AnswerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Answer
+        fields = "__all__"
+
+
+class SimpleQuestionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Question
+        fields = ["id", "name"]
+
+
+class QuestionSerializer(serializers.ModelSerializer):
+    answers = AnswerSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = models.Question
+        fields = "__all__"
+
+
+class EvaluationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Evaluation
+        fields = "__all__"
+
+
+class ResponseSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Response
+        fields = "__all__"
+
+
 class SimpleKeywordSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Keyword

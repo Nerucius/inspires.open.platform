@@ -38,5 +38,9 @@ for model in [
     models.ParticipationRole,
     models.KnowledgeArea,
     models.Keyword,
+    models.Evaluation,
+    models.Question,
+    models.Answer,
+    models.Response,
 ]:
     admin.site.register(model, column_lister(model))

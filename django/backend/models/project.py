@@ -63,6 +63,14 @@ class Project(TrackableModel):
 
     related_projects = models.ManyToManyField("Project", blank=True)
 
+    @property
+    def evaluations(self):
+        phases = ProjectAtPhase.objects.filter(project__pk=self.pk)
+        evaluations = []
+        for phase in phases:
+            evaluations += phase.evaluation_set.all()
+        return evaluations
+
     def can_write(self, user):
         return self.managers.filter(pk=user.pk).exists() or user == self.owner
 
@@ -71,11 +79,19 @@ class Project(TrackableModel):
 
 
 class ProjectPhase(models.Model):
-    order = models.SmallIntegerField()
+    order = models.PositiveSmallIntegerField()
     name = models.CharField(max_length=254)
     tag = models.CharField(max_length=50)
 
     def __str__(self):
+        if "1" in self.name:
+            return "Phase 1"
+        if "2" in self.name:
+            return "Phase 2"
+        if "3" in self.name:
+            return "Phase 3"
+        if "4" in self.name:
+            return "Phase 4"
         return self.name
 
     class Meta:
@@ -87,6 +103,9 @@ class ProjectAtPhase(models.Model):
     is_active = models.BooleanField(default=False)
     project = models.ForeignKey("Project", on_delete=models.CASCADE)
     project_phase = models.ForeignKey("ProjectPhase", on_delete=models.CASCADE)
+
+    def __str__(self):
+        return "%s at %s" % (self.project.acronym, self.project_phase)
 
     def can_create(self, user, data):
         project = Project.objects.get(pk=data["project"])
@@ -105,7 +124,7 @@ class Participation(models.Model):
     role = models.ForeignKey("ParticipationRole", on_delete=models.CASCADE)
 
     def __str__(self):
-        return "%s <-> %s" % (self.user.username, self.project.name)
+        return "[%s] %s as %s" % (self.project.acronym, self.user.username, self.role)
 
     def can_create(self, user, data):
         project = Project.objects.get(pk=data["project"])

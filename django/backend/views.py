@@ -214,5 +214,41 @@ class ProjectAtPhasesVS(RequirePKMixin, viewsets.ModelViewSet):
 
 
 # ===========================
+# EVALUATION ENDPOINTS
+# ===========================
+
+
+class EvaluationVS(RequirePKMixin, viewsets.ModelViewSet):
+    queryset = models.Evaluation.objects.all()
+    serializer_class = serializers.EvaluationSerializer
+
+
+class ProjectEvaluationsVS(RequirePKMixin, viewsets.ModelViewSet):
+    queryset = models.Project.objects.all()
+    serializer_class = serializers.ProjectEvaluationsSerializer
+
+
+class EvaluationQuestionsVS(RequirePKMixin, viewsets.ModelViewSet):
+    queryset = models.Evaluation.objects.all()
+    serializer_class = serializers.EvaluationQuestionsSerializer
+
+
+class EvaluationResponsesVS(RequirePKMixin, viewsets.ModelViewSet):
+    queryset = models.Evaluation.objects.all()
+    serializer_class = serializers.EvaluationResponsesSerializer
+
+
+class QuestionVS(ListDetail, viewsets.ModelViewSet):
+    queryset = models.Question.objects.all()
+    serializer_class = serializers.SimpleQuestionSerializer
+    detail_serializer_class = serializers.QuestionSerializer
+
+
+class ResponseVS(viewsets.ModelViewSet):
+    queryset = models.Response.objects.all()
+    serializer_class = serializers.ResponseSerializer
+
+
+# ===========================
 # RELATED OBJECTS ENDPOINTS
 # ===========================

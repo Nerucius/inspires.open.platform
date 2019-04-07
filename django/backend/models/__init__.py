@@ -21,4 +21,4 @@ from backend.models.knowledge_area import KnowledgeArea
 from backend.models.collaboration import Collaboration
 from backend.models.keyword import Keyword
 
-# from backend.models.evaluation import
+from backend.models.evaluation import Evaluation, Question, Answer, Response

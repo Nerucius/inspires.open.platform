@@ -51,6 +51,14 @@ class ProjectSerializer(TrackableModelSerializer):
         # fields = ["collaboration", "participants", "managers", "keywords"]
 
 
+class ProjectEvaluationsSerializer(TrackableModelSerializer):
+    evaluations = EvaluationSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = models.Project
+        fields = ["evaluations"]
+
+
 class StructureSerializer(TrackableModelSerializer):
     managers = serializers.PrimaryKeyRelatedField(
         many=True, queryset=models.User.objects
@@ -69,3 +77,19 @@ class KeywordSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Keyword
         fields = ["id", "name", "projects"]
+
+
+class EvaluationQuestionsSerializer(serializers.ModelSerializer):
+    questions = QuestionSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = models.Evaluation
+        fields = ["questions"]
+
+
+class EvaluationResponsesSerializer(serializers.ModelSerializer):
+    responses = ResponseSerializer(source="response_set", many=True, read_only=True)
+
+    class Meta:
+        model = models.Evaluation
+        fields = ["responses"]

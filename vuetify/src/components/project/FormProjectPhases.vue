@@ -1,60 +1,61 @@
 <template>
   <v-form ref="form" v-model="valid">
-    <h2 class="mb-2">Project Phases</h2>
+    <h2 class="mb-2">
+      Project Phases
+    </h2>
 
     <p class="subheading">
       {{ $t('pages.projectManage.phasesTabDescription') }}
     </p>
 
     <v-card class="my-5">
-
       <v-stepper
         v-model="stepperPhase"
         class="mb-3 elevation-0"
         alt-labels
-        >
+      >
         <v-stepper-header class="elevation-0">
           <template v-for="phase in phases">
             <v-stepper-step :key="phase.id" :step="phase.id">
               {{ $t(phase.tag) }}
             </v-stepper-step>
-            <v-divider v-if="phase.id != 4" :key="phase.id+'-div'"></v-divider>
+            <v-divider v-if="phase.id != 4" :key="phase.id+'-div'" />
           </template>
         </v-stepper-header>
 
         <v-stepper-items>
-          <v-stepper-content v-for="phase in phases" :step="phase.id" :key="phase.id">
-              <h3 class="mb-3">
-                {{ $t(phase.name) }}
-              </h3>
-              <p v-if="getPhase(phase) && getPhase(phase).is_active">
-                <i>{{ $t('pages.projectManage.hasPhase', {date: getPhase(phase).date}) }}</i>
-              </p>
-              <p v-else-if="getPhase(phase)">
-                <i>{{ $t('pages.projectManage.hadPhase', {date: getPhase(phase).date}) }}</i>
-              </p>
-              <p v-else>
-                <i>{{ $t('pages.projectManage.notHasPhase') }}</i>
-              </p>
-              <p>
-                {{ $t(phase.name+'Description') }}
-              </p>
+          <v-stepper-content v-for="phase in phases" :key="phase.id" :step="phase.id">
+            <h3 class="mb-3">
+              {{ $t(phase.name) }}
+            </h3>
+            <p v-if="getPhase(phase) && getPhase(phase).is_active">
+              <i>{{ $t('pages.projectManage.hasPhase', {date: getPhase(phase).date}) }}</i>
+            </p>
+            <p v-else-if="getPhase(phase)">
+              <i>{{ $t('pages.projectManage.hadPhase', {date: getPhase(phase).date}) }}</i>
+            </p>
+            <p v-else>
+              <i>{{ $t('pages.projectManage.notHasPhase') }}</i>
+            </p>
+            <p>
+              {{ $t(phase.name+'Description') }}
+            </p>
           </v-stepper-content>
         </v-stepper-items>
-
       </v-stepper>
-
     </v-card>
 
-    <h3 class="mb-2">Change the current Phase</h3>
+    <h3 class="mb-2">
+      Change the current Phase
+    </h3>
 
-    <v-select box
-      v-model="stepperPhase"
-      item-value="id"
-      item-text="display"
-      :items="phases"
-      :label="$t('forms.fields.projectPhase')"
-      :rules="[rules.required]"
+    <v-select v-model="stepperPhase"
+              box
+              item-value="id"
+              item-text="display"
+              :items="phases"
+              :label="$t('forms.fields.projectPhase')"
+              :rules="[rules.required]"
     />
 
     <v-btn block large
@@ -84,7 +85,6 @@ export default {
       rules: {
         required: v => !!v || this.$t("forms.rules.requiredField"),
       },
-      phases: null,
       phases: [
         {id:1, name:"models.projectPhase.phase1", display:this.$t("models.projectPhase.phase1"), tag:"models.projectPhase.phase1Tag"},
         {id:2, name:"models.projectPhase.phase2", display:this.$t("models.projectPhase.phase2"), tag:"models.projectPhase.phase2Tag"},

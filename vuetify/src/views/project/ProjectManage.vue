@@ -20,7 +20,6 @@
     </v-flex>
 
     <v-flex xs12>
-
       <!-- Tabulation Menu -->
       <v-tabs v-model="page.tab" grow class="mb-3">
         <v-tabs-slider color="primary" />
@@ -79,20 +78,27 @@
         </v-tab-item>
 
         <v-tab-item key="page.projectManage.evaluationTab">
+          <v-layout row wrap>
+            <v-flex xs12>
+              <v-card flat>
+                <v-card-text>
+                  <FormProjectEvaluation v-if="dataReady" :project="project" />
+                </v-card-text>
+              </v-card>
+            </v-flex>
+          </v-layout>
         </v-tab-item>
-
       </v-tabs-items>
-
     </v-flex>
-
   </v-layout>
 </template>
 
 <script>
 import FormProjectBase from "@/components/project/FormProjectBase";
 import FormProjectParticipants from "@/components/project/FormProjectParticipants";
-import FormProjectPhases from "@/components/project/FormProjectPhases";
 import FormProjectStructure from "@/components/project/FormProjectStructure";
+import FormProjectPhases from "@/components/project/FormProjectPhases";
+import FormProjectEvaluation from "@/components/project/FormProjectEvaluation";
 import { slug2id } from "@/plugins/utils";
 
 export default {
@@ -101,6 +107,7 @@ export default {
     FormProjectParticipants,
     FormProjectStructure,
     FormProjectPhases,
+    FormProjectEvaluation,
   },
 
   data() {

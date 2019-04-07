@@ -12,8 +12,8 @@
   <v-card v-if="structure.id">
     <v-img
       :src="structure.image_url"
-      @click="$router.push(structure.link)"
       aspect-ratio="1.75"
+      @click="$router.push(structure.link)"
     >
       <v-layout fill-height align-end>
         <v-flex xs12 pb-0>
@@ -40,7 +40,7 @@
       <v-sheet style="overflow: hidden;" height="150">
         <h2 style="font-size:125%">
           <router-link :to="structure.link">
-          {{ structure.name }} <small>| {{ structure.year_founded }}</small>
+            {{ structure.name }} <small>| {{ structure.year_founded }}</small>
           </router-link>
         </h2>
         <br>

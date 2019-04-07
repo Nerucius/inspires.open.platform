@@ -11,9 +11,9 @@
   <v-card v-if="project.id">
     <v-img
       style="overflow: visible"
-      @click="$router.push(project.link)"
       :src="project.image_url"
       aspect-ratio="1.75"
+      @click="$router.push(project.link)"
     >
       <v-btn
         v-for="(user,idx) in users(project.participants)"

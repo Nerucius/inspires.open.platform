@@ -12,6 +12,7 @@ import knowledgearea from "./store/KnowledgeArea";
 import structure from "./store/Structure";
 import collaboration from "./store/Collaboration";
 import participation from "./store/Participation";
+import evaluation from "./store/Evaluation";
 
 // CRUD Models
 
@@ -26,6 +27,7 @@ export default new Vuex.Store({
     knowledgearea,
     structure,
     collaboration,
-    participation
+    participation,
+    evaluation,
   }
 });

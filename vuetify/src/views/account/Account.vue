@@ -49,44 +49,44 @@ th{
         </v-card-text>
         <v-card-text v-else>
           <v-form ref="showEditForm">
-          <v-layout pt-3 row wrap>
-            <!-- Edit Profile Form -->
+            <v-layout pt-3 row wrap>
+              <!-- Edit Profile Form -->
 
               <v-flex xs12 sm6 py-0>
                 <v-text-field
+                  v-model="editUser.first_name"
                   box
                   :rules="[rules.required]"
-                  v-model="editUser.first_name"
                   :label="$t('forms.fields.firstName')"
                 />
               </v-flex>
               <v-flex xs12 sm6 py-0>
                 <v-text-field
+                  v-model="editUser.last_name"
                   box
                   :rules="[rules.required]"
-                  v-model="editUser.last_name"
                   :label="$t('forms.fields.lastName')"
                 />
               </v-flex>
               <v-flex xs12 py-0>
                 <v-text-field
+                  v-model="editUser.email"
                   box
                   :rules="[rules.required]"
-                  v-model="editUser.email"
                   :label="$t('forms.fields.email')"
                 />
               </v-flex>
 
             <!-- /Edit Profile Form -->
-          </v-layout>
+            </v-layout>
           </v-form>
         </v-card-text>
         <v-card-actions class="px-3">
-          <v-spacer></v-spacer>
-          <v-btn flat v-if="showEditForm" @click="showEditForm = !showEditForm">
+          <v-spacer />
+          <v-btn v-if="showEditForm" flat @click="showEditForm = !showEditForm">
             Save Profile
           </v-btn>
-          <v-btn flat v-else @click="showEditForm = !showEditForm">
+          <v-btn v-else flat @click="showEditForm = !showEditForm">
             Edit Profile
           </v-btn>
         </v-card-actions>

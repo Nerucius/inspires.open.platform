@@ -82,6 +82,20 @@
       "phase2Tag": "Self-reflection",
       "phase3Tag": "Output",
       "phase4Tag": "Effect"
+    },
+    "evaluation":{
+      "axis":{
+        "science": "Science",
+        "collective": "Collective",
+        "individial": "Individual"
+      },
+      "principle":{
+        "knowledge": "Knowledge Democracy",
+        "citizen": "Citizen-led Research",
+        "participation": "Participatory Dynamics",
+        "transform": "Transformative Change",
+        "integrity": "Integrity"
+      }
     }
   },
   "navigation": {
@@ -114,9 +128,18 @@
       "editEvent": "Edit event"
     }
   },
+  "states": {
+    "enabled": "Enabled",
+    "disabled": "Disabled",
+    "current": "Current",
+    "active": "Active",
+    "inactive": "Inactive",
+    "_": "_"
+  },
   "noums": {
     "user": "User",
     "project": "Project",
+    "evaluation": "Evaluation",
     "structure": "Structure"
   },
   "errors":{

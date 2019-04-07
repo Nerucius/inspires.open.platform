@@ -13,9 +13,9 @@
     <v-layout row>
       <v-flex xs4 py-0>
         <v-img
-        height="100%"
-        :src="project.image_url"
-        @click="$router.push(project.link)"
+          height="100%"
+          :src="project.image_url"
+          @click="$router.push(project.link)"
         />
       </v-flex>
 

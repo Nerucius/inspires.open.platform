@@ -47,7 +47,6 @@
 
       <!-- Account Menu -->
       <v-flex v-if="showAccountMenu" shrink>
-
         <v-list>
           <v-list-tile :to="{name:'account'}" exact>
             <v-list-tile-action>
@@ -58,12 +57,10 @@
             </v-list-tile-content>
           </v-list-tile>
         </v-list>
-
       </v-flex>
 
       <!-- User Menu -->
       <v-flex v-if="!showAccountMenu" shrink>
-
         <v-list>
           <v-list-tile :to="{name:'account'}" exact>
             <v-list-tile-action>
@@ -96,9 +93,7 @@
             <v-list-tile-title>{{ $t("navigation.commissioners") }}</v-list-tile-title>
           </v-list-tile>
           -->
-
         </v-list>
-
       </v-flex>
 
       <v-divider />

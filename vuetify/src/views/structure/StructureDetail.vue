@@ -106,8 +106,7 @@ table th{
           <h2 class="headline mb-2">
             About Us
           </h2>
-          <p class="subheading" :inner-html.prop="structure.description | nlbr">
-          </p>
+          <p class="subheading" :inner-html.prop="structure.description | nlbr" />
         </v-card-text>
       </v-card>
     </v-flex>

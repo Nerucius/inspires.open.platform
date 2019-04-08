@@ -1,12 +1,9 @@
 <template>
   <v-form v-if="participants" ref="form" v-model="valid">
-    <h2>Participants in this Project</h2>
-    <p />
+    <h2 class="mb-2">{{ $t('pages.projectManage.participantsTitle') }}</h2>
 
     <p class="subheading">
-      Add all the people helping to make this project possible here. Each person can
-      have a role within the project. The Role will be used in determining what role
-      they play in the impact evaluation tool.
+      {{ $t('pages.projectManage.participantsIntro') }}
     </p>
 
     <v-form ref="form" v-model="valid">
@@ -44,10 +41,9 @@
       </p>
     </v-form>
 
-    <v-combobox
+    <v-combobox box
       v-model="targetUser"
-      box
-      label="Search Users"
+      label="$t('forms.labels.searchUsers')"
       :items="userSearch"
       item-text="full_name"
       item-value="id"
@@ -132,22 +128,28 @@ export default {
           }
         ))
 
-        await (Promise.all(
-          participants.map(async part => {
-            if(part.id){
-              // Update
-              await this.$store.dispatch("participation/update", part)
-            }else{
-              // Create
-              await this.$store.dispatch("participation/create", part)
-            }
-          })
-        ))
+        try{
+          await (Promise.all(
+            participants.map(async part => {
+              if(part.id){
+                // Update
+                await this.$store.dispatch("participation/update", part)
+              }else{
+                // Create
+                await this.$store.dispatch("participation/create", part)
+              }
+            })
+          ))
 
-        this.$store.dispatch("toast/success", this.$t('pages.projectManage.participantsSuccess'))
+          this.$store.dispatch("toast/success", this.$t('forms.toasts.saveSuccess'))
+          await this.$store.dispatch("project/load",[this.project.id])
+          this.loadParticipants()
 
-        await this.$store.dispatch("project/load",[this.project.id])
-        this.loadParticipants()
+        }catch(err){
+          console.error(err)
+          this.$store.dispatch("toast/error", this.$t('forms.toasts.saveFailure'))
+        }
+
       }
     },
 

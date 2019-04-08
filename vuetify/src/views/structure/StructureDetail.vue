@@ -23,7 +23,7 @@ table th{
       </v-btn>
     </v-flex>
 
-
+    <!-- Not validated Alert -->
     <v-flex v-if="!structure.validation" xs12>
       <v-alert color="info" :value="true" class="title">
         <v-icon dark left>
@@ -32,6 +32,7 @@ table th{
         This structure is not approved yet, it will not show up in public lists.
       </v-alert>
     </v-flex>
+
 
     <v-flex sm4 xs12>
       <v-card flat>
@@ -42,24 +43,42 @@ table th{
         </v-toolbar>
         <v-card-text class="subheading">
           <table>
-            <tr>
-              <th>Email:</th>
-            </tr>
-            <tr>
-              <td colspan="2">
-                <a :href="'mailto:'+structure.contact_email">
-                  {{ structure.contact_email }}
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <th>Address:</th>
-            </tr>
-            <tr>
-              <td colspan="2"
-                  :inner-html.prop="structure.contact_postal_address | nlbr"
-              />
-            </tr>
+            <template v-if="structure.contact_website">
+              <tr>
+                <th>{{ $t('forms.fields.contactWebsite') }}:</th>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <a :href="structure.contact_website">
+                    {{ structure.contact_website }}
+                  </a>
+                </td>
+              </tr>
+            </template>
+
+            <template v-if="structure.contact_email">
+              <tr>
+                <th>{{ $t('forms.fields.email') }}:</th>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <a :href="'mailto:'+structure.contact_email">
+                    {{ structure.contact_email }}
+                  </a>
+                </td>
+              </tr>
+            </template>
+
+            <template v-if="structure.contact_postal_address">
+              <tr>
+                <th>{{ $t('forms.fields.postalAddress') }}:</th>
+              </tr>
+              <tr>
+                <td colspan="2"
+                    :inner-html.prop="structure.contact_postal_address | nlbr"
+                />
+              </tr>
+            </template>
 
             <!-- Managers -->
             <tr>
@@ -122,7 +141,7 @@ table th{
             Overview of all the projects that are nested under this structure.
           </p>
 
-          <v-card v-for="project in projects" :key="project.id" class="mb-5">
+          <!-- <v-card v-for="project in projects" :key="project.id" class="mb-5">
             <v-layout row>
               <v-flex xs4 py-0>
                 <v-img height="100%" :src="project.image_url" />
@@ -139,7 +158,9 @@ table th{
                 </div>
               </v-flex>
             </v-layout>
-          </v-card>
+          </v-card> -->
+
+          <ProjectCardHorizontal v-for="project in projects" :key="project.id" :project="project" />
         </v-card-text>
       </v-card>
     </v-flex>
@@ -150,6 +171,7 @@ table th{
 
 <script>
 import { slug2id, obj2slug } from "@/plugins/utils";
+import ProjectCardHorizontal from "@/components/project/ProjectCardHorizontal";
 
 export default {
 
@@ -160,6 +182,7 @@ export default {
   },
 
   components:{
+    ProjectCardHorizontal
   },
 
   data(){

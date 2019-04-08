@@ -25,19 +25,19 @@ export default {
 
     itemsDetail: {},
 
-    phases: [
-      {id:1, name:"models.projectPhase.phase1", tag:"models.projectPhase.phase1Tag"},
-      {id:2, name:"models.projectPhase.phase2", tag:"models.projectPhase.phase2Tag"},
-      {id:3, name:"models.projectPhase.phase3", tag:"models.projectPhase.phase3Tag"},
-      {id:4, name:"models.projectPhase.phase4", tag:"models.projectPhase.phase4Tag"},
-    ],
+    phases: {
+      1: {id:1, name:"models.projectPhase.phase1", tag:"models.projectPhase.phase1Tag"},
+      2: {id:2, name:"models.projectPhase.phase2", tag:"models.projectPhase.phase2Tag"},
+      3: {id:3, name:"models.projectPhase.phase3", tag:"models.projectPhase.phase3Tag"},
+      4: {id:4, name:"models.projectPhase.phase4", tag:"models.projectPhase.phase4Tag"},
+    },
 
-    roles: [
-      {id:1, name:"Scientist"},
-      {id:2, name:"Student"},
-      {id:3, name:"Civil Society"},
-      {id:4, name:"Project Manager"},
-    ],
+    roles: {
+      1: {id:1, name:"Scientist"},
+      2: {id:2, name:"Student"},
+      3: {id:3, name:"Civil Society"},
+      4: {id:4, name:"Project Manager"},
+    },
 
     axisNames : {
       "SCIENCE": "models.evaluation.axis.science",

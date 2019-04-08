@@ -96,7 +96,7 @@
         box
         :items="knowledgeAreas"
         label="Knowledge Area"
-        item-text="code_name"
+        :item-text="kaName"
         item-value="id"
       />
 
@@ -181,6 +181,10 @@ export default {
       return this.$store.getters['user/get'](uid)
     },
 
+    kaName(knowledgeArea){
+      return `[${knowledgeArea.code}] ${this.$t(knowledgeArea.name)}`
+    },
+
     loadProject: function(){
       let loadedProject = cloneDeep(this.project)
 
@@ -211,7 +215,7 @@ export default {
 
       try{
         await this.$store.dispatch("project/update", project)
-        this.$store.dispatch("toast/success", this.$t('pages.projectManage.success'))
+        this.$store.dispatch("toast/success", this.$t('forms.toasts.projectSaveSuccess'))
 
         if(this.project.id){
           // Reload project to get updated IDS
@@ -220,7 +224,7 @@ export default {
 
       } catch(err){
         // Failed to save
-        this.$store.dispatch("toast/error", this.$t('pages.projectManage.failure'))
+        this.$store.dispatch("toast/error", this.$t('forms.toasts.projectSaveFailure'))
       }
 
       this.processing = false

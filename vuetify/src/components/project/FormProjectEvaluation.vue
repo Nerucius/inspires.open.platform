@@ -8,22 +8,20 @@ table{
 
 
 <template>
-  <div class="pb-4">
-
-    <h2 class="mb-2">
-      Project Evaluation
-    </h2>
+  <div v-if="project" class="pb-4">
+    <h2 class="mb-2">{{ $t('pages.projectManage.evaluationTitle') }}</h2>
 
     <p class="subheading mb-5">
-      {{ $t('pages.projectManage.evaluationTabDescription') }}
+      {{ $t('pages.projectManage.evaluationIntro') }}
     </p>
 
     <v-expansion-panel
-    expand
-    v-model="panel"
-    v-for="phase in phases"
-    :key="phase.id"
-    class="mb-4">
+      v-for="phase in phases"
+      :key="phase.id"
+      v-model="panel[phase.id]"
+      expand
+      class="mb-4"
+    >
       <v-expansion-panel-content>
         <!-- Expansion Header with Phase title and Active / Inactive indicator -->
         <template v-slot:header>
@@ -34,25 +32,27 @@ table{
             v-if="getPhase(phase) && getPhase(phase).id == currentPhase.id"
             style="flex: 0 0 0"
             class="my-0" outline
-            color="success">
+            color="success"
+          >
             {{ $t("states.current") }}
           </v-btn>
           <v-btn
             v-else-if="getPhase(phase)"
             style="flex: 0 0 0"
             class="my-0" outline
-            color="warning">
+            color="warning"
+          >
             {{ $t("states.inactive") }}
           </v-btn>
         </template>
         <!-- Content of Phase -->
         <v-card>
           <v-card-text>
-
-            <v-layout row wrap align-center
-              v-for="participant in project.participants"
-              :key="participant.id"
-              class="pb-3">
+            <v-layout v-for="participant in project.participants" :key="participant.id" row
+                      wrap
+                      align-center
+                      class="pb-3"
+            >
               <v-flex ma-0 xs6 sm3>
                 {{ user(participant.user).full_name }}
               </v-flex>
@@ -62,21 +62,20 @@ table{
               <v-flex xs12 sm6>
                 <v-btn
                   v-if="!getEvaluation(phase, participant)"
-                  @click="sendEvaluationRequest(phase, participant)"
-                  flat block outline class="my-0">Send Request for Evaluation
+                  flat
+                  block outline class="my-0" @click="sendEvaluationRequest(phase, participant)"
+                >
+                  Send Request for Evaluation
                 </v-btn>
               </v-flex>
               <v-flex xs12 py-1>
-                <v-divider></v-divider>
+                <v-divider />
               </v-flex>
             </v-layout>
-
           </v-card-text>
         </v-card>
       </v-expansion-panel-content>
     </v-expansion-panel>
-
-
   </div>
 </template>
 
@@ -90,7 +89,7 @@ export default {
 
   data() {
     return {
-      panel: [1],
+      panel: {1:[0],2:[0],3:[0],4:[0]},
       valid: null,
       processing: false,
       rules: {
@@ -114,13 +113,16 @@ export default {
       catch(err){
         phaseId = 1
       }
-      return this.phases.filter(p => p.id == phaseId)[0]
+      return this.phases[phaseId]
     }
   },
 
   async mounted() {
     // Load all evaluations for this project
     await this.$store.dispatch("evaluation/loadProject", this.project.id)
+    this.$nextTick(() =>{
+      this.panel[this.currentPhase.id] = [1]
+    })
   },
 
   methods: {
@@ -143,6 +145,7 @@ export default {
 
     sendEvaluationRequest: async function() {
       // TODO: POST new evaluation
+      this.$store.dispatch("toast/error", this.$t('forms.toasts.projectSaveFailure'))
     },
 
   }

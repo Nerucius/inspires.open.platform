@@ -1,35 +1,36 @@
 <style scoped>
-
+  .v-image{ cursor: pointer; }
   a{
     text-decoration: none;
     color:inherit;
   }
-
 </style>
-
 
 <template>
   <v-card class="mb-5">
     <v-layout row>
       <v-flex xs4 py-0>
         <v-img
-          height="100%"
+          height="165px"
           :src="project.image_url"
           @click="$router.push(project.link)"
         />
       </v-flex>
 
-      <v-flex xs8 py-2 pr-3>
+      <v-flex xs8 pa-3>
         <router-link :to="project.link">
-          <h3>{{ project.name }}</h3>
+          <h3 class="text-truncate">
+            {{ project.name }}
+          </h3>
         </router-link>
-        <p>{{ project.summary | ellipsis(180) }}</p>
 
-        <div class="text-xs-right">
-          <v-btn flat :to="project.link">
-            More
-          </v-btn>
-        </div>
+        <v-btn v-if="project.knowledge_area" flat class="my-1 mx-0 pa-2 grey lighten-5 caption font-weight-light text-uppercase">
+          {{ $t(project.knowledge_area.name) }}
+        </v-btn>
+
+        <v-sheet :height="3*21" class="overflow-hidden">
+          {{ project.summary | ellipsis(180) }}
+        </v-sheet>
       </v-flex>
     </v-layout>
   </v-card>

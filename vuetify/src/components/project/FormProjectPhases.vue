@@ -1,8 +1,6 @@
 <template>
   <v-form ref="form" v-model="valid">
-    <h2 class="mb-2">
-      Project Phases
-    </h2>
+    <h2 class="mb-2">{{ $t('pages.projectManage.phasesTab') }}</h2>
 
     <p class="subheading">
       {{ $t('pages.projectManage.phasesTabDescription') }}
@@ -134,24 +132,29 @@ export default {
           let projectPhase = this.getPhase(phase)
           let isSelectedPhase = phase.id == this.stepperPhase
 
-          if(projectPhase){
-            // If the project already has the phase, reupdate all
-            await ProjectAtPhaseResource.update({id:projectPhase.id},
-            {is_active: isSelectedPhase}
-          )
-          }else if(isSelectedPhase){
-            // If the  project does not have it, but is the selected one, create it.
-            await ProjectAtPhaseResource.save({
-              is_active: true,
-              project_phase: phase.id,
-              project: this.project.id,
-            })
+          try{
+            if(projectPhase){
+              // If the project already has the phase, reupdate all
+              await ProjectAtPhaseResource.update({id:projectPhase.id},
+                {is_active: isSelectedPhase}
+              )
+            }else if(isSelectedPhase){
+              // If the  project does not have it, but is the selected one, create it.
+              await ProjectAtPhaseResource.save({
+                is_active: true,
+                project_phase: phase.id,
+                project: this.project.id,
+              })
+            }
+            await this.$store.dispatch("project/load", [this.project.id])
+            this.$store.dispatch("toast/success", this.$t('forms.toasts.projectSaveSuccess'))
+
+          }catch(err){
+            this.$store.dispatch("toast/error", this.$t('forms.toasts.projectSaveFailure'))
           }
         });
 
-        await this.$store.dispatch("project/load", [this.project.id])
         // this.refreshStepper()
-
       }
     },
 

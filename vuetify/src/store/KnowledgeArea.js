@@ -30,10 +30,6 @@ export default {
           next = response.next
         }
 
-        items.forEach(i => {
-          i.code_name = `[${i.code}] ${i.name}`
-        })
-
         context.commit("SET_ALL", items)
     },
 

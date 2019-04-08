@@ -1,18 +1,18 @@
 {
   "pages": {
     "login": {
-      "welcomeMessage":"Welcome to the InSPIRES Platform"
+      "welcomeMessage": "Welcome to the InSPIRES Platform"
     },
     "register": {
-      "titles":{
-        "step1":"First things first",
-        "step2":"Tell us a bit about yourself",
-        "step3":"Terms of Service",
-        "step4":"Almost done!"
+      "titles": {
+        "step1": "First things first",
+        "step2": "Tell us a bit about yourself",
+        "step3": "Terms of Service",
+        "step4": "Almost done!"
       },
-      "acceptTOS":"Accept Terms & Conditions",
-      "welcomeMessage":"Welcome to the registration page for the InSPIRES Open Platform. Here you can create your own user to log into the site.",
-      "welcomeMessage2":"Registering allows you to start contributing to the site! You can also register Intermediation Organizations and Research Projects to your or your Organization's name.",
+      "acceptTOS": "Accept Terms & Conditions",
+      "welcomeMessage": "Welcome to the registration page for the InSPIRES Open Platform. Here you can create your own user to log into the site.",
+      "welcomeMessage2": "Registering allows you to start contributing to the site! You can also register Intermediation Organizations and Research Projects to your or your Organization's name.",
       "step1Message": "Please write down your prefered user name and password. This user name is what you will use to login to the platform.",
       "step2Message": "Tell us your full name and email so it can be displayed along your projects and other activities in the platform. Your email will only be used for alerts and notifications.",
       "step3Message": "Before you can register, you will have to agree to our terms of service for the platform.",
@@ -22,33 +22,42 @@
       "step4MessageInvite": "During the first period of testing, we are restricting the registration to those personally invited. Please enter the code provided to you below:"
     },
     "home": {
-      "mainTitle":"Welcome to InSPIRES",
-      "aboutTitle":"What we do",
-      "aboutLink":"More about us!",
-      "projectsTitle": "Projects",
+      "mainTitle": "Welcome to InSPIRES",
+      "welcomeMessage": "Welcome to the InSPIRES online database and impact evaluation tool. This platform features participatory research and innovation projects promoted knowledge intermediary units, such as Science Shops.",
+      "aboutLink": "More about us!",
       "projectsSeeMore": "See all projects"
     },
-    "structures":{
+    "structures": {
       "title": "Structures"
     },
-    "projectDetail":{
+    "projectDetail": {
       "about": "About"
     },
-    "structureDetail":{
+    "structureDetail": {
       "about": "About"
     },
-    "structureManage":{
+    "structureManage": {
       "title": "Manage this Structure",
-      "success": "Structure saved successfully.",
-      "failure": "Failed to save the Structure."
+      "success": "Structure saved successfuly!",
+      "failure": "Failed to save the structure. Try again later.",
+      "collaborationFailure":"Project has been approved under this structure",
+      "collaborationAdded":"Project has been approved under this structure",
+      "collaborationRemoved":"Project has been removed from this structure"
     },
-    "projectCreate":{
+    "projectCreate": {
       "title": "Create a new Project",
       "success": "New project created successfully.",
-      "failure": "Failed to create a new project."
+      "failure": "Failed to create a new project. Try again later."
     },
-    "projectManage":{
+    "structureCreate": {
+      "title": "Create a new Structure",
+      "success": "New structure created successfully.",
+      "failure": "Failed to create a new structure. Try again later."
+    },
+    "projectManage": {
       "title": "Manage this Project",
+      "success": "Structure saved successfuly!",
+      "failure": "Failed to save the Structure. Try again later.",
       "projectTab": "This Project",
       "participantsTab": "Participants",
       "phasesTab": "Project Phases",
@@ -60,15 +69,12 @@
       "collaborationSuccess": "Collaboration with structure requested successfully.",
       "collaborationFailure": "Failed to request collaboration.",
       "deleteCollaborationAlert": "Are you sure you want to cancel the collaboration?",
-      "collaborationDeleted": "Collaboration with structure has been withdrawn.",
-      "success": "Project saved successfully.",
-      "failure": "Failed to save the Project.",
-      "participantsSuccess": "Saved people involved in the project."
+      "collaborationDeleted": "Collaboration with structure has been withdrawn."
     },
-    "_": ""
+    "-": ""
   },
-  "models":  {
-    "projectPhase":{
+  "models": {
+    "projectPhase": {
       "phase": "Phase",
       "phase1": "Phase 1: Project Kick-off and Expectations",
       "phase2": "Phase 2: Progress and Self-reflection",
@@ -83,13 +89,39 @@
       "phase3Tag": "Output",
       "phase4Tag": "Effect"
     },
-    "evaluation":{
-      "axis":{
+    "knowledgeArea": {
+      "logic": "Logic",
+      "mathematics": "Mathematics",
+      "astronomyAndAstrophysics": "Astronomy And Astrophysics",
+      "physics": "Physics",
+      "chemistry": "Chemistry",
+      "lifeSciences": "Life Sciences",
+      "earthAndSpaceSciences": "Earth and Space Sciences",
+      "agriculturalSciences": "Agricultural Sciences",
+      "medicalSciences": "Medical Sciences",
+      "technologicalSciences": "Technological Sciences",
+      "anthropology": "Anthropology",
+      "demographics": "Demographics",
+      "economicSciences": "Economic Sciences",
+      "geography": "Geography",
+      "history": "History",
+      "juridicalSciencesAndLaw": "Juridical Sciences and Law",
+      "linguistics": "Linguistics",
+      "pedagogy": "Pedagogy",
+      "politicalScience": "Political Science",
+      "psychology": "Psychology",
+      "scienceOfArtsAndLetters": "Science of Arts and Letters",
+      "sociology": "Sociology",
+      "ethics": "Ethics",
+      "philosophy": "Philosophy"
+    },
+    "evaluation": {
+      "axis": {
         "science": "Science",
         "collective": "Collective",
         "individial": "Individual"
       },
-      "principle":{
+      "principle": {
         "knowledge": "Knowledge Democracy",
         "citizen": "Citizen-led Research",
         "participation": "Participatory Dynamics",
@@ -99,17 +131,17 @@
     }
   },
   "navigation": {
-    "links":{
+    "links": {
       "home": "Home",
       "projects": "Projects",
       "structures": "Structures",
       "about": "About"
     },
-    "dashboard" : "Dashboard",
-    "projects" : "My Projects",
-    "structures" : "My Structures",
-    "commissioners" : "My Commissioners",
-    "_" : ""
+    "dashboard": "Dashboard",
+    "projects": "My Projects",
+    "structures": "My Structures",
+    "commissioners": "My Commissioners",
+    "_": ""
   },
   "actions": {
     "add": "Add",
@@ -123,10 +155,8 @@
     "close": "Close",
     "cancel": "Cancel",
     "more": "More",
-    "next": "Next",
-    "calendar": {
-      "editEvent": "Edit event"
-    }
+    "moreInformation": "More Information",
+    "next": "Next"
   },
   "states": {
     "enabled": "Enabled",
@@ -139,11 +169,12 @@
   "noums": {
     "user": "User",
     "project": "Project",
+    "projects": "Projects",
     "evaluation": "Evaluation",
     "structure": "Structure"
   },
-  "errors":{
-    "404":{
+  "errors": {
+    "404": {
       "title": "Oops! This page was not found",
       "text": "The page at '{route}' does not exist. Are you sure you've typed it correctly?"
     }
@@ -151,9 +182,6 @@
   "forms": {
     "titles": {
       "login": "Log In"
-    },
-    "errors": {
-      "invalidCredentials": "Invalid credentials, please verify your username and password."
     },
     "rules": {
       "requiredField": "This is a required field",
@@ -165,6 +193,21 @@
       "mustBeStructure": "Please enter a valid Structure",
       "mustBeUser": "Please enter a valid list of Users"
     },
+    "errors": {
+      "invalidCredentials": "Invalid credentials, please verify your username and password."
+    },
+    "toasts": {
+      "loggedOut": "You have been logged out",
+      "saveSuccess": "Saved successfully!",
+      "saveFailure": "Failed to save, try again later",
+      "projectSaveSuccess": "Project data updated!",
+      "projectSaveFailure": "Failed to save the Project, please try again later",
+      "structureSaveSuccess": "Structure data updated!",
+      "structureSaveFailure": "Failed to save the Structure, please try again later",
+      "participantsSuccess": "Saved people involved in the project",
+
+      "-": ""
+    },
     "fields": {
       "name": "Name",
       "firstName": "First Name",
@@ -173,6 +216,9 @@
       "summary": "Summary",
       "participants": "Participants",
       "managers": "Managers",
+      "contactEmail": "Contact Email",
+      "contactWebsite": "Contact Website",
+      "postalAddress": "Postal Address",
       "username": "Username",
       "password": "Password",
       "passwordRepeat": "Repeat your password",
@@ -181,13 +227,13 @@
       "invitationCode": "Invitation Code",
       "projectPhase": "Project Phase"
     },
-    "hints":{
+    "hints": {
       "password": "Your password must be at least 8 characters, not be a common password and not contain your username."
     }
   },
-  "dialog":{
-    "confirm":{
-      "participationDeletion" : "Are you sure you want to remove this person from the project?\n\nThis action can't be undone and you will lose all content related to this user.\n\nPress OK to confirm."
+  "dialog": {
+    "confirm": {
+      "participationDeletion": "Are you sure you want to remove this person from the project?\n\nThis action can't be undone and you will lose all content related to this user.\n\nPress OK to confirm."
     }
   },
   "$vuetify": {

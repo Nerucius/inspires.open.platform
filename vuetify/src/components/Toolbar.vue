@@ -2,7 +2,9 @@
   <v-toolbar scroll-off-screen app dark flat color="primary">
     <v-toolbar-side-icon v-if="showToggleDrawer" @click="$emit('toggleDrawer')" />
     <v-toolbar-title class="headline text-uppercase">
-      <span>InSPIRES</span>&nbsp;
+      <span style="text-transform:none">
+        InSPIRES
+      </span>&nbsp;
       <span style="font-size:70%" class="font-weight-light">
         Open Platform
       </span>

@@ -1,7 +1,13 @@
 <template>
   <v-layout row wrap align-content-start>
-    <v-flex xs12>
+    <v-flex xs12 sm6>
       <h1>{{ $t('pages.projectManage.title') }}</h1>
+    </v-flex>
+
+    <v-flex xs12 sm6 class="text-xs-right">
+      <v-btn :to="project.link" exact outline color="success">
+        View public page
+      </v-btn>
     </v-flex>
 
     <v-flex v-if="isOwner" xs12>

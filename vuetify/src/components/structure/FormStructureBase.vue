@@ -80,7 +80,7 @@
                   deletable-chips
                   :rules="[rules.isKnowledgeArea]"
                   :items="knowledgeAreas"
-                  item-text="code_name"
+                  :item-text="kaName"
                   item-value="id"
       />
 
@@ -215,6 +215,10 @@ export default {
       return this.$store.getters['knowledgearea/get'](id)
     },
 
+    kaName(knowledgeArea){
+      return `[${knowledgeArea.code}] ${this.$t(knowledgeArea.name)}`
+    },
+
     loadStructure: function(){
       let loadedStructure = cloneDeep(this.structure)
       // Transform attributes to be compatible with Form
@@ -245,7 +249,7 @@ export default {
 
       try{
         await this.$store.dispatch("structure/update", structure)
-        this.$store.dispatch("toast/success", this.$t('pages.structureManage.success'))
+        this.$store.dispatch("toast/success", this.$t('forms.toasts.saveSuccess'))
 
         // Reload structure to get updated IDS
         if(structure.id){
@@ -254,7 +258,7 @@ export default {
         }
 
       } catch(err){
-        this.$store.dispatch("toast/error", this.$t('pages.structureManage.failure'))
+        this.$store.dispatch("toast/error", this.$t('forms.toasts.saveFailure'))
       }
 
       this.processing = false

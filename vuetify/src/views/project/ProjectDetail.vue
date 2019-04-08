@@ -44,34 +44,34 @@ table td{
         </v-toolbar>
         <v-card-text class="subheading">
           <table>
-            <tr>
-              <th colspan="2">
-                Contact
-              </th>
-            </tr>
-            <tr>
-              <td colspan="2">
-                <a :href="'mailto:'+project.contact_email">
-                  {{ project.contact_email }}
-                </a>
-              </td>
-            </tr>
+            <template v-if="project.contact_website">
+              <tr>
+                <th>{{ $t('forms.fields.contactWebsite') }}:</th>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <a :href="project.contact_website">
+                    {{ project.contact_website }}
+                  </a>
+                </td>
+              </tr>
+            </template>
 
-            <tr>
-              <th colspan="2">
-                Homepage
-              </th>
-            </tr>
-            <tr>
-              <td colspan="2">
-                <a :href="project.contact_website">
-                  {{ project.contact_website }}
-                </a>
-              </td>
-            </tr>
+            <template v-if="project.contact_email">
+              <tr>
+                <th>{{ $t('forms.fields.email') }}:</th>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <a :href="'mailto:'+project.contact_email">
+                    {{ project.contact_email }}
+                  </a>
+                </td>
+              </tr>
+            </template>
 
             <!-- Managers -->
-            <tr>
+            <!-- <tr>
               <th colspan="2">
                 {{ $t('forms.fields.managers') }}:
               </th>
@@ -88,7 +88,7 @@ table td{
                   {{ user(uid).full_name }}
                 </v-chip>
               </td>
-            </tr>
+            </tr> -->
             <!-- Participants -->
             <tr>
               <th colspan="2" style="text-align:left">

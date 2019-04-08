@@ -7,7 +7,7 @@ const Resource = StructureResource
 
 function createLink(obj){
   obj.link = {name:"structure-detail", params:{slug:obj2slug(obj)}}
-  obj.image_url = obj.image_url || "https://png.pngtree.com/thumb_back/fw800/back_pic/00/03/14/92561d1ba31f9fe.jpg"
+  obj.image_url = obj.image_url || "https://png.pngtree.com/thumb_back/fw800/back_pic/03/63/76/8357ac6deb20fb4.jpg"
   return obj
 }
 

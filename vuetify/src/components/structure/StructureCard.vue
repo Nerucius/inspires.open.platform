@@ -12,7 +12,7 @@
   <v-card v-if="structure.id">
     <v-img
       :src="structure.image_url"
-      aspect-ratio="1.75"
+      height="180"
       @click="$router.push(structure.link)"
     >
       <v-layout fill-height align-end>
@@ -20,10 +20,10 @@
           <v-toolbar style="background-color:rgba(0,0,0,.3)" dense flat>
             <v-chip v-for="area in structure.knowledge_areas.slice(0,3)" :key="area.code"
                     dark color="grey darken-4"
-                    :title="area.name"
+                    :title="$t(area.name)"
                     @click="$router.push(`/structures/areas/${obj2slug(area)}`)"
             >
-              {{ area.name }}
+              {{ $t(area.name) }}
             </v-chip>
             <v-chip v-if="structure.knowledge_areas.length > 3" dark
                     color="grey darken-4"
@@ -36,28 +36,19 @@
     </v-img>
 
 
-    <v-card-text>
-      <v-sheet style="overflow: hidden;" height="150">
-        <h2 style="font-size:125%">
-          <router-link :to="structure.link">
-            {{ structure.name }} <small>| {{ structure.year_founded }}</small>
-          </router-link>
-        </h2>
-        <br>
-        <p>{{ structure.summary | ellipsis(200) }}</p>
+    <v-card-text class="pb-0">
+      <h2 style="font-size:125%" class="mb-2">
+        <router-link :to="structure.link">
+          {{ structure.name }} <small>| {{ structure.year_founded }}</small>
+        </router-link>
+      </h2>
+      <v-sheet :height="4*21" class="overflow-hidden mb-2">
+        {{ structure.summary | ellipsis(200) }}
       </v-sheet>
     </v-card-text>
     <v-card-actions>
-      <v-spacer />
-      <v-btn
-        flat
-        alt="project-see-more"
-        :to="structure.link"
-      >
-        {{ $t('actions.more') }}
-        <v-icon right class="hidden-sm-and-down">
-          mdi-chevron-right
-        </v-icon>
+      <v-btn flat block :to="structure.link">
+        {{ $t('actions.moreInformation') }}
       </v-btn>
     </v-card-actions>
   </v-card>

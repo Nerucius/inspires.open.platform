@@ -6,13 +6,13 @@
           <h1>{{ $t('pages.structures.title') }}</h1>
           <p />
 
-          <v-container grid-list-xl>
-            <v-layout row wrap>
-              <v-flex v-for="structure in structures" :key="structure.id" xs12 sm6 lg4 mb-3>
-                <StructureCard :structure="structure" />
-              </v-flex>
-            </v-layout>
-          </v-container>
+          <!-- <v-container grid-list-xl> -->
+          <v-layout row wrap>
+            <v-flex v-for="structure in structures" :key="structure.id" xs12 sm6 md4 lg3 xl2 mb-3>
+              <StructureCard :structure="structure" />
+            </v-flex>
+          </v-layout>
+          <!-- </v-container> -->
         </v-card-text>
       </v-card>
     </v-flex>

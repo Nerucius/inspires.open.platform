@@ -4,7 +4,7 @@
       <h1>{{ $t('pages.structureManage.title') }}</h1>
     </v-flex>
     <v-flex xs12 sm6 class="text-xs-right">
-      <v-btn :to="structureLink" outline color="success">
+      <v-btn :to="structure.link" exact outline color="success">
         View public page
       </v-btn>
     </v-flex>
@@ -116,8 +116,6 @@ import { slug2id, obj2slug } from "@/plugins/utils";
 export default {
   components: {
     FormStructureBase,
-    // FormStructureParticipants,
-    // FormStructureStructure,
   },
 
   data() {
@@ -179,11 +177,11 @@ export default {
       try{
         await this.$store.dispatch("collaboration/update", {id, is_approved: true})
         await this.$store.dispatch("structure/load", [this.structureId])
-        this.$store.dispatch("toast/success", "Project has been approved under this structure.")
+        this.$store.dispatch("toast/success", this.$t("pages.structureManage.collaborationAdded"))
 
       }catch(err){
         console.error(err)
-        this.$store.dispatch("toast/error", "Something has gone wrong, please try again later.")
+        this.$store.dispatch("toast/error", this.$t("pages.structureManage.collaborationFailure"))
       }
 
     },
@@ -191,11 +189,11 @@ export default {
       try{
         await this.$store.dispatch("collaboration/update", {id, is_approved: false})
         await this.$store.dispatch("structure/load", [this.structureId])
-        this.$store.dispatch("toast/info", "Project has been removed from this structure.")
+        this.$store.dispatch("toast/info", this.$t("pages.structureManage.collaborationRemoved"))
 
       }catch(err){
         console.error(err)
-        this.$store.dispatch("toast/error", "Something has gone wrong, please try again later.")
+        this.$store.dispatch("toast/error", this.$t("pages.structureManage.collaborationFailure"))
       }
     },
   }

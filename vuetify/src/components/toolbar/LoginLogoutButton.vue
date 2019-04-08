@@ -58,7 +58,7 @@ export default {
   methods: {
     async logout() {
       await this.$store.dispatch("user/logout");
-      this.$store.dispatch("toast/info", "You have been logged out");
+      this.$store.dispatch("toast/info", this.$t('forms.toasts.loggedOut'));
       this.$router.push({ name: 'home'})
     }
   }

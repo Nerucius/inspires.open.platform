@@ -83,12 +83,12 @@ th{
         </v-card-text>
         <v-card-actions class="px-3">
           <v-spacer />
-          <v-btn v-if="showEditForm" flat @click="showEditForm = !showEditForm">
+          <!-- <v-btn v-if="showEditForm" flat @click="showEditForm = !showEditForm">
             Save Profile
           </v-btn>
           <v-btn v-else flat @click="showEditForm = !showEditForm">
             Edit Profile
-          </v-btn>
+          </v-btn> -->
         </v-card-actions>
       </v-card>
     </v-flex>
@@ -191,7 +191,7 @@ export default {
     return{
       obj2slug,
       editUser: null,
-      showEditForm: true,
+      showEditForm: false,
       rules: {
         required: v => !!v || this.$t("forms.rules.requiredField"),
         minlen: v =>

@@ -24,6 +24,7 @@ class Project(TrackableModel):
     participants = models.ManyToManyField(
         "User",
         through="Participation",
+        through_fields=("project", "user"),
         blank=True,
         related_name="researched_projects",
         related_query_name="researched_project",
@@ -71,6 +72,12 @@ class Project(TrackableModel):
             evaluations += phase.evaluation_set.all()
         return evaluations
 
+    @property
+    def structure(self):
+        if hasattr(self, "collaboration"):
+            return self.collaboration.structure
+        return None
+
     def can_write(self, user):
         return self.managers.filter(pk=user.pk).exists() or user == self.owner
 
@@ -98,7 +105,7 @@ class ProjectPhase(models.Model):
         ordering = ["order"]
 
 
-class ProjectAtPhase(models.Model):
+class ProjectAtPhase(TrackableModel):
     date = models.DateField(auto_now_add=True)
     is_active = models.BooleanField(default=False)
     project = models.ForeignKey("Project", on_delete=models.CASCADE)
@@ -107,9 +114,10 @@ class ProjectAtPhase(models.Model):
     def __str__(self):
         return "%s at %s" % (self.project.acronym, self.project_phase)
 
-    def can_create(self, user, data):
+    @classmethod
+    def can_create(cls, user, data):
         project = Project.objects.get(pk=data["project"])
-        return self.project.can_write(user)
+        return project.can_write(user)
 
     def can_write(self, user):
         return self.project.can_write(user)
@@ -118,7 +126,7 @@ class ProjectAtPhase(models.Model):
         unique_together = ("project", "project_phase")
 
 
-class Participation(models.Model):
+class Participation(TrackableModel):
     project = models.ForeignKey("Project", on_delete=models.CASCADE)
     user = models.ForeignKey("User", on_delete=models.CASCADE)
     role = models.ForeignKey("ParticipationRole", on_delete=models.CASCADE)
@@ -126,9 +134,10 @@ class Participation(models.Model):
     def __str__(self):
         return "[%s] %s as %s" % (self.project.acronym, self.user.username, self.role)
 
-    def can_create(self, user, data):
+    @classmethod
+    def can_create(cls, user, data):
         project = Project.objects.get(pk=data["project"])
-        return self.project.can_write(user)
+        return project.can_write(user)
 
     def can_write(self, user):
         return self.project.can_write(user)
@@ -138,12 +147,16 @@ class Participation(models.Model):
 
 
 class ParticipationRole(models.Model):
-    # SCI
-    # STU
-    # CSM
-
     tag = models.CharField(max_length=3)
     name = models.CharField(max_length=254)
 
     def __str__(self):
+        if "scientist" in self.name:
+            return "Scientist"
+        if "student" in self.name:
+            return "Student"
+        if "civilSociety" in self.name:
+            return "Civil Society"
+        if "projectManager" in self.name:
+            return "Project Manager"
         return self.name

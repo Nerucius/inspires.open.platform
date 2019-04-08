@@ -11,6 +11,7 @@ python manage.py loaddata auth-group
 python manage.py loaddata auth-user
 python manage.py loaddata knowledgearea
 python manage.py loaddata participationrole
+python manage.py loaddata projectphase
 
 # Start Server
 uwsgi --ini uwsgi.ini

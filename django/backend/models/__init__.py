@@ -8,7 +8,7 @@ from backend.models.user import User
 from django.contrib.auth.models import Group
 
 # Other models
-from backend.models.multilang_field import MultilangField, MultilangFieldEntry
+# from backend.models.multilang_field import MultilangField, MultilangFieldEntry
 from backend.models.structure import Structure, StructureValidation, Network
 from backend.models.project import (
     Project,

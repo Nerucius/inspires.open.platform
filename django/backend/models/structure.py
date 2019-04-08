@@ -58,6 +58,8 @@ class StructureValidation(TrackableModel):
     is_approved = models.BooleanField(default=False)
 
     def __str__(self):
+        if hasattr(self, "structure"):
+            return "%s by %s" % (self.structure, self.created_by.username)
         return "by %s" % (self.created_by.username)
 
 

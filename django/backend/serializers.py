@@ -44,6 +44,7 @@ class ProjectSerializer(TrackableModelSerializer):
     keywords = serializers.PrimaryKeyRelatedField(
         many=True, required=False, queryset=models.Keyword.objects
     )
+    # structure = serializers.PrimaryKeyRelatedField(read_only=True)
 
     class Meta:
         model = models.Project

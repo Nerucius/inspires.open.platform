@@ -4,7 +4,7 @@
     "fields": {
         "parent": null,
         "code": "11",
-        "name": "Logic"
+        "name": "models.knowledgeArea.logic"
     }
 }, {
     "model": "backend.knowledgearea",
@@ -12,7 +12,7 @@
     "fields": {
         "parent": null,
         "code": "12",
-        "name": "Mathematics"
+        "name": "models.knowledgeArea.mathematics"
     }
 }, {
     "model": "backend.knowledgearea",
@@ -20,7 +20,7 @@
     "fields": {
         "parent": null,
         "code": "21",
-        "name": "Astronomy and astrophysics"
+        "name": "models.knowledgeArea.astronomyAndAstrophysics"
     }
 }, {
     "model": "backend.knowledgearea",
@@ -28,7 +28,7 @@
     "fields": {
         "parent": null,
         "code": "22",
-        "name": "Physics"
+        "name": "models.knowledgeArea.physics"
     }
 }, {
     "model": "backend.knowledgearea",
@@ -36,7 +36,7 @@
     "fields": {
         "parent": null,
         "code": "23",
-        "name": "Chemistry"
+        "name": "models.knowledgeArea.chemistry"
     }
 }, {
     "model": "backend.knowledgearea",
@@ -44,7 +44,7 @@
     "fields": {
         "parent": null,
         "code": "24",
-        "name": "Life Sciences"
+        "name": "models.knowledgeArea.lifeSciences"
     }
 }, {
     "model": "backend.knowledgearea",
@@ -52,7 +52,7 @@
     "fields": {
         "parent": null,
         "code": "25",
-        "name": "Earth and Space Sciences"
+        "name": "models.knowledgeArea.earthAndSpaceSciences"
     }
 }, {
     "model": "backend.knowledgearea",
@@ -60,7 +60,7 @@
     "fields": {
         "parent": null,
         "code": "31",
-        "name": "Agricultural Sciences"
+        "name": "models.knowledgeArea.agriculturalSciences"
     }
 }, {
     "model": "backend.knowledgearea",
@@ -68,7 +68,7 @@
     "fields": {
         "parent": null,
         "code": "32",
-        "name": "Medical Sciences"
+        "name": "models.knowledgeArea.medicalSciences"
     }
 }, {
     "model": "backend.knowledgearea",
@@ -76,7 +76,7 @@
     "fields": {
         "parent": null,
         "code": "33",
-        "name": "Technological Sciences"
+        "name": "models.knowledgeArea.technologicalSciences"
     }
 }, {
     "model": "backend.knowledgearea",
@@ -84,7 +84,7 @@
     "fields": {
         "parent": null,
         "code": "51",
-        "name": "Anthropology"
+        "name": "models.knowledgeArea.anthropology"
     }
 }, {
     "model": "backend.knowledgearea",
@@ -92,7 +92,7 @@
     "fields": {
         "parent": null,
         "code": "52",
-        "name": "Demographics"
+        "name": "models.knowledgeArea.demographics"
     }
 }, {
     "model": "backend.knowledgearea",
@@ -100,7 +100,7 @@
     "fields": {
         "parent": null,
         "code": "53",
-        "name": "Economic Sciences"
+        "name": "models.knowledgeArea.economicSciences"
     }
 }, {
     "model": "backend.knowledgearea",
@@ -108,7 +108,7 @@
     "fields": {
         "parent": null,
         "code": "54",
-        "name": "Geography"
+        "name": "models.knowledgeArea.geography"
     }
 }, {
     "model": "backend.knowledgearea",
@@ -116,7 +116,7 @@
     "fields": {
         "parent": null,
         "code": "55",
-        "name": "History"
+        "name": "models.knowledgeArea.history"
     }
 }, {
     "model": "backend.knowledgearea",
@@ -124,7 +124,7 @@
     "fields": {
         "parent": null,
         "code": "56",
-        "name": "Juridical Sciences and Law"
+        "name": "models.knowledgeArea.juridicalSciencesAndLaw"
     }
 }, {
     "model": "backend.knowledgearea",
@@ -132,7 +132,7 @@
     "fields": {
         "parent": null,
         "code": "57",
-        "name": "Linguistics"
+        "name": "models.knowledgeArea.linguistics"
     }
 }, {
     "model": "backend.knowledgearea",
@@ -140,7 +140,7 @@
     "fields": {
         "parent": null,
         "code": "58",
-        "name": "Pedagogy"
+        "name": "models.knowledgeArea.pedagogy"
     }
 }, {
     "model": "backend.knowledgearea",
@@ -148,7 +148,7 @@
     "fields": {
         "parent": null,
         "code": "59",
-        "name": "Political Science"
+        "name": "models.knowledgeArea.politicalScience"
     }
 }, {
     "model": "backend.knowledgearea",
@@ -156,7 +156,7 @@
     "fields": {
         "parent": null,
         "code": "61",
-        "name": "Psychology"
+        "name": "models.knowledgeArea.psychology"
     }
 }, {
     "model": "backend.knowledgearea",
@@ -164,7 +164,7 @@
     "fields": {
         "parent": null,
         "code": "62",
-        "name": "Science of Arts and Letters"
+        "name": "models.knowledgeArea.scienceOfArtsAndLetters"
     }
 }, {
     "model": "backend.knowledgearea",
@@ -172,7 +172,7 @@
     "fields": {
         "parent": null,
         "code": "63",
-        "name": "Sociology"
+        "name": "models.knowledgeArea.sociology"
     }
 }, {
     "model": "backend.knowledgearea",
@@ -180,7 +180,7 @@
     "fields": {
         "parent": null,
         "code": "71",
-        "name": "Ethics"
+        "name": "models.knowledgeArea.ethics"
     }
 }, {
     "model": "backend.knowledgearea",
@@ -188,6 +188,6 @@
     "fields": {
         "parent": null,
         "code": "72",
-        "name": "Philosophy"
+        "name": "models.knowledgeArea.philosophy"
     }
 }]

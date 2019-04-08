@@ -59,6 +59,7 @@ class CustomPermissionSet(permissions.DjangoModelPermissions):
 
         if request.method == self.CREATE_METHOD:
             model_class = view.get_queryset().model
+            # Check can_create only for trackable models
             if issubclass(model_class, TrackableModel):
                 return has_model_perm and model_class.can_create(
                     request.user, request.data

@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
+from django.contrib.admin.models import LogEntry
 from django.contrib.contenttypes.models import ContentType
 
 from backend import models
@@ -26,6 +27,7 @@ def column_lister(model):
 admin.site.register(models.User, UserAdmin)
 
 for model in [
+    LogEntry,
     ContentType,
     models.Structure,
     models.StructureValidation,

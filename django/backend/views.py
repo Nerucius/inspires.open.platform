@@ -24,6 +24,24 @@ def csrf_token(request):
     )
 
 
+def log_error(request):
+    from django.contrib.admin.models import LogEntry
+    from django.contrib.admin.models import ADDITION
+    from backend.models import User
+
+    message = request.GET.get("message", "no message")
+    user = request.GET.get("user", 1)
+    log = LogEntry(
+        user=User.objects.get(pk=user),
+        object_repr="ERROR",
+        action_flag=ADDITION,
+        change_message=message,
+    )
+    log.save()
+
+    return HttpResponse("OK")
+
+
 def login(request):
     username = request.POST["username"]
     password = request.POST["password"]

@@ -129,9 +129,9 @@ class Evaluation(TrackableModel):
         return self.project.can_modify(user)
 
     def __str__(self):
-        return "EVAL %s [%s] by %s" % (
+        return "EVAL [%s:%s] by %s" % (
             self.project.acronym,
-            self.phase,
+            self.phase.project_phase,
             self.participation.user,
         )
 

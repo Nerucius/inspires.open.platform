@@ -105,6 +105,7 @@ th{
           <v-card flat>
             <v-card-text>
               <v-btn fab small absolute top right
+                    v-if="isOwnUser"
                      title="Create new Project"
                      color="success"
                      :to="{name:'project-create'}"
@@ -121,7 +122,7 @@ th{
                   :key="project.id"
                   class="gray-hover"
                   flat
-                  :to="{name:'project-detail', params:{slug:obj2slug(project)}}"
+                  :to="project.link"
                 >
                   <v-img v-if="project.image_url" :src="project.image_url" :height="idx==0 ? '125' : '50'" />
                   <v-card-text class="px-0">
@@ -139,6 +140,7 @@ th{
           <v-card flat>
             <v-card-text>
               <v-btn fab small absolute top right
+                    v-if="isOwnUser"
                      title="Create new Structure"
                      color="success"
                      :to="{name:'structure-create'}"
@@ -155,7 +157,7 @@ th{
                   :key="structure.id"
                   class="gray-hover"
                   flat
-                  :to="{name:'structure-detail', params:{slug:obj2slug(structure)}}"
+                  :to="structure.link"
                 >
                   <v-img v-if="structure.image_url" :src="structure.image_url" :height="idx==0 ? '125' : '50'" />
                   <v-card-text class="px-0">
@@ -182,14 +184,13 @@ th{
 </template>
 
 <script>
-import { onlyUnique, obj2slug } from "@/plugins/utils";
+import { onlyUnique, slug2id } from "@/plugins/utils";
 import { cloneDeep } from "lodash";
 
 export default {
 
   data(){
     return{
-      obj2slug,
       editUser: null,
       showEditForm: false,
       rules: {
@@ -201,9 +202,25 @@ export default {
   },
 
   computed:{
-    current(){
-      return this.$store.getters['user/current']
+
+    isOwnUser(){
+      return this.userId == this.$store.getters['user/current'].id
     },
+
+    userId(){
+      let slug = this.$route.params.slug
+      if (slug){ return slug2id(slug) }
+
+      let loggedInUser = this.$store.getters['user/current']
+      if(loggedInUser.id > 0){ return loggedInUser }
+
+      console.error("NO LOGGED IN USER OR SLUG")
+    },
+
+    current(){
+      return this.$store.getters['user/detail'](this.userId)
+    },
+
     projectIds(){
       let pids = [
         ...this.current.owned_projects,
@@ -212,9 +229,11 @@ export default {
       ]
       return pids.filter(onlyUnique)
     },
+
     projects(){
       return this.projectIds.map(id => this.$store.getters['project/detail'](id))
     },
+
     structureIds(){
       let pids = [
         ...this.current.managed_structures,
@@ -222,14 +241,17 @@ export default {
       ]
       return pids.filter(onlyUnique)
     },
+
     structures(){
       return this.structureIds.map(id => this.$store.getters['structure/detail'](id))
     },
+
   },
 
   async mounted(){
-    await this.$store.dispatch("user/loadCurrent")
+    await this.$store.dispatch("user/load", [this.userId])
     this.editUser = cloneDeep(this.current)
+
     this.$store.dispatch("project/load", this.projectIds)
     this.$store.dispatch("structure/load", this.structureIds)
   }

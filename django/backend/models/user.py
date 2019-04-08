@@ -24,7 +24,8 @@ class User(TrackableModel, AbstractUser):
 
     def can_read(self, user):
         """ Only the own user can view the detailed user info """
-        return self.pk == user.pk
+        # return self.pk == user.pk
+        return True
 
     def can_write(self, user):
         """ Only the own user can modify the user info """

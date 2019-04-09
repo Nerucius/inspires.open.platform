@@ -96,7 +96,7 @@ class Question(models.Model):
     phase = models.ForeignKey("ProjectPhase", on_delete=models.SET_NULL, null=True)
 
     name = models.CharField(max_length=1024)
-    answers = models.ManyToManyField("Answer")
+    answers = models.ManyToManyField("Answer", blank=True)
     answer_type = models.CharField(choices=ANSWER_CHOICES, max_length=32)
     answer_range = models.PositiveSmallIntegerField(blank=True, null=True)
 

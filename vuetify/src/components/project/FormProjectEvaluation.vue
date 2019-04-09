@@ -29,7 +29,7 @@ table{
             {{ $t(phase.name) }}
           </h3>
           <v-btn
-            v-if="getPhase(phase) && getPhase(phase).id == currentPhase.id"
+            v-if="getProjectPhase(phase) && getProjectPhase(phase).is_active"
             style="flex: 0 0 0"
             class="my-0" outline
             color="success"
@@ -37,7 +37,7 @@ table{
             {{ $t("states.current") }}
           </v-btn>
           <v-btn
-            v-else-if="getPhase(phase)"
+            v-else-if="getProjectPhase(phase)"
             style="flex: 0 0 0"
             class="my-0" outline
             color="warning"
@@ -61,7 +61,7 @@ table{
               </v-flex>
               <v-flex xs12 sm6>
                 <v-btn
-                  v-if="!getEvaluation(phase, participant)"
+                  v-if="!getEvaluation(phase, participant) && getProjectPhase(phase) && getProjectPhase(phase).is_active"
                   flat
                   block outline class="my-0" @click="sendEvaluationRequest(phase, participant)"
                 >
@@ -106,14 +106,12 @@ export default {
       return this.$store.getters['evaluation/roles']
     },
     currentPhase(){
-      let phaseId
-      try{
-        phaseId = this.project.phases.filter(p => p.is_active)[0].id
+      let activePhases = this.project.phases.filter(p => p.is_active)
+      if(activePhases.length == 1){
+        let phaseId = activePhases[0].project_phase
+        return this.phases[phaseId]
       }
-      catch(err){
-        phaseId = 1
-      }
-      return this.phases[phaseId]
+      return null
     }
   },
 
@@ -138,14 +136,14 @@ export default {
       return userEval[0]
     },
 
-    getPhase(phase){
-      try{ return this.project.phases.filter(p => p.id == phase.id)[0] }
+    getProjectPhase(phase){
+      try{ return this.project.phases.filter(p => p.project_phase == phase.id)[0] }
       catch(err){ return null }
     },
 
     sendEvaluationRequest: async function() {
       // TODO: POST new evaluation
-      this.$store.dispatch("toast/error", this.$t('forms.toasts.projectSaveFailure'))
+      this.$store.dispatch("toast/error", this.$t('pages.projectManage.evaluationFailure'))
     },
 
   }

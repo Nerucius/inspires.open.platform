@@ -26,11 +26,11 @@
             <h3 class="mb-3">
               {{ $t(phase.name) }}
             </h3>
-            <p v-if="getPhase(phase) && getPhase(phase).is_active">
-              <i>{{ $t('pages.projectManage.hasPhase', {date: getPhase(phase).date}) }}</i>
+            <p v-if="getProjectPhase(phase) && getProjectPhase(phase).is_active">
+              <i>{{ $t('pages.projectManage.hasPhase', {date: getProjectPhase(phase).date}) }}</i>
             </p>
-            <p v-else-if="getPhase(phase)">
-              <i>{{ $t('pages.projectManage.hadPhase', {date: getPhase(phase).date}) }}</i>
+            <p v-else-if="getProjectPhase(phase)">
+              <i>{{ $t('pages.projectManage.hadPhase', {date: getProjectPhase(phase).date}) }}</i>
             </p>
             <p v-else>
               <i>{{ $t('pages.projectManage.notHasPhase') }}</i>
@@ -49,9 +49,9 @@
 
     <v-select v-model="stepperPhase"
               box
+              :items="Object.values(phases)"
               item-value="id"
-              item-text="display"
-              :items="phases"
+              :item-text="phaseName"
               :label="$t('forms.fields.projectPhase')"
               :rules="[rules.required]"
     />
@@ -83,25 +83,21 @@ export default {
       rules: {
         required: v => !!v || this.$t("forms.rules.requiredField"),
       },
-      phases: [
-        {id:1, name:"models.projectPhase.phase1", display:this.$t("models.projectPhase.phase1"), tag:"models.projectPhase.phase1Tag"},
-        {id:2, name:"models.projectPhase.phase2", display:this.$t("models.projectPhase.phase2"), tag:"models.projectPhase.phase2Tag"},
-        {id:3, name:"models.projectPhase.phase3", display:this.$t("models.projectPhase.phase3"), tag:"models.projectPhase.phase3Tag"},
-        {id:4, name:"models.projectPhase.phase4", display:this.$t("models.projectPhase.phase4"), tag:"models.projectPhase.phase4Tag"},
-      ],
-    };
+    }
   },
 
   computed: {
+    phases(){
+      return this.$store.getters['evaluation/phases']
+    },
+
     currentPhase(){
-      let phaseId
-      try{
-        phaseId = this.project.phases.filter(p => p.is_active)[0].id
+      let activePhases = this.project.phases.filter(p => p.is_active)
+      if(activePhases.length == 1){
+        let phaseId = activePhases[0].project_phase
+        return this.phases[phaseId]
       }
-      catch(err){
-        phaseId = 1
-      }
-      return this.phases.filter(p => p.id == phaseId)[0]
+      return null
     }
   },
 
@@ -116,20 +112,25 @@ export default {
 
     refreshStepper(){
       this.$nextTick(() =>{
+        if (this.currentPhase)
         this.stepperPhase = this.currentPhase.id
       })
     },
 
-    getPhase(phase){
-      try{ return this.project.phases.filter(p => p.id == phase.id)[0] }
+    getProjectPhase(phase){
+      try{ return this.project.phases.filter(p => p.project_phase == phase.id)[0] }
       catch(err){ return null }
+    },
+
+    phaseName(phase){
+      return this.$t(phase.name)
     },
 
     attemptSubmit: async function() {
       if (this.$refs.form.validate()) {
 
-        this.phases.forEach(async phase => {
-          let projectPhase = this.getPhase(phase)
+        Object.values(this.phases).forEach(async phase => {
+          let projectPhase = this.getProjectPhase(phase)
           let isSelectedPhase = phase.id == this.stepperPhase
 
           try{
@@ -159,5 +160,5 @@ export default {
     },
 
   }
-};
+}
 </script>

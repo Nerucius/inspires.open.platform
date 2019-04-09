@@ -134,7 +134,7 @@ export default {
     redirectToPage(){
         // Redirect to requested route before force login
         // or homepage if landed on login
-        let path = this.$route.query.redirect || "/";
+        let path = this.$route.query.redirect || "/account";
         path = path == "/login" ? "/" : path
         this.$router.replace({ path });
     }

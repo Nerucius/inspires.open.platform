@@ -43,7 +43,7 @@
 
     <v-combobox box
       v-model="targetUser"
-      label="$t('forms.labels.searchUsers')"
+      :label="$t('forms.labels.searchUsers')"
       :items="userSearch"
       item-text="full_name"
       item-value="id"

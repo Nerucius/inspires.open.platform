@@ -123,7 +123,7 @@ export default {
   async mounted() {
     setTimeout(()=>{
       document.dispatchEvent(new Event('x-app-rendered'))
-    }, 500)
+    }, 1000)
 
     // Block on the user status before allowing to show the app
     await this.$store.dispatch("user/load");

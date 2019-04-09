@@ -75,6 +75,8 @@
       "searchUsers": "Collaboration with structure has been withdrawn.",
       "evaluationTitle":"Project Evaluation",
       "evaluationIntro":"Add all the people helping to make this project possible here. Each person can have a role within the project. The Role will be used in determining what role they play in the impact evaluation tool.",
+      "evaluationSuccess":"Evaluation requested successfuly.",
+      "evaluationFailure":"Failed to send evaluation request. Please try again later.",
       "-": ""
     },
     "-": ""

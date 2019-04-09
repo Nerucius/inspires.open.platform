@@ -10,7 +10,7 @@ th{
 
 
 <template>
-  <v-layout row wrap align-content-start>
+  <v-layout v-if="user" row wrap align-content-start>
     <v-flex xs12>
       <h1>Account Dashboard</h1>
     </v-flex>
@@ -35,15 +35,15 @@ th{
           <table style="max-width:400px">
             <tr>
               <th>First Name</th>
-              <td>{{ current.first_name }}</td>
+              <td>{{ user.first_name }}</td>
             </tr>
             <tr>
               <th>Last Name</th>
-              <td>{{ current.last_name }}</td>
+              <td>{{ user.last_name }}</td>
             </tr>
             <tr>
               <th>Email</th>
-              <td>{{ current.email }}</td>
+              <td>{{ user.email }}</td>
             </tr>
           </table>
         </v-card-text>
@@ -202,58 +202,66 @@ export default {
   },
 
   computed:{
-
-    isOwnUser(){
-      return this.userId == this.$store.getters['user/current'].id
-    },
-
     userId(){
       let slug = this.$route.params.slug
       if (slug){ return slug2id(slug) }
 
       let loggedInUser = this.$store.getters['user/current']
-      if(loggedInUser.id > 0){ return loggedInUser }
+      if(loggedInUser.id > 0){ return loggedInUser.id }
 
-      console.error("NO LOGGED IN USER OR SLUG")
+      return null
     },
 
-    current(){
-      return this.$store.getters['user/detail'](this.userId)
+    /** Current User being displayed */
+    user(){
+      return this.$store.getters["user/detail"](this.userId)
     },
 
-    projectIds(){
-      let pids = [
-        ...this.current.owned_projects,
-        ...this.current.managed_projects,
-        ...this.current.researched_projects,
-      ]
-      return pids.filter(onlyUnique)
-    },
-
+    /** Projects the user has */
     projects(){
       return this.projectIds.map(id => this.$store.getters['project/detail'](id))
     },
 
-    structureIds(){
+    /** Structures the user participates in */
+    structures(){
+      return this.structureIds.map(id => this.$store.getters['structure/detail'](id))
+    },
+
+    isOwnUser(){
+      return this.userId == this.$store.getters['user/current'].id
+    },
+
+    projectIds(){
       let pids = [
-        ...this.current.managed_structures,
-        ...this.current.owned_structures,
+        ...this.user.owned_projects,
+        ...this.user.managed_projects,
+        ...this.user.researched_projects,
       ]
       return pids.filter(onlyUnique)
     },
 
-    structures(){
-      return this.structureIds.map(id => this.$store.getters['structure/detail'](id))
+    structureIds(){
+      let pids = [
+        ...this.user.managed_structures,
+        ...this.user.owned_structures,
+      ]
+      return pids.filter(onlyUnique)
     },
+
 
   },
 
   async mounted(){
     await this.$store.dispatch("user/load", [this.userId])
-    this.editUser = cloneDeep(this.current)
+    this.editUser = cloneDeep(this.user)
 
-    this.$store.dispatch("project/load", this.projectIds)
-    this.$store.dispatch("structure/load", this.structureIds)
+    if(this.userId == null){
+      console.error("No logged in user or request.")
+      this.$router.push({name:"Home"})
+    }
+
+    await this.$store.dispatch("project/load", this.projectIds)
+    await this.$store.dispatch("structure/load", this.structureIds)
   }
 
 };

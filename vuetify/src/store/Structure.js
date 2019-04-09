@@ -92,11 +92,11 @@ export default {
     },
 
     get: state =>{
-      return ( id ) => cloneDeep(state.items[id] || {})
+      return ( id ) => state.items[id] || {}
     },
 
     detail: state =>{
-      return ( id ) => cloneDeep(state.itemsDetail[id] || {})
+      return ( id ) => state.itemsDetail[id] || {}
     },
   }
 };

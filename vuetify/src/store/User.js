@@ -76,6 +76,7 @@ export default {
       try{
         let user = (await CurrentUserResource.get()).body.results[0];
         context.commit("SET_CURRENT", user);
+        context.commit("ADD_DETAIL", [user]);
       }catch(err){
         // no auth
         context.commit("SET_CURRENT", null)
@@ -139,7 +140,7 @@ export default {
     },
 
     detail: state =>{
-      return ( id ) => (state.itemsDetail[id] || {})
+      return ( id ) => state.itemsDetail[id]
     },
 
     current: state => {

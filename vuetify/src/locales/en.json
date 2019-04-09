@@ -54,6 +54,10 @@
       "success": "New structure created successfully.",
       "failure": "Failed to create a new structure. Try again later."
     },
+    "projectList": {
+      "noKASpecified" : "No Knowledge Area specified",
+      "filterByArea" : "in the area of {area}"
+    },
     "projectManage": {
       "title": "Manage this Project",
       "success": "Structure saved successfuly!",
@@ -178,8 +182,9 @@
     "user": "User",
     "project": "Project",
     "projects": "Projects",
-    "evaluation": "Evaluation",
-    "structure": "Structure"
+    "structure": "Structure",
+    "structures": "Structures",
+    "evaluation": "Evaluation"
   },
   "errors": {
     "404": {

@@ -165,7 +165,7 @@ class GroupsVS(viewsets.ReadOnlyModelViewSet):
 
 class ProjectsVS(ListDetail, Orderable, viewsets.ModelViewSet):
     queryset = models.Project.objects.all()
-    filterset_fields = ["name", "collaboration__structure", "keywords", "participants"]
+    filterset_fields = ["name", "collaboration__structure", "keywords", "participants", "knowledge_area"]
 
     serializer_class = serializers.SimpleProjectSerializer
     detail_serializer_class = serializers.ProjectSerializer

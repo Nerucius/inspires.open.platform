@@ -64,6 +64,11 @@ const router = new Router({
             component: () => import( /* webpackChunkName: "project" */ "./views/project/ProjectList.vue")
         },
         {
+            path: "/projects/areas/:area",
+            name: "project-list-byarea",
+            component: () => import( /* webpackChunkName: "project" */ "./views/project/ProjectList.vue")
+        },
+        {
             path: "/projects/create",
             name: "project-create",
             component: () => import( /* webpackChunkName: "project" */ "./views/project/ProjectCreate.vue")

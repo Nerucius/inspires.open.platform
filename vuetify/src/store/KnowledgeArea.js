@@ -1,6 +1,13 @@
 import Vue from "../plugins/resource";
 import { KnowledgeAreaResource } from "../plugins/resource";
 import { cloneDeep } from "lodash";
+import { obj2slug } from "@/plugins/utils";
+
+
+function createLink(obj){
+  obj.link = {name:"project-list-byarea", params:{area:obj2slug(obj)}}
+  return obj
+}
 
 export default {
   namespaced: true,
@@ -30,7 +37,7 @@ export default {
           next = response.next
         }
 
-        context.commit("SET_ALL", items)
+        context.commit("SET_ALL", items.map(createLink))
     },
 
   },

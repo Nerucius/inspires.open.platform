@@ -32,6 +32,11 @@ export default {
       state.itemsDetail = { ...state.itemsDetail, ...newItems }
     },
 
+    CLEAR(state){
+      state.items = []
+      state.itemsDetail = []
+    },
+
     DELETE(state, id){
       delete state.items[id]
       delete state.itemsDetail[id]
@@ -65,6 +70,10 @@ export default {
 
         context.commit("ADD", items)
       }
+    },
+
+    clear: function(context, _){
+      context.commit("CLEAR")
     },
 
     create: async function (context, object){

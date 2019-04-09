@@ -35,7 +35,7 @@
 
     <v-card-text class="pb-0">
       <!-- Project Title -->
-      <v-sheet :height="2*26.5" class="overflow-hidden">
+      <v-sheet :height="26.5" class="overflow-hidden">
         <h2 style="font-size:125%" :title="project.name">
           <router-link :to="project.link">
             {{ project.name }}
@@ -47,10 +47,12 @@
       </v-sheet>
 
       <!-- Project Area -->
-      <v-btn v-if="project.knowledge_area" flat class="my-1 mx-0 pa-2 grey lighten-5 caption font-weight-light text-uppercase">
+      <v-btn v-if="project.knowledge_area" :to="kaLink(project.knowledge_area)" flat class="my-1 mx-0 pa-2 grey lighten-5 caption font-weight-light text-uppercase">
         {{ $t(project.knowledge_area.name) }}
       </v-btn>
-      <v-sheet v-else height="36" />
+      <v-btn v-else flat class="my-1 mx-0 pa-2 caption font-weight-light text-uppercase">
+        {{ $t('pages.projectList.noKASpecified') }}
+      </v-btn>
 
       <!-- Project Summary -->
       <v-sheet :height="4*21" class="overflow-hidden mb-2">
@@ -109,6 +111,12 @@ export default {
   methods:{
     users(userIds){
       return userIds.map(uid => this.$store.getters["user/get"](uid) )
+    },
+
+    kaLink(knowledgeArea){
+      knowledgeArea.name = this.$t(knowledgeArea.name)
+      let area = obj2slug(knowledgeArea)
+      return {name:"project-list-byarea", params:{area}}
     },
 
   }

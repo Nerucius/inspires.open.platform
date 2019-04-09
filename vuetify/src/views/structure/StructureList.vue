@@ -3,8 +3,9 @@
     <v-flex xs12>
       <v-card flat>
         <v-card-text>
-          <h1>{{ $t('pages.structures.title') }}</h1>
-          <p />
+          <h1 class="mb-2">
+            {{ $t('noums.structures') }}
+          </h1>
 
           <!-- <v-container grid-list-xl> -->
           <v-layout row wrap>

@@ -1,10 +1,9 @@
 <template>
   <v-card flat>
     <v-card-text>
-      <h1 v-if="!hideTitle">
-        {{ $t('noums.Projects') }}
+      <h1 class="mb-2" v-if="!hideTitle">
+        {{ $t('noums.projects') }}
       </h1>
-      <p />
 
       <!-- <v-container grid-list-xl> -->
       <v-layout row wrap>

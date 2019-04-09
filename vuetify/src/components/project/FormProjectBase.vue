@@ -72,6 +72,14 @@
       </p>
 
       <v-text-field
+        v-model="editedProject.image_url"
+        box
+        counter="50"
+        label="Image Poster URL"
+        hint="Shown in listings as well as the project's page "
+      />
+
+      <v-text-field
         v-model="editedProject.contact_email"
         box
         label="Contact Email"

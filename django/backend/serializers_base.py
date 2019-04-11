@@ -96,15 +96,6 @@ class QuestionSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
-class EvaluationSerializer(serializers.ModelSerializer):
-    project = serializers.PrimaryKeyRelatedField(read_only=True)
-    project_phase = serializers.PrimaryKeyRelatedField(read_only=True)
-
-    class Meta:
-        model = models.Evaluation
-        fields = "__all__"
-
-
 class ResponseSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Response
@@ -159,3 +150,17 @@ class SimpleProjectSerializer(serializers.ModelSerializer):
             "knowledge_area",
             "structure",
         ]
+
+
+class EvaluationSerializer(serializers.ModelSerializer):
+    # project = SimpleProjectSerializer(read_only=True)
+    # project_phase = ProjectPhaseSerializer(read_only=True)
+    project = serializers.IntegerField(
+        source="participation.project.pk", read_only=True
+    )
+    role = serializers.IntegerField(source="participation.role.pk", read_only=True)
+    project_phase = serializers.IntegerField(source="project_phase.pk", read_only=True)
+
+    class Meta:
+        model = models.Evaluation
+        fields = "__all__"

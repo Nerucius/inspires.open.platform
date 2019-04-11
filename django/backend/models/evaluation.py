@@ -124,10 +124,9 @@ class Evaluation(TrackableModel):
     @property
     def questions(self):
         all_questions = Question.objects
-        return all_questions.all()
-        # phase_questions = all_questions.filter(phase=self.phase.project_phase)
-        # role_questions = phase_questions.filter(role=self.participation.role)
-        # return role_questions.all()
+        phase_questions = all_questions.filter(phase=self.phase.project_phase)
+        role_questions = phase_questions.filter(role=self.participation.role)
+        return role_questions.all()
 
     def can_read(self, user):
         return self.project.can_write(user)

@@ -14,8 +14,8 @@
       :rules="[rules.required]"
       counter="10"
       maxlength="10"
-      label="Project Acronym"
-      hint="Choose a Project Acronim."
+      :hint="$t('forms.hints.projectAcronym')"
+      :label="$t('forms.fields.projectAcronym')"
     />
 
     <v-text-field
@@ -23,18 +23,24 @@
       box
       :rules="[rules.required]"
       counter="50"
-      label="Project Name"
-      hint="Choose a name that characterizes your project.
-                Less than 50 characters suggested."
+      :hint="$t('forms.hints.projectSummary')"
+      :label="$t('forms.fields.projectSummary')"
     />
 
     <v-textarea
       v-model="editedProject.summary"
       box
       counter="200"
-      label="Project Summary"
-      hint="A short summary of your project and what it encompasses.
-                Suggested to keep it under 200 characters."
+      :hint="$t('forms.hints.projectSummary')"
+      :label="$t('forms.fields.projectSummary')"
+    />
+
+    <v-textarea v-if="editedProject.id"
+                v-model="editedProject.description"
+                :label="$t('forms.fields.description')"
+                :hint="$t('forms.hints.description')"
+                box
+                rows="8"
     />
 
     <h2 class="mb-2">
@@ -51,7 +57,8 @@
                 box
                 :items="userSearch"
                 :rules="[rules.isUser]"
-                label="Project Managers"
+                :hint="$t('forms.hints.projectAdministrators')"
+                :label="$t('forms.fields.projectAdministrators')"
                 item-text="full_name"
                 item-value="id"
                 multiple
@@ -75,45 +82,39 @@
         v-model="editedProject.image_url"
         box
         counter="50"
-        label="Image Poster URL"
-        hint="Shown in listings as well as the project's page "
+        :hint="$t('forms.hints.projectImageURL')"
+        :label="$t('forms.fields.projectImageURL')"
       />
 
       <v-text-field
         v-model="editedProject.contact_email"
         box
-        label="Contact Email"
-        hint="Where should people reach you with questions about the project?"
+        :label="$t('forms.fields.contactEmail')"
+        :hint="$t('forms.hints.contactEmail')"
       />
       <v-text-field
         v-model="editedProject.contact_website"
         box
-        label="Project Homepage"
-        hint="Homepage or website of the project"
+        :label="$t('forms.fields.contactWebsite')"
+        :hint="$t('forms.hints.contactWebsite')"
       />
 
       <v-select
         v-model="editedProject.project_type"
         box
         :items="projectTypes"
-        label="Project Type"
+        :label="$t('forms.fields.projectType')"
+        :hint="$t('forms.hints.projectType')"
       />
 
       <v-select
         v-model="editedProject.knowledge_area"
         box
         :items="knowledgeAreas"
-        label="Knowledge Area"
+        :label="$t('forms.fields.knowledgeArea')"
+        :hint="$t('forms.hints.knowledgeArea')"
         :item-text="kaName"
         item-value="id"
-      />
-
-      <v-textarea
-        v-model="editedProject.description"
-        box
-        label="Project Description"
-        hint="Long-form project description."
-        rows="8"
       />
     </template>
 

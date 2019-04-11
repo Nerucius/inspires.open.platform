@@ -104,8 +104,8 @@ th{
         <v-flex xs12 sm6 md4>
           <v-card flat>
             <v-card-text>
-              <v-btn fab small absolute top right
-                    v-if="isOwnUser"
+              <v-btn v-if="isOwnUser" fab small absolute top
+                     right
                      title="Create new Project"
                      color="success"
                      :to="{name:'project-create'}"
@@ -139,8 +139,8 @@ th{
         <v-flex xs12 sm6 md4>
           <v-card flat>
             <v-card-text>
-              <v-btn fab small absolute top right
-                    v-if="isOwnUser"
+              <v-btn v-if="isOwnUser" fab small absolute top
+                     right
                      title="Create new Structure"
                      color="success"
                      :to="{name:'structure-create'}"

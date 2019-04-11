@@ -1,6 +1,8 @@
 <template>
   <v-form ref="form" v-model="valid">
-    <h2 class="mb-2">{{ $t('pages.projectManage.phasesTab') }}</h2>
+    <h2 class="mb-2">
+      {{ $t('pages.projectManage.phasesTab') }}
+    </h2>
 
     <p class="subheading">
       {{ $t('pages.projectManage.phasesTabDescription') }}

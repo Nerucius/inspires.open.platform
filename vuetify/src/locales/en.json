@@ -160,6 +160,7 @@
     "approve": "Approve",
     "create": "Create",
     "delete": "Delete",
+    "withdraw": "Withdraw",
     "login": "Login",
     "logout": "Logout",
     "register": "Register",
@@ -227,10 +228,16 @@
       "lastName": "Last Name",
       "email": "Email",
       "summary": "Summary",
+      "description": "Description",
       "participants": "Participants",
       "managers": "Managers",
+      "projectName": "Project Name",
+      "projectImageURL": "Project Image URL",
+      "projectSummary": "Project Summary",
+      "projectAcronym": "Project Acronym",
       "contactEmail": "Contact Email",
-      "contactWebsite": "Contact Website",
+      "projectAdministrators": "Project Administrators",
+      "contactWebsite": "External Website",
       "postalAddress": "Postal Address",
       "username": "Username",
       "password": "Password",
@@ -238,12 +245,26 @@
       "title": "Title",
       "role": "Role",
       "invitationCode": "Invitation Code",
-      "projectPhase": "Project Phase"
+      "projectPhase": "Project Phase",
+      "projectType": "Project Type",
+      "knowledgeArea": "Knowledge Area",
+      "knowledgeAreas": "Knowledge Areas"
     },
     "labels":{
       "searchUsers": "Search Users"
     },
     "hints": {
+      "projectImageURL": "URL to an image that you want shown on your project's page.",
+      "contactEmail": "Where should people reach you with questions about the project?",
+      "contactWebsite": "URL to an external site where people can see more about your project.",
+      "projectType": "How is your project team structured?",
+      "projectName": "Choose a name that characterizes your project. Less than 50 characters suggested.",
+      "projectSummary": "A short summary of your project and what it encompasses. Suggested to keep it under 200 characters.",
+      "projectAdministrators": "Add here all the people who will have full access to editing the project. Project Administrators can't transwer ownership.",
+      "projectAcronym": "Choose a Project Acronym",
+      "knowledgeArea": "UNESCO Knowledge Area that best defines your project.",
+      "summary": "Long-form project description. No character limit.",
+      "description": "Long-form project description. No character limit.",
       "password": "Your password must be at least 8 characters, not be a common password and not contain your username."
     }
   },

@@ -5,7 +5,7 @@
     </v-flex>
 
     <v-flex xs12 sm6 class="text-xs-right">
-      <v-btn :to="project.link" exact outline color="success">
+      <v-btn :to="project.link" exact outline>
         View public page
       </v-btn>
     </v-flex>

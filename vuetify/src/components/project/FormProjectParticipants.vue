@@ -1,6 +1,8 @@
 <template>
   <v-form v-if="participants" ref="form" v-model="valid">
-    <h2 class="mb-2">{{ $t('pages.projectManage.participantsTitle') }}</h2>
+    <h2 class="mb-2">
+      {{ $t('pages.projectManage.participantsTitle') }}
+    </h2>
 
     <p class="subheading">
       {{ $t('pages.projectManage.participantsIntro') }}
@@ -41,14 +43,14 @@
       </p>
     </v-form>
 
-    <v-combobox box
-      v-model="targetUser"
-      :label="$t('forms.labels.searchUsers')"
-      :items="userSearch"
-      item-text="full_name"
-      item-value="id"
-      @update:searchInput="updateUserSearch($event)"
-      @change="addParticipant($event); clearSearch()"
+    <v-combobox v-model="targetUser"
+                box
+                :label="$t('forms.labels.searchUsers')"
+                :items="userSearch"
+                item-text="full_name"
+                item-value="id"
+                @update:searchInput="updateUserSearch($event)"
+                @change="addParticipant($event); clearSearch()"
     />
 
     <v-btn block large

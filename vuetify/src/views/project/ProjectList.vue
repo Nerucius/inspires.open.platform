@@ -4,7 +4,7 @@
       <h1 class="mb-2">
         {{ $t('noums.projects') }}
         <small v-if="filterKnowledgeArea">
-          {{$t('pages.projectList.filterByArea', {area:$t(filterKnowledgeArea.name)}) }}
+          {{ $t('pages.projectList.filterByArea', {area:$t(filterKnowledgeArea.name)}) }}
         </small>
       </h1>
       <ProjectGrid hide-title="true" :projects="projects" />
@@ -44,6 +44,7 @@ export default {
         let areaId = slug2id(areaSlug)
         return this.$store.getters["knowledgearea/get"](areaId)
       }
+      return {}
     }
   },
 

@@ -9,7 +9,7 @@
 
     <v-alert color="info"
              :value="isReadOnly && !collaboration.is_approved"
-             class="subheading"
+             class="subheading mb-2"
     >
       <v-icon dark>
         info
@@ -17,7 +17,6 @@
       The structure has yet to approve your Project before it will be shown in
       the website.
     </v-alert>
-    <p v-if="isReadOnly && !collaboration.is_approved" />
 
     <v-combobox
       ref="structureCB"
@@ -36,22 +35,24 @@
     />
 
     <v-btn v-if="!isReadOnly" block large
-           color="success"
-           :disabled="!valid || processing"
-           :loading="processing"
-           @click="attemptSubmit()"
+            color="success"
+            :disabled="!valid || processing"
+            :loading="processing"
+            @click="attemptSubmit()"
     >
       {{ $t('actions.save') }}
     </v-btn>
 
     <v-btn v-if="isReadOnly" block large
-           color="error"
-           :disabled="!valid || processing"
-           :loading="processing"
-           @click="deleteCollaboration()"
+            color="error" outline
+            :disabled="!valid || processing"
+            :loading="processing"
+            @click="deleteCollaboration()"
     >
-      {{ $t('actions.delete') }}
+      {{ $t('actions.withdraw') }}
     </v-btn>
+
+
   </v-form>
 </template>
 

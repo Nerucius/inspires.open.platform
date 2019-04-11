@@ -1,7 +1,7 @@
 <template>
   <v-card flat>
     <v-card-text>
-      <h1 class="mb-2" v-if="!hideTitle">
+      <h1 v-if="!hideTitle" class="mb-2">
         {{ $t('noums.projects') }}
       </h1>
 

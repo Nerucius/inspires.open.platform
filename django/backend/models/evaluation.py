@@ -126,7 +126,7 @@ class Evaluation(TrackableModel):
         # return role_questions.all()
 
     def can_read(self, user):
-        return self.project.can_modify(user)
+        return self.project.can_write(user)
 
     def __str__(self):
         return "EVAL [%s:%s] by %s" % (

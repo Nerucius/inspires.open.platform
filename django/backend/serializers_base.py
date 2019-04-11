@@ -97,6 +97,9 @@ class QuestionSerializer(serializers.ModelSerializer):
 
 
 class EvaluationSerializer(serializers.ModelSerializer):
+    project = serializers.PrimaryKeyRelatedField(read_only=True)
+    project_phase = serializers.PrimaryKeyRelatedField(read_only=True)
+
     class Meta:
         model = models.Evaluation
         fields = "__all__"

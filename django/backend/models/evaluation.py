@@ -118,6 +118,10 @@ class Evaluation(TrackableModel):
         return self.phase.project
 
     @property
+    def project_phase(self):
+        return self.phase.project_phase
+
+    @property
     def questions(self):
         all_questions = Question.objects
         return all_questions.all()

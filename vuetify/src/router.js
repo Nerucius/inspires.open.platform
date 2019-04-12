@@ -83,6 +83,12 @@ const router = new Router({
             name: "project-detail",
             component: () => import( /* webpackChunkName: "project" */ "./views/project/ProjectDetail.vue")
         },
+        // ======= Evaluation =======
+        {
+            path: "/evaluation/:slug/entry",
+            name: "evaluation-entry",
+            component: () => import( /* webpackChunkName: "evaluation" */ "./views/evaluation/EvaluationEntry.vue")
+        },
         // ======= ACCOUNT =======
         {
             path: "/account/projects",
@@ -94,6 +100,7 @@ const router = new Router({
             name: "account",
             component: () => import( /* webpackChunkName: "account" */ "./views/account/Account.vue")
         },
+        // ======= Catch-ALL Error =======
         {
             path: "*",
             name: "404",

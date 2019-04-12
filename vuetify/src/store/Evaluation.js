@@ -6,6 +6,7 @@ import {
   EvaluationResponsesResource
 } from "../plugins/resource";
 
+const Resource = EvaluationResource
 
 function createLink(obj) {
   // obj.link = {
@@ -56,10 +57,56 @@ export default {
   mutations: {
     SET_PROJECT_EVALS(state, {projectId, items}){
       state.projects = {...state.projects, [projectId]: items}
-    }
+    },
+    ADD_DETAIL(state, items) {
+      let newItems = {}
+      items.map(createLink).forEach(i => {newItems[i.id] = i})
+      state.itemsDetail = { ...state.itemsDetail, ...newItems }
+    },
   },
 
   actions: {
+
+    load: async function (context, payload={}) {
+      if (Array.isArray(payload)){
+        // Ids provided, get detailed information on given pids
+        let ids = payload
+        let items = await Promise.all(ids.map(id => Resource.get({id})))
+        items = items.map(i => i.body)
+
+        // Get Eval questions
+        for (let index = 0; index < items.length; index++) {
+          let evaluation = items[index];
+          let questions = (await EvaluationQuestionsResource.get({id:evaluation.id})).body
+          let responses = (await EvaluationResponsesResource.get({id:evaluation.id})).body
+          evaluation.questions = questions.questions
+          evaluation.responses = responses.responses
+        }
+
+        context.commit("ADD_DETAIL", items)
+
+      }else{
+        // No ids provided, just get list of all
+        let params = payload.params || {}
+        let query = {ordering: "-modified_at", ...params}
+
+        let response = (await Resource.get(query)).body
+        let items = response.results
+
+        // Iteratively get all pages
+        let next = response.next
+        while(next){
+          response = (await Vue.http.get(next)).body
+          items = [...items, ...response.results]
+          next = response.next
+        }
+
+
+
+        context.commit("ADD", items)
+      }
+    },
+
     loadProject: async function(context, projectId){
       let response = (await ProjectEvaluationsResource.get({id:projectId})).body
       let items = response.evaluations
@@ -96,6 +143,7 @@ export default {
       return (id) => state.projects[id] || []
     },
 
+    detail: state => { return (id) => (state.itemsDetail[id] || {}) },
 
     phases: state => state.phases,
     roles: state => state.roles,

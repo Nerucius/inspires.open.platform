@@ -79,6 +79,7 @@ export default {
         context.commit("ADD_DETAIL", [user]);
       }catch(err){
         // no auth
+        Cookies.remove('authorization')
         context.commit("SET_CURRENT", null)
       }
     },

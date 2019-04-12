@@ -23,8 +23,8 @@
       box
       :rules="[rules.required]"
       counter="50"
-      :hint="$t('forms.hints.projectSummary')"
-      :label="$t('forms.fields.projectSummary')"
+      :hint="$t('forms.hints.projectName')"
+      :label="$t('forms.fields.projectName')"
     />
 
     <v-textarea
@@ -78,6 +78,25 @@
         Other useful details so that your project is well defined and can be found in searches.
       </p>
 
+      <v-select
+        v-model="editedProject.knowledge_area"
+        box
+        :items="knowledgeAreas"
+        :label="$t('forms.fields.knowledgeArea')"
+        :hint="$t('forms.hints.knowledgeArea')"
+        :item-text="kaName"
+        item-value="id"
+      />
+
+      <v-select
+        v-model="editedProject.project_type"
+        box
+        :items="projectTypes"
+        :label="$t('forms.fields.projectType')"
+        :hint="$t('forms.hints.projectType')"
+      />
+
+
       <v-text-field
         v-model="editedProject.image_url"
         box
@@ -85,6 +104,10 @@
         :hint="$t('forms.hints.projectImageURL')"
         :label="$t('forms.fields.projectImageURL')"
       />
+
+      <h3 class="mb-2">
+        Contact Information
+      </h3>
 
       <v-text-field
         v-model="editedProject.contact_email"
@@ -99,23 +122,6 @@
         :hint="$t('forms.hints.contactWebsite')"
       />
 
-      <v-select
-        v-model="editedProject.project_type"
-        box
-        :items="projectTypes"
-        :label="$t('forms.fields.projectType')"
-        :hint="$t('forms.hints.projectType')"
-      />
-
-      <v-select
-        v-model="editedProject.knowledge_area"
-        box
-        :items="knowledgeAreas"
-        :label="$t('forms.fields.knowledgeArea')"
-        :hint="$t('forms.hints.knowledgeArea')"
-        :item-text="kaName"
-        item-value="id"
-      />
     </template>
 
 

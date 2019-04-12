@@ -44,7 +44,7 @@ export default {
         let areaId = slug2id(areaSlug)
         return this.$store.getters["knowledgearea/get"](areaId)
       }
-      return {}
+      return null
     }
   },
 

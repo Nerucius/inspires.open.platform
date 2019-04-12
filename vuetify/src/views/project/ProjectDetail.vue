@@ -16,9 +16,7 @@ table td{
 
 <template>
   <v-layout v-if="project" row wrap align-content-start>
-    <v-flex v-if="project.owner == $store.getters['user/current'].id" pa-0 xs12
-            class="text-xs-right"
-    >
+    <v-flex v-if="canManage" pa-0 xs12 class="text-xs-right" >
       <v-btn flat outline color="warning" :to="manageLink">
         <v-icon left>
           edit
@@ -188,6 +186,12 @@ export default {
     },
     manageLink() {
       return ({name:"project-manage", params:{slug:obj2slug(this.project)}})
+    },
+    canManage(){
+      let userId = this.$store.getters['user/current'].id
+      let isOwner = this.project.owner == userId
+      let isAdmin = this.project.managers.filter(id => id == userId).length >  0
+      return isOwner || isAdmin
     }
   },
 

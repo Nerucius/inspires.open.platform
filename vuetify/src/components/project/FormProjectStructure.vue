@@ -35,24 +35,22 @@
     />
 
     <v-btn v-if="!isReadOnly" block large
-            color="success"
-            :disabled="!valid || processing"
-            :loading="processing"
-            @click="attemptSubmit()"
+           color="success"
+           :disabled="!valid || processing"
+           :loading="processing"
+           @click="attemptSubmit()"
     >
       {{ $t('actions.save') }}
     </v-btn>
 
     <v-btn v-if="isReadOnly" block large
-            color="error" outline
-            :disabled="!valid || processing"
-            :loading="processing"
-            @click="deleteCollaboration()"
+           color="error" outline
+           :disabled="!valid || processing"
+           :loading="processing"
+           @click="deleteCollaboration()"
     >
       {{ $t('actions.withdraw') }}
     </v-btn>
-
-
   </v-form>
 </template>
 

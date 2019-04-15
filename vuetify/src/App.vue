@@ -120,14 +120,19 @@ export default {
     },
   },
 
-  async mounted() {
-    setTimeout(()=>{
-      document.dispatchEvent(new Event('x-app-rendered'))
-    }, 1000)
+  async created() {
+    // setTimeout(() => {
+    //   document.dispatchEvent(new Event('x-app-rendered'))
+    // }, 1000)
 
     // Block on the user status before allowing to show the app
     await this.$store.dispatch("user/load");
     this.loading = false;
+
+    // Trigger SSR
+    setTimeout(()=>{
+      document.dispatchEvent(new Event('x-app-rendered'))
+    }, 100)
   },
 
   methods: {

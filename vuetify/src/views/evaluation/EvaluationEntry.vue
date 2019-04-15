@@ -67,7 +67,6 @@ table th{
                 </tr>
               </table>
             </v-flex>
-
           </v-layout>
         </v-card-text>
       </v-card>
@@ -88,11 +87,21 @@ table th{
               <h3 class="mt-4">
                 {{ question.name }} (choose all that apply)
               </h3>
-              <v-btn disabled flat outline small style="color:#888 !important"> {{ role(question.role).name }} </v-btn>
-              <v-btn disabled flat outline small style="color:#888 !important"> {{ $t(phase(question.phase).tag) }} </v-btn>
-              <v-btn disabled flat outline small style="color:#888 !important"> {{ question.principle }} </v-btn>
-              <v-btn disabled flat outline small style="color:#888 !important"> {{ question.dimension }} </v-btn>
-              <v-btn disabled flat outline small style="color:#888 !important"> {{ question.axis }} </v-btn>
+              <v-btn disabled flat outline small style="color:#888 !important">
+                {{ role(question.role).name }}
+              </v-btn>
+              <v-btn disabled flat outline small style="color:#888 !important">
+                {{ $t(phase(question.phase).tag) }}
+              </v-btn>
+              <v-btn disabled flat outline small style="color:#888 !important">
+                {{ question.principle }}
+              </v-btn>
+              <v-btn disabled flat outline small style="color:#888 !important">
+                {{ question.dimension }}
+              </v-btn>
+              <v-btn disabled flat outline small style="color:#888 !important">
+                {{ question.axis }}
+              </v-btn>
               <v-checkbox v-for="(answer,idx) in question.answers" :key="idx" hide-details
                           :label="answer.name"
               />
@@ -103,11 +112,21 @@ table th{
                 {{ question.name }}
               </h3>
 
-              <v-btn disabled flat outline small style="color:#999 !important"> {{ role(question.role).name }} </v-btn>
-              <v-btn disabled flat outline small style="color:#999 !important"> {{ $t(phase(question.phase).tag) }} </v-btn>
-              <v-btn disabled flat outline small style="color:#999 !important"> {{ question.principle }} </v-btn>
-              <v-btn disabled flat outline small style="color:#999 !important"> {{ question.dimension }} </v-btn>
-              <v-btn disabled flat outline small style="color:#999 !important"> {{ question.axis }} </v-btn>
+              <v-btn disabled flat outline small style="color:#999 !important">
+                {{ role(question.role).name }}
+              </v-btn>
+              <v-btn disabled flat outline small style="color:#999 !important">
+                {{ $t(phase(question.phase).tag) }}
+              </v-btn>
+              <v-btn disabled flat outline small style="color:#999 !important">
+                {{ question.principle }}
+              </v-btn>
+              <v-btn disabled flat outline small style="color:#999 !important">
+                {{ question.dimension }}
+              </v-btn>
+              <v-btn disabled flat outline small style="color:#999 !important">
+                {{ question.axis }}
+              </v-btn>
 
               <v-slider
                 v-model="answers[qidx]"
@@ -115,8 +134,8 @@ table th{
                 always-dirty
                 thumb-label="always"
                 class="px-4 mt-5"
-                step=1
-                min=0
+                step="1"
+                min="0"
                 tick-size="4"
                 :tick-labels="'01234657'.split('')"
                 :max="question.answer_range"
@@ -126,8 +145,8 @@ table th{
 
 
           <v-btn block large color="success"
-            class="mt-5"
-            @click="attemptSubmit()"
+                 class="mt-5"
+                 @click="attemptSubmit()"
           >
             {{ $t('actions.save') }}
           </v-btn>

@@ -13,7 +13,7 @@ table th{
 
 <template>
   <v-layout v-if="structure" row wrap align-content-start>
-    <v-flex v-if="canManage" pa-0 xs12 class="text-xs-right" >
+    <v-flex v-if="canManage" pa-0 xs12 class="text-xs-right">
       <v-btn flat outline color="warning" :to="manageLink">
         <v-icon left>
           edit

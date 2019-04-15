@@ -1,7 +1,7 @@
-FROM node:10-alpine
+# FROM node:10-alpine
 # FROM node:alpine
 # Needed for Prerender SPA Framework
-# FROM alekzonder/puppeteer:latest
+FROM alekzonder/puppeteer:latest
 
 USER root
 

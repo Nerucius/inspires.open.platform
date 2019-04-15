@@ -1,4 +1,5 @@
 from django.db import models
+from django.dispatch import receiver
 
 from backend.models import TrackableModel, User
 
@@ -52,6 +53,17 @@ class Structure(TrackableModel):
 
     def __str__(self):
         return self.name
+
+
+@receiver(models.signals.post_save)
+def email_new_structure(sender, instance, raw, created, using, update_fields, **kwargs):
+    # Abort on shell scripts and such
+
+    if created and isinstance(instance, Structure):
+        from backend import email
+
+        email.email_new_structure(instance)
+        print("Sent email for new structure")
 
 
 class StructureValidation(TrackableModel):

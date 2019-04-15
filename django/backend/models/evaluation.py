@@ -115,11 +115,15 @@ class Evaluation(TrackableModel):
 
     @property
     def project(self):
-        return self.phase.project
+        if self.phase:
+            return self.phase.project
+        return None
 
     @property
     def project_phase(self):
-        return self.phase.project_phase
+        if self.phase:
+            return self.phase.project_phase
+        return None
 
     @property
     def questions(self):
@@ -133,7 +137,7 @@ class Evaluation(TrackableModel):
 
     def __str__(self):
         return "EVAL [%s:%s] by %s" % (
-            self.project.acronym,
+            self.project,
             self.phase.project_phase,
             self.participation.user,
         )

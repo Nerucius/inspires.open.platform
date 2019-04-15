@@ -20,6 +20,12 @@ SECRET_KEY = config("SECRET_KEY", "=%%l)@)$)h71u@o$w9drv(!w!f)7crm1e6yorx!0k6@kt
 DEBUG = config("DEBUG", False, cast=bool)
 
 
+# List of (Name, Email) system administrators
+ADMINS = []
+
+# List of (Name, Email) system managers
+MANAGERS = []
+
 # CORS setup
 if DEBUG:
     print("DEBUG Mode enabled")
@@ -71,7 +77,7 @@ ROOT_URLCONF = "server.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [os.path.join(BASE_DIR, "backend/templates")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -86,6 +92,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "server.wsgi.application"
 
+
+# Email Settings
+EMAIL_HOST = config("EMAIL_HOST", "")
+
+if EMAIL_HOST:
+    EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+    EMAIL_USE_TLS = config("EMAIL_USE_TLS", True, cast=bool)
+    EMAIL_PORT = config("EMAIL_PORT", cast=int)
+    EMAIL_HOST_USER = config("EMAIL_HOST_USER", "")
+    EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD", "")
 
 # Django REST Framework
 

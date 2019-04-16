@@ -56,7 +56,7 @@ table th{
 
             <template v-if="structure.contact_email">
               <tr>
-                <th>{{ $t('forms.fields.email') }}:</th>
+                <th>{{ $t('forms.fields.contactEmail') }}:</th>
               </tr>
               <tr>
                 <td colspan="2">
@@ -72,9 +72,9 @@ table th{
                 <th>{{ $t('forms.fields.postalAddress') }}:</th>
               </tr>
               <tr>
-                <td colspan="2"
-                    :inner-html.prop="structure.contact_postal_address | nlbr"
-                />
+                <td colspan="2">
+                  <vue-markdown>{{ structure.contact_postal_address }}</vue-markdown>
+                </td>
               </tr>
             </template>
 
@@ -86,15 +86,17 @@ table th{
             </tr>
             <tr>
               <td colspan="2">
-                <v-chip
+                <router-link
                   v-for="uid in structure.managers" :key="uid"
-                  @click="$router.push({name:'account', params:{slug:obj2slug(user(uid), 'username')} })"
+                  :to="user(uid).link"
                 >
-                  <v-avatar>
-                    <img :src="user(uid).avatar_url">
-                  </v-avatar>
-                  {{ user(uid).full_name }}
-                </v-chip>
+                  <v-chip>
+                    <v-avatar>
+                      <img :src="user(uid).avatar_url">
+                    </v-avatar>
+                    {{ user(uid).full_name }}
+                  </v-chip>
+                </router-link>
               </td>
             </tr>
           </table>
@@ -151,6 +153,7 @@ table th{
 <script>
 import { slug2id, obj2slug } from "@/plugins/utils";
 import ProjectCardHorizontal from "@/components/project/ProjectCardHorizontal";
+import VueMarkdown from 'vue-markdown';
 
 export default {
 
@@ -161,7 +164,8 @@ export default {
   },
 
   components:{
-    ProjectCardHorizontal
+    ProjectCardHorizontal,
+    VueMarkdown
   },
 
   data(){

@@ -34,10 +34,10 @@ export default {
     },
 
     roles: {
-      1: {id:1, name:"Scientist"},
-      2: {id:2, name:"Student"},
-      3: {id:3, name:"Civil Society"},
-      4: {id:4, name:"Project Manager"},
+      1: {id:1, name:"Scientist", bg:"/img/bg-scientist.png"},
+      2: {id:2, name:"Student", bg:"/img/bg-student.png"},
+      3: {id:3, name:"Civil Society", bg:"/img/bg-civil.png"},
+      4: {id:4, name:"Project Manager", bg:"/img/bg-manager.png"},
     },
 
     axisNames : {

@@ -5,13 +5,13 @@ import {
   UserResource,
   CurrentUserResource,
 } from "../plugins/resource";
-import { obj2slug } from "@/plugins/utils";
+import { obj2slug } from "../plugins/utils";
 
 const userLoginUrl = API_SERVER + "/api-token-auth/";
 const userRegisterUrl = API_SERVER + "/user/register/";
 
 function createLink(obj){
-  obj.link = {name:"account", params:{slug:obj2slug(obj)}}
+  obj.link = {name:"account", params:{slug:obj2slug(obj, 'full_name')}}
   return obj
 }
 

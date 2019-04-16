@@ -1,15 +1,17 @@
 <style>
-table{
+table {
   width: 100%;
 }
-table td, table th{
+table td,
+table th {
   padding: 0 8px 8px 8px;
 }
-table th{
+table th {
   text-align: left;
 }
-table td{
-  /* text-align: right */
+.v-chip__content {
+  cursor: pointer !important;
+  text-decoration: none !important;
 }
 </style>
 
@@ -18,93 +20,88 @@ table td{
   <v-layout v-if="project" row wrap align-content-start>
     <v-flex v-if="canManage" pa-0 xs12 class="text-xs-right">
       <v-btn flat outline color="warning" :to="manageLink">
-        <v-icon left>
-          edit
-        </v-icon>Manage this Project
+        <v-icon left>edit</v-icon>Manage this Project
       </v-btn>
     </v-flex>
 
+    <!-- Unapproved Project Alert -->
     <v-flex v-if="!isApprovedProject" xs12>
       <v-alert color="info" :value="true" class="title">
-        <v-icon dark left>
-          info
-        </v-icon>
-        This project is not approved yet, it will not show up in public lists.
+        <v-icon dark left>info</v-icon>This project is not approved yet, it will not show up in public lists.
       </v-alert>
     </v-flex>
 
-    <v-flex sm4 class="hidden-xs-only">
+    <!-- About Sidebar -->
+    <v-flex sm4 xs12 class="_no-hidden-xs-only">
       <v-card flat>
         <v-toolbar dense flat color="primary" dark>
-          <h1 class="title">
-            {{ $t('pages.projectDetail.about') }}
-          </h1>
+          <h1 class="title">{{ $t('pages.projectDetail.about') }}</h1>
         </v-toolbar>
         <v-card-text class="subheading">
           <table>
+            <!-- Structure -->
+            <template v-if="structure.id">
+              <tr>
+                <th>{{ $t('noums.structure') }}:</th>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <router-link :to="structure.link">{{ structure.name }}</router-link>
+                </td>
+              </tr>
+            </template>
+            <!-- Contact Website -->
             <template v-if="project.contact_website">
               <tr>
                 <th>{{ $t('forms.fields.contactWebsite') }}:</th>
               </tr>
               <tr>
                 <td colspan="2">
-                  <a :href="project.contact_website">
-                    {{ project.contact_website }}
-                  </a>
+                  <a :href="project.contact_website">{{ project.contact_website }}</a>
                 </td>
               </tr>
             </template>
-
+            <!-- Contact Email -->
             <template v-if="project.contact_email">
               <tr>
                 <th>{{ $t('forms.fields.email') }}:</th>
               </tr>
               <tr>
                 <td colspan="2">
-                  <a :href="'mailto:'+project.contact_email">
-                    {{ project.contact_email }}
-                  </a>
+                  <a :href="'mailto:'+project.contact_email">{{ project.contact_email }}</a>
                 </td>
               </tr>
             </template>
 
-            <!-- Managers -->
-            <!-- <tr>
-              <th colspan="2">
-                {{ $t('forms.fields.managers') }}:
-              </th>
-            </tr>
-            <tr>
-              <td colspan="2">
-                <v-chip
-                  v-for="uid in project.managers" :key="uid"
-                  @click="$router.push({name:'account', params:{slug:obj2slug(user(uid), 'username')} })"
-                >
-                  <v-avatar>
-                    <img :src="user(uid).avatar_url">
-                  </v-avatar>
-                  {{ user(uid).full_name }}
-                </v-chip>
-              </td>
-            </tr> -->
             <!-- Participants -->
-            <tr>
-              <th colspan="2" style="text-align:left">
-                {{ $t('forms.fields.participants') }}:
-              </th>
+            <tr v-if="project.participants.length > 0">
+              <th colspan="2" style="text-align:left">{{ $t('forms.fields.participants') }}:</th>
             </tr>
             <tr>
               <td colspan="2">
-                <v-chip
-                  v-for="part in project.participants" :key="part.id"
-                  @click="$router.push({name:'account', params:{slug:obj2slug(user(part.user), 'username')} })"
+                <!-- Chip for each participant -->
+                <!-- <router-link
+                  v-for="part in project.participants"
+                  :key="part.id"
+                  :to="user(part.user).link"
                 >
-                  <v-avatar>
-                    <img :src="user(part.user).avatar_url">
-                  </v-avatar>
-                  {{ user(part.user).full_name }}
-                  ({{ role(part.role) }})
-                </v-chip>
+                  <v-chip>
+                    <v-avatar>
+                      <img :src="user(part.user).avatar_url">
+                    </v-avatar>
+                    {{ user(part.user).full_name }} ({{ role(part.role).name }})
+                  </v-chip>
+                </router-link> -->
+
+                <v-parallax
+                  :src="roleBg(part.role)"
+                  height="32"
+                  class="my-2 text-truncate"
+                  v-for="part in project.participants"
+                  :key="part.id">
+                  {{ user(part.user).full_name }} ({{ role(part.role).name }})
+                </v-parallax>
+
               </td>
             </tr>
           </table>
@@ -116,36 +113,31 @@ table td{
       <v-card flat>
         <v-img :src="project.image_url" height="200">
           <v-toolbar flat style="background-color:rgba(0,0,0,.3)" dark>
-            <h1 class="title">
-              {{ project.name }}
-            </h1>
+            <h1 class="title">{{ project.name }}</h1>
           </v-toolbar>
         </v-img>
 
-        <v-card-text>
-          <h2 class="headline mb-2">
-            Summary
-          </h2>
-          <p>
-            {{ project.summary }}
-          </p>
+        <div class="px-4 pt-4 pb-2 grey lighten-4" style="font-spacing:110%">
+          <vue-markdown>{{ project.summary }}</vue-markdown>
+        </div>
 
-          <h2 class="headline mb-2">
-            Description
-          </h2>
-          <p v-html="$options.filters.nlbr(project.description)" />
+        <v-card-text>
+          <vue-markdown>{{ project.description }}</vue-markdown>
         </v-card-text>
+
       </v-card>
     </v-flex>
 
     <v-flex xs12 md-8>
       <v-card flat>
         <v-card-text>
-          <h2 class="headline mb-4">
-            Related projects
-          </h2>
+          <h2 class="headline mb-4">Related projects</h2>
 
-          <ProjectCardHorizontal v-for="pid in project.related_projects" :key="pid" :project="getProject(pid)" />
+          <ProjectCardHorizontal
+            v-for="pid in project.related_projects"
+            :key="pid"
+            :project="getProject(pid)"
+          />
         </v-card-text>
       </v-card>
     </v-flex>
@@ -157,70 +149,82 @@ table td{
 <script>
 import { slug2id, obj2slug } from "@/plugins/utils";
 import ProjectCardHorizontal from "@/components/project/ProjectCardHorizontal";
+import VueMarkdown from 'vue-markdown';
 
 export default {
-
-  metaInfo(){
+  metaInfo() {
     return {
       title: (this.project || {}).name
-    }
+    };
   },
 
-  components:{
-    ProjectCardHorizontal
+  components: {
+    ProjectCardHorizontal,
+    VueMarkdown
   },
 
-  data(){
+  data() {
     return {
       obj2slug,
-      project: null,
-    }
+      project: null
+    };
   },
 
-  computed:{
-    projectId(){
-      return slug2id(this.$route.params.slug)
+  computed: {
+    projectId() {
+      return slug2id(this.$route.params.slug);
     },
-    isApprovedProject(){
-      return (this.project.collaboration != null && this.project.collaboration.is_approved)
+    structure() {
+      return this.$store.getters['structure/detail'](this.project.collaboration.structure);
+    },
+    isApprovedProject() {
+      return (
+        this.project.collaboration != null &&
+        this.project.collaboration.is_approved
+      );
     },
     manageLink() {
-      return ({name:"project-manage", params:{slug:obj2slug(this.project)}})
+      return {
+        name: "project-manage",
+        params: { slug: obj2slug(this.project) }
+      };
     },
-    canManage(){
-      let userId = this.$store.getters['user/current'].id
-      let isOwner = this.project.owner == userId
-      let isAdmin = this.project.managers.filter(id => id == userId).length >  0
-      return isOwner || isAdmin
+    canManage() {
+      let userId = this.$store.getters["user/current"].id;
+      let isOwner = this.project.owner == userId;
+      let isAdmin = this.project.managers.filter(id => id == userId).length > 0;
+      return isOwner || isAdmin;
     }
   },
 
-  async mounted(){
-    try{
-      this.$store.dispatch("project/load")
-      await this.$store.dispatch("project/load", [this.projectId])
-      this.project = this.$store.getters['project/detail'](this.projectId)
-    }catch(err){
+  async created() {
+    try {
+      this.$store.dispatch("project/load");
+      await this.$store.dispatch("project/load", [this.projectId]);
+      this.project = this.$store.getters["project/detail"](this.projectId);
+      this.$store.dispatch("structure/load", [this.project.collaboration.structure]);
+    } catch (err) {
       // TODO: Show error instead
-      this.$router.push("/project-not-found")
+      this.$router.push("/project-not-found");
     }
   },
 
-  methods:{
-    getProject(pid){
-      return this.$store.getters["project/get"](pid)
+  methods: {
+    roleBg(roleId){
+      return this.$store.getters['evaluation/roles'][roleId].bg
     },
 
-    user(uid){
-      return this.$store.getters["user/get"](uid)
+    getProject(pid) {
+      return this.$store.getters["project/get"](pid);
     },
 
-    role(rid){
-      if (rid==1) return "Sc"
-      if (rid==2) return "St"
-      if (rid==3) return "CS"
+    user(uid) {
+      return this.$store.getters["user/get"](uid);
+    },
+
+    role(rid) {
+      return this.$store.getters["evaluation/roles"][rid];
     }
-  },
-
-}
+  }
+};
 </script>

@@ -18,6 +18,7 @@
       <v-btn
         v-for="(user,idx) in users(project.participants)"
         :key="user.id"
+        :to="user.link"
         icon
         fab
         absolute

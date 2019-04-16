@@ -39,7 +39,21 @@ module.exports = {
     prerenderSpa: {
       registry: undefined,
       renderRoutes: [
-        '/', '/projects', '/structures'
+        '/',
+        '/login',
+        '/about',
+        '/projects',
+        '/structures',
+        '/projects/6-fix-my-food-system',
+        '/projects/8-urban-garden',
+        '/projects/10-green-care-services',
+        '/projects/13-inspires-open-platform',
+        '/projects/areas/10-technological-sciences',
+        '/projects/areas/20-psychology',
+        '/structures/1-isglobal',
+        '/structures/2-unifi',
+        '/structures/4-essrg',
+        '/structures/5-ub',
       ],
       useRenderEvent: true,
       headless: true,

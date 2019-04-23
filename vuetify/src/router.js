@@ -89,6 +89,11 @@ const router = new Router({
             name: "evaluation-entry",
             component: () => import( /* webpackChunkName: "evaluation" */ "./views/evaluation/EvaluationEntry.vue")
         },
+        {
+            path: "/projects/:slug/evaluation",
+            name: "evaluation-detail",
+            component: () => import( /* webpackChunkName: "evaluation" */ "./views/evaluation/EvaluationDetail.vue")
+        },
         // ======= ACCOUNT =======
         {
             path: "/account/projects",

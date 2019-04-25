@@ -35,5 +35,6 @@ export const ProjectEvaluationsResource   = Vue.resource(API_SERVER + "/v1/eval/
 export const EvaluationResource           = Vue.resource(API_SERVER + "/v1/eval/evaluations{/id}/", {}, PATCH);
 export const EvaluationQuestionsResource  = Vue.resource(API_SERVER + "/v1/eval/questions{/id}/", {}, PATCH);
 export const EvaluationResponsesResource  = Vue.resource(API_SERVER + "/v1/eval/responses{/id}/", {}, PATCH);
+export const ResponsesResource            = Vue.resource(API_SERVER + "/v1/responses{/id}/", {}, PATCH);
 
 export default Vue

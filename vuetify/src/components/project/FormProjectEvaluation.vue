@@ -63,7 +63,7 @@ table{
               </v-flex>
               <v-flex xs12 sm6>
                 <v-btn
-                  v-if="!getEvaluation(phase, participant) && getProjectPhase(phase) && getProjectPhase(phase).is_active"
+                  v-if="!getEvaluation(phase, participant) && getProjectPhase(phase)"
                   flat
                   block outline class="my-0" @click="sendEvaluationRequest(phase, participant)"
                 >
@@ -127,7 +127,7 @@ export default {
   async mounted() {
     // Load all evaluations for this project
     await this.$store.dispatch("evaluation/loadProject", this.project.id)
-    this.$nextTick(() =>{
+    this.$nextTick(() => {
       this.panel[this.currentPhase.id] = [1]
     })
   },

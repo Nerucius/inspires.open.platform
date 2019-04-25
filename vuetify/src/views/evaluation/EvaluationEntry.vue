@@ -17,26 +17,24 @@ table th{
 <template>
   <v-layout row wrap align-content-start v-if="project.id">
     <v-flex xs12>
-      <h1>Evaluation Questionaire</h1>
+      <h1> {{ $t('pages.evaluationEntry.mainTitle') }}</h1>
+    </v-flex>
+
+    <!-- Not validated Alert -->
+    <v-flex v-if="isCompleted" xs12>
+      <v-alert color="success" :value="true" class="subheading">
+        <v-icon dark left>
+          check
+        </v-icon>&nbsp;
+        {{ $t('pages.evaluationEntry.questionnaireCompleted') }}
+      </v-alert>
     </v-flex>
 
     <v-flex xs12>
       <v-card flat>
         <v-card-text>
           <h2 class="mb-2">
-            Objective
-          </h2>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, autem delectus ea est dolore animi adipisci voluptas fugit omnis labore facere, repellat dolorum culpa unde repudiandae corrupti odit voluptates blanditiis.</p>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi, molestiae earum ea, ex aliquam necessitatibus quo fugiat eos sunt rem reiciendis labore tempore voluptates odio saepe quod ad a at! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias fuga ratione cupiditate voluptate eligendi repudiandae, quae minus a reiciendis id quod facilis tempora similique. Perferendis blanditiis suscipit consequatur quo ipsam!</p>
-        </v-card-text>
-      </v-card>
-    </v-flex>
-
-    <v-flex xs12>
-      <v-card flat>
-        <v-card-text>
-          <h2 class="mb-2">
-            Evaluation Overview
+            {{ $t('pages.evaluationEntry.evaluationOverview') }}
           </h2>
 
           <v-layout row wrap py-3>
@@ -48,7 +46,7 @@ table th{
                   <td>{{ project.name }}</td>
                 </tr>
                 <tr>
-                  <th>Evaluated Phase</th>
+                  <th>{{ $t('pages.evaluationEntry.evaluatedPhase') }}</th>
                   <td>{{ $t(phase(evaluation.project_phase).name) }}</td>
                 </tr>
               </table>
@@ -57,12 +55,11 @@ table th{
             <v-flex xs12 sm6 py-0>
               <table>
                 <tr>
-                  <th>Evaluator</th>
-                  <!-- TODO: Add user to API and pull info here -->
-                  <td>{{ $store.getters['user/current'].full_name }}</td>
+                  <th>{{ $t('pages.evaluationEntry.evaluator') }}</th>
+                  <td>{{ evaluationUser.full_name }}</td>
                 </tr>
                 <tr>
-                  <th>Evaluation Role</th>
+                  <th>{{ $t('pages.evaluationEntry.evaluationRole') }}</th>
                   <td>{{ role(evaluation.role).name }}</td>
                 </tr>
               </table>
@@ -76,7 +73,20 @@ table th{
       <v-card flat>
         <v-card-text>
           <h2 class="mb-2">
-            Questionaire
+             {{ $t(`models.projectPhase.phase${evaluation.phase}`) }}
+          </h2>
+             {{ $t(`models.projectPhase.phase${evaluation.phase}Description`) }}
+          <p></p>
+
+        </v-card-text>
+      </v-card>
+    </v-flex>
+
+    <v-flex xs12>
+      <v-card flat>
+        <v-card-text>
+          <h2 class="mb-2">
+            {{ $t('pages.evaluationEntry.questionnaire') }}
           </h2>
           <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, autem delectus ea est dolore animi adipisci voluptas fugit omnis labore facere, repellat dolorum culpa unde repudiandae corrupti odit voluptates blanditiis.</p>
 
@@ -87,7 +97,7 @@ table th{
               <!-- MULTIPLE questions -->
               <div v-if="question.answer_type == 'MULTIPLE'" :key="question.id">
                 <h3 class="mt-4">
-                  {{ question.name }} (choose all that apply)
+                  {{ question.name }} {{ $t('pages.evaluationEntry.questionMultipleHelp') }}
                 </h3>
                 <v-btn disabled flat outline small style="color:#888 !important">
                   {{ role(question.role).name }}
@@ -138,6 +148,7 @@ table th{
                 <v-slider
                   v-model="answers[qidx]"
                   :thumb-color="answers[qidx] > 4 ? 'teal' : answers[qidx] > 2 ? 'teal lighten-1' : 'teal lighten-2'"
+                  :readonly="!canModify"
                   always-dirty
                   thumb-label="always"
                   class="px-4 mt-5"
@@ -154,8 +165,20 @@ table th{
 
 
             <v-btn block large color="success" class="mt-5"
+              v-if="canModify && !isCompleted"
               @click="attemptSubmit()">
-              {{ $t('actions.save') }}
+              {{ $t('actions.submit') }}
+            </v-btn>
+
+            <v-btn block large color="success" class="mt-5"
+              v-else-if="canModify"
+              @click="attemptSubmit()">
+              {{ $t('actions.updateResponse') }}
+            </v-btn>
+
+            <v-btn block large color="primary" class="mt-5"
+              disabled v-else>
+              {{ $t('pages.evaluationEntry.viewOnly') }}
             </v-btn>
 
           </v-form>
@@ -172,16 +195,13 @@ table th{
 export default {
 
   metaInfo:{
-    title: "Evaluation"
-  },
-
-  components:{
+    title: "Project Evaluation"
   },
 
   data(){
     return{
-      answers:[],
-      answersMultiple:[[],[],[],[],[],[],[],[]]
+      answers:          [],
+      answersMultiple:  [[],[],[],[],[],[],[],[],[]]
     }
   },
 
@@ -195,6 +215,27 @@ export default {
     project(){
       return this.$store.getters['project/detail'](this.evaluation.project)
     },
+
+    currentUser(){
+      return this.$store.getters['user/current']
+    },
+
+    evaluationUser(){
+      let participation = this.project.participants
+        .filter(part => part.id == this.evaluation.participation)[0]
+      return this.$store.getters['user/get'](participation.user)
+    },
+
+    canModify(){
+      let isSameUser = this.currentUser.id == this.evaluationUser.id
+      let isSuperUser = this.currentUser.id == 1
+      return isSameUser || isSuperUser
+    },
+
+    isCompleted(){
+      return this.evaluation.responses.length > 0
+    },
+
 
     computedAnswers(){
       return this.evaluation.questions.map( (q, idx) =>{
@@ -218,6 +259,18 @@ export default {
   async created(){
     await this.$store.dispatch("evaluation/load", [this.evaluationId])
     await this.$store.dispatch("project/load", [this.evaluation.project])
+
+    // Load existing responses
+    let loadedAnswers = []
+    this.evaluation.questions.forEach((question, idx) => {
+      let response = this.getResponse(question.id)
+      if(response){
+        if(question.answer_type == "DEGREE") { loadedAnswers[idx] = response.answer_degree }
+        if(question.answer_type == "MULTIPLE") { loadedAnswers[idx] = response.answer_multiple }
+      }
+    });
+
+    this.answers = [...loadedAnswers]
   },
 
   methods: {
@@ -227,15 +280,50 @@ export default {
     role(id){
       return this.$store.getters['evaluation/roles'][id]
     },
-    attemptSubmit(){
+    user(id){
+      return this.$store.getters["user/get"](id)
+    },
+
+    getParticipant(participationId){
+      return this.project.participants.filter(part => part.id == participationId)
+    },
+
+    getResponse(questionId){
+      return this.evaluation.responses.filter(r => r.question == questionId)[0]
+    },
+
+    async attemptSubmit(){
       let form = this.$refs.form
-      if (form.validate()){
 
-        console.log(this.computedAnswers)
+      try{
+        // Try to submit answers
+        for (let i = 0; i < this.computedAnswers.length; i++) {
+          const answer = this.computedAnswers[i];
 
-      }else{
-        this.$store.dispatch("toast/error", "Please fill in all required fields.")
+          // Infer response type
+          let responseType
+          if (Array.isArray(answer.response)){ responseType = "answer_multiple" }
+          else{ responseType = "answer_degree" }
+
+          let oldResponse = this.getResponse(answer.question) || {}
+
+          let response = {
+            "id": oldResponse.id,
+            "evaluation": this.evaluationId,
+            "question": answer.question,
+            [responseType]: answer.response,
+          }
+
+          await this.$store.dispatch("evaluation/submitResponse", response)
+        }
+
+        await this.$store.dispatch("evaluation/load", [this.evaluationId])
+        this.$store.dispatch("toast/success", this.$t("pages.evaluationEntry.submitSuccess"))
+
+      }catch(err){
+        this.$store.dispatch("toast/error", this.$t("pages.evaluationEntry.submitFailure"))
       }
+
     }
   }
 };

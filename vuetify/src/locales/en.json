@@ -83,6 +83,19 @@
       "evaluationFailure":"Failed to send evaluation request. Please try again later.",
       "-": ""
     },
+    "evaluationEntry":{
+      "mainTitle": "Project Evaluation Questionnaire",
+      "questionnaire": "Questionnaire",
+      "questionnaireCompleted": "This questionnaire has already been completed.",
+      "evaluationOverview": "Evaluation Overview",
+      "evaluatedPhase": "Evaluated phase",
+      "evaluator": "Evaluator",
+      "evaluationRole": "Evaluation role",
+      "questionMultipleHelp": "(choose all that apply)",
+      "viewOnly": "You may only view the responses, not modify them",
+      "submitSuccess": "Your response has been recorded correctly!",
+      "submitFailure": "There was a problem saving your response. Please try again later."
+    },
     "-": ""
   },
   "models": {
@@ -92,10 +105,10 @@
       "phase2": "Phase 2: Progress and Self-reflection",
       "phase3": "Phase 3: End of Project Output",
       "phase4": "Phase 4: Six months later",
-      "phase1Description": "TBD Project Kick-off and Expectations",
-      "phase2Description": "TBD Progress and Self-reflection",
-      "phase3Description": "TBD End of Project Output",
-      "phase4Description": "TBD Six months later",
+      "phase1Description": "The kick-off phase is meant to clearly set expectations and to reflect on the value of community engagement to reach the scientific objectives while addressing community demands.",
+      "phase2Description": "At this point you are in the middle of the project and you are asked to reflect on the quality of the participatory dynamics and on the degree of inclusion of multiple perspectives througout the project implementation.",
+      "phase3Description": "By now the project is over and it's time to reflect on the project alignment to participants expectations, the incorporation of an ethical and gender perspectives, the quality of the participatory dynamics, and the accessibility of the project results.",
+      "phase4Description": "Six months has passed since the project ended and you are invited to reflect about the project outcome on scientific knowledge, at the level of individual learning, policy alignment, and in terms of the collective capacity to address community demands.",
       "phase1Tag": "Kick-off",
       "phase2Tag": "Self-reflection",
       "phase3Tag": "Output",
@@ -157,7 +170,10 @@
   },
   "actions": {
     "add": "Add",
+    "submit": "Submit",
     "approve": "Approve",
+    "update": "Update",
+    "updateResponse": "Update response",
     "create": "Create",
     "delete": "Delete",
     "withdraw": "Withdraw",

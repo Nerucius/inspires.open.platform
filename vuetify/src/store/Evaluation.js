@@ -1,7 +1,8 @@
-import Vue, { ProjectResource } from "../plugins/resource";
+import Vue from "../plugins/resource";
 import {
-  ProjectEvaluationsResource,
   EvaluationResource,
+  ResponsesResource,
+  ProjectEvaluationsResource,
   EvaluationQuestionsResource,
   EvaluationResponsesResource
 } from "../plugins/resource";
@@ -101,8 +102,6 @@ export default {
           next = response.next
         }
 
-
-
         context.commit("ADD", items)
       }
     },
@@ -135,6 +134,17 @@ export default {
       // context.dispatch("delete", id)
       return result
     },
+
+    submitResponse: async function (context, response){
+      let result
+      if(response.id){
+        result = (await ResponsesResource.update({id:response.id}, response))
+      } else {
+        result = (await ResponsesResource.save(response))
+      }
+
+      return result
+    }
   },
 
   getters: {

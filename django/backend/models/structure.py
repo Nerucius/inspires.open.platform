@@ -57,7 +57,7 @@ class Structure(TrackableModel):
 
 @receiver(models.signals.post_save)
 def email_new_structure(sender, instance, raw, created, using, update_fields, **kwargs):
-    # Abort on shell scripts and such
+    # TODO: Abort on shell scripts and such
 
     if created and isinstance(instance, Structure):
         from backend import email

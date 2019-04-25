@@ -1,4 +1,5 @@
 from django.db import models
+from django.dispatch import receiver
 
 from backend.models import TrackableModel
 
@@ -109,9 +110,13 @@ class Question(models.Model):
 
 class Evaluation(TrackableModel):
     participation = models.ForeignKey(
-        "Participation", on_delete=models.SET_NULL, null=True
+        "Participation", on_delete=models.CASCADE, null=True
     )
-    phase = models.ForeignKey("ProjectAtPhase", on_delete=models.SET_NULL, null=True)
+    phase = models.ForeignKey("ProjectAtPhase", on_delete=models.CASCADE, null=True)
+
+    @property
+    def is_complete(self):
+        return len(self.response_set.all()) > 0
 
     @property
     def project(self):
@@ -146,6 +151,19 @@ class Evaluation(TrackableModel):
         unique_together = ("participation", "phase")
 
 
+@receiver(models.signals.post_save)
+def email_new_evaluation(
+    sender, instance, raw, created, using, update_fields, **kwargs
+):
+    # TODO: Abort on shell scripts and such
+
+    if created and isinstance(instance, Evaluation):
+        from backend import email
+
+        email.email_new_evaluation(instance)
+        print("Sent email for new structure")
+
+
 class Answer(models.Model):
     key = models.PositiveSmallIntegerField()
     name = models.CharField(max_length=1024)
@@ -158,12 +176,13 @@ class Answer(models.Model):
 
 
 class Response(TrackableModel):
-    evaluation = models.ForeignKey("Evaluation", on_delete=models.SET_NULL, null=True)
-    question = models.ForeignKey("Question", on_delete=models.SET_NULL, null=True)
+    evaluation = models.ForeignKey("Evaluation", on_delete=models.CASCADE, null=True)
+    question = models.ForeignKey("Question", on_delete=models.CASCADE, null=True)
+
     answer_multiple = models.ManyToManyField("Answer", blank=True)
     answer_choice = models.ForeignKey(
         "Answer",
-        on_delete=models.SET_NULL,
+        on_delete=models.CASCADE,
         blank=True,
         null=True,
         related_name="single_answers",
@@ -171,3 +190,12 @@ class Response(TrackableModel):
     )
     answer_text = models.CharField(max_length=1024, blank=True)
     answer_degree = models.PositiveSmallIntegerField(blank=True, null=True)
+
+    class Meta:
+        # Only one response per question per evaluation per person
+        unique_together = ("evaluation", "question")
+
+    @classmethod
+    def can_create(cls, user, data):
+        evaluation = Evaluation.objects.get(pk=data["evaluation"])
+        return evaluation.participation.user == user

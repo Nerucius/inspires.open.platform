@@ -155,6 +155,7 @@ class SimpleProjectSerializer(serializers.ModelSerializer):
 class EvaluationSerializer(serializers.ModelSerializer):
     # project = SimpleProjectSerializer(read_only=True)
     # project_phase = ProjectPhaseSerializer(read_only=True)
+    is_complete = serializers.BooleanField(read_only=True)
     project = serializers.IntegerField(
         source="participation.project.pk", read_only=True
     )

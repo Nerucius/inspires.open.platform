@@ -39,7 +39,7 @@ module.exports = {
     prerenderSpa: {
       registry: undefined,
       renderRoutes: [
-        '/',
+        // '/',
         // '/login',
         // '/about',
         // '/projects',
@@ -55,7 +55,7 @@ module.exports = {
         // '/structures/4-essrg',
         // '/structures/5-ub',
       ],
-      useRenderEvent: true,
+      useRenderEvent: false,
       headless: true,
       onlyProduction: true,
       // TODO: Investigate why this is broken

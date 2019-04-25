@@ -21,7 +21,7 @@ table th{
       </v-btn>
     </v-flex>
 
-    <!-- Not validated Alert -->
+    <!-- Unvalidated Project Alert -->
     <v-flex v-if="!structure.validation" xs12>
       <v-alert color="info" :value="true" class="title">
         <v-icon dark left>
@@ -31,7 +31,7 @@ table th{
       </v-alert>
     </v-flex>
 
-
+    <!-- About Sidebar -->
     <v-flex sm4 xs12>
       <v-card flat>
         <v-toolbar dense flat color="primary" dark>
@@ -104,6 +104,7 @@ table th{
       </v-card>
     </v-flex>
 
+    <!-- Main Body -->
     <v-flex xs12 sm8>
       <v-card flat>
         <v-img :src="structure.image_url" height="200">
@@ -114,22 +115,17 @@ table th{
           </v-toolbar>
         </v-img>
 
-        <v-card-text>
-          <h2 class="headline mb-2">
-            Introduction
-          </h2>
-          <p class="subheading">
-            {{ structure.summary }}
-          </p>
+        <div class="px-4 pt-4 pb-2 grey lighten-4" style="font-spacing:110%">
+          <vue-markdown>{{ structure.summary }}</vue-markdown>
+        </div>
 
-          <h2 class="headline mb-2">
-            About Us
-          </h2>
-          <p class="subheading" :inner-html.prop="structure.description | nlbr" />
+        <v-card-text>
+          <vue-markdown>{{ structure.description }}</vue-markdown>
         </v-card-text>
       </v-card>
     </v-flex>
 
+    <!-- Projects under the structure -->
     <v-flex xs12>
       <v-card flat>
         <v-card-text>

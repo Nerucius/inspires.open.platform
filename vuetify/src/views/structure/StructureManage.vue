@@ -43,8 +43,10 @@
         grow
       >
         <v-tabs-slider color="primary" />
-        <v-tab v-for="item in page.items" :key="item">
-          {{ item }}
+        <v-tab v-for="(item,idx) in page.items" :key="item"
+               @click="saveTab(idx)"
+        >
+          {{ $t(item) }}
         </v-tab>
       </v-tabs>
 
@@ -113,6 +115,10 @@
 import FormStructureBase from "@/components/structure/FormStructureBase";
 import { slug2id, obj2slug } from "@/plugins/utils";
 
+function tabSlug(fullTabName){
+  return fullTabName.split('.')[2]
+}
+
 export default {
   components: {
     FormStructureBase,
@@ -125,8 +131,8 @@ export default {
       page: {
         tab: null,
         items: [
-          "This Structure",
-          "Projects"
+          "pages.structureManage.structureTab",
+          "pages.structureManage.projectsTab"
         ]
       },
 
@@ -151,7 +157,7 @@ export default {
     }
   },
 
-  async mounted() {
+  async created() {
     // Important to await before moving on here
     await this.$store.dispatch("structure/load", [this.structureId])
     await this.$store.dispatch("project/load", this.structure.collaborations.map( c => c.project ))
@@ -162,6 +168,7 @@ export default {
     if(this.hasPendingCollabs){
       this.$store.dispatch("toast/info", "You have pending requests for collaboration. Please check the projects tab.")
     }
+    this.page.tab = this.getTabForName(this.$route.hash)
 
     this.dataReady = true
   },
@@ -183,8 +190,8 @@ export default {
         console.error(err)
         this.$store.dispatch("toast/error", this.$t("pages.structureManage.collaborationFailure"))
       }
-
     },
+
     async cancelCollab(id){
       try{
         await this.$store.dispatch("collaboration/update", {id, is_approved: false})
@@ -196,6 +203,15 @@ export default {
         this.$store.dispatch("toast/error", this.$t("pages.structureManage.collaborationFailure"))
       }
     },
+
+    saveTab(tabIdx){
+      this.$router.replace({hash:`${tabSlug(this.page.items[tabIdx])}`})
+    },
+    getTabForName(tabName){
+      return this.page.items
+        .map(tabSlug)
+        .indexOf(tabName.slice(1))
+    }
   }
 
 };

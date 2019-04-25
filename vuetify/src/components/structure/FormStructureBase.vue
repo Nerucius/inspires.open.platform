@@ -27,6 +27,16 @@
                 Suggested to keep it under 200 characters."
     />
 
+    <v-textarea
+      v-if="structure.id"
+      v-model="editedStructure.description"
+      box
+      rows="8"
+      label="Structure Description"
+      hint="A short summary of your structure and what it encompasses.
+                Suggested to keep it under 200 characters."
+    />
+
     <h2 class="mb-2">
       Structure Administrators
     </h2>
@@ -82,18 +92,6 @@
                   :items="knowledgeAreas"
                   :item-text="kaName"
                   item-value="id"
-      />
-
-      <h3 class="mb-2">
-        Detailed description
-      </h3>
-
-      <v-textarea
-        v-model="editedStructure.description"
-        box
-        label="Description"
-        hint="Long-form structure description."
-        rows="8"
       />
 
       <h3 class="mb-2">

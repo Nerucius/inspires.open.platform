@@ -52,9 +52,10 @@
       "title": "Manage this Structure",
       "success": "Structure saved successfuly!",
       "failure": "Failed to save the structure. Try again later.",
-      "collaborationFailure":"Project has been approved under this structure",
-      "collaborationAdded":"Project has been approved under this structure",
-      "collaborationRemoved":"Project has been removed from this structure"
+      "collaborationFailure": "Failed to approve the project. Please try again later.",
+      "collaborationAdded": "Project has been approved under this structure.",
+      "structureTab": "This Structure",
+      "projectsTab": "Projects"
     },
     "projectCreate": {
       "title": "Create a new Project",
@@ -90,7 +91,7 @@
       "participantsIntro":"Add all the people helping to make this project possible here. Each person can have a role within the project. The Role will be used in determining what role they play in the impact evaluation tool.",
       "searchUsers": "Collaboration with structure has been withdrawn.",
       "evaluationTitle":"Project Evaluation",
-      "evaluationIntro":"Add all the people helping to make this project possible here. Each person can have a role within the project. The Role will be used in determining what role they play in the impact evaluation tool.",
+      "evaluationIntro":"Here you can send requests for evaluation to the people inside the project.",
       "evaluationSuccess":"Evaluation requested successfuly.",
       "evaluationFailure":"Failed to send evaluation request. Please try again later.",
       "-": ""

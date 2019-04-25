@@ -69,9 +69,14 @@ table{
                 >
                   Send Request for Evaluation
                 </v-btn>
-                <v-btn v-if="getEvaluation(phase, participant)" block outline color="success" class="my-0"
-                  :to="{name:'evaluation-entry', params:{ slug: getEvaluation(phase, participant).id}}">
+                <v-btn v-if="getEvaluation(phase, participant)" block outline color="success"
+                       class="my-0"
+                       :to="{name:'evaluation-entry', params:{ slug: getEvaluation(phase, participant).id}}"
+                >
                   View Evaluation
+                  <span v-if="getEvaluation(phase, participant).is_complete">
+                    &nbsp; (completed)
+                  </span>
                 </v-btn>
               </v-flex>
               <v-flex xs12 py-1>

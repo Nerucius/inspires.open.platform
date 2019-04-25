@@ -15,7 +15,7 @@ table th{
 </style>
 
 <template>
-  <v-layout row wrap align-content-start v-if="project.id">
+  <v-layout v-if="project.id" row wrap align-content-start>
     <v-flex xs12>
       <h1> {{ $t('pages.evaluationEntry.mainTitle') }}</h1>
     </v-flex>
@@ -73,11 +73,10 @@ table th{
       <v-card flat>
         <v-card-text>
           <h2 class="mb-2">
-             {{ $t(`models.projectPhase.phase${evaluation.project_phase}`) }}
+            {{ $t(`models.projectPhase.phase${evaluation.project_phase}`) }}
           </h2>
-             {{ $t(`models.projectPhase.phase${evaluation.project_phase}Description`) }}
-          <p></p>
-
+          {{ $t(`models.projectPhase.phase${evaluation.project_phase}Description`) }}
+          <p />
         </v-card-text>
       </v-card>
     </v-flex>
@@ -91,9 +90,7 @@ table th{
           <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, autem delectus ea est dolore animi adipisci voluptas fugit omnis labore facere, repellat dolorum culpa unde repudiandae corrupti odit voluptates blanditiis.</p>
 
           <v-form ref="form">
-
             <template v-for="(question, qidx) in evaluation.questions">
-
               <!-- MULTIPLE questions -->
               <div v-if="question.answer_type == 'MULTIPLE'" :key="question.id">
                 <h3 class="mt-4">
@@ -115,10 +112,10 @@ table th{
                   {{ question.axis }}
                 </v-btn>
                 <v-checkbox v-for="(answer, aidx) in question.answers" :key="aidx"
-                  v-model="answersMultiple[qidx]"
-                  :value="answer.key"
-                  :label="answer.name"
-                  hide-details
+                            v-model="answersMultiple[qidx]"
+                            :value="answer.key"
+                            :label="answer.name"
+                            hide-details
                 />
               </div>
               <!-- /MULTIPLE QUESTIONS -->
@@ -160,30 +157,29 @@ table th{
                 />
               </div>
               <!-- /DEGREE Questions -->
-
             </template>
 
 
-            <v-btn block large color="success" class="mt-5"
-              v-if="canModify && !isCompleted"
-              @click="attemptSubmit()">
+            <v-btn v-if="canModify && !isCompleted" block large color="success"
+                   class="mt-5"
+                   @click="attemptSubmit()"
+            >
               {{ $t('actions.submit') }}
             </v-btn>
 
-            <v-btn block large color="success" class="mt-5"
-              v-else-if="canModify"
-              @click="attemptSubmit()">
+            <v-btn v-else-if="canModify" block large color="success"
+                   class="mt-5"
+                   @click="attemptSubmit()"
+            >
               {{ $t('actions.updateResponse') }}
             </v-btn>
 
-            <v-btn block large color="primary" class="mt-5"
-              disabled v-else>
+            <v-btn v-else block large color="primary"
+                   class="mt-5" disabled
+            >
               {{ $t('pages.evaluationEntry.viewOnly') }}
             </v-btn>
-
           </v-form>
-
-
         </v-card-text>
       </v-card>
     </v-flex>

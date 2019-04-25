@@ -1,128 +1,130 @@
 <template>
   <v-layout v-if="project" row wrap align-content-start>
     <v-flex xs12>
-      <h1>Evaluation for {{project.name}}</h1>
+      <h1>Evaluation for {{ project.name }}</h1>
     </v-flex>
 
     <v-flex xs12>
       <v-card flat>
-        <v-card-text>
+        <v-card-text id="target-graph-area">
           <!-- MIREIA CODE FOR EVALUATION -->
 
           <div id="main">
             <div id="scatter">
-              <h2 style="width:100%">Project Overall Position</h2>
+              <h2 style="width:100%">
+                Project Overall Position
+              </h2>
               <hr style="border: 2px solid gray">
-              <div id="scatterchart"></div>
+              <div id="scatterchart" />
             </div>
             <div id="line">
               <h2>Project Evolution</h2>
               <hr style="border: 2px solid gray">
-              <div id="linechart"></div>
+              <div id="linechart" />
             </div>
             <div id="transf">
               <h2>Transformative Change</h2>
               <hr style="border: 2px solid #2F4193">
-              <div id="transfchart"></div>
+              <div id="transfchart" />
               <div class="bullet">
                 <h3>Collective capacity</h3>
-                <div id="TransformativeCollectiveChart"></div>
+                <div id="TransformativeCollectiveChart" />
               </div>
               <div class="bullet">
                 <h3>Knowledge and skills</h3>
-                <div id="TransformativeSkillsChart"></div>
+                <div id="TransformativeSkillsChart" />
               </div>
               <div class="bullet">
                 <h3>Policy impact</h3>
-                <div id="TransformativePolicyChart"></div>
+                <div id="TransformativePolicyChart" />
               </div>
               <div class="bullet">
                 <h3>Self-improvement</h3>
-                <div id="TransformativeSelfChart"></div>
+                <div id="TransformativeSelfChart" />
               </div>
               <div id="partic">
                 <h2>Participatory Dynamics</h2>
                 <hr style="border: 2px solid #DAE14B">
-                <div id="partchart"></div>
+                <div id="partchart" />
                 <div class="bullet">
                   <h3>Degree of engagement</h3>
-                  <div id="ParticipatoryEngagementChart"></div>
+                  <div id="ParticipatoryEngagementChart" />
                 </div>
                 <div class="bullet">
                   <h3>Impact of the participatory dynamics</h3>
-                  <div id="ParticipatoryImpactChart"></div>
+                  <div id="ParticipatoryImpactChart" />
                 </div>
                 <div class="bullet">
                   <h3>Motivation</h3>
-                  <div id="ParticipatoryMotivationChart"></div>
+                  <div id="ParticipatoryMotivationChart" />
                 </div>
                 <div class="bullet">
                   <h3>Satisfaction with the participatory dunamics</h3>
-                  <div id="ParticipatorySatisfactionChart"></div>
+                  <div id="ParticipatorySatisfactionChart" />
                 </div>
               </div>
               <div id="know">
                 <h2>Knowledge Democracy</h2>
                 <hr style="border: 2px solid #2599D4">
-                <div id="knowchart"></div>
+                <div id="knowchart" />
                 <div class="bullet">
                   <h3>Openness</h3>
-                  <div id="KnowledgeOpennessChart"></div>
+                  <div id="KnowledgeOpennessChart" />
                 </div>
                 <div class="bullet">
                   <h3>Scientific relevance</h3>
-                  <div id="KnowledgeRelevanceChart"></div>
+                  <div id="KnowledgeRelevanceChart" />
                 </div>
                 <div class="bullet">
                   <h3>Transdisciplinarity</h3>
-                  <div id="KnowledgeTransdisciplChart"></div>
+                  <div id="KnowledgeTransdisciplChart" />
                 </div>
               </div>
             </div>
             <div id="heat">
               <h2>Involvement</h2>
               <hr style="border: 2px solid gray">
-              <div id="heatchart"></div>
+              <div id="heatchart" />
               <div id="citiz">
                 <h2>Citizen-led Research</h2>
                 <hr style="border: 2px solid #00796B">
-                <div id="citizchart"></div>
+                <div id="citizchart" />
                 <div class="bullet">
                   <h3>Community alignment</h3>
-                  <div id="CitizenCommunityChart"></div>
+                  <div id="CitizenCommunityChart" />
                 </div>
                 <div class="bullet">
                   <h3>Responsiveness to community alignment</h3>
-                  <div id="CitizenResponsivenessChart"></div>
+                  <div id="CitizenResponsivenessChart" />
                 </div>
               </div>
               <div id="integ">
                 <h2>Integrity</h2>
                 <hr style="border: 2px solid #F17600">
-                <div id="integchart"></div>
+                <div id="integchart" />
                 <div class="bullet">
                   <h3>Expectation alignment</h3>
-                  <div id="IntegrityExpectationChart"></div>
+                  <div id="IntegrityExpectationChart" />
                 </div>
                 <div class="bullet">
                   <h3>Gender perspective</h3>
-                  <div id="IntegrityGenderChart"></div>
+                  <div id="IntegrityGenderChart" />
                 </div>
                 <div class="bullet">
                   <h3>Inclusivity</h3>
-                  <div id="IntegrityInclusivityChart"></div>
+                  <div id="IntegrityInclusivityChart" />
                 </div>
                 <div class="bullet">
                   <h3>Reflexivity</h3>
-                  <div id="IntegrityReflexivityChart"></div>
+                  <div id="IntegrityReflexivityChart" />
                 </div>
                 <div class="bullet">
                   <h3>Resource availability</h3>
-                  <div id="IntegrityResourceChart"></div>
+                  <div id="IntegrityResourceChart" />
                 </div>
                 <div class="bullet">
                   <h3>Transparency</h3>
-                  <div id="IntegrityTransparencyChart"></div>
+                  <div id="IntegrityTransparencyChart" />
                 </div>
               </div>
             </div>
@@ -132,13 +134,12 @@
         </v-card-text>
       </v-card>
     </v-flex>
-
   </v-layout>
-
 </template>
 
 <script>
 import { slug2id, obj2slug } from "@/plugins/utils";
+import { setTimeout } from 'timers';
 
 export default {
   metaInfo() {
@@ -150,7 +151,8 @@ export default {
   data() {
     return {
       obj2slug,
-      project: null
+      project: null,
+      graphAreaWidth: undefined,
     };
   },
 
@@ -184,11 +186,25 @@ export default {
       this.$router.push("/project-not-found");
     }
 
-    createParticipantGraph();
+    window.addEventListener("resize", this.onResize);
+
+  },
+
+  updated(){
+    console.log("updated")
+    createParticipantGraph(this.graphAreaWidth)
   },
 
   methods: {
-    user(uid) {
+    onResize(event){
+      console.log(event)
+      let width = document.querySelector("#target-graph-area").clientWidth
+      console.log(width)
+      this.graphAreaWidth = width / 3
+      createParticipantGraph(this.graphAreaWidth)
+    },
+
+user(uid) {
       return this.$store.getters["user/get"](uid);
     },
 

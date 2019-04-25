@@ -26,14 +26,18 @@ table th {
   <v-layout v-if="project" row wrap align-content-start>
     <v-flex v-if="canManage" pa-0 xs12 class="text-xs-right">
       <v-btn flat outline color="warning" :to="manageLink">
-        <v-icon left>edit</v-icon>Manage this Project
+        <v-icon left>
+          edit
+        </v-icon>Manage this Project
       </v-btn>
     </v-flex>
 
     <!-- Unapproved Project Alert -->
     <v-flex v-if="!isApprovedProject" xs12>
       <v-alert color="info" :value="true" class="title">
-        <v-icon dark left>info</v-icon>This project is not approved yet, it will not show up in public lists.
+        <v-icon dark left>
+          info
+        </v-icon>This project is not approved yet, it will not show up in public lists.
       </v-alert>
     </v-flex>
 
@@ -41,7 +45,9 @@ table th {
     <v-flex sm4 xs12 class="_no-hidden-xs-only">
       <v-card flat>
         <v-toolbar dense flat color="primary" dark>
-          <h1 class="title">{{ $t('pages.projectDetail.about') }}</h1>
+          <h1 class="title">
+            {{ $t('pages.projectDetail.about') }}
+          </h1>
         </v-toolbar>
         <v-card-text class="subheading pb-0">
           <table>
@@ -52,7 +58,9 @@ table th {
               </tr>
               <tr>
                 <td colspan="2">
-                  <router-link :to="structure.link">{{ structure.name }}</router-link>
+                  <router-link :to="structure.link">
+                    {{ structure.name }}
+                  </router-link>
                 </td>
               </tr>
             </template>
@@ -63,7 +71,9 @@ table th {
               </tr>
               <tr>
                 <td colspan="2">
-                  <a :href="project.contact_website">{{ project.contact_website }}</a>
+                  <a :href="project.contact_website">
+                    {{ project.contact_website }}
+                  </a>
                 </td>
               </tr>
             </template>
@@ -74,26 +84,30 @@ table th {
               </tr>
               <tr>
                 <td colspan="2">
-                  <a :href="'mailto:'+project.contact_email">{{ project.contact_email }}</a>
+                  <a :href="'mailto:'+project.contact_email">
+                    {{ project.contact_email }}
+                  </a>
                 </td>
               </tr>
             </template>
 
             <!-- Participants -->
             <tr v-if="project.participants.length > 0">
-              <th colspan="2" style="text-align:left">{{ $t('forms.fields.participants') }}:</th>
+              <th colspan="2" style="text-align:left">
+                {{ $t('forms.fields.participants') }}:
+              </th>
             </tr>
           </table>
         </v-card-text>
 
         <div v-if="project.participants.length > 0" class="pb-2">
-
           <v-parallax
+            v-for="part in project.participants"
+            :key="part.id"
             :src="roleBg(part.role)"
             height="32"
             class="person-slab my-2 text-truncate"
-            v-for="part in project.participants"
-            :key="part.id">
+          >
             <router-link :to="user(part.user).link">
               <span>
                 <v-avatar size="24">
@@ -106,15 +120,17 @@ table th {
             </router-link>
           </v-parallax>
         </div>
-
       </v-card>
     </v-flex>
 
+    <!-- Main Body -->
     <v-flex xs12 sm8>
       <v-card flat>
         <v-img :src="project.image_url" height="200">
           <v-toolbar flat style="background-color:rgba(0,0,0,.3)" dark>
-            <h1 class="title">{{ project.name }}</h1>
+            <h1 class="title">
+              {{ project.name }}
+            </h1>
           </v-toolbar>
         </v-img>
 
@@ -125,14 +141,16 @@ table th {
         <v-card-text>
           <vue-markdown>{{ project.description }}</vue-markdown>
         </v-card-text>
-
       </v-card>
     </v-flex>
 
-    <v-flex xs12 md-8 v-if="project.related_projects.length > 0">
+    <!-- Related Projects -->
+    <v-flex v-if="project.related_projects.length > 0" xs12 md-8>
       <v-card flat>
         <v-card-text>
-          <h2 class="headline mb-4">Related projects</h2>
+          <h2 class="headline mb-4">
+            Related projects
+          </h2>
 
           <ProjectCardHorizontal
             v-for="pid in project.related_projects"

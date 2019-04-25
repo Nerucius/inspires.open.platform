@@ -29,7 +29,10 @@
       <!-- Tabulation Menu -->
       <v-tabs v-model="page.tab" grow class="mb-3">
         <v-tabs-slider color="primary" />
-        <v-tab v-for="item in page.items" :key="item">
+        <v-tab
+          v-for="(item,idx) in page.items" :key="item"
+          @click="saveTab(idx)"
+        >
           {{ $t(item) }}
         </v-tab>
       </v-tabs>
@@ -107,6 +110,10 @@ import FormProjectPhases from "@/components/project/FormProjectPhases";
 import FormProjectEvaluation from "@/components/project/FormProjectEvaluation";
 import { slug2id } from "@/plugins/utils";
 
+function tabSlug(fullTabName){
+  return fullTabName.split('.')[2]
+}
+
 export default {
   components: {
     FormProjectBase,
@@ -119,6 +126,7 @@ export default {
   data() {
     return {
       dataReady: false,
+      activeTab: 1,
       page: {
         tab: null,
         items: [
@@ -143,14 +151,29 @@ export default {
     },
     isOwner(){
       return this.projectOwner.id == this.$store.getters['user/current'].id
+    },
+    activeTabName(){
+      return this.page.items[this.page.tab].split('.')[2]
     }
   },
 
-  async mounted() {
+  async created() {
     // Important to await before moving on here
     await this.$store.dispatch("project/load", [this.projectId])
+    this.page.tab = this.getTabForName(this.$route.hash)
     this.dataReady = true
   },
+
+  methods:{
+    saveTab(tabIdx){
+      this.$router.replace({hash:`${tabSlug(this.page.items[tabIdx])}`})
+    },
+    getTabForName(tabName){
+      return this.page.items
+        .map(tabSlug)
+        .indexOf(tabName.slice(1))
+    }
+  }
 
 };
 </script>

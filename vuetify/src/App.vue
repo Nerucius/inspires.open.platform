@@ -47,7 +47,7 @@
             name="fade"
             mode="out-in"
           >
-            <router-view :key="$route.fullPath" />
+            <router-view :key="routePathKey" />
           </transition>
           <!-- /Main Content Area -->
         </v-container>
@@ -118,6 +118,10 @@ export default {
     shouldShowNavigation(){
       return this.$store.getters['user/isLoggedIn']
     },
+    routePathKey(){
+      // Returns a usable fullRoute key without the hash to use as in-page state
+      return this.$route.fullPath.replace(/#.*/gi, '')
+    }
   },
 
   async created() {

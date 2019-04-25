@@ -13,6 +13,12 @@ table th {
   cursor: pointer !important;
   text-decoration: none !important;
 }
+
+.person-slab a{
+  color: white;
+  text-decoration: none;
+  text-shadow: 1px 1px 2px #000;
+}
 </style>
 
 
@@ -37,7 +43,7 @@ table th {
         <v-toolbar dense flat color="primary" dark>
           <h1 class="title">{{ $t('pages.projectDetail.about') }}</h1>
         </v-toolbar>
-        <v-card-text class="subheading">
+        <v-card-text class="subheading pb-0">
           <table>
             <!-- Structure -->
             <template v-if="structure.id">
@@ -77,35 +83,30 @@ table th {
             <tr v-if="project.participants.length > 0">
               <th colspan="2" style="text-align:left">{{ $t('forms.fields.participants') }}:</th>
             </tr>
-            <tr>
-              <td colspan="2">
-                <!-- Chip for each participant -->
-                <!-- <router-link
-                  v-for="part in project.participants"
-                  :key="part.id"
-                  :to="user(part.user).link"
-                >
-                  <v-chip>
-                    <v-avatar>
-                      <img :src="user(part.user).avatar_url">
-                    </v-avatar>
-                    {{ user(part.user).full_name }} ({{ role(part.role).name }})
-                  </v-chip>
-                </router-link> -->
-
-                <v-parallax
-                  :src="roleBg(part.role)"
-                  height="32"
-                  class="my-2 text-truncate"
-                  v-for="part in project.participants"
-                  :key="part.id">
-                  {{ user(part.user).full_name }} ({{ role(part.role).name }})
-                </v-parallax>
-
-              </td>
-            </tr>
           </table>
         </v-card-text>
+
+        <div v-if="project.participants.length > 0" class="pb-2">
+
+          <v-parallax
+            :src="roleBg(part.role)"
+            height="32"
+            class="person-slab my-2 text-truncate"
+            v-for="part in project.participants"
+            :key="part.id">
+            <router-link :to="user(part.user).link">
+              <span>
+                <v-avatar size="24">
+                  <img :src="user(part.user).avatar_url">
+                </v-avatar>
+                &nbsp;
+                {{ user(part.user).full_name }}
+                <small>({{ role(part.role).name }})</small>
+              </span>
+            </router-link>
+          </v-parallax>
+        </div>
+
       </v-card>
     </v-flex>
 
@@ -128,7 +129,7 @@ table th {
       </v-card>
     </v-flex>
 
-    <v-flex xs12 md-8>
+    <v-flex xs12 md-8 v-if="project.related_projects.length > 0">
       <v-card flat>
         <v-card-text>
           <h2 class="headline mb-4">Related projects</h2>

@@ -69,6 +69,10 @@ table{
                 >
                   Send Request for Evaluation
                 </v-btn>
+                <v-btn v-if="getEvaluation(phase, participant)" block outline color="success" class="my-0"
+                  :to="{name:'evaluation-entry', params:{ slug: getEvaluation(phase, participant).id}}">
+                  View Evaluation
+                </v-btn>
               </v-flex>
               <v-flex xs12 py-1>
                 <v-divider />
@@ -95,12 +99,15 @@ export default {
       valid: null,
       processing: false,
       rules: {
-        required: v => !!v || this.$t("forms.rules.requiredField"),
+        required: v => v!=undefined || this.$t("forms.rules.requiredField"),
       },
     };
   },
 
   computed: {
+    evaluations(){
+      return this.$store.getters['evaluation/project'](this.project.id)
+    },
     phases(){
       return this.$store.getters['evaluation/phases']
     },
@@ -131,10 +138,9 @@ export default {
     },
 
     getEvaluation(phase, participant){
-      let evaluations = this.$store.getters["evaluation/project"](this.project.id)
-      let userEval = evaluations
+      let userEval = this.evaluations
         .filter(e => e.participation == participant.id)
-        .filter(e => e.phase == phase.id)
+        .filter(e => e.project_phase == phase.id)
       return userEval[0]
     },
 
@@ -143,9 +149,21 @@ export default {
       catch(err){ return null }
     },
 
-    sendEvaluationRequest: async function() {
+    sendEvaluationRequest: async function(phase, participant) {
       // TODO: POST new evaluation
-      this.$store.dispatch("toast/error", this.$t('pages.projectManage.evaluationFailure'))
+
+      try{
+        let response = await this.$store.dispatch("evaluation/create",{
+          participation: participant.id,
+          phase: this.getProjectPhase(phase).id
+        })
+        this.$store.dispatch("evaluation/loadProject", this.project.id)
+        this.$store.dispatch("toast/success", this.$t('pages.projectManage.evaluationCreateSuccess'))
+
+      }catch(err){
+        console.error(err)
+        this.$store.dispatch("toast/error", this.$t('pages.projectManage.evaluationCreateFailure'))
+      }
     },
 
   }

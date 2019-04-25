@@ -9,6 +9,8 @@ python manage.py collectstatic --no-input
 echo "Loading Fixtures..."
 # python manage.py loaddata auth-group TODO: BROKEN
 python manage.py loaddata auth-user
+python manage.py loaddata eval-answer
+python manage.py loaddata eval-question
 python manage.py loaddata knowledgearea
 python manage.py loaddata participationrole
 python manage.py loaddata projectphase

@@ -103,9 +103,11 @@ export default {
 
   mounted(){
     // Avoid showing this page if the user is logged in
-    if (this.isLoggedIn){
-      this.redirectToPage();
-    }
+    setTimeout(() => {
+      if (this.isLoggedIn){
+        this.redirectToPage();
+      }
+    }, 500);
   },
 
   methods: {
@@ -136,7 +138,7 @@ export default {
         // or homepage if landed on login
         let path = this.$route.query.redirect || "/account";
         path = path == "/login" ? "/" : path
-        this.$router.replace({ path });
+        this.$router.push({ path });
     }
   }
 };

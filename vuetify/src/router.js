@@ -1,3 +1,5 @@
+import Cookies from 'js-cookie'
+
 import Vue from "vue";
 import Router from "vue-router";
 import Meta from 'vue-meta'
@@ -13,6 +15,7 @@ const router = new Router({
     mode: 'history',
     scrollBehavior (to, from, savedPosition) {
         // Scroll to top on any route changes
+        if (savedPosition) return savedPosition
         return { x: 0, y: 0 }
     },
     routes: [
@@ -45,12 +48,14 @@ const router = new Router({
         {
             path: "/structures/create",
             name: "structure-create",
-            component: () => import( /* webpackChunkName: "structure" */ "./views/structure/StructureCreate.vue")
+            component: () => import( /* webpackChunkName: "structure" */ "./views/structure/StructureCreate.vue"),
+            meta: {requiresAuth: true}
         },
         {
             path: "/structures/:slug/manage",
             name: "structure-manage",
-            component: () => import( /* webpackChunkName: "structure" */ "./views/structure/StructureManage.vue")
+            component: () => import( /* webpackChunkName: "structure" */ "./views/structure/StructureManage.vue"),
+            meta: {requiresAuth: true}
         },
         {
             path: "/structures/:slug",
@@ -71,12 +76,14 @@ const router = new Router({
         {
             path: "/projects/create",
             name: "project-create",
-            component: () => import( /* webpackChunkName: "project" */ "./views/project/ProjectCreate.vue")
+            component: () => import( /* webpackChunkName: "project" */ "./views/project/ProjectCreate.vue"),
+            meta: {requiresAuth: true}
         },
         {
             path: "/projects/:slug/manage",
             name: "project-manage",
-            component: () => import( /* webpackChunkName: "project" */ "./views/project/ProjectManage.vue")
+            component: () => import( /* webpackChunkName: "project" */ "./views/project/ProjectManage.vue"),
+            meta: {requiresAuth: true}
         },
         {
             path: "/projects/:slug",
@@ -87,19 +94,16 @@ const router = new Router({
         {
             path: "/evaluation/:slug/entry",
             name: "evaluation-entry",
-            component: () => import( /* webpackChunkName: "evaluation" */ "./views/evaluation/EvaluationEntry.vue")
+            component: () => import( /* webpackChunkName: "evaluation" */ "./views/evaluation/EvaluationEntry.vue"),
+            meta: {requiresAuth: true}
         },
         {
             path: "/projects/:slug/evaluation",
             name: "evaluation-detail",
-            component: () => import( /* webpackChunkName: "evaluation" */ "./views/evaluation/EvaluationDetail.vue")
+            component: () => import( /* webpackChunkName: "evaluation" */ "./views/evaluation/EvaluationDetail.vue"),
+            meta: {requiresAuth: true}
         },
         // ======= ACCOUNT =======
-        {
-            path: "/account/projects",
-            name: "account-projects",
-            component: () => import( /* webpackChunkName: "account" */ "./views/account/AccountProjects.vue")
-        },
         {
             path: "/account/:slug?",
             name: "account",
@@ -113,5 +117,29 @@ const router = new Router({
         }
     ]
 });
+
+
+router.beforeEach((to, from, next) => {
+    if(to.matched.some(record => record.meta.requiresAuth)) {
+        // For a route marked as "requiresAuth", perform a check
+        let hasAuth = Cookies.get("authorization") != null
+
+        if (!hasAuth) {
+            // Redirect to login
+            console.log("force login for route")
+            next({
+                name: 'login',
+                query: { redirect: to.fullPath }
+            })
+        } else {
+            next()
+        }
+
+    }
+
+    next()
+
+})
+
 
 export default router;

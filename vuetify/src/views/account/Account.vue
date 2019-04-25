@@ -16,7 +16,7 @@ th{
     </v-flex>
 
     <v-flex v-if="$route.query.newUser" xs12>
-      <v-alert color="success" :value="true">
+      <v-alert color="success" :value="true" class="subheading">
         <v-icon dark>
           check
         </v-icon>&nbsp;

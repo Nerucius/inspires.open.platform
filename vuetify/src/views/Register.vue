@@ -224,6 +224,7 @@
                           </table>
                         </v-flex>
 
+                        <!-- DISABLED INVITATION CODE
                         <v-flex xs12 py-0>
                           <p>
                             {{ $t('pages.register.step4MessageInvite') }}
@@ -243,7 +244,7 @@
                               @input="failedRegistration = false"
                             />
                           </v-form>
-                        </v-flex>
+                        </v-flex> -->
 
                         <v-flex xs12>
                           <v-alert :value="failedRegistration">
@@ -316,6 +317,10 @@ export default {
         isEmail: v => this.isEmail(v) || this.$t("forms.rules.requiredField"),
       }
     };
+  },
+
+  mounted(){
+    this.$store.dispatch("user/logout")
   },
 
   methods: {

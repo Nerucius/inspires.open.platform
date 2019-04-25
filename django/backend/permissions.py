@@ -27,6 +27,9 @@ class CustomPermissionSet(permissions.DjangoModelPermissions):
     def has_permission(self, request, view):
         """ Separate into read VS modify. """
 
+        if request.user.is_superuser:
+            return True
+
         # Next line skips views without a queryset (API root)
         if not hasattr(view, "get_queryset"):
             return True
@@ -37,6 +40,9 @@ class CustomPermissionSet(permissions.DjangoModelPermissions):
 
     def has_object_permission(self, request, view, obj):
         """ Separate into read VS modify. """
+
+        if request.user.is_superuser:
+            return True
 
         if request.method in permissions.SAFE_METHODS:
             return self.has_object_read_permission(request, view, obj)

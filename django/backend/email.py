@@ -55,6 +55,9 @@ def email_new_evaluation(evaluation):
     email_from = settings.EMAIL_HOST_USER
     email_to = evaluation.participation.user.email
 
+    if not email_to:
+        return
+
     subject = "[InSPIRES] Evaluation questionnaire ready for %s" % (
         evaluation.phase.project
     )

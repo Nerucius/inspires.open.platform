@@ -139,20 +139,22 @@
                     </v-sheet>
                   </v-stepper-content>
 
-                  <!-- Step 3 -->
+                  <!-- Step 3 - TOS -->
                   <v-stepper-content step="3">
                     <v-sheet min-height="300px">
                       <v-layout row wrap>
                         <v-flex xs12>
-                          <h2 class="title">
+                          <h2 class="title mb-2">
                             {{ $t('pages.register.titles.step3') }}
                           </h2>
-                          <p />
                           <p>
                             {{ $t('pages.register.step3Message') }}
-                            <router-link to="/terms">
+                            <router-link target="_blank" :to="{name:'terms-of-service'}">
                               {{ $t('pages.register.readTOSHere') }}
                             </router-link>
+                          </p>
+                          <p>
+                            {{ $t('pages.register.step3TOSAcceptance') }}
                           </p>
                           <p class="text-xs-center my-5">
                             <v-btn

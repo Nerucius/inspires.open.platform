@@ -39,6 +39,11 @@ const router = new Router({
             name: "about",
             component: () => import( /* webpackChunkName: "about" */ "./views/About.vue")
         },
+        {
+            path: "/about/terms-of-service",
+            name: "terms-of-service",
+            component: () => import( /* webpackChunkName: "about" */ "./views/TermsOfService.vue")
+        },
         // ======= STRUCTURES =======
         {
             path: "/structures",

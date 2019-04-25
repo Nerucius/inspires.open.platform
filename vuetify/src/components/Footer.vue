@@ -2,26 +2,33 @@
   <v-card flat>
     <v-card-text>
       <h1 class="subheading">
-        Other Links
+        InSPIRES Platform
       </h1>
 
       <v-layout row>
         <v-flex xs4>
-          <a href="#">
-            Link one
-          </a>
+          <router-link :to="{name:'terms-of-service'}">
+            Terms of Service
+          </router-link>
           <br>
-          <a href="#">
-            Link two
-          </a>
         </v-flex>
 
         <v-spacer />
 
         <v-flex xs4>
-          &copy; Some Company LTD 2019
+          &copy; ISGlobal, Private Foundation {{ currentYear }}
         </v-flex>
       </v-layout>
     </v-card-text>
   </v-card>
 </template>
+
+<script>
+export default {
+  data(){
+    return{
+      currentYear : new Date().getFullYear()
+    }
+  }
+}
+</script>

@@ -17,6 +17,7 @@
       "step2Message": "Tell us your full name and email so it can be displayed along your projects and other activities in the platform. Your email will only be used for alerts and notifications.",
       "step3Message": "Before you can register, you will have to agree to our terms of service for the platform.",
       "readTOSHere": "You can read the terms of service here.",
+      "step3TOSAcceptance": "By clicking the 'ACCEPT TERMS AND CONDITIONS' button I acknowledge that I have been appropriately informed and that I consent to the processing of my personal data for the stated purpose.",
       "step3MessageAccepted": "Great! we can continue with the rest of the registration.",
       "step4Message": "Please review the following information. If everything seems correct you can proceed with the registration.",
       "step4MessageInvite": "During the first period of testing, we are restricting the registration to those personally invited. Please enter the code provided to you below:"
@@ -26,6 +27,17 @@
       "welcomeMessage": "Welcome to the InSPIRES online database and impact evaluation tool. This platform features participatory research and innovation projects promoted knowledge intermediary units, such as Science Shops.",
       "aboutLink": "More about us!",
       "projectsSeeMore": "See all projects"
+    },
+    "termsOfService":{
+      "mainTitle": "Terms of Service",
+      "subTitle": "By accepting the terms of service you understand that:",
+      "paragraph1": "Your personal data will only be used by:",
+      "paragraph2": "Fundación Privada Instituto de Salud Global Barcelona (ISGlobal) \nCIF: G65341695\nPostal address: Carrer Rosselló, number 132, 2nd, 5th and 7th floors - 08036 Barcelona \nTelephone: (+34) 932 271 806 \nEmail: inspires@isglobal.org",
+      "paragraph3": "We collect and process your personal data for the sole purpose of responding to your registration to the website https://app.inspiresproject.com.",
+      "paragraph4": "Your data will be used solely by the InSPIRES team of ISGlobal who require access to it to carry out their work and it will never, under any circumstances, be made available to third parties or transferred to third countries or international organisations.",
+      "paragraph5": "We can only process your personal data with your consent, and it will be retained only as long as you do not withdraw consent.",
+      "paragraph6": "You can exercise all your rights under current data protection regulations, including the right to access, correction, objection, erasure, portability and restriction, by writing to the Data Protection Officer (lopd@isglobal.org), attaching a copy of your national identity document or equivalent.",
+      "paragraph7": "You have the right to withdraw your consent at any time. Withdrawal of consent does not affect the lawfulness of processing based on consent before its withdrawal. If you do not agree with the manner in which ISGlobal handles your data or you consider that your rights have been infringed, you can file a complaint at any time with the Spanish Data Protection Agency."
     },
     "structures": {
       "title": "Structures"

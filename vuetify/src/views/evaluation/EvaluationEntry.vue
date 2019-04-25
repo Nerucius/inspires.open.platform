@@ -73,9 +73,9 @@ table th{
       <v-card flat>
         <v-card-text>
           <h2 class="mb-2">
-             {{ $t(`models.projectPhase.phase${evaluation.phase}`) }}
+             {{ $t(`models.projectPhase.phase${evaluation.project_phase}`) }}
           </h2>
-             {{ $t(`models.projectPhase.phase${evaluation.phase}Description`) }}
+             {{ $t(`models.projectPhase.phase${evaluation.project_phase}Description`) }}
           <p></p>
 
         </v-card-text>

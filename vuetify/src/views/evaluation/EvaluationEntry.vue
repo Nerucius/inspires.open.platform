@@ -15,7 +15,7 @@ table th{
 </style>
 
 <template>
-  <v-layout row wrap align-content-start>
+  <v-layout row wrap align-content-start v-if="project.id">
     <v-flex xs12>
       <h1>Evaluation Questionaire</h1>
     </v-flex>
@@ -80,76 +80,87 @@ table th{
           </h2>
           <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, autem delectus ea est dolore animi adipisci voluptas fugit omnis labore facere, repellat dolorum culpa unde repudiandae corrupti odit voluptates blanditiis.</p>
 
+          <v-form ref="form">
 
-          <template v-for="(question, qidx) in evaluation.questions">
-            <!-- MULTIPLE questions -->
-            <div v-if="question.answer_type == 'MULTIPLE'" :key="question.id">
-              <h3 class="mt-4">
-                {{ question.name }} (choose all that apply)
-              </h3>
-              <v-btn disabled flat outline small style="color:#888 !important">
-                {{ role(question.role).name }}
-              </v-btn>
-              <v-btn disabled flat outline small style="color:#888 !important">
-                {{ $t(phase(question.phase).tag) }}
-              </v-btn>
-              <v-btn disabled flat outline small style="color:#888 !important">
-                {{ question.principle }}
-              </v-btn>
-              <v-btn disabled flat outline small style="color:#888 !important">
-                {{ question.dimension }}
-              </v-btn>
-              <v-btn disabled flat outline small style="color:#888 !important">
-                {{ question.axis }}
-              </v-btn>
-              <v-checkbox v-for="(answer,idx) in question.answers" :key="idx" hide-details
-                          :label="answer.name"
-              />
-            </div>
-            <!-- DEGREE Questions -->
-            <div v-else-if="question.answer_type == 'DEGREE'" :key="question.id">
-              <h3 class="mt-4">
-                {{ question.name }}
-              </h3>
+            <template v-for="(question, qidx) in evaluation.questions">
 
-              <v-btn disabled flat outline small style="color:#999 !important">
-                {{ role(question.role).name }}
-              </v-btn>
-              <v-btn disabled flat outline small style="color:#999 !important">
-                {{ $t(phase(question.phase).tag) }}
-              </v-btn>
-              <v-btn disabled flat outline small style="color:#999 !important">
-                {{ question.principle }}
-              </v-btn>
-              <v-btn disabled flat outline small style="color:#999 !important">
-                {{ question.dimension }}
-              </v-btn>
-              <v-btn disabled flat outline small style="color:#999 !important">
-                {{ question.axis }}
-              </v-btn>
+              <!-- MULTIPLE questions -->
+              <div v-if="question.answer_type == 'MULTIPLE'" :key="question.id">
+                <h3 class="mt-4">
+                  {{ question.name }} (choose all that apply)
+                </h3>
+                <v-btn disabled flat outline small style="color:#888 !important">
+                  {{ role(question.role).name }}
+                </v-btn>
+                <v-btn disabled flat outline small style="color:#888 !important">
+                  {{ $t(phase(question.phase).tag) }}
+                </v-btn>
+                <v-btn disabled flat outline small style="color:#888 !important">
+                  {{ question.principle }}
+                </v-btn>
+                <v-btn disabled flat outline small style="color:#888 !important">
+                  {{ question.dimension }}
+                </v-btn>
+                <v-btn disabled flat outline small style="color:#888 !important">
+                  {{ question.axis }}
+                </v-btn>
+                <v-checkbox v-for="(answer, aidx) in question.answers" :key="aidx"
+                  v-model="answersMultiple[qidx]"
+                  :value="answer.key"
+                  :label="answer.name"
+                  hide-details
+                />
+              </div>
+              <!-- /MULTIPLE QUESTIONS -->
 
-              <v-slider
-                v-model="answers[qidx]"
-                :thumb-color="answers[qidx] > 4 ? 'green' : answers[qidx] > 2 ? 'orange' : 'red'"
-                always-dirty
-                thumb-label="always"
-                class="px-4 mt-5"
-                step="1"
-                min="0"
-                tick-size="4"
-                :tick-labels="'01234657'.split('')"
-                :max="question.answer_range"
-              />
-            </div>
-          </template>
+              <!-- DEGREE Questions -->
+              <div v-else-if="question.answer_type == 'DEGREE'" :key="question.id">
+                <h3 class="mt-4">
+                  {{ question.name }}
+                </h3>
+
+                <v-btn disabled flat outline small style="color:#999 !important">
+                  {{ role(question.role).name }}
+                </v-btn>
+                <v-btn disabled flat outline small style="color:#999 !important">
+                  {{ $t(phase(question.phase).tag) }}
+                </v-btn>
+                <v-btn disabled flat outline small style="color:#999 !important">
+                  {{ question.principle }}
+                </v-btn>
+                <v-btn disabled flat outline small style="color:#999 !important">
+                  {{ question.dimension }}
+                </v-btn>
+                <v-btn disabled flat outline small style="color:#999 !important">
+                  {{ question.axis }}
+                </v-btn>
+
+                <v-slider
+                  v-model="answers[qidx]"
+                  :thumb-color="answers[qidx] > 4 ? 'teal' : answers[qidx] > 2 ? 'teal lighten-1' : 'teal lighten-2'"
+                  always-dirty
+                  thumb-label="always"
+                  class="px-4 mt-5"
+                  step="1"
+                  min="0"
+                  tick-size="4"
+                  :tick-labels="'01234567'.split('')"
+                  :max="question.answer_range"
+                />
+              </div>
+              <!-- /DEGREE Questions -->
+
+            </template>
 
 
-          <v-btn block large color="success"
-                 class="mt-5"
-                 @click="attemptSubmit()"
-          >
-            {{ $t('actions.save') }}
-          </v-btn>
+            <v-btn block large color="success" class="mt-5"
+              @click="attemptSubmit()">
+              {{ $t('actions.save') }}
+            </v-btn>
+
+          </v-form>
+
+
         </v-card-text>
       </v-card>
     </v-flex>
@@ -169,7 +180,8 @@ export default {
 
   data(){
     return{
-      answers:[]
+      answers:[],
+      answersMultiple:[[],[],[],[],[],[],[],[]]
     }
   },
 
@@ -183,9 +195,27 @@ export default {
     project(){
       return this.$store.getters['project/detail'](this.evaluation.project)
     },
+
+    computedAnswers(){
+      return this.evaluation.questions.map( (q, idx) =>{
+        if(q.answer_type == "MULTIPLE"){
+          return ({
+            question:q.id,
+            response: this.answersMultiple[idx]
+          })
+        }
+        if(q.answer_type == "DEGREE"){
+          return ({
+            question:q.id,
+            response: this.answers[idx] || 0
+          })
+        }
+        throw new Error("unidentified answer type")
+      })
+    }
   },
 
-  async mounted(){
+  async created(){
     await this.$store.dispatch("evaluation/load", [this.evaluationId])
     await this.$store.dispatch("project/load", [this.evaluation.project])
   },
@@ -198,7 +228,14 @@ export default {
       return this.$store.getters['evaluation/roles'][id]
     },
     attemptSubmit(){
-      this.$store.dispatch("toast/error", "Evaluation saving not implemented yet.")
+      let form = this.$refs.form
+      if (form.validate()){
+
+        console.log(this.computedAnswers)
+
+      }else{
+        this.$store.dispatch("toast/error", "Please fill in all required fields.")
+      }
     }
   }
 };

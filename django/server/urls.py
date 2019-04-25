@@ -19,10 +19,5 @@ from django.urls import path, include
 
 import backend.views
 
-urlpatterns = [
-    path("admin/", admin.site.urls),
-    path("", include("backend.urls"))
-]
+urlpatterns = [path("admin/", admin.site.urls), path("", include("backend.urls"))]
 
-if settings.DEBUG:
-    urlpatterns += [path("test/", backend.views.test)]

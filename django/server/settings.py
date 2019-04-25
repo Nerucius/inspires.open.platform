@@ -19,6 +19,9 @@ SECRET_KEY = config("SECRET_KEY", "=%%l)@)$)h71u@o$w9drv(!w!f)7crm1e6yorx!0k6@kt
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config("DEBUG", False, cast=bool)
 
+# Base url for frontend sever. USED FOR EMAIL LINKS
+FRONTEND_URL = config("FRONTEND_URL", "http://localhost")
+BACKEND_URL = config("BACKEND_URL", "http://localhost:8080")
 
 # List of (Name, Email) system administrators
 ADMINS = []

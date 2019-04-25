@@ -27,6 +27,7 @@ urlpatterns = [
     path("user/logout/", views.logout),
     path("user/register/", views.register),
     path("v1/log-error", views.log_error),
+    path("v1/emailpreview", views.email_preview, name="email_preview"),
     path("v1/", include(routers.router.urls)),
     path("api-token-auth/", obtain_auth_token, name="api_token_auth"),
 ]

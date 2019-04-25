@@ -1,0 +1,61 @@
+{% extends 'email/base_alert.html' %}
+
+{% block title %}Evaluation requested for {{project.name}} {% endblock title %}
+
+{% block alert_title %}
+InSPIRES: An evaluation questionnaire is ready
+{% endblock alert_title %}
+
+{% block content_wrap %}
+<table width="100%" cellpadding="0" cellspacing="0">
+    <tr>
+        <td class="content-block">
+            Hello {{ evaluation.participation.user.full_name }},<br>
+            <br>
+            Your project manager has requested that you fill in an <b>Evaluation</b> questionnaire.
+        </td>
+    </tr>
+    <tr>
+        <td class="content-block">
+            <table>
+                <tr>
+                    <th>Project:</th>
+                    <td>{{ evaluation.phase.project.name }}</td>
+                </tr>
+                <tr>
+                    <th>Phase Evaluated:</th>
+                    <td>{{ evaluation.phase.project_phase }}</td>
+                </tr>
+                <tr>
+                    <th>Your role:</th>
+                    <td>{{ evaluation.participation.role }}</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+
+    <tr>
+        <td class="content-block">
+            You can access the questionnaire here:
+        </td>
+    </tr>
+
+    <!-- Call to Action -->
+    <tr>
+        <td class="content-block" align="center">
+            <a href="{{link}}" target="_blank" class="btn-primary">Open the questionnaire</a>
+        </td>
+    </tr>
+
+    <tr>
+        <td class="content-block">
+        </td>
+    </tr>
+</table>
+{% endblock content_wrap %}
+
+{% block footer %}
+This email was sent to {{ user.email }} by the automated alert system of the InSPIRES
+platform. This email may contain confidential or important information. Please take care before
+you forward this email to another person.
+{% endblock footer %}

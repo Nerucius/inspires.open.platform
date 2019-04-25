@@ -13,8 +13,23 @@ from . import serializers
 import json
 
 
-def test(request):
-    return HttpResponse("OK")
+def email_preview(request):
+    from django import shortcuts
+    from django.apps import apps
+
+    email_name = request.GET["email_name"]
+    context = request.GET.get("q", None)
+
+    if context:
+        context = json.loads(context)
+        for key, value in context.items():
+            if isinstance(value, int):
+                model = apps.get_model("backend", model_name=key)
+                context[key] = model.objects.get(pk=value)
+    else:
+        context = {}
+
+    return shortcuts.render_to_response(email_name, context)
 
 
 def csrf_token(request):
@@ -62,9 +77,8 @@ def register(request):
     userdata = request.POST
     print(userdata)
     try:
-        invitation = userdata["invitation"]
-
-        assert invitation == "join-inspires-2019", "000 Invitation code does not match"
+        # invitation = userdata["invitation"]
+        # assert invitation == "join-inspires-2019", "000 Invitation code does not match"
 
         username = userdata["username"]
         password = userdata["password"]
@@ -165,7 +179,13 @@ class GroupsVS(viewsets.ReadOnlyModelViewSet):
 
 class ProjectsVS(ListDetail, Orderable, viewsets.ModelViewSet):
     queryset = models.Project.objects.all()
-    filterset_fields = ["name", "collaboration__structure", "keywords", "participants", "knowledge_area"]
+    filterset_fields = [
+        "name",
+        "collaboration__structure",
+        "keywords",
+        "participants",
+        "knowledge_area",
+    ]
 
     serializer_class = serializers.SimpleProjectSerializer
     detail_serializer_class = serializers.ProjectSerializer
@@ -254,6 +274,11 @@ class EvaluationQuestionsVS(RequirePKMixin, viewsets.ModelViewSet):
 class EvaluationResponsesVS(RequirePKMixin, viewsets.ModelViewSet):
     queryset = models.Evaluation.objects.all()
     serializer_class = serializers.EvaluationResponsesSerializer
+
+
+class ResponsesVS(viewsets.ModelViewSet):
+    queryset = models.Response.objects.all()
+    serializer_class = serializers.ResponseSerializer
 
 
 class QuestionVS(ListDetail, viewsets.ModelViewSet):

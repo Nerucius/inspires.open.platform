@@ -1,3 +1,5 @@
+from django import shortcuts
+
 from django.conf import settings
 
 from django.core import mail
@@ -5,10 +7,31 @@ from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 
 from backend.models import User
+from django.db.models import Model
+
+import json
+
+
+def create_wawp_link(email_name, context):
+    """ Create a WAWP link for the given mail name and context """
+    wawp_context = dict(**context)
+
+    # Convert model instances to ID references
+    for key, value in wawp_context.items():
+        if isinstance(value, Model):
+            wawp_context[key] = value.id
+
+    wawp_link = settings.BACKEND_URL
+    wawp_link = wawp_link + shortcuts.reverse("email_preview")
+    wawp_link = wawp_link + "?email_name=%s&q=%s" % (
+        email_name,
+        json.dumps(wawp_context),
+    )
+
+    return wawp_link
 
 
 def email_new_structure(structure):
-
     admins = User.objects.filter(groups__name="Administration").all()
     admin_emails = map(lambda x: x.email, admins)
 
@@ -25,5 +48,32 @@ def email_new_structure(structure):
 
     mail.send_mail(
         subject, plain_message, email_from, admin_emails, html_message=html_message
+    )
+
+
+def email_new_evaluation(evaluation):
+    email_from = settings.EMAIL_HOST_USER
+    email_to = evaluation.participation.user.email
+
+    subject = "[InSPIRES] Evaluation questionnaire ready for %s" % (
+        evaluation.phase.project
+    )
+
+    eval_link = settings.FRONTEND_URL
+    eval_link = eval_link + "/evaluation/%d/entry" % evaluation.id
+
+    context = {
+        "evaluation": evaluation,
+        "user": evaluation.participation.user,
+        "link": eval_link,
+    }
+    wawp_link = create_wawp_link("email/new_evaluation.html", context)
+    context["wawp_link"] = wawp_link
+
+    html_message = render_to_string("email/new_evaluation.html", context=context)
+    plain_message = strip_tags(html_message)
+
+    mail.send_mail(
+        subject, plain_message, email_from, [email_to], html_message=html_message
     )
 

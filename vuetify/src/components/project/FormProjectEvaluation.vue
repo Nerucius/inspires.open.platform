@@ -69,7 +69,7 @@ table{
                 >
                   Send Request for Evaluation
                 </v-btn>
-                <v-btn v-if="getEvaluation(phase, participant)" block outline color="success"
+                <v-btn v-if="getEvaluation(phase, participant)" target="_blank" block outline color="success"
                        class="my-0"
                        :to="{name:'evaluation-entry', params:{ slug: getEvaluation(phase, participant).id}}"
                 >

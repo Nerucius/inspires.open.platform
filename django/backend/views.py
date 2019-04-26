@@ -6,6 +6,8 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.permissions import AllowAny
+from rest_framework.authtoken.views import ObtainAuthToken
+
 
 from . import models
 from . import serializers
@@ -58,14 +60,39 @@ def log_error(request):
 
 
 def login(request):
+
     username = request.POST["username"]
     password = request.POST["password"]
+
+    # If using email as login, retrieve username
+    if "@" in username:
+        try:
+            username = models.User.objects.get(email=username).username
+        except:
+            return HttpResponse("Email not found", status=401)
+
     authUser = auth.authenticate(username=username, password=password)
     if authUser is not None:
         auth.login(request, authUser)
         return HttpResponse("OK")
     else:
         return HttpResponse("Invalid Credentials", status=401)
+
+
+class CustomObtainAuthToken(ObtainAuthToken):
+    """ Custom Token auth to also login with email """
+
+    def post(self, request, *args, **kwargs):
+        username = request.data["username"]
+        if "@" in username:
+            try:
+                request.data["username"] = models.User.objects.get(
+                    email=username
+                ).username
+            except:
+                return HttpResponse("Email not found", status=401)
+
+        return super(CustomObtainAuthToken, self).post(request, args, kwargs)
 
 
 def logout(request):

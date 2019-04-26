@@ -1,45 +1,45 @@
 Principle,Dimension,Indicator,AbsValue,MIN,Q1,Q2,Q3,MAX,Threshold,RelValue,Color
-Citizen-led Research,Community alignment,CitizenCommunity,4.2,4.066666667,4.2,4.3,4.95,6.133333333,3,2,#00796B
-Citizen-led Research,Responsiveness to community alignment,CitizenResponsiveness,3.75,3.416666667,3.75,4.5,5,6,3,2,#00796B
-Citizen-led Research,Total,Citizen-led,4.03125,4.03125,4.229166667,4.375,4.5625,6.083333333,3,1,#00796B
-Citizen-led Research,Civil Society,CitizenCivil,3.714285714,3.714285714,4.142857143,4.285714286,4.428571429,6.142857143,3,1,#00796B
-Citizen-led Research,Project Manager,CitizenProject,4.666666667,3.333333333,4.666666667,5.333333333,5.666666667,6.333333333,3,2,#00796B
-Citizen-led Research,Scientist,CitizenScientist,5,3.666666667,4,5,5.333333333,5.333333333,3,3,#00796B
-Citizen-led Research,Student,CitizenStudent,3,3,3,4,4.666666667,6,3,2,#00796B
-Integrity,Expectation alignment,IntegrityExpectation,3.875,3.875,4.125,4.5,4.5,4.75,3,1,#F17600
-Integrity,Gender perspective,IntegrityGender,3.75,3,3,3.75,3.75,4.25,3,4,#F17600
-Integrity,Inclusivity,IntegrityInclusivity,5.5,0,5,5.5,5.833333333,6.333333333,3,3,#F17600
-Integrity,Reflexivity,IntegrityReflexivity,0,0,0,0,0,4,3,4,#F17600
-Integrity,Resource availability,IntegrityResource,5.666666667,4,4.666666667,5,5.333333333,5.666666667,3,4,#F17600
-Integrity,Transparency,IntegrityTransparency,1,1,1.5,4,4,6,3,1,#F17600
-Integrity,Total,Integrity,3.480769231,3.442307692,3.480769231,3.628205128,3.897435897,3.961538462,3,2,#F17600
-Integrity,Civil Society,IntegrityCivil,3,2.666666667,3,4.333333333,4.666666667,5.333333333,3,2,#F17600
-Integrity,Project Manager,IntegrityProject,3.833333333,3.583333333,3.75,3.75,3.833333333,4,3,4,#F17600
-Integrity,Scientist,IntegrityScientist,4.333333333,3.333333333,3.666666667,4,4,4.333333333,3,4,#F17600
-Integrity,Student,IntegrityStudent,4,2.5,4,4,5,6,3,3,#F17600
-Knowledge Democracy,Openness,KnowledgeOpenness,5.25,4,5.25,5.75,5.75,6.25,3,2,#2599D4
-Knowledge Democracy,Scientific relevance,KnowledgeRelevance,5,2.444444444,3.222222222,4.222222222,5,6.333333333,3,4,#2599D4
-Knowledge Democracy,Transdisciplinarity,KnowledgeTransdiscipl,5,3.875,5,5.75,5.875,5.875,3,2,#2599D4
-Knowledge Democracy,Total,Knowledge,5.071428571,3.297619048,4.702380952,5.071428571,5.095238095,6.178571429,3,3,#2599D4
-Knowledge Democracy,Civil Society,KnowledgeCivil,4,4,5,5.5,5.5,6,3,1,#2599D4
-Knowledge Democracy,Project Manager,KnowledgeProject,5.4,4,5.4,5.4,5.4,6.2,3,4,#2599D4
-Knowledge Democracy,Scientist,KnowledgeScientist,5.25,3,4,4.5,5.25,6.5,3,4,#2599D4
-Knowledge Democracy,Student,KnowledgeStudent,4,4,4.5,4.5,5,5.5,3,1,#2599D4
-Participatory Dynamics,Degree of engagement,ParticipatoryEngagement,5,5,5,6,7,7,3,2,#DAE14B
-Participatory Dynamics,Impact of the participatory dynamics,ParticipatoryImpact,2.5,2.5,4,4,4,5,3,1,#DAE14B
-Participatory Dynamics,Motivation,ParticipatoryMotivation,5.194444444,3.388888889,5.194444444,5.222222222,5.361111111,5.972222222,3,2,#DAE14B
-Participatory Dynamics,Satisfaction with the participatory dunamics,ParticipatorySatisfaction,4.666666667,2.666666667,3.166666667,3.833333333,4.666666667,5.166666667,3,4,#DAE14B
-Participatory Dynamics,Total,Participatory,4.398148148,3.62962963,4.185185185,4.398148148,4.953703704,5.37962963,3,3,#DAE14B
-Participatory Dynamics,Civil Society,ParticipatoryCivil,4,4,4.166666667,5,5.166666667,5.5,3,1,#DAE14B
-Participatory Dynamics,Project Manager,ParticipatoryProject,5.5,2.25,3,4.25,5.5,5.5,3,4,#DAE14B
-Participatory Dynamics,Scientist,ParticipatoryScientist,5,2.4,3.8,4.2,5,5.2,3,4,#DAE14B
-Participatory Dynamics,Student,ParticipatoryStudent,4.75,2.25,4.75,5,5.25,6,3,2,#DAE14B
-Transformative Change,Collective capacity,TransformativeCollective,5.333333333,3.333333333,3.833333333,4.833333333,4.833333333,5.333333333,3,4,#2F4193
-Transformative Change,Knowledge and skills,TransformativeSkills,3.75,3,3.75,4.25,4.75,5.75,3,2,#2F4193
-Transformative Change,Policy impact,TransformativePolicy,0,0,0,2.833333333,5.166666667,6.5,3,2,#2F4193
-Transformative Change,Self-improvement,TransformativeSelf,3,1.875,3,3.375,4.875,5.5,3,2,#2F4193
-Transformative Change,Total,Transformative,3.138888889,2.847222222,3.138888889,3.152777778,4.875,5.472222222,3,2,#2F4193
-Transformative Change,Civil Society,TransformativeCivil,2,1.285714286,2,3.857142857,5.285714286,6,3,2,#2F4193
-Transformative Change,Project Manager,TransformativeProject,3,2.25,2.75,3,5,5.25,3,3,#2F4193
-Transformative Change,Scientist,TransformativeScientist,1.333333333,1.333333333,1.666666667,2.666666667,4.333333333,5.333333333,3,1,#2F4193
-Transformative Change,Student,TransformativeStudent,4,3.4,4,4.2,4.4,5.4,3,2,#2F4193
+Citizen-led Research,Community alignment,CitizenCommunity,4.07,4.07,4.20,4.30,4.95,6.13,3.00,1,#00796B
+Citizen-led Research,Responsiveness to community alignment,CitizenResponsiveness,4.50,3.42,3.75,4.50,5.00,6.00,3.00,3,#00796B
+Citizen-led Research,Total,Citizen-led,4.23,4.03,4.23,4.38,4.56,6.08,3.00,2,#00796B
+Citizen-led Research,Civil Society,CitizenCivil,4.14,3.71,4.14,4.29,4.43,6.14,3.00,2,#00796B
+Citizen-led Research,Project Manager,CitizenProject,5.33,3.33,4.67,5.33,5.67,6.33,3.00,3,#00796B
+Citizen-led Research,Scientist,CitizenScientist,3.67,3.67,4.00,5.00,5.33,5.33,3.00,1,#00796B
+Citizen-led Research,Student,CitizenStudent,4.67,3.00,3.00,4.00,4.67,6.00,3.00,4,#00796B
+Integrity,Expectation alignment,IntegrityExpectation,4.50,3.88,4.13,4.50,4.50,4.75,3.00,4,#F17600
+Integrity,Gender perspective,IntegrityGender,3.00,3.00,3.00,3.75,3.75,4.25,3.00,2,#F17600
+Integrity,Inclusivity,IntegrityInclusivity,6.33,0.00,5.00,5.50,5.83,6.33,3.00,4,#F17600
+Integrity,Reflexivity,IntegrityReflexivity,0.00,0.00,0.00,0.00,0.00,4.00,3.00,4,#F17600
+Integrity,Resource availability,IntegrityResource,5.00,4.00,4.67,5.00,5.33,5.67,3.00,3,#F17600
+Integrity,Transparency,IntegrityTransparency,4.00,1.00,1.50,4.00,4.00,6.00,3.00,4,#F17600
+Integrity,Total,Integrity,3.90,3.44,3.48,3.63,3.90,3.96,3.00,4,#F17600
+Integrity,Civil Society,IntegrityCivil,4.33,2.67,3.00,4.33,4.67,5.33,3.00,3,#F17600
+Integrity,Project Manager,IntegrityProject,4.00,3.58,3.75,3.75,3.83,4.00,3.00,4,#F17600
+Integrity,Scientist,IntegrityScientist,4.00,3.33,3.67,4.00,4.00,4.33,3.00,4,#F17600
+Integrity,Student,IntegrityStudent,5.00,2.50,4.00,4.00,5.00,6.00,3.00,4,#F17600
+Knowledge Democracy,Openness,KnowledgeOpenness,5.75,4.00,5.25,5.75,5.75,6.25,3.00,4,#2599D4
+Knowledge Democracy,Scientific relevance,KnowledgeRelevance,3.22,2.44,3.22,4.22,5.00,6.33,3.00,2,#2599D4
+Knowledge Democracy,Transdisciplinarity,KnowledgeTransdiscipl,5.88,3.88,5.00,5.75,5.88,5.88,3.00,4,#2599D4
+Knowledge Democracy,Total,Knowledge,4.70,3.30,4.70,5.07,5.10,6.18,3.00,2,#2599D4
+Knowledge Democracy,Civil Society,KnowledgeCivil,5.50,4.00,5.00,5.50,5.50,6.00,3.00,4,#2599D4
+Knowledge Democracy,Project Manager,KnowledgeProject,5.40,4.00,5.40,5.40,5.40,6.20,3.00,4,#2599D4
+Knowledge Democracy,Scientist,KnowledgeScientist,4.00,3.00,4.00,4.50,5.25,6.50,3.00,2,#2599D4
+Knowledge Democracy,Student,KnowledgeStudent,4.50,4.00,4.50,4.50,5.00,5.50,3.00,3,#2599D4
+Participatory Dynamics,Degree of engagement,ParticipatoryEngagement,6.00,5.00,5.00,6.00,7.00,7.00,3.00,3,#DAE14B
+Participatory Dynamics,Impact of the participatory dynamics,ParticipatoryImpact,4.00,2.50,4.00,4.00,4.00,5.00,3.00,4,#DAE14B
+Participatory Dynamics,Motivation,ParticipatoryMotivation,5.22,3.39,5.19,5.22,5.36,5.97,3.00,3,#DAE14B
+Participatory Dynamics,Satisfaction with the participatory dunamics,ParticipatorySatisfaction,2.67,2.67,3.17,3.83,4.67,5.17,3.00,1,#DAE14B
+Participatory Dynamics,Total,Participatory,4.19,3.63,4.19,4.40,4.95,5.38,3.00,2,#DAE14B
+Participatory Dynamics,Civil Society,ParticipatoryCivil,5.17,4.00,4.17,5.00,5.17,5.50,3.00,4,#DAE14B
+Participatory Dynamics,Project Manager,ParticipatoryProject,3.00,2.25,3.00,4.25,5.50,5.50,3.00,2,#DAE14B
+Participatory Dynamics,Scientist,ParticipatoryScientist,3.80,2.40,3.80,4.20,5.00,5.20,3.00,2,#DAE14B
+Participatory Dynamics,Student,ParticipatoryStudent,5.00,2.25,4.75,5.00,5.25,6.00,3.00,3,#DAE14B
+Transformative Change,Collective capacity,TransformativeCollective,4.83,3.33,3.83,4.83,4.83,5.33,3.00,4,#2F4193
+Transformative Change,Knowledge and skills,TransformativeSkills,4.75,3.00,3.75,4.25,4.75,5.75,3.00,4,#2F4193
+Transformative Change,Policy impact,TransformativePolicy,5.17,0.00,0.00,2.83,5.17,6.50,3.00,4,#2F4193
+Transformative Change,Self-improvement,TransformativeSelf,4.88,1.88,3.00,3.38,4.88,5.50,3.00,4,#2F4193
+Transformative Change,Total,Transformative,4.88,2.85,3.14,3.15,4.88,5.47,3.00,4,#2F4193
+Transformative Change,Civil Society,TransformativeCivil,5.29,1.29,2.00,3.86,5.29,6.00,3.00,4,#2F4193
+Transformative Change,Project Manager,TransformativeProject,5.00,2.25,2.75,3.00,5.00,5.25,3.00,4,#2F4193
+Transformative Change,Scientist,TransformativeScientist,4.33,1.33,1.67,2.67,4.33,5.33,3.00,4,#2F4193
+Transformative Change,Student,TransformativeStudent,4.40,3.40,4.00,4.20,4.40,5.40,3.00,4,#2F4193

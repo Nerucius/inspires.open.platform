@@ -140,6 +140,16 @@ table th {
 
         <v-card-text>
           <vue-markdown>{{ project.description }}</vue-markdown>
+
+          <br>
+
+          <div class="text-xs-right" v-if="isParticipant">
+            <v-btn :to="{...project.link, name:'evaluation-detail'}"
+              outline color="black">
+              <v-icon left>mdi-school</v-icon>
+              Go to Evaluation</v-btn>
+          </div>
+
         </v-card-text>
       </v-card>
     </v-flex>
@@ -213,6 +223,9 @@ export default {
       let isOwner = this.project.owner == userId;
       let isAdmin = this.project.managers.filter(id => id == userId).length > 0;
       return isOwner || isAdmin;
+    },
+    isParticipant(){
+      return true
     }
   },
 

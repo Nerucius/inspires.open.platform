@@ -188,20 +188,24 @@ export default {
 
     window.addEventListener("resize", this.onResize);
 
+    setTimeout(() => {
+      createParticipantGraph(`http://localhost:8080/v1/csv/eval/${this.projectId}`)
+    }, 500);
+
   },
 
   updated(){
     console.log("updated")
-    createParticipantGraph(this.graphAreaWidth)
+    // createParticipantGraph(`http://localhost:8080/v1/csv/eval/${this.projectId}`)
   },
 
   methods: {
     onResize(event){
-      console.log(event)
-      let width = document.querySelector("#target-graph-area").clientWidth
-      console.log(width)
-      this.graphAreaWidth = width / 3
-      createParticipantGraph(this.graphAreaWidth)
+      // console.log(event)
+      // let width = document.querySelector("#target-graph-area").clientWidth
+      // console.log(width)
+      // this.graphAreaWidth = width / 3
+      // createParticipantGraph(`http://localhost:8080/v1/csv/eval/${this.projectId}`)
     },
 
 user(uid) {
@@ -222,17 +226,8 @@ hr {
   width: 405px;
   float: left;
 }
-h2,
-h3,
-h4 {
-  width: 100%;
-  line-height: 40px;
-  font-family: Roboto, sans-serif;
-  font-weight: 400;
-  color: rgba(0, 0, 0, 1);
-  vertical-align: middle;
-}
 h2 {
+  margin-top: 20px;
   height: 2em;
   font-size: 1.2em;
 }

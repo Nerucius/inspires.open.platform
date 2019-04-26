@@ -97,7 +97,7 @@ WSGI_APPLICATION = "server.wsgi.application"
 
 
 # Email Settings
-EMAIL_HOST = config("EMAIL_HOST", "")
+EMAIL_HOST = config("EMAIL_HOST", None)
 
 if EMAIL_HOST:
     EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
@@ -105,6 +105,7 @@ if EMAIL_HOST:
     EMAIL_PORT = config("EMAIL_PORT", cast=int)
     EMAIL_HOST_USER = config("EMAIL_HOST_USER", "")
     EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD", "")
+    EMAIL_FROM = "Inspires Platform <%s>" % EMAIL_HOST_USER
 
 # Django REST Framework
 

@@ -16,20 +16,23 @@ Including another URLconf
 from django.conf import settings
 from django.urls import path, include
 
-from rest_framework.authtoken.views import obtain_auth_token
-
 from backend import views
 from backend import routers
 
+from backend import urls_csv
+
 urlpatterns = [
     # path("csrf_token/", views.csrf_token),
-    path("user/login/", views.login),
-    path("user/logout/", views.logout),
+    # path("user/login/", views.login),
+    # path("user/logout/", views.logout),
     path("user/register/", views.register),
     path("v1/log-error", views.log_error),
     path("v1/emailpreview", views.email_preview, name="email_preview"),
     path("v1/", include(routers.router.urls)),
-    path("api-token-auth/", obtain_auth_token, name="api_token_auth"),
+    path("v1/csv/", include(urls_csv)),
+    path(
+        "api-token-auth/", views.CustomObtainAuthToken.as_view(), name="api_token_auth"
+    ),
 ]
 
 if settings.DEBUG:

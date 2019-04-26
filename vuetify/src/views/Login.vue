@@ -42,7 +42,7 @@
                 <v-text-field
                   v-model="credentials.username"
                   prepend-icon="person"
-                  :label="$t('forms.fields.username')"
+                  :label="$t('forms.fields.usernameOrEmail')"
                   :rules="rules"
                   type="text"
                 />

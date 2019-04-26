@@ -32,10 +32,12 @@ def create_wawp_link(email_name, context):
 
 
 def email_new_structure(structure):
+    if not settings.EMAIL_HOST:
+        return
+
+    email_from = settings.EMAIL_FROM
     admins = User.objects.filter(groups__name="Administration").all()
     admin_emails = map(lambda x: x.email, admins)
-
-    email_from = settings.EMAIL_HOST_USER
 
     subject = "[InSPIRES] Validate new Structure created by %s" % (
         structure.created_by.full_name
@@ -52,7 +54,10 @@ def email_new_structure(structure):
 
 
 def email_new_evaluation(evaluation):
-    email_from = settings.EMAIL_HOST_USER
+    if not settings.EMAIL_HOST:
+        return
+
+    email_from = settings.EMAIL_FROM
     email_to = evaluation.participation.user.email
 
     if not email_to:

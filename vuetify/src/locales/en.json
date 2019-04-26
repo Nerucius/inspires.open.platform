@@ -269,6 +269,7 @@
       "contactWebsite": "External Website",
       "postalAddress": "Postal Address",
       "username": "Username",
+      "usernameOrEmail": "Username or Email",
       "password": "Password",
       "passwordRepeat": "Repeat your password",
       "title": "Title",

@@ -1,5 +1,5 @@
-Principle,Dimension,Indicator,Value,MIN,Q1,Q2,Q3,MAX,Threshold,RelStem
-General,Phase1,GPhase1,3.50,3.50,3.55,4.03,4.38,4.54,3.00,1
-General,Phase2,GPhase2,4.70,3.00,4.57,4.65,4.70,5.22,3.00,4
-General,Phase3,GPhase3,4.20,4.06,4.20,4.23,4.63,4.80,3.00,2
-General,Phase4,GPhase4,2.97,2.97,3.04,3.49,4.95,5.26,3.00,1
+Principle,Dimension,Indicator,Value,MIN,Q1,Q2,Q3,MAX,Threshold,RelValue
+General,Phase1,GPhase1,4.03,3.50,3.55,4.03,4.38,4.54,3.00,3
+General,Phase2,GPhase2,4.57,3.00,4.57,4.65,4.70,5.22,3.00,2
+General,Phase3,GPhase3,4.06,4.06,4.20,4.23,4.63,4.80,3.00,1
+General,Phase4,GPhase4,4.95,2.97,3.04,3.49,4.95,5.26,3.00,4

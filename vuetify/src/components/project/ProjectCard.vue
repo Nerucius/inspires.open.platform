@@ -51,7 +51,7 @@
       <v-btn v-if="project.knowledge_area" :to="kaLink(project.knowledge_area)" flat class="my-1 mx-0 pa-2 grey lighten-5 caption font-weight-light text-uppercase">
         {{ $t(project.knowledge_area.name) }}
       </v-btn>
-      <v-btn v-else flat class="my-1 mx-0 pa-2 caption font-weight-light text-uppercase">
+      <v-btn v-else disabled flat class="my-1 mx-0 pa-2 caption font-weight-light text-uppercase">
         {{ $t('pages.projectList.noKASpecified') }}
       </v-btn>
 

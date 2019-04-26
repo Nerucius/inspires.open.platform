@@ -4,7 +4,7 @@ RUN mkdir /app
 WORKDIR /app
 
 # Setup build for uWSGI + PostgreSQL
-RUN apk add gcc make libc-dev musl-dev linux-headers pcre-dev postgresql-dev
+RUN apk add gcc make g++ libc-dev musl-dev linux-headers pcre-dev postgresql-dev
 
 # Copy and install python deps
 COPY requirements.txt requirements.txt

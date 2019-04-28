@@ -8,7 +8,7 @@
     </v-btn>
     <v-list>
       <v-list-tile
-        v-for="(lang, index) in listOfLocales"
+        v-for="(lang, index) in ListOfLocales"
         :key="index"
         @click="selectLanguage(lang)"
       >
@@ -24,14 +24,14 @@
 
 
 <script>
-import { listOfLocales } from "@/plugins/i18n";
+import { ListOfLocales } from "@/plugins/i18n";
 
 export default {
   name: "LanguageSelector",
 
   data() {
     return {
-      listOfLocales,
+      ListOfLocales,
       flag: {
         en: "gb",
         es: "es",

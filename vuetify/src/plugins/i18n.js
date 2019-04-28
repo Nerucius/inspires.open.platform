@@ -5,16 +5,22 @@ import Cookies from "js-cookie";
 
 Vue.use(VueI18n)
 
-export const listOfLocales = []
+export const ListOfLocales = []
+// Load list of countries:
+export const Countries = require("../locales/_countries.json")
 
 function loadLocaleMessages() {
-  const locales = require.context('../locales', true, /[A-Za-z0-9-_,\s]+\.json$/i)
+  const locales = require.context('../locales', true, /[A-Za-z0-9-_]+\.json$/i)
   const messages = {}
   locales.keys().forEach(key => {
     const matched = key.match(/([A-Za-z0-9-_]+)\./i)
     if (matched && matched.length > 1) {
       const locale = matched[1]
-      listOfLocales.push(locale)
+
+      // Locales are only valid if they are 2 characters
+      if (locale.length != 2) { return }
+
+      ListOfLocales.push(locale)
       messages[locale] = locales(key)
     }
   })
@@ -28,7 +34,7 @@ const i18n = new VueI18n({
 })
 
 export function setI18nLanguage(lang) {
-  if (listOfLocales.indexOf(lang) < 0) {
+  if (ListOfLocales.indexOf(lang) < 0) {
     throw new Error(`Language not in list of locales: ${lang}`)
   }
   Cookies.set("lang", lang)
@@ -37,7 +43,6 @@ export function setI18nLanguage(lang) {
       return
   }
   i18n.locale = lang
-  // axios.defaults.headers.common['Accept-Language'] = lang
   document.querySelector('html').setAttribute('lang', lang)
   return lang
 }

@@ -48,6 +48,7 @@
     <v-combobox ref="managersCB"
                 v-model="editedStructure.managers"
                 box
+                no-filter
                 :items="userSearch"
                 :rules="[rules.isUser]"
                 label="Structure Managers"
@@ -66,6 +67,16 @@
         Additional Information
       </h2>
 
+      <v-combobox box
+        :items="Countries"
+        :item-text="localizedCountryName"
+        item-value="alpha2Code"
+        v-model="editedStructure.country_code"
+        :rules="[rules.isCountry]"
+        label="Structure Home Country"
+        hint="Country where the structure has it's base of operations."
+      />
+
       <v-text-field
         v-model="editedStructure.year_founded"
         box
@@ -73,7 +84,7 @@
         max="2019"
         type="number"
         label="Year the structure was founded / established"
-        hint="Shown in listings as well as the structures's page"
+        hint="Shown in listings as well as the structures's page."
       />
 
 
@@ -160,17 +171,21 @@
 
 <script>
 import { cloneDeep } from "lodash";
+import { Countries } from '@/plugins/i18n'
+import { isContext } from 'vm';
 
 export default {
   props: ["structure"],
 
   data() {
     return {
+      Countries,
       processing: false,
       valid: null,
       rules: {
         required: v => !!v || this.$t("forms.rules.requiredField"),
         isUser: v => this.isUser(v) || this.$t("forms.rules.mustBeUser"),
+        isCountry: v => this.isCountry(v) || this.$t("forms.rules.mustBeCountry"),
         isKnowledgeArea: v => this.isKnowledgeArea(v) || this.$t("forms.rules.mustBeKnowledgeArea"),
         minlen: v =>
           v.length > 10 || this.$t("forms.rules.minimunLength", { length: 10 })
@@ -261,6 +276,24 @@ export default {
 
       this.processing = false
 
+    },
+
+    localizedCountryName(country){
+      let locale = this.$i18n.locale
+      return country.translations[locale] || country.name
+    },
+
+    isCountry(value){
+      // If no value enter, is valid
+      if(!value) return true;
+      // If random string entered, not valid
+      if(!value.name) return false;
+
+      // Compare entered
+      value = this.localizedCountryName(value)
+      let names = this.Countries.map(this.localizedCountryName)
+      let isCountry = names.indexOf(value)
+      return isCountry > -1
     },
 
     isUser(value){

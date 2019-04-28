@@ -39,7 +39,6 @@ export default {
       return state.preferences.theme;
     },
     lang: state => {
-      console.log("Changed locale to " + state.preferences.lang)
       setI18nLanguage(state.preferences.lang);
       return state.preferences.lang;
     },

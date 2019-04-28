@@ -55,6 +55,7 @@
     <v-combobox ref="managersCB"
                 v-model="editedProject.managers"
                 box
+                no-filter
                 :items="userSearch"
                 :rules="[rules.isUser]"
                 :hint="$t('forms.hints.projectAdministrators')"

@@ -1,13 +1,26 @@
+<style scoped>
+.v-toolbar__title .router-link{
+  color:inherit;
+  text-decoration: inherit;
+}
+.v-toolbar__title .router-link:hover{
+  background-color: rgba(255,255,255,0.1)
+}
+</style>
+
+
 <template>
   <v-toolbar scroll-off-screen app dark flat color="primary">
     <v-toolbar-side-icon v-if="showToggleDrawer" @click="$emit('toggleDrawer')" />
     <v-toolbar-title class="headline text-uppercase">
+      <router-link :to="{name:'home'}" active-class="router-link">
       <span style="text-transform:none">
         InSPIRES
       </span>&nbsp;
       <span style="font-size:70%" class="font-weight-light">
         Open Platform
       </span>
+      </router-link>
     </v-toolbar-title>
     <v-spacer />
 

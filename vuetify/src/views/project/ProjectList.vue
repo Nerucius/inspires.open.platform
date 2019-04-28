@@ -1,12 +1,16 @@
 <template>
   <v-layout row wrap align-content-start>
+
     <v-flex xs12>
-      <h1 class="mb-2">
+      <h1>
         {{ $t('noums.projects') }}
         <small v-if="filterKnowledgeArea">
-          {{ $t('pages.projectList.filterByArea', {area:$t(filterKnowledgeArea.name)}) }}
+          | {{ $t('pages.projectList.filterByArea', {area:$t(filterKnowledgeArea.name)}) }}
         </small>
       </h1>
+    </v-flex>
+
+    <v-flex xs12>
       <ProjectGrid hide-title="true" :projects="projects" />
     </v-flex>
   </v-layout>

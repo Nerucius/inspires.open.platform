@@ -140,6 +140,7 @@
 <script>
 import { slug2id, obj2slug } from "@/plugins/utils";
 import { setTimeout } from 'timers';
+import { API_SERVER } from '@/plugins/resource'
 
 export default {
   metaInfo() {
@@ -189,7 +190,7 @@ export default {
     window.addEventListener("resize", this.onResize);
 
     setTimeout(() => {
-      createParticipantGraph(`http://localhost:8080/v1/csv/eval/${this.projectId}`)
+      createParticipantGraph(`${API_SERVER}/v1/csv/eval/${this.projectId}`)
     }, 500);
 
   },

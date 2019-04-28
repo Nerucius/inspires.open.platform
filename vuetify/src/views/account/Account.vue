@@ -256,8 +256,8 @@ export default {
     this.editUser = cloneDeep(this.user)
 
     if(this.userId == null){
-      console.error("No logged in user or request.")
-      this.$router.push({name:"Home"})
+      console.error("Account.vue: No logged in user or request.")
+      this.$router.push({name:"home"})
     }
 
     await this.$store.dispatch("project/load", this.projectIds)

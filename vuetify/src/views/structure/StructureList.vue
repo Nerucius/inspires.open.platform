@@ -1,12 +1,15 @@
 <template>
   <v-layout row wrap align-content-start>
+
+    <v-flex xs12>
+      <h1 >
+        {{ $t('noums.structures') }}
+      </h1>
+    </v-flex>
+
     <v-flex xs12>
       <v-card flat>
         <v-card-text>
-          <h1 class="mb-2">
-            {{ $t('noums.structures') }}
-          </h1>
-
           <!-- <v-container grid-list-xl> -->
           <v-layout row wrap>
             <v-flex v-for="structure in structures" :key="structure.id" xs12 sm6 md4 lg3 xl2 mb-3>

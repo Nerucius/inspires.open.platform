@@ -5,7 +5,7 @@ from django.http.response import HttpResponseBadRequest, HttpResponse
 from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.authtoken.views import ObtainAuthToken
 
 
@@ -143,13 +143,11 @@ class CurrentUserVS(viewsets.ReadOnlyModelViewSet):
     """ Returns the currently logged in user """
 
     serializer_class = serializers.UserSerializer
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         queryset = models.User.objects
-        if self.request.user.is_authenticated:
-            return queryset.filter(pk=self.request.user.pk)
-        return queryset.filter(pk="-1")
+        return queryset.filter(pk=self.request.user.pk)
 
 
 # ===========================

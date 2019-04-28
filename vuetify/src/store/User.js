@@ -52,7 +52,7 @@ export default {
         context.commit("ADD_DETAIL", items)
 
       }else{
-        context.dispatch("loadCurrent")
+        await context.dispatch("loadCurrent")
         // No ids provided, just get list of all
         let params = payload.params || {}
         let query = {...params}
@@ -74,11 +74,13 @@ export default {
 
     loadCurrent: async function (context) {
       try{
-        let user = (await CurrentUserResource.get()).body.results[0];
+        let response = await CurrentUserResource.get()
+        let user = response.body.results[0]
         context.commit("SET_CURRENT", user);
         context.commit("ADD_DETAIL", [user]);
       }catch(err){
         // no auth
+        console.log("Authentication not found. User not logged in")
         Cookies.remove('authorization')
         context.commit("SET_CURRENT", null)
       }

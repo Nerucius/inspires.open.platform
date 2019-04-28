@@ -40,8 +40,13 @@ class Project(TrackableModel):
     description = models.TextField(blank=True)
 
     image_url = models.URLField(max_length=500, blank=True)
+
     contact_email = models.EmailField(max_length=500, blank=True)
     contact_website = models.URLField(max_length=500, blank=True)
+    contact_postal_address = models.TextField(blank=True)
+    contact_social_facebook = models.URLField(max_length=500, blank=True)
+    contact_social_twitter = models.URLField(max_length=500, blank=True)
+    contact_social_other = models.URLField(max_length=500, blank=True)
 
     date_start = models.DateField(blank=True, null=True)
     date_end = models.DateField(blank=True, null=True)

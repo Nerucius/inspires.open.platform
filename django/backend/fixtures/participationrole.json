@@ -2,28 +2,28 @@
     "model": "backend.participationrole",
     "pk": 1,
     "fields": {
-        "tag": "models.participationRole.scientistTag",
+        "tag": "SC",
         "name": "models.participationRole.scientist"
     }
 }, {
     "model": "backend.participationrole",
     "pk": 2,
     "fields": {
-        "tag": "models.participationRole.studentTag",
+        "tag": "STU",
         "name": "models.participationRole.student"
     }
 }, {
     "model": "backend.participationrole",
     "pk": 3,
     "fields": {
-        "tag": "models.participationRole.civilSocietyTag",
+        "tag": "CS",
         "name": "models.participationRole.civilSociety"
     }
 }, {
     "model": "backend.participationrole",
     "pk": 4,
     "fields": {
-        "tag": "models.participationRole.projectManagerTag",
+        "tag": "PM",
         "name": "models.participationRole.projectManager"
     }
 }]

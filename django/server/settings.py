@@ -8,6 +8,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 from decouple import config
+from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -166,7 +167,17 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
-LANGUAGE_CODE = "en-us"
+LANGUAGES = [
+    ("en", _("English")),
+    ("es", _("Spanish")),
+    ("de", _("German")),
+    ("nl", _("Dutch")),
+    ("ca", _("Catalan")),
+    ("it", _("Italian")),
+    ("fr", _("French")),
+]
+LANGUAGE_CODE = "en"
+LANGUAGE_COOKIE_NAME = "lang"
 
 TIME_ZONE = "UTC"
 

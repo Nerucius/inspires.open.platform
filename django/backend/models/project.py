@@ -5,14 +5,28 @@ from backend.models import TrackableModel
 
 class Project(TrackableModel):
 
-    TYPE_RESEARCH = "research"
-    TYPE_PUBLIC_ENGAGEMENT = "publicEngagement"
-    TYPE_SERVICE_LEARNING = "serviceLearning"
+    TYPE_RESEARCH = "RESEARCH"
+    TYPE_PARTICIPATORY_RESEARCH = "PARTICIPATORY_RESEARCH"
+    TYPE_PARTICIPATORY_ACTION_RESEARCH = "PARTICIPATORY_ACTION_RESEARCH"
+    TYPE_CITIZEN_SCIENCE = "CITIZEN_SCIENCE"
+    TYPE_PUBLIC_ENGAGEMENT = "PUBLIC_ENGAGEMENT"
+    TYPE_SERVICE_LEARNING = "SERVICE_LEARNING"
+    TYPE_ADVOCACY = "ADVOCACY"
+    TYPE_INNOVATION = "INNOVATION"
+    TYPE_POLICY_INNOVATION = "POLICY_INNOVATION"
+    TYPE_OTHER = "OTHER"
 
     TYPES = [
         (TYPE_RESEARCH, "Research"),
+        (TYPE_PARTICIPATORY_RESEARCH, "Participatory Research"),
+        (TYPE_PARTICIPATORY_ACTION_RESEARCH, "Participatory Action Research"),
+        (TYPE_CITIZEN_SCIENCE, "Citizen Science"),
         (TYPE_PUBLIC_ENGAGEMENT, "Public Engagement"),
         (TYPE_SERVICE_LEARNING, "Service Learning"),
+        (TYPE_ADVOCACY, "Advocacy"),
+        (TYPE_INNOVATION, "Innovation"),
+        (TYPE_POLICY_INNOVATION, "Policy Innovation"),
+        (TYPE_OTHER, "Other"),
     ]
 
     managers = models.ManyToManyField(
@@ -38,6 +52,7 @@ class Project(TrackableModel):
     name = models.CharField(max_length=254)
     summary = models.TextField(blank=True)
     description = models.TextField(blank=True)
+    country_code = models.CharField(max_length=16, blank=True)
 
     image_url = models.URLField(max_length=500, blank=True)
 
@@ -51,7 +66,7 @@ class Project(TrackableModel):
     date_start = models.DateField(blank=True, null=True)
     date_end = models.DateField(blank=True, null=True)
 
-    project_type = models.CharField(max_length=64, blank=True, choices=TYPES)
+    project_type = models.CharField(max_length=128, blank=True, choices=TYPES)
     phases = models.ManyToManyField(
         "ProjectPhase", through="ProjectAtPhase", blank=True
     )

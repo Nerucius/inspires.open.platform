@@ -1,13 +1,48 @@
 from django.contrib.auth.models import AbstractUser
 from django.contrib.contenttypes.fields import GenericRelation
 
-from hashlib import md5
+from django.db import models
 
 from backend.models import TrackableModel
+
+from hashlib import md5
 
 
 class User(TrackableModel, AbstractUser):
     """ Custom Application User. Is both a valid auth user and a trackable model. """
+
+    GENDER_MALE = "MALE"
+    GENDER_FEMALE = "FEMALE"
+    GENDER_OTHER = "OTHER"
+
+    GENDER_CHOICES = [
+        (GENDER_MALE, "Male"),
+        (GENDER_FEMALE, "Female"),
+        (GENDER_OTHER, "Other"),
+    ]
+
+    EDUCATION_PRIMARY = "PRIMARY"
+    EDUCATION_SECONDARY = "SECONDARY"
+    EDUCATION_TERTIARY = "TERTIARY"
+    EDUCATION_DEGREE = "DEGREE"
+    EDUCATION_MASTER = "MASTER"
+    EDUCATION_DOCTORAL = "DOCTORAL"
+
+    EDUCATION_LEVELS = [
+        (EDUCATION_PRIMARY, "Primary"),
+        (EDUCATION_SECONDARY, "Secondary"),
+        (EDUCATION_TERTIARY, "Teriary (Labor market)"),
+        (EDUCATION_DEGREE, "Bachelors or Degree"),
+        (EDUCATION_MASTER, "Masters"),
+        (EDUCATION_DOCTORAL, "Doctoral"),
+    ]
+
+    education_level = models.CharField(
+        max_length=128, blank=True, choices=EDUCATION_LEVELS
+    )
+
+    institution = models.CharField(max_length=256, blank=True)
+    gender = models.CharField(max_length=256, blank=True, choices=GENDER_CHOICES)
 
     @property
     def full_name(self):

@@ -143,13 +143,16 @@ table th {
 
           <br>
 
-          <div class="text-xs-right" v-if="isParticipant">
+          <div v-if="isParticipant" class="text-xs-right">
             <v-btn :to="{...project.link, name:'evaluation-detail'}"
-              outline color="black">
-              <v-icon left>mdi-school</v-icon>
-              Go to Evaluation</v-btn>
+                   outline
+            >
+              <v-icon left>
+                mdi-school
+              </v-icon>
+              Go to Evaluation
+            </v-btn>
           </div>
-
         </v-card-text>
       </v-card>
     </v-flex>

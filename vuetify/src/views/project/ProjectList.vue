@@ -1,6 +1,5 @@
 <template>
   <v-layout row wrap align-content-start>
-
     <v-flex xs12>
       <h1>
         {{ $t('noums.projects') }}

@@ -15,6 +15,7 @@ services:
     depends_on:
       - db
       - redis
+      - nginx
     environment:
       - DEBUG=${DJANGO_DEBUG}
       - CACHE_REDIS=${DJANGO_CACHE_REDIS}

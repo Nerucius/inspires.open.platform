@@ -9,8 +9,8 @@ RUN apk add gcc make libc-dev musl-dev linux-headers pcre-dev postgresql-dev
 
 # Copy and install python deps
 COPY requirements.txt requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
-RUN pip install --no-cache-dir uwsgi
+RUN pip3 install --no-cache-dir -r requirements.txt
+RUN pip3 install --no-cache-dir uwsgi
 
 # Copy and install django app
 COPY . .

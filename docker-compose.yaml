@@ -4,17 +4,26 @@
 version: '2'
 
 services:
+  redis:
+    image: 'redis:5-alpine'
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+
   django:
     build: './django'
     depends_on:
       - db
+      - redis
     environment:
       - DEBUG=${DJANGO_DEBUG}
+      - CACHE_REDIS=${DJANGO_CACHE_REDIS}
+      - CACHE_REDIS_HOST=${DJANGO_CACHE_REDIS_HOST}
+      - DB_SQLITE=${DJANGO_DB_SQLITE}
       - SECRET_KEY=${DJANGO_SECRET_KEY}
       - STATIC_URL=${DJANGO_STATIC_URL}
       - ALLOWED_HOST=${DJANGO_ALLOWED_HOST}
       - CORS_ORIGIN=${DJANGO_CORS_ORIGIN}
-      - DB_SQLITE=${DJANGO_DB_SQLITE}
       - FRONTEND_URL=${DJANGO_FRONTEND_URL}
       - BACKEND_URL=${DJANGO_BACKEND_URL}
       - EMAIL_HOST=${DJANGO_EMAIL_HOST}
@@ -58,6 +67,7 @@ services:
       - PGDATA=/data/postgres
     volumes:
       - 'db_files:/data'
+    restart: unless-stopped
 
   # shell:
   #   image: alpine

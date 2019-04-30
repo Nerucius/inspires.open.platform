@@ -126,6 +126,27 @@ REST_FRAMEWORK = {
     ],
 }
 
+
+# Cache
+# https://docs.djangoproject.com/en/2.2/topics/cache/#dummy-caching-for-development
+
+if config("CACHE_REDIS", False, cast=bool):
+    # Redis Cache
+    CACHES = {
+        "default": {
+            "BACKEND": "django_redis.cache.RedisCache",
+            "LOCATION": "redis://%s:6379/1" % config("CACHE_REDIS_HOST", "redis"),
+            "OPTIONS": {
+                "CLIENT_CLASS": "django_redis.client.DefaultClient",
+                "COMPRESSOR": "django_redis.compressors.zlib.ZlibCompressor",
+            },
+        }
+    }
+else:
+    # Dummy cache
+    CACHES = {"default": {"BACKEND": "django.core.cache.backends.dummy.DummyCache"}}
+
+
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 

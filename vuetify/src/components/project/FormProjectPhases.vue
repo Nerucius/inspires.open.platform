@@ -8,6 +8,19 @@
       {{ $t('pages.projectManage.phasesTabDescription') }}
     </p>
 
+    <h3 class="mb-2">
+      Change the current Phase
+    </h3>
+
+    <v-select v-model="stepperPhase"
+              box
+              :items="Object.values(phases)"
+              item-value="id"
+              :item-text="phaseName"
+              :label="$t('forms.fields.projectPhase')"
+              :rules="[rules.required]"
+    />
+
     <v-card class="my-5">
       <v-stepper
         v-model="stepperPhase"
@@ -45,18 +58,6 @@
       </v-stepper>
     </v-card>
 
-    <h3 class="mb-2">
-      Change the current Phase
-    </h3>
-
-    <v-select v-model="stepperPhase"
-              box
-              :items="Object.values(phases)"
-              item-value="id"
-              :item-text="phaseName"
-              :label="$t('forms.fields.projectPhase')"
-              :rules="[rules.required]"
-    />
 
     <v-btn block large
            color="success"

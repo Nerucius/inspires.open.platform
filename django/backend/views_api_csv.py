@@ -1,19 +1,56 @@
 from django import shortcuts
 from django.db.models import Sum, Avg
 
+from django.core.cache import cache
+from django.views import View
+
+from rest_framework.authtoken.models import Token
 from backend.models import Project, Evaluation, Response
 
 import pandas as pd
 
 
+def _authenticate_request(request, project=None):
+    try:
+        cookies = request.META["HTTP_COOKIE"]
+    except:
+        raise Exception("No authentication provided in request")
+
+    cookies = [x.strip() for x in cookies.split(";")]
+    cookies = dict([cookie.split("=") for cookie in cookies])
+
+    if "authorization" in cookies:
+        # Get user given the provided token
+        token = cookies["authorization"]
+        user = Token.objects.get(pk=token).user
+
+        if user.is_superuser:
+            # Superuser can view all
+            return True
+        elif project and project.is_participant(user):
+            # If project, only participants
+            return True
+        else:
+            # Otherwise fuck off
+            raise Exception("User can't vie this project's Evaluation")
+
+    else:
+        # No auth provided
+        raise Exception("No authentication provided in request")
+
+
 def _dataframe_response(df, index=False):
-    return shortcuts.HttpResponse(df.to_csv(index=index), content_type="text/plain")
+    return shortcuts.HttpResponse(
+        df.to_csv(index=index), content_type="text/plain", charset="utf8"
+    )
 
 
-def _get_dataframe_all_responses(project):
+def _get_dataframe_all_responses(project=None, answer_type="DEGREE"):
     # Get evaluations for this project which are complete
-    all_evals = Evaluation.objects.filter(phase__project=project).all()
-    evals = filter(lambda x: x.is_complete, all_evals)
+    all_evals = Evaluation.objects
+    if project:
+        all_evals = Evaluation.objects.filter(phase__project=project)
+    evals = filter(lambda x: x.is_complete, all_evals.all())
     evals = list(map(lambda x: x.id, evals))
 
     if len(evals) == 0:
@@ -21,7 +58,7 @@ def _get_dataframe_all_responses(project):
 
     # Get all responses in those evals
     responses = (
-        Response.objects.filter(question__answer_type="DEGREE")
+        Response.objects.filter(question__answer_type=answer_type)
         .filter(evaluation__in=evals)
         .all()
     )
@@ -34,13 +71,16 @@ def _get_dataframe_all_responses(project):
         data += [
             [
                 response.question.id,
+                response.evaluation.participation.project.name,
                 response.question.axis,
                 response.question.principle,
                 response.question.dimension,
                 str(response.evaluation.participation.role),
                 str(response.evaluation.phase.project_phase),
                 response.question.name,
-                float(response.answer_degree),
+                float(response.answer_degree or 0)
+                if answer_type == "DEGREE"
+                else "|".join([str(x.key) for x in response.answer_multiple.all()]),
             ]
         ]
 
@@ -50,6 +90,7 @@ def _get_dataframe_all_responses(project):
         data=data,
         columns=[
             "question",
+            "project",
             "axis",
             "principle",
             "dimension",
@@ -63,53 +104,112 @@ def _get_dataframe_all_responses(project):
     return df
 
 
-def csv_overall_position(request, project):
-    ownProject = Project.objects.get(pk=project)
+class CSVCachedAuthorizedView(View):
+    @property
+    def cache_key(self):
+        return self.request.META["PATH_INFO"]
 
-    columns = ["Project", "Evaluation", "Coherence", "Highlight"]
-    data = []
+    def _get_content(self, request, *args, **kwargs):
+        return ""
 
-    for project in Project.objects.all():
-        df = _get_dataframe_all_responses(project)
-        if df is None:
-            continue
+    def get(self, request, *args, **kwargs):
+        if "project" in kwargs:
+            project = Project.objects.get(pk=kwargs["project"])
 
-        df = df.groupby(["principle", "phase", "role", "name"]).mean()
-        df = df.groupby(["principle"]).mean()
+        _authenticate_request(request, project or None)
 
-        mean = df.mean().round(2)["response"]
-        coherence = (1.0 / df.std()).round(2)["response"]
+        content = cache.get(self.cache_key)
+        if not content:
+            content = self._get_content(request, *args, **kwargs)
+            cache.set(self.cache_key, content, timeout=None)
 
-        data += [[project.name, mean, coherence, project == ownProject]]
-
-    df = pd.DataFrame(columns=columns, data=data)
-
-    return _dataframe_response(df)
+        return shortcuts.HttpResponse(
+            content, content_type="text/plain", charset="utf8"
+        )
 
 
-def csv_phases(request, project):
-    ownProject = Project.objects.get(pk=project)
+class CSVAllResponsesMultiple(CSVCachedAuthorizedView):
+    def _get_content(self, request, *args, **kwargs):
+        df = _get_dataframe_all_responses(answer_type="MULTIPLE")
+        return df.to_csv()
 
-    df = _get_dataframe_all_responses(ownProject)
 
-    df = df.groupby(["phase", "role", "name"]).mean()
-    df = df.groupby(["phase"]).mean().round(2)
+class CSVAllResponsesDegree(CSVCachedAuthorizedView):
+    def _get_content(self, request, *args, **kwargs):
+        df = _get_dataframe_all_responses(answer_type="DEGREE")
+        return df.to_csv()
 
-    print(df["response"].values)
 
-    df = pd.DataFrame(data=df["response"].values, columns=["Value"])
-    df["Dimension"] = ["Phase 1", "Phase 2", "Phase 3", "Phase 4"]
-    df["MIN"] = 2
-    df["Q1"] = 2.5
-    df["Q2"] = 3.5
-    df["Q3"] = 5
-    df["MAX"] = 6
-    df["Threshold"] = 3
+class CSVProjectResponsesMultiple(CSVCachedAuthorizedView):
+    def _get_content(self, request, *args, **kwargs):
+        ownProject = Project.objects.get(pk=kwargs["project"])
+        df = _get_dataframe_all_responses(ownProject, answer_type="MULTIPLE")
+        return df.to_csv()
 
-    return _dataframe_response(df, index=False)
+
+class CSVProjectResponsesDegree(CSVCachedAuthorizedView):
+    def _get_content(self, request, *args, **kwargs):
+        ownProject = Project.objects.get(pk=kwargs["project"])
+        df = _get_dataframe_all_responses(ownProject, answer_type="DEGREE")
+        return df.to_csv()
+
+
+class CSVProjectOverallPosition(CSVCachedAuthorizedView):
+    def _get_content(self, request, *args, **kwargs):
+        ownProject = Project.objects.get(pk=kwargs["project"])
+
+        columns = ["Project", "Evaluation", "Coherence", "Highlight"]
+        data = []
+
+        for project in Project.objects.all():
+            df = _get_dataframe_all_responses(project)
+            if df is None:
+                continue
+
+            df = df.groupby(["principle", "phase", "role", "name"]).mean()
+            df = df.groupby(["principle"]).mean()
+
+            mean = df.mean().round(2)["response"]
+            coherence = (1.0 / df.std()).round(2)["response"]
+
+            data += [[project.name, mean, coherence, project == ownProject]]
+        df = pd.DataFrame(columns=columns, data=data)
+
+        return df.to_csv()
+
+
+class CSVProjectPhases(CSVCachedAuthorizedView):
+    def _get_content(self, request, *args, **kwargs):
+        ownProject = Project.objects.get(pk=kwargs["project"])
+
+        df = _get_dataframe_all_responses(ownProject)
+
+        df = df.groupby(["phase", "role", "name"]).mean()
+        df = df.groupby(["phase"]).mean().round(2)
+
+        print(df["response"].values)
+
+        df = pd.DataFrame(data=df["response"].values, columns=["Value"])
+        df["Dimension"] = ["Phase 1", "Phase 2", "Phase 3", "Phase 4"]
+        df["MIN"] = 2
+        df["Q1"] = 2.5
+        df["Q2"] = 3.5
+        df["Q3"] = 5
+        df["MAX"] = 6
+        df["Threshold"] = 3
+
+        return df.to_csv()
+
+
+# =========================================
+#  FUNCTION BASED VIEWS
+# =========================================
 
 
 def csv_bullets(request, project):
+    ownProject = Project.objects.get(pk=project)
+    _authenticate_request(request, ownProject)
+
     # ownProject = Project.objects.get(pk=project)
 
     # df = _get_dataframe_all_responses(ownProject)
@@ -201,6 +301,9 @@ Transformative Change,Student,TransformativeStudent,4.40,3.40,4.00,4.20,4.40,5.4
 
 
 def csv_heatmap(request, project):
+    ownProject = Project.objects.get(pk=project)
+    _authenticate_request(request, ownProject)
+
     return shortcuts.HttpResponse(
         """Principle,Dimension,Indicator,Value
 1,1. Search for a topic,AG1Stage1,3.00

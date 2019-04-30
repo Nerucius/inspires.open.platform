@@ -101,6 +101,12 @@ class Project(TrackableModel):
     def can_write(self, user):
         return self.managers.filter(pk=user.pk).exists() or user == self.owner
 
+    def is_participant(self, user):
+        return (
+            self.participants.filter(participation__user=user).exists()
+            or self.managers.filter(pk=user.pk).exists()
+        )
+
     def __str__(self):
         return self.name
 

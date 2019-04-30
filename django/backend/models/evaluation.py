@@ -199,3 +199,12 @@ class Response(TrackableModel):
     def can_create(cls, user, data):
         evaluation = Evaluation.objects.get(pk=data["evaluation"])
         return evaluation.participation.user == user
+
+
+@receiver(models.signals.post_save)
+def email_new_structure(sender, instance, raw, created, using, update_fields, **kwargs):
+    # Invalidate evaluation cache
+    if isinstance(instance, Response):
+        from django.core.cache import cache
+
+        cache.delete_pattern("/v1/csv/eval/*")

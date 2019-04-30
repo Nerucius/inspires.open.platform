@@ -187,7 +187,6 @@ table th{
 </template>
 
 <script>
-
 export default {
 
   metaInfo:{

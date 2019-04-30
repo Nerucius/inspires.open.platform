@@ -5,142 +5,181 @@
     </v-flex>
 
     <v-flex xs12>
-      <v-card flat>
-        <v-card-text id="target-graph-area">
-          <!-- MIREIA CODE FOR EVALUATION -->
+      <v-layout id="target-graph-area" row wrap>
 
-          <div id="main">
-            <div id="scatter">
-              <h2 style="width:100%">
-                Project Overall Position
-              </h2>
-              <hr style="border: 2px solid gray">
-              <div id="scatterchart" />
-            </div>
-            <div id="line">
-              <h2>Project Evolution</h2>
-              <hr style="border: 2px solid gray">
-              <div id="linechart" />
-            </div>
-            <div id="transf">
-              <h2>Transformative Change</h2>
-              <hr style="border: 2px solid #2F4193">
-              <div id="transfchart" />
-              <div class="bullet">
-                <h3>Collective capacity</h3>
-                <div id="TransformativeCollectiveChart" />
-              </div>
-              <div class="bullet">
-                <h3>Knowledge and skills</h3>
-                <div id="TransformativeSkillsChart" />
-              </div>
-              <div class="bullet">
-                <h3>Policy impact</h3>
-                <div id="TransformativePolicyChart" />
-              </div>
-              <div class="bullet">
-                <h3>Self-improvement</h3>
-                <div id="TransformativeSelfChart" />
-              </div>
-              <div id="partic">
-                <h2>Participatory Dynamics</h2>
-                <hr style="border: 2px solid #DAE14B">
-                <div id="partchart" />
-                <div class="bullet">
-                  <h3>Degree of engagement</h3>
-                  <div id="ParticipatoryEngagementChart" />
-                </div>
-                <div class="bullet">
-                  <h3>Impact of the participatory dynamics</h3>
-                  <div id="ParticipatoryImpactChart" />
-                </div>
-                <div class="bullet">
-                  <h3>Motivation</h3>
-                  <div id="ParticipatoryMotivationChart" />
-                </div>
-                <div class="bullet">
-                  <h3>Satisfaction with the participatory dunamics</h3>
-                  <div id="ParticipatorySatisfactionChart" />
-                </div>
-              </div>
-              <div id="know">
-                <h2>Knowledge Democracy</h2>
-                <hr style="border: 2px solid #2599D4">
-                <div id="knowchart" />
-                <div class="bullet">
-                  <h3>Openness</h3>
-                  <div id="KnowledgeOpennessChart" />
-                </div>
-                <div class="bullet">
-                  <h3>Scientific relevance</h3>
-                  <div id="KnowledgeRelevanceChart" />
-                </div>
-                <div class="bullet">
-                  <h3>Transdisciplinarity</h3>
-                  <div id="KnowledgeTransdisciplChart" />
-                </div>
-              </div>
-            </div>
-            <div id="heat">
-              <h2>Involvement</h2>
-              <hr style="border: 2px solid gray">
-              <div id="heatchart" />
-              <div id="citiz">
-                <h2>Citizen-led Research</h2>
-                <hr style="border: 2px solid #00796B">
-                <div id="citizchart" />
-                <div class="bullet">
-                  <h3>Community alignment</h3>
-                  <div id="CitizenCommunityChart" />
-                </div>
-                <div class="bullet">
-                  <h3>Responsiveness to community alignment</h3>
-                  <div id="CitizenResponsivenessChart" />
-                </div>
-              </div>
-              <div id="integ">
-                <h2>Integrity</h2>
-                <hr style="border: 2px solid #F17600">
-                <div id="integchart" />
-                <div class="bullet">
-                  <h3>Expectation alignment</h3>
-                  <div id="IntegrityExpectationChart" />
-                </div>
-                <div class="bullet">
-                  <h3>Gender perspective</h3>
-                  <div id="IntegrityGenderChart" />
-                </div>
-                <div class="bullet">
-                  <h3>Inclusivity</h3>
-                  <div id="IntegrityInclusivityChart" />
-                </div>
-                <div class="bullet">
-                  <h3>Reflexivity</h3>
-                  <div id="IntegrityReflexivityChart" />
-                </div>
-                <div class="bullet">
-                  <h3>Resource availability</h3>
-                  <div id="IntegrityResourceChart" />
-                </div>
-                <div class="bullet">
-                  <h3>Transparency</h3>
-                  <div id="IntegrityTransparencyChart" />
-                </div>
-              </div>
-            </div>
+
+        <v-flex xs12 sm6 xl4>
+          <v-card>
+            <v-toolbar dense dark flat color="grey darken-3">
+              <v-toolbar-title>
+                <h2 class="title">Project Overall Position</h2>
+              </v-toolbar-title>
+            </v-toolbar>
+            <v-card-text id="reference-width">
+              <v-sheet height=200>
+                <div id="scatterchart" />
+              </v-sheet>
+            </v-card-text>
+          </v-card>
+        </v-flex>
+
+        <v-flex xs12 sm6 xl4>
+          <v-card>
+            <v-toolbar dense dark flat color="grey darken-3">
+              <v-toolbar-title>
+                <h2 class="title">Project Evolution</h2>
+              </v-toolbar-title>
+            </v-toolbar>
+            <v-card-text>
+              <v-sheet height=200>
+                <div id="linechart" />
+              </v-sheet>
+            </v-card-text>
+          </v-card>
+        </v-flex>
+
+        <v-flex xs12 sm6 xl4>
+          <v-card>
+            <v-toolbar dense dark flat style="background-color:#2F4193">
+              <v-toolbar-title>
+                <h2 class="title">Transformative Change</h2>
+              </v-toolbar-title>
+            </v-toolbar>
+            <v-card-text>
+          <div id="transfchart" />
+          <div class="bullet">
+            <h3>Collective capacity</h3>
+            <div id="TransformativeCollectiveChart" />
           </div>
+          <div class="bullet">
+            <h3>Knowledge and skills</h3>
+            <div id="TransformativeSkillsChart" />
+          </div>
+          <div class="bullet">
+            <h3>Policy impact</h3>
+            <div id="TransformativePolicyChart" />
+          </div>
+          <div class="bullet">
+            <h3>Self-improvement</h3>
+            <div id="TransformativeSelfChart" />
+          </div>
+            </v-card-text>
+          </v-card>
 
-          <!-- /MIREIA CODE FOR EVALUATION -->
-        </v-card-text>
-      </v-card>
+
+        </v-flex>
+
+        <v-flex xs12 sm6 xl4>
+          <v-card>
+            <v-toolbar dense dark flat style="background-color:#2599D4">
+              <v-toolbar-title>
+                <h2 class="title">Knowledge Democracy</h2>
+              </v-toolbar-title>
+            </v-toolbar>
+            <v-card-text>
+
+          <div id="knowchart" />
+          <div class="bullet">
+            <h3>Openness</h3>
+            <div id="KnowledgeOpennessChart" />
+          </div>
+          <div class="bullet">
+            <h3>Scientific relevance</h3>
+            <div id="KnowledgeRelevanceChart" />
+          </div>
+          <div class="bullet">
+            <h3>Transdisciplinarity</h3>
+            <div id="KnowledgeTransdisciplChart" />
+          </div>
+            </v-card-text>
+          </v-card>
+
+
+        </v-flex>
+
+        <v-flex xs12 sm6 xl4>
+          <v-card>
+            <v-toolbar dense dark flat color="green darken-2">
+              <v-toolbar-title>
+                <h2 class="title">Participatory Dynamics</h2>
+              </v-toolbar-title>
+            </v-toolbar>
+            <v-card-text>
+
+          <div id="partchart" />
+          <div class="bullet">
+            <h3>Degree of engagement</h3>
+            <div id="ParticipatoryEngagementChart" />
+          </div>
+          <div class="bullet">
+            <h3>Impact of the participatory dynamics</h3>
+            <div id="ParticipatoryImpactChart" />
+          </div>
+          <div class="bullet">
+            <h3>Motivation</h3>
+            <div id="ParticipatoryMotivationChart" />
+          </div>
+          <div class="bullet">
+            <h3>Satisfaction with the participatory dunamics</h3>
+            <div id="ParticipatorySatisfactionChart" />
+          </div>
+            </v-card-text>
+          </v-card>
+
+        </v-flex>
+
+
+        <v-flex xs12 sm6 xl4>
+          <v-card>
+            <v-toolbar dense dark flat color="orange darken-3">
+              <v-toolbar-title>
+                <h2 class="title">Integrity</h2>
+              </v-toolbar-title>
+            </v-toolbar>
+            <v-card-text>
+
+          <div id="integchart" />
+          <div class="bullet">
+            <h3>Expectation alignment</h3>
+            <div id="IntegrityExpectationChart" />
+          </div>
+          <div class="bullet">
+            <h3>Gender perspective</h3>
+            <div id="IntegrityGenderChart" />
+          </div>
+          <div class="bullet">
+            <h3>Inclusivity</h3>
+            <div id="IntegrityInclusivityChart" />
+          </div>
+          <div class="bullet">
+            <h3>Reflexivity</h3>
+            <div id="IntegrityReflexivityChart" />
+          </div>
+          <div class="bullet">
+            <h3>Resource availability</h3>
+            <div id="IntegrityResourceChart" />
+          </div>
+          <div class="bullet">
+            <h3>Transparency</h3>
+            <div id="IntegrityTransparencyChart" />
+          </div>
+            </v-card-text>
+          </v-card>
+
+        </v-flex>
+
+
+
+      </v-layout>
     </v-flex>
   </v-layout>
 </template>
 
 <script>
+import { createParticipantGraph } from "@/plugins/vega.evaluation";
 import { slug2id, obj2slug } from "@/plugins/utils";
-import { setTimeout } from 'timers';
-import { API_SERVER } from '@/plugins/resource'
+import { API_SERVER } from '@/plugins/resource';
+import { debounce } from "lodash";
 
 export default {
   metaInfo() {
@@ -153,7 +192,6 @@ export default {
     return {
       obj2slug,
       project: null,
-      graphAreaWidth: undefined,
     };
   },
 
@@ -190,26 +228,22 @@ export default {
     window.addEventListener("resize", this.onResize);
 
     setTimeout(() => {
-      createParticipantGraph(`${API_SERVER}/v1/csv/eval/${this.projectId}`)
-    }, 500);
+      this.createGraph()
+    }, 300);
 
-  },
-
-  updated(){
-    console.log("updated")
-    // createParticipantGraph(`http://localhost:8080/v1/csv/eval/${this.projectId}`)
   },
 
   methods: {
     onResize(event){
-      // console.log(event)
-      // let width = document.querySelector("#target-graph-area").clientWidth
-      // console.log(width)
-      // this.graphAreaWidth = width / 3
-      // createParticipantGraph(`http://localhost:8080/v1/csv/eval/${this.projectId}`)
+      this.createGraph()
     },
 
-user(uid) {
+    createGraph: debounce( function () {
+      let width = document.querySelector("#reference-width").clientWidth
+      createParticipantGraph(`http://localhost:8080/v1/csv/eval/${this.projectId}`, width)
+    }),
+
+    user(uid) {
       return this.$store.getters["user/get"](uid);
     },
 
@@ -222,7 +256,39 @@ user(uid) {
 
 
 <style scoped>
-hr {
+
+.title{
+  font-size: 100% !important;
+  font-weight: bold;
+}
+
+.v-card__text{
+  /* padding: 0px; */
+  /* margin: 20px; */
+}
+
+.vega-embed{
+  padding:0;
+}
+
+.bullet{
+  display: flex;
+  align-items: center
+}
+
+.bullet h3{
+  flex: 1 0 0;
+  flex-basis: 120px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  font-size: 100%;
+  overflow: hidden;
+  padding-bottom: 20px;
+}
+
+
+
+/* hr {
   margin-top: -10px;
   width: 405px;
   float: left;
@@ -275,5 +341,5 @@ h3 {
   grid-column-start: 4;
   grid-column-end: 5;
   grid-row-start: 3;
-}
+} */
 </style>

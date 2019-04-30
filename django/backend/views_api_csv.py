@@ -11,32 +11,24 @@ import pandas as pd
 
 
 def _authenticate_request(request, project=None):
+    print(request.META)
     try:
-        cookies = request.META["HTTP_COOKIE"]
+        header_auth = request.META["HTTP_AUTHORIZATION"]
     except:
         raise Exception("No authentication provided in request")
 
-    cookies = [x.strip() for x in cookies.split(";")]
-    cookies = dict([cookie.split("=") for cookie in cookies])
+    token = header_auth.split(" ")[-1]
+    user = Token.objects.get(pk=token).user
 
-    if "authorization" in cookies:
-        # Get user given the provided token
-        token = cookies["authorization"]
-        user = Token.objects.get(pk=token).user
-
-        if user.is_superuser:
-            # Superuser can view all
-            return True
-        elif project and project.is_participant(user):
-            # If project, only participants
-            return True
-        else:
-            # Otherwise fuck off
-            raise Exception("User can't vie this project's Evaluation")
-
+    if user.is_superuser:
+        # Superuser can view all
+        return True
+    elif project and project.is_participant(user):
+        # If project, only participants
+        return True
     else:
-        # No auth provided
-        raise Exception("No authentication provided in request")
+        # Otherwise fuck off
+        raise Exception("User can't vie this project's Evaluation")
 
 
 def _dataframe_response(df, index=False):

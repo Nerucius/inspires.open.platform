@@ -126,7 +126,7 @@ table th{
                   {{ question.name }}
                 </h3>
 
-                <v-btn disabled flat outline small style="color:#999 !important">
+                <!-- <v-btn disabled flat outline small style="color:#999 !important">
                   {{ role(question.role).name }}
                 </v-btn>
                 <v-btn disabled flat outline small style="color:#999 !important">
@@ -140,7 +140,7 @@ table th{
                 </v-btn>
                 <v-btn disabled flat outline small style="color:#999 !important">
                   {{ question.axis }}
-                </v-btn>
+                </v-btn> -->
 
                 <v-slider
                   v-model="answers[qidx]"

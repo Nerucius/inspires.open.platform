@@ -28,6 +28,17 @@
       "aboutLink": "More about us!",
       "projectsSeeMore": "See all projects"
     },
+    "about":{
+      "mainTitle": "About IsPIRES Open Platform",
+      "titleMission": "Our mission",
+      "missionParagraph1": "InSPIRES has embarked in the adventure of developing an online collaborative and crowdsourced database featuring Science Shops, similar structures and their related projects, as well as offering an integrated impact evaluation tool capable of producing real-time project evaluation report.",
+      "missionParagraph2": "The aims of the InSPIRES online database and impact evaluation are to:",
+      "missionObjective1": "Identify and visualize the size of the Science Shops, and other similar structures, movement and similar structures worldwide.",
+      "missionObjective2": "Register collaborative research and innovation projects, facilitated by these intermediation structures , to show their objectives, knowledge and geographical areas, as well as the main collaborators involved.",
+      "missionObjective3": "Provide to the community an intuitive and customizable impact evaluation tool to capture process and results outcomes in a harmonized manner.",
+      "missionParagraph3": "In the end, we hope that the platform will support the community (structure coordinators and project’s participants around the world) mutual learning by sharing science Shops experiences and other participatory research and innovation projects good but also failed practices, methodologies, etc.",
+      "titleTeam": "The team behind InSPIRES Open Platform"
+    },
     "termsOfService":{
       "mainTitle": "Terms of Service",
       "subTitle": "By accepting the terms of service you understand that:",
@@ -108,6 +119,9 @@
       "viewOnly": "You may only view the responses, not modify them",
       "submitSuccess": "Your response has been recorded correctly!",
       "submitFailure": "There was a problem saving your response. Please try again later."
+    },
+    "footer":{
+      "europeanFundingDisclaimer": "This project has received funding from European Union's Horizon 2020 research and innovation programme under grant agreement No 741677."
     },
     "-": ""
   },

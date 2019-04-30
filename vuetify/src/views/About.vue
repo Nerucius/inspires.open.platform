@@ -4,36 +4,31 @@
       <v-card flat>
         <v-card-text>
           <h1 class="mb-2">
-            About InSPIRES
+            {{ $t('pages.about.mainTitle') }}
           </h1>
 
           <h2 class="mb-2">
-            Our Mission
+            {{ $t('pages.about.titleMission') }}
           </h2>
 
           <v-layout>
             <v-flex md9>
               <p class="subheading">
-                InSPIRES has embarked in the adventure of developing an online collaborative
-                and crowdsourced database featuring Science Shops, similar structures and their
-                related projects, as well as offering an integrated impact evaluation tool
-                capable of producing real-time project evaluation report.
+                {{ $t('pages.about.missionParagraph1') }}
               </p>
-              <p>The aims of the InSPIRES online database and impact evaluation are to:</p>
+              <p>
+                {{ $t('pages.about.missionParagraph2') }}
+              </p>
 
               <ul class="mb-2">
                 <li>
-                  Identify and visualize the size of the Science Shops, and other similar
-                  structures, movement and similar structures worldwide
+                  {{ $t('pages.about.missionObjective1') }}
                 </li>
                 <li>
-                  Register collaborative research and innovation projects, facilitated by
-                  these intermediation structures , to show their objectives, knowledge and
-                  geographical areas, as well as the main collaborators involved.
+                  {{ $t('pages.about.missionObjective2') }}
                 </li>
                 <li>
-                  Provide to the community an intuitive and customizable impact evaluation
-                  tool to capture process and results outcomes in a harmonized manner
+                  {{ $t('pages.about.missionObjective3') }}
                 </li>
               </ul>
             </v-flex>
@@ -43,14 +38,11 @@
           </v-layout>
 
           <p>
-            In the end, we hope that the platform will support the community (structure
-            coordinators and project’s participants around the world) mutual learning by sharing
-            science Shops experiences and other participatory research and innovation projects
-            good but also failed practices, methodologies, etc.
+            {{ $t('pages.about.missionParagraph3') }}
           </p>
 
           <h2 class="mb-2">
-            The team behind InSPIRES
+            {{ $t('pages.about.titleTeam') }}
           </h2>
 
           <p>TODO...</p>

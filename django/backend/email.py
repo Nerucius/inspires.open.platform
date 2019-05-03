@@ -36,7 +36,7 @@ def email_new_structure(structure):
     if not settings.EMAIL_HOST:
         return
 
-    email_from = settings.EMAIL_HOST
+    email_from = settings.EMAIL_FROM
     admins = User.objects.filter(groups__name="Administration").all()
     admin_emails = map(lambda x: x.email, admins)
 
@@ -44,9 +44,14 @@ def email_new_structure(structure):
         {"name": structure.created_by.full_name}
     )
 
-    html_message = render_to_string(
-        "email/new_structure.html", {"structure": structure}
-    )
+    cta_link = settings.FRONTEND_URL
+    cta_link = cta_link + "/administration"
+
+    context = {"structure": structure, "cta_link": cta_link}
+    wawp_link = create_wawp_link("email/new_structure.html", context)
+    context["wawp_link"] = wawp_link
+
+    html_message = render_to_string("email/new_structure.html", context)
     plain_message = strip_tags(html_message)
 
     mail.send_mail(
@@ -68,13 +73,13 @@ def email_new_evaluation(evaluation):
         {"project": evaluation.phase.project}
     )
 
-    eval_link = settings.FRONTEND_URL
-    eval_link = eval_link + "/evaluation/%d/entry" % evaluation.id
+    cta_link = settings.FRONTEND_URL
+    cta_link = cta_link + "/evaluation/%d/entry" % evaluation.id
 
     context = {
         "evaluation": evaluation,
         "user": evaluation.participation.user,
-        "link": eval_link,
+        "cta_link": cta_link,
     }
     wawp_link = create_wawp_link("email/new_evaluation.html", context)
     context["wawp_link"] = wawp_link

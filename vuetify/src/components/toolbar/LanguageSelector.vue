@@ -16,7 +16,7 @@
           <small>{{ lang | uppercase }}</small>
         </v-list-tile-title>
 
-        <flag :iso="flag[lang]" :squared="false" style="width:40px" />
+        <flag :iso="getFlag(lang)" :squared="false" style="width:40px" />
       </v-list-tile>
     </v-list>
   </v-menu>
@@ -32,11 +32,6 @@ export default {
   data() {
     return {
       ListOfLocales,
-      flag: {
-        en: "gb",
-        es: "es",
-        ca: "es-ct"
-      }
     };
   },
 
@@ -47,6 +42,12 @@ export default {
   },
 
   methods: {
+    getFlag(lang){
+      if (lang == "en" ) return "gb"
+      if (lang == "ca" ) return "es-ct"
+      return lang
+    },
+
     selectLanguage(lang) {
       this.$store.dispatch("preferences/set", { lang });
     }

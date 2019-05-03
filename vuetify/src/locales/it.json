@@ -1,0 +1,341 @@
+{
+  "pages": {
+    "login": {
+      "welcomeMessage": "Benvenuti alla piattaforma InSPIRES"
+    },
+    "register": {
+      "titles": {
+        "step1": "Come prima cosa",
+        "step2": "Dicci qualcosa di più su di te",
+        "step3": "Terms of Service",
+        "step4": "La procedura è quasi terminata."
+      },
+      "acceptTOS": "Accettare i termini e condizioni",
+      "welcomeMessage": "Benvenuti alla pagina di registrazione per nla Piattaforma Aperta InSPIRES. Qui puoi creare il tuo Utente per accedere al sito",
+      "welcomeMessage2": "La registrazione ti consente di iniziare a contribuire al sito! Puoi anche registrare organizzazioni di intermediazione e progetti di ricerca associati al tuo nome o alla tua organizzazione",
+      "step1Message": "Si prega di annotare il nome utente e la password preferiti. Questo nome utente è ciò che userai per accedere alla piattaforma.",
+      "step2Message": "Dicci il tuo nome completo e la tua e-mail in modo che possa essere visualizzato vicino ai tuoi progetti ealle  altre attività nella piattaforma. La tua email verrà utilizzata solo per avvisi e notifiche.",
+      "step3Message": "Devi accettare le Condizioni d'uso per registrarti!",
+      "readTOSHere": "Puoi leggere qui i termini di servizio",
+      "step3TOSAcceptance": "Facendo clic sul pulsante 'ACCETTA TERMINI E CONDIZIONI' riconosco di essere stato informato in modo appropriato e di acconsentire al trattamento dei miei dati personali per lo scopo dichiarato.",
+      "step3MessageAccepted": "Grande! possiamo continuare con il resto della registrazione",
+      "step4Message": "per favore riguarda le seguenti informazioni. Se tuttoè corretto, puoi procedere con la registrazione.",
+      "step4MessageInvite": "Durante il priomo periodo di test, abbiamo ristretto la registrazione alle sole persone invitate. Per favore, inserisci il codice fornito qua sotto:"
+    },
+    "home": {
+      "mainTitle": "Benvenuti su InSPIRES",
+      "welcomeMessage": "Benvenuti nel database online di InSPIRES e nello strumento di valutazione dell'impatto. Questa piattaforma presenta progetti di ricerca e innovazione partecipati, promuovendo unità intermedie di conoscenza, come Science Shops.",
+      "aboutLink": "Di più su di noi!",
+      "projectsSeeMore": "Vedi tutti i progetti"
+    },
+    "about": {
+      "mainTitle": "Informazioni sulla Piattaforma Aperta InSPIRES",
+      "titleMission": "La nostra missione",
+      "missionParagraph1": "InSPIRES ha intrapreso l'avventura di sviluppare un database online collaborativo e di croedsourcing sugli sportelli della Scienza,le  strutture simili e relativi progetti, oltre a offrire uno strumento di valutazione dell'impatto integrato in grado di produrre report di valutazione del progetto in tempo reale.",
+      "missionParagraph2": "Gli obiettivi del database online di InSPIRES e della valutazione dell'impatto sono:",
+      "missionObjective1": "Identificare e visualizzare la dimensione degli sportelli della scienza  e di  altre strutture simili, movimenti e strutture simili in tutto il mondo.",
+      "missionObjective2": "Registrare progetti di ricerca e innovazione collaborativi, facilitati da queste strutture di intermediazione, per mostrare i loro obiettivi, le conoscenze e le aree geografiche, nonché i principali collaboratori coinvolti.",
+      "missionObjective3": "Fornire alla comunità uno strumento di valutazione dell'impatto intuitivo e personalizzabile per acquisire risultati di processo e risultati in modo armonizzato.",
+      "missionParagraph3": "Alla fine, speriamo che la piattaforma supporti la comunità (coordinatori della struttura e partecipanti al progetto in tutto il mondo), l'apprendimento reciproco condividendo esperienze di Science shops e altri progetti di ricerca e innovazione partecipativi, ma anche pratiche fallite, metodologie, ecc.",
+      "titleTeam": "Il gruppo di lavoro della Piattaforma Aperta InSPIRES"
+    },
+    "admin": {
+      "mainTitle": "Administration Dashboard",
+      "unauthorizedAccess": "You are not authorized to access the Administration Dashboard. If you believe you should, please contact a platform administrator.",
+      "pendingApproval": "Structures pending approval",
+      "instructionsText": "The following structures need to be validated before they will show up on the site's public lists. Please verify each one for validity of data and authenticity.\n\nVerify also that the person that claims to own the structure is who they claim, and they are allowed to put the information on the site.",
+      "createdBy": "Created by {name}",
+      "validationSuccess": "Structure validated successfully. It will now show up on public lists.",
+      "validationFailure": "Failed to validate the structure. Please contact support."
+    },
+    "termsOfService": {
+      "mainTitle": "Termini di Servizio",
+      "subTitle": "Accettando i termini di servizio capisci che:",
+      "paragraph1": "I tuoi dati personali saranno utilizzati solo da:",
+      "paragraph2": "Fundación Privada Instituto de Salud Global Barcelona (ISGlobal) \nCIF: G65341695\nIndirizzo: Carrer Rosselló, number 132, 2nd, 5th and 7th floors - 08036 Barcelona \ntelefono (+34) 932 271 806 \nEmail: inspires@isglobal.org",
+      "paragraph3": "Raccogliamo ed elaboriamo i tuoi dati personali al solo scopo di rispondere alla tua registrazione al sito web https://app.inspiresproject.com.",
+      "paragraph4": "I tuoi dati saranno utilizzati esclusivamente dal team di ISGlobal di InSPIRES che ne richiede l'accesso per svolgere il proprio lavoro e non saranno, in nessun caso, resi disponibili a terzi o trasferiti a paesi terzi o organizzazioni internazionali.",
+      "paragraph5": "Possiamo elaborare i tuoi dati personali solo con il tuo consenso e saranno conservati solo fino a quando non revochi il consenso.",
+      "paragraph6": "Puoi esercitare tutti i tuoi diritti secondo le attuali norme sulla protezione dei dati, incluso il diritto di accesso, correzione, obiezione, cancellazione, portabilità e restrizione, scrivendo al Responsabile della protezione dei dati (lopd@isglobal.org), allegando una copia di un tuo documento di identità.",
+      "paragraph7": "Hai il diritto di ritirare il tuo consenso in qualsiasi momento. Il ritiro del consenso non pregiudica la liceità del trattamento basato sul consenso prima del suo ritiro. Se non sei d'accordo con il modo in cui ISGlobal gestisce i tuoi dati o ritieni che i tuoi diritti siano stati violati, puoi presentare un reclamo in qualsiasi momento con l'Agenzia spagnola per la protezione dei dati."
+    },
+    "structures": {
+      "title": "Strutture"
+    },
+    "projectDetail": {
+      "about": "Intorno"
+    },
+    "structureDetail": {
+      "about": "Intorno"
+    },
+    "structureManage": {
+      "title": "Gestisci questa struttura",
+      "success": "Struttura salvata con successo",
+      "failure": "Impossibile salvare la struttura",
+      "collaborationFailure": "Impossibile approvare il progetto. Per favore riprova più tardi.",
+      "collaborationAdded": "Il progetto è stato approvato sotto questa struttura.",
+      "structureTab": "Questa Struttura",
+      "projectsTab": "Progetti"
+    },
+    "projectCreate": {
+      "title": "Crea un nuovo progetto",
+      "success": "Nuovo progetto creato con successo.",
+      "failure": "Impossibile creare un nuovo progetto"
+    },
+    "structureCreate": {
+      "title": "Crea una nuova struttura",
+      "success": "Nuova struttura creata con successo",
+      "failure": "Creazione della nuova struttura fallita. Per favore, riprova più tardi"
+    },
+    "projectList": {
+      "noKASpecified": "Nessuna area di conoscenza specificata",
+      "filterByArea": "Nell'aria di {aria}"
+    },
+    "projectManage": {
+      "title": "Gestisci questo progetto",
+      "success": "Struttura salvata con successo",
+      "failure": "Impossibile salvare la struttura. riprova più tardi",
+      "projectTab": "Questo Progetto",
+      "participantsTab": "Partecipanti",
+      "phasesTab": "Fasi del Progetto",
+      "phasesTabDescription": "I progetti possono avere un ciclo di fasi di vita.Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident sapiente ullam perspiciatis, dolorum velit sequi at corrupti obcaecati laborum harum fugit unde porro ipsa pariatur aliquam repellendus placeat eaque culpa!",
+      "hasPhase": "Questo progetto è attualmente in questa fase dal {data}",
+      "hadPhase": "Questo progetto era in questa fase a partire dal {data}.",
+      "notHasPhase": "Questo progetto non è mai stato in questa fase",
+      "evaluationTab": "Valutazione",
+      "collaborationSuccess": "Collaborazione con la struttura richiesta con successo.",
+      "collaborationFailure": "Richiesta di collaborazione fallita",
+      "deleteCollaborationAlert": "Si è sicuri di voler cancellare la collaborazione?",
+      "collaborationDeleted": "La collaborazione con la struttura è stata ritirata.",
+      "participantsTitle": "Partecipanti in questo Progetto",
+      "participantsIntro": "Aggiungi tutte le persone che aiutano a rendere possibile questo progetto qui. Ogni persona può avere un ruolo all'interno del progetto. Il ruolo verrà utilizzato per determinare il ruolo che svolgono nello strumento di valutazione dell'impatto.",
+      "searchUsers": "La collaborazione con la struttura è stata ritirata.",
+      "evaluationTitle": "Valutazione del Progetto",
+      "evaluationIntro": "Qui puoi inviare richieste di valutazione alle persone all'interno del progetto.",
+      "evaluationSuccess": "Valutazione richiesta con successo.",
+      "evaluationFailure": "Impossibile inviare una richiesta di valutazione. Per favore riprova più tardi.",
+      "-": ""
+    },
+    "evaluationEntry": {
+      "mainTitle": "Questionario di valutazione del Progetto",
+      "questionnaire": "Questionario",
+      "questionnaireCompleted": "Questo questionario è già stato completato",
+      "evaluationOverview": "Panoramica sulla valutazione",
+      "evaluatedPhase": "Fase valutata",
+      "evaluator": "Valutatore",
+      "evaluationRole": "Ruolo di valutazione",
+      "questionMultipleHelp": "(scegliere tutte le opzioni pertinenti)",
+      "viewOnly": "Puoi solo visualizzare le risposte, non modificarle",
+      "submitSuccess": "La tua risposta è stata registrata correttamente!",
+      "submitFailure": "Si è verificato un problema durante il salvataggio della risposta. Per favore riprova più tardi."
+    },
+    "footer": {
+      "europeanFundingDisclaimer": "Questo progetto ha ricevuto finanziamenti dal programma di ricerca e innovazione Horizon 2020 dell'Unione Europea nell'ambito della convenzione di finanziamento n. 741677."
+    },
+    "-": ""
+  },
+  "models": {
+    "projectPhase": {
+      "phase": "Fase ",
+      "phase1": "Fase 1: lancio del progetto e aspettative",
+      "phase2": "Fase 2: progresso e autoriflessione",
+      "phase3": "Fase 3: fine dell'output del progetto",
+      "phase4": "Fase 4: sei mesi dopo",
+      "phase1Description": "La fase di avvio ha lo scopo di definire chiaramente le aspettative e riflettere sul valore dell'impegno della comunità per raggiungere gli obiettivi scientifici, affrontando al contempo le richieste della comunità.",
+      "phase2Description": "A questo punto siete nel bel mezzo del progetto e vi viene chiesto di riflettere sulla qualità delle dinamiche partecipative e sul grado di inclusione di più prospettive attraverso l'implementazione del progetto.",
+      "phase3Description": "Ormai il progetto è finito ed è tempo di riflettere sull'allineamento del progetto alle aspettative dei partecipanti, l'integrazione di una prospettiva etica e di genere, la qualità delle dinamiche partecipative e l'accessibilità dei risultati del progetto.",
+      "phase4Description": "Sono passati sei mesi da quando il progetto è terminato e siete invitati a riflettere sui risultati del progetto riguardo le conoscenze scientifiche, sul livello di apprendimento individuale, sull'allineamento delle politiche, e in termini di capacità collettiva, di rispondere alle richieste della comunità.",
+      "phase1Tag": "Lancio",
+      "phase2Tag": "Autoriflessione",
+      "phase3Tag": "Uscita",
+      "phase4Tag": "effetto"
+    },
+    "knowledgeArea": {
+      "logic": "Logica",
+      "mathematics": "Matematica",
+      "astronomyAndAstrophysics": "Astronomia e Astrofisica",
+      "physics": "Fisica",
+      "chemistry": "Chimica",
+      "lifeSciences": "Scienze Naturali",
+      "earthAndSpaceSciences": "Scienze della Terra e dello Spazio",
+      "agriculturalSciences": "Scienze agrarie",
+      "medicalSciences": "Scienze mediche",
+      "technologicalSciences": "Scienze tecnologiche",
+      "anthropology": "Antropologia",
+      "demographics": "Demografia",
+      "economicSciences": "Scienze economiche",
+      "geography": "Geografia",
+      "history": "Storia",
+      "juridicalSciencesAndLaw": "Scienze giuridiche e legge",
+      "linguistics": "Linguistica",
+      "pedagogy": "Pedagogia",
+      "politicalScience": "Scienze politiche",
+      "psychology": "Psicologia",
+      "scienceOfArtsAndLetters": "Scienze artistiche e letterarie",
+      "sociology": "Sociologia",
+      "ethics": "Etica",
+      "philosophy": "Filosofia"
+    },
+    "evaluation": {
+      "axis": {
+        "science": "Scienze",
+        "collective": "Collettività",
+        "individial": "Individualità"
+      },
+      "principle": {
+        "knowledge": "Democrazia della conoscenza",
+        "citizen": "Ricerca guidata dai cittadini",
+        "participation": "Dinamica partecipativa",
+        "transform": "Cambiamento trasformativo",
+        "integrity": "Integrità"
+      }
+    }
+  },
+  "toolbar": {
+    "myAccount": "My Account",
+    "administration": "Administration"
+  },
+  "navigation": {
+    "links": {
+      "home": "Home",
+      "projects": "Progetti",
+      "structures": "Strutture",
+      "about": "Riguardo"
+    }
+  },
+  "actions": {
+    "add": "Aggiungi",
+    "submit": "Invia",
+    "approve": "Approva",
+    "update": "Aggiornamento",
+    "updateResponse": "Risposta dell'aggiornamento",
+    "create": "Crea",
+    "delete": "Cancella",
+    "withdraw": "Ritira",
+    "login": "Accedi",
+    "logout": "Esci",
+    "register": "Registrati",
+    "save": "Salva",
+    "close": "Chiudi",
+    "cancel": "Annulla",
+    "more": "Di più",
+    "moreInformation": "Più infomazioni",
+    "next": "Seguente"
+  },
+  "states": {
+    "enabled": "Abilitato",
+    "disabled": "Disabilitato",
+    "current": "Corrente",
+    "active": "Attivo",
+    "inactive": "Inattivo",
+    "_": "_"
+  },
+  "noums": {
+    "user": "Utente",
+    "project": "Progetto",
+    "projects": "Progetti",
+    "structure": "Struttura",
+    "structures": "Strutture",
+    "evaluation": "Valutazione"
+  },
+  "errors": {
+    "404": {
+      "title": "Oops! Questa pagina non è stata trovata",
+      "text": "La pagina su \"{route}\" non esiste. Sei sicuro di averla digitata correttamente?"
+    }
+  },
+  "forms": {
+    "titles": {
+      "login": "Accedi"
+    },
+    "rules": {
+      "requiredField": "Questo è un campo obbligatorio",
+      "passwordField": "La password immessa non è valida",
+      "passwordMatch": "Le due password non coincidono",
+      "maximunLength": "Deve contenere al massimo {length} caratteri",
+      "minimunLength": "Deve contenere al massimo {length} caratteri",
+      "namedRequiredField": "{name} è un campo obbligatorio",
+      "mustBeStructure": "Per favore inserisci una struttura valida",
+      "mustBeUser": "Per favore inserisci una lista di utenti valida"
+    },
+    "errors": {
+      "invalidCredentials": "Credenziali non valide, per favore verifica il nome utente e la password"
+    },
+    "toasts": {
+      "loggedOut": "Sei stato disconnesso",
+      "saveSuccess": "Salvataggio avvenuto con successo",
+      "saveFailure": "Salvataggio fallito. Prova più tardi!",
+      "projectSaveSuccess": "Dati del progetto aggiornati!",
+      "projectSaveFailure": "\nImpossibile salvare il progetto, riprova più tardi",
+      "structureSaveSuccess": "Dati della struttura aggiornati",
+      "structureSaveFailure": "\nImpossibile salvare la struttura, riprova più tardi",
+      "participantsSuccess": "Persone salvate coinvolte nel progetto",
+      "-": ""
+    },
+    "fields": {
+      "name": "Nome",
+      "firstName": "Nome",
+      "lastName": "Cognome",
+      "email": "Email",
+      "summary": "Riepilogo",
+      "description": "Descrizione",
+      "participants": "Partecipanti",
+      "managers": "Gestori",
+      "projectName": "Nome del progetto",
+      "projectImageURL": "URL dell'immagine del progetto",
+      "projectSummary": "Riepilogo del progetto",
+      "projectAcronym": "Acronimo del progetto",
+      "contactEmail": "email di contatto",
+      "projectAdministrators": "Amministratore del progetto",
+      "contactWebsite": "Sito web esterno",
+      "postalAddress": "Indirizzo postale",
+      "username": "Nome utente",
+      "usernameOrEmail": "Nome utente o email",
+      "password": "Password",
+      "passwordRepeat": "Ripeti la tua password",
+      "title": "Titolo",
+      "role": "Ruolo",
+      "invitationCode": "Codice di invito",
+      "projectPhase": "Fase del progetto",
+      "projectType": "Tipo di progetto",
+      "knowledgeArea": "Area di conoscenza",
+      "knowledgeAreas": "Areee di conoscenza"
+    },
+    "labels": {
+      "searchUsers": "Cerca utenti"
+    },
+    "hints": {
+      "projectImageURL": "URL di un'immagine che desideri venga mostrata nella pagina del tuo progetto.",
+      "contactEmail": "Dove le persone possono raaggiungerti per porre domande sul progetto?",
+      "contactWebsite": "URL di un sito esterno nel quale le persone possono sapere di più sul tuo progetto.",
+      "projectType": "Come è strutturato il team del tuo progetto?",
+      "projectName": "Scegli un nome che caratterizza il tuo progetto. Meno di 50 caratteri suggeriti.",
+      "projectSummary": "Un breve riassunto del tuo progetto e di ciò che comprende. Suggerito di tenerlo sotto i 200 caratteri.",
+      "projectAdministrators": "Aggiungi qui tutte le persone che avranno pieno accesso alla modifica del progetto. Gli amministratori del progetto non possono trasferire la proprietà.",
+      "projectAcronym": "Scegli un acronimo per il progetto",
+      "knowledgeArea": "Area della conoscenza dell'UNESCO che meglio definisce il tuo progetto.",
+      "summary": "Modulo lungo di descrizione del progetto. Nessuna limitazione di caratteri",
+      "description": "Modulo lungo di descrizione del progetto. Nessuna limitazione di caratteri",
+      "password": "La password deve essere almeno di 8 caratteri, non essere una password comune e non contenere il tuo nome utente."
+    }
+  },
+  "dialog": {
+    "confirm": {
+      "participationDeletion": "Sei sicuro di voler rimuovere questa persona dal progetto? \n\nQuesta azione non può essere annullata e perderai tutto il contenuto relativo a questo utente.\n\nPremere OK per confermare."
+    }
+  },
+  "$vuetify": {
+    "dataIterator": {
+      "rowsPerPageText": "Righe per pagina",
+      "rowsPerPageAll": "Tutti",
+      "pageText": "{0}-{1} di {2}",
+      "noResultsText": "Non è stata trovato nessuna registrazione  corrispondente",
+      "nextPage": "Pagina successiva",
+      "prevPage": "Pagina precedente"
+    },
+    "dataTable": {
+      "rowsPerPageText": "righe per pagina"
+    },
+    "noDataText": "Nessun dato disponibile"
+  }
+}

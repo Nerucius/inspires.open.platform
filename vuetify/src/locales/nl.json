@@ -1,0 +1,341 @@
+{
+  "pages": {
+    "login": {
+      "welcomeMessage": "Welkom op het InSPIRES Platform"
+    },
+    "register": {
+      "titles": {
+        "step1": "Laten we beginnen",
+        "step2": "Vertel ons iets over jezelf",
+        "step3": "Servicevoorwaarden",
+        "step4": "Bijna klaar!"
+      },
+      "acceptTOS": "Accepteer de Algemene voorwaarden ",
+      "welcomeMessage": "Welkom op de registratiepagina van het InSPIRES Open Platform. Hier kunt u uw eigen account aanmaken om in te loggen op de website.",
+      "welcomeMessage2": "Registratie stelt u in staat om een ​​bijdrage te leveren aan de website! U kunt ook bemiddelingsorganisaties en onderzoeksprojecten registreren onder uw naam of onder de naam van uw organisatie.",
+      "step1Message": "Noteer uw gewenste gebruikersnaam en wachtwoord. Deze gebruikersnaam gebruikt u om bij het platform in te loggen.",
+      "step2Message": "Vertel ons uw volledige naam en e-mailadres zodat deze kan worden weergegeven bij uw projecten en andere activiteiten op het platform. Uw e-mailadres wordt alleen gebruikt voor waarschuwingen en meldingen.",
+      "step3Message": "Voordat u zich kunt registreren, moet u akkoord gaan met onze servicevoorwaarden voor het platform.",
+      "readTOSHere": "U kunt de servicevoorwaarden hier lezen. ",
+      "step3TOSAcceptance": "Door op de knop 'ALGEMENE VOORWAARDEN ACCEPTEREN' te klikken, bevestig ik dat ik op de juiste wijze ben geïnformeerd en dat ik toestemming geef voor de verwerking van mijn persoonlijke gegevens voor het aangegeven doel.",
+      "step3MessageAccepted": "Geweldig! We kunnen nu doorgaan met de rest van de registratie. ",
+      "step4Message": "Check onderstaande informatie. Als alles correct is, kunt u doorgaan met de registratie.",
+      "step4MessageInvite": "Tijdens de eerste testperiode beperken we de registratie tot degenen die persoonlijk zijn uitgenodigd. Voer de code die u heeft ontvangen hieronder in:"
+    },
+    "home": {
+      "mainTitle": "Welkom bij InSPIRES",
+      "welcomeMessage": "Welkom op de online database- en impactevaluatietool van InSPIRES. Dit platform bevat participatieve onderzoeks- en innovatieprojecten die worden gepromoot door kennisuitwisselingseenheden, zoals Wetenschapswinkels.",
+      "aboutLink": "Meer over ons!",
+      "projectsSeeMore": "Zie alle projecten"
+    },
+    "about": {
+      "mainTitle": "Over InSPIRES Open Platform",
+      "titleMission": "Onze missie",
+      "missionParagraph1": "InSPIRES is begonnen met het ontwikkelen van een online samenwerkings- en crowdsourced-database voor Wetenschapswinkels, soortgelijke structuren en hun gerelateerde projecten. Dit platform biedt tevens een geïntegreerde impactevaluatietool die het mogelijk maakt realtime projectevaluatierapporten te produceren.",
+      "missionParagraph2": "De doelstellingen van de InSPIRES online database en impactevaluatietool zijn:",
+      "missionObjective1": "Identificeren en visualiseren van de omvang van Wetenschapswinkels en andere vergelijkbare structuren en bewegingen wereldwijd.",
+      "missionObjective2": "Registreren van collaboratieve onderzoeks- en innovatieprojecten die door deze bemiddelingsstructuren worden gefaciliteerd. Met als doel om hun doelstellingen, kennis en geografische gebieden, evenals de belangrijkste betrokken partijen zichtbaar te maken. ",
+      "missionObjective3": "Zorgen voor een intuïtieve en aanpasbare impactevaluatietool voor gemeenschappen om proces- en uitkomstresultaten op een geharmoniseerde manier vast te leggen.",
+      "missionParagraph3": "Uiteindelijk hopen we dat het platform de gemeenschap zal ondersteunen (structuur bieden voor coördinators en projectdeelnemers over de hele wereld) en het wederzijds leren zal stimuleren door ervaringen en goede, maar ook minder goede, voorbeelden van Wetenschapswinkels en andere participerende onderzoeks- en innovatieprojecten te delen. ",
+      "titleTeam": "Het team achter InSPIRES Open Platform"
+    },
+    "admin": {
+      "mainTitle": "Administration Dashboard",
+      "unauthorizedAccess": "You are not authorized to access the Administration Dashboard. If you believe you should, please contact a platform administrator.",
+      "pendingApproval": "Structures pending approval",
+      "instructionsText": "The following structures need to be validated before they will show up on the site's public lists. Please verify each one for validity of data and authenticity.\n\nVerify also that the person that claims to own the structure is who they claim, and they are allowed to put the information on the site.",
+      "createdBy": "Created by {name}",
+      "validationSuccess": "Structure validated successfully. It will now show up on public lists.",
+      "validationFailure": "Failed to validate the structure. Please contact support."
+    },
+    "termsOfService": {
+      "mainTitle": "Servicevoorwaarden",
+      "subTitle": "Door de servicevoorwaarden te accepteren, begrijpt u dat:",
+      "paragraph1": "Uw persoonlijke gegevens worden alleen gebruikt door:",
+      "paragraph2": "Fundación Privada Instituto de Salud Global Barcelona (ISGlobal)\nCIF: G65341695\nPostadres: Carrer Rosselló, nummer 132, 2e, 5e en 7e verdieping - 08036 Barcelona\nTelefoonnummer: (+34) 932 271 806\nE-mail: inspires@isglobal.org",
+      "paragraph3": "Wij verzamelen en verwerken uw persoonlijke gegevens uitsluitend met het doel om te reageren op uw registratie op de website https://app.inspiresproject.com.",
+      "paragraph4": "Uw gegevens zullen uitsluitend worden gebruikt door het InSPIRES-team van ISGlobal om ervoor te zorgen dat zij hun werk kunnen uitvoeren. Gegevens zullen in geen geval beschikbaar worden gesteld aan derde partijen of worden overgedragen aan internationale organisaties.",
+      "paragraph5": "We kunnen uw persoonlijke gegevens alleen verwerken met uw toestemming. Gegevens worden bewaard totdat de toestemming wordt ingetrokken. ",
+      "paragraph6": "Al uw rechten vallen onder de huidige gegevensbeschermingsvoorschriften, inclusief het recht op toegang, correctie, bezwaar, verwijdering, overdraagbaarheid en beperking. U kunt zich hiervoor richten tot de functionaris voor gegevensbescherming (lopd@isglobal.org), voeg dan een kopie van uw nationale identiteitsdocument of vergelijkbaar toe. ",
+      "paragraph7": "U hebt het recht om uw toestemming op elk gewenst moment in te trekken. Intrekking van toestemming heeft geen invloed op de rechtmatigheid van de verwerking op basis van uw toestemming vóór intrekking. Als u het niet eens bent met de manier waarop ISGlobal omgaat met uw gegevens of als u van mening bent dat uw rechten zijn geschonden, kunt u op elk moment een klacht indienen bij het Spaanse agentschap voor gegevensbescherming. "
+    },
+    "structures": {
+      "title": "Structures"
+    },
+    "projectDetail": {
+      "about": "Over"
+    },
+    "structureDetail": {
+      "about": "Over"
+    },
+    "structureManage": {
+      "title": "Manage this Structure",
+      "success": "Structure saved successfuly!",
+      "failure": "Failed to save the structure. Try again later.",
+      "collaborationFailure": "Kan het project niet goedkeuren. Probeer het later opnieuw.",
+      "collaborationAdded": "Project has been approved under this structure.",
+      "structureTab": "This Structure",
+      "projectsTab": "Projecten"
+    },
+    "projectCreate": {
+      "title": "Maak een nieuw project",
+      "success": "Nieuw project is met succes aangemaakt.",
+      "failure": "Aanmaken van nieuw project is mislukt. Probeer het later opnieuw."
+    },
+    "structureCreate": {
+      "title": "Create a new Structure",
+      "success": "New structure created successfully.",
+      "failure": "Kan geen nieuwe Science Shop maken. Probeer het later opnieuw."
+    },
+    "projectList": {
+      "noKASpecified": "Geen kennisgebied opgegeven",
+      "filterByArea": "Op het gebied van {area}"
+    },
+    "projectManage": {
+      "title": "Beheer dit project",
+      "success": "Project succesvol opgeslagen.",
+      "failure": "Failed to save the Structure. Try again later.",
+      "projectTab": "Dit project",
+      "participantsTab": "Deelnemers",
+      "phasesTab": "Projectfasen",
+      "phasesTabDescription": "Projects can have a life-cycle of phases. Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident sapiente ullam perspiciatis, dolorum velit sequi at corrupti obcaecati laborum harum fugit unde porro ipsa pariatur aliquam repellendus placeat eaque culpa!",
+      "hasPhase": "Dit project bevindt zich momenteel in deze fase sinds {date}.",
+      "hadPhase": "Dit project was in deze fase vanaf {date}.",
+      "notHasPhase": "Dit project is nog nooit in deze fase geweest.",
+      "evaluationTab": "Evaluatie",
+      "collaborationSuccess": "Collaboration with structure requested successfully.",
+      "collaborationFailure": "Kan samenwerking niet aanvragen.",
+      "deleteCollaborationAlert": "Weet u zeker dat u de samenwerking wilt annuleren?",
+      "collaborationDeleted": "Collaboration with structure has been withdrawn.",
+      "participantsTitle": "Deelnemers in dit project",
+      "participantsIntro": "Voeg hier alle mensen toe die dit project mogelijk maken. Voor elk persoon kunt u een rol binnen het project toevoegen. Deze rollen worden gebruikt in de impactevaluatietool. ",
+      "searchUsers": "Collaboration with structure has been withdrawn.",
+      "evaluationTitle": "Projectevaluatie",
+      "evaluationIntro": "Hier kunt u evaluatieverzoeken versturen naar de mensen in het project.",
+      "evaluationSuccess": "Evaluatie met succes aangevraagd.",
+      "evaluationFailure": "Kan evaluatieverzoek niet verzenden. Probeer het later opnieuw.",
+      "-": ""
+    },
+    "evaluationEntry": {
+      "mainTitle": "Vragenlijst voor projectevaluatie",
+      "questionnaire": "Vragenlijst",
+      "questionnaireCompleted": "Deze vragenlijst is al ingevuld.",
+      "evaluationOverview": "Evaluatieoverzicht",
+      "evaluatedPhase": "Geëvalueerde fase",
+      "evaluator": "Beoordelaar",
+      "evaluationRole": "Evaluation role",
+      "questionMultipleHelp": "(kies wat van toepassing is)",
+      "viewOnly": "Je kan de antwoorden alleen bekijken, niet wijzigen",
+      "submitSuccess": "Your response has been recorded correctly!",
+      "submitFailure": "Er is een probleem opgetreden bij het opslaan van uw reactie. Probeer het later opnieuw."
+    },
+    "footer": {
+      "europeanFundingDisclaimer": "Dit project heeft financiering ontvangen van het onderzoeks- en innovatieprogramma Horizon2020 van de Europese Unie onder subsidieovereenkomst nr. 741677."
+    },
+    "-": ""
+  },
+  "models": {
+    "projectPhase": {
+      "phase": "Fase",
+      "phase1": "Fase 1: Start van het project en verwachtingen",
+      "phase2": "Fase 2: Vooruitgang en zelfreflectie",
+      "phase3": "Fase 3: Einde van project",
+      "phase4": "Fase 4: Zes maanden later",
+      "phase1Description": "De startfase is bedoeld om duidelijke verwachtingen te stellen en te reflecteren op de waarde van het betrekken van de gemeenschap voor het behalen van de wetenschappelijke doelstellingen terwijl er tevens wordt voldaan aan de eisen van de gemeenschap.",
+      "phase2Description": "Op dit moment zit u middenin het project en u wordt gevraagd om te reflecteren op de kwaliteit van de participatieve dynamiek en op de mate waarin verschillende perspectieven in de projectimplementatie worden meegenomen. ",
+      "phase3Description": "Inmiddels is het project voorbij en wordt het tijd om te reflecteren op de afstemming van het project op de verwachtingen van de deelnemers, de integratie van een ethisch en genderperspectief, de kwaliteit van de participatieve dynamiek en de toegankelijkheid van de projectresultaten. \n",
+      "phase4Description": "Zes maanden zijn verstreken sinds het project is afgelopen en u wordt uitgenodigd om te reflecteren op de projectresultaten wat betreft wetenschappelijke kennis, individueel leren, aansluiting bij beleid en de collectieve capaciteit om aan de behoeften van de gemeenschap te voldoen. ",
+      "phase1Tag": "Start",
+      "phase2Tag": "Zelfreflectie",
+      "phase3Tag": "Opbrengst",
+      "phase4Tag": "Effect"
+    },
+    "knowledgeArea": {
+      "logic": "Logica",
+      "mathematics": "Wiskunde",
+      "astronomyAndAstrophysics": "Astronomie en astrofysica",
+      "physics": "Natuurkunde",
+      "chemistry": "Scheikunde",
+      "lifeSciences": "Levenswetenschappen",
+      "earthAndSpaceSciences": "Aarde- en ruimtewetenschappen",
+      "agriculturalSciences": "Landbouwwetenschappen",
+      "medicalSciences": "Medische wetenschappen",
+      "technologicalSciences": "Technologische wetenschappen",
+      "anthropology": "Antropologie",
+      "demographics": "Demografie",
+      "economicSciences": "Economische wetenschappen",
+      "geography": "Geografie",
+      "history": "Geschiedenis",
+      "juridicalSciencesAndLaw": "Juridische wetenschappen en recht",
+      "linguistics": "Taalwetenschap",
+      "pedagogy": "Pedagogie",
+      "politicalScience": "Politicologie",
+      "psychology": "Psychologie",
+      "scienceOfArtsAndLetters": "Wetenschap van kunst en letteren",
+      "sociology": "Sociologie",
+      "ethics": "Ethiek",
+      "philosophy": "Filosofie"
+    },
+    "evaluation": {
+      "axis": {
+        "science": "Wetenschap",
+        "collective": "Collectief",
+        "individial": "Individueel"
+      },
+      "principle": {
+        "knowledge": "Kennisdemocratie",
+        "citizen": "Door de burger geleid onderzoek",
+        "participation": "Participatieve dynamiek",
+        "transform": "Transformatieve verandering",
+        "integrity": "Integriteit"
+      }
+    }
+  },
+  "toolbar": {
+    "myAccount": "My Account",
+    "administration": "Administration"
+  },
+  "navigation": {
+    "links": {
+      "home": "Home",
+      "projects": "Projecten",
+      "structures": "Structures",
+      "about": "Over"
+    }
+  },
+  "actions": {
+    "add": "Toevoegen",
+    "submit": "Indienen",
+    "approve": "Goedkeuren",
+    "update": "Bijwerken",
+    "updateResponse": "Reactie bijwerken",
+    "create": "Maken",
+    "delete": "Verwijderen",
+    "withdraw": "Intrekken",
+    "login": "Inloggen",
+    "logout": "Uitloggen",
+    "register": "Registreren",
+    "save": "Opslaan",
+    "close": "Afsluiten",
+    "cancel": "Annuleren",
+    "more": "Meer",
+    "moreInformation": "Meer informatie",
+    "next": "Volgende"
+  },
+  "states": {
+    "enabled": "Enabled",
+    "disabled": "Disabled",
+    "current": "Huidig",
+    "active": "Actief",
+    "inactive": "Inactief",
+    "_": "_"
+  },
+  "noums": {
+    "user": "Gebruiker",
+    "project": "Project",
+    "projects": "Projecten",
+    "structure": "Structure",
+    "structures": "Structures",
+    "evaluation": "Evaluatie"
+  },
+  "errors": {
+    "404": {
+      "title": "Oeps! Deze pagina is niet gevonden.",
+      "text": "De pagina op '{route}' bestaat niet. Weet u zeker dat u het correct hebt getypt?"
+    }
+  },
+  "forms": {
+    "titles": {
+      "login": "Inloggen"
+    },
+    "rules": {
+      "requiredField": "Dit is een verplicht veld",
+      "passwordField": "Het ingevoerde wachtwoord is onjuist",
+      "passwordMatch": "De twee wachtwoorden komen niet overeen",
+      "maximunLength": "Mag maximaal {length} tekens lang zijn",
+      "minimunLength": "Moet ten minste {length} tekens lang zijn",
+      "namedRequiredField": "{name} is een verplicht veld",
+      "mustBeStructure": "Please enter a valid Structure",
+      "mustBeUser": "Voer een geldige lijst met gebruikers in"
+    },
+    "errors": {
+      "invalidCredentials": "Inloggegevens zijn onjuist. Check uw gebruikersnaam en wachtwoord."
+    },
+    "toasts": {
+      "loggedOut": "U bent uitgelogd",
+      "saveSuccess": "Met succes opgeslagen!",
+      "saveFailure": "Opslaan mislukt. Probeer het later opnieuw",
+      "projectSaveSuccess": "Projectgegevens bijgewerkt!",
+      "projectSaveFailure": "Kan het project niet opslaan. Probeer het later opnieuw",
+      "structureSaveSuccess": "Structure data updated!",
+      "structureSaveFailure": "Failed to save the Structure, please try again later",
+      "participantsSuccess": "Bij het project betrokken mensen opgeslagen",
+      "-": ""
+    },
+    "fields": {
+      "name": "Naam",
+      "firstName": "Voornaam",
+      "lastName": "Achternaam",
+      "email": "Email",
+      "summary": "Samenvatting",
+      "description": "Beschrijving",
+      "participants": "Deelnemers",
+      "managers": "Managers",
+      "projectName": "Projectnaam",
+      "projectImageURL": "Projectafbeelding URL",
+      "projectSummary": "Projectsamenvatting",
+      "projectAcronym": "Projectacroniem",
+      "contactEmail": "Contact E-mail",
+      "projectAdministrators": "Projectbeheerders",
+      "contactWebsite": "Externe website",
+      "postalAddress": "Postadres",
+      "username": "Gebruikersnaam",
+      "usernameOrEmail": "Gebruikersnaam of E-mailadres",
+      "password": "Wachtwoord",
+      "passwordRepeat": "Herhaal uw wachtwoord",
+      "title": "Titel",
+      "role": "Role",
+      "invitationCode": "Uitnodigingscode",
+      "projectPhase": "Projectfase",
+      "projectType": "Projecttype",
+      "knowledgeArea": "Kennisgebied",
+      "knowledgeAreas": "Kennisgebieden"
+    },
+    "labels": {
+      "searchUsers": "Zoek gebruikers"
+    },
+    "hints": {
+      "projectImageURL": "URL naar een afbeelding die u op de pagina van uw project wilt weergeven.",
+      "contactEmail": "Hoe kunnen mensen u bereiken voor vragen over het project?",
+      "contactWebsite": "URL naar een externe website waar mensen meer informatie over uw project kunnen vinden.",
+      "projectType": "Hoe is uw projectteam gestructureerd?",
+      "projectName": "Kies een naam die kenmerkend is voor uw project. Minder dan 50 tekens wordt geadviseerd.",
+      "projectSummary": "Een korte samenvatting van uw project. Minder dan 200 tekens wordt geadviseerd.",
+      "projectAdministrators": "Voeg hier de mensen toe die volledige toegang hebben tot het bewerken van het project. Projectbeheerders kunnen het eigendom niet overdragen.",
+      "projectAcronym": "Kies een projectacroniem",
+      "knowledgeArea": "UNESCO-kennisgebied dat uw project het beste definieert.",
+      "summary": "Uitgebreide projectbeschrijving. Geen tekenlimiet.",
+      "description": "Uitgebreide projectbeschrijving. Geen tekenlimiet.",
+      "password": "Uw wachtwoord moet uit minimaal 8 tekens bestaan, geen veelvoorkomend wachtwoord zijn en uw gebruikersnaam niet bevatten."
+    }
+  },
+  "dialog": {
+    "confirm": {
+      "participationDeletion": "\nWeet u zeker dat u deze persoon uit het project wilt verwijderen?\n\nDeze actie kan niet ongedaan worden gemaakt en u verliest alle inhoud met betrekking tot deze gebruiker.\n\nDruk op OK om te bevestigen."
+    }
+  },
+  "$vuetify": {
+    "dataIterator": {
+      "rowsPerPageText": "Onderdelen per pagina:",
+      "rowsPerPageAll": "All",
+      "pageText": "{0}-{1} van {2}",
+      "noResultsText": "Geen overeenkomende zoekresultaten gevonden",
+      "nextPage": "Volgende pagina",
+      "prevPage": "Vorige pagina"
+    },
+    "dataTable": {
+      "rowsPerPageText": "Regels per pagina:"
+    },
+    "noDataText": "Geen gegevens beschikbaar"
+  }
+}

@@ -1,30 +1,242 @@
 {
   "pages": {
     "login": {
-      "welcomeMessage": "Benvingut a la plataforma InSPIRES"
+      "welcomeMessage": "Benvingut a la Plataforma InSPIRES"
+    },
+    "register": {
+      "titles": {
+        "step1": "Per començar",
+        "step2": "Explican's una mica sobre tu",
+        "step3": "Clausules i condicions",
+        "step4": "Quasi hem acabat!"
+      },
+      "acceptTOS": "Aceptar les clausules i condicions",
+      "welcomeMessage": "Benvingut a la pagina de registre de la Plataforma Oberta InSPIRES. Des d'aqui pots crear el teu usuari per entrar.",
+      "welcomeMessage2": "El fet de registrar-se et permet començar a contribuir a la plataforma. Un cop dins també podrás registrar els teus projectes i estructures d'intermediació al teu nóm.",
+      "step1Message": "Indican's l'usuari i contrasenya que vols fer servir per entrar a la plataforma.",
+      "step2Message": "Indican's el teu nom complet per que pugui ser mostrat en les varies pàgines del projecte. El teu email només serà utilitzat per a tràmits interns.",
+      "step3Message": "Abans de completar el registre, haurás d'acceptar les clausules de servei de la plataforma.",
+      "readTOSHere": "Pots llegir les clausules de servei aqui.",
+      "step3TOSAcceptance": "By clicking the 'ACCEPT TERMS AND CONDITIONS' button I acknowledge that I have been appropriately informed and that I consent to the processing of my personal data for the stated purpose.",
+      "step3MessageAccepted": "Molt be! Podem continuar amb la resta del procés de registre.",
+      "step4Message": "Per favor, revisa la següent informació. Si tot et sembla correcte, podem seguir amb l'ultim pas del registre.",
+      "step4MessageInvite": "During the first period of testing, we are restricting the registration to those personally invited. Please enter the code provided to you below:"
     },
     "home": {
       "mainTitle": "Benvingut a InSPIRES",
-      "aboutTitle": "Que fem?",
-      "aboutLink": "Coneixen's!",
-      "projectsTitle": "Projectes",
+      "welcomeMessage": "Welcome to the InSPIRES online database and impact evaluation tool. This platform features participatory research and innovation projects promoted knowledge intermediary units, such as Science Shops.",
+      "aboutLink": "Sobre nosaltres!",
       "projectsSeeMore": "Veure tots els projectes"
     },
-    "last": {}
+    "about": {
+      "mainTitle": "Sobre la Plataforma Oberta InSPIRES",
+      "titleMission": "La nostra missió",
+      "missionParagraph1": "InSPIRES has embarked in the adventure of developing an online collaborative and crowdsourced database featuring Science Shops, similar structures and their related projects, as well as offering an integrated impact evaluation tool capable of producing real-time project evaluation report.",
+      "missionParagraph2": "The aims of the InSPIRES online database and impact evaluation are to:",
+      "missionObjective1": "Identify and visualize the size of the Science Shops, and other similar structures, movement and similar structures worldwide.",
+      "missionObjective2": "Register collaborative research and innovation projects, facilitated by these intermediation structures , to show their objectives, knowledge and geographical areas, as well as the main collaborators involved.",
+      "missionObjective3": "Provide to the community an intuitive and customizable impact evaluation tool to capture process and results outcomes in a harmonized manner.",
+      "missionParagraph3": "In the end, we hope that the platform will support the community (structure coordinators and project’s participants around the world) mutual learning by sharing science Shops experiences and other participatory research and innovation projects good but also failed practices, methodologies, etc.",
+      "titleTeam": "The team behind InSPIRES Open Platform"
+    },
+    "admin": {
+      "mainTitle": "Administration Dashboard",
+      "unauthorizedAccess": "You are not authorized to access the Administration Dashboard. If you believe you should, please contact a platform administrator.",
+      "pendingApproval": "Structures pending approval",
+      "instructionsText": "The following structures need to be validated before they will show up on the site's public lists. Please verify each one for validity of data and authenticity.\n\nVerify also that the person that claims to own the structure is who they claim, and they are allowed to put the information on the site.",
+      "createdBy": "Created by {name}",
+      "validationSuccess": "Structure validated successfully. It will now show up on public lists.",
+      "validationFailure": "Failed to validate the structure. Please contact support."
+    },
+    "termsOfService": {
+      "mainTitle": "Terms of Service",
+      "subTitle": "By accepting the terms of service you understand that:",
+      "paragraph1": "Your personal data will only be used by:",
+      "paragraph2": "Fundación Privada Instituto de Salud Global Barcelona (ISGlobal) \nCIF: G65341695\nPostal address: Carrer Rosselló, number 132, 2nd, 5th and 7th floors - 08036 Barcelona \nTelephone: (+34) 932 271 806 \nEmail: inspires@isglobal.org",
+      "paragraph3": "We collect and process your personal data for the sole purpose of responding to your registration to the website https://app.inspiresproject.com.",
+      "paragraph4": "Your data will be used solely by the InSPIRES team of ISGlobal who require access to it to carry out their work and it will never, under any circumstances, be made available to third parties or transferred to third countries or international organisations.",
+      "paragraph5": "We can only process your personal data with your consent, and it will be retained only as long as you do not withdraw consent.",
+      "paragraph6": "You can exercise all your rights under current data protection regulations, including the right to access, correction, objection, erasure, portability and restriction, by writing to the Data Protection Officer (lopd@isglobal.org), attaching a copy of your national identity document or equivalent.",
+      "paragraph7": "You have the right to withdraw your consent at any time. Withdrawal of consent does not affect the lawfulness of processing based on consent before its withdrawal. If you do not agree with the manner in which ISGlobal handles your data or you consider that your rights have been infringed, you can file a complaint at any time with the Spanish Data Protection Agency."
+    },
+    "structures": {
+      "title": "Structures"
+    },
+    "projectDetail": {
+      "about": "About"
+    },
+    "structureDetail": {
+      "about": "About"
+    },
+    "structureManage": {
+      "title": "Manage this Structure",
+      "success": "Structure saved successfuly!",
+      "failure": "Failed to save the structure. Try again later.",
+      "collaborationFailure": "Failed to approve the project. Please try again later.",
+      "collaborationAdded": "Project has been approved under this structure.",
+      "structureTab": "This Structure",
+      "projectsTab": "Projects"
+    },
+    "projectCreate": {
+      "title": "Create a new Project",
+      "success": "New project created successfully.",
+      "failure": "Failed to create a new project. Try again later."
+    },
+    "structureCreate": {
+      "title": "Create a new Structure",
+      "success": "New structure created successfully.",
+      "failure": "Failed to create a new structure. Try again later."
+    },
+    "projectList": {
+      "noKASpecified": "No Knowledge Area specified",
+      "filterByArea": "in the area of {area}"
+    },
+    "projectManage": {
+      "title": "Manage this Project",
+      "success": "Structure saved successfuly!",
+      "failure": "Failed to save the Structure. Try again later.",
+      "projectTab": "This Project",
+      "participantsTab": "Participants",
+      "phasesTab": "Project Phases",
+      "phasesTabDescription": "Projects can have a life-cycle of phases. Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident sapiente ullam perspiciatis, dolorum velit sequi at corrupti obcaecati laborum harum fugit unde porro ipsa pariatur aliquam repellendus placeat eaque culpa!",
+      "hasPhase": "This project is currently at this phase since {date}.",
+      "hadPhase": "This project was on this phase starting {date}.",
+      "notHasPhase": "This project has never been on this phase.",
+      "evaluationTab": "Evaluation",
+      "collaborationSuccess": "Collaboration with structure requested successfully.",
+      "collaborationFailure": "Failed to request collaboration.",
+      "deleteCollaborationAlert": "Are you sure you want to cancel the collaboration?",
+      "collaborationDeleted": "Collaboration with structure has been withdrawn.",
+      "participantsTitle": "Participants in this Project",
+      "participantsIntro": "Add all the people helping to make this project possible here. Each person can have a role within the project. The Role will be used in determining what role they play in the impact evaluation tool.",
+      "searchUsers": "Collaboration with structure has been withdrawn.",
+      "evaluationTitle": "Project Evaluation",
+      "evaluationIntro": "Here you can send requests for evaluation to the people inside the project.",
+      "evaluationSuccess": "Evaluation requested successfuly.",
+      "evaluationFailure": "Failed to send evaluation request. Please try again later.",
+      "-": ""
+    },
+    "evaluationEntry": {
+      "mainTitle": "Project Evaluation Questionnaire",
+      "questionnaire": "Questionnaire",
+      "questionnaireCompleted": "This questionnaire has already been completed.",
+      "evaluationOverview": "Evaluation Overview",
+      "evaluatedPhase": "Evaluated phase",
+      "evaluator": "Evaluator",
+      "evaluationRole": "Evaluation role",
+      "questionMultipleHelp": "(choose all that apply)",
+      "viewOnly": "You may only view the responses, not modify them",
+      "submitSuccess": "Your response has been recorded correctly!",
+      "submitFailure": "There was a problem saving your response. Please try again later."
+    },
+    "footer": {
+      "europeanFundingDisclaimer": "This project has received funding from European Union's Horizon 2020 research and innovation programme under grant agreement No 741677."
+    },
+    "-": ""
   },
-  "navigation": {},
+  "models": {
+    "projectPhase": {
+      "phase": "Phase",
+      "phase1": "Phase 1: Project Kick-off and Expectations",
+      "phase2": "Phase 2: Progress and Self-reflection",
+      "phase3": "Phase 3: End of Project Output",
+      "phase4": "Phase 4: Six months later",
+      "phase1Description": "The kick-off phase is meant to clearly set expectations and to reflect on the value of community engagement to reach the scientific objectives while addressing community demands.",
+      "phase2Description": "At this point you are in the middle of the project and you are asked to reflect on the quality of the participatory dynamics and on the degree of inclusion of multiple perspectives througout the project implementation.",
+      "phase3Description": "By now the project is over and it's time to reflect on the project alignment to participants expectations, the incorporation of an ethical and gender perspectives, the quality of the participatory dynamics, and the accessibility of the project results.",
+      "phase4Description": "Six months has passed since the project ended and you are invited to reflect about the project outcome on scientific knowledge, at the level of individual learning, policy alignment, and in terms of the collective capacity to address community demands.",
+      "phase1Tag": "Kick-off",
+      "phase2Tag": "Self-reflection",
+      "phase3Tag": "Output",
+      "phase4Tag": "Effect"
+    },
+    "knowledgeArea": {
+      "logic": "Logic",
+      "mathematics": "Mathematics",
+      "astronomyAndAstrophysics": "Astronomy And Astrophysics",
+      "physics": "Physics",
+      "chemistry": "Chemistry",
+      "lifeSciences": "Life Sciences",
+      "earthAndSpaceSciences": "Earth and Space Sciences",
+      "agriculturalSciences": "Agricultural Sciences",
+      "medicalSciences": "Medical Sciences",
+      "technologicalSciences": "Technological Sciences",
+      "anthropology": "Anthropology",
+      "demographics": "Demographics",
+      "economicSciences": "Economic Sciences",
+      "geography": "Geography",
+      "history": "History",
+      "juridicalSciencesAndLaw": "Juridical Sciences and Law",
+      "linguistics": "Linguistics",
+      "pedagogy": "Pedagogy",
+      "politicalScience": "Political Science",
+      "psychology": "Psychology",
+      "scienceOfArtsAndLetters": "Science of Arts and Letters",
+      "sociology": "Sociology",
+      "ethics": "Ethics",
+      "philosophy": "Philosophy"
+    },
+    "evaluation": {
+      "axis": {
+        "science": "Science",
+        "collective": "Collective",
+        "individial": "Individual"
+      },
+      "principle": {
+        "knowledge": "Knowledge Democracy",
+        "citizen": "Citizen-led Research",
+        "participation": "Participatory Dynamics",
+        "transform": "Transformative Change",
+        "integrity": "Integrity"
+      }
+    }
+  },
+  "toolbar": {
+    "myAccount": "My Account",
+    "administration": "Administration"
+  },
+  "navigation": {
+    "links": {
+      "home": "Home",
+      "projects": "Projects",
+      "structures": "Structures",
+      "about": "About"
+    }
+  },
   "actions": {
     "add": "Add",
+    "submit": "Submit",
+    "approve": "Approve",
+    "update": "Update",
+    "updateResponse": "Update response",
     "create": "Create",
     "delete": "Delete",
-    "login": "Entrar",
-    "logout": "Sortir",
+    "withdraw": "Withdraw",
+    "login": "Login",
+    "logout": "Logout",
+    "register": "Register",
     "save": "Save",
+    "close": "Close",
     "cancel": "Cancel",
-    "more": "Veure més",
-    "calendar": {
-      "editEvent": "Edit event"
-    }
+    "more": "More",
+    "moreInformation": "More Information",
+    "next": "Next"
+  },
+  "states": {
+    "enabled": "Enabled",
+    "disabled": "Disabled",
+    "current": "Current",
+    "active": "Active",
+    "inactive": "Inactive",
+    "_": "_"
+  },
+  "noums": {
+    "user": "User",
+    "project": "Project",
+    "projects": "Projects",
+    "structure": "Structure",
+    "structures": "Structures",
+    "evaluation": "Evaluation"
   },
   "errors": {
     "404": {
@@ -36,19 +248,80 @@
     "titles": {
       "login": "Log In"
     },
+    "rules": {
+      "requiredField": "This is a required field",
+      "passwordField": "The password you entered is not valid",
+      "passwordMatch": "The two passwords do not match",
+      "maximunLength": "Must be at most {length} characters long",
+      "minimunLength": "Must be at least {length} characters long",
+      "namedRequiredField": "{name} is a required field",
+      "mustBeStructure": "Please enter a valid Structure",
+      "mustBeUser": "Please enter a valid list of Users"
+    },
     "errors": {
       "invalidCredentials": "Invalid credentials, please verify your username and password."
     },
-    "rules": {
-      "requiredField": "This is a required field",
-      "namedRequiredField": "{name} is a required field"
+    "toasts": {
+      "loggedOut": "You have been logged out",
+      "saveSuccess": "Saved successfully!",
+      "saveFailure": "Failed to save, try again later",
+      "projectSaveSuccess": "Project data updated!",
+      "projectSaveFailure": "Failed to save the Project, please try again later",
+      "structureSaveSuccess": "Structure data updated!",
+      "structureSaveFailure": "Failed to save the Structure, please try again later",
+      "participantsSuccess": "Saved people involved in the project",
+      "-": ""
     },
     "fields": {
       "name": "Name",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "summary": "Summary",
+      "description": "Description",
+      "participants": "Participants",
+      "managers": "Managers",
+      "projectName": "Project Name",
+      "projectImageURL": "Project Image URL",
+      "projectSummary": "Project Summary",
+      "projectAcronym": "Project Acronym",
+      "contactEmail": "Contact Email",
+      "projectAdministrators": "Project Administrators",
+      "contactWebsite": "External Website",
+      "postalAddress": "Postal Address",
       "username": "Username",
+      "usernameOrEmail": "Username or Email",
       "password": "Password",
+      "passwordRepeat": "Repeat your password",
       "title": "Title",
-      "author": "Author"
+      "role": "Role",
+      "invitationCode": "Invitation Code",
+      "projectPhase": "Project Phase",
+      "projectType": "Project Type",
+      "knowledgeArea": "Knowledge Area",
+      "knowledgeAreas": "Knowledge Areas"
+    },
+    "labels": {
+      "searchUsers": "Search Users"
+    },
+    "hints": {
+      "projectImageURL": "URL to an image that you want shown on your project's page.",
+      "contactEmail": "Where should people reach you with questions about the project?",
+      "contactWebsite": "URL to an external site where people can see more about your project.",
+      "projectType": "How is your project team structured?",
+      "projectName": "Choose a name that characterizes your project. Less than 50 characters suggested.",
+      "projectSummary": "A short summary of your project and what it encompasses. Suggested to keep it under 200 characters.",
+      "projectAdministrators": "Add here all the people who will have full access to editing the project. Project Administrators can't transwer ownership.",
+      "projectAcronym": "Choose a Project Acronym",
+      "knowledgeArea": "UNESCO Knowledge Area that best defines your project.",
+      "summary": "Long-form project description. No character limit.",
+      "description": "Long-form project description. No character limit.",
+      "password": "Your password must be at least 8 characters, not be a common password and not contain your username."
+    }
+  },
+  "dialog": {
+    "confirm": {
+      "participationDeletion": "Are you sure you want to remove this person from the project?\n\nThis action can't be undone and you will lose all content related to this user.\n\nPress OK to confirm."
     }
   },
   "$vuetify": {

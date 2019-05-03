@@ -202,8 +202,10 @@ class Response(TrackableModel):
 
 
 @receiver(models.signals.post_save)
-def email_new_structure(sender, instance, raw, created, using, update_fields, **kwargs):
-    # Invalidate evaluation cache
+def invalidate_cache(sender, instance, raw, created, using, update_fields, **kwargs):
+    """ This receiver listes for any updated questionaire responses, and performs a
+        cache invalidation of the entire CSV endpoint for evaluations. """
+
     if isinstance(instance, Response):
         from django.core.cache import cache
 

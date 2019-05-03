@@ -36,7 +36,7 @@ def email_new_structure(structure):
     if not settings.EMAIL_HOST:
         return
 
-    email_from = settings.EMAL_FROM
+    email_from = settings.EMAIL_HOST
     admins = User.objects.filter(groups__name="Administration").all()
     admin_emails = map(lambda x: x.email, admins)
 
@@ -64,7 +64,7 @@ def email_new_evaluation(evaluation):
     if not email_to:
         return
 
-    subject = :_("Evaluation questionnaire ready for %(project)s") % (
+    subject = _("Evaluation questionnaire ready for %(project)s") % (
         {"project": evaluation.phase.project}
     )
 

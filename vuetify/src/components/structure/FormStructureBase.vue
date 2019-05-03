@@ -243,7 +243,6 @@ export default {
 
     attemptSubmit: async function() {
       if (!this.$refs.form.validate()) {
-        console.error("Form failed to validate")
         return
       }
 
@@ -254,6 +253,8 @@ export default {
       // In the case of no id, send event to parent to create structure
       if(!structure.id){
         this.$emit("create", structure)
+        // re-enable button after 2 seconds
+        setTimeout(()=>{ this.processing = false }, 2000)
         return
       }
 
@@ -270,8 +271,11 @@ export default {
           this.editedStructure = this.loadStructure()
         }
 
-      } catch(err){
-        this.$store.dispatch("toast/error", this.$t('forms.toasts.saveFailure'))
+      } catch(error){
+        this.$store.dispatch("toast/error", {
+          message: this.$t('forms.toasts.saveFailure'),
+          error
+        })
       }
 
       this.processing = false

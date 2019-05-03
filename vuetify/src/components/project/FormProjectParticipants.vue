@@ -147,9 +147,11 @@ export default {
           await this.$store.dispatch("project/load",[this.project.id])
           this.loadParticipants()
 
-        }catch(err){
-          console.error(err)
-          this.$store.dispatch("toast/error", this.$t('forms.toasts.saveFailure'))
+        }catch(error){
+          this.$store.dispatch("toast/error", {
+            message:this.$t('forms.toasts.saveFailure'),
+            error
+          })
         }
 
       }

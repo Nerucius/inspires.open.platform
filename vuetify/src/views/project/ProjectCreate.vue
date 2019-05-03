@@ -45,9 +45,11 @@ export default {
         let slug = obj2slug(project)
         this.$router.push({name:"project-manage", params:{slug}})
 
-      } catch(err){
-        console.error(err)
-        this.$store.dispatch("toast/error", this.$t('pages.projectCreate.failure'))
+      } catch(error){
+        this.$store.dispatch("toast/error", {
+          mesage:this.$t('pages.projectCreate.failure'),
+          error
+        })
       }
 
     }

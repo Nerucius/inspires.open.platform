@@ -315,8 +315,11 @@ export default {
         await this.$store.dispatch("evaluation/load", [this.evaluationId])
         this.$store.dispatch("toast/success", this.$t("pages.evaluationEntry.submitSuccess"))
 
-      }catch(err){
-        this.$store.dispatch("toast/error", this.$t("pages.evaluationEntry.submitFailure"))
+      }catch(error){
+        this.$store.dispatch("toast/error", {
+          message: this.$t("pages.evaluationEntry.submitFailure"),
+          error
+        })
       }
 
     }

@@ -214,7 +214,6 @@ export default {
 
     attemptSubmit: async function() {
       if (!this.$refs.form.validate()) {
-        console.error("Form failed to validate")
         return
       }
 
@@ -225,6 +224,8 @@ export default {
       // In the case of no id, send event to parent to create project
       if(!project.id){
         this.$emit("create", project)
+        // re-enable button after 2 seconds
+        setTimeout(()=>{ this.processing = false }, 2000)
         return
       }
 
@@ -237,9 +238,11 @@ export default {
           this.editedProject = this.loadProject()
         }
 
-      } catch(err){
+      } catch(error){
         // Failed to save
-        this.$store.dispatch("toast/error", this.$t('forms.toasts.projectSaveFailure'))
+        this.$store.dispatch("toast/error", {
+          message:this.$t('forms.toasts.projectSaveFailure'), error
+        })
       }
 
       this.processing = false

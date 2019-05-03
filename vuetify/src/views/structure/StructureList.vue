@@ -47,6 +47,7 @@ export default {
   },
 
   mounted(){
+    this.$store.dispatch("structure/clear")
     this.$store.dispatch("structure/load")
   }
 };

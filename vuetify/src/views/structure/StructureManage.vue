@@ -186,9 +186,11 @@ export default {
         await this.$store.dispatch("structure/load", [this.structureId])
         this.$store.dispatch("toast/success", this.$t("pages.structureManage.collaborationAdded"))
 
-      }catch(err){
-        console.error(err)
-        this.$store.dispatch("toast/error", this.$t("pages.structureManage.collaborationFailure"))
+      }catch(error){
+        this.$store.dispatch("toast/error", {
+          message: this.$t("pages.structureManage.collaborationFailure"),
+          error
+        })
       }
     },
 
@@ -198,9 +200,11 @@ export default {
         await this.$store.dispatch("structure/load", [this.structureId])
         this.$store.dispatch("toast/info", this.$t("pages.structureManage.collaborationRemoved"))
 
-      }catch(err){
-        console.error(err)
-        this.$store.dispatch("toast/error", this.$t("pages.structureManage.collaborationFailure"))
+      }catch(error){
+        this.$store.dispatch("toast/error", {
+          message: this.$t("pages.structureManage.collaborationFailure"),
+          error
+        })
       }
     },
 

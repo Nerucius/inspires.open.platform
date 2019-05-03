@@ -51,7 +51,7 @@ export default {
     }
   },
 
-  mounted: async function(){
+  async created(){
     await this.$store.dispatch("knowledgearea/load")
 
     if (this.filterKnowledgeArea){

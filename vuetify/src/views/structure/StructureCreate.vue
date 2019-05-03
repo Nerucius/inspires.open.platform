@@ -42,9 +42,11 @@ export default {
         this.$store.dispatch("toast/success", this.$t('pages.structureCreate.success'))
 
       } catch(err){
-        // Failed to create ???
         console.log(err)
-        this.$store.dispatch("toast/error", this.$t('pages.structureCreate.failure'))
+        this.$store.dispatch("toast/error", {
+          message:this.$t('pages.structureCreate.failure'),
+          error: err
+        })
       }
     }
   }

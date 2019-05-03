@@ -36,17 +36,20 @@
               {{ currentUser.first_name }} {{ currentUser.last_name }} <br>
               <small>{{ currentUser.email }}</small>
             </v-flex>
-            <v-flex shrink class="py-1">
+
+            <!-- Disabled account info toggle -->
+            <!-- <v-flex shrink class="py-1">
               <v-icon dark @click="toggleAccountMenu()">
                 {{ showAccountMenu ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}
               </v-icon>
-            </v-flex>
+            </v-flex> -->
+
           </v-layout>
         </v-flex>
       </v-flex>
 
-      <!-- Account Menu -->
-      <v-flex v-if="showAccountMenu" shrink>
+      <!-- Account Menu DISABLED -->
+      <!-- <v-flex v-if="showAccountMenu" shrink>
         <v-list>
           <v-list-tile :to="{name:'account'}" exact>
             <v-list-tile-action>
@@ -57,19 +60,68 @@
             </v-list-tile-content>
           </v-list-tile>
         </v-list>
-      </v-flex>
+      </v-flex> -->
 
       <!-- User Menu -->
       <v-flex v-if="!showAccountMenu" shrink>
-        <v-list>
-          <v-list-tile :to="{name:'account'}" exact>
-            <v-list-tile-action>
-              <v-icon>dashboard</v-icon>
-            </v-list-tile-action>
-            <v-list-tile-content>
-              <v-list-tile-title>{{ $t("navigation.dashboard") }}</v-list-tile-title>
-            </v-list-tile-content>
-          </v-list-tile>
+
+          <v-expansion-panel class="elevation-0" focusable>
+            <v-expansion-panel-content>
+
+              <!-- Trigger Slot -->
+              <template v-slot:header>
+                  <v-layout py-2 align-center="">
+                    <v-flex pr-3 shrink>
+                      <v-icon size="28" style="flex-shrink:1">person</v-icon>
+                    </v-flex>
+                    <v-flex class="subheading">
+                      {{ $t("toolbar.myProjects") }}
+                    </v-flex>
+                  </v-layout>
+              </template>
+
+              <v-list>
+                <v-list-tile to="/projects/1">
+                  <v-list-tile-title>Project Alpha</v-list-tile-title>
+                </v-list-tile>
+                <v-list-tile to="/projects/2">
+                  <v-list-tile-title>Project Beta</v-list-tile-title>
+                </v-list-tile>
+              </v-list>
+
+            </v-expansion-panel-content>
+          </v-expansion-panel>
+
+          <v-divider />
+
+          <v-expansion-panel class="elevation-0" focusable>
+            <v-expansion-panel-content>
+
+              <!-- Trigger Slot -->
+              <template v-slot:header>
+                  <v-layout py-2 align-center="">
+                    <v-flex pr-3 shrink>
+                      <v-icon size="28" style="flex-shrink:1">person</v-icon>
+                    </v-flex>
+                    <v-flex class="subheading">
+                      {{ $t("toolbar.myStructures") }}
+                    </v-flex>
+                  </v-layout>
+              </template>
+
+              <v-list>
+                <v-list-tile>
+                  <v-list-tile-title>Project Alpha</v-list-tile-title>
+                </v-list-tile>
+                <v-list-tile>
+                  <v-list-tile-title>Project Beta</v-list-tile-title>
+                </v-list-tile>
+              </v-list>
+
+            </v-expansion-panel-content>
+          </v-expansion-panel>
+
+          <v-divider />
 
           <!--
           <v-list-tile :to="{name:'account-projects'}" exact>
@@ -93,10 +145,9 @@
             <v-list-tile-title>{{ $t("navigation.commissioners") }}</v-list-tile-title>
           </v-list-tile>
           -->
-        </v-list>
+
       </v-flex>
 
-      <v-divider />
 
       <v-spacer />
 

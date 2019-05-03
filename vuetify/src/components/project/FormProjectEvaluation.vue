@@ -166,8 +166,10 @@ export default {
         this.$store.dispatch("toast/success", this.$t('pages.projectManage.evaluationCreateSuccess'))
 
       }catch(err){
-        console.error(err)
-        this.$store.dispatch("toast/error", this.$t('pages.projectManage.evaluationCreateFailure'))
+        console.error(error)
+        this.$store.dispatch("toast/error", {
+          message: this.$t('pages.projectManage.evaluationCreateFailure') , error
+        })
       }
     },
 

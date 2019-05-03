@@ -338,8 +338,11 @@ export default {
         })
         this.$router.push({ name: 'account', query: { newUser: true } })
 
-      } catch(err){
-        this.$store.dispatch("toast/error", "Failed to create account. Please try again later.")
+      } catch(error){
+        this.$store.dispatch("toast/error", {
+          message: this.$t("pages.register.registrationFailure"),
+          error
+        })
         this.failedRegistration = true
       }
     },

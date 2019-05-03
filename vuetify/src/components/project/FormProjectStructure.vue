@@ -119,8 +119,11 @@ export default {
           this.collaboration.structure = this.$store.getters["structure/get"](result.structure)
           this.$store.dispatch("toast/success", this.$t('pages.projectManage.collaborationSuccess'))
 
-        } catch(err){
-          this.$store.dispatch("toast/error", this.$t('pages.projectManage.collaborationFailure'))
+        } catch(error){
+          this.$store.dispatch("toast/error", {
+            message: this.$t('pages.projectManage.collaborationFailure'),
+            error
+          })
         }
         this.processing = false
       }

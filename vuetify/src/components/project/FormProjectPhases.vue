@@ -153,8 +153,11 @@ export default {
             await this.$store.dispatch("project/load", [this.project.id])
             this.$store.dispatch("toast/success", this.$t('forms.toasts.projectSaveSuccess'))
 
-          }catch(err){
-            this.$store.dispatch("toast/error", this.$t('forms.toasts.projectSaveFailure'))
+          }catch(error){
+            this.$store.dispatch("toast/error", {
+              message: this.$t('forms.toasts.projectSaveFailure'),
+              error
+            })
           }
         });
 

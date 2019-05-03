@@ -17,6 +17,20 @@ export default {
   state: {
     items: {},
     itemsDetail: {},
+
+    projectTypes: [
+      {value:"RESEARCH",                        name: "models.project.types.research"},
+      {value:"PARTICIPATORY_RESEARCH",          name: "models.project.types.participatoryResearch"},
+      {value:"PARTICIPATORY_ACTION_RESEARCH",   name: "models.project.types.participatoryActionResearch"},
+      {value:"CITIZEN_SCIENCE",                 name: "models.project.types.citizenScience"},
+      {value:"PUBLIC_ENGAGEMENT",               name: "models.project.types.publicEngagement"},
+      {value:"SERVICE_LEARNING",                name: "models.project.types.serviceLearning"},
+      {value:"ADVOCACY",                        name: "models.project.types.advocacy"},
+      {value:"INNOVATION",                      name: "models.project.types.innovation"},
+      {value:"POLICY_INNOVATION",               name: "models.project.types.policyInnovation"},
+      {value:"OTHER",                           name: "models.project.types.other"},
+    ],
+
   },
 
   mutations: {
@@ -107,5 +121,7 @@ export default {
     detail: state =>{
       return ( id ) => state.itemsDetail[id] || {}
     },
+
+    types: state => state.projectTypes,
   }
 };

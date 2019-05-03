@@ -64,7 +64,7 @@ def email_new_evaluation(evaluation):
     if not email_to:
         return
 
-    subject = "Evaluation questionnaire ready for %(project)s" % (
+    subject = :_("Evaluation questionnaire ready for %(project)s") % (
         {"project": evaluation.phase.project}
     )
 

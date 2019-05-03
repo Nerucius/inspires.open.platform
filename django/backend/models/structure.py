@@ -13,14 +13,14 @@ class Structure(TrackableModel):
         related_query_name="managed_structure",
     )
 
-    validation = models.OneToOneField(
-        "StructureValidation",
-        related_name="structure",
-        related_query_name="structure",
-        on_delete=models.SET_NULL,
-        blank=True,
-        null=True,
-    )
+    # validation = models.OneToOneField(
+    #     "StructureValidation",
+    #     related_name="structure",
+    #     related_query_name="structure",
+    #     on_delete=models.SET_NULL,
+    #     blank=True,
+    #     null=True,
+    # )
 
     name = models.CharField(max_length=254)
     summary = models.TextField()
@@ -68,7 +68,10 @@ def email_new_structure(sender, instance, raw, created, using, update_fields, **
 
 
 class StructureValidation(TrackableModel):
-    is_approved = models.BooleanField(default=False)
+    is_approved = models.BooleanField(default=True)
+    structure = models.OneToOneField(
+        Structure, on_delete=models.CASCADE, related_name="validation", null=True
+    )
 
     def __str__(self):
         if hasattr(self, "structure"):

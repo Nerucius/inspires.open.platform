@@ -10,6 +10,7 @@ router.register("user", views.CurrentUserVS, base_name="users/current")
 # CRUD Views
 router.register("users", views.UsersVS)
 router.register("groups", views.GroupsVS)
+router.register("structures/validations", views.StructureValidationsVS)
 router.register("structures", views.StructuresVS)
 router.register("projects", views.ProjectsVS)
 router.register("keywords", views.KeywordsVS)

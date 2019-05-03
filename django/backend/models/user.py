@@ -45,6 +45,10 @@ class User(TrackableModel, AbstractUser):
     gender = models.CharField(max_length=256, blank=True, choices=GENDER_CHOICES)
 
     @property
+    def is_administrator(self):
+        return self.groups.filter(name="Administration").exists()
+
+    @property
     def full_name(self):
         return "%s %s" % (self.first_name, self.last_name)
 

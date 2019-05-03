@@ -121,12 +121,21 @@ class SimpleStructureSerializer(serializers.ModelSerializer):
         model = models.Structure
         fields = [
             "id",
+            "created_by",
             "name",
             "summary",
             "image_url",
             "year_founded",
             "knowledge_areas",
         ]
+
+
+class StructureValidationSerializer(serializers.ModelSerializer):
+    is_approved = serializers.BooleanField(read_only=True)
+
+    class Meta:
+        model = models.StructureValidation
+        fields = ["id", "structure", "created_by", "is_approved"]
 
 
 class SimpleProjectSerializer(serializers.ModelSerializer):

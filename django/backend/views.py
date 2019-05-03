@@ -235,10 +235,21 @@ class StructuresVS(ListDetail, Orderable, viewsets.ModelViewSet):
 
     def get_queryset(self):
         """ Filter out non-approved projects from main listing. """
+        nonvalid = self.request.GET.get("nonvalidated", False)
+        if nonvalid and self.request.user.is_administrator:
+            return super(StructuresVS, self).get_queryset().filter(validation=None)
+
         queryset = super(StructuresVS, self).get_queryset()
         if self.action == "list":
             queryset = queryset.filter(validation__is_approved=True)
         return queryset
+
+
+class StructureValidationsVS(viewsets.ModelViewSet):
+    queryset = models.StructureValidation.objects.all()
+    serializer_class = serializers.StructureValidationSerializer
+
+    filterset_fields = ["structure"]
 
 
 class CollaborationsVS(viewsets.ModelViewSet):

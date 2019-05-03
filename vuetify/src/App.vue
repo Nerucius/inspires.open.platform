@@ -1,8 +1,5 @@
 <style>
   /* Global Styles */
-  /* Link text underline for list links */
-  .container .v-list a{ text-decoration: none; }
-  .container .v-list a:hover{ text-decoration: underline; }
 
     /* html{overflow-y:auto} */
   ::-webkit-scrollbar {

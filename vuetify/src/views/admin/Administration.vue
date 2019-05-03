@@ -1,3 +1,9 @@
+<style scoped>
+  .container .v-list a{ text-decoration: none; }
+  .container .v-list a:hover{ text-decoration: underline; }
+</style>
+
+
 <template>
   <v-layout v-if="authorized" row wrap align-content-start>
 

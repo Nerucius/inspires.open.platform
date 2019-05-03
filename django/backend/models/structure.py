@@ -22,7 +22,7 @@ class Structure(TrackableModel):
     #     null=True,
     # )
 
-    name = models.CharField(max_length=254)
+    name = models.CharField(max_length=254, unique=True)
     summary = models.TextField()
     year_founded = models.PositiveIntegerField(blank=True, null=True)
     country_code = models.CharField(max_length=16, blank=True)

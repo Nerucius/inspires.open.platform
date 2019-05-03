@@ -1,5 +1,7 @@
 #!/bin/sh
 
+alias python="python3"
+
 echo "Running migrations..."
 # Perform database migrations
 # python manage.py makemigrations

@@ -1,5 +1,5 @@
 import Vue from "../plugins/resource";
-import { StructureResource } from "../plugins/resource";
+import { StructureResource, StructureValidationResource } from "../plugins/resource";
 import { cloneDeep } from "lodash";
 import { obj2slug } from "@/plugins/utils";
 
@@ -93,6 +93,11 @@ export default {
       context.dispatch("DELETE", id)
       return result
     },
+
+    validate: async function(context, id){
+      let result = ( await StructureValidationResource.save({structure:id}) )
+      return result
+    }
   },
 
   getters: {

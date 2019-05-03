@@ -29,6 +29,7 @@ export const ProjectAtPhaseResource       = Vue.resource(API_SERVER + "/v1/proje
 export const KnowledgeAreaResource        = Vue.resource(API_SERVER + "/v1/knowledgeareas{/id}/", {}, PATCH);
 export const ParticipationResource        = Vue.resource(API_SERVER + "/v1/participations{/id}/", {}, PATCH);
 export const StructureResource            = Vue.resource(API_SERVER + "/v1/structures{/id}/", {}, PATCH);
+export const StructureValidationResource  = Vue.resource(API_SERVER + "/v1/structures/validations{/id}/", {}, PATCH);
 export const CollaborationResource        = Vue.resource(API_SERVER + "/v1/collaborations{/id}/", {}, PATCH);
 
 export const ProjectEvaluationsResource   = Vue.resource(API_SERVER + "/v1/eval/project{/id}/", {}, PATCH);

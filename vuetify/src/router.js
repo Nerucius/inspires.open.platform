@@ -35,77 +35,77 @@ const router = new Router({
             component: Home,
         },
         {
-            path: "/about",
+            path: "/about-us",
             name: "about",
             component: () => import( /* webpackChunkName: "about" */ "./views/About.vue")
         },
         {
-            path: "/about/terms-of-service",
+            path: "/about-us/terms-of-service",
             name: "terms-of-service",
-            component: () => import( /* webpackChunkName: "about" */ "./views/TermsOfService.vue")
+            component: () => import( /* webpackChunkName: "terms-of-service" */ "./views/TermsOfService.vue")
         },
         // ======= STRUCTURES =======
         {
             path: "/structures",
             name: "structure-list",
-            component: () => import( /* webpackChunkName: "structure" */ "./views/structure/StructureList.vue")
+            component: () => import( /* webpackChunkName: "structure-list" */ "./views/structure/StructureList.vue")
         },
         {
             path: "/structures/create",
             name: "structure-create",
-            component: () => import( /* webpackChunkName: "structure" */ "./views/structure/StructureCreate.vue"),
+            component: () => import( /* webpackChunkName: "structure-create" */ "./views/structure/StructureCreate.vue"),
             meta: {requiresAuth: true}
         },
         {
             path: "/structures/:slug/manage",
             name: "structure-manage",
-            component: () => import( /* webpackChunkName: "structure" */ "./views/structure/StructureManage.vue"),
+            component: () => import( /* webpackChunkName: "structure-manage" */ "./views/structure/StructureManage.vue"),
             meta: {requiresAuth: true}
         },
         {
             path: "/structures/:slug",
             name: "structure-detail",
-            component: () => import( /* webpackChunkName: "structure" */ "./views/structure/StructureDetail.vue")
+            component: () => import( /* webpackChunkName: "structure-detail" */ "./views/structure/StructureDetail.vue")
         },
         // ======= PROJECTS =======
         {
             path: "/projects",
             name: "project-list",
-            component: () => import( /* webpackChunkName: "project" */ "./views/project/ProjectList.vue")
+            component: () => import( /* webpackChunkName: "project-list" */ "./views/project/ProjectList.vue")
         },
         {
             path: "/projects/areas/:area",
             name: "project-list-byarea",
-            component: () => import( /* webpackChunkName: "project" */ "./views/project/ProjectList.vue")
+            component: () => import( /* webpackChunkName: "project-list" */ "./views/project/ProjectList.vue")
         },
         {
             path: "/projects/create",
             name: "project-create",
-            component: () => import( /* webpackChunkName: "project" */ "./views/project/ProjectCreate.vue"),
+            component: () => import( /* webpackChunkName: "project-create" */ "./views/project/ProjectCreate.vue"),
             meta: {requiresAuth: true}
         },
         {
             path: "/projects/:slug/manage",
             name: "project-manage",
-            component: () => import( /* webpackChunkName: "project" */ "./views/project/ProjectManage.vue"),
+            component: () => import( /* webpackChunkName: "project-manage" */ "./views/project/ProjectManage.vue"),
             meta: {requiresAuth: true}
         },
         {
             path: "/projects/:slug",
             name: "project-detail",
-            component: () => import( /* webpackChunkName: "project" */ "./views/project/ProjectDetail.vue")
+            component: () => import( /* webpackChunkName: "project-detail" */ "./views/project/ProjectDetail.vue")
         },
         // ======= Evaluation =======
         {
             path: "/evaluation/:slug/entry",
             name: "evaluation-entry",
-            component: () => import( /* webpackChunkName: "evaluation" */ "./views/evaluation/EvaluationEntry.vue"),
+            component: () => import( /* webpackChunkName: "evaluation-entry" */ "./views/evaluation/EvaluationEntry.vue"),
             meta: {requiresAuth: true}
         },
         {
             path: "/projects/:slug/evaluation",
             name: "evaluation-detail",
-            component: () => import( /* webpackChunkName: "evaluation" */ "./views/evaluation/EvaluationDetail.vue"),
+            component: () => import( /* webpackChunkName: "evaluation-detail" */ "./views/evaluation/EvaluationDetail.vue"),
             meta: {requiresAuth: true}
         },
         // ======= ACCOUNT =======
@@ -113,6 +113,13 @@ const router = new Router({
             path: "/account/:slug?",
             name: "account",
             component: () => import( /* webpackChunkName: "account" */ "./views/account/Account.vue")
+        },
+        // ======= ACCOUNT =======
+        {
+            path: "/administration/",
+            name: "administration",
+            component: () => import( /* webpackChunkName: "administration" */ "./views/admin/Administration.vue"),
+            meta: {requiresAuth: true}
         },
         // ======= Catch-ALL Error =======
         {

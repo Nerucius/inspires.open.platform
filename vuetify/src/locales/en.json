@@ -39,6 +39,15 @@
       "missionParagraph3": "In the end, we hope that the platform will support the community (structure coordinators and project’s participants around the world) mutual learning by sharing science Shops experiences and other participatory research and innovation projects good but also failed practices, methodologies, etc.",
       "titleTeam": "The team behind InSPIRES Open Platform"
     },
+    "admin":{
+      "mainTitle": "Administration Dashboard",
+      "unauthorizedAccess": "You are not authorized to access the Administration Dashboard. If you believe you should, please contact a platform administrator.",
+      "pendingApproval": "Structures pending approval",
+      "instructionsText": "The following structures need to be validated before they will show up on the site's public lists. Please verify each one for validity of data and authenticity.\n\nVerify also that the person that claims to own the structure is who they claim, and they are allowed to put the information on the site.",
+      "createdBy": "Created by {name}",
+      "validationSuccess": "Structure validated successfully. It will now show up on public lists.",
+      "validationFailure": "Failed to validate the structure. Please contact support."
+    },
     "termsOfService":{
       "mainTitle": "Terms of Service",
       "subTitle": "By accepting the terms of service you understand that:",
@@ -182,18 +191,17 @@
       }
     }
   },
+  "toolbar":{
+    "myAccount": "My Account",
+    "administration": "Administration"
+  },
   "navigation": {
     "links": {
       "home": "Home",
       "projects": "Projects",
       "structures": "Structures",
       "about": "About"
-    },
-    "dashboard": "Dashboard",
-    "projects": "My Projects",
-    "structures": "My Structures",
-    "commissioners": "My Commissioners",
-    "_": ""
+    }
   },
   "actions": {
     "add": "Add",

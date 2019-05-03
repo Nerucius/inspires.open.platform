@@ -21,9 +21,16 @@
       </v-icon>
     </v-btn>
     <v-list>
+
+      <v-list-tile :to="{name:'administration'}" v-if="user.is_administrator">
+        <v-list-tile-title>
+          {{ $t('toolbar.administration') }}
+        </v-list-tile-title>
+      </v-list-tile>
+
       <v-list-tile :to="{name:'account'}">
         <v-list-tile-title>
-          Profile
+          {{ $t('toolbar.myAccount') }}
         </v-list-tile-title>
       </v-list-tile>
 

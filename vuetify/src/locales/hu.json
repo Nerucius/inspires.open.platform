@@ -1,0 +1,341 @@
+{
+  "pages": {
+    "login": {
+      "welcomeMessage": "Üdvözöljük az InSPIRES Platformon"
+    },
+    "register": {
+      "titles": {
+        "step1": "Először is",
+        "step2": "Meséljen kicsit magáról",
+        "step3": "Szolgáltatási feltételek",
+        "step4": "Majdnem kész!"
+      },
+      "acceptTOS": "Felhasználási feltételek elfogadása",
+      "welcomeMessage": "Üdvözöljük az InSPIRES Open Platform regisztrációs felületén. Itt kialakíthatja saját felhasználói profilját, amivel bejelentkezhet az oldalra.",
+      "welcomeMessage2": "A regisztrációt követően elkezdheti szerkeszteni az oldalt. További szervezeteket, kutatási projekteket adhat meg  a saját neve vagy a szervezete mellett. ",
+      "step1Message": "Kérjük, adja meg felhasználónevét és jelszavát. Ezzel a felhasználónévvel jelentkezhet be a platformra.",
+      "step2Message": "Kérjük, adja meg teljes nevét és email címét, hogy feltüntethessük a projektjei és más tevékenységei mellett. Az email címére kizárólag értesítéseket küldünk majd. ",
+      "step3Message": "A regisztráció előtt el kell fogadnia a platform szolgáltatási feltételeit. ",
+      "readTOSHere": "Itt olvashatja el a szolgáltatási feltételeket. ",
+      "step3TOSAcceptance": "By clicking the 'ACCEPT TERMS AND CONDITIONS' button I acknowledge that I have been appropriately informed and that I consent to the processing of my personal data for the stated purpose.",
+      "step3MessageAccepted": "Nagyszerű! Folytatódhat a regisztráció. ",
+      "step4Message": "Kérjük, ellenőrizze a megadott adatokat. Amennyiben nem talál hibát, folytathatja a regisztrációt.",
+      "step4MessageInvite": "A tesztelés első szakaszában kizárólag meghívott személyek regisztrálhatnak a platformra. Kérjük, adja meg a kapott kódját: "
+    },
+    "home": {
+      "mainTitle": "Üdvözli az InSPIRES csapata",
+      "welcomeMessage": "Welcome to the InSPIRES online database and impact evaluation tool. This platform features participatory research and innovation projects promoted knowledge intermediary units, such as Science Shops.",
+      "aboutLink": "További információ rólunk",
+      "projectsSeeMore": "Összes projekt"
+    },
+    "about": {
+      "mainTitle": "About InSPIRES Open Platform",
+      "titleMission": "Our mission",
+      "missionParagraph1": "InSPIRES has embarked in the adventure of developing an online collaborative and crowdsourced database featuring Science Shops, similar structures and their related projects, as well as offering an integrated impact evaluation tool capable of producing real-time project evaluation report.",
+      "missionParagraph2": "The aims of the InSPIRES online database and impact evaluation are to:",
+      "missionObjective1": "Identify and visualize the size of the Science Shops, and other similar structures, movement and similar structures worldwide.",
+      "missionObjective2": "Register collaborative research and innovation projects, facilitated by these intermediation structures , to show their objectives, knowledge and geographical areas, as well as the main collaborators involved.",
+      "missionObjective3": "Provide to the community an intuitive and customizable impact evaluation tool to capture process and results outcomes in a harmonized manner.",
+      "missionParagraph3": "In the end, we hope that the platform will support the community (structure coordinators and project’s participants around the world) mutual learning by sharing science Shops experiences and other participatory research and innovation projects good but also failed practices, methodologies, etc.",
+      "titleTeam": "The team behind InSPIRES Open Platform"
+    },
+    "admin": {
+      "mainTitle": "Administration Dashboard",
+      "unauthorizedAccess": "You are not authorized to access the Administration Dashboard. If you believe you should, please contact a platform administrator.",
+      "pendingApproval": "Structures pending approval",
+      "instructionsText": "The following structures need to be validated before they will show up on the site's public lists. Please verify each one for validity of data and authenticity.\n\nVerify also that the person that claims to own the structure is who they claim, and they are allowed to put the information on the site.",
+      "createdBy": "Created by {name}",
+      "validationSuccess": "Structure validated successfully. It will now show up on public lists.",
+      "validationFailure": "Failed to validate the structure. Please contact support."
+    },
+    "termsOfService": {
+      "mainTitle": "Terms of Service",
+      "subTitle": "By accepting the terms of service you understand that:",
+      "paragraph1": "Your personal data will only be used by:",
+      "paragraph2": "Fundación Privada Instituto de Salud Global Barcelona (ISGlobal) \nCIF: G65341695\nPostal address: Carrer Rosselló, number 132, 2nd, 5th and 7th floors - 08036 Barcelona \nTelephone: (+34) 932 271 806 \nEmail: inspires@isglobal.org",
+      "paragraph3": "We collect and process your personal data for the sole purpose of responding to your registration to the website https://app.inspiresproject.com.",
+      "paragraph4": "Your data will be used solely by the InSPIRES team of ISGlobal who require access to it to carry out their work and it will never, under any circumstances, be made available to third parties or transferred to third countries or international organisations.",
+      "paragraph5": "We can only process your personal data with your consent, and it will be retained only as long as you do not withdraw consent.",
+      "paragraph6": "You can exercise all your rights under current data protection regulations, including the right to access, correction, objection, erasure, portability and restriction, by writing to the Data Protection Officer (lopd@isglobal.org), attaching a copy of your national identity document or equivalent.",
+      "paragraph7": "You have the right to withdraw your consent at any time. Withdrawal of consent does not affect the lawfulness of processing based on consent before its withdrawal. If you do not agree with the manner in which ISGlobal handles your data or you consider that your rights have been infringed, you can file a complaint at any time with the Spanish Data Protection Agency."
+    },
+    "structures": {
+      "title": "Science Shopok"
+    },
+    "projectDetail": {
+      "about": "További információ"
+    },
+    "structureDetail": {
+      "about": "További információ"
+    },
+    "structureManage": {
+      "title": "Manage this Structure",
+      "success": "Structure saved successfuly!",
+      "failure": "Failed to save the structure. Try again later.",
+      "collaborationFailure": "Failed to approve the project. Please try again later.",
+      "collaborationAdded": "Project has been approved under this structure.",
+      "structureTab": "This Structure",
+      "projectsTab": "Projects"
+    },
+    "projectCreate": {
+      "title": "Új projekt feltöltése",
+      "success": "Új projekt sikeres feltöltése",
+      "failure": "Failed to create a new project. Try again later."
+    },
+    "structureCreate": {
+      "title": "Create a new Structure",
+      "success": "New structure created successfully.",
+      "failure": "Failed to create a new structure. Try again later."
+    },
+    "projectList": {
+      "noKASpecified": "No Knowledge Area specified",
+      "filterByArea": "in the area of {area}"
+    },
+    "projectManage": {
+      "title": "Manage this Project",
+      "success": "Structure saved successfuly!",
+      "failure": "Failed to save the Structure. Try again later.",
+      "projectTab": "This Project",
+      "participantsTab": "Participants",
+      "phasesTab": "Project Phases",
+      "phasesTabDescription": "Projects can have a life-cycle of phases. Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident sapiente ullam perspiciatis, dolorum velit sequi at corrupti obcaecati laborum harum fugit unde porro ipsa pariatur aliquam repellendus placeat eaque culpa!",
+      "hasPhase": "This project is currently at this phase since {date}.",
+      "hadPhase": "This project was on this phase starting {date}.",
+      "notHasPhase": "This project has never been on this phase.",
+      "evaluationTab": "Evaluation",
+      "collaborationSuccess": "Collaboration with structure requested successfully.",
+      "collaborationFailure": "Failed to request collaboration.",
+      "deleteCollaborationAlert": "Are you sure you want to cancel the collaboration?",
+      "collaborationDeleted": "Collaboration with structure has been withdrawn.",
+      "participantsTitle": "Participants in this Project",
+      "participantsIntro": "Add all the people helping to make this project possible here. Each person can have a role within the project. The Role will be used in determining what role they play in the impact evaluation tool.",
+      "searchUsers": "Collaboration with structure has been withdrawn.",
+      "evaluationTitle": "Project Evaluation",
+      "evaluationIntro": "Here you can send requests for evaluation to the people inside the project.",
+      "evaluationSuccess": "Evaluation requested successfuly.",
+      "evaluationFailure": "Failed to send evaluation request. Please try again later.",
+      "-": ""
+    },
+    "evaluationEntry": {
+      "mainTitle": "Project Evaluation Questionnaire",
+      "questionnaire": "Questionnaire",
+      "questionnaireCompleted": "This questionnaire has already been completed.",
+      "evaluationOverview": "Evaluation Overview",
+      "evaluatedPhase": "Evaluated phase",
+      "evaluator": "Evaluator",
+      "evaluationRole": "Evaluation role",
+      "questionMultipleHelp": "(choose all that apply)",
+      "viewOnly": "You may only view the responses, not modify them",
+      "submitSuccess": "Your response has been recorded correctly!",
+      "submitFailure": "There was a problem saving your response. Please try again later."
+    },
+    "footer": {
+      "europeanFundingDisclaimer": "This project has received funding from European Union's Horizon 2020 research and innovation programme under grant agreement No 741677."
+    },
+    "-": ""
+  },
+  "models": {
+    "projectPhase": {
+      "phase": "Phase",
+      "phase1": "Phase 1: Project Kick-off and Expectations",
+      "phase2": "Phase 2: Progress and Self-reflection",
+      "phase3": "Phase 3: End of Project Output",
+      "phase4": "Phase 4: Six months later",
+      "phase1Description": "The kick-off phase is meant to clearly set expectations and to reflect on the value of community engagement to reach the scientific objectives while addressing community demands.",
+      "phase2Description": "At this point you are in the middle of the project and you are asked to reflect on the quality of the participatory dynamics and on the degree of inclusion of multiple perspectives througout the project implementation.",
+      "phase3Description": "By now the project is over and it's time to reflect on the project alignment to participants expectations, the incorporation of an ethical and gender perspectives, the quality of the participatory dynamics, and the accessibility of the project results.",
+      "phase4Description": "Six months has passed since the project ended and you are invited to reflect about the project outcome on scientific knowledge, at the level of individual learning, policy alignment, and in terms of the collective capacity to address community demands.",
+      "phase1Tag": "Kick-off",
+      "phase2Tag": "Self-reflection",
+      "phase3Tag": "Output",
+      "phase4Tag": "Effect"
+    },
+    "knowledgeArea": {
+      "logic": "Logic",
+      "mathematics": "Mathematics",
+      "astronomyAndAstrophysics": "Astronomy And Astrophysics",
+      "physics": "Physics",
+      "chemistry": "Chemistry",
+      "lifeSciences": "Life Sciences",
+      "earthAndSpaceSciences": "Earth and Space Sciences",
+      "agriculturalSciences": "Agricultural Sciences",
+      "medicalSciences": "Medical Sciences",
+      "technologicalSciences": "Technological Sciences",
+      "anthropology": "Anthropology",
+      "demographics": "Demographics",
+      "economicSciences": "Economic Sciences",
+      "geography": "Geography",
+      "history": "History",
+      "juridicalSciencesAndLaw": "Juridical Sciences and Law",
+      "linguistics": "Linguistics",
+      "pedagogy": "Pedagogy",
+      "politicalScience": "Political Science",
+      "psychology": "Psychology",
+      "scienceOfArtsAndLetters": "Science of Arts and Letters",
+      "sociology": "Sociology",
+      "ethics": "Ethics",
+      "philosophy": "Philosophy"
+    },
+    "evaluation": {
+      "axis": {
+        "science": "Science",
+        "collective": "Collective",
+        "individial": "Individual"
+      },
+      "principle": {
+        "knowledge": "Knowledge Democracy",
+        "citizen": "Citizen-led Research",
+        "participation": "Participatory Dynamics",
+        "transform": "Transformative Change",
+        "integrity": "Integrity"
+      }
+    }
+  },
+  "toolbar": {
+    "myAccount": "My Account",
+    "administration": "Administration"
+  },
+  "navigation": {
+    "links": {
+      "home": "Főoldal",
+      "projects": "Projektek",
+      "structures": "Structures",
+      "about": "About"
+    }
+  },
+  "actions": {
+    "add": "Hozzáad",
+    "submit": "Submit",
+    "approve": "Approve",
+    "update": "Update",
+    "updateResponse": "Update response",
+    "create": "Feltöltés",
+    "delete": "Törlés",
+    "withdraw": "Withdraw",
+    "login": "Bejelentkezés",
+    "logout": "Kijelentkezés",
+    "register": "Regisztráció",
+    "save": "Mentés",
+    "close": "Bezárás",
+    "cancel": "Törlés",
+    "more": "Több",
+    "moreInformation": "More Information",
+    "next": "Következő"
+  },
+  "states": {
+    "enabled": "Enabled",
+    "disabled": "Disabled",
+    "current": "Current",
+    "active": "Active",
+    "inactive": "Inactive",
+    "_": "_"
+  },
+  "noums": {
+    "user": "Felhasználó",
+    "project": "Projekt",
+    "projects": "Projects",
+    "structure": "Structure",
+    "structures": "Structures",
+    "evaluation": "Evaluation"
+  },
+  "errors": {
+    "404": {
+      "title": "Hoppá, ez az oldal nem található.",
+      "text": "Ez az oldal nem található. "
+    }
+  },
+  "forms": {
+    "titles": {
+      "login": "Belépés"
+    },
+    "rules": {
+      "requiredField": "Kötelező mező ",
+      "passwordField": "A megadott jelszó nem érvényes",
+      "passwordMatch": "A két jelszó nem azonos",
+      "maximunLength": "Legfeljebb X karakter hosszúságú",
+      "minimunLength": "Legalább X karakter hosszúságú",
+      "namedRequiredField": "Kötelező mező",
+      "mustBeStructure": "Please enter a valid Structure",
+      "mustBeUser": "Please enter a valid list of Users"
+    },
+    "errors": {
+      "invalidCredentials": "Érvénytelen "
+    },
+    "toasts": {
+      "loggedOut": "You have been logged out",
+      "saveSuccess": "Saved successfully!",
+      "saveFailure": "Failed to save, try again later",
+      "projectSaveSuccess": "Project data updated!",
+      "projectSaveFailure": "Failed to save the Project, please try again later",
+      "structureSaveSuccess": "Structure data updated!",
+      "structureSaveFailure": "Failed to save the Structure, please try again later",
+      "participantsSuccess": "Saved people involved in the project",
+      "-": ""
+    },
+    "fields": {
+      "name": "Név",
+      "firstName": "Keresztnév",
+      "lastName": "Családnév",
+      "email": "Email cím",
+      "summary": "Összefoglaló",
+      "description": "Description",
+      "participants": "Résztvevők",
+      "managers": "Managers",
+      "projectName": "Project Name",
+      "projectImageURL": "Project Image URL",
+      "projectSummary": "Project Summary",
+      "projectAcronym": "Project Acronym",
+      "contactEmail": "Contact Email",
+      "projectAdministrators": "Project Administrators",
+      "contactWebsite": "External Website",
+      "postalAddress": "Postal Address",
+      "username": "Felhasználónév ",
+      "usernameOrEmail": "Username or Email",
+      "password": "Jelszó",
+      "passwordRepeat": "Jelszó újra",
+      "title": "Cím",
+      "role": "Szerep",
+      "invitationCode": "Meghívó kód",
+      "projectPhase": "Project Phase",
+      "projectType": "Project Type",
+      "knowledgeArea": "Knowledge Area",
+      "knowledgeAreas": "Knowledge Areas"
+    },
+    "labels": {
+      "searchUsers": "Search Users"
+    },
+    "hints": {
+      "projectImageURL": "URL to an image that you want shown on your project's page.",
+      "contactEmail": "Where should people reach you with questions about the project?",
+      "contactWebsite": "URL to an external site where people can see more about your project.",
+      "projectType": "How is your project team structured?",
+      "projectName": "Choose a name that characterizes your project. Less than 50 characters suggested.",
+      "projectSummary": "A short summary of your project and what it encompasses. Suggested to keep it under 200 characters.",
+      "projectAdministrators": "Add here all the people who will have full access to editing the project. Project Administrators can't transwer ownership.",
+      "projectAcronym": "Choose a Project Acronym",
+      "knowledgeArea": "UNESCO Knowledge Area that best defines your project.",
+      "summary": "Long-form project description. No character limit.",
+      "description": "Long-form project description. No character limit.",
+      "password": "A jelszónak legalább 8 karakterből kell állnia és nem tartalmazhatja a felhasználónevet."
+    }
+  },
+  "dialog": {
+    "confirm": {
+      "participationDeletion": "Biztos abban, hogy ezt a nevet törölni szeretné a projekt oldaláról?   \n\nEz a lépés nem vonható vissza, a felhasználóhoz kapcsolódó összes tartalom elveszhet. \n\nA megerősítéshez nyomja meg az OK gombot. "
+    }
+  },
+  "$vuetify": {
+    "dataIterator": {
+      "rowsPerPageText": "Oldalankénti tételek:",
+      "rowsPerPageAll": "Összes",
+      "pageText": "{0}-{1} of {2}",
+      "noResultsText": "Nincs találat",
+      "nextPage": "Következő oldal",
+      "prevPage": "Előző oldal"
+    },
+    "dataTable": {
+      "rowsPerPageText": "Oldalanként: "
+    },
+    "noDataText": "Nincs elérhető adat"
+  }
+}

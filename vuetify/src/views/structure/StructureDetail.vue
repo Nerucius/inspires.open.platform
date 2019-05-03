@@ -1,15 +1,20 @@
 <style>
-table{
-  width: 100%;
-}
-table td, table th{
-  padding: 0 8px 8px 8px;
-}
-table th{
-  text-align: left;
-}
+  .v-list__tile__title{
+    font-weight: 500;
+  }
 </style>
 
+<style>
+  .v-list__tile__title p{
+    margin-bottom: 0px;
+  }
+
+  /* Taller list elements */
+  .v-list--two-line .v-list__tile{
+    height: auto;
+    min-height: 72px;
+  }
+</style>
 
 <template>
   <v-layout v-if="structure" row wrap align-content-start>
@@ -34,73 +39,73 @@ table th{
     <!-- About Sidebar -->
     <v-flex sm4 xs12>
       <v-card flat>
-        <v-toolbar dense flat color="primary" dark>
-          <h1 class="title">
-            {{ $t('pages.structureDetail.about') }}
-          </h1>
-        </v-toolbar>
-        <v-card-text class="subheading">
-          <table>
-            <template v-if="structure.contact_website">
-              <tr>
-                <th>{{ $t('forms.fields.contactWebsite') }}:</th>
-              </tr>
-              <tr>
-                <td colspan="2">
-                  <a :href="structure.contact_website">
-                    {{ structure.contact_website }}
-                  </a>
-                </td>
-              </tr>
-            </template>
 
-            <template v-if="structure.contact_email">
-              <tr>
-                <th>{{ $t('forms.fields.contactEmail') }}:</th>
-              </tr>
-              <tr>
-                <td colspan="2">
-                  <a :href="'mailto:'+structure.contact_email">
-                    {{ structure.contact_email }}
-                  </a>
-                </td>
-              </tr>
-            </template>
+        <v-list two-line class="ma-0 pa-0">
 
-            <template v-if="structure.contact_postal_address">
-              <tr>
-                <th>{{ $t('forms.fields.postalAddress') }}:</th>
-              </tr>
-              <tr>
-                <td colspan="2">
+            <v-toolbar dense flat color="primary" dark>
+              <h1 class="title">
+                {{ $t('pages.structureDetail.about') }}
+              </h1>
+            </v-toolbar>
+
+            <!-- Contact Website -->
+            <v-list-tile v-if="structure.contact_website">
+              <v-list-tile-content>
+                <v-list-tile-title>
+                  <a :href="structure.contact_website">{{ structure.contact_website }}</a>
+                </v-list-tile-title>
+                <v-list-tile-sub-title>{{ $t('forms.fields.contactWebsite') }}</v-list-tile-sub-title>
+              </v-list-tile-content>
+            </v-list-tile>
+
+            <!-- Contact Email -->
+            <v-list-tile v-if="structure.contact_email">
+              <v-list-tile-content>
+                <v-list-tile-title>
+                  <a :href="`mailto:${structure.contact_email}`">{{ structure.contact_email }}</a>
+                </v-list-tile-title>
+                <v-list-tile-sub-title>{{ $t('forms.fields.contactEmail') }}</v-list-tile-sub-title>
+              </v-list-tile-content>
+            </v-list-tile>
+
+            <!-- Contact Address -->
+            <v-list-tile v-if="structure.contact_postal_address">
+              <v-list-tile-content>
+                <v-list-tile-title style="height:auto">
                   <vue-markdown>{{ structure.contact_postal_address }}</vue-markdown>
-                </td>
-              </tr>
-            </template>
+                </v-list-tile-title>
+                <v-list-tile-sub-title>{{ $t('forms.fields.postalAddress') }}</v-list-tile-sub-title>
+              </v-list-tile-content>
+            </v-list-tile>
 
-            <!-- Managers -->
-            <tr>
-              <th colspan="2" style="text-align:left">
-                {{ $t('forms.fields.managers') }}:
-              </th>
-            </tr>
-            <tr>
-              <td colspan="2">
-                <router-link
-                  v-for="uid in structure.managers" :key="uid"
-                  :to="user(uid).link"
-                >
-                  <v-chip>
-                    <v-avatar>
-                      <img :src="user(uid).avatar_url">
-                    </v-avatar>
-                    {{ user(uid).full_name }}
-                  </v-chip>
-                </router-link>
-              </td>
-            </tr>
-          </table>
-        </v-card-text>
+
+            <v-toolbar dense flat color="primary" dark class="mt-3">
+              <h1 class="title">
+                {{ $t('forms.fields.managers') }}
+              </h1>
+            </v-toolbar>
+
+            <v-sheet :max-height="72*4.5" style="overflow-y:auto;">
+
+              <template v-for="(manager, idx) in structure.managers">
+                <v-list-tile :key="manager" :to="user(manager).link">
+                  <v-list-tile-avatar>
+                    <v-img :src="user(manager).avatar_url" />
+                  </v-list-tile-avatar>
+                  <v-list-tile-content>
+                    <v-list-tile-title>{{ user(manager).full_name }}</v-list-tile-title>
+                    <v-list-tile-sub-title>
+
+                    </v-list-tile-sub-title>
+                  </v-list-tile-content>
+                </v-list-tile>
+                <v-divider :key="`div-${manager}`" v-if="idx != structure.managers.length - 1"/>
+              </template>
+
+            </v-sheet>
+
+        </v-list>
+
       </v-card>
     </v-flex>
 

@@ -1,4 +1,4 @@
-<style>
+<style scoped>
   table {
     width: 100%;
   }
@@ -23,16 +23,18 @@
   .v-list__tile__title{
     font-weight: 500;
   }
+</style>
 
+<style>
   .v-list__tile__title p{
     margin-bottom: 0px;
   }
 
+  /* Taller list elements */
   .v-list--two-line .v-list__tile{
     height: auto;
     min-height: 72px;
   }
-
 </style>
 
 
@@ -69,6 +71,9 @@
 
             <!-- Structure -->
             <v-list-tile v-if="structure.id" :to="structure.link">
+              <v-list-tile-avatar tile>
+                <v-img :src="structure.image_url"></v-img>
+              </v-list-tile-avatar>
               <v-list-tile-content>
                 <v-list-tile-title>{{ structure.name }}</v-list-tile-title>
                 <v-list-tile-sub-title>{{ $t('noums.structure') }}</v-list-tile-sub-title>
@@ -105,26 +110,32 @@
               </v-list-tile-content>
             </v-list-tile>
 
-            <v-toolbar dense flat color="primary" dark class="mt-2">
+            <v-toolbar dense flat color="primary" dark class="mt-3">
               <h1 class="title">
                 {{ $t('forms.fields.participants') }}
               </h1>
             </v-toolbar>
 
-            <template v-for="(part, idx) in project.participants">
-              <v-list-tile :key="part.id" :to="user(part.user).link">
-                <v-list-tile-avatar>
-                  <v-img :src="user(part.user).avatar_url" />
-                </v-list-tile-avatar>
-                <v-list-tile-content>
-                  <v-list-tile-title>{{ user(part.user).full_name }}</v-list-tile-title>
-                  <v-list-tile-sub-title>
-                    {{ $t(role(part.role).name) }}
-                  </v-list-tile-sub-title>
-                </v-list-tile-content>
-              </v-list-tile>
-              <v-divider :key="`div-${part.id}`" v-if="idx != project.participants.length - 1"/>
-            </template>
+            <v-sheet :max-height="72*4.5" style="overflow-y:auto;">
+
+              <template v-for="(part, idx) in project.participants">
+                <v-list-tile :key="part.id" :to="user(part.user).link">
+                  <v-list-tile-avatar>
+                    <v-img :src="user(part.user).avatar_url" />
+                  </v-list-tile-avatar>
+                  <v-list-tile-content>
+                    <v-list-tile-title>{{ user(part.user).full_name }}</v-list-tile-title>
+                    <v-list-tile-sub-title>
+                      {{ $t(role(part.role).name) }}
+                    </v-list-tile-sub-title>
+                  </v-list-tile-content>
+                </v-list-tile>
+                <v-divider :key="`div-${part.id}`" v-if="idx != project.participants.length - 1"/>
+              </template>
+
+            </v-sheet>
+
+
           </v-list>
 
       </v-card>

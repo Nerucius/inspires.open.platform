@@ -101,7 +101,7 @@ th{
 
     <v-flex xs12>
       <v-layout row wrap>
-        <v-flex xs12 sm6 md4>
+        <v-flex xs12 sm6>
           <v-card flat>
             <v-card-text>
               <v-btn v-if="isOwnUser" fab small absolute top
@@ -136,7 +136,7 @@ th{
           </v-card>
         </v-flex>
 
-        <v-flex xs12 sm6 md4>
+        <v-flex xs12 sm6>
           <v-card flat>
             <v-card-text>
               <v-btn v-if="isOwnUser" fab small absolute top
@@ -171,13 +171,14 @@ th{
           </v-card>
         </v-flex>
 
-        <v-flex xs12 sm6 md4>
+        <!-- <v-flex xs12 sm6 md4>
           <v-card flat>
             <v-card-title>
               <h3>Commissioners</h3>
             </v-card-title>
           </v-card>
-        </v-flex>
+        </v-flex> -->
+
       </v-layout>
     </v-flex>
   </v-layout>

@@ -47,16 +47,17 @@ def log_error(request):
     from backend.models import User
 
     message = request.GET.get("message", "no message")
+    error = request.GET.get("error", "no error")
     user = request.GET.get("user", 1)
     log = LogEntry(
         user=User.objects.get(pk=user),
         object_repr="ERROR",
         action_flag=ADDITION,
-        change_message=message,
+        change_message=message + " | Dump: " + error,
     )
     log.save()
 
-    return HttpResponse("OK")
+    return HttpResponse('{"message": "error logged" }', content_type="application/json")
 
 
 def login(request):

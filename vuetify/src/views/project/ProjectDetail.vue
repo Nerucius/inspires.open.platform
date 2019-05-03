@@ -1,24 +1,38 @@
 <style>
-table {
-  width: 100%;
-}
-table td,
-table th {
-  padding: 0 8px 8px 8px;
-}
-table th {
-  text-align: left;
-}
-.v-chip__content {
-  cursor: pointer !important;
-  text-decoration: none !important;
-}
+  table {
+    width: 100%;
+  }
+  table td,
+  table th {
+    padding: 0 8px 8px 8px;
+  }
+  table th {
+    text-align: left;
+  }
+  .v-chip__content {
+    cursor: pointer !important;
+    text-decoration: none !important;
+  }
 
-.person-slab a{
-  color: white;
-  text-decoration: none;
-  text-shadow: 1px 1px 2px #000;
-}
+  .person-slab a{
+    color: white;
+    text-decoration: none;
+    text-shadow: 1px 1px 2px #000;
+  }
+
+  .v-list__tile__title{
+    font-weight: 500;
+  }
+
+  .v-list__tile__title p{
+    margin-bottom: 0px;
+  }
+
+  .v-list--two-line .v-list__tile{
+    height: auto;
+    min-height: 72px;
+  }
+
 </style>
 
 
@@ -44,82 +58,75 @@ table th {
     <!-- About Sidebar -->
     <v-flex sm4 xs12 class="_no-hidden-xs-only">
       <v-card flat>
-        <v-toolbar dense flat color="primary" dark>
-          <h1 class="title">
-            {{ $t('pages.projectDetail.about') }}
-          </h1>
-        </v-toolbar>
-        <v-card-text class="subheading pb-0">
-          <table>
+
+          <v-list two-line class="ma-0 pa-0">
+
+            <v-toolbar dense flat color="primary" dark>
+              <h1 class="title">
+                {{ $t('pages.projectDetail.about') }}
+              </h1>
+            </v-toolbar>
+
             <!-- Structure -->
-            <template v-if="structure.id">
-              <tr>
-                <th>{{ $t('noums.structure') }}:</th>
-              </tr>
-              <tr>
-                <td colspan="2">
-                  <router-link :to="structure.link">
-                    {{ structure.name }}
-                  </router-link>
-                </td>
-              </tr>
-            </template>
+            <v-list-tile v-if="structure.id" :to="structure.link">
+              <v-list-tile-content>
+                <v-list-tile-title>{{ structure.name }}</v-list-tile-title>
+                <v-list-tile-sub-title>{{ $t('noums.structure') }}</v-list-tile-sub-title>
+              </v-list-tile-content>
+            </v-list-tile>
+
             <!-- Contact Website -->
-            <template v-if="project.contact_website">
-              <tr>
-                <th>{{ $t('forms.fields.contactWebsite') }}:</th>
-              </tr>
-              <tr>
-                <td colspan="2">
-                  <a :href="project.contact_website">
-                    {{ project.contact_website }}
-                  </a>
-                </td>
-              </tr>
-            </template>
+            <v-list-tile v-if="project.contact_website">
+              <v-list-tile-content>
+                <v-list-tile-title>
+                  <a :href="project.contact_website">{{ project.contact_website }}</a>
+                </v-list-tile-title>
+                <v-list-tile-sub-title>{{ $t('forms.fields.contactWebsite') }}</v-list-tile-sub-title>
+              </v-list-tile-content>
+            </v-list-tile>
+
             <!-- Contact Email -->
-            <template v-if="project.contact_email">
-              <tr>
-                <th>{{ $t('forms.fields.email') }}:</th>
-              </tr>
-              <tr>
-                <td colspan="2">
-                  <a :href="'mailto:'+project.contact_email">
-                    {{ project.contact_email }}
-                  </a>
-                </td>
-              </tr>
+            <v-list-tile v-if="project.contact_email">
+              <v-list-tile-content>
+                <v-list-tile-title>
+                  <a :href="`mailto:${project.contact_email}`">{{ project.contact_email }}</a>
+                </v-list-tile-title>
+                <v-list-tile-sub-title>{{ $t('forms.fields.contactEmail') }}</v-list-tile-sub-title>
+              </v-list-tile-content>
+            </v-list-tile>
+
+            <!-- Contact Address -->
+            <v-list-tile v-if="project.contact_postal_address">
+              <v-list-tile-content>
+                <v-list-tile-title style="height:auto">
+                  <vue-markdown>{{ project.contact_postal_address }}</vue-markdown>
+                </v-list-tile-title>
+                <v-list-tile-sub-title>{{ $t('forms.fields.postalAddress') }}</v-list-tile-sub-title>
+              </v-list-tile-content>
+            </v-list-tile>
+
+            <v-toolbar dense flat color="primary" dark class="mt-2">
+              <h1 class="title">
+                {{ $t('forms.fields.participants') }}
+              </h1>
+            </v-toolbar>
+
+            <template v-for="(part, idx) in project.participants">
+              <v-list-tile :key="part.id" :to="user(part.user).link">
+                <v-list-tile-avatar>
+                  <v-img :src="user(part.user).avatar_url" />
+                </v-list-tile-avatar>
+                <v-list-tile-content>
+                  <v-list-tile-title>{{ user(part.user).full_name }}</v-list-tile-title>
+                  <v-list-tile-sub-title>
+                    {{ $t(role(part.role).name) }}
+                  </v-list-tile-sub-title>
+                </v-list-tile-content>
+              </v-list-tile>
+              <v-divider :key="`div-${part.id}`" v-if="idx != project.participants.length - 1"/>
             </template>
+          </v-list>
 
-            <!-- Participants -->
-            <tr v-if="project.participants.length > 0">
-              <th colspan="2" style="text-align:left">
-                {{ $t('forms.fields.participants') }}:
-              </th>
-            </tr>
-          </table>
-        </v-card-text>
-
-        <div v-if="project.participants.length > 0" class="pb-2">
-          <v-parallax
-            v-for="part in project.participants"
-            :key="part.id"
-            :src="roleBg(part.role)"
-            height="32"
-            class="person-slab my-2 text-truncate"
-          >
-            <router-link :to="user(part.user).link">
-              <span>
-                <v-avatar size="24">
-                  <img :src="user(part.user).avatar_url">
-                </v-avatar>
-                &nbsp;
-                {{ user(part.user).full_name }}
-                <small>({{ role(part.role).name }})</small>
-              </span>
-            </router-link>
-          </v-parallax>
-        </div>
       </v-card>
     </v-flex>
 

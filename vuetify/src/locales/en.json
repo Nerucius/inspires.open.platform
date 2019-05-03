@@ -131,6 +131,12 @@
     }
   },
   "models": {
+    "participationRole":{
+      "scientist": "Scientist",
+      "student": "Student",
+      "civilSociety": "Civil Society",
+      "projectManager": "Project Manager"
+    },
     "projectPhase": {
       "phase": "Phase",
       "phase1": "Phase 1: Project Kick-off and Expectations",

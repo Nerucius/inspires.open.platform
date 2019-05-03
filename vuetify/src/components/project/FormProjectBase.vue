@@ -122,6 +122,12 @@
         :label="$t('forms.fields.contactWebsite')"
         :hint="$t('forms.hints.contactWebsite')"
       />
+      <v-textarea
+        v-model="editedProject.contact_postal_address"
+        box
+        :label="$t('forms.fields.postalAddress')"
+        :hint="$t('forms.hints.postalAddress')"
+      />
     </template>
 
 
@@ -160,9 +166,16 @@ export default {
         {id:3, name:"Civil Society"},
       ],
       projectTypes: [
-        {value:"research", text:"Research"},
-        {value:"publicEngagement", text:"Public Engagement"},
-        {value:"serviceLearning", text:"Service Learning"},
+        {value:"RESEARCH", text:"Research"},
+        {value:"PARTICIPATORY_RESEARCH", text:"Participatory Research"},
+        {value:"PARTICIPATORY_ACTION_RESEARCH", text:"Participatory Action Research"},
+        {value:"CITIZEN_SCIENCE", text:"Citizen Science"},
+        {value:"PUBLIC_ENGAGEMENT", text:"Public Engagement"},
+        {value:"SERVICE_LEARNING", text:"Service Learning"},
+        {value:"ADVOCACY", text:"Advocacy"},
+        {value:"INNOVATION", text:"Innovation"},
+        {value:"POLICY_INNOVATION", text:"Policy Innovation"},
+        {value:"OTHER", text:"Other"},
       ],
     };
   },

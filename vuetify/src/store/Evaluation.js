@@ -35,10 +35,10 @@ export default {
     },
 
     roles: {
-      1: {id:1, name:"Scientist", bg:"/img/bg-scientist.png"},
-      2: {id:2, name:"Student", bg:"/img/bg-student.png"},
-      3: {id:3, name:"Civil Society", bg:"/img/bg-civil.png"},
-      4: {id:4, name:"Project Manager", bg:"/img/bg-manager.png"},
+      1: {id:1, name:"models.participationRole.scientist", bg:"/img/bg-scientist.png"},
+      2: {id:2, name:"models.participationRole.student", bg:"/img/bg-student.png"},
+      3: {id:3, name:"models.participationRole.civilSociety", bg:"/img/bg-civil.png"},
+      4: {id:4, name:"models.participationRole.projectManager", bg:"/img/bg-manager.png"},
     },
 
     axisNames : {

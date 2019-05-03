@@ -210,12 +210,6 @@ export default {
     user(uid){
       return this.$store.getters["user/get"](uid)
     },
-
-    role(rid){
-      if (rid==1) return "Sc"
-      if (rid==2) return "St"
-      if (rid==3) return "CS"
-    }
   },
 
 }

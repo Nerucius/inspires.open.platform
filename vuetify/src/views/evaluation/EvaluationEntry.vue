@@ -60,7 +60,7 @@ table th{
                 </tr>
                 <tr>
                   <th>{{ $t('pages.evaluationEntry.evaluationRole') }}</th>
-                  <td>{{ role(evaluation.role).name }}</td>
+                  <td>{{ $t(role(evaluation.role).name) }}</td>
                 </tr>
               </table>
             </v-flex>
@@ -97,7 +97,7 @@ table th{
                   {{ question.name }} {{ $t('pages.evaluationEntry.questionMultipleHelp') }}
                 </h3>
                 <v-btn disabled flat outline small style="color:#888 !important">
-                  {{ role(question.role).name }}
+                  {{ $t(role(question.role).name) }}
                 </v-btn>
                 <v-btn disabled flat outline small style="color:#888 !important">
                   {{ $t(phase(question.phase).tag) }}

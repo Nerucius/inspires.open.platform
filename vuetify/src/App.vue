@@ -1,16 +1,32 @@
+<style>
+  /* Global Styles */
+  /* Link text underline for list links */
+  .container .v-list a{ text-decoration: none; }
+  .container .v-list a:hover{ text-decoration: underline; }
+
+    /* html{overflow-y:auto} */
+  ::-webkit-scrollbar {
+    width: 5px;
+    background: teal;
+    /*display: inline !important;*/
+  }
+  #toast-container {padding-top: 10px}
+  .v-snack { padding-top: 10px; }
+</style>
 
 <style scoped>
-.fade-enter-active,
-.fade-leave-active {
-  transition-duration: 0.1s;
-  transition-property: opacity;
-  transition-timing-function: ease;
-}
+  /* Transitions */
+  .fade-enter-active,
+  .fade-leave-active {
+    transition-duration: 0.1s;
+    transition-property: opacity;
+    transition-timing-function: ease;
+  }
 
-.fade-enter,
-.fade-leave-active {
-  opacity: 0
-}
+  .fade-enter,
+  .fade-leave-active {
+    opacity: 0
+  }
 </style>
 
 

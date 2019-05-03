@@ -133,11 +133,11 @@ export default {
       try{
         await this.$store.dispatch("structure/validate", structureId);
         await this.loadUnvalidatedStructures();
-        this.$store.dispatch("toast/success", $("pages.admin.validationSuccess"))
+        this.$store.dispatch("toast/success", this.$("pages.admin.validationSuccess"))
 
       }catch(error){
         this.$store.dispatch("toast/error", {
-          message: $t("pages.admin.validationFailure"),
+          message: this.$t("pages.admin.validationFailure"),
           error
         })
       }

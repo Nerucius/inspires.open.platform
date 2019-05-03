@@ -19,7 +19,7 @@
       "readTOSHere": "You can read the terms of service here.",
       "step3TOSAcceptance": "By clicking the 'ACCEPT TERMS AND CONDITIONS' button I acknowledge that I have been appropriately informed and that I consent to the processing of my personal data for the stated purpose.",
       "step3MessageAccepted": "Great! we can continue with the rest of the registration.",
-      "step4Message": "Please review the following information. If everything seems correct you can proceed with the registration.",
+      "step4Message": "Please review the following information. If everything seems correct you can proceed with the registration. You can go back to any of the steps and review the information provided.",
       "step4MessageInvite": "During the first period of testing, we are restricting the registration to those personally invited. Please enter the code provided to you below:"
     },
     "home": {
@@ -51,6 +51,7 @@
     "termsOfService":{
       "mainTitle": "Terms of Service",
       "subTitle": "By accepting the terms of service you understand that:",
+      "content": "",
       "paragraph1": "Your personal data will only be used by:",
       "paragraph2": "Fundación Privada Instituto de Salud Global Barcelona (ISGlobal) \nCIF: G65341695\nPostal address: Carrer Rosselló, number 132, 2nd, 5th and 7th floors - 08036 Barcelona \nTelephone: (+34) 932 271 806 \nEmail: inspires@isglobal.org",
       "paragraph3": "We collect and process your personal data for the sole purpose of responding to your registration to the website https://app.inspiresproject.com.",

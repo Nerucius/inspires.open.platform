@@ -80,8 +80,8 @@ export default {
     return{
       links: [
         {name: "home", label:"navigation.links.home"},
-        {name: "project-list", label:"navigation.links.projects"},
-        {name: "structure-list", label:"navigation.links.structures"},
+        {name: "project-list", label:"noums.projects"},
+        {name: "structure-list", label:"noums.structures"},
       ]
     }
   },

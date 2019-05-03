@@ -59,9 +59,6 @@
       "paragraph6": "You can exercise all your rights under current data protection regulations, including the right to access, correction, objection, erasure, portability and restriction, by writing to the Data Protection Officer (lopd@isglobal.org), attaching a copy of your national identity document or equivalent.",
       "paragraph7": "You have the right to withdraw your consent at any time. Withdrawal of consent does not affect the lawfulness of processing based on consent before its withdrawal. If you do not agree with the manner in which ISGlobal handles your data or you consider that your rights have been infringed, you can file a complaint at any time with the Spanish Data Protection Agency."
     },
-    "structures": {
-      "title": "Structures"
-    },
     "projectDetail": {
       "about": "About"
     },
@@ -113,8 +110,7 @@
       "evaluationTitle":"Project Evaluation",
       "evaluationIntro":"Here you can send requests for evaluation to the people inside the project.",
       "evaluationSuccess":"Evaluation requested successfuly.",
-      "evaluationFailure":"Failed to send evaluation request. Please try again later.",
-      "-": ""
+      "evaluationFailure":"Failed to send evaluation request. Please try again later."
     },
     "evaluationEntry":{
       "mainTitle": "Project Evaluation Questionnaire",
@@ -131,8 +127,7 @@
     },
     "footer":{
       "europeanFundingDisclaimer": "This project has received funding from European Union's Horizon 2020 research and innovation programme under grant agreement No 741677."
-    },
-    "-": ""
+    }
   },
   "models": {
     "projectPhase": {
@@ -148,7 +143,7 @@
       "phase1Tag": "Kick-off",
       "phase2Tag": "Self-reflection",
       "phase3Tag": "Output",
-      "phase4Tag": "Effect"
+      "phase4Tag": "Six months later"
     },
     "knowledgeArea": {
       "logic": "Logic",
@@ -198,8 +193,6 @@
   "navigation": {
     "links": {
       "home": "Home",
-      "projects": "Projects",
-      "structures": "Structures",
       "about": "About"
     }
   },
@@ -207,10 +200,12 @@
     "add": "Add",
     "submit": "Submit",
     "approve": "Approve",
+    "validate": "Validate",
+    "create": "Create",
+    "read": "Read",
+    "delete": "Delete",
     "update": "Update",
     "updateResponse": "Update response",
-    "create": "Create",
-    "delete": "Delete",
     "withdraw": "Withdraw",
     "login": "Login",
     "logout": "Logout",
@@ -219,16 +214,15 @@
     "close": "Close",
     "cancel": "Cancel",
     "more": "More",
-    "moreInformation": "More Information",
-    "next": "Next"
+    "next": "Next",
+    "moreInformation": "More Information"
   },
   "states": {
     "enabled": "Enabled",
     "disabled": "Disabled",
     "current": "Current",
     "active": "Active",
-    "inactive": "Inactive",
-    "_": "_"
+    "inactive": "Inactive"
   },
   "noums": {
     "user": "User",

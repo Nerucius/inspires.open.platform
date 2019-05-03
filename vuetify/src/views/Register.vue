@@ -306,7 +306,7 @@ export default {
         { title: "Login", required: { valid: false } },
         { title: "About you", required: { valid: false } },
         { title: "ToS", required: { acceptedTerms: false } },
-        { title: "Done!", required: { valid:false } }
+        { title: "Done!", required: { valid:true } }
       ],
 
       user: {},

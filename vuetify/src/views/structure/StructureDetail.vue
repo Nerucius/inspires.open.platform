@@ -1,4 +1,4 @@
-<style>
+<style scoped>
   .v-list__tile__title{
     font-weight: 500;
   }

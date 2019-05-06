@@ -1,4 +1,5 @@
 from django.db import models
+from django.dispatch import receiver
 
 from backend.models import TrackableModel, Project
 
@@ -44,3 +45,25 @@ class Collaboration(TrackableModel):
 
     def __str__(self):
         return "Collab %s <-> %s" % (self.structure.name, self.project.name)
+
+
+@receiver(models.signals.post_save)
+def email_new_collaboration(
+    sender, instance, raw, created, using, update_fields, **kwargs
+):
+    if created and isinstance(instance, Collaboration):
+        from backend import email
+
+        email.email_new_collaboration(instance)
+        print("Sent email for new collaboration")
+
+
+@receiver(models.signals.post_save)
+def email_collaboration_approved(
+    sender, instance, raw, created, using, update_fields, **kwargs
+):
+    if not created and isinstance(instance, Collaboration) and instance.is_approved:
+        from backend import email
+
+        email.email_collaboration_approved(instance)
+        print("Sent email for collaboration approved")

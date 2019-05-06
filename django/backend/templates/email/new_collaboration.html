@@ -1,0 +1,57 @@
+{% extends 'email/base_alert.html' %}
+
+{% block title %}New Project for your structure{% endblock title %}
+
+{% block alert_title %}
+InSPIRES: New project registered to your structure
+{% endblock alert_title %}
+
+{% block content_wrap %}
+<table width="100%" cellpadding="0" cellspacing="0">
+    <tr>
+        <td class="content-block">
+            A new <b>Project</b> has requested to be part of your structure "{{ collaboration.structure.name }}":
+        </td>
+    </tr>
+    <tr>
+        <td class="content-block">
+            <table>
+                <tr>
+                    <th>Project Name:</th>
+                    <td>{{ collaboration.project.name }}</td>
+                </tr>
+                <tr>
+                    <th>Requested by:</th>
+                    <td>{{ collaboration.created_by.full_name }}</td>
+                </tr>
+                <tr>
+                    <th>Manager email:</th>
+                    <td>{{ collaboration.created_by.email }}</td>
+                </tr>
+                <tr>
+                    <th>Project Summary:</th>
+                    <td>{{ collaboration.project.summary }}</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td class="content-block">
+            If you want to approve this project into your structure please click here:
+        </td>
+    </tr>
+    <tr>
+        <td class="content-block" align="center">
+            <a href="{{ cta_link }}" class="btn-primary">Approve project here</a>
+        </td>
+    </tr>
+    <tr>
+        <td class="content-block">
+            <i>
+                You have received this mail because you are a registered administrator of
+                the structure "{{ collaboration.structure.name }}".
+            </i>
+        </td>
+    </tr>
+</table>
+{% endblock content_wrap %}

@@ -23,7 +23,7 @@ InSPIRES: New structure has been registered
                 </tr>
                 <tr>
                     <th>Created on:</th>
-                    <td>{{ structure.created_at | date:'Y m d' }}</td>
+                    <td>{{ structure.created_at | date:'D, d M, Y' }}</td>
                 </tr>
                 <tr>
                     <th>Created by:</th>
@@ -53,12 +53,11 @@ InSPIRES: New structure has been registered
     </tr>
     <tr>
         <td class="content-block">
-            You have received this mail because you are a registered administrator in
-            the platform and can verify that this structure is real.
+            <i>
+                You have received this mail because you are a registered administrator in
+                the platform and can verify that this structure is real.
+            </i>
         </td>
     </tr>
 </table>
 {% endblock content_wrap %}
-
-{% block footer %}
-{% endblock footer %}

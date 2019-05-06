@@ -59,6 +59,68 @@ def email_new_structure(structure):
     )
 
 
+def email_new_collaboration(collaboration):
+    if not settings.EMAIL_HOST:
+        return
+
+    email_from = settings.EMAIL_FROM
+    email_template = "email/new_collaboration.html"
+
+    manager_emails = map(lambda x: x.email, collaboration.project.managers.all())
+
+    subject = _("New project registered to your structure: %(project_name)s") % (
+        {"project_name": collaboration.project.name}
+    )
+
+    cta_link = settings.FRONTEND_URL
+    cta_link = (
+        cta_link + "/structures/%d/manage#projectsTab" % collaboration.structure.id
+    )
+
+    context = {"collaboration": collaboration, "cta_link": cta_link}
+    wawp_link = create_wawp_link(email_template, context)
+    context["wawp_link"] = wawp_link
+
+    html_message = render_to_string(email_template, context)
+    plain_message = strip_tags(html_message)
+
+    mail.send_mail(
+        subject, plain_message, email_from, manager_emails, html_message=html_message
+    )
+
+
+def email_collaboration_approved(collaboration):
+    if not settings.EMAIL_HOST:
+        return
+
+    email_from = settings.EMAIL_FROM
+    email_template = "email/collaboration_approved.html"
+
+    email_to = collaboration.created_by.email
+
+    subject = _('Your request has been approved to be part of "%(structure_name)s"') % (
+        {"structure_name": collaboration.structure.name}
+    )
+
+    cta_link = settings.FRONTEND_URL
+    cta_link = cta_link + "/projects/%d" % collaboration.project.id
+
+    context = {
+        "collaboration": collaboration,
+        "cta_link": cta_link,
+        "user": collaboration.created_by,
+    }
+    wawp_link = create_wawp_link(email_template, context)
+    context["wawp_link"] = wawp_link
+
+    html_message = render_to_string(email_template, context)
+    plain_message = strip_tags(html_message)
+
+    mail.send_mail(
+        subject, plain_message, email_from, [email_to], html_message=html_message
+    )
+
+
 def email_new_evaluation(evaluation):
     if not settings.EMAIL_HOST:
         return

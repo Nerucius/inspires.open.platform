@@ -1,6 +1,6 @@
 {% extends 'email/base_alert.html' %}
 
-{% block title %}Evaluation requested for {{project.name}} {% endblock title %}
+{% block title %}Evaluation requested for "{{project.name}}" {% endblock title %}
 
 {% block alert_title %}
 InSPIRES: An evaluation questionnaire is ready
@@ -53,9 +53,3 @@ InSPIRES: An evaluation questionnaire is ready
     </tr>
 </table>
 {% endblock content_wrap %}
-
-{% block footer %}
-This email was sent to {{ user.email }} by the automated alert system of the InSPIRES
-platform. This email may contain confidential or important information. Please take care before
-you forward this email to another person.
-{% endblock footer %}

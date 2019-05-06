@@ -1,0 +1,36 @@
+{% extends 'email/base_alert.html' %}
+
+{% block title %}Your project is now validated{% endblock title %}
+
+{% block alert_title %}
+InSPIRES: Your project is now part of "{{ collaboration.structure.name }}"
+{% endblock alert_title %}
+
+{% block content_wrap %}
+<table width="100%" cellpadding="0" cellspacing="0">
+    <tr>
+        <td class="content-block">
+            Congratulations! Your project is now part of "{{ collaboration.structure.name }}" and will show up in search
+            results and public lists.
+        </td>
+    </tr>
+    <tr>
+        <td class="content-block">
+            View your project's public page here:
+        </td>
+    </tr>
+    <tr>
+        <td class="content-block" align="center">
+            <a href="{{ cta_link }}" class="btn-primary">View your project</a>
+        </td>
+    </tr>
+    <tr>
+        <td class="content-block">
+            <i>
+                You have received this mail because you submitted a request to register your project
+                {{ collaboration.project.name }} under the structure {{ collaboration.structure.name }}.
+            </i>
+        </td>
+    </tr>
+</table>
+{% endblock content_wrap %}

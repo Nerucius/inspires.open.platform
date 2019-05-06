@@ -324,13 +324,14 @@
     {% block style %}
     {% endblock style %}
     <style>
-        .wawp-link{
+        .wawp-link {
             margin: 10px 0;
-            text-align:center;
+            text-align: center;
         }
-        .wawp-link a{
+
+        .wawp-link a {
             font-size: 85%;
-            color:#888;
+            color: #888;
         }
     </style>
 
@@ -344,42 +345,56 @@
             <td class="container" width="600">
                 <div class="content">
 
-                {% if wawp_link %}
+                    {% if wawp_link %}
                     <p class="wawp-link">
                         <a href="{{ wawp_link }}">
                             View this email in your browser
                         </a>
                     </p>
-                {% endif %}
+                    {% endif %}
 
                     {% block content %}
 
-                        <table class="main" width="100%" cellpadding="0" cellspacing="0">
-                            {% block alert %}
+                    <table class="main" width="100%" cellpadding="0" cellspacing="0">
+                        {% block alert %}
+                        <tr>
+                            <td class="alert alert-good">
+                                <b>{% block alert_title %}Header{% endblock alert_title %}</b>
+                            </td>
+                        </tr>
+                        {% endblock alert %}
+                        <tr>
+                            <td class="content-wrap">
+                                {% block content_wrap %}
+                                {% endblock content_wrap %}
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div class="footer">
+                        <table width="100%">
                             <tr>
-                                <td class="alert alert-good">
-                                    <b>{% block alert_title %}Header{% endblock alert_title %}</b>
-                                </td>
-                            </tr>
-                            {% endblock alert %}
-                            <tr>
-                                <td class="content-wrap">
-                                    {% block content_wrap %}
-                                    {% endblock content_wrap %}
+                                <td class="aligncenter content-block">
+                                    {% block footer %}
+                                    {% if user %}
+                                    <p>
+                                        This email was sent to {{ user.email }} by the automated alert system of the
+                                        InSPIRES
+                                        platform. This email may contain confidential or important information. Please
+                                        take care before
+                                        you forward this email to another person.
+                                    </p>
+                                    {% endif %}
+                                    {% if unsubscribe_link %}
+                                    <p>
+                                        <a href="{{unsubscribe_link}}">Unsubscribe</a> from these alerts.
+                                    </p>
+                                    {% endif %}
+                                    {% endblock footer %}
                                 </td>
                             </tr>
                         </table>
-
-                        <div class="footer">
-                                <table width="100%">
-                                    <tr>
-                                        <td class="aligncenter content-block">
-                            {% block footer %}
-                                        <a href="">Unsubscribe</a> from these alerts.</td>
-                            {% endblock footer %}
-                                    </tr>
-                                </table>
-                        </div>
+                    </div>
 
                     {% endblock content %}
 

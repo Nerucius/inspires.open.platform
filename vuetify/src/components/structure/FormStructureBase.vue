@@ -67,14 +67,13 @@
         Additional Information
       </h2>
 
-      <v-combobox v-model="editedStructure.country_code"
-                  box
-                  :items="Countries"
-                  :item-text="localizedCountryName"
-                  item-value="alpha2Code"
-                  :rules="[rules.isCountry]"
-                  label="Structure Home Country"
-                  hint="Country where the structure has it's base of operations."
+      <v-select v-model="editedStructure.country_code"
+                box
+                :items="Countries"
+                :item-text="localizedCountryName"
+                item-value="alpha3Code"
+                :label="$t('forms.fields.structureCountry')"
+                :hint="$t('forms.hints.structureCountry')"
       />
 
       <v-text-field

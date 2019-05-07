@@ -86,6 +86,25 @@ export default {
       }
     },
 
+    search: async function (context, params) {
+      let query = {ordering: "-modified_at", ...params}
+
+      let response = (await Resource.get(query)).body
+      let items = response.results
+
+      // Iteratively get all pages
+      let next = response.next
+      while(next){
+        response = (await Vue.http.get(next)).body
+        items = [...items, ...response.results]
+        next = response.next
+      }
+
+      let itemMap = {}
+      items.map(createLink).forEach(i => {itemMap[i.id] = i})
+      return itemMap
+    },
+
     clear: function(context, _){
       context.commit("CLEAR")
     },

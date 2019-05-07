@@ -89,6 +89,15 @@
         item-value="id"
       />
 
+      <v-select v-model="editedProject.country_code"
+                box
+                :items="Countries"
+                :item-text="localizedCountryName"
+                item-value="alpha3Code"
+                :label="$t('forms.fields.projectCountry')"
+                :hint="$t('forms.hints.projectCountry')"
+      />
+
       <v-select
         v-model="editedProject.project_type"
         box
@@ -144,12 +153,14 @@
 
 <script>
 import { cloneDeep } from "lodash";
+import { Countries } from '@/plugins/i18n'
 
 export default {
   props: ["project"],
 
   data() {
     return {
+      Countries,
       processing: false,
       valid: null,
       rules: {
@@ -223,6 +234,11 @@ export default {
       )
 
       return loadedProject
+    },
+
+    localizedCountryName(country){
+      let locale = this.$i18n.locale
+      return country.translations[locale] || country.name
     },
 
     attemptSubmit: async function() {

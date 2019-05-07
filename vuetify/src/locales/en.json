@@ -24,6 +24,8 @@
     },
     "home": {
       "mainTitle": "Welcome to InSPIRES",
+      "worldmapTitle":"World Map",
+      "latestTitle":"Latest Updates",
       "welcomeMessage": "Welcome to the InSPIRES online database and impact evaluation tool. This platform features participatory research and innovation projects promoted knowledge intermediary units, such as Science Shops.",
       "aboutLink": "More about us!",
       "projectsSeeMore": "See all projects"
@@ -203,6 +205,9 @@
       "home": "Home",
       "about": "About"
     }
+  },
+  "misc":{
+    "timeAgo": "{time} ago"
   },
   "actions": {
     "add": "Add",

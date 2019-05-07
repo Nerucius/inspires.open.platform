@@ -6,7 +6,6 @@
 
 <template>
   <v-layout v-if="authorized" row wrap align-content-start>
-
     <v-flex xs12>
       <h1>{{ $t('pages.admin.mainTitle') }}</h1>
     </v-flex>
@@ -19,15 +18,11 @@
           </h1>
         </v-card-title>
         <v-card-text>
-
           <vue-markdown>{{ $t('pages.admin.instructionsText') }}</vue-markdown>
 
           <v-list two-line>
-
             <template v-for="(structure,idx) in structures">
-
-              <v-list-tile  :key="structure.id">
-
+              <v-list-tile :key="structure.id">
                 <!-- Structure Image -->
                 <v-list-tile-avatar>
                   <!-- <img :src="getUser(structure.created_by).avatar_url"> -->
@@ -51,22 +46,18 @@
                 </v-list-tile-content>
 
                 <v-list-tile-action>
-                  <v-btn @click="validate(structure.id)" color="success" class="elevation-0">Validate</v-btn>
+                  <v-btn color="success" class="elevation-0" @click="validate(structure.id)">
+                    Validate
+                  </v-btn>
                 </v-list-tile-action>
-
               </v-list-tile>
 
-              <v-divider inset v-if="idx != structures.length-1" :key="`div-${structure.id}`"></v-divider>
-
+              <v-divider v-if="idx != structures.length-1" :key="`div-${structure.id}`" inset />
             </template>
-
-
           </v-list>
         </v-card-text>
       </v-card>
     </v-flex>
-
-
   </v-layout>
 
   <!-- Alert for unauthorized -->
@@ -86,7 +77,6 @@
       </v-alert>
     </v-flex>
   </v-layout>
-
 </template>
 
 <script>
@@ -114,6 +104,22 @@ export default {
           v.length > 10 || this.$t("forms.rules.minimunLength", { length: 10 })
       },
     }
+  },
+
+  computed:{
+
+    user(){
+      return this.$store.getters['user/current']
+    },
+
+    authorized(){
+      return this.user.is_administrator
+    },
+
+    structures(){
+      return this.$store.getters['structure/all']
+    }
+
   },
 
 
@@ -149,22 +155,6 @@ export default {
         })
       }
 
-    }
-
-  },
-
-  computed:{
-
-    user(){
-      return this.$store.getters['user/current']
-    },
-
-    authorized(){
-      return this.user.is_administrator
-    },
-
-    structures(){
-      return this.$store.getters['structure/all']
     }
 
   },

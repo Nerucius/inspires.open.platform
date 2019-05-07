@@ -16,19 +16,35 @@
       <router-link :to="{name:'home'}" active-class="router-link">
         <span style="text-transform:none">
           InSPIRES
-        </span>&nbsp;
-        <span style="font-size:70%" class="font-weight-light">
-          Open Platform
+        </span>
+        <span style="font-size:70%" class="font-weight-light hidden-sm-and-down">
+          &nbsp; Open Platform
         </span>
       </router-link>
     </v-toolbar-title>
     <v-spacer />
 
-    <v-toolbar-items class="hidden-sm-and-down">
-      <v-btn v-for="link in links" :key="link.name"
-             flat
-             exact
-             :to="{name:link.name}"
+    <v-flex>
+      <v-text-field
+        class="pa-0"
+        color="grey lighten-3"
+        hide-details
+        single-line
+        prepend-icon="search"
+        browser-autocomplete="off"
+        :placeholder="$t('toolbar.searchPlaceholder')"
+        />
+    </v-flex>
+
+    <v-spacer />
+
+    <v-toolbar-items class="hidden-md-and-down">
+
+      <!-- Full width items -->
+      <v-btn v-for="link in links.filter(l => !l.miniOnly)"
+          flat exact
+          :key="link.name"
+          :to="{name:link.name}"
       >
         {{ $t(link.label) }}
       </v-btn>
@@ -42,15 +58,24 @@
       <LoginLogoutButton />
     </v-toolbar-items>
 
-    <v-menu bottom left class="hidden-md-and-up">
+    <!-- SM devices links -->
+    <v-menu bottom left class="hidden-lg-and-up">
       <v-btn slot="activator" large dark icon>
         <v-icon>more_vert</v-icon>
       </v-btn>
 
       <v-list>
-        <v-list-tile v-for="link in links" :key="link.name" exact :to="{name:link.name}">
-          {{ $t(link.label) }}
-        </v-list-tile>
+
+        <template v-for="(link,idx) in links" >
+          <v-list-tile v-if="!link.divider"
+            :key="link.name" exact :to="{name:link.name}">
+            {{ $t(link.label) }}
+          </v-list-tile>
+
+        <v-divider v-else :key="idx" />
+
+        </template>
+
         <v-divider />
 
         <v-list-tile v-if="!userIsLoggedIn" exact :to="{name:'login'}">
@@ -78,7 +103,7 @@ export default {
 
   data(){
     return{
-      links: [
+      menuLinks: [
         {name: "home", label:"navigation.links.home"},
         {name: "project-list", label:"noums.projects"},
         {name: "structure-list", label:"noums.structures"},
@@ -87,8 +112,21 @@ export default {
   },
 
   computed: {
+    links(){
+      if(this.userIsLoggedIn){
+        return [
+          {miniOnly: true, name:"account", label: this.currentUser.first_name},
+          {miniOnly: true, divider:true},
+          ...this.$data.menuLinks,
+        ]
+      }
+      return this.menuLinks;
+    },
     userIsLoggedIn() {
       return this.$store.getters["user/isLoggedIn"];
+    },
+    currentUser(){
+      return this.$store.getters["user/current"]
     }
   },
 

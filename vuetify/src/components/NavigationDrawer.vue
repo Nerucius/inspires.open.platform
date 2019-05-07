@@ -43,7 +43,6 @@
                 {{ showAccountMenu ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}
               </v-icon>
             </v-flex> -->
-
           </v-layout>
         </v-flex>
       </v-flex>
@@ -64,66 +63,65 @@
 
       <!-- User Menu -->
       <v-flex v-if="!showAccountMenu" shrink>
+        <v-expansion-panel class="elevation-0" focusable>
+          <v-expansion-panel-content>
+            <!-- Trigger Slot -->
+            <template v-slot:header>
+              <v-layout py-2 align-center="">
+                <v-flex pr-3 shrink>
+                  <v-icon size="28" style="flex-shrink:1">
+                    person
+                  </v-icon>
+                </v-flex>
+                <v-flex class="subheading">
+                  {{ $t("toolbar.myProjects") }}
+                </v-flex>
+              </v-layout>
+            </template>
 
-          <v-expansion-panel class="elevation-0" focusable>
-            <v-expansion-panel-content>
+            <v-list>
+              <v-list-tile to="/projects/1">
+                <v-list-tile-title>Project Alpha</v-list-tile-title>
+              </v-list-tile>
+              <v-list-tile to="/projects/2">
+                <v-list-tile-title>Project Beta</v-list-tile-title>
+              </v-list-tile>
+            </v-list>
+          </v-expansion-panel-content>
+        </v-expansion-panel>
 
-              <!-- Trigger Slot -->
-              <template v-slot:header>
-                  <v-layout py-2 align-center="">
-                    <v-flex pr-3 shrink>
-                      <v-icon size="28" style="flex-shrink:1">person</v-icon>
-                    </v-flex>
-                    <v-flex class="subheading">
-                      {{ $t("toolbar.myProjects") }}
-                    </v-flex>
-                  </v-layout>
-              </template>
+        <v-divider />
 
-              <v-list>
-                <v-list-tile to="/projects/1">
-                  <v-list-tile-title>Project Alpha</v-list-tile-title>
-                </v-list-tile>
-                <v-list-tile to="/projects/2">
-                  <v-list-tile-title>Project Beta</v-list-tile-title>
-                </v-list-tile>
-              </v-list>
+        <v-expansion-panel class="elevation-0" focusable>
+          <v-expansion-panel-content>
+            <!-- Trigger Slot -->
+            <template v-slot:header>
+              <v-layout py-2 align-center="">
+                <v-flex pr-3 shrink>
+                  <v-icon size="28" style="flex-shrink:1">
+                    person
+                  </v-icon>
+                </v-flex>
+                <v-flex class="subheading">
+                  {{ $t("toolbar.myStructures") }}
+                </v-flex>
+              </v-layout>
+            </template>
 
-            </v-expansion-panel-content>
-          </v-expansion-panel>
+            <v-list>
+              <v-list-tile>
+                <v-list-tile-title>Project Alpha</v-list-tile-title>
+              </v-list-tile>
+              <v-list-tile>
+                <v-list-tile-title>Project Beta</v-list-tile-title>
+              </v-list-tile>
+            </v-list>
+          </v-expansion-panel-content>
+        </v-expansion-panel>
 
-          <v-divider />
+        <v-divider />
 
-          <v-expansion-panel class="elevation-0" focusable>
-            <v-expansion-panel-content>
-
-              <!-- Trigger Slot -->
-              <template v-slot:header>
-                  <v-layout py-2 align-center="">
-                    <v-flex pr-3 shrink>
-                      <v-icon size="28" style="flex-shrink:1">person</v-icon>
-                    </v-flex>
-                    <v-flex class="subheading">
-                      {{ $t("toolbar.myStructures") }}
-                    </v-flex>
-                  </v-layout>
-              </template>
-
-              <v-list>
-                <v-list-tile>
-                  <v-list-tile-title>Project Alpha</v-list-tile-title>
-                </v-list-tile>
-                <v-list-tile>
-                  <v-list-tile-title>Project Beta</v-list-tile-title>
-                </v-list-tile>
-              </v-list>
-
-            </v-expansion-panel-content>
-          </v-expansion-panel>
-
-          <v-divider />
-
-          <!--
+        <!--
           <v-list-tile :to="{name:'account-projects'}" exact>
             <v-list-tile-action>
               <v-icon>work</v-icon>
@@ -145,7 +143,6 @@
             <v-list-tile-title>{{ $t("navigation.commissioners") }}</v-list-tile-title>
           </v-list-tile>
           -->
-
       </v-flex>
 
 

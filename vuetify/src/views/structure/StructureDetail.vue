@@ -39,73 +39,69 @@
     <!-- About Sidebar -->
     <v-flex sm4 xs12>
       <v-card flat>
-
         <v-list two-line class="ma-0 pa-0">
+          <v-toolbar dense flat color="primary" dark>
+            <h1 class="title">
+              {{ $t('pages.structureDetail.about') }}
+            </h1>
+          </v-toolbar>
 
-            <v-toolbar dense flat color="primary" dark>
-              <h1 class="title">
-                {{ $t('pages.structureDetail.about') }}
-              </h1>
-            </v-toolbar>
+          <!-- Contact Website -->
+          <v-list-tile v-if="structure.contact_website">
+            <v-list-tile-content>
+              <v-list-tile-title>
+                <a :href="structure.contact_website">
+                  {{ structure.contact_website }}
+                </a>
+              </v-list-tile-title>
+              <v-list-tile-sub-title>{{ $t('forms.fields.contactWebsite') }}</v-list-tile-sub-title>
+            </v-list-tile-content>
+          </v-list-tile>
 
-            <!-- Contact Website -->
-            <v-list-tile v-if="structure.contact_website">
-              <v-list-tile-content>
-                <v-list-tile-title>
-                  <a :href="structure.contact_website">{{ structure.contact_website }}</a>
-                </v-list-tile-title>
-                <v-list-tile-sub-title>{{ $t('forms.fields.contactWebsite') }}</v-list-tile-sub-title>
-              </v-list-tile-content>
-            </v-list-tile>
+          <!-- Contact Email -->
+          <v-list-tile v-if="structure.contact_email">
+            <v-list-tile-content>
+              <v-list-tile-title>
+                <a :href="`mailto:${structure.contact_email}`">
+                  {{ structure.contact_email }}
+                </a>
+              </v-list-tile-title>
+              <v-list-tile-sub-title>{{ $t('forms.fields.contactEmail') }}</v-list-tile-sub-title>
+            </v-list-tile-content>
+          </v-list-tile>
 
-            <!-- Contact Email -->
-            <v-list-tile v-if="structure.contact_email">
-              <v-list-tile-content>
-                <v-list-tile-title>
-                  <a :href="`mailto:${structure.contact_email}`">{{ structure.contact_email }}</a>
-                </v-list-tile-title>
-                <v-list-tile-sub-title>{{ $t('forms.fields.contactEmail') }}</v-list-tile-sub-title>
-              </v-list-tile-content>
-            </v-list-tile>
-
-            <!-- Contact Address -->
-            <v-list-tile v-if="structure.contact_postal_address">
-              <v-list-tile-content>
-                <v-list-tile-title style="height:auto">
-                  <vue-markdown>{{ structure.contact_postal_address }}</vue-markdown>
-                </v-list-tile-title>
-                <v-list-tile-sub-title>{{ $t('forms.fields.postalAddress') }}</v-list-tile-sub-title>
-              </v-list-tile-content>
-            </v-list-tile>
+          <!-- Contact Address -->
+          <v-list-tile v-if="structure.contact_postal_address">
+            <v-list-tile-content>
+              <v-list-tile-title style="height:auto">
+                <vue-markdown>{{ structure.contact_postal_address }}</vue-markdown>
+              </v-list-tile-title>
+              <v-list-tile-sub-title>{{ $t('forms.fields.postalAddress') }}</v-list-tile-sub-title>
+            </v-list-tile-content>
+          </v-list-tile>
 
 
-            <v-toolbar dense flat color="primary" dark class="mt-3">
-              <h1 class="title">
-                {{ $t('forms.fields.managers') }}
-              </h1>
-            </v-toolbar>
+          <v-toolbar dense flat color="primary" dark class="mt-3">
+            <h1 class="title">
+              {{ $t('forms.fields.managers') }}
+            </h1>
+          </v-toolbar>
 
-            <v-sheet :max-height="72*4.5" style="overflow-y:auto;">
-
-              <template v-for="(manager, idx) in structure.managers">
-                <v-list-tile :key="manager" :to="user(manager).link">
-                  <v-list-tile-avatar>
-                    <v-img :src="user(manager).avatar_url" />
-                  </v-list-tile-avatar>
-                  <v-list-tile-content>
-                    <v-list-tile-title>{{ user(manager).full_name }}</v-list-tile-title>
-                    <v-list-tile-sub-title>
-
-                    </v-list-tile-sub-title>
-                  </v-list-tile-content>
-                </v-list-tile>
-                <v-divider :key="`div-${manager}`" v-if="idx != structure.managers.length - 1"/>
-              </template>
-
-            </v-sheet>
-
+          <v-sheet :max-height="72*4.5" style="overflow-y:auto;">
+            <template v-for="(manager, idx) in structure.managers">
+              <v-list-tile :key="manager" :to="user(manager).link">
+                <v-list-tile-avatar>
+                  <v-img :src="user(manager).avatar_url" />
+                </v-list-tile-avatar>
+                <v-list-tile-content>
+                  <v-list-tile-title>{{ user(manager).full_name }}</v-list-tile-title>
+                  <v-list-tile-sub-title />
+                </v-list-tile-content>
+              </v-list-tile>
+              <v-divider v-if="idx != structure.managers.length - 1" :key="`div-${manager}`" />
+            </template>
+          </v-sheet>
         </v-list>
-
       </v-card>
     </v-flex>
 

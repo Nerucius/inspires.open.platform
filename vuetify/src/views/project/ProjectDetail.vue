@@ -60,84 +60,81 @@
     <!-- About Sidebar -->
     <v-flex sm4 xs12 class="_no-hidden-xs-only">
       <v-card flat>
+        <v-list two-line class="ma-0 pa-0">
+          <v-toolbar dense flat color="primary" dark>
+            <h1 class="title">
+              {{ $t('pages.projectDetail.about') }}
+            </h1>
+          </v-toolbar>
 
-          <v-list two-line class="ma-0 pa-0">
+          <!-- Structure -->
+          <v-list-tile v-if="structure.id" :to="structure.link">
+            <v-list-tile-avatar tile>
+              <v-img :src="structure.image_url" />
+            </v-list-tile-avatar>
+            <v-list-tile-content>
+              <v-list-tile-title>{{ structure.name }}</v-list-tile-title>
+              <v-list-tile-sub-title>{{ $t('noums.structure') }}</v-list-tile-sub-title>
+            </v-list-tile-content>
+          </v-list-tile>
 
-            <v-toolbar dense flat color="primary" dark>
-              <h1 class="title">
-                {{ $t('pages.projectDetail.about') }}
-              </h1>
-            </v-toolbar>
+          <!-- Contact Website -->
+          <v-list-tile v-if="project.contact_website">
+            <v-list-tile-content>
+              <v-list-tile-title>
+                <a :href="project.contact_website">
+                  {{ project.contact_website }}
+                </a>
+              </v-list-tile-title>
+              <v-list-tile-sub-title>{{ $t('forms.fields.contactWebsite') }}</v-list-tile-sub-title>
+            </v-list-tile-content>
+          </v-list-tile>
 
-            <!-- Structure -->
-            <v-list-tile v-if="structure.id" :to="structure.link">
-              <v-list-tile-avatar tile>
-                <v-img :src="structure.image_url"></v-img>
-              </v-list-tile-avatar>
-              <v-list-tile-content>
-                <v-list-tile-title>{{ structure.name }}</v-list-tile-title>
-                <v-list-tile-sub-title>{{ $t('noums.structure') }}</v-list-tile-sub-title>
-              </v-list-tile-content>
-            </v-list-tile>
+          <!-- Contact Email -->
+          <v-list-tile v-if="project.contact_email">
+            <v-list-tile-content>
+              <v-list-tile-title>
+                <a :href="`mailto:${project.contact_email}`">
+                  {{ project.contact_email }}
+                </a>
+              </v-list-tile-title>
+              <v-list-tile-sub-title>{{ $t('forms.fields.contactEmail') }}</v-list-tile-sub-title>
+            </v-list-tile-content>
+          </v-list-tile>
 
-            <!-- Contact Website -->
-            <v-list-tile v-if="project.contact_website">
-              <v-list-tile-content>
-                <v-list-tile-title>
-                  <a :href="project.contact_website">{{ project.contact_website }}</a>
-                </v-list-tile-title>
-                <v-list-tile-sub-title>{{ $t('forms.fields.contactWebsite') }}</v-list-tile-sub-title>
-              </v-list-tile-content>
-            </v-list-tile>
+          <!-- Contact Address -->
+          <v-list-tile v-if="project.contact_postal_address">
+            <v-list-tile-content>
+              <v-list-tile-title style="height:auto">
+                <vue-markdown>{{ project.contact_postal_address }}</vue-markdown>
+              </v-list-tile-title>
+              <v-list-tile-sub-title>{{ $t('forms.fields.postalAddress') }}</v-list-tile-sub-title>
+            </v-list-tile-content>
+          </v-list-tile>
 
-            <!-- Contact Email -->
-            <v-list-tile v-if="project.contact_email">
-              <v-list-tile-content>
-                <v-list-tile-title>
-                  <a :href="`mailto:${project.contact_email}`">{{ project.contact_email }}</a>
-                </v-list-tile-title>
-                <v-list-tile-sub-title>{{ $t('forms.fields.contactEmail') }}</v-list-tile-sub-title>
-              </v-list-tile-content>
-            </v-list-tile>
+          <v-toolbar dense flat color="primary" dark class="mt-3">
+            <h1 class="title">
+              {{ $t('forms.fields.participants') }}
+            </h1>
+          </v-toolbar>
 
-            <!-- Contact Address -->
-            <v-list-tile v-if="project.contact_postal_address">
-              <v-list-tile-content>
-                <v-list-tile-title style="height:auto">
-                  <vue-markdown>{{ project.contact_postal_address }}</vue-markdown>
-                </v-list-tile-title>
-                <v-list-tile-sub-title>{{ $t('forms.fields.postalAddress') }}</v-list-tile-sub-title>
-              </v-list-tile-content>
-            </v-list-tile>
-
-            <v-toolbar dense flat color="primary" dark class="mt-3">
-              <h1 class="title">
-                {{ $t('forms.fields.participants') }}
-              </h1>
-            </v-toolbar>
-
-            <v-sheet :max-height="72*4.5" style="overflow-y:auto;">
-
-              <template v-for="(part, idx) in project.participants">
-                <v-list-tile :key="part.id" :to="user(part.user).link">
-                  <v-list-tile-avatar>
-                    <v-img :src="user(part.user).avatar_url" />
-                  </v-list-tile-avatar>
-                  <v-list-tile-content>
-                    <v-list-tile-title>{{ user(part.user).full_name }}</v-list-tile-title>
-                    <v-list-tile-sub-title>
-                      {{ $t(role(part.role).name) }}
-                    </v-list-tile-sub-title>
-                  </v-list-tile-content>
-                </v-list-tile>
-                <v-divider :key="`div-${part.id}`" v-if="idx != project.participants.length - 1"/>
-              </template>
-
-            </v-sheet>
-
-
-          </v-list>
-
+          <v-sheet :max-height="72*4.5" style="overflow-y:auto;">
+            <template v-for="(part, idx) in project.participants">
+              <v-list-tile :key="part.id" :to="user(part.user).link">
+                <v-list-tile-avatar>
+                  <v-img :src="user(part.user).avatar_url" />
+                </v-list-tile-avatar>
+                <v-list-tile-content>
+                  <v-list-tile-title>{{ user(part.user).full_name }}</v-list-tile-title>
+                  <v-list-tile-sub-title>
+                    {{ $t(role(part.role).name) }}
+                  </v-list-tile-sub-title>
+                </v-list-tile-content>
+              </v-list-tile>
+              <v-divider v-if="idx != project.participants.length - 1" :key="`div-${part.id}`" />
+            </template>
+          </v-sheet>
+        </v-list>
       </v-card>
     </v-flex>
 

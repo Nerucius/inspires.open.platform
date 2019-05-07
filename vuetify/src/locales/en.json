@@ -194,6 +194,7 @@
     }
   },
   "toolbar":{
+    "searchPlaceholder": "Search projects, structures...",
     "myAccount": "My Account",
     "administration": "Administration"
   },

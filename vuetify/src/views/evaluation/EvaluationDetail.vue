@@ -6,17 +6,17 @@
 
     <v-flex xs12>
       <v-layout id="target-graph-area" row wrap>
-
-
         <v-flex xs12 sm6 xl4>
           <v-card>
             <v-toolbar dense dark flat color="grey darken-3">
               <v-toolbar-title>
-                <h2 class="title">Project Overall Position</h2>
+                <h2 class="title">
+                  Project Overall Position
+                </h2>
               </v-toolbar-title>
             </v-toolbar>
             <v-card-text id="reference-width">
-              <v-sheet height=200>
+              <v-sheet height="200">
                 <div id="scatterchart" />
               </v-sheet>
             </v-card-text>
@@ -27,11 +27,13 @@
           <v-card>
             <v-toolbar dense dark flat color="grey darken-3">
               <v-toolbar-title>
-                <h2 class="title">Project Evolution</h2>
+                <h2 class="title">
+                  Project Evolution
+                </h2>
               </v-toolbar-title>
             </v-toolbar>
             <v-card-text>
-              <v-sheet height=200>
+              <v-sheet height="200">
                 <div id="linechart" />
               </v-sheet>
             </v-card-text>
@@ -42,90 +44,89 @@
           <v-card>
             <v-toolbar dense dark flat style="background-color:#2F4193">
               <v-toolbar-title>
-                <h2 class="title">Transformative Change</h2>
+                <h2 class="title">
+                  Transformative Change
+                </h2>
               </v-toolbar-title>
             </v-toolbar>
             <v-card-text>
-          <div id="transfchart" />
-          <div class="bullet">
-            <h3>Collective capacity</h3>
-            <div id="TransformativeCollectiveChart" />
-          </div>
-          <div class="bullet">
-            <h3>Knowledge and skills</h3>
-            <div id="TransformativeSkillsChart" />
-          </div>
-          <div class="bullet">
-            <h3>Policy impact</h3>
-            <div id="TransformativePolicyChart" />
-          </div>
-          <div class="bullet">
-            <h3>Self-improvement</h3>
-            <div id="TransformativeSelfChart" />
-          </div>
+              <div id="transfchart" />
+              <div class="bullet">
+                <h3>Collective capacity</h3>
+                <div id="TransformativeCollectiveChart" />
+              </div>
+              <div class="bullet">
+                <h3>Knowledge and skills</h3>
+                <div id="TransformativeSkillsChart" />
+              </div>
+              <div class="bullet">
+                <h3>Policy impact</h3>
+                <div id="TransformativePolicyChart" />
+              </div>
+              <div class="bullet">
+                <h3>Self-improvement</h3>
+                <div id="TransformativeSelfChart" />
+              </div>
             </v-card-text>
           </v-card>
-
-
         </v-flex>
 
         <v-flex xs12 sm6 xl4>
           <v-card>
             <v-toolbar dense dark flat style="background-color:#2599D4">
               <v-toolbar-title>
-                <h2 class="title">Knowledge Democracy</h2>
+                <h2 class="title">
+                  Knowledge Democracy
+                </h2>
               </v-toolbar-title>
             </v-toolbar>
             <v-card-text>
-
-          <div id="knowchart" />
-          <div class="bullet">
-            <h3>Openness</h3>
-            <div id="KnowledgeOpennessChart" />
-          </div>
-          <div class="bullet">
-            <h3>Scientific relevance</h3>
-            <div id="KnowledgeRelevanceChart" />
-          </div>
-          <div class="bullet">
-            <h3>Transdisciplinarity</h3>
-            <div id="KnowledgeTransdisciplChart" />
-          </div>
+              <div id="knowchart" />
+              <div class="bullet">
+                <h3>Openness</h3>
+                <div id="KnowledgeOpennessChart" />
+              </div>
+              <div class="bullet">
+                <h3>Scientific relevance</h3>
+                <div id="KnowledgeRelevanceChart" />
+              </div>
+              <div class="bullet">
+                <h3>Transdisciplinarity</h3>
+                <div id="KnowledgeTransdisciplChart" />
+              </div>
             </v-card-text>
           </v-card>
-
-
         </v-flex>
 
         <v-flex xs12 sm6 xl4>
           <v-card>
             <v-toolbar dense dark flat color="green darken-2">
               <v-toolbar-title>
-                <h2 class="title">Participatory Dynamics</h2>
+                <h2 class="title">
+                  Participatory Dynamics
+                </h2>
               </v-toolbar-title>
             </v-toolbar>
             <v-card-text>
-
-          <div id="partchart" />
-          <div class="bullet">
-            <h3>Degree of engagement</h3>
-            <div id="ParticipatoryEngagementChart" />
-          </div>
-          <div class="bullet">
-            <h3>Impact of the participatory dynamics</h3>
-            <div id="ParticipatoryImpactChart" />
-          </div>
-          <div class="bullet">
-            <h3>Motivation</h3>
-            <div id="ParticipatoryMotivationChart" />
-          </div>
-          <div class="bullet">
-            <h3>Satisfaction with the participatory dunamics</h3>
-            <div id="ParticipatorySatisfactionChart" />
-          </div>
+              <div id="partchart" />
+              <div class="bullet">
+                <h3>Degree of engagement</h3>
+                <div id="ParticipatoryEngagementChart" />
+              </div>
+              <div class="bullet">
+                <h3>Impact of the participatory dynamics</h3>
+                <div id="ParticipatoryImpactChart" />
+              </div>
+              <div class="bullet">
+                <h3>Motivation</h3>
+                <div id="ParticipatoryMotivationChart" />
+              </div>
+              <div class="bullet">
+                <h3>Satisfaction with the participatory dunamics</h3>
+                <div id="ParticipatorySatisfactionChart" />
+              </div>
             </v-card-text>
           </v-card>
-
         </v-flex>
 
 
@@ -133,43 +134,40 @@
           <v-card>
             <v-toolbar dense dark flat color="orange darken-3">
               <v-toolbar-title>
-                <h2 class="title">Integrity</h2>
+                <h2 class="title">
+                  Integrity
+                </h2>
               </v-toolbar-title>
             </v-toolbar>
             <v-card-text>
-
-          <div id="integchart" />
-          <div class="bullet">
-            <h3>Expectation alignment</h3>
-            <div id="IntegrityExpectationChart" />
-          </div>
-          <div class="bullet">
-            <h3>Gender perspective</h3>
-            <div id="IntegrityGenderChart" />
-          </div>
-          <div class="bullet">
-            <h3>Inclusivity</h3>
-            <div id="IntegrityInclusivityChart" />
-          </div>
-          <div class="bullet">
-            <h3>Reflexivity</h3>
-            <div id="IntegrityReflexivityChart" />
-          </div>
-          <div class="bullet">
-            <h3>Resource availability</h3>
-            <div id="IntegrityResourceChart" />
-          </div>
-          <div class="bullet">
-            <h3>Transparency</h3>
-            <div id="IntegrityTransparencyChart" />
-          </div>
+              <div id="integchart" />
+              <div class="bullet">
+                <h3>Expectation alignment</h3>
+                <div id="IntegrityExpectationChart" />
+              </div>
+              <div class="bullet">
+                <h3>Gender perspective</h3>
+                <div id="IntegrityGenderChart" />
+              </div>
+              <div class="bullet">
+                <h3>Inclusivity</h3>
+                <div id="IntegrityInclusivityChart" />
+              </div>
+              <div class="bullet">
+                <h3>Reflexivity</h3>
+                <div id="IntegrityReflexivityChart" />
+              </div>
+              <div class="bullet">
+                <h3>Resource availability</h3>
+                <div id="IntegrityResourceChart" />
+              </div>
+              <div class="bullet">
+                <h3>Transparency</h3>
+                <div id="IntegrityTransparencyChart" />
+              </div>
             </v-card-text>
           </v-card>
-
         </v-flex>
-
-
-
       </v-layout>
     </v-flex>
   </v-layout>

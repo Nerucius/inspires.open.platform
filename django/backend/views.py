@@ -211,6 +211,7 @@ class ProjectsVS(ListDetail, Orderable, viewsets.ModelViewSet):
         "keywords",
         "participants",
         "knowledge_area",
+        "country_code"
     ]
 
     serializer_class = serializers.SimpleProjectSerializer

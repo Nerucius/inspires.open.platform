@@ -151,10 +151,12 @@ class SimpleProjectSerializer(serializers.ModelSerializer):
         model = models.Project
         fields = [
             "id",
+            "modified_at",
             "name",
             "participants",
             "keywords",
             "summary",
+            "country_code",
             "image_url",
             "knowledge_area",
             "structure",

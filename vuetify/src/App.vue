@@ -84,6 +84,7 @@
           top
           :color="toast.color"
           :timeout="toast.timeout"
+          style="z-index:999999"
         >
           {{ toast.message }}
           <v-btn dark flat fab @click="toast.close()">

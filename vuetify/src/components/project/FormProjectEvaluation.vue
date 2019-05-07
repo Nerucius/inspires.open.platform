@@ -125,7 +125,7 @@ export default {
         let phaseId = activePhases[0].project_phase
         return this.phases[phaseId]
       }
-      return null
+      return {id:0}
     }
   },
 

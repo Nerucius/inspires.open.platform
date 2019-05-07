@@ -8,6 +8,8 @@ Vue.use(VueI18n)
 export const ListOfLocales = []
 // Load list of countries:
 export const Countries = require("../locales/_countries.json")
+// export const GeoJSONCountries = require("../locales/_geoJSONCountries.json")
+export const GeoJSONCountriesDetail = require("../locales/_geoJSONCountries2.json")
 
 function loadLocaleMessages() {
   const locales = require.context('../locales', true, /[A-Za-z0-9-_]+\.json$/i)

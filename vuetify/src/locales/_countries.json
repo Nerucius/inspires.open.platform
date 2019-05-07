@@ -13,6 +13,7 @@
   },
   "name": "Afghanistan",
   "alpha2Code": "AF",
+  "alpha3Code": "AFG",
   "region": "Asia",
   "subregion": "Southern Asia"
 }, {
@@ -30,6 +31,7 @@
   },
   "name": "Åland Islands",
   "alpha2Code": "AX",
+  "alpha3Code": "ALA",
   "region": "Europe",
   "subregion": "Northern Europe"
 }, {
@@ -47,6 +49,7 @@
   },
   "name": "Albania",
   "alpha2Code": "AL",
+  "alpha3Code": "ALB",
   "region": "Europe",
   "subregion": "Southern Europe"
 }, {
@@ -64,6 +67,7 @@
   },
   "name": "Algeria",
   "alpha2Code": "DZ",
+  "alpha3Code": "DZA",
   "region": "Africa",
   "subregion": "Northern Africa"
 }, {
@@ -81,6 +85,7 @@
   },
   "name": "American Samoa",
   "alpha2Code": "AS",
+  "alpha3Code": "ASM",
   "region": "Oceania",
   "subregion": "Polynesia"
 }, {
@@ -98,6 +103,7 @@
   },
   "name": "Andorra",
   "alpha2Code": "AD",
+  "alpha3Code": "AND",
   "region": "Europe",
   "subregion": "Southern Europe"
 }, {
@@ -115,6 +121,7 @@
   },
   "name": "Angola",
   "alpha2Code": "AO",
+  "alpha3Code": "AGO",
   "region": "Africa",
   "subregion": "Middle Africa"
 }, {
@@ -132,6 +139,7 @@
   },
   "name": "Anguilla",
   "alpha2Code": "AI",
+  "alpha3Code": "AIA",
   "region": "Americas",
   "subregion": "Caribbean"
 }, {
@@ -149,6 +157,7 @@
   },
   "name": "Antarctica",
   "alpha2Code": "AQ",
+  "alpha3Code": "ATA",
   "region": "Polar",
   "subregion": ""
 }, {
@@ -166,6 +175,7 @@
   },
   "name": "Antigua and Barbuda",
   "alpha2Code": "AG",
+  "alpha3Code": "ATG",
   "region": "Americas",
   "subregion": "Caribbean"
 }, {
@@ -183,6 +193,7 @@
   },
   "name": "Argentina",
   "alpha2Code": "AR",
+  "alpha3Code": "ARG",
   "region": "Americas",
   "subregion": "South America"
 }, {
@@ -200,6 +211,7 @@
   },
   "name": "Armenia",
   "alpha2Code": "AM",
+  "alpha3Code": "ARM",
   "region": "Asia",
   "subregion": "Western Asia"
 }, {
@@ -217,6 +229,7 @@
   },
   "name": "Aruba",
   "alpha2Code": "AW",
+  "alpha3Code": "ABW",
   "region": "Americas",
   "subregion": "Caribbean"
 }, {
@@ -234,6 +247,7 @@
   },
   "name": "Australia",
   "alpha2Code": "AU",
+  "alpha3Code": "AUS",
   "region": "Oceania",
   "subregion": "Australia and New Zealand"
 }, {
@@ -251,6 +265,7 @@
   },
   "name": "Austria",
   "alpha2Code": "AT",
+  "alpha3Code": "AUT",
   "region": "Europe",
   "subregion": "Western Europe"
 }, {
@@ -268,6 +283,7 @@
   },
   "name": "Azerbaijan",
   "alpha2Code": "AZ",
+  "alpha3Code": "AZE",
   "region": "Asia",
   "subregion": "Western Asia"
 }, {
@@ -285,6 +301,7 @@
   },
   "name": "Bahamas",
   "alpha2Code": "BS",
+  "alpha3Code": "BHS",
   "region": "Americas",
   "subregion": "Caribbean"
 }, {
@@ -302,6 +319,7 @@
   },
   "name": "Bahrain",
   "alpha2Code": "BH",
+  "alpha3Code": "BHR",
   "region": "Asia",
   "subregion": "Western Asia"
 }, {
@@ -319,6 +337,7 @@
   },
   "name": "Bangladesh",
   "alpha2Code": "BD",
+  "alpha3Code": "BGD",
   "region": "Asia",
   "subregion": "Southern Asia"
 }, {
@@ -336,6 +355,7 @@
   },
   "name": "Barbados",
   "alpha2Code": "BB",
+  "alpha3Code": "BRB",
   "region": "Americas",
   "subregion": "Caribbean"
 }, {
@@ -353,6 +373,7 @@
   },
   "name": "Belarus",
   "alpha2Code": "BY",
+  "alpha3Code": "BLR",
   "region": "Europe",
   "subregion": "Eastern Europe"
 }, {
@@ -370,6 +391,7 @@
   },
   "name": "Belgium",
   "alpha2Code": "BE",
+  "alpha3Code": "BEL",
   "region": "Europe",
   "subregion": "Western Europe"
 }, {
@@ -387,6 +409,7 @@
   },
   "name": "Belize",
   "alpha2Code": "BZ",
+  "alpha3Code": "BLZ",
   "region": "Americas",
   "subregion": "Central America"
 }, {
@@ -404,6 +427,7 @@
   },
   "name": "Benin",
   "alpha2Code": "BJ",
+  "alpha3Code": "BEN",
   "region": "Africa",
   "subregion": "Western Africa"
 }, {
@@ -421,6 +445,7 @@
   },
   "name": "Bermuda",
   "alpha2Code": "BM",
+  "alpha3Code": "BMU",
   "region": "Americas",
   "subregion": "Northern America"
 }, {
@@ -438,6 +463,7 @@
   },
   "name": "Bhutan",
   "alpha2Code": "BT",
+  "alpha3Code": "BTN",
   "region": "Asia",
   "subregion": "Southern Asia"
 }, {
@@ -455,6 +481,7 @@
   },
   "name": "Bolivia (Plurinational State of)",
   "alpha2Code": "BO",
+  "alpha3Code": "BOL",
   "region": "Americas",
   "subregion": "South America"
 }, {
@@ -468,6 +495,7 @@
   },
   "name": "Bonaire, Sint Eustatius and Saba",
   "alpha2Code": "BQ",
+  "alpha3Code": "BES",
   "region": "Americas",
   "subregion": "Caribbean"
 }, {
@@ -485,6 +513,7 @@
   },
   "name": "Bosnia and Herzegovina",
   "alpha2Code": "BA",
+  "alpha3Code": "BIH",
   "region": "Europe",
   "subregion": "Southern Europe"
 }, {
@@ -502,6 +531,7 @@
   },
   "name": "Botswana",
   "alpha2Code": "BW",
+  "alpha3Code": "BWA",
   "region": "Africa",
   "subregion": "Southern Africa"
 }, {
@@ -519,6 +549,7 @@
   },
   "name": "Bouvet Island",
   "alpha2Code": "BV",
+  "alpha3Code": "BVT",
   "region": "",
   "subregion": ""
 }, {
@@ -536,6 +567,7 @@
   },
   "name": "Brazil",
   "alpha2Code": "BR",
+  "alpha3Code": "BRA",
   "region": "Americas",
   "subregion": "South America"
 }, {
@@ -553,6 +585,7 @@
   },
   "name": "British Indian Ocean Territory",
   "alpha2Code": "IO",
+  "alpha3Code": "IOT",
   "region": "Africa",
   "subregion": "Eastern Africa"
 }, {
@@ -570,6 +603,7 @@
   },
   "name": "United States Minor Outlying Islands",
   "alpha2Code": "UM",
+  "alpha3Code": "UMI",
   "region": "Americas",
   "subregion": "Northern America"
 }, {
@@ -587,6 +621,7 @@
   },
   "name": "Virgin Islands (British)",
   "alpha2Code": "VG",
+  "alpha3Code": "VGB",
   "region": "Americas",
   "subregion": "Caribbean"
 }, {
@@ -603,6 +638,7 @@
   },
   "name": "Virgin Islands (U.S.)",
   "alpha2Code": "VI",
+  "alpha3Code": "VIR",
   "region": "Americas",
   "subregion": "Caribbean"
 }, {
@@ -620,6 +656,7 @@
   },
   "name": "Brunei Darussalam",
   "alpha2Code": "BN",
+  "alpha3Code": "BRN",
   "region": "Asia",
   "subregion": "South-Eastern Asia"
 }, {
@@ -637,6 +674,7 @@
   },
   "name": "Bulgaria",
   "alpha2Code": "BG",
+  "alpha3Code": "BGR",
   "region": "Europe",
   "subregion": "Eastern Europe"
 }, {
@@ -654,6 +692,7 @@
   },
   "name": "Burkina Faso",
   "alpha2Code": "BF",
+  "alpha3Code": "BFA",
   "region": "Africa",
   "subregion": "Western Africa"
 }, {
@@ -671,6 +710,7 @@
   },
   "name": "Burundi",
   "alpha2Code": "BI",
+  "alpha3Code": "BDI",
   "region": "Africa",
   "subregion": "Eastern Africa"
 }, {
@@ -688,6 +728,7 @@
   },
   "name": "Cambodia",
   "alpha2Code": "KH",
+  "alpha3Code": "KHM",
   "region": "Asia",
   "subregion": "South-Eastern Asia"
 }, {
@@ -705,6 +746,7 @@
   },
   "name": "Cameroon",
   "alpha2Code": "CM",
+  "alpha3Code": "CMR",
   "region": "Africa",
   "subregion": "Middle Africa"
 }, {
@@ -722,6 +764,7 @@
   },
   "name": "Canada",
   "alpha2Code": "CA",
+  "alpha3Code": "CAN",
   "region": "Americas",
   "subregion": "Northern America"
 }, {
@@ -739,6 +782,7 @@
   },
   "name": "Cabo Verde",
   "alpha2Code": "CV",
+  "alpha3Code": "CPV",
   "region": "Africa",
   "subregion": "Western Africa"
 }, {
@@ -756,6 +800,7 @@
   },
   "name": "Cayman Islands",
   "alpha2Code": "KY",
+  "alpha3Code": "CYM",
   "region": "Americas",
   "subregion": "Caribbean"
 }, {
@@ -773,6 +818,7 @@
   },
   "name": "Central African Republic",
   "alpha2Code": "CF",
+  "alpha3Code": "CAF",
   "region": "Africa",
   "subregion": "Middle Africa"
 }, {
@@ -790,6 +836,7 @@
   },
   "name": "Chad",
   "alpha2Code": "TD",
+  "alpha3Code": "TCD",
   "region": "Africa",
   "subregion": "Middle Africa"
 }, {
@@ -807,6 +854,7 @@
   },
   "name": "Chile",
   "alpha2Code": "CL",
+  "alpha3Code": "CHL",
   "region": "Americas",
   "subregion": "South America"
 }, {
@@ -824,6 +872,7 @@
   },
   "name": "China",
   "alpha2Code": "CN",
+  "alpha3Code": "CHN",
   "region": "Asia",
   "subregion": "Eastern Asia"
 }, {
@@ -841,6 +890,7 @@
   },
   "name": "Christmas Island",
   "alpha2Code": "CX",
+  "alpha3Code": "CXR",
   "region": "Oceania",
   "subregion": "Australia and New Zealand"
 }, {
@@ -858,6 +908,7 @@
   },
   "name": "Cocos (Keeling) Islands",
   "alpha2Code": "CC",
+  "alpha3Code": "CCK",
   "region": "Oceania",
   "subregion": "Australia and New Zealand"
 }, {
@@ -875,6 +926,7 @@
   },
   "name": "Colombia",
   "alpha2Code": "CO",
+  "alpha3Code": "COL",
   "region": "Americas",
   "subregion": "South America"
 }, {
@@ -892,6 +944,7 @@
   },
   "name": "Comoros",
   "alpha2Code": "KM",
+  "alpha3Code": "COM",
   "region": "Africa",
   "subregion": "Eastern Africa"
 }, {
@@ -909,6 +962,7 @@
   },
   "name": "Congo",
   "alpha2Code": "CG",
+  "alpha3Code": "COG",
   "region": "Africa",
   "subregion": "Middle Africa"
 }, {
@@ -926,6 +980,7 @@
   },
   "name": "Congo (Democratic Republic of the)",
   "alpha2Code": "CD",
+  "alpha3Code": "COD",
   "region": "Africa",
   "subregion": "Middle Africa"
 }, {
@@ -943,6 +998,7 @@
   },
   "name": "Cook Islands",
   "alpha2Code": "CK",
+  "alpha3Code": "COK",
   "region": "Oceania",
   "subregion": "Polynesia"
 }, {
@@ -960,6 +1016,7 @@
   },
   "name": "Costa Rica",
   "alpha2Code": "CR",
+  "alpha3Code": "CRI",
   "region": "Americas",
   "subregion": "Central America"
 }, {
@@ -977,6 +1034,7 @@
   },
   "name": "Croatia",
   "alpha2Code": "HR",
+  "alpha3Code": "HRV",
   "region": "Europe",
   "subregion": "Southern Europe"
 }, {
@@ -994,6 +1052,7 @@
   },
   "name": "Cuba",
   "alpha2Code": "CU",
+  "alpha3Code": "CUB",
   "region": "Americas",
   "subregion": "Caribbean"
 }, {
@@ -1008,6 +1067,7 @@
   },
   "name": "Curaçao",
   "alpha2Code": "CW",
+  "alpha3Code": "CUW",
   "region": "Americas",
   "subregion": "Caribbean"
 }, {
@@ -1025,6 +1085,7 @@
   },
   "name": "Cyprus",
   "alpha2Code": "CY",
+  "alpha3Code": "CYP",
   "region": "Europe",
   "subregion": "Southern Europe"
 }, {
@@ -1042,6 +1103,7 @@
   },
   "name": "Czech Republic",
   "alpha2Code": "CZ",
+  "alpha3Code": "CZE",
   "region": "Europe",
   "subregion": "Eastern Europe"
 }, {
@@ -1059,6 +1121,7 @@
   },
   "name": "Denmark",
   "alpha2Code": "DK",
+  "alpha3Code": "DNK",
   "region": "Europe",
   "subregion": "Northern Europe"
 }, {
@@ -1076,6 +1139,7 @@
   },
   "name": "Djibouti",
   "alpha2Code": "DJ",
+  "alpha3Code": "DJI",
   "region": "Africa",
   "subregion": "Eastern Africa"
 }, {
@@ -1093,6 +1157,7 @@
   },
   "name": "Dominica",
   "alpha2Code": "DM",
+  "alpha3Code": "DMA",
   "region": "Americas",
   "subregion": "Caribbean"
 }, {
@@ -1110,6 +1175,7 @@
   },
   "name": "Dominican Republic",
   "alpha2Code": "DO",
+  "alpha3Code": "DOM",
   "region": "Americas",
   "subregion": "Caribbean"
 }, {
@@ -1127,6 +1193,7 @@
   },
   "name": "Ecuador",
   "alpha2Code": "EC",
+  "alpha3Code": "ECU",
   "region": "Americas",
   "subregion": "South America"
 }, {
@@ -1144,6 +1211,7 @@
   },
   "name": "Egypt",
   "alpha2Code": "EG",
+  "alpha3Code": "EGY",
   "region": "Africa",
   "subregion": "Northern Africa"
 }, {
@@ -1161,6 +1229,7 @@
   },
   "name": "El Salvador",
   "alpha2Code": "SV",
+  "alpha3Code": "SLV",
   "region": "Americas",
   "subregion": "Central America"
 }, {
@@ -1178,6 +1247,7 @@
   },
   "name": "Equatorial Guinea",
   "alpha2Code": "GQ",
+  "alpha3Code": "GNQ",
   "region": "Africa",
   "subregion": "Middle Africa"
 }, {
@@ -1195,6 +1265,7 @@
   },
   "name": "Eritrea",
   "alpha2Code": "ER",
+  "alpha3Code": "ERI",
   "region": "Africa",
   "subregion": "Eastern Africa"
 }, {
@@ -1212,6 +1283,7 @@
   },
   "name": "Estonia",
   "alpha2Code": "EE",
+  "alpha3Code": "EST",
   "region": "Europe",
   "subregion": "Northern Europe"
 }, {
@@ -1229,6 +1301,7 @@
   },
   "name": "Ethiopia",
   "alpha2Code": "ET",
+  "alpha3Code": "ETH",
   "region": "Africa",
   "subregion": "Eastern Africa"
 }, {
@@ -1246,6 +1319,7 @@
   },
   "name": "Falkland Islands (Malvinas)",
   "alpha2Code": "FK",
+  "alpha3Code": "FLK",
   "region": "Americas",
   "subregion": "South America"
 }, {
@@ -1263,6 +1337,7 @@
   },
   "name": "Faroe Islands",
   "alpha2Code": "FO",
+  "alpha3Code": "FRO",
   "region": "Europe",
   "subregion": "Northern Europe"
 }, {
@@ -1280,6 +1355,7 @@
   },
   "name": "Fiji",
   "alpha2Code": "FJ",
+  "alpha3Code": "FJI",
   "region": "Oceania",
   "subregion": "Melanesia"
 }, {
@@ -1297,6 +1373,7 @@
   },
   "name": "Finland",
   "alpha2Code": "FI",
+  "alpha3Code": "FIN",
   "region": "Europe",
   "subregion": "Northern Europe"
 }, {
@@ -1314,6 +1391,7 @@
   },
   "name": "France",
   "alpha2Code": "FR",
+  "alpha3Code": "FRA",
   "region": "Europe",
   "subregion": "Western Europe"
 }, {
@@ -1331,6 +1409,7 @@
   },
   "name": "French Guiana",
   "alpha2Code": "GF",
+  "alpha3Code": "GUF",
   "region": "Americas",
   "subregion": "South America"
 }, {
@@ -1348,6 +1427,7 @@
   },
   "name": "French Polynesia",
   "alpha2Code": "PF",
+  "alpha3Code": "PYF",
   "region": "Oceania",
   "subregion": "Polynesia"
 }, {
@@ -1365,6 +1445,7 @@
   },
   "name": "French Southern Territories",
   "alpha2Code": "TF",
+  "alpha3Code": "ATF",
   "region": "Africa",
   "subregion": "Southern Africa"
 }, {
@@ -1382,6 +1463,7 @@
   },
   "name": "Gabon",
   "alpha2Code": "GA",
+  "alpha3Code": "GAB",
   "region": "Africa",
   "subregion": "Middle Africa"
 }, {
@@ -1399,6 +1481,7 @@
   },
   "name": "Gambia",
   "alpha2Code": "GM",
+  "alpha3Code": "GMB",
   "region": "Africa",
   "subregion": "Western Africa"
 }, {
@@ -1416,6 +1499,7 @@
   },
   "name": "Georgia",
   "alpha2Code": "GE",
+  "alpha3Code": "GEO",
   "region": "Asia",
   "subregion": "Western Asia"
 }, {
@@ -1433,6 +1517,7 @@
   },
   "name": "Germany",
   "alpha2Code": "DE",
+  "alpha3Code": "DEU",
   "region": "Europe",
   "subregion": "Western Europe"
 }, {
@@ -1450,6 +1535,7 @@
   },
   "name": "Ghana",
   "alpha2Code": "GH",
+  "alpha3Code": "GHA",
   "region": "Africa",
   "subregion": "Western Africa"
 }, {
@@ -1467,6 +1553,7 @@
   },
   "name": "Gibraltar",
   "alpha2Code": "GI",
+  "alpha3Code": "GIB",
   "region": "Europe",
   "subregion": "Southern Europe"
 }, {
@@ -1484,6 +1571,7 @@
   },
   "name": "Greece",
   "alpha2Code": "GR",
+  "alpha3Code": "GRC",
   "region": "Europe",
   "subregion": "Southern Europe"
 }, {
@@ -1501,6 +1589,7 @@
   },
   "name": "Greenland",
   "alpha2Code": "GL",
+  "alpha3Code": "GRL",
   "region": "Americas",
   "subregion": "Northern America"
 }, {
@@ -1518,6 +1607,7 @@
   },
   "name": "Grenada",
   "alpha2Code": "GD",
+  "alpha3Code": "GRD",
   "region": "Americas",
   "subregion": "Caribbean"
 }, {
@@ -1535,6 +1625,7 @@
   },
   "name": "Guadeloupe",
   "alpha2Code": "GP",
+  "alpha3Code": "GLP",
   "region": "Americas",
   "subregion": "Caribbean"
 }, {
@@ -1552,6 +1643,7 @@
   },
   "name": "Guam",
   "alpha2Code": "GU",
+  "alpha3Code": "GUM",
   "region": "Oceania",
   "subregion": "Micronesia"
 }, {
@@ -1569,6 +1661,7 @@
   },
   "name": "Guatemala",
   "alpha2Code": "GT",
+  "alpha3Code": "GTM",
   "region": "Americas",
   "subregion": "Central America"
 }, {
@@ -1586,6 +1679,7 @@
   },
   "name": "Guernsey",
   "alpha2Code": "GG",
+  "alpha3Code": "GGY",
   "region": "Europe",
   "subregion": "Northern Europe"
 }, {
@@ -1603,6 +1697,7 @@
   },
   "name": "Guinea",
   "alpha2Code": "GN",
+  "alpha3Code": "GIN",
   "region": "Africa",
   "subregion": "Western Africa"
 }, {
@@ -1620,6 +1715,7 @@
   },
   "name": "Guinea-Bissau",
   "alpha2Code": "GW",
+  "alpha3Code": "GNB",
   "region": "Africa",
   "subregion": "Western Africa"
 }, {
@@ -1637,6 +1733,7 @@
   },
   "name": "Guyana",
   "alpha2Code": "GY",
+  "alpha3Code": "GUY",
   "region": "Americas",
   "subregion": "South America"
 }, {
@@ -1654,6 +1751,7 @@
   },
   "name": "Haiti",
   "alpha2Code": "HT",
+  "alpha3Code": "HTI",
   "region": "Americas",
   "subregion": "Caribbean"
 }, {
@@ -1671,6 +1769,7 @@
   },
   "name": "Heard Island and McDonald Islands",
   "alpha2Code": "HM",
+  "alpha3Code": "HMD",
   "region": "",
   "subregion": ""
 }, {
@@ -1688,6 +1787,7 @@
   },
   "name": "Holy See",
   "alpha2Code": "VA",
+  "alpha3Code": "VAT",
   "region": "Europe",
   "subregion": "Southern Europe"
 }, {
@@ -1705,6 +1805,7 @@
   },
   "name": "Honduras",
   "alpha2Code": "HN",
+  "alpha3Code": "HND",
   "region": "Americas",
   "subregion": "Central America"
 }, {
@@ -1722,6 +1823,7 @@
   },
   "name": "Hong Kong",
   "alpha2Code": "HK",
+  "alpha3Code": "HKG",
   "region": "Asia",
   "subregion": "Eastern Asia"
 }, {
@@ -1739,6 +1841,7 @@
   },
   "name": "Hungary",
   "alpha2Code": "HU",
+  "alpha3Code": "HUN",
   "region": "Europe",
   "subregion": "Eastern Europe"
 }, {
@@ -1756,6 +1859,7 @@
   },
   "name": "Iceland",
   "alpha2Code": "IS",
+  "alpha3Code": "ISL",
   "region": "Europe",
   "subregion": "Northern Europe"
 }, {
@@ -1773,6 +1877,7 @@
   },
   "name": "India",
   "alpha2Code": "IN",
+  "alpha3Code": "IND",
   "region": "Asia",
   "subregion": "Southern Asia"
 }, {
@@ -1790,6 +1895,7 @@
   },
   "name": "Indonesia",
   "alpha2Code": "ID",
+  "alpha3Code": "IDN",
   "region": "Asia",
   "subregion": "South-Eastern Asia"
 }, {
@@ -1807,6 +1913,7 @@
   },
   "name": "Côte d'Ivoire",
   "alpha2Code": "CI",
+  "alpha3Code": "CIV",
   "region": "Africa",
   "subregion": "Western Africa"
 }, {
@@ -1823,6 +1930,7 @@
   },
   "name": "Iran (Islamic Republic of)",
   "alpha2Code": "IR",
+  "alpha3Code": "IRN",
   "region": "Asia",
   "subregion": "Southern Asia"
 }, {
@@ -1840,6 +1948,7 @@
   },
   "name": "Iraq",
   "alpha2Code": "IQ",
+  "alpha3Code": "IRQ",
   "region": "Asia",
   "subregion": "Western Asia"
 }, {
@@ -1857,6 +1966,7 @@
   },
   "name": "Ireland",
   "alpha2Code": "IE",
+  "alpha3Code": "IRL",
   "region": "Europe",
   "subregion": "Northern Europe"
 }, {
@@ -1874,6 +1984,7 @@
   },
   "name": "Isle of Man",
   "alpha2Code": "IM",
+  "alpha3Code": "IMN",
   "region": "Europe",
   "subregion": "Northern Europe"
 }, {
@@ -1891,6 +2002,7 @@
   },
   "name": "Israel",
   "alpha2Code": "IL",
+  "alpha3Code": "ISR",
   "region": "Asia",
   "subregion": "Western Asia"
 }, {
@@ -1908,6 +2020,7 @@
   },
   "name": "Italy",
   "alpha2Code": "IT",
+  "alpha3Code": "ITA",
   "region": "Europe",
   "subregion": "Southern Europe"
 }, {
@@ -1925,6 +2038,7 @@
   },
   "name": "Jamaica",
   "alpha2Code": "JM",
+  "alpha3Code": "JAM",
   "region": "Americas",
   "subregion": "Caribbean"
 }, {
@@ -1942,6 +2056,7 @@
   },
   "name": "Japan",
   "alpha2Code": "JP",
+  "alpha3Code": "JPN",
   "region": "Asia",
   "subregion": "Eastern Asia"
 }, {
@@ -1959,6 +2074,7 @@
   },
   "name": "Jersey",
   "alpha2Code": "JE",
+  "alpha3Code": "JEY",
   "region": "Europe",
   "subregion": "Northern Europe"
 }, {
@@ -1976,6 +2092,7 @@
   },
   "name": "Jordan",
   "alpha2Code": "JO",
+  "alpha3Code": "JOR",
   "region": "Asia",
   "subregion": "Western Asia"
 }, {
@@ -1993,6 +2110,7 @@
   },
   "name": "Kazakhstan",
   "alpha2Code": "KZ",
+  "alpha3Code": "KAZ",
   "region": "Asia",
   "subregion": "Central Asia"
 }, {
@@ -2010,6 +2128,7 @@
   },
   "name": "Kenya",
   "alpha2Code": "KE",
+  "alpha3Code": "KEN",
   "region": "Africa",
   "subregion": "Eastern Africa"
 }, {
@@ -2027,6 +2146,7 @@
   },
   "name": "Kiribati",
   "alpha2Code": "KI",
+  "alpha3Code": "KIR",
   "region": "Oceania",
   "subregion": "Micronesia"
 }, {
@@ -2044,6 +2164,7 @@
   },
   "name": "Kuwait",
   "alpha2Code": "KW",
+  "alpha3Code": "KWT",
   "region": "Asia",
   "subregion": "Western Asia"
 }, {
@@ -2061,6 +2182,7 @@
   },
   "name": "Kyrgyzstan",
   "alpha2Code": "KG",
+  "alpha3Code": "KGZ",
   "region": "Asia",
   "subregion": "Central Asia"
 }, {
@@ -2078,6 +2200,7 @@
   },
   "name": "Lao People's Democratic Republic",
   "alpha2Code": "LA",
+  "alpha3Code": "LAO",
   "region": "Asia",
   "subregion": "South-Eastern Asia"
 }, {
@@ -2095,6 +2218,7 @@
   },
   "name": "Latvia",
   "alpha2Code": "LV",
+  "alpha3Code": "LVA",
   "region": "Europe",
   "subregion": "Northern Europe"
 }, {
@@ -2112,6 +2236,7 @@
   },
   "name": "Lebanon",
   "alpha2Code": "LB",
+  "alpha3Code": "LBN",
   "region": "Asia",
   "subregion": "Western Asia"
 }, {
@@ -2129,6 +2254,7 @@
   },
   "name": "Lesotho",
   "alpha2Code": "LS",
+  "alpha3Code": "LSO",
   "region": "Africa",
   "subregion": "Southern Africa"
 }, {
@@ -2146,6 +2272,7 @@
   },
   "name": "Liberia",
   "alpha2Code": "LR",
+  "alpha3Code": "LBR",
   "region": "Africa",
   "subregion": "Western Africa"
 }, {
@@ -2163,6 +2290,7 @@
   },
   "name": "Libya",
   "alpha2Code": "LY",
+  "alpha3Code": "LBY",
   "region": "Africa",
   "subregion": "Northern Africa"
 }, {
@@ -2180,6 +2308,7 @@
   },
   "name": "Liechtenstein",
   "alpha2Code": "LI",
+  "alpha3Code": "LIE",
   "region": "Europe",
   "subregion": "Western Europe"
 }, {
@@ -2197,6 +2326,7 @@
   },
   "name": "Lithuania",
   "alpha2Code": "LT",
+  "alpha3Code": "LTU",
   "region": "Europe",
   "subregion": "Northern Europe"
 }, {
@@ -2214,6 +2344,7 @@
   },
   "name": "Luxembourg",
   "alpha2Code": "LU",
+  "alpha3Code": "LUX",
   "region": "Europe",
   "subregion": "Western Europe"
 }, {
@@ -2231,6 +2362,7 @@
   },
   "name": "Macao",
   "alpha2Code": "MO",
+  "alpha3Code": "MAC",
   "region": "Asia",
   "subregion": "Eastern Asia"
 }, {
@@ -2248,6 +2380,7 @@
   },
   "name": "Macedonia (the former Yugoslav Republic of)",
   "alpha2Code": "MK",
+  "alpha3Code": "MKD",
   "region": "Europe",
   "subregion": "Southern Europe"
 }, {
@@ -2265,6 +2398,7 @@
   },
   "name": "Madagascar",
   "alpha2Code": "MG",
+  "alpha3Code": "MDG",
   "region": "Africa",
   "subregion": "Eastern Africa"
 }, {
@@ -2282,6 +2416,7 @@
   },
   "name": "Malawi",
   "alpha2Code": "MW",
+  "alpha3Code": "MWI",
   "region": "Africa",
   "subregion": "Eastern Africa"
 }, {
@@ -2299,6 +2434,7 @@
   },
   "name": "Malaysia",
   "alpha2Code": "MY",
+  "alpha3Code": "MYS",
   "region": "Asia",
   "subregion": "South-Eastern Asia"
 }, {
@@ -2316,6 +2452,7 @@
   },
   "name": "Maldives",
   "alpha2Code": "MV",
+  "alpha3Code": "MDV",
   "region": "Asia",
   "subregion": "Southern Asia"
 }, {
@@ -2333,6 +2470,7 @@
   },
   "name": "Mali",
   "alpha2Code": "ML",
+  "alpha3Code": "MLI",
   "region": "Africa",
   "subregion": "Western Africa"
 }, {
@@ -2350,6 +2488,7 @@
   },
   "name": "Malta",
   "alpha2Code": "MT",
+  "alpha3Code": "MLT",
   "region": "Europe",
   "subregion": "Southern Europe"
 }, {
@@ -2367,6 +2506,7 @@
   },
   "name": "Marshall Islands",
   "alpha2Code": "MH",
+  "alpha3Code": "MHL",
   "region": "Oceania",
   "subregion": "Micronesia"
 }, {
@@ -2384,6 +2524,7 @@
   },
   "name": "Martinique",
   "alpha2Code": "MQ",
+  "alpha3Code": "MTQ",
   "region": "Americas",
   "subregion": "Caribbean"
 }, {
@@ -2401,6 +2542,7 @@
   },
   "name": "Mauritania",
   "alpha2Code": "MR",
+  "alpha3Code": "MRT",
   "region": "Africa",
   "subregion": "Western Africa"
 }, {
@@ -2418,6 +2560,7 @@
   },
   "name": "Mauritius",
   "alpha2Code": "MU",
+  "alpha3Code": "MUS",
   "region": "Africa",
   "subregion": "Eastern Africa"
 }, {
@@ -2435,6 +2578,7 @@
   },
   "name": "Mayotte",
   "alpha2Code": "YT",
+  "alpha3Code": "MYT",
   "region": "Africa",
   "subregion": "Eastern Africa"
 }, {
@@ -2452,6 +2596,7 @@
   },
   "name": "Mexico",
   "alpha2Code": "MX",
+  "alpha3Code": "MEX",
   "region": "Americas",
   "subregion": "Central America"
 }, {
@@ -2469,6 +2614,7 @@
   },
   "name": "Micronesia (Federated States of)",
   "alpha2Code": "FM",
+  "alpha3Code": "FSM",
   "region": "Oceania",
   "subregion": "Micronesia"
 }, {
@@ -2486,6 +2632,7 @@
   },
   "name": "Moldova (Republic of)",
   "alpha2Code": "MD",
+  "alpha3Code": "MDA",
   "region": "Europe",
   "subregion": "Eastern Europe"
 }, {
@@ -2503,6 +2650,7 @@
   },
   "name": "Monaco",
   "alpha2Code": "MC",
+  "alpha3Code": "MCO",
   "region": "Europe",
   "subregion": "Western Europe"
 }, {
@@ -2520,6 +2668,7 @@
   },
   "name": "Mongolia",
   "alpha2Code": "MN",
+  "alpha3Code": "MNG",
   "region": "Asia",
   "subregion": "Eastern Asia"
 }, {
@@ -2537,6 +2686,7 @@
   },
   "name": "Montenegro",
   "alpha2Code": "ME",
+  "alpha3Code": "MNE",
   "region": "Europe",
   "subregion": "Southern Europe"
 }, {
@@ -2554,6 +2704,7 @@
   },
   "name": "Montserrat",
   "alpha2Code": "MS",
+  "alpha3Code": "MSR",
   "region": "Americas",
   "subregion": "Caribbean"
 }, {
@@ -2571,6 +2722,7 @@
   },
   "name": "Morocco",
   "alpha2Code": "MA",
+  "alpha3Code": "MAR",
   "region": "Africa",
   "subregion": "Northern Africa"
 }, {
@@ -2588,6 +2740,7 @@
   },
   "name": "Mozambique",
   "alpha2Code": "MZ",
+  "alpha3Code": "MOZ",
   "region": "Africa",
   "subregion": "Eastern Africa"
 }, {
@@ -2605,6 +2758,7 @@
   },
   "name": "Myanmar",
   "alpha2Code": "MM",
+  "alpha3Code": "MMR",
   "region": "Asia",
   "subregion": "South-Eastern Asia"
 }, {
@@ -2622,6 +2776,7 @@
   },
   "name": "Namibia",
   "alpha2Code": "NA",
+  "alpha3Code": "NAM",
   "region": "Africa",
   "subregion": "Southern Africa"
 }, {
@@ -2639,6 +2794,7 @@
   },
   "name": "Nauru",
   "alpha2Code": "NR",
+  "alpha3Code": "NRU",
   "region": "Oceania",
   "subregion": "Micronesia"
 }, {
@@ -2656,6 +2812,7 @@
   },
   "name": "Nepal",
   "alpha2Code": "NP",
+  "alpha3Code": "NPL",
   "region": "Asia",
   "subregion": "Southern Asia"
 }, {
@@ -2673,6 +2830,7 @@
   },
   "name": "Netherlands",
   "alpha2Code": "NL",
+  "alpha3Code": "NLD",
   "region": "Europe",
   "subregion": "Western Europe"
 }, {
@@ -2690,6 +2848,7 @@
   },
   "name": "New Caledonia",
   "alpha2Code": "NC",
+  "alpha3Code": "NCL",
   "region": "Oceania",
   "subregion": "Melanesia"
 }, {
@@ -2707,6 +2866,7 @@
   },
   "name": "New Zealand",
   "alpha2Code": "NZ",
+  "alpha3Code": "NZL",
   "region": "Oceania",
   "subregion": "Australia and New Zealand"
 }, {
@@ -2724,6 +2884,7 @@
   },
   "name": "Nicaragua",
   "alpha2Code": "NI",
+  "alpha3Code": "NIC",
   "region": "Americas",
   "subregion": "Central America"
 }, {
@@ -2741,6 +2902,7 @@
   },
   "name": "Niger",
   "alpha2Code": "NE",
+  "alpha3Code": "NER",
   "region": "Africa",
   "subregion": "Western Africa"
 }, {
@@ -2758,6 +2920,7 @@
   },
   "name": "Nigeria",
   "alpha2Code": "NG",
+  "alpha3Code": "NGA",
   "region": "Africa",
   "subregion": "Western Africa"
 }, {
@@ -2775,6 +2938,7 @@
   },
   "name": "Niue",
   "alpha2Code": "NU",
+  "alpha3Code": "NIU",
   "region": "Oceania",
   "subregion": "Polynesia"
 }, {
@@ -2792,6 +2956,7 @@
   },
   "name": "Norfolk Island",
   "alpha2Code": "NF",
+  "alpha3Code": "NFK",
   "region": "Oceania",
   "subregion": "Australia and New Zealand"
 }, {
@@ -2809,6 +2974,7 @@
   },
   "name": "Korea (Democratic People's Republic of)",
   "alpha2Code": "KP",
+  "alpha3Code": "PRK",
   "region": "Asia",
   "subregion": "Eastern Asia"
 }, {
@@ -2826,6 +2992,7 @@
   },
   "name": "Northern Mariana Islands",
   "alpha2Code": "MP",
+  "alpha3Code": "MNP",
   "region": "Oceania",
   "subregion": "Micronesia"
 }, {
@@ -2843,6 +3010,7 @@
   },
   "name": "Norway",
   "alpha2Code": "NO",
+  "alpha3Code": "NOR",
   "region": "Europe",
   "subregion": "Northern Europe"
 }, {
@@ -2860,6 +3028,7 @@
   },
   "name": "Oman",
   "alpha2Code": "OM",
+  "alpha3Code": "OMN",
   "region": "Asia",
   "subregion": "Western Asia"
 }, {
@@ -2877,6 +3046,7 @@
   },
   "name": "Pakistan",
   "alpha2Code": "PK",
+  "alpha3Code": "PAK",
   "region": "Asia",
   "subregion": "Southern Asia"
 }, {
@@ -2894,6 +3064,7 @@
   },
   "name": "Palau",
   "alpha2Code": "PW",
+  "alpha3Code": "PLW",
   "region": "Oceania",
   "subregion": "Micronesia"
 }, {
@@ -2911,6 +3082,7 @@
   },
   "name": "Palestine, State of",
   "alpha2Code": "PS",
+  "alpha3Code": "PSE",
   "region": "Asia",
   "subregion": "Western Asia"
 }, {
@@ -2928,6 +3100,7 @@
   },
   "name": "Panama",
   "alpha2Code": "PA",
+  "alpha3Code": "PAN",
   "region": "Americas",
   "subregion": "Central America"
 }, {
@@ -2945,6 +3118,7 @@
   },
   "name": "Papua New Guinea",
   "alpha2Code": "PG",
+  "alpha3Code": "PNG",
   "region": "Oceania",
   "subregion": "Melanesia"
 }, {
@@ -2962,6 +3136,7 @@
   },
   "name": "Paraguay",
   "alpha2Code": "PY",
+  "alpha3Code": "PRY",
   "region": "Americas",
   "subregion": "South America"
 }, {
@@ -2979,6 +3154,7 @@
   },
   "name": "Peru",
   "alpha2Code": "PE",
+  "alpha3Code": "PER",
   "region": "Americas",
   "subregion": "South America"
 }, {
@@ -2996,6 +3172,7 @@
   },
   "name": "Philippines",
   "alpha2Code": "PH",
+  "alpha3Code": "PHL",
   "region": "Asia",
   "subregion": "South-Eastern Asia"
 }, {
@@ -3013,6 +3190,7 @@
   },
   "name": "Pitcairn",
   "alpha2Code": "PN",
+  "alpha3Code": "PCN",
   "region": "Oceania",
   "subregion": "Polynesia"
 }, {
@@ -3030,6 +3208,7 @@
   },
   "name": "Poland",
   "alpha2Code": "PL",
+  "alpha3Code": "POL",
   "region": "Europe",
   "subregion": "Eastern Europe"
 }, {
@@ -3047,6 +3226,7 @@
   },
   "name": "Portugal",
   "alpha2Code": "PT",
+  "alpha3Code": "PRT",
   "region": "Europe",
   "subregion": "Southern Europe"
 }, {
@@ -3064,6 +3244,7 @@
   },
   "name": "Puerto Rico",
   "alpha2Code": "PR",
+  "alpha3Code": "PRI",
   "region": "Americas",
   "subregion": "Caribbean"
 }, {
@@ -3081,6 +3262,7 @@
   },
   "name": "Qatar",
   "alpha2Code": "QA",
+  "alpha3Code": "QAT",
   "region": "Asia",
   "subregion": "Western Asia"
 }, {
@@ -3093,6 +3275,7 @@
   },
   "name": "Republic of Kosovo",
   "alpha2Code": "XK",
+  "alpha3Code": "KOS",
   "region": "Europe",
   "subregion": "Eastern Europe"
 }, {
@@ -3110,6 +3293,7 @@
   },
   "name": "Réunion",
   "alpha2Code": "RE",
+  "alpha3Code": "REU",
   "region": "Africa",
   "subregion": "Eastern Africa"
 }, {
@@ -3127,6 +3311,7 @@
   },
   "name": "Romania",
   "alpha2Code": "RO",
+  "alpha3Code": "ROU",
   "region": "Europe",
   "subregion": "Eastern Europe"
 }, {
@@ -3144,6 +3329,7 @@
   },
   "name": "Russian Federation",
   "alpha2Code": "RU",
+  "alpha3Code": "RUS",
   "region": "Europe",
   "subregion": "Eastern Europe"
 }, {
@@ -3161,6 +3347,7 @@
   },
   "name": "Rwanda",
   "alpha2Code": "RW",
+  "alpha3Code": "RWA",
   "region": "Africa",
   "subregion": "Eastern Africa"
 }, {
@@ -3178,6 +3365,7 @@
   },
   "name": "Saint Barthélemy",
   "alpha2Code": "BL",
+  "alpha3Code": "BLM",
   "region": "Americas",
   "subregion": "Caribbean"
 }, {
@@ -3195,6 +3383,7 @@
   },
   "name": "Saint Helena, Ascension and Tristan da Cunha",
   "alpha2Code": "SH",
+  "alpha3Code": "SHN",
   "region": "Africa",
   "subregion": "Western Africa"
 }, {
@@ -3212,6 +3401,7 @@
   },
   "name": "Saint Kitts and Nevis",
   "alpha2Code": "KN",
+  "alpha3Code": "KNA",
   "region": "Americas",
   "subregion": "Caribbean"
 }, {
@@ -3229,6 +3419,7 @@
   },
   "name": "Saint Lucia",
   "alpha2Code": "LC",
+  "alpha3Code": "LCA",
   "region": "Americas",
   "subregion": "Caribbean"
 }, {
@@ -3246,6 +3437,7 @@
   },
   "name": "Saint Martin (French part)",
   "alpha2Code": "MF",
+  "alpha3Code": "MAF",
   "region": "Americas",
   "subregion": "Caribbean"
 }, {
@@ -3263,6 +3455,7 @@
   },
   "name": "Saint Pierre and Miquelon",
   "alpha2Code": "PM",
+  "alpha3Code": "SPM",
   "region": "Americas",
   "subregion": "Northern America"
 }, {
@@ -3280,6 +3473,7 @@
   },
   "name": "Saint Vincent and the Grenadines",
   "alpha2Code": "VC",
+  "alpha3Code": "VCT",
   "region": "Americas",
   "subregion": "Caribbean"
 }, {
@@ -3297,6 +3491,7 @@
   },
   "name": "Samoa",
   "alpha2Code": "WS",
+  "alpha3Code": "WSM",
   "region": "Oceania",
   "subregion": "Polynesia"
 }, {
@@ -3314,6 +3509,7 @@
   },
   "name": "San Marino",
   "alpha2Code": "SM",
+  "alpha3Code": "SMR",
   "region": "Europe",
   "subregion": "Southern Europe"
 }, {
@@ -3331,6 +3527,7 @@
   },
   "name": "Sao Tome and Principe",
   "alpha2Code": "ST",
+  "alpha3Code": "STP",
   "region": "Africa",
   "subregion": "Middle Africa"
 }, {
@@ -3348,6 +3545,7 @@
   },
   "name": "Saudi Arabia",
   "alpha2Code": "SA",
+  "alpha3Code": "SAU",
   "region": "Asia",
   "subregion": "Western Asia"
 }, {
@@ -3365,6 +3563,7 @@
   },
   "name": "Senegal",
   "alpha2Code": "SN",
+  "alpha3Code": "SEN",
   "region": "Africa",
   "subregion": "Western Africa"
 }, {
@@ -3382,6 +3581,7 @@
   },
   "name": "Serbia",
   "alpha2Code": "RS",
+  "alpha3Code": "SRB",
   "region": "Europe",
   "subregion": "Southern Europe"
 }, {
@@ -3399,6 +3599,7 @@
   },
   "name": "Seychelles",
   "alpha2Code": "SC",
+  "alpha3Code": "SYC",
   "region": "Africa",
   "subregion": "Eastern Africa"
 }, {
@@ -3416,6 +3617,7 @@
   },
   "name": "Sierra Leone",
   "alpha2Code": "SL",
+  "alpha3Code": "SLE",
   "region": "Africa",
   "subregion": "Western Africa"
 }, {
@@ -3433,6 +3635,7 @@
   },
   "name": "Singapore",
   "alpha2Code": "SG",
+  "alpha3Code": "SGP",
   "region": "Asia",
   "subregion": "South-Eastern Asia"
 }, {
@@ -3447,6 +3650,7 @@
   },
   "name": "Sint Maarten (Dutch part)",
   "alpha2Code": "SX",
+  "alpha3Code": "SXM",
   "region": "Americas",
   "subregion": "Caribbean"
 }, {
@@ -3464,6 +3668,7 @@
   },
   "name": "Slovakia",
   "alpha2Code": "SK",
+  "alpha3Code": "SVK",
   "region": "Europe",
   "subregion": "Eastern Europe"
 }, {
@@ -3481,6 +3686,7 @@
   },
   "name": "Slovenia",
   "alpha2Code": "SI",
+  "alpha3Code": "SVN",
   "region": "Europe",
   "subregion": "Southern Europe"
 }, {
@@ -3498,6 +3704,7 @@
   },
   "name": "Solomon Islands",
   "alpha2Code": "SB",
+  "alpha3Code": "SLB",
   "region": "Oceania",
   "subregion": "Melanesia"
 }, {
@@ -3515,6 +3722,7 @@
   },
   "name": "Somalia",
   "alpha2Code": "SO",
+  "alpha3Code": "SOM",
   "region": "Africa",
   "subregion": "Eastern Africa"
 }, {
@@ -3532,6 +3740,7 @@
   },
   "name": "South Africa",
   "alpha2Code": "ZA",
+  "alpha3Code": "ZAF",
   "region": "Africa",
   "subregion": "Southern Africa"
 }, {
@@ -3549,6 +3758,7 @@
   },
   "name": "South Georgia and the South Sandwich Islands",
   "alpha2Code": "GS",
+  "alpha3Code": "SGS",
   "region": "Americas",
   "subregion": "South America"
 }, {
@@ -3566,6 +3776,7 @@
   },
   "name": "Korea (Republic of)",
   "alpha2Code": "KR",
+  "alpha3Code": "KOR",
   "region": "Asia",
   "subregion": "Eastern Asia"
 }, {
@@ -3583,6 +3794,7 @@
   },
   "name": "South Sudan",
   "alpha2Code": "SS",
+  "alpha3Code": "SSD",
   "region": "Africa",
   "subregion": "Middle Africa"
 }, {
@@ -3600,6 +3812,7 @@
   },
   "name": "Spain",
   "alpha2Code": "ES",
+  "alpha3Code": "ESP",
   "region": "Europe",
   "subregion": "Southern Europe"
 }, {
@@ -3617,6 +3830,7 @@
   },
   "name": "Sri Lanka",
   "alpha2Code": "LK",
+  "alpha3Code": "LKA",
   "region": "Asia",
   "subregion": "Southern Asia"
 }, {
@@ -3634,6 +3848,7 @@
   },
   "name": "Sudan",
   "alpha2Code": "SD",
+  "alpha3Code": "SDN",
   "region": "Africa",
   "subregion": "Northern Africa"
 }, {
@@ -3651,6 +3866,7 @@
   },
   "name": "Suriname",
   "alpha2Code": "SR",
+  "alpha3Code": "SUR",
   "region": "Americas",
   "subregion": "South America"
 }, {
@@ -3668,6 +3884,7 @@
   },
   "name": "Svalbard and Jan Mayen",
   "alpha2Code": "SJ",
+  "alpha3Code": "SJM",
   "region": "Europe",
   "subregion": "Northern Europe"
 }, {
@@ -3685,6 +3902,7 @@
   },
   "name": "Swaziland",
   "alpha2Code": "SZ",
+  "alpha3Code": "SWZ",
   "region": "Africa",
   "subregion": "Southern Africa"
 }, {
@@ -3702,6 +3920,7 @@
   },
   "name": "Sweden",
   "alpha2Code": "SE",
+  "alpha3Code": "SWE",
   "region": "Europe",
   "subregion": "Northern Europe"
 }, {
@@ -3719,6 +3938,7 @@
   },
   "name": "Switzerland",
   "alpha2Code": "CH",
+  "alpha3Code": "CHE",
   "region": "Europe",
   "subregion": "Western Europe"
 }, {
@@ -3736,6 +3956,7 @@
   },
   "name": "Syrian Arab Republic",
   "alpha2Code": "SY",
+  "alpha3Code": "SYR",
   "region": "Asia",
   "subregion": "Western Asia"
 }, {
@@ -3753,6 +3974,7 @@
   },
   "name": "Taiwan",
   "alpha2Code": "TW",
+  "alpha3Code": "TWN",
   "region": "Asia",
   "subregion": "Eastern Asia"
 }, {
@@ -3770,6 +3992,7 @@
   },
   "name": "Tajikistan",
   "alpha2Code": "TJ",
+  "alpha3Code": "TJK",
   "region": "Asia",
   "subregion": "Central Asia"
 }, {
@@ -3787,6 +4010,7 @@
   },
   "name": "Tanzania, United Republic of",
   "alpha2Code": "TZ",
+  "alpha3Code": "TZA",
   "region": "Africa",
   "subregion": "Eastern Africa"
 }, {
@@ -3804,6 +4028,7 @@
   },
   "name": "Thailand",
   "alpha2Code": "TH",
+  "alpha3Code": "THA",
   "region": "Asia",
   "subregion": "South-Eastern Asia"
 }, {
@@ -3821,6 +4046,7 @@
   },
   "name": "Timor-Leste",
   "alpha2Code": "TL",
+  "alpha3Code": "TLS",
   "region": "Asia",
   "subregion": "South-Eastern Asia"
 }, {
@@ -3838,6 +4064,7 @@
   },
   "name": "Togo",
   "alpha2Code": "TG",
+  "alpha3Code": "TGO",
   "region": "Africa",
   "subregion": "Western Africa"
 }, {
@@ -3855,6 +4082,7 @@
   },
   "name": "Tokelau",
   "alpha2Code": "TK",
+  "alpha3Code": "TKL",
   "region": "Oceania",
   "subregion": "Polynesia"
 }, {
@@ -3872,6 +4100,7 @@
   },
   "name": "Tonga",
   "alpha2Code": "TO",
+  "alpha3Code": "TON",
   "region": "Oceania",
   "subregion": "Polynesia"
 }, {
@@ -3889,6 +4118,7 @@
   },
   "name": "Trinidad and Tobago",
   "alpha2Code": "TT",
+  "alpha3Code": "TTO",
   "region": "Americas",
   "subregion": "Caribbean"
 }, {
@@ -3906,6 +4136,7 @@
   },
   "name": "Tunisia",
   "alpha2Code": "TN",
+  "alpha3Code": "TUN",
   "region": "Africa",
   "subregion": "Northern Africa"
 }, {
@@ -3923,6 +4154,7 @@
   },
   "name": "Turkey",
   "alpha2Code": "TR",
+  "alpha3Code": "TUR",
   "region": "Asia",
   "subregion": "Western Asia"
 }, {
@@ -3940,6 +4172,7 @@
   },
   "name": "Turkmenistan",
   "alpha2Code": "TM",
+  "alpha3Code": "TKM",
   "region": "Asia",
   "subregion": "Central Asia"
 }, {
@@ -3957,6 +4190,7 @@
   },
   "name": "Turks and Caicos Islands",
   "alpha2Code": "TC",
+  "alpha3Code": "TCA",
   "region": "Americas",
   "subregion": "Caribbean"
 }, {
@@ -3974,6 +4208,7 @@
   },
   "name": "Tuvalu",
   "alpha2Code": "TV",
+  "alpha3Code": "TUV",
   "region": "Oceania",
   "subregion": "Polynesia"
 }, {
@@ -3991,6 +4226,7 @@
   },
   "name": "Uganda",
   "alpha2Code": "UG",
+  "alpha3Code": "UGA",
   "region": "Africa",
   "subregion": "Eastern Africa"
 }, {
@@ -4008,6 +4244,7 @@
   },
   "name": "Ukraine",
   "alpha2Code": "UA",
+  "alpha3Code": "UKR",
   "region": "Europe",
   "subregion": "Eastern Europe"
 }, {
@@ -4025,6 +4262,7 @@
   },
   "name": "United Arab Emirates",
   "alpha2Code": "AE",
+  "alpha3Code": "ARE",
   "region": "Asia",
   "subregion": "Western Asia"
 }, {
@@ -4042,6 +4280,7 @@
   },
   "name": "United Kingdom of Great Britain and Northern Ireland",
   "alpha2Code": "GB",
+  "alpha3Code": "GBR",
   "region": "Europe",
   "subregion": "Northern Europe"
 }, {
@@ -4059,6 +4298,7 @@
   },
   "name": "United States of America",
   "alpha2Code": "US",
+  "alpha3Code": "USA",
   "region": "Americas",
   "subregion": "Northern America"
 }, {
@@ -4076,6 +4316,7 @@
   },
   "name": "Uruguay",
   "alpha2Code": "UY",
+  "alpha3Code": "URY",
   "region": "Americas",
   "subregion": "South America"
 }, {
@@ -4093,6 +4334,7 @@
   },
   "name": "Uzbekistan",
   "alpha2Code": "UZ",
+  "alpha3Code": "UZB",
   "region": "Asia",
   "subregion": "Central Asia"
 }, {
@@ -4110,6 +4352,7 @@
   },
   "name": "Vanuatu",
   "alpha2Code": "VU",
+  "alpha3Code": "VUT",
   "region": "Oceania",
   "subregion": "Melanesia"
 }, {
@@ -4127,6 +4370,7 @@
   },
   "name": "Venezuela (Bolivarian Republic of)",
   "alpha2Code": "VE",
+  "alpha3Code": "VEN",
   "region": "Americas",
   "subregion": "South America"
 }, {
@@ -4144,6 +4388,7 @@
   },
   "name": "Viet Nam",
   "alpha2Code": "VN",
+  "alpha3Code": "VNM",
   "region": "Asia",
   "subregion": "South-Eastern Asia"
 }, {
@@ -4161,6 +4406,7 @@
   },
   "name": "Wallis and Futuna",
   "alpha2Code": "WF",
+  "alpha3Code": "WLF",
   "region": "Oceania",
   "subregion": "Polynesia"
 }, {
@@ -4178,6 +4424,7 @@
   },
   "name": "Western Sahara",
   "alpha2Code": "EH",
+  "alpha3Code": "ESH",
   "region": "Africa",
   "subregion": "Northern Africa"
 }, {
@@ -4195,6 +4442,7 @@
   },
   "name": "Yemen",
   "alpha2Code": "YE",
+  "alpha3Code": "YEM",
   "region": "Asia",
   "subregion": "Western Asia"
 }, {
@@ -4212,6 +4460,7 @@
   },
   "name": "Zambia",
   "alpha2Code": "ZM",
+  "alpha3Code": "ZMB",
   "region": "Africa",
   "subregion": "Eastern Africa"
 }, {
@@ -4229,6 +4478,7 @@
   },
   "name": "Zimbabwe",
   "alpha2Code": "ZW",
+  "alpha3Code": "ZWE",
   "region": "Africa",
   "subregion": "Eastern Africa"
 }]

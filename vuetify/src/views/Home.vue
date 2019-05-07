@@ -4,13 +4,13 @@
       <v-card flat>
         <v-parallax
           height="165"
-          src="https://png.pngtree.com/thumb_back/fw800/back_pic/03/51/70/585791ffa147edc.jpg"
+          src="/img/bg-homepage.jpg"
         >
           <div>
-            <h1 class="text-truncate mt-3 mb-2">
+            <h1 class="text-truncate mt-2 mb-2">
               {{ $t('pages.home.mainTitle') }}
             </h1>
-            <v-sheet :height="2*21" class="transparent white--text overflow-hidden mb-2">
+            <v-sheet :height="2*21" class="hidden-xs-only transparent white--text overflow-hidden mb-2">
               {{ $t('pages.home.welcomeMessage') }}
             </v-sheet>
             <p class="text-xs-right ma-0">

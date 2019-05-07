@@ -10,7 +10,7 @@
 
 
 <template>
-  <v-toolbar scroll-off-screen app dark flat color="primary">
+  <v-toolbar scroll-off-screen app dark flat color="primary" style="z-index:9999">
     <v-toolbar-side-icon v-if="showToggleDrawer" @click="$emit('toggleDrawer')" />
     <v-toolbar-title class="headline text-uppercase">
       <router-link :to="{name:'home'}" active-class="router-link">
@@ -25,7 +25,10 @@
     <v-spacer />
 
     <v-flex>
+
+      <v-form @submit.prevent="search()">
       <v-text-field
+        v-model="searchTerm"
         class="pa-0"
         color="grey lighten-3"
         hide-details
@@ -33,18 +36,18 @@
         prepend-icon="search"
         browser-autocomplete="off"
         :placeholder="$t('toolbar.searchPlaceholder')"
-        />
+      />
+      </v-form>
     </v-flex>
 
     <v-spacer />
 
     <v-toolbar-items class="hidden-md-and-down">
-
       <!-- Full width items -->
       <v-btn v-for="link in links.filter(l => !l.miniOnly)"
-          flat exact
-          :key="link.name"
-          :to="{name:link.name}"
+             :key="link.name" flat
+             exact
+             :to="{name:link.name}"
       >
         {{ $t(link.label) }}
       </v-btn>
@@ -65,15 +68,14 @@
       </v-btn>
 
       <v-list>
-
-        <template v-for="(link,idx) in links" >
+        <template v-for="(link,idx) in links">
           <v-list-tile v-if="!link.divider"
-            :key="link.name" exact :to="{name:link.name}">
+                       :key="link.name" exact :to="{name:link.name}"
+          >
             {{ $t(link.label) }}
           </v-list-tile>
 
-        <v-divider v-else :key="idx" />
-
+          <v-divider v-else :key="idx" />
         </template>
 
         <v-divider />
@@ -103,6 +105,8 @@ export default {
 
   data(){
     return{
+
+      searchTerm: "",
       menuLinks: [
         {name: "home", label:"navigation.links.home"},
         {name: "project-list", label:"noums.projects"},
@@ -131,6 +135,11 @@ export default {
   },
 
   methods: {
+    search(){
+      if(this.searchTerm == '') return
+      this.$router.push({name:"search", query:{q:this.searchTerm}})
+
+    },
     getCourses() {
       this.$router.push("/courses");
     },

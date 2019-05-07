@@ -4,7 +4,7 @@ from django.conf import settings
 
 from django.core import mail
 from django.template.loader import render_to_string
-from django.utils.html import strip_tags
+from django.utils.html import strip_tags, urlencode
 from django.utils.translation import gettext as _
 
 from backend.models import User
@@ -24,9 +24,12 @@ def create_wawp_link(email_name, context):
 
     wawp_link = settings.BACKEND_URL
     wawp_link = wawp_link + shortcuts.reverse("email_preview")
-    wawp_link = wawp_link + "?email_name=%s&q=%s" % (
-        email_name,
-        json.dumps(wawp_context),
+    # Create final link using the reverse route and the query parameters, escaped using
+    # Django utils to fix a bug with hashtags on the route
+    wawp_link = (
+        wawp_link
+        + "?"
+        + urlencode({"email_name": email_name, "q": json.dumps(wawp_context)})
     )
 
     return wawp_link

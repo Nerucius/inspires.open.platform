@@ -21,3 +21,15 @@ export const obj2slug = function(obj, nameAttr="name") {
 export const slug2id = function(slug) {
   return parseInt(slug.split('-')[0])
 }
+
+
+// ==================================
+//  REGEX TESTERS
+// ==================================
+
+const REGEX_URL = new RegExp(/^https?:\/\/[^\s/$.?#].[^\s]*$/i)
+
+export const regexIsURL = function(value){
+  if(value == '') return true;
+  return REGEX_URL.test(value)
+}

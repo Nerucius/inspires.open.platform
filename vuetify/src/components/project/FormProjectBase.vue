@@ -110,7 +110,7 @@
       <v-text-field
         v-model="editedProject.image_url"
         box
-        counter="50"
+        :rules="[rules.isURL]"
         :hint="$t('forms.hints.projectImageURL')"
         :label="$t('forms.fields.projectImageURL')"
       />
@@ -128,6 +128,7 @@
       <v-text-field
         v-model="editedProject.contact_website"
         box
+        :rules="[rules.isURL]"
         :label="$t('forms.fields.contactWebsite')"
         :hint="$t('forms.hints.contactWebsite')"
       />
@@ -154,6 +155,7 @@
 <script>
 import { cloneDeep } from "lodash";
 import { Countries } from '@/plugins/i18n'
+import { regexIsURL } from '@/plugins/utils'
 
 export default {
   props: ["project"],
@@ -166,6 +168,7 @@ export default {
       rules: {
         required: v => !!v || this.$t("forms.rules.requiredField"),
         isUser: v => this.isUser(v) || this.$t("forms.rules.mustBeUser"),
+        isURL: v => regexIsURL(v) || this.$t("forms.rules.mustBeURL"),
         minlen: v =>
           v.length > 10 || this.$t("forms.rules.minimunLength", { length: 10 })
       },

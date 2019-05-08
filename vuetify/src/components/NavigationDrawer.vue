@@ -19,7 +19,7 @@
 
 
 <template>
-  <v-navigation-drawer v-model="showDrawer" app temporary>
+  <v-navigation-drawer v-model="showDrawer" app temporary style="z-index:1000">
     <v-layout column justify-start fill-height>
       <v-flex class="pa-2 pt-3 px-4 sidebar-header" shrink>
         <v-flex>

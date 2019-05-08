@@ -10,7 +10,7 @@
 
 
 <template>
-  <v-toolbar scroll-off-screen app dark flat color="primary" style="z-index:9999">
+  <v-toolbar scroll-off-screen app dark flat color="primary" style="z-index:999">
     <v-toolbar-side-icon v-if="showToggleDrawer" @click="$emit('toggleDrawer')" />
     <v-toolbar-title class="headline text-uppercase">
       <router-link :to="{name:'home'}" active-class="router-link">

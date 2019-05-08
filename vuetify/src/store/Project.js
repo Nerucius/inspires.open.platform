@@ -100,9 +100,7 @@ export default {
         next = response.next
       }
 
-      let itemMap = {}
-      items.map(createLink).forEach(i => {itemMap[i.id] = i})
-      return itemMap
+      return items.map(createLink)
     },
 
     clear: function(context, _){

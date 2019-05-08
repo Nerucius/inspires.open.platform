@@ -25,18 +25,17 @@
     <v-spacer />
 
     <v-flex>
-
       <v-form @submit.prevent="search()">
-      <v-text-field
-        v-model="searchTerm"
-        class="pa-0"
-        color="grey lighten-3"
-        hide-details
-        single-line
-        prepend-icon="search"
-        browser-autocomplete="off"
-        :placeholder="$t('toolbar.searchPlaceholder')"
-      />
+        <v-text-field
+          v-model="searchTerm"
+          class="pa-0"
+          color="grey lighten-3"
+          hide-details
+          single-line
+          prepend-icon="search"
+          browser-autocomplete="off"
+          :placeholder="$t('toolbar.searchPlaceholder')"
+        />
       </v-form>
     </v-flex>
 

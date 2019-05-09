@@ -9,15 +9,41 @@ from backend.models import Project, Evaluation, Response
 
 import pandas as pd
 
+# Constants
+PHASE_TITLES = ["Phase 1", "Phase 2", "Phase 3", "Phase 4"]
+QUANT = [0, 0.25, 0.50, 0.75, 1]
+QUANT_TITLES = ["MIN", "Q1", "Q2", "Q3", "MAX"]
 
-def _authenticate_request(request, project=None):
-    print(request.META)
+
+def _token_header(request):
     try:
         header_auth = request.META["HTTP_AUTHORIZATION"]
     except:
-        raise Exception("No authentication provided in request")
+        return None
+    return header_auth.split(" ")[-1]
 
-    token = header_auth.split(" ")[-1]
+
+def _token_cookie(request):
+    try:
+        cookies = request.META["HTTP_COOKIE"]
+    except:
+        return None
+
+    cookies = [cookie.strip() for cookie in cookies.split(";")]
+    for cookie in cookies:
+        if "authorization" in cookie:
+            return cookie.split("=")[1]
+    return None
+
+
+def _authenticate_request(request, project=None):
+
+    token = _token_header(request)
+    if not token:
+        token = _token_cookie(request)
+    if not token:
+        raise Exception("No user authentication provided")
+
     user = Token.objects.get(pk=token).user
 
     if user.is_superuser:
@@ -31,17 +57,30 @@ def _authenticate_request(request, project=None):
         raise Exception("User can't vie this project's Evaluation")
 
 
-def _dataframe_response(df, index=False):
-    return shortcuts.HttpResponse(
-        df.to_csv(index=index), content_type="text/plain", charset="utf8"
-    )
+def _get_dataframe_cache(cache_key, function, *args, **kwargs):
+    serialized_df = cache.get(cache_key)
+
+    if serialized_df:
+        # Cache hit
+        dataframe = pd.read_msgpack(serialized_df)
+        print("CACHE HIT: %s" % cache_key)
+        return dataframe
+
+    print("CACHE MISS: %s" % cache_key)
+    # Cache miss, get dataframe using provided function and params
+    dataframe = function(*args, **kwargs)
+    if dataframe is not None:
+        serialized_df = dataframe.to_msgpack()
+        cache.set(cache_key, serialized_df)
+
+    return dataframe
 
 
-def _get_dataframe_all_responses(project=None, answer_type="DEGREE"):
-    # Get evaluations for this project which are complete
-    all_evals = Evaluation.objects
-    if project:
-        all_evals = Evaluation.objects.filter(phase__project=project)
+def _get_df_responses_project(project, answer_type):
+    # Filter for this project
+    all_evals = Evaluation.objects.filter(phase__project=project)
+
+    # Get only evaluations when they are marked as complete
     evals = filter(lambda x: x.is_complete, all_evals.all())
     evals = list(map(lambda x: x.id, evals))
 
@@ -78,7 +117,8 @@ def _get_dataframe_all_responses(project=None, answer_type="DEGREE"):
 
     # Create pandas and calculate overall score
     df = pd.DataFrame(
-        index=index,
+        # Disabled indexing by response.id
+        # index=index,
         data=data,
         columns=[
             "question",
@@ -93,7 +133,32 @@ def _get_dataframe_all_responses(project=None, answer_type="DEGREE"):
         ],
     )
 
+    df = df.reset_index()
+    del df["index"]
     return df
+
+
+def _get_df_responses_all(answer_type):
+    all_projects = Project.objects.all()
+
+    _response_dfs = []
+
+    for project in all_projects:
+        # Get all responses from cache for given project and type
+        responses = _get_dataframe_cache(
+            "/v1/csv/_responses/%d/%s" % (project.id, answer_type),
+            _get_df_responses_project,
+            project=project,
+            answer_type=answer_type,
+        )
+        if responses is not None:
+            _response_dfs += [responses]
+
+    all_responses = pd.concat(_response_dfs)
+    all_responses = all_responses.reset_index()
+    del all_responses["index"]
+
+    return all_responses
 
 
 class CSVCachedAuthorizedView(View):
@@ -105,15 +170,22 @@ class CSVCachedAuthorizedView(View):
         return ""
 
     def get(self, request, *args, **kwargs):
+        project = None
         if "project" in kwargs:
             project = Project.objects.get(pk=kwargs["project"])
 
-        _authenticate_request(request, project or None)
+        _authenticate_request(request, project)
 
-        content = cache.get(self.cache_key)
-        if not content:
+        if self.cache_key:
+            # Use cache
+            content = cache.get(self.cache_key)
+            if not content:
+                content = self._get_content(request, *args, **kwargs)
+                cache.set(self.cache_key, content, timeout=None)
+
+        else:
+            print("WARNING: not using cache for %s" % self.request.META["PATH_INFO"])
             content = self._get_content(request, *args, **kwargs)
-            cache.set(self.cache_key, content, timeout=None)
 
         return shortcuts.HttpResponse(
             content, content_type="text/plain", charset="utf8"
@@ -122,31 +194,39 @@ class CSVCachedAuthorizedView(View):
 
 class CSVAllResponsesMultiple(CSVCachedAuthorizedView):
     def _get_content(self, request, *args, **kwargs):
-        df = _get_dataframe_all_responses(answer_type="MULTIPLE")
+        df = _get_df_responses_all(answer_type="MULTIPLE")
         return df.to_csv()
 
 
 class CSVAllResponsesDegree(CSVCachedAuthorizedView):
+    cache_key = None
+
     def _get_content(self, request, *args, **kwargs):
-        df = _get_dataframe_all_responses(answer_type="DEGREE")
+        df = _get_df_responses_all(answer_type="DEGREE")
         return df.to_csv()
 
 
 class CSVProjectResponsesMultiple(CSVCachedAuthorizedView):
+    cache_key = None
+
     def _get_content(self, request, *args, **kwargs):
         ownProject = Project.objects.get(pk=kwargs["project"])
-        df = _get_dataframe_all_responses(ownProject, answer_type="MULTIPLE")
+        df = _get_df_responses_project(ownProject, answer_type="MULTIPLE")
         return df.to_csv()
 
 
 class CSVProjectResponsesDegree(CSVCachedAuthorizedView):
+    cache_key = None
+
     def _get_content(self, request, *args, **kwargs):
         ownProject = Project.objects.get(pk=kwargs["project"])
-        df = _get_dataframe_all_responses(ownProject, answer_type="DEGREE")
+        df = _get_df_responses_project(ownProject, answer_type="DEGREE")
         return df.to_csv()
 
 
 class CSVProjectOverallPosition(CSVCachedAuthorizedView):
+    cache_key = None
+
     def _get_content(self, request, *args, **kwargs):
         ownProject = Project.objects.get(pk=kwargs["project"])
 
@@ -154,43 +234,212 @@ class CSVProjectOverallPosition(CSVCachedAuthorizedView):
         data = []
 
         for project in Project.objects.all():
-            df = _get_dataframe_all_responses(project)
+            df = _get_dataframe_cache(
+                "/v1/csv/_responses/%d/DEGREE" % project.id,
+                _get_df_responses_project,
+                project=project,
+                answer_type="DEGREE",
+            )
+
             if df is None:
                 continue
 
-            df = df.groupby(["principle", "phase", "role", "name"]).mean()
+            df = df.groupby(["principle", "dimension", "phase", "role", "name"]).mean()
+            df = df.groupby(["principle", "dimension", "phase", "name"]).mean()
+            df = df.groupby(["principle", "dimension"]).mean()
             df = df.groupby(["principle"]).mean()
 
-            mean = df.mean().round(2)["response"]
-            coherence = (1.0 / df.std()).round(2)["response"]
+            mean = df.mean()["response"]
+            coherence = (7.0 - df.std())["response"]
 
             data += [[project.name, mean, coherence, project == ownProject]]
+
         df = pd.DataFrame(columns=columns, data=data)
 
-        return df.to_csv()
+        return df.set_index("Project").round(2).to_csv()
 
 
 class CSVProjectPhases(CSVCachedAuthorizedView):
+    cache_key = None
+
     def _get_content(self, request, *args, **kwargs):
         ownProject = Project.objects.get(pk=kwargs["project"])
 
-        df = _get_dataframe_all_responses(ownProject)
+        df_self = _get_dataframe_cache(
+            "/v1/csv/_responses/%d/DEGREE" % ownProject.id,
+            _get_df_responses_project,
+            project=ownProject,
+            answer_type="DEGREE",
+        )
+        df_all = _get_df_responses_all(answer_type="DEGREE")
 
-        df = df.groupby(["phase", "role", "name"]).mean()
-        df = df.groupby(["phase"]).mean().round(2)
+        # Phases information
+        df_p = df_self.groupby(
+            ["principle", "dimension", "phase", "role", "name"]
+        ).mean()
+        df_p = df_p.groupby(["principle", "dimension", "phase", "name"]).mean()
+        df_p = df_p.groupby(["principle", "dimension", "phase"]).mean()
+        df_p = df_p.groupby(["phase"]).mean().round(2)
 
-        print(df["response"].values)
+        # Calculate percentile for all phases
+        df_pa = df_all.groupby(
+            ["project", "principle", "dimension", "phase", "role", "name"]
+        ).mean()
+        df_pa = df_pa.groupby(
+            ["project", "principle", "dimension", "phase", "name"]
+        ).mean()
+        df_pa = df_pa.groupby(["project", "principle", "dimension", "phase"]).mean()
+        df_pa = df_pa.groupby(["project", "phase"]).mean().round(2).reset_index()
 
-        df = pd.DataFrame(data=df["response"].values, columns=["Value"])
-        df["Dimension"] = ["Phase 1", "Phase 2", "Phase 3", "Phase 4"]
-        df["MIN"] = 2
-        df["Q1"] = 2.5
-        df["Q2"] = 3.5
-        df["Q3"] = 5
-        df["MAX"] = 6
+        quant_p1 = df_pa[df_pa.phase == "Phase 1"].quantile(QUANT)["response"].values
+        quant_p2 = df_pa[df_pa.phase == "Phase 2"].quantile(QUANT)["response"].values
+        quant_p3 = df_pa[df_pa.phase == "Phase 3"].quantile(QUANT)["response"].values
+        quant_p4 = df_pa[df_pa.phase == "Phase 4"].quantile(QUANT)["response"].values
+
+        df_quant = pd.DataFrame(
+            index=PHASE_TITLES,
+            columns=QUANT_TITLES,
+            data=[quant_p1, quant_p2, quant_p3, quant_p4],
+        )
+
+        df = pd.DataFrame(data=df_p["response"].values, columns=["Value"])
+        df["Dimension"] = PHASE_TITLES
+        df["MIN"] = df_quant["MIN"].values
+        df["Q1"] = df_quant["Q1"].values
+        df["Q2"] = df_quant["Q2"].values
+        df["Q3"] = df_quant["Q3"].values
+        df["MAX"] = df_quant["MAX"].values
         df["Threshold"] = 3
 
-        return df.to_csv()
+        return df.set_index("Dimension").round(2).to_csv()
+
+
+class CSVProjectBullets(CSVCachedAuthorizedView):
+    cache_key = None
+
+    def _get_content(self, request, *args, **kwargs):
+        ownProject = Project.objects.get(pk=kwargs["project"])
+
+        # Load data
+        df_all = _get_df_responses_all(answer_type="DEGREE")
+        df_self = _get_df_responses_project(ownProject, answer_type="DEGREE")
+
+        # Start of process
+        df_all = df_all.groupby(
+            ["project", "principle", "dimension", "phase", "role", "name"]
+        ).mean()
+        df_all = df_all.groupby(
+            ["project", "principle", "dimension", "phase", "name"]
+        ).mean()
+        df_all_dim = df_all.groupby(["project", "principle", "dimension"]).mean()
+
+        df_all_princ = df_all_dim.groupby(["project", "principle"]).mean()
+        df_all_princ = df_all.reset_index()
+
+        # Principle Quantiles
+        princ_quant = df_all_princ.groupby(["principle"]).quantile(QUANT).reset_index()
+        princ_quant["level_1"] = princ_quant.level_1.replace(QUANT, QUANT_TITLES)
+        princ_quant = princ_quant.pivot_table(
+            columns="level_1", values="response", index="principle"
+        )
+        princ_quant
+
+        # Dimension Quantiles
+        dim_quant = (
+            df_all_dim.groupby(["principle", "dimension"]).quantile(QUANT).reset_index()
+        )
+        dim_quant["level_2"] = dim_quant.level_2.replace(QUANT, QUANT_TITLES)
+        dim_quant = dim_quant.pivot_table(
+            columns="level_2", values="response", index=["principle", "dimension"]
+        )
+
+        all_quant = pd.concat([princ_quant, dim_quant])
+
+        # ========================
+        #  OWN PROJECT
+        # ========================
+        df_self = df_self.groupby(
+            ["principle", "dimension", "phase", "role", "name"]
+        ).mean()
+        df_self = df_self.groupby(["principle", "dimension", "phase", "name"]).mean()
+
+        df_self_dim = df_self.groupby(["principle", "dimension"]).mean()
+        df_self_princ = df_self_dim.groupby(["principle"]).mean()
+
+        df_self = pd.concat([df_self_princ, df_self_dim])
+        # df_self_princ = df_self_princ.reset_index()
+
+        # =====================
+        #  JOIN BOTH DATAFRAMES BY INDEX
+        # =====================
+        df_result = pd.concat([df_self, all_quant], axis=1)
+
+        # Flatten the tuple index
+        def flatten(val):
+            if len(val) == 2:
+                return "_".join(val)
+            return val
+
+        df_result = df_result.reset_index()
+        df_result["index"] = list(map(lambda x: flatten(x), df_result["index"]))
+
+        df_result["Indicator"] = df_result["index"].replace(
+            {
+                "^CITIZEN$": "Citizen-led",
+                "^CITIZEN_": "Citizen",
+                "ALIGNEMENT$": "Community",
+                "RESPONSIVENESS$": "Responsiveness",
+                "^INTEGRITY_?": "Integrity",
+                "EXPECTATION$": "Expectation",
+                "GENDER$": "Gender",
+                "INCLUSIVITY$": "Inclusivity",
+                "REFLEXIVITY$": "Reflexivity",
+                "RESOURCES$": "Resource",
+                "TRANSPARENCY$": "Transparency",
+                "^KNOWLEDGE_?": "Knowledge",
+                "OPENNESS$": "Openness",
+                "RELEVANCE$": "Relevance",
+                "TRANSDISCIPLINAR$": "Transdiscipl",
+                "^PARTICIPATION_?": "Participatory",
+                "ENGAGEMENT$": "Engagement",
+                "PARTICIPATION_IMPACT$": "Impact",
+                "MOTIVATION$": "Motivation",
+                "SATISFACTION$": "Satisfaction",
+                "^TRANSFORM_?": "Transformative",
+                "COLLECTIVE$": "Collective",
+                "KNOWLEDGE$": "Skills",
+                "POLICY_IMPACT$": "Policy",
+                "SELFIMPROVE$": "Self",
+            },
+            regex=True,
+        )
+
+        # Final adjustments
+
+        def get_principle(indicator):
+            if "Citizen" in indicator:
+                return "Citizen-led Research"
+            if "Integrity" in indicator:
+                return "Integrity"
+            if "Knowledge" in indicator:
+                return "Knowledge Democracy"
+            if "Participatory" in indicator:
+                return "Participatory Dynamics"
+            if "Transformative" in indicator:
+                return "Transformative Change"
+            return "NOT FOUND"
+
+        df_result["Principle"] = list(
+            map(lambda x: get_principle(x), df_result["Indicator"])
+        )
+
+        df_result["AbsValue"] = df_result["response"]
+        df_result = df_result[["Principle", "Indicator", "AbsValue"] + QUANT_TITLES]
+        df_result["Threshold"] = 3
+
+        df_result = df_result.set_index(["Principle", "Indicator"])
+
+        return df_result.round(2).to_csv()
 
 
 # =========================================
@@ -198,98 +447,15 @@ class CSVProjectPhases(CSVCachedAuthorizedView):
 # =========================================
 
 
-def csv_bullets(request, project):
+def csv_tangram(request, project):
     ownProject = Project.objects.get(pk=project)
     _authenticate_request(request, ownProject)
 
-    # ownProject = Project.objects.get(pk=project)
-
-    # df = _get_dataframe_all_responses(ownProject)
-
-    # df = df.groupby(["principle", "dimension", "phase", "role", "name"]).mean()
-    # # Perform different groupings
-    # df_principle = df.groupby(["principle"]).mean().reset_index()
-    # df_dimension = df.groupby(["principle", "dimension"]).mean().reset_index()
-    # df_role = df.groupby(["principle", "role"]).mean().reset_index()
-
-    # # Add column to mark "aggregated by all"
-    # df_principle["role"] = "All"
-    # df_principle["dimension"] = "All"
-    # df_dimension["role"] = "All"
-    # df_role["dimension"] = "All"
-
-    # df = pd.concat([df_principle, df_dimension, df_role])[
-    #     ["principle", "dimension", "role", "response"]
-    # ]
-    # df.columns = ["Principle", "Dimension", "Indicator", "AbsValue"]
-
-    # df["MIN"] = 1
-    # df["Q1"] = 2.5
-    # df["Q2"] = 3.5
-    # df["Q3"] = 5
-    # df["MAX"] = 6
-    # df["Threshold"] = 3
-
-    # df.replace("CITIZEN", "Citizen-led Research", inplace=True)
-    # df.replace("INTEGRITY", "Integrity", inplace=True)
-    # df.replace("KNOWLEDGE", "Knowledge Democracy", inplace=True)
-    # df.replace("PARTICIPATION", "Participatory Dynamics", inplace=True)
-    # df.replace("TRANSFORM", "Transformative Change", inplace=True)
-
-    # df.replace("ALIGNEMENT", "Community alignment", inplace=True)
-    # df.replace("RESPONSIVENESS", "Responsiveness to community alignment", inplace=True)
-
     return shortcuts.HttpResponse(
-        """Principle,Dimension,Indicator,AbsValue,MIN,Q1,Q2,Q3,MAX,Threshold,RelValue,Color
-Citizen-led Research,Community alignment,CitizenCommunity,4.07,4.07,4.20,4.30,4.95,6.13,3.00,1,#00796B
-Citizen-led Research,Responsiveness to community alignment,CitizenResponsiveness,4.50,3.42,3.75,4.50,5.00,6.00,3.00,3,#00796B
-Citizen-led Research,Total,Citizen-led,4.23,4.03,4.23,4.38,4.56,6.08,3.00,2,#00796B
-Citizen-led Research,Civil Society,CitizenCivil,4.14,3.71,4.14,4.29,4.43,6.14,3.00,2,#00796B
-Citizen-led Research,Project Manager,CitizenProject,5.33,3.33,4.67,5.33,5.67,6.33,3.00,3,#00796B
-Citizen-led Research,Scientist,CitizenScientist,3.67,3.67,4.00,5.00,5.33,5.33,3.00,1,#00796B
-Citizen-led Research,Student,CitizenStudent,4.67,3.00,3.00,4.00,4.67,6.00,3.00,4,#00796B
-Integrity,Expectation alignment,IntegrityExpectation,4.50,3.88,4.13,4.50,4.50,4.75,3.00,4,#F17600
-Integrity,Gender perspective,IntegrityGender,3.00,3.00,3.00,3.75,3.75,4.25,3.00,2,#F17600
-Integrity,Inclusivity,IntegrityInclusivity,6.33,0.00,5.00,5.50,5.83,6.33,3.00,4,#F17600
-Integrity,Reflexivity,IntegrityReflexivity,0.00,0.00,0.00,0.00,0.00,4.00,3.00,4,#F17600
-Integrity,Resource availability,IntegrityResource,5.00,4.00,4.67,5.00,5.33,5.67,3.00,3,#F17600
-Integrity,Transparency,IntegrityTransparency,4.00,1.00,1.50,4.00,4.00,6.00,3.00,4,#F17600
-Integrity,Total,Integrity,3.90,3.44,3.48,3.63,3.90,3.96,3.00,4,#F17600
-Integrity,Civil Society,IntegrityCivil,4.33,2.67,3.00,4.33,4.67,5.33,3.00,3,#F17600
-Integrity,Project Manager,IntegrityProject,4.00,3.58,3.75,3.75,3.83,4.00,3.00,4,#F17600
-Integrity,Scientist,IntegrityScientist,4.00,3.33,3.67,4.00,4.00,4.33,3.00,4,#F17600
-Integrity,Student,IntegrityStudent,5.00,2.50,4.00,4.00,5.00,6.00,3.00,4,#F17600
-Knowledge Democracy,Openness,KnowledgeOpenness,5.75,4.00,5.25,5.75,5.75,6.25,3.00,4,#2599D4
-Knowledge Democracy,Scientific relevance,KnowledgeRelevance,3.22,2.44,3.22,4.22,5.00,6.33,3.00,2,#2599D4
-Knowledge Democracy,Transdisciplinarity,KnowledgeTransdiscipl,5.88,3.88,5.00,5.75,5.88,5.88,3.00,4,#2599D4
-Knowledge Democracy,Total,Knowledge,4.70,3.30,4.70,5.07,5.10,6.18,3.00,2,#2599D4
-Knowledge Democracy,Civil Society,KnowledgeCivil,5.50,4.00,5.00,5.50,5.50,6.00,3.00,4,#2599D4
-Knowledge Democracy,Project Manager,KnowledgeProject,5.40,4.00,5.40,5.40,5.40,6.20,3.00,4,#2599D4
-Knowledge Democracy,Scientist,KnowledgeScientist,4.00,3.00,4.00,4.50,5.25,6.50,3.00,2,#2599D4
-Knowledge Democracy,Student,KnowledgeStudent,4.50,4.00,4.50,4.50,5.00,5.50,3.00,3,#2599D4
-Participatory Dynamics,Degree of engagement,ParticipatoryEngagement,6.00,5.00,5.00,6.00,7.00,7.00,3.00,3,#DAE14B
-Participatory Dynamics,Impact of the participatory dynamics,ParticipatoryImpact,4.00,2.50,4.00,4.00,4.00,5.00,3.00,4,#DAE14B
-Participatory Dynamics,Motivation,ParticipatoryMotivation,5.22,3.39,5.19,5.22,5.36,5.97,3.00,3,#DAE14B
-Participatory Dynamics,Satisfaction with the participatory dunamics,ParticipatorySatisfaction,2.67,2.67,3.17,3.83,4.67,5.17,3.00,1,#DAE14B
-Participatory Dynamics,Total,Participatory,4.19,3.63,4.19,4.40,4.95,5.38,3.00,2,#DAE14B
-Participatory Dynamics,Civil Society,ParticipatoryCivil,5.17,4.00,4.17,5.00,5.17,5.50,3.00,4,#DAE14B
-Participatory Dynamics,Project Manager,ParticipatoryProject,3.00,2.25,3.00,4.25,5.50,5.50,3.00,2,#DAE14B
-Participatory Dynamics,Scientist,ParticipatoryScientist,3.80,2.40,3.80,4.20,5.00,5.20,3.00,2,#DAE14B
-Participatory Dynamics,Student,ParticipatoryStudent,5.00,2.25,4.75,5.00,5.25,6.00,3.00,3,#DAE14B
-Transformative Change,Collective capacity,TransformativeCollective,4.83,3.33,3.83,4.83,4.83,5.33,3.00,4,#2F4193
-Transformative Change,Knowledge and skills,TransformativeSkills,4.75,3.00,3.75,4.25,4.75,5.75,3.00,4,#2F4193
-Transformative Change,Policy impact,TransformativePolicy,5.17,0.00,0.00,2.83,5.17,6.50,3.00,4,#2F4193
-Transformative Change,Self-improvement,TransformativeSelf,4.88,1.88,3.00,3.38,4.88,5.50,3.00,4,#2F4193
-Transformative Change,Total,Transformative,4.88,2.85,3.14,3.15,4.88,5.47,3.00,4,#2F4193
-Transformative Change,Civil Society,TransformativeCivil,5.29,1.29,2.00,3.86,5.29,6.00,3.00,4,#2F4193
-Transformative Change,Project Manager,TransformativeProject,5.00,2.25,2.75,3.00,5.00,5.25,3.00,4,#2F4193
-Transformative Change,Scientist,TransformativeScientist,4.33,1.33,1.67,2.67,4.33,5.33,3.00,4,#2F4193
-Transformative Change,Student,TransformativeStudent,4.40,3.40,4.00,4.20,4.40,5.40,3.00,4,#2F4193
-""",
-        content_type="text/plain",
+        """cit,int,know,part,transf
+2,4,2,2,4
+"""
     )
-
-    return _dataframe_response(df, index=False)
 
 
 def csv_heatmap(request, project):

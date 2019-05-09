@@ -1,5 +1,6 @@
 from django.db import models
 from django.dispatch import receiver
+from django.conf import settings
 
 from backend.models import TrackableModel
 
@@ -206,7 +207,12 @@ def invalidate_cache(sender, instance, raw, created, using, update_fields, **kwa
     """ This receiver listes for any updated questionaire responses, and performs a
         cache invalidation of the entire CSV endpoint for evaluations. """
 
-    if isinstance(instance, Response):
+    if settings.CACHE_REDIS and isinstance(instance, Response):
         from django.core.cache import cache
 
+        # Destroy all cached generated CSVs
         cache.delete_pattern("/v1/csv/eval/*")
+
+        # Destroy response cache for this project
+        project_id = instance.evaluation.phase.project.id
+        cache.delete_pattern("/v1/csv/_responses/%d/*" % project_id)

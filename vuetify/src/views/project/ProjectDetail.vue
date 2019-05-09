@@ -255,7 +255,7 @@ export default {
       if(this.project.collaboration){
         let structureId = this.project.collaboration.structure
         this.$store.dispatch("structure/load", [structureId]);
-        this.structure = this.$store.getters['structure/get'](structureId)
+        this.structure = this.$store.getters['structure/detail'](structureId)
       }
 
 

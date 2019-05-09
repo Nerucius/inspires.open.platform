@@ -156,7 +156,7 @@ export default {
         });
       }
 
-      let mapUrlWatercolor = 'http://{s}.tile.stamen.com/watercolor/{z}/{x}/{y}.jpg'
+      let mapUrlWatercolor = 'https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.jpg'
       let mapUrlOficial = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
 
       this.worldMap = L.map('world-map',{
@@ -169,7 +169,9 @@ export default {
       })
 
       L.tileLayer(mapUrlWatercolor, {
-          attribution: '<small>&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors</small>'
+          attribution: `
+            <small>&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>
+            | &copy; <a href="http://maps.stamen.com">Stamen Design</a></small>`
       }).addTo(this.worldMap);
       L.geoJson(GeoJSONCountriesDetail, {style, onEachFeature}).addTo(this.worldMap);
 

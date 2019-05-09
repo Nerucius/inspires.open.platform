@@ -68,7 +68,7 @@
           </v-toolbar>
 
           <!-- Structure -->
-          <v-list-tile v-if="structure.id" :to="structure.link">
+          <v-list-tile v-if="structure" :to="structure.link">
             <v-list-tile-avatar tile>
               <v-img :src="structure.image_url" />
             </v-list-tile-avatar>
@@ -213,16 +213,14 @@ export default {
   data() {
     return {
       obj2slug,
-      project: null
+      project: null,
+      structure: null,
     };
   },
 
   computed: {
     projectId() {
       return slug2id(this.$route.params.slug);
-    },
-    structure() {
-      return this.$store.getters['structure/detail'](this.project.collaboration.structure);
     },
     isApprovedProject() {
       return (
@@ -252,10 +250,20 @@ export default {
       this.$store.dispatch("project/load");
       await this.$store.dispatch("project/load", [this.projectId]);
       this.project = this.$store.getters["project/detail"](this.projectId);
-      this.$store.dispatch("structure/load", [this.project.collaboration.structure]);
-    } catch (err) {
+
+      // If project has a collaboration, load structure
+      if(this.project.collaboration){
+        let structureId = this.project.collaboration.structure
+        this.$store.dispatch("structure/load", [structureId]);
+        this.structure = this.$store.getters['structure/get'](structureId)
+      }
+
+
+    } catch (error) {
+      this.$store.dispatch('toast/error', {message:this.$t('pages.projectDetail.projectNotFound'), error})
+      console.error(error)
       // TODO: Show error instead
-      this.$router.push("/project-not-found");
+      // this.$router.push("/project-not-found");
     }
   },
 

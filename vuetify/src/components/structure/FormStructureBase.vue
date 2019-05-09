@@ -110,6 +110,7 @@
       <v-text-field
         v-model="editedStructure.image_url"
         box
+        :rules="[rules.isURL]"
         label="URL to an image"
         hint="Shown in listings as well as the structures's page"
       />
@@ -127,6 +128,7 @@
       <v-text-field
         v-model="editedStructure.contact_website"
         box
+        :rules="[rules.isURL]"
         label="Homepage / Website"
         hint="Homepage or website of the structure"
       />
@@ -171,6 +173,7 @@
 <script>
 import { cloneDeep } from "lodash";
 import { Countries } from '@/plugins/i18n'
+import { regexIsURL } from '@/plugins/utils'
 import { isContext } from 'vm';
 
 export default {
@@ -184,6 +187,7 @@ export default {
       rules: {
         required: v => !!v || this.$t("forms.rules.requiredField"),
         isUser: v => this.isUser(v) || this.$t("forms.rules.mustBeUser"),
+        isURL: v => regexIsURL(v) || this.$t("forms.rules.mustBeURL"),
         isCountry: v => this.isCountry(v) || this.$t("forms.rules.mustBeCountry"),
         isKnowledgeArea: v => this.isKnowledgeArea(v) || this.$t("forms.rules.mustBeKnowledgeArea"),
         minlen: v =>

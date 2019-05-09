@@ -24,34 +24,40 @@
     </v-flex>
 
     <v-flex md8 sm12>
-      <h1 class="mb-2">{{ $t('pages.home.worldmapTitle') }}</h1>
+      <h1 class="mb-2">
+        {{ $t('pages.home.worldmapTitle') }}
+      </h1>
       <v-card>
-          <div id="world-map" style="height:400px" />
+        <div id="world-map" style="height:400px" />
       </v-card>
     </v-flex>
 
     <v-flex md4 class="hidden-sm-and-down">
-      <h1 class="mb-2">{{ $t('pages.home.latestTitle') }}</h1>
+      <h1 class="mb-2">
+        {{ $t('pages.home.latestTitle') }}
+      </h1>
       <v-card>
         <v-sheet height="400" style="overflow-y:auto">
-        <ProjectList :projects="projects" />
+          <ProjectList :projects="projects" />
         </v-sheet>
       </v-card>
     </v-flex>
 
-    <v-flex xs12 v-if="countryFilterProjects">
+    <v-flex v-if="countryFilterProjects" xs12>
       <h2>
-        Projects in {{countryFilter}}
+        Projects in {{ countryFilter }}
         <v-btn small color="grey lighten-2" class="elevation-0" @click="countryFilterProjects=null">
-          <v-icon left>clear</v-icon>Clear filter
+          <v-icon left>
+            clear
+          </v-icon>Clear filter
         </v-btn>
       </h2>
-      <ProjectGrid :hide-title="true"  :projects="countryFilterProjects" />
+      <ProjectGrid :hide-title="true" :projects="countryFilterProjects" />
     </v-flex>
 
-    <v-flex xs12 v-else>
+    <v-flex v-else xs12>
       <h2>All Projects</h2>
-      <ProjectGrid :hide-title="true"  :projects="projects" />
+      <ProjectGrid :hide-title="true" :projects="projects" />
     </v-flex>
 
     <v-flex class="text-xs-center">
@@ -69,8 +75,6 @@
         </v-btn>
       </p>
     </v-flex> -->
-
-
   </v-layout>
 </template>
 

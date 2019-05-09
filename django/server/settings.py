@@ -130,7 +130,8 @@ REST_FRAMEWORK = {
 # Cache
 # https://docs.djangoproject.com/en/2.2/topics/cache/#dummy-caching-for-development
 
-if config("CACHE_REDIS", False, cast=bool):
+CACHE_REDIS = config("CACHE_REDIS", False, cast=bool)
+if CACHE_REDIS:
     CACHE_REDIS_HOST = config("CACHE_REDIS_HOST", "redis")
     CACHE_REDIS_DB = config("CACHE_REDIS_DB", "1")
     # Redis Cache
@@ -140,6 +141,7 @@ if config("CACHE_REDIS", False, cast=bool):
             "LOCATION": "redis://%s:6379/%s" % (CACHE_REDIS_HOST, CACHE_REDIS_DB),
             "OPTIONS": {
                 "CLIENT_CLASS": "django_redis.client.DefaultClient",
+                "PASSWORD": "1N5P1R3S_C4CH3"
                 # "COMPRESSOR": "django_redis.compressors.zlib.ZlibCompressor",
             },
         }

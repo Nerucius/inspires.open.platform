@@ -1,17 +1,18 @@
 # Development Version
 # Using Debug Django Server
 # Using Watcher Node
-version: '2'
+version: "2"
 
 services:
   redis:
-    image: 'redis:5-alpine'
+    image: "redis:5-alpine"
     restart: unless-stopped
+    command: redis-server --requirepass 1N5P1R3S_C4CH3
     ports:
       - "6379:6379"
 
   django:
-    build: './django'
+    build: "./django"
     depends_on:
       - db
       - redis
@@ -34,28 +35,28 @@ services:
       - EMAIL_HOST_PASSWORD=${DJANGO_EMAIL_HOST_PASSWORD}
 
     ports:
-      - '${DJANGO_PORT}:8080'
+      - "${DJANGO_PORT}:8080"
     volumes:
-      - './django/backend:/app/backend'
-      - './django/server:/app/server'
-      - 'static_files:/static'
+      - "./django/backend:/app/backend"
+      - "./django/server:/app/server"
+      - "static_files:/static"
 
   vuetify:
-    build: './vuetify'
+    build: "./vuetify"
     environment:
       - VUE_APP_API_SERVER
       - VUE_APP_I18N_LOCALE
       - VUE_APP_I18N_FALLBACK_LOCALE
     volumes:
-      - './vuetify/src:/vuetify/src'
-      - 'static_files:/vuetify/dist'
+      - "./vuetify/src:/vuetify/src"
+      - "static_files:/vuetify/dist"
 
   nginx:
-    build: './nginx'
+    build: "./nginx"
     ports:
-      - '${HTTPD_PORT}:80'
+      - "${HTTPD_PORT}:80"
     volumes:
-      - 'static_files:/usr/share/nginx/html'
+      - "static_files:/usr/share/nginx/html"
 
   db:
     image: postgres:11-alpine
@@ -67,7 +68,7 @@ services:
       - POSTGRES_PASSWORD=postgres
       - PGDATA=/data/postgres
     volumes:
-      - 'db_files:/data'
+      - "db_files:/data"
     restart: unless-stopped
 
   # shell:

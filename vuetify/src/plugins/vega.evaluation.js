@@ -1,4 +1,5 @@
 import Vue from "./resource";
+import { API_SERVER } from "./resource";
 
 let CACHE_CSV_REQUEST = {}
 
@@ -9,9 +10,10 @@ let CACHE_CSV_REQUEST = {}
  * @param {String} authToken
  * @param {Number} width
  */
-export async function createParticipantGraph(baseUrl="/data", width=400){
+export async function createParticipantGraph(projectId, width=400){
 
-  console.log(`base url: ${baseUrl}`)
+  let baseUrl = `${API_SERVER}/v1/csv/eval/${projectId}`
+  console.log(`base url ${baseUrl}`)
   console.log(`created with ${width}`)
 
   let configuredWidth_400 = width - 40

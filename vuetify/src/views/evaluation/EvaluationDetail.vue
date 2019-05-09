@@ -192,8 +192,6 @@
             </v-card-text>
           </v-card>
         </v-flex>
-
-
       </v-layout>
     </v-flex>
   </v-layout>
@@ -264,7 +262,7 @@ export default {
 
     createGraph: debounce( function () {
       let width = document.querySelector("#reference-width").clientWidth
-      createParticipantGraph(`http://localhost:8080/v1/csv/eval/${this.projectId}`, width)
+      createParticipantGraph(this.projectId, width)
     }),
 
     user(uid) {

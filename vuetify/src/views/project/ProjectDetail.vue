@@ -138,39 +138,71 @@
       </v-card>
     </v-flex>
 
-    <!-- Main Body -->
+
     <v-flex xs12 sm8>
-      <v-card flat>
-        <v-img :src="project.image_url" height="200">
-          <v-toolbar flat style="background-color:rgba(0,0,0,.3)" dark>
-            <h1 class="title">
-              {{ project.name }}
-            </h1>
-          </v-toolbar>
-        </v-img>
+      <v-img :src="project.image_url" height="200">
+        <v-toolbar flat style="background-color:rgba(0,0,0,.3)" dark>
+          <h1 class="title">
+            {{ project.name }}
+          </h1>
+        </v-toolbar>
+      </v-img>
 
-        <div class="px-4 pt-4 pb-2 grey lighten-4" style="font-spacing:110%">
-          <vue-markdown>{{ project.summary }}</vue-markdown>
-        </div>
 
-        <v-card-text>
-          <vue-markdown>{{ project.description }}</vue-markdown>
+      <v-tabs v-model="page.tab" grow>
+        <v-tabs-slider color="primary" />
+        <v-tab v-for="item in page.items" :key="item">
+          {{ $t(item) }}
+        </v-tab>
+      </v-tabs>
 
-          <br>
+      <!-- Main Body -->
+      <v-tabs-items v-model="page.tab">
+        <!-- TAB: Project Details -->
+        <v-tab-item key="pages.projectDetail.detailsTab">
+          <v-card flat>
+            <div class="px-4 pt-4 pb-2 grey lighten-4 subheading" style="font-spacing:110%">
+              <vue-markdown>{{ project.summary }}</vue-markdown>
+            </div>
 
-          <div v-if="isParticipant" class="text-xs-right">
-            <v-btn :to="{...project.link, name:'evaluation-detail'}"
-                   outline
-            >
-              <v-icon left>
-                mdi-school
-              </v-icon>
-              Go to Evaluation
-            </v-btn>
-          </div>
-        </v-card-text>
-      </v-card>
+            <v-card-text>
+              <vue-markdown>{{ project.description }}</vue-markdown>
+            </v-card-text>
+          </v-card>
+        </v-tab-item>
+
+        <!-- TAB: Project Evaluation -->
+        <v-tab-item key="pages.projectDetail.evaluationTab">
+          <v-card flat>
+            <v-card-text>
+              <h2 class="mb-2">
+                Project Evaluation
+              </h2>
+
+              <div class="pa-3 text-xs-center">
+                <h3 class="display-1">
+                  {{ project.name }}
+                </h3>
+                <ProjectTangram :project="project" />
+              </div>
+
+              <div v-if="isParticipant" class="my-4 text-xs-center">
+                <v-btn dark
+                       :to="{...project.link, name:'evaluation-detail'}"
+                       class="elevation-0"
+                >
+                  <v-icon left>
+                    mdi-school
+                  </v-icon>
+                  View detailed evaluation for participants
+                </v-btn>
+              </div>
+            </v-card-text>
+          </v-card>
+        </v-tab-item>
+      </v-tabs-items>
     </v-flex>
+
 
     <!-- Related Projects -->
     <v-flex v-if="project.related_projects.length > 0" xs12 md-8>
@@ -194,8 +226,9 @@
 
 
 <script>
-import { slug2id, obj2slug } from "@/plugins/utils";
+import { slug2id, obj2slug, onlyUnique } from "@/plugins/utils";
 import ProjectCardHorizontal from "@/components/project/ProjectCardHorizontal";
+import ProjectTangram from "@/components/evaluation/ProjectTangram";
 import VueMarkdown from 'vue-markdown';
 
 export default {
@@ -207,6 +240,7 @@ export default {
 
   components: {
     ProjectCardHorizontal,
+    ProjectTangram,
     VueMarkdown
   },
 
@@ -215,6 +249,13 @@ export default {
       obj2slug,
       project: null,
       structure: null,
+      page:{
+        tab: null,
+        items:[
+          'pages.projectDetail.detailsTab',
+          'pages.projectDetail.evaluationTab',
+        ]
+      }
     };
   },
 
@@ -240,9 +281,17 @@ export default {
       let isAdmin = this.project.managers.filter(id => id == userId).length > 0;
       return isOwner || isAdmin;
     },
+
     isParticipant(){
-      return true
+      let user = this.$store.getters['user/current']
+      let pids = [
+        ...user.owned_projects,
+        ...user.managed_projects,
+        ...user.researched_projects,
+      ]
+      return pids.indexOf(this.project.id) > -1
     }
+
   },
 
   async created() {
@@ -254,7 +303,7 @@ export default {
       // If project has a collaboration, load structure
       if(this.project.collaboration){
         let structureId = this.project.collaboration.structure
-        this.$store.dispatch("structure/load", [structureId]);
+        await this.$store.dispatch("structure/load", [structureId]);
         this.structure = this.$store.getters['structure/detail'](structureId)
       }
 

@@ -63,7 +63,10 @@
       "paragraph7": "You have the right to withdraw your consent at any time. Withdrawal of consent does not affect the lawfulness of processing based on consent before its withdrawal. If you do not agree with the manner in which ISGlobal handles your data or you consider that your rights have been infringed, you can file a complaint at any time with the Spanish Data Protection Agency."
     },
     "projectDetail": {
-      "about": "About"
+      "about": "About",
+      "detailsTab": "Information",
+      "evaluationTab": "Project Evaluation",
+      "projectNotYetEvaluated": "This project has not received sufficient feedback and evaluations from it's participants yet, so we can't show you how it's doing. Check back another day!"
     },
     "structureDetail": {
       "about": "About"

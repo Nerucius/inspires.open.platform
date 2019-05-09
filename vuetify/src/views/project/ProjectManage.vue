@@ -40,7 +40,7 @@
       <!-- Tabulation Items -->
       <v-tabs-items v-model="page.tab">
         <!-- Project Detalils Form -->
-        <v-tab-item key="page.projectManage.projectTab">
+        <v-tab-item key="pages.projectManage.projectTab">
           <v-layout row wrap>
             <v-flex xs12>
               <v-card flat>
@@ -61,7 +61,7 @@
         </v-tab-item>
 
         <!-- Project Participants -->
-        <v-tab-item key="page.projectManage.participantsTab">
+        <v-tab-item key="pages.projectManage.participantsTab">
           <v-layout row wrap>
             <v-flex xs12>
               <v-card flat>
@@ -74,7 +74,7 @@
         </v-tab-item>
 
         <!-- Project Phases -->
-        <v-tab-item key="page.projectManage.phasesTab">
+        <v-tab-item key="pages.projectManage.phasesTab">
           <v-layout row wrap>
             <v-flex xs12>
               <v-card flat>
@@ -86,7 +86,7 @@
           </v-layout>
         </v-tab-item>
 
-        <v-tab-item key="page.projectManage.evaluationTab">
+        <v-tab-item key="pages.projectManage.evaluationTab">
           <v-layout row wrap>
             <v-flex xs12>
               <v-card flat style="min-height:85vh">

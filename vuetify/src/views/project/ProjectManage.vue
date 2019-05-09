@@ -89,7 +89,7 @@
         <v-tab-item key="page.projectManage.evaluationTab">
           <v-layout row wrap>
             <v-flex xs12>
-              <v-card flat>
+              <v-card flat style="min-height:85vh">
                 <v-card-text>
                   <FormProjectEvaluation v-if="dataReady" :project="project" />
                 </v-card-text>
@@ -157,11 +157,16 @@ export default {
     }
   },
 
-  async created() {
+  async mounted() {
     // Important to await before moving on here
     await this.$store.dispatch("project/load", [this.projectId])
-    this.page.tab = this.getTabForName(this.$route.hash)
     this.dataReady = true
+
+    // Change tab on next tick
+    setTimeout(() => {
+      this.page.tab = this.getTabForName(this.$route.hash)
+    }, 500);
+
   },
 
   methods:{

@@ -132,9 +132,12 @@ export default {
   async mounted() {
     // Load all evaluations for this project
     await this.$store.dispatch("evaluation/loadProject", this.project.id)
-    this.$nextTick(() => {
-      this.panel[this.currentPhase.id] = [1]
-    })
+
+    // Opening the phase tab seems to break the overflow
+    setTimeout(() => {
+      // this.panel[this.currentPhase.id] = [1]
+    }, 1000);
+
   },
 
   methods: {

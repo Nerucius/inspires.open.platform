@@ -100,7 +100,7 @@
 
         <v-flex xs12 sm6 xl4>
           <v-card>
-            <v-toolbar dense dark flat color="green darken-2">
+            <v-toolbar dense dark flat color="yellow darken-3">
               <v-toolbar-title>
                 <h2 class="title">
                   Participatory Dynamics
@@ -168,6 +168,32 @@
             </v-card-text>
           </v-card>
         </v-flex>
+
+
+        <v-flex xs12 sm6 xl4>
+          <v-card>
+            <v-toolbar dense dark flat color="teal darken-2">
+              <v-toolbar-title>
+                <h2 class="title">
+                  Citizen-led Research
+                </h2>
+              </v-toolbar-title>
+            </v-toolbar>
+            <v-card-text>
+              <div id="citizchart" />
+              <div class="bullet">
+                <h3>Community alignment</h3>
+                <div id="CitizenCommunityChart" />
+              </div>
+              <div class="bullet">
+                <h3>Responsiveness to community alignment</h3>
+                <div id="CitizenResponsivenessChart" />
+              </div>
+            </v-card-text>
+          </v-card>
+        </v-flex>
+
+
       </v-layout>
     </v-flex>
   </v-layout>

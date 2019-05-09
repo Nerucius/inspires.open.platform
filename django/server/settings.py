@@ -139,6 +139,7 @@ if CACHE_REDIS:
         "default": {
             "BACKEND": "django_redis.cache.RedisCache",
             "LOCATION": "redis://%s:6379/%s" % (CACHE_REDIS_HOST, CACHE_REDIS_DB),
+            "TIMEOUT": 60 * 60 * 24,  # Cache only expires daily
             "OPTIONS": {
                 "CLIENT_CLASS": "django_redis.client.DefaultClient",
                 "PASSWORD": "1N5P1R3S_C4CH3"

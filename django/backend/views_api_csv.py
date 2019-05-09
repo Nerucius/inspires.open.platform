@@ -2,6 +2,7 @@ from django import shortcuts
 from django.db.models import Sum, Avg
 
 from django.core.cache import cache
+from django.http.response import HttpResponseNotFound
 from django.views import View
 
 from rest_framework.authtoken.models import Token
@@ -32,7 +33,7 @@ def _token_cookie(request):
     cookies = [cookie.strip() for cookie in cookies.split(";")]
     for cookie in cookies:
         if "authorization" in cookie:
-            return cookie.split("=")[1]
+            return cookie.split("=")[-1]
     return None
 
 
@@ -52,12 +53,14 @@ def _authenticate_request(request, project=None):
     elif project and project.is_participant(user):
         # If project, only participants
         return True
+    elif project is None:
+        return True
     else:
         # Otherwise fuck off
         raise Exception("User can't vie this project's Evaluation")
 
 
-def _get_dataframe_cache(cache_key, function, *args, **kwargs):
+def _get_dataframe_cache(cache_key, factory, *args, **kwargs):
     serialized_df = cache.get(cache_key)
 
     if serialized_df:
@@ -68,7 +71,7 @@ def _get_dataframe_cache(cache_key, function, *args, **kwargs):
 
     print("CACHE MISS: %s" % cache_key)
     # Cache miss, get dataframe using provided function and params
-    dataframe = function(*args, **kwargs)
+    dataframe = factory(*args, **kwargs)
     if dataframe is not None:
         serialized_df = dataframe.to_msgpack()
         cache.set(cache_key, serialized_df)
@@ -448,14 +451,60 @@ class CSVProjectBullets(CSVCachedAuthorizedView):
 
 
 def csv_tangram(request, project):
+    """
+        Public evaluation results
+        ```
+        citizen,    integrity,  knowledge,  participation,  transform
+        2,          4,          2,          2,              4
+        ```
+    """
     ownProject = Project.objects.get(pk=project)
-    _authenticate_request(request, ownProject)
+    _authenticate_request(request, project=None)
 
-    return shortcuts.HttpResponse(
-        """cit,int,know,part,transf
-2,4,2,2,4
-"""
+    df_all = _get_df_responses_all(answer_type="DEGREE")
+    df_self = _get_dataframe_cache(
+        "/v1/csv/_responses/%d/DEGREE" % ownProject.id,
+        _get_df_responses_project,
+        project=ownProject,
+        answer_type="DEGREE",
     )
+
+    if df_self is None:
+        return HttpResponseNotFound("Project not yet evaluated")
+
+    df_all = df_all.groupby(
+        ["project", "principle", "dimension", "phase", "role", "name"]
+    ).mean()
+    df_all = df_all.groupby(
+        ["project", "principle", "dimension", "phase", "name"]
+    ).mean()
+    df_all = df_all.groupby(["project", "principle", "dimension"]).mean()
+    df_all = df_all.groupby(["project", "principle"]).mean()
+    df_all = df_all.groupby(["principle"]).quantile(QUANT)
+    df_all = df_all.reset_index()
+    df_all = df_all.pivot_table(columns="level_1", values="response", index="principle")
+    df_all.columns = QUANT_TITLES
+
+    # Calculate where
+    df_self = df_self.groupby(
+        ["principle", "dimension", "phase", "role", "name"]
+    ).mean()
+    df_self = df_self.groupby(["principle", "dimension", "phase", "name"]).mean()
+    df_self = df_self.groupby(["principle", "dimension"]).mean()
+    df_self = df_self.groupby(["principle"]).mean()
+    df_self.columns = ["value"]
+
+    df_all["Quartile"] = 1
+    df_all["Quartile"] = df_all["Quartile"] + (df_self.value > df_all.Q1) * 1
+    df_all["Quartile"] = df_all["Quartile"] + (df_self.value > df_all.Q2) * 1
+    df_all["Quartile"] = df_all["Quartile"] + (df_self.value > df_all.Q3) * 1
+
+    df_all = df_all.pivot_table(values="Quartile", columns="principle")
+    df_all.columns = ["citizen", "integrity", "knowledge", "participation", "transform"]
+    df_all = df_all.reset_index()
+    del df_all["index"]
+
+    return shortcuts.HttpResponse(df_all.to_csv(), content_type="text/plain")
 
 
 def csv_heatmap(request, project):
@@ -463,26 +512,27 @@ def csv_heatmap(request, project):
     _authenticate_request(request, ownProject)
 
     return shortcuts.HttpResponse(
-        """Principle,Dimension,Indicator,Value
-1,1. Search for a topic,AG1Stage1,3.00
-1,2. Formulation of research question,AG1Stage2,4.00
-1,3. Method design,AG1Stage3,3.00
-1,4. Data collection,AG1Stage4,4.00
-1,5. Data analysis and interpretation,AG1Stage5,2.00
-1,6. Publication of the results,AG1Stage6,2.00
-1,7. Public awareness,AG1Stage7,3.00
-1,8. Project governance,AG1Stage8,0.00
-1,9. Transformative change,AG1Stage9,2.00
-2,1. Search for a topic,AG2Stage1,2.00
-2,2. Formulation of research question,AG2Stage2,4.00
-2,3. Method design,AG2Stage3,4.00
-2,4. Data collection,AG2Stage4,2.00
-2,5. Data analysis and interpretation,AG2Stage5,0.00
-2,6. Publication of the results,AG2Stage6,0.00
-2,7. Public awareness,AG2Stage7,0.00
-2,8. Project governance,AG2Stage8,0.00
-2,9. Transformative change,AG2Stage9,0.00
-""",
+        """
+        Principle,Dimension,Indicator,Value
+        1,1. Search for a topic,AG1Stage1,3.00
+        1,2. Formulation of research question,AG1Stage2,4.00
+        1,3. Method design,AG1Stage3,3.00
+        1,4. Data collection,AG1Stage4,4.00
+        1,5. Data analysis and interpretation,AG1Stage5,2.00
+        1,6. Publication of the results,AG1Stage6,2.00
+        1,7. Public awareness,AG1Stage7,3.00
+        1,8. Project governance,AG1Stage8,0.00
+        1,9. Transformative change,AG1Stage9,2.00
+        2,1. Search for a topic,AG2Stage1,2.00
+        2,2. Formulation of research question,AG2Stage2,4.00
+        2,3. Method design,AG2Stage3,4.00
+        2,4. Data collection,AG2Stage4,2.00
+        2,5. Data analysis and interpretation,AG2Stage5,0.00
+        2,6. Publication of the results,AG2Stage6,0.00
+        2,7. Public awareness,AG2Stage7,0.00
+        2,8. Project governance,AG2Stage8,0.00
+        2,9. Transformative change,AG2Stage9,0.00
+        """,
         content_type="text/plain",
     )
 

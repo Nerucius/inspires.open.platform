@@ -11,7 +11,7 @@
         "step4": "Bijna klaar!"
       },
       "acceptTOS": "Accepteer de Algemene voorwaarden ",
-      "welcomeMessage": "Welkom op de registratiepagina van het InSPIRES Open Platform. Hier kunt u uw eigen account aanmaken om in te loggen op de website.",
+      "welcomeMessage": "Welcome to the registration page of the InSPIRES Open Platform. Here you can create your own account to log onto the site, which will allow you to create and/or participate in a project, submit your request for research, create your own structure and conduct your collaborative project's evaluation.",
       "welcomeMessage2": "Registratie stelt u in staat om een ​​bijdrage te leveren aan de website! U kunt ook bemiddelingsorganisaties en onderzoeksprojecten registreren onder uw naam of onder de naam van uw organisatie.",
       "step1Message": "Noteer uw gewenste gebruikersnaam en wachtwoord. Deze gebruikersnaam gebruikt u om bij het platform in te loggen.",
       "step2Message": "Vertel ons uw volledige naam en e-mailadres zodat deze kan worden weergegeven bij uw projecten en andere activiteiten op het platform. Uw e-mailadres wordt alleen gebruikt voor waarschuwingen en meldingen.",
@@ -19,12 +19,15 @@
       "readTOSHere": "U kunt de servicevoorwaarden hier lezen. ",
       "step3TOSAcceptance": "Door op de knop 'ALGEMENE VOORWAARDEN ACCEPTEREN' te klikken, bevestig ik dat ik op de juiste wijze ben geïnformeerd en dat ik toestemming geef voor de verwerking van mijn persoonlijke gegevens voor het aangegeven doel.",
       "step3MessageAccepted": "Geweldig! We kunnen nu doorgaan met de rest van de registratie. ",
-      "step4Message": "Check onderstaande informatie. Als alles correct is, kunt u doorgaan met de registratie.",
+      "step4Message": "Check onderstaande informatie. Als alles correct is, kunt u doorgaan met de registratie. U kunt teruggaan naar elke stap om de informatie aan te passen.",
       "step4MessageInvite": "Tijdens de eerste testperiode beperken we de registratie tot degenen die persoonlijk zijn uitgenodigd. Voer de code die u heeft ontvangen hieronder in:"
     },
     "home": {
       "mainTitle": "Welkom bij InSPIRES",
-      "welcomeMessage": "Welkom op de online database- en impactevaluatietool van InSPIRES. Dit platform bevat participatieve onderzoeks- en innovatieprojecten die worden gepromoot door kennisuitwisselingseenheden, zoals Wetenschapswinkels.",
+      "worldmapTitle": "World Map",
+      "latestTitle": "Latest Updates",
+      "welcomeMessage": "Welcome to the InSPIRES Open Platform. This platform features citizen-led participatory research and innovation projects promoted by knowledge intermediary units, such as Science Shops, Citizen Science groups or units, etc.",
+      "welcomeMessageLong": "It also offers an integrated collaborative impact evaluation tool in order to assess the processes and outcomes of your own projects with respect others. The pursued objective is to produced a joint and collective reflection around this type of collaborative projects in order to learn, think, dabte and growth as a community of practice to develop better projects aiming at to improve citizens life and well-being.",
       "aboutLink": "Meer over ons!",
       "projectsSeeMore": "Zie alle projecten"
     },
@@ -37,20 +40,22 @@
       "missionObjective2": "Registreren van collaboratieve onderzoeks- en innovatieprojecten die door deze bemiddelingsstructuren worden gefaciliteerd. Met als doel om hun doelstellingen, kennis en geografische gebieden, evenals de belangrijkste betrokken partijen zichtbaar te maken. ",
       "missionObjective3": "Zorgen voor een intuïtieve en aanpasbare impactevaluatietool voor gemeenschappen om proces- en uitkomstresultaten op een geharmoniseerde manier vast te leggen.",
       "missionParagraph3": "Uiteindelijk hopen we dat het platform de gemeenschap zal ondersteunen (structuur bieden voor coördinators en projectdeelnemers over de hele wereld) en het wederzijds leren zal stimuleren door ervaringen en goede, maar ook minder goede, voorbeelden van Wetenschapswinkels en andere participerende onderzoeks- en innovatieprojecten te delen. ",
-      "titleTeam": "Het team achter InSPIRES Open Platform"
+      "titleTeam": "Het team achter InSPIRES Open Platform",
+      "teamContent": "The development of this Open Platform has been led by the ISGlobal team in deep collaboration with the Data Science and OpenSystems research groups at the Barcelona University. All InSPIRES consortium members have also played an important role in its inception and evolution."
     },
     "admin": {
-      "mainTitle": "Administration Dashboard",
-      "unauthorizedAccess": "You are not authorized to access the Administration Dashboard. If you believe you should, please contact a platform administrator.",
-      "pendingApproval": "Structures pending approval",
-      "instructionsText": "The following structures need to be validated before they will show up on the site's public lists. Please verify each one for validity of data and authenticity.\n\nVerify also that the person that claims to own the structure is who they claim, and they are allowed to put the information on the site.",
-      "createdBy": "Created by {name}",
-      "validationSuccess": "Structure validated successfully. It will now show up on public lists.",
-      "validationFailure": "Failed to validate the structure. Please contact support."
+      "mainTitle": "Beheer Dashboard",
+      "unauthorizedAccess": "U bent niet bevoegd om toegang te krijgen tot het Beheer Dashboard. Als u denkt dat dit nodig is, neem dan contact op met de platformbeheerder.",
+      "pendingApproval": "Units wachten op goedkeuring",
+      "instructionsText": "De volgende units moeten worden goedgekeurd voordat ze worden weergegeven op de  website. Controleer ze allemaal op geldigheid van gegevens en authenticiteit.\n\nControleer ook of de persoon die beweert de eigenaar van de unit te zijn, degene is die zij claimen te zijn en of ze de informatie op de site mogen plaatsen. ",
+      "createdBy": "Gemaakt door {name}",
+      "validationSuccess": "Unit goedgekeurd en wordt nu weergegeven op de website.",
+      "validationFailure": "Kon de unit niet goedkeuren. Neem contact op met de ondersteuning."
     },
     "termsOfService": {
       "mainTitle": "Servicevoorwaarden",
       "subTitle": "Door de servicevoorwaarden te accepteren, begrijpt u dat:",
+      "content": "-",
       "paragraph1": "Uw persoonlijke gegevens worden alleen gebruikt door:",
       "paragraph2": "Fundación Privada Instituto de Salud Global Barcelona (ISGlobal)\nCIF: G65341695\nPostadres: Carrer Rosselló, nummer 132, 2e, 5e en 7e verdieping - 08036 Barcelona\nTelefoonnummer: (+34) 932 271 806\nE-mail: inspires@isglobal.org",
       "paragraph3": "Wij verzamelen en verwerken uw persoonlijke gegevens uitsluitend met het doel om te reageren op uw registratie op de website https://app.inspiresproject.com.",
@@ -59,22 +64,22 @@
       "paragraph6": "Al uw rechten vallen onder de huidige gegevensbeschermingsvoorschriften, inclusief het recht op toegang, correctie, bezwaar, verwijdering, overdraagbaarheid en beperking. U kunt zich hiervoor richten tot de functionaris voor gegevensbescherming (lopd@isglobal.org), voeg dan een kopie van uw nationale identiteitsdocument of vergelijkbaar toe. ",
       "paragraph7": "U hebt het recht om uw toestemming op elk gewenst moment in te trekken. Intrekking van toestemming heeft geen invloed op de rechtmatigheid van de verwerking op basis van uw toestemming vóór intrekking. Als u het niet eens bent met de manier waarop ISGlobal omgaat met uw gegevens of als u van mening bent dat uw rechten zijn geschonden, kunt u op elk moment een klacht indienen bij het Spaanse agentschap voor gegevensbescherming. "
     },
-    "structures": {
-      "title": "Structures"
-    },
     "projectDetail": {
-      "about": "Over"
+      "about": "Over",
+      "detailsTab": "Information",
+      "evaluationTab": "Project Evaluation",
+      "projectNotYetEvaluated": "This project has not received sufficient feedback and evaluations from it's participants yet, so we can't show you how it's doing. Check back another day!"
     },
     "structureDetail": {
       "about": "Over"
     },
     "structureManage": {
-      "title": "Manage this Structure",
-      "success": "Structure saved successfuly!",
-      "failure": "Failed to save the structure. Try again later.",
+      "title": "Beheer deze Unit",
+      "success": "Unit is succesvol opgeslagen. ",
+      "failure": "Unit opslaan is mislukt.",
       "collaborationFailure": "Kan het project niet goedkeuren. Probeer het later opnieuw.",
-      "collaborationAdded": "Project has been approved under this structure.",
-      "structureTab": "This Structure",
+      "collaborationAdded": "Project is goedgekeurd onder deze Unit",
+      "structureTab": "Deze Unit",
       "projectsTab": "Projecten"
     },
     "projectCreate": {
@@ -83,9 +88,9 @@
       "failure": "Aanmaken van nieuw project is mislukt. Probeer het later opnieuw."
     },
     "structureCreate": {
-      "title": "Create a new Structure",
-      "success": "New structure created successfully.",
-      "failure": "Kan geen nieuwe Science Shop maken. Probeer het later opnieuw."
+      "title": "Maak een nieuwe Unit",
+      "success": "Nieuwe Unit is met succes gemaakt.",
+      "failure": "Kan geen nieuwe Unit aanmaken. Probeer het later opnieuw."
     },
     "projectList": {
       "noKASpecified": "Geen kennisgebied opgegeven",
@@ -94,27 +99,26 @@
     "projectManage": {
       "title": "Beheer dit project",
       "success": "Project succesvol opgeslagen.",
-      "failure": "Failed to save the Structure. Try again later.",
+      "failure": "Het opslaan van de Unit is mislukt. Probeer het later opnieuw.",
       "projectTab": "Dit project",
       "participantsTab": "Deelnemers",
       "phasesTab": "Projectfasen",
-      "phasesTabDescription": "Projects can have a life-cycle of phases. Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident sapiente ullam perspiciatis, dolorum velit sequi at corrupti obcaecati laborum harum fugit unde porro ipsa pariatur aliquam repellendus placeat eaque culpa!",
+      "phasesTabDescription": "The phases of the evaluation were conceived to provide you with information on the project ongoing implementation and outcomes. Each phase consists of 6 questions, on average, which will take you approximately 5 minutes. Once all team members complete the evaluation of the current phase, the results are visualized on a project-specific, as well as aggregated level. Please be honest and critical when answering the questionnaire.",
       "hasPhase": "Dit project bevindt zich momenteel in deze fase sinds {date}.",
       "hadPhase": "Dit project was in deze fase vanaf {date}.",
       "notHasPhase": "Dit project is nog nooit in deze fase geweest.",
       "evaluationTab": "Evaluatie",
-      "collaborationSuccess": "Collaboration with structure requested successfully.",
+      "evaluationTitle": "Projectevaluatie",
+      "evaluationTabDescription": "The impact evaluation tool builds on a self-reflection process which is divided into four phases: a kick-off phase at the beginning of the project, a mid-term evaluation, a final assessment by the end of the project, and a further evaluation 6 months later. Every project member is expected to answer a questionnaire that evaluates, on a scale from 0 to 7, different dimensions of the principles at the core of the InSPIRES Open Platform.",
+      "collaborationSuccess": "Samenwerking met unit is met succes aangevraagd.",
       "collaborationFailure": "Kan samenwerking niet aanvragen.",
       "deleteCollaborationAlert": "Weet u zeker dat u de samenwerking wilt annuleren?",
-      "collaborationDeleted": "Collaboration with structure has been withdrawn.",
+      "collaborationDeleted": "Samenwerking met unit is ingetrokken.",
       "participantsTitle": "Deelnemers in dit project",
       "participantsIntro": "Voeg hier alle mensen toe die dit project mogelijk maken. Voor elk persoon kunt u een rol binnen het project toevoegen. Deze rollen worden gebruikt in de impactevaluatietool. ",
-      "searchUsers": "Collaboration with structure has been withdrawn.",
-      "evaluationTitle": "Projectevaluatie",
-      "evaluationIntro": "Hier kunt u evaluatieverzoeken versturen naar de mensen in het project.",
+      "searchUsers": "Samenwerking met unit is ingetrokken.",
       "evaluationSuccess": "Evaluatie met succes aangevraagd.",
-      "evaluationFailure": "Kan evaluatieverzoek niet verzenden. Probeer het later opnieuw.",
-      "-": ""
+      "evaluationFailure": "Kan evaluatieverzoek niet verzenden. Probeer het later opnieuw."
     },
     "evaluationEntry": {
       "mainTitle": "Vragenlijst voor projectevaluatie",
@@ -123,18 +127,23 @@
       "evaluationOverview": "Evaluatieoverzicht",
       "evaluatedPhase": "Geëvalueerde fase",
       "evaluator": "Beoordelaar",
-      "evaluationRole": "Evaluation role",
+      "evaluationRole": "Rol in de evaluatie ",
       "questionMultipleHelp": "(kies wat van toepassing is)",
       "viewOnly": "Je kan de antwoorden alleen bekijken, niet wijzigen",
-      "submitSuccess": "Your response has been recorded correctly!",
+      "submitSuccess": "Uw reactie is correct opgeslagen!",
       "submitFailure": "Er is een probleem opgetreden bij het opslaan van uw reactie. Probeer het later opnieuw."
     },
     "footer": {
       "europeanFundingDisclaimer": "Dit project heeft financiering ontvangen van het onderzoeks- en innovatieprogramma Horizon2020 van de Europese Unie onder subsidieovereenkomst nr. 741677."
-    },
-    "-": ""
+    }
   },
   "models": {
+    "participationRole": {
+      "scientist": "Wetenschapper",
+      "student": "Student",
+      "civilSociety": "Maatschappij",
+      "projectManager": "Projectleider"
+    },
     "projectPhase": {
       "phase": "Fase",
       "phase1": "Fase 1: Start van het project en verwachtingen",
@@ -148,7 +157,7 @@
       "phase1Tag": "Start",
       "phase2Tag": "Zelfreflectie",
       "phase3Tag": "Opbrengst",
-      "phase4Tag": "Effect"
+      "phase4Tag": "Zes maanden later"
     },
     "knowledgeArea": {
       "logic": "Logica",
@@ -167,7 +176,7 @@
       "geography": "Geografie",
       "history": "Geschiedenis",
       "juridicalSciencesAndLaw": "Juridische wetenschappen en recht",
-      "linguistics": "Taalwetenschap",
+      "linguistics": "Taalwetenschappen",
       "pedagogy": "Pedagogie",
       "politicalScience": "Politicologie",
       "psychology": "Psychologie",
@@ -188,29 +197,184 @@
         "participation": "Participatieve dynamiek",
         "transform": "Transformatieve verandering",
         "integrity": "Integriteit"
+      },
+      "dimension": {
+        "CollectiveCapacity": "Collective capacity",
+        "communityAlignment": "Community alignment",
+        "degreeOfEngagement": "Degree of engagement",
+        "expectationAlignment": "Expectation alignment",
+        "genderPerspective": "Gender perspective",
+        "impactParticipatoryDynamics": "Impact of the participatory dynamics",
+        "inclusivity": "Inclusivity",
+        "knowledgeAndSkills": "Knowledge and skills",
+        "motivation": "Motivation",
+        "openness": "Openness",
+        "policyImpact": "Policy impact",
+        "reflexivity": "Reflexivity",
+        "resourceAvailability": "Resource availability",
+        "responsivenessCommunityAlignment": "Responsiveness to community alignment",
+        "satisfactionParticipatoryDynamics": "Satisfaction with the participatory dynamics",
+        "scientificRelevance": "Scientific relevance",
+        "selfImprovement": "Self-improvement",
+        "transdisciplinarity": "Transdisciplinarity",
+        "transparency": "Transparency"
       }
+    },
+    "answer": {
+      "type": {
+        "multipleChoice": "Multiple Choice",
+        "degree": "Degree",
+        "text": "Text"
+      },
+      "A01": "Search for a topic",
+      "A02": "Formulation of research question",
+      "A03": "Method design",
+      "A04": "Data collection",
+      "A05": "Data analysis and interpretation",
+      "A06": "Publication of the results",
+      "A07": "Public awareness",
+      "A08": "Project governance",
+      "A09": "Transformative change"
+    },
+    "question": {
+      "Q01": "In which stages of the scientific process has the community been actively involved?",
+      "Q02": "In which stages of the scientific process has the community been actively involved?",
+      "Q03": "In which stages of the scientific process has the community been actively involved?",
+      "Q04": "In which stages of the scientific process has the community been actively involved?",
+      "Q05": "In which stages of the scientific process has it been most effective for you to engage the community?",
+      "Q06": "In which stages of the scientific process has it been most effective for you to engage the community?",
+      "Q07": "In which stages of the scientific process has it been most effective for you to engage the community?",
+      "Q08": "In which stages of the scientific process has it been most effective for you to engage the community?",
+      "Q09": "The scientific objectives cannot be reached without involving the community in the scientific process.",
+      "Q10": "The scientific objectives cannot be reached without involving the community in the scientific process.",
+      "Q11": "The scientific objectives cannot be reached without involving the community in the scientific process.",
+      "Q12": "The scientific objectives cannot be reached without involving the community in the scientific process.",
+      "Q13": "The project objectives meet the community demands.",
+      "Q14": "You are learning new skills during the project.",
+      "Q15": "The participatory dynamics have been fluid and easy to carry out.",
+      "Q16": "The participatory dynamics have positively influenced the results of the research.",
+      "Q17": "The participatory dynamics have been fluid and easy to carry out.",
+      "Q18": "Analysing your project design with Self-Reflection Questionnaire One (downloadable PDF document) has helped you to raise or ratify awareness on crucial decisions at this stage of the process (Choose 0 if you have not used it).",
+      "Q19": "Expectations are clearly defined and communicated at the beginning of the project.",
+      "Q20": "Expectations are clearly defined and communicated at the beginning of the project.",
+      "Q21": "The financial resources to conduct the project are available.",
+      "Q22": "The project promotes a gender perspective in the research process and results",
+      "Q23": "A gender perspective has contributed to improve the project results.",
+      "Q24": "The financial resources were appropriate for the project.",
+      "Q25": "The personal resources were appropriate for the project.",
+      "Q26": "You have learnt new skills during the project.",
+      "Q27": "The project databases are freely available to anyone that wants to access and re-use them.",
+      "Q28": "Project results are made available to the community in an appropriate understandable format.",
+      "Q29": "Analysing your project’s closure with Self-Reflection Questionnaire Two (downloadable PDF document) has helped you to raise or ratify awareness on crucial decisions for future processes (Choose 0 if you have not used it).",
+      "Q30": "The community knows what the data is going to be used for, where the data is going to be stored and shared.",
+      "Q31": "You are clearly informed about what the data is going to be used for, where the data is going to be stored and shared",
+      "Q32": "The project includes perspectives and feedbacks from the community throughout the scientific process.",
+      "Q33": "The project includes perspectives and feedbacks from the community throughout the scientific process.",
+      "Q34": "You are able to contribute to the project by expressing a personal viewpoint.",
+      "Q35": "The participation of the community in the project can positively contribute to meet the community demands.",
+      "Q36": "The participation of the community in the project can positively contribute to meet the community demands.",
+      "Q37": "The participation of the community in the project can positively contribute to meet the community demands.",
+      "Q38": "You are knowledgeable about the project topic.",
+      "Q39": "You feel confident to contribute to science.",
+      "Q40": "You feel confident to contribute to science.",
+      "Q41": "Your participation in the project can positively contribute to meet the community demands.",
+      "Q42": "You feel able to take ownership of the research.",
+      "Q43": "You are motivated to participate in the project.",
+      "Q44": "You are motivated to participate in the project.",
+      "Q45": "You are motivated to participate in the project.",
+      "Q46": "You are motivated to participate in the project.",
+      "Q47": "You are satisfied with the participatory dynamics of the project.",
+      "Q48": "You are satisfied with the participatory dynamics of the project.",
+      "Q49": "You are satisfied with the participatory dynamics of the project.",
+      "Q50": "You are satisfied with the participatory dynamics of the project.",
+      "Q51": "You are motivated to get involved in similar projects.",
+      "Q52": "You are motivated to get involved in similar projects.",
+      "Q53": "You are motivated to continue being involved in the project.",
+      "Q54": "You are motivated to continue being involved in the project.",
+      "Q55": "Project results are made available to the community in an appropriate understandable format.",
+      "Q56": "The results of the project have contributed to generate relevant scientific knowledge.",
+      "Q57": "The project includes perspectives and feedbacks from the community throughout the scientific process.",
+      "Q58": "The project met your expectations.",
+      "Q59": "The project has answered the initial community demands.",
+      "Q60": "The project met your expectations.",
+      "Q61": "The project met your expectations.",
+      "Q62": "A gender perspective has contributed to improve the project results.",
+      "Q63": "The project met your expectations.",
+      "Q64": "The project objectives meet the community demands.",
+      "Q65": "The project objectives meet the community demands.",
+      "Q66": "The project objectives meet the community demands.",
+      "Q67": "The project objectives meet the community demands.",
+      "Q68": "The project generated new research questions, new projects and/or proposals.",
+      "Q69": "The project results actively contributed to the scientific discourse (via scientific publications, blogs,..).",
+      "Q70": "The project has positively changed your vision about the relationship between science and society.",
+      "Q71": "The project increased the partners’ capacity to get project funding.",
+      "Q72": "The publication of the results caused alternative policy options to be considered.",
+      "Q73": "The publication of the results caused alternative policy options to be considered.",
+      "Q74": "The publication of the results caused alternative policy options to be considered.",
+      "Q75": "The publication of the results led to improvements in an existing policy, programme or service.",
+      "Q76": "The publication of the results led to improvements in an existing policy, programme or service.",
+      "Q77": "The publication of the results led to improvements in an existing policy, programme or service.",
+      "Q78": "The project generated new research questions, new projects and/or proposals.",
+      "Q79": "The project results actively contributed to the scientific discourse (via scientific publications, blogs,..).",
+      "Q80": "The project has positively changed your vision about the relationship between science and society.",
+      "Q81": "The skills acquired during the project have positively contributed to impulse your professional career.",
+      "Q82": "Thanks to the participatory dynamics you have been able to address the problem.",
+      "Q83": "Your participation in the project has changed your behavior when it comes to the project topic.",
+      "Q84": "The project has positively changed your vision about the relationship between science and society.",
+      "Q85": "Your participation in the project has increased your knowledge about the project topic.",
+      "Q86": "The participation in the project has fostered your confidence to contribute to science.",
+      "Q87": "The project generated new research questions, new projects and/or proposals.",
+      "Q88": "The project has positively changed your vision about the relationship between science and society.",
+      "Q89": "The project results actively contributed to the scientific discourse (via scientific publications, blogs,..).",
+      "Q90": "The project includes vulnerable or marginalized groups.",
+      "Q91": "The project is scientifically relevant.",
+      "Q92": "The project embraced a transdisciplinary perspective.",
+      "Q93": "You are motivated to get involved in similar projects.",
+      "Q94": "The participatory dynamics have contributed to build more socially robust knowledge.",
+      "Q95": "You were involved or invited to the final communication activity where research results were presented.",
+      "Q10XX": "Feel free to include any other comment about your impressions at this phase of the project",
+      "Q1001": "What motivated you to participate in this project?",
+      "Q1002": "Is anything in the project developing differently than you expected? If so, what and why? What could be improved?",
+      "Q1003": "How would you describe the main outcomes of this project from your perspective and what has ensured the achievement of those outcomes? If the organisation that managed this project would have not existed, how would you have addressed your demand?",
+      "Q1004": "Were there changes in your context that you could attribute to this project? If so, please describe them.",
+      "Q1005": "What motivated your organisation to accept this project?",
+      "Q1006": "Is anything in the project developing differently than you expected? If so, what and why? What could be improved?",
+      "Q1007": "How would you describe the benefits of this project from your perspective and what has ensured these achievements?",
+      "Q1008": "Do you think any other actors could have been involved on the project at the early stages?",
+      "Q1009": "What motivated you to participate in this project?",
+      "Q1010": "Is anything in the project developing differently than you expected? If so, what and why? What could be improved?",
+      "Q1011": "How would you describe the main outcomes of this project from your perspective and what has ensured these achievements?",
+      "Q1012": "Were there changes in your teaching approach and/or research lines that you could attribute to this project? If so, please describe them.",
+      "Q1013": "What motivated you to participate in this project?",
+      "Q1014": "Is anything in the project developing differently than you expected? If so, what and why? What could be improved?",
+      "Q1015": "How would you describe the main outcomes of this project from your perspective and what has ensured these achievements?",
+      "Q1016": "If so, please describe the main competencies that you acquired through this project."
     }
   },
   "toolbar": {
-    "myAccount": "My Account",
-    "administration": "Administration"
+    "searchPlaceholder": "Search projects, structures...",
+    "myAccount": "Mijn account",
+    "administration": "Beheer"
   },
   "navigation": {
     "links": {
       "home": "Home",
-      "projects": "Projecten",
-      "structures": "Structures",
       "about": "Over"
     }
+  },
+  "misc": {
+    "timeAgo": "{time} ago"
   },
   "actions": {
     "add": "Toevoegen",
     "submit": "Indienen",
     "approve": "Goedkeuren",
+    "validate": "Goedkeuren",
+    "create": "Maken",
+    "read": "Lezen",
+    "delete": "Verwijderen",
     "update": "Bijwerken",
     "updateResponse": "Reactie bijwerken",
-    "create": "Maken",
-    "delete": "Verwijderen",
     "withdraw": "Intrekken",
     "login": "Inloggen",
     "logout": "Uitloggen",
@@ -219,23 +383,22 @@
     "close": "Afsluiten",
     "cancel": "Annuleren",
     "more": "Meer",
-    "moreInformation": "Meer informatie",
-    "next": "Volgende"
+    "next": "Volgende",
+    "moreInformation": "Meer informatie"
   },
   "states": {
-    "enabled": "Enabled",
-    "disabled": "Disabled",
+    "enabled": "Activeren",
+    "disabled": "Deactiveren",
     "current": "Huidig",
     "active": "Actief",
-    "inactive": "Inactief",
-    "_": "_"
+    "inactive": "Inactief"
   },
   "noums": {
     "user": "Gebruiker",
     "project": "Project",
     "projects": "Projecten",
-    "structure": "Structure",
-    "structures": "Structures",
+    "structure": "Unit",
+    "structures": "Units",
     "evaluation": "Evaluatie"
   },
   "errors": {
@@ -255,7 +418,7 @@
       "maximunLength": "Mag maximaal {length} tekens lang zijn",
       "minimunLength": "Moet ten minste {length} tekens lang zijn",
       "namedRequiredField": "{name} is een verplicht veld",
-      "mustBeStructure": "Please enter a valid Structure",
+      "mustBeStructure": "Voer een geldige Unit in",
       "mustBeUser": "Voer een geldige lijst met gebruikers in"
     },
     "errors": {
@@ -267,10 +430,10 @@
       "saveFailure": "Opslaan mislukt. Probeer het later opnieuw",
       "projectSaveSuccess": "Projectgegevens bijgewerkt!",
       "projectSaveFailure": "Kan het project niet opslaan. Probeer het later opnieuw",
-      "structureSaveSuccess": "Structure data updated!",
-      "structureSaveFailure": "Failed to save the Structure, please try again later",
+      "structureSaveSuccess": "Unit gegevens bijgewerkt!",
+      "structureSaveFailure": "Kan de Unit niet opslaan. Probeer het later opnieuw",
       "participantsSuccess": "Bij het project betrokken mensen opgeslagen",
-      "-": ""
+      "-": "-"
     },
     "fields": {
       "name": "Naam",
@@ -280,7 +443,7 @@
       "summary": "Samenvatting",
       "description": "Beschrijving",
       "participants": "Deelnemers",
-      "managers": "Managers",
+      "managers": "Projectleiders",
       "projectName": "Projectnaam",
       "projectImageURL": "Projectafbeelding URL",
       "projectSummary": "Projectsamenvatting",
@@ -294,7 +457,7 @@
       "password": "Wachtwoord",
       "passwordRepeat": "Herhaal uw wachtwoord",
       "title": "Titel",
-      "role": "Role",
+      "role": "Rol",
       "invitationCode": "Uitnodigingscode",
       "projectPhase": "Projectfase",
       "projectType": "Projecttype",
@@ -327,7 +490,7 @@
   "$vuetify": {
     "dataIterator": {
       "rowsPerPageText": "Onderdelen per pagina:",
-      "rowsPerPageAll": "All",
+      "rowsPerPageAll": "Alle",
       "pageText": "{0}-{1} van {2}",
       "noResultsText": "Geen overeenkomende zoekresultaten gevonden",
       "nextPage": "Volgende pagina",

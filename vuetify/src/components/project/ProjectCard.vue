@@ -16,7 +16,7 @@
       @click="$router.push(project.link)"
     >
       <v-btn
-        v-for="(user,idx) in users(project.participants)"
+        v-for="(user,idx) in users(project.participants.slice(0,4))"
         :key="user.id"
         :to="user.link"
         icon

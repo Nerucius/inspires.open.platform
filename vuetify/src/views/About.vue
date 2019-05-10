@@ -1,6 +1,6 @@
 <template>
-  <v-layout>
-    <v-flex xs12>
+  <v-layout row wrap justify-center>
+    <v-flex xs12 md10 xl8>
       <v-card flat>
         <v-card-text>
           <h1 class="mb-2">
@@ -45,7 +45,8 @@
             {{ $t('pages.about.titleTeam') }}
           </h2>
 
-          <p>TODO...</p>
+          <vue-markdown>{{ $t('pages.about.teamContent') }}</vue-markdown>
+
         </v-card-text>
       </v-card>
     </v-flex>
@@ -53,8 +54,15 @@
 </template>
 
 <script>
+import VueMarkdown from 'vue-markdown';
+
 export default {
   name: "About",
+
+  components:{
+    VueMarkdown
+  },
+
   metaInfo: {
     title: "About Us"
   },

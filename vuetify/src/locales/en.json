@@ -11,7 +11,7 @@
         "step4": "Almost done!"
       },
       "acceptTOS": "Accept Terms & Conditions",
-      "welcomeMessage": "Welcome to the registration page for the InSPIRES Open Platform. Here you can create your own user to log into the site.",
+      "welcomeMessage": "Welcome to the registration page of the InSPIRES Open Platform. Here you can create your own account to log onto the site, which will allow you to create and/or participate in a project, submit your request for research, create your own structure and conduct your collaborative project's evaluation.",
       "welcomeMessage2": "Registering allows you to start contributing to the site! You can also register Intermediation Organizations and Research Projects to your or your Organization's name.",
       "step1Message": "Please write down your prefered user name and password. This user name is what you will use to login to the platform.",
       "step2Message": "Tell us your full name and email so it can be displayed along your projects and other activities in the platform. Your email will only be used for alerts and notifications.",
@@ -26,7 +26,8 @@
       "mainTitle": "Welcome to InSPIRES",
       "worldmapTitle":"World Map",
       "latestTitle":"Latest Updates",
-      "welcomeMessage": "Welcome to the InSPIRES online database and impact evaluation tool. This platform features participatory research and innovation projects promoted knowledge intermediary units, such as Science Shops.",
+      "welcomeMessage": "Welcome to the InSPIRES Open Platform. This platform features citizen-led participatory research and innovation projects promoted by knowledge intermediary units, such as Science Shops, Citizen Science groups or units, etc.",
+      "welcomeMessageLong": "It also offers an integrated collaborative impact evaluation tool in order to assess the processes and outcomes of your own projects with respect others. The pursued objective is to produced a joint and collective reflection around this type of collaborative projects in order to learn, think, dabte and growth as a community of practice to develop better projects aiming at to improve citizens life and well-being.",
       "aboutLink": "More about us!",
       "projectsSeeMore": "See all projects"
     },
@@ -39,7 +40,9 @@
       "missionObjective2": "Register collaborative research and innovation projects, facilitated by these intermediation structures , to show their objectives, knowledge and geographical areas, as well as the main collaborators involved.",
       "missionObjective3": "Provide to the community an intuitive and customizable impact evaluation tool to capture process and results outcomes in a harmonized manner.",
       "missionParagraph3": "In the end, we hope that the platform will support the community (structure coordinators and project’s participants around the world) mutual learning by sharing science Shops experiences and other participatory research and innovation projects good but also failed practices, methodologies, etc.",
-      "titleTeam": "The team behind InSPIRES Open Platform"
+      "titleTeam": "The team behind InSPIRES Open Platform",
+      "teamContent": "The development of this Open Platform has been led by the ISGlobal team in deep collaboration with the Data Science and OpenSystems research groups at the Barcelona University. All InSPIRES consortium members have also played an important role in its inception and evolution."
+
     },
     "admin":{
       "mainTitle": "Administration Dashboard",

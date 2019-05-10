@@ -489,9 +489,10 @@ export default {
   },
 
   async mounted() {
+    let publicEval
 
     try {
-      let publicEval = (await this.$http.get(`${API_SERVER}/v1/csv/eval/${this.project.id}/tangram.csv`)).body
+      publicEval = (await this.$http.get(`${API_SERVER}/v1/csv/eval/${this.project.id}/tangram.csv`)).body
       this.projectIsEvaluated = true
     } catch (error) {
       return

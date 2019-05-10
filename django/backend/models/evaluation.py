@@ -85,7 +85,12 @@ DIMENSION_CHOICES = [
 # -----------------------
 ANSWER_MULTIPLE = "MULTIPLE"
 ANSWER_DEGREE = "DEGREE"
-ANSWER_CHOICES = [(ANSWER_MULTIPLE, "Multiple Choice"), (ANSWER_DEGREE, "Degree")]
+ANSWER_TEXT = "TEXT"
+ANSWER_CHOICES = [
+    (ANSWER_MULTIPLE, "Multiple Choice"),
+    (ANSWER_DEGREE, "Degree"),
+    (ANSWER_TEXT, "Text"),
+]
 
 
 class Question(models.Model):
@@ -139,7 +144,10 @@ class Evaluation(TrackableModel):
         return role_questions.all()
 
     def can_read(self, user):
-        return self.project.can_write(user)
+        return self.participation.user == user
+
+    def can_write(self, user):
+        return self.participation.user == user
 
     def __str__(self):
         return "EVAL [%s:%s] by %s" % (

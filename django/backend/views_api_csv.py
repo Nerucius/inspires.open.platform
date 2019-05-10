@@ -230,7 +230,7 @@ class CSVProjectResponsesDegree(CSVCachedAuthorizedView):
 
 
 class CSVProjectOverallPosition(CSVCachedAuthorizedView):
-    cache_key = None
+    # cache_key = None
 
     def _get_content(self, request, *args, **kwargs):
         ownProject = Project.objects.get(pk=kwargs["project"])
@@ -265,7 +265,7 @@ class CSVProjectOverallPosition(CSVCachedAuthorizedView):
 
 
 class CSVProjectPhases(CSVCachedAuthorizedView):
-    cache_key = None
+    # cache_key = None
 
     def _get_content(self, request, *args, **kwargs):
         ownProject = Project.objects.get(pk=kwargs["project"])
@@ -320,7 +320,7 @@ class CSVProjectPhases(CSVCachedAuthorizedView):
 
 
 class CSVProjectBullets(CSVCachedAuthorizedView):
-    cache_key = None
+    # cache_key = None
 
     def _get_content(self, request, *args, **kwargs):
         ownProject = Project.objects.get(pk=kwargs["project"])

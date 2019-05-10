@@ -196,6 +196,8 @@ class CSVCachedAuthorizedView(View):
 
 
 class CSVAllResponsesMultiple(CSVCachedAuthorizedView):
+    cache_key = None
+
     def _get_content(self, request, *args, **kwargs):
         df = _get_df_responses_all(answer_type="MULTIPLE")
         return df.to_csv()

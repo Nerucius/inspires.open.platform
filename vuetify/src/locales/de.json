@@ -1,0 +1,506 @@
+{
+  "pages": {
+    "login": {
+      "welcomeMessage": "Welcome to the InSPIRES Platform"
+    },
+    "register": {
+      "titles": {
+        "step1": "First things first",
+        "step2": "Tell us a bit about yourself",
+        "step3": "Terms of Service",
+        "step4": "Almost done!"
+      },
+      "acceptTOS": "Accept Terms & Conditions",
+      "welcomeMessage": "Welcome to the registration page of the InSPIRES Open Platform. Here you can create your own account to log onto the site, which will allow you to create and/or participate in a project, submit your request for research, create your own structure and conduct your collaborative project's evaluation.",
+      "welcomeMessage2": "Registering allows you to start contributing to the site! You can also register Intermediation Organizations and Research Projects to your or your Organization's name.",
+      "step1Message": "Please write down your prefered user name and password. This user name is what you will use to login to the platform.",
+      "step2Message": "Tell us your full name and email so it can be displayed along your projects and other activities in the platform. Your email will only be used for alerts and notifications.",
+      "step3Message": "Before you can register, you will have to agree to our terms of service for the platform.",
+      "readTOSHere": "You can read the terms of service here.",
+      "step3TOSAcceptance": "By clicking the 'ACCEPT TERMS AND CONDITIONS' button I acknowledge that I have been appropriately informed and that I consent to the processing of my personal data for the stated purpose.",
+      "step3MessageAccepted": "Great! we can continue with the rest of the registration.",
+      "step4Message": "Please review the following information. If everything seems correct you can proceed with the registration. You can go back to any of the steps and review the information provided.",
+      "step4MessageInvite": "During the first period of testing, we are restricting the registration to those personally invited. Please enter the code provided to you below:"
+    },
+    "home": {
+      "mainTitle": "Welcome to InSPIRES",
+      "worldmapTitle": "World Map",
+      "latestTitle": "Latest Updates",
+      "welcomeMessage": "Welcome to the InSPIRES Open Platform. This platform features citizen-led participatory research and innovation projects promoted by knowledge intermediary units, such as Science Shops, Citizen Science groups or units, etc.",
+      "welcomeMessageLong": "It also offers an integrated collaborative impact evaluation tool in order to assess the processes and outcomes of your own projects with respect others. The pursued objective is to produced a joint and collective reflection around this type of collaborative projects in order to learn, think, dabte and growth as a community of practice to develop better projects aiming at to improve citizens life and well-being.",
+      "aboutLink": "More about us!",
+      "projectsSeeMore": "See all projects"
+    },
+    "about": {
+      "mainTitle": "About InSPIRES Open Platform",
+      "titleMission": "Our mission",
+      "missionParagraph1": "InSPIRES has embarked in the adventure of developing an online collaborative and crowdsourced database featuring Science Shops, similar structures and their related projects, as well as offering an integrated impact evaluation tool capable of producing real-time project evaluation report.",
+      "missionParagraph2": "The aims of the InSPIRES online database and impact evaluation are to:",
+      "missionObjective1": "Identify and visualize the size of the Science Shops, and other similar structures, movement and similar structures worldwide.",
+      "missionObjective2": "Register collaborative research and innovation projects, facilitated by these intermediation structures , to show their objectives, knowledge and geographical areas, as well as the main collaborators involved.",
+      "missionObjective3": "Provide to the community an intuitive and customizable impact evaluation tool to capture process and results outcomes in a harmonized manner.",
+      "missionParagraph3": "In the end, we hope that the platform will support the community (structure coordinators and project’s participants around the world) mutual learning by sharing science Shops experiences and other participatory research and innovation projects good but also failed practices, methodologies, etc.",
+      "titleTeam": "The team behind InSPIRES Open Platform",
+      "teamContent": "The development of this Open Platform has been led by the ISGlobal team in deep collaboration with the Data Science and OpenSystems research groups at the Barcelona University. All InSPIRES consortium members have also played an important role in its inception and evolution."
+    },
+    "admin": {
+      "mainTitle": "Administration Dashboard",
+      "unauthorizedAccess": "You are not authorized to access the Administration Dashboard. If you believe you should, please contact a platform administrator.",
+      "pendingApproval": "Structures pending approval",
+      "instructionsText": "The following structures need to be validated before they will show up on the site's public lists. Please verify each one for validity of data and authenticity.\n\nVerify also that the person that claims to own the structure is who they claim, and they are allowed to put the information on the site.",
+      "createdBy": "Created by {name}",
+      "validationSuccess": "Structure validated successfully. It will now show up on public lists.",
+      "validationFailure": "Failed to validate the structure. Please contact support."
+    },
+    "termsOfService": {
+      "mainTitle": "Terms of Service",
+      "subTitle": "By accepting the terms of service you understand that:",
+      "content": "",
+      "paragraph1": "Your personal data will only be used by:",
+      "paragraph2": "Fundación Privada Instituto de Salud Global Barcelona (ISGlobal) \nCIF: G65341695\nPostal address: Carrer Rosselló, number 132, 2nd, 5th and 7th floors - 08036 Barcelona \nTelephone: (+34) 932 271 806 \nEmail: inspires@isglobal.org",
+      "paragraph3": "We collect and process your personal data for the sole purpose of responding to your registration to the website https://app.inspiresproject.com.",
+      "paragraph4": "Your data will be used solely by the InSPIRES team of ISGlobal who require access to it to carry out their work and it will never, under any circumstances, be made available to third parties or transferred to third countries or international organisations.",
+      "paragraph5": "We can only process your personal data with your consent, and it will be retained only as long as you do not withdraw consent.",
+      "paragraph6": "You can exercise all your rights under current data protection regulations, including the right to access, correction, objection, erasure, portability and restriction, by writing to the Data Protection Officer (lopd@isglobal.org), attaching a copy of your national identity document or equivalent.",
+      "paragraph7": "You have the right to withdraw your consent at any time. Withdrawal of consent does not affect the lawfulness of processing based on consent before its withdrawal. If you do not agree with the manner in which ISGlobal handles your data or you consider that your rights have been infringed, you can file a complaint at any time with the Spanish Data Protection Agency."
+    },
+    "projectDetail": {
+      "about": "About",
+      "detailsTab": "Information",
+      "evaluationTab": "Project Evaluation",
+      "projectNotYetEvaluated": "This project has not received sufficient feedback and evaluations from it's participants yet, so we can't show you how it's doing. Check back another day!"
+    },
+    "structureDetail": {
+      "about": "About"
+    },
+    "structureManage": {
+      "title": "Manage this Structure",
+      "success": "Structure saved successfuly!",
+      "failure": "Failed to save the structure. Try again later.",
+      "collaborationFailure": "Failed to approve the project. Please try again later.",
+      "collaborationAdded": "Project has been approved under this structure.",
+      "structureTab": "This Structure",
+      "projectsTab": "Projects"
+    },
+    "projectCreate": {
+      "title": "Create a new Project",
+      "success": "New project created successfully.",
+      "failure": "Failed to create a new project. Try again later."
+    },
+    "structureCreate": {
+      "title": "Create a new Structure",
+      "success": "New structure created successfully.",
+      "failure": "Failed to create a new structure. Try again later."
+    },
+    "projectList": {
+      "noKASpecified": "No Knowledge Area specified",
+      "filterByArea": "in the area of {area}"
+    },
+    "projectManage": {
+      "title": "Manage this Project",
+      "success": "Structure saved successfuly!",
+      "failure": "Failed to save the Structure. Try again later.",
+      "projectTab": "This Project",
+      "participantsTab": "Participants",
+      "phasesTab": "Project Phases",
+      "phasesTabDescription": "The phases of the evaluation were conceived to provide you with information on the project ongoing implementation and outcomes. Each phase consists of 6 questions, on average, which will take you approximately 5 minutes. Once all team members complete the evaluation of the current phase, the results are visualized on a project-specific, as well as aggregated level.\n\nTo change the current phase, select one and click save.",
+      "hasPhase": "This project is currently at this phase since {date}.",
+      "hadPhase": "This project was on this phase starting {date}.",
+      "notHasPhase": "This project has never been on this phase.",
+      "evaluationTab": "Evaluation",
+      "evaluationTitle": "Project Evaluation",
+      "evaluationTabDescription": "The impact evaluation tool builds on a self-reflection process which is divided into four phases: a kick-off phase at the beginning of the project, a mid-term evaluation, a final assessment by the end of the project, and a further evaluation 6 months later.",
+      "collaborationSuccess": "Collaboration with structure requested successfully.",
+      "collaborationFailure": "Failed to request collaboration.",
+      "deleteCollaborationAlert": "Are you sure you want to cancel the collaboration?",
+      "collaborationDeleted": "Collaboration with structure has been withdrawn.",
+      "participantsTitle": "Participants in this Project",
+      "participantsIntro": "Participants are everyone who will be involved directly in the project. You can add any number of participants, but each participant must have a role within the project. The participant's role will determine the questions they have to answer in the impact evaluation tool.\n\nTo add a participant you can look up users by their full name in the box below.",
+      "searchUsers": "Collaboration with structure has been withdrawn.",
+      "evaluationSuccess": "Evaluation requested successfuly.",
+      "evaluationFailure": "Failed to send evaluation request. Please try again later."
+    },
+    "evaluationEntry": {
+      "mainTitle": "Project Evaluation Questionnaire",
+      "questionnaire": "Questionnaire",
+      "questionnaireDescription": "Questionnaire",
+      "questionnaireCompleted": "This questionnaire has already been completed.",
+      "evaluationOverview": "Evaluation Overview",
+      "evaluatedPhase": "Evaluated phase",
+      "evaluator": "Evaluator",
+      "evaluationRole": "Evaluation role",
+      "questionMultipleHelp": "(choose all that apply)",
+      "viewOnly": "You may only view the responses, not modify them",
+      "submitSuccess": "Your response has been recorded correctly!",
+      "submitFailure": "There was a problem saving your response. Please try again later."
+    },
+    "footer": {
+      "europeanFundingDisclaimer": "This project has received funding from European Union's Horizon 2020 research and innovation programme under grant agreement No 741677."
+    }
+  },
+  "models": {
+    "participationRole": {
+      "scientist": "Scientist",
+      "student": "Student",
+      "civilSociety": "Civil Society",
+      "projectManager": "Project Manager"
+    },
+    "projectPhase": {
+      "phase": "Phase",
+      "phase1": "Phase 1: Project Kick-off and Expectations",
+      "phase2": "Phase 2: Progress and Self-reflection",
+      "phase3": "Phase 3: End of Project Output",
+      "phase4": "Phase 4: Six months later",
+      "phase1Description": "The kick-off phase is meant to clearly set expectations and to reflect on the value of community engagement to reach the scientific objectives while addressing community demands.",
+      "phase2Description": "At this point you are in the middle of the project and you are asked to reflect on the quality of the participatory dynamics and on the degree of inclusion of multiple perspectives througout the project implementation.",
+      "phase3Description": "By now the project is over and it's time to reflect on the project alignment to participants expectations, the incorporation of an ethical and gender perspectives, the quality of the participatory dynamics, and the accessibility of the project results.",
+      "phase4Description": "Six months has passed since the project ended and you are invited to reflect about the project outcome on scientific knowledge, at the level of individual learning, policy alignment, and in terms of the collective capacity to address community demands.",
+      "phase1Tag": "Kick-off",
+      "phase2Tag": "Self-reflection",
+      "phase3Tag": "Output",
+      "phase4Tag": "Six months later"
+    },
+    "knowledgeArea": {
+      "logic": "Logic",
+      "mathematics": "Mathematics",
+      "astronomyAndAstrophysics": "Astronomy And Astrophysics",
+      "physics": "Physics",
+      "chemistry": "Chemistry",
+      "lifeSciences": "Life Sciences",
+      "earthAndSpaceSciences": "Earth and Space Sciences",
+      "agriculturalSciences": "Agricultural Sciences",
+      "medicalSciences": "Medical Sciences",
+      "technologicalSciences": "Technological Sciences",
+      "anthropology": "Anthropology",
+      "demographics": "Demographics",
+      "economicSciences": "Economic Sciences",
+      "geography": "Geography",
+      "history": "History",
+      "juridicalSciencesAndLaw": "Juridical Sciences and Law",
+      "linguistics": "Linguistics",
+      "pedagogy": "Pedagogy",
+      "politicalScience": "Political Science",
+      "psychology": "Psychology",
+      "scienceOfArtsAndLetters": "Science of Arts and Letters",
+      "sociology": "Sociology",
+      "ethics": "Ethics",
+      "philosophy": "Philosophy"
+    },
+    "evaluation": {
+      "axis": {
+        "science": "Science",
+        "collective": "Collective",
+        "individial": "Individual"
+      },
+      "principle": {
+        "knowledge": "Knowledge Democracy",
+        "citizen": "Citizen-led Research",
+        "participation": "Participatory Dynamics",
+        "transform": "Transformative Change",
+        "integrity": "Integrity"
+      },
+      "dimension": {
+        "CollectiveCapacity": "Collective capacity",
+        "communityAlignment": "Community alignment",
+        "degreeOfEngagement": "Degree of engagement",
+        "expectationAlignment": "Expectation alignment",
+        "genderPerspective": "Gender perspective",
+        "impactParticipatoryDynamics": "Impact of the participatory dynamics",
+        "inclusivity": "Inclusivity",
+        "knowledgeAndSkills": "Knowledge and skills",
+        "motivation": "Motivation",
+        "openness": "Openness",
+        "policyImpact": "Policy impact",
+        "reflexivity": "Reflexivity",
+        "resourceAvailability": "Resource availability",
+        "responsivenessCommunityAlignment": "Responsiveness to community alignment",
+        "satisfactionParticipatoryDynamics": "Satisfaction with the participatory dynamics",
+        "scientificRelevance": "Scientific relevance",
+        "selfImprovement": "Self-improvement",
+        "transdisciplinarity": "Transdisciplinarity",
+        "transparency": "Transparency"
+      }
+    },
+    "answer": {
+      "type": {
+        "multipleChoice": "Multiple Choice",
+        "degree": "Degree",
+        "text": "Text"
+      },
+      "A01": "Search for a topic",
+      "A02": "Formulation of research question",
+      "A03": "Method design",
+      "A04": "Data collection",
+      "A05": "Data analysis and interpretation",
+      "A06": "Publication of the results",
+      "A07": "Public awareness",
+      "A08": "Project governance",
+      "A09": "Transformative change"
+    },
+    "question": {
+      "Q01": "In which stages of the scientific process has the community been actively involved?",
+      "Q02": "In which stages of the scientific process has the community been actively involved?",
+      "Q03": "In which stages of the scientific process has the community been actively involved?",
+      "Q04": "In which stages of the scientific process has the community been actively involved?",
+      "Q05": "In which stages of the scientific process has it been most effective for you to engage the community?",
+      "Q06": "In which stages of the scientific process has it been most effective for you to engage the community?",
+      "Q07": "In which stages of the scientific process has it been most effective for you to engage the community?",
+      "Q08": "In which stages of the scientific process has it been most effective for you to engage the community?",
+      "Q09": "The scientific objectives cannot be reached without involving the community in the scientific process.",
+      "Q10": "The scientific objectives cannot be reached without involving the community in the scientific process.",
+      "Q11": "The scientific objectives cannot be reached without involving the community in the scientific process.",
+      "Q12": "The scientific objectives cannot be reached without involving the community in the scientific process.",
+      "Q13": "The project objectives meet the community demands.",
+      "Q14": "You are learning new skills during the project.",
+      "Q15": "The participatory dynamics have been fluid and easy to carry out.",
+      "Q16": "The participatory dynamics have positively influenced the results of the research.",
+      "Q17": "The participatory dynamics have been fluid and easy to carry out.",
+      "Q18": "Analysing your project design with Self-Reflection Questionnaire One (downloadable PDF document) has helped you to raise or ratify awareness on crucial decisions at this stage of the process (Choose 0 if you have not used it).",
+      "Q19": "Expectations are clearly defined and communicated at the beginning of the project.",
+      "Q20": "Expectations are clearly defined and communicated at the beginning of the project.",
+      "Q21": "The financial resources to conduct the project are available.",
+      "Q22": "The project promotes a gender perspective in the research process and results",
+      "Q23": "A gender perspective has contributed to improve the project results.",
+      "Q24": "The financial resources were appropriate for the project.",
+      "Q25": "The personal resources were appropriate for the project.",
+      "Q26": "You have learnt new skills during the project.",
+      "Q27": "The project databases are freely available to anyone that wants to access and re-use them.",
+      "Q28": "Project results are made available to the community in an appropriate understandable format.",
+      "Q29": "Analysing your project’s closure with Self-Reflection Questionnaire Two (downloadable PDF document) has helped you to raise or ratify awareness on crucial decisions for future processes (Choose 0 if you have not used it).",
+      "Q30": "The community knows what the data is going to be used for, where the data is going to be stored and shared.",
+      "Q31": "You are clearly informed about what the data is going to be used for, where the data is going to be stored and shared",
+      "Q32": "The project includes perspectives and feedbacks from the community throughout the scientific process.",
+      "Q33": "The project includes perspectives and feedbacks from the community throughout the scientific process.",
+      "Q34": "You are able to contribute to the project by expressing a personal viewpoint.",
+      "Q35": "The participation of the community in the project can positively contribute to meet the community demands.",
+      "Q36": "The participation of the community in the project can positively contribute to meet the community demands.",
+      "Q37": "The participation of the community in the project can positively contribute to meet the community demands.",
+      "Q38": "You are knowledgeable about the project topic.",
+      "Q39": "You feel confident to contribute to science.",
+      "Q40": "You feel confident to contribute to science.",
+      "Q41": "Your participation in the project can positively contribute to meet the community demands.",
+      "Q42": "You feel able to take ownership of the research.",
+      "Q43": "You are motivated to participate in the project.",
+      "Q44": "You are motivated to participate in the project.",
+      "Q45": "You are motivated to participate in the project.",
+      "Q46": "You are motivated to participate in the project.",
+      "Q47": "You are satisfied with the participatory dynamics of the project.",
+      "Q48": "You are satisfied with the participatory dynamics of the project.",
+      "Q49": "You are satisfied with the participatory dynamics of the project.",
+      "Q50": "You are satisfied with the participatory dynamics of the project.",
+      "Q51": "You are motivated to get involved in similar projects.",
+      "Q52": "You are motivated to get involved in similar projects.",
+      "Q53": "You are motivated to continue being involved in the project.",
+      "Q54": "You are motivated to continue being involved in the project.",
+      "Q55": "Project results are made available to the community in an appropriate understandable format.",
+      "Q56": "The results of the project have contributed to generate relevant scientific knowledge.",
+      "Q57": "The project includes perspectives and feedbacks from the community throughout the scientific process.",
+      "Q58": "The project met your expectations.",
+      "Q59": "The project has answered the initial community demands.",
+      "Q60": "The project met your expectations.",
+      "Q61": "The project met your expectations.",
+      "Q62": "A gender perspective has contributed to improve the project results.",
+      "Q63": "The project met your expectations.",
+      "Q64": "The project objectives meet the community demands.",
+      "Q65": "The project objectives meet the community demands.",
+      "Q66": "The project objectives meet the community demands.",
+      "Q67": "The project objectives meet the community demands.",
+      "Q68": "The project generated new research questions, new projects and/or proposals.",
+      "Q69": "The project results actively contributed to the scientific discourse (via scientific publications, blogs,..).",
+      "Q70": "The project has positively changed your vision about the relationship between science and society.",
+      "Q71": "The project increased the partners’ capacity to get project funding.",
+      "Q72": "The publication of the results caused alternative policy options to be considered.",
+      "Q73": "The publication of the results caused alternative policy options to be considered.",
+      "Q74": "The publication of the results caused alternative policy options to be considered.",
+      "Q75": "The publication of the results led to improvements in an existing policy, programme or service.",
+      "Q76": "The publication of the results led to improvements in an existing policy, programme or service.",
+      "Q77": "The publication of the results led to improvements in an existing policy, programme or service.",
+      "Q78": "The project generated new research questions, new projects and/or proposals.",
+      "Q79": "The project results actively contributed to the scientific discourse (via scientific publications, blogs,..).",
+      "Q80": "The project has positively changed your vision about the relationship between science and society.",
+      "Q81": "The skills acquired during the project have positively contributed to impulse your professional career.",
+      "Q82": "Thanks to the participatory dynamics you have been able to address the problem.",
+      "Q83": "Your participation in the project has changed your behavior when it comes to the project topic.",
+      "Q84": "The project has positively changed your vision about the relationship between science and society.",
+      "Q85": "Your participation in the project has increased your knowledge about the project topic.",
+      "Q86": "The participation in the project has fostered your confidence to contribute to science.",
+      "Q87": "The project generated new research questions, new projects and/or proposals.",
+      "Q88": "The project has positively changed your vision about the relationship between science and society.",
+      "Q89": "The project results actively contributed to the scientific discourse (via scientific publications, blogs,..).",
+      "Q90": "The project includes vulnerable or marginalized groups.",
+      "Q91": "The project is scientifically relevant.",
+      "Q92": "The project embraced a transdisciplinary perspective.",
+      "Q93": "You are motivated to get involved in similar projects.",
+      "Q94": "The participatory dynamics have contributed to build more socially robust knowledge.",
+      "Q95": "You were involved or invited to the final communication activity where research results were presented.",
+      "Q10XX": "Feel free to include any other comments related to this phase.",
+      "Q10XY": "Feel free to include any other comments related to the {phase} phase.",
+      "Q1001": "What motivated you to participate in this project?",
+      "Q1002": "Everything in the project is developing as you expected? Otherwise, tell us what is different and why. What could be improved?",
+      "Q1003": "Please describe the main outcomes of this project. What has been essential to achieve those outcomes? How would you have addressed this project demand without this organisation?",
+      "Q1004": "Has the project caused any change to your context? If so, please describe them.",
+      "Q1005": "What motivated your organisation to accept this project?",
+      "Q1006": "Everything in the project is developing as you expected? Otherwise, tell us what is different and why. What could be improved?",
+      "Q1007": "Please describe the main benefits of this project. What has been essential to achieve these benefits?",
+      "Q1008": "Do you think any other actors could have been involved on the project? Why?",
+      "Q1009": "What motivated you to participate in this project?",
+      "Q1010": "Everything in the project is developing as you expected? Otherwise, tell us what is different and why. What could be improved?",
+      "Q1011": "Please describe the main outcomes of this project. What has been essential to achieve these outcomes?",
+      "Q1012": "Has the project caused any change to your teaching approach or research lines? If so, please describe them.",
+      "Q1013": "What motivated you to participate in this project?",
+      "Q1014": "Everything in the project is developing as you expected? Otherwise, tell us what is different and why. What could be improved?",
+      "Q1015": "Please describe the main outcomes of this project. What has been essential to achieve these outcomes?",
+      "Q1016": "Open Science projects include public participation. What new competencies have you acquired through this project?"
+    }
+  },
+  "toolbar": {
+    "searchPlaceholder": "Search projects, structures...",
+    "myAccount": "My Account",
+    "administration": "Administration"
+  },
+  "navigation": {
+    "links": {
+      "home": "Home",
+      "about": "About"
+    }
+  },
+  "misc": {
+    "timeAgo": "{time} ago"
+  },
+  "actions": {
+    "add": "Add",
+    "submit": "Submit",
+    "approve": "Approve",
+    "validate": "Validate",
+    "create": "Create",
+    "read": "Read",
+    "delete": "Delete",
+    "update": "Update",
+    "updateResponse": "Update response",
+    "withdraw": "Withdraw",
+    "login": "Login",
+    "logout": "Logout",
+    "register": "Register",
+    "save": "Save",
+    "close": "Close",
+    "cancel": "Cancel",
+    "more": "More",
+    "next": "Next",
+    "moreInformation": "More Information"
+  },
+  "states": {
+    "enabled": "Enabled",
+    "disabled": "Disabled",
+    "current": "Current",
+    "active": "Active",
+    "inactive": "Inactive"
+  },
+  "noums": {
+    "user": "User",
+    "project": "Project",
+    "projects": "Projects",
+    "structure": "Structure",
+    "structures": "Structures",
+    "evaluation": "Evaluation"
+  },
+  "errors": {
+    "404": {
+      "title": "Oops! This page was not found",
+      "text": "The page at '{route}' does not exist. Are you sure you've typed it correctly?"
+    }
+  },
+  "forms": {
+    "titles": {
+      "login": "Log In"
+    },
+    "rules": {
+      "requiredField": "This is a required field",
+      "passwordField": "The password you entered is not valid",
+      "passwordMatch": "The two passwords do not match",
+      "maximunLength": "Must be at most {length} characters long",
+      "minimunLength": "Must be at least {length} characters long",
+      "namedRequiredField": "{name} is a required field",
+      "mustBeStructure": "Please enter a valid Structure",
+      "mustBeUser": "Please enter a valid list of Users"
+    },
+    "errors": {
+      "invalidCredentials": "Invalid credentials, please verify your username and password."
+    },
+    "toasts": {
+      "loggedOut": "You have been logged out",
+      "saveSuccess": "Saved successfully!",
+      "saveFailure": "Failed to save, try again later",
+      "projectSaveSuccess": "Project data updated!",
+      "projectSaveFailure": "Failed to save the Project, please try again later",
+      "structureSaveSuccess": "Structure data updated!",
+      "structureSaveFailure": "Failed to save the Structure, please try again later",
+      "participantsSuccess": "Saved people involved in the project",
+      "-": ""
+    },
+    "fields": {
+      "name": "Name",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "summary": "Summary",
+      "description": "Description",
+      "participants": "Participants",
+      "managers": "Managers",
+      "projectName": "Project Name",
+      "projectImageURL": "Project Image URL",
+      "projectSummary": "Project Summary",
+      "projectAcronym": "Project Acronym",
+      "contactEmail": "Contact Email",
+      "projectAdministrators": "Project Administrators",
+      "contactWebsite": "External Website",
+      "postalAddress": "Postal Address",
+      "username": "Username",
+      "usernameOrEmail": "Username or Email",
+      "password": "Password",
+      "passwordRepeat": "Repeat your password",
+      "title": "Title",
+      "role": "Role",
+      "invitationCode": "Invitation Code",
+      "projectPhase": "Project Phase",
+      "projectType": "Project Type",
+      "knowledgeArea": "Knowledge Area",
+      "knowledgeAreas": "Knowledge Areas"
+    },
+    "labels": {
+      "searchUsers": "Search Users"
+    },
+    "hints": {
+      "projectImageURL": "URL to an image that you want shown on your project's page.",
+      "contactEmail": "Where should people reach you with questions about the project?",
+      "contactWebsite": "URL to an external site where people can see more about your project.",
+      "projectType": "How is your project team structured?",
+      "projectName": "Choose a name that characterizes your project. Less than 50 characters suggested.",
+      "projectSummary": "A short summary of your project and what it encompasses. Suggested to keep it under 200 characters.",
+      "projectAdministrators": "Add here all the people who will have full access to editing the project. Project Administrators can't transwer ownership.",
+      "projectAcronym": "Choose a Project Acronym",
+      "knowledgeArea": "UNESCO Knowledge Area that best defines your project.",
+      "summary": "Long-form project description. No character limit.",
+      "description": "Long-form project description. No character limit.",
+      "password": "Your password must be at least 8 characters, not be a common password and not contain your username."
+    }
+  },
+  "dialog": {
+    "confirm": {
+      "participationDeletion": "Are you sure you want to remove this person from the project?\n\nThis action can't be undone and you will lose all content related to this user.\n\nPress OK to confirm."
+    }
+  },
+  "$vuetify": {
+    "dataIterator": {
+      "rowsPerPageText": "Items per page:",
+      "rowsPerPageAll": "All",
+      "pageText": "{0}-{1} of {2}",
+      "noResultsText": "No matching records found",
+      "nextPage": "Next page",
+      "prevPage": "Previous page"
+    },
+    "dataTable": {
+      "rowsPerPageText": "Rows per page:"
+    },
+    "noDataText": "No data available"
+  }
+}

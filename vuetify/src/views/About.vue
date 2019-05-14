@@ -46,7 +46,6 @@
           </h2>
 
           <vue-markdown>{{ $t('pages.about.teamContent') }}</vue-markdown>
-
         </v-card-text>
       </v-card>
     </v-flex>

@@ -1,13 +1,13 @@
 <template>
   <svg v-if="projectIsEvaluated"
-    id="svg8"
-    xmlns:svg="http://www.w3.org/2000/svg"
-    xmlns="http://www.w3.org/2000/svg"
-    width="90%"
-    height="90%"
-    viewBox="0 0 370.42557 357.84293"
-    version="1.1"
-    >
+       id="svg8"
+       xmlns:svg="http://www.w3.org/2000/svg"
+       xmlns="http://www.w3.org/2000/svg"
+       width="90%"
+       height="90%"
+       viewBox="0 0 370.42557 357.84293"
+       version="1.1"
+  >
     <g id="tot" transform="translate(208.26933,30.088134)">
       <text
         id="textPart"

@@ -425,7 +425,10 @@
       "minimunLength": "Must be at least {length} characters long",
       "namedRequiredField": "{name} is a required field",
       "mustBeStructure": "Please enter a valid Structure",
-      "mustBeUser": "Please enter a valid list of Users"
+      "mustBeUser": "Please enter a valid list of Users",
+      "mustBeURL": "Please enter a valid URL",
+      "mustBeCountry": "Please enter a valid Country",
+      "mustBeKnowledgeArea": "Please enter a valid Knowledge Area"
     },
     "errors": {
       "invalidCredentials": "Invalid credentials, please verify your username and password."

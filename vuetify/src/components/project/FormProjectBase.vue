@@ -119,9 +119,17 @@
         Contact Information
       </h3>
 
+      <v-textarea
+        v-model="editedProject.contact_postal_address"
+        box
+        :label="$t('forms.fields.postalAddress')"
+        :hint="$t('forms.hints.postalAddress')"
+      />
+
       <v-text-field
         v-model="editedProject.contact_email"
         box
+        :rules="[rules.isEmail]"
         :label="$t('forms.fields.contactEmail')"
         :hint="$t('forms.hints.contactEmail')"
       />
@@ -132,12 +140,29 @@
         :label="$t('forms.fields.contactWebsite')"
         :hint="$t('forms.hints.contactWebsite')"
       />
-      <v-textarea
-        v-model="editedProject.contact_postal_address"
+
+      <v-text-field
+        v-model="editedProject.contact_social_facebook"
         box
-        :label="$t('forms.fields.postalAddress')"
-        :hint="$t('forms.hints.postalAddress')"
+        :rules="[rules.isURL]"
+        label="Facebook"
+        hint="Facebook page if applicable"
       />
+      <v-text-field
+        v-model="editedProject.contact_social_twitter"
+        box
+        :rules="[rules.isURL]"
+        label="Twitter"
+        hint="Twitter page if applicable"
+      />
+      <v-text-field
+        v-model="editedProject.contact_social_other"
+        box
+        :rules="[rules.isURL]"
+        label="Other social networks"
+        hint=""
+      />
+
     </template>
 
 
@@ -155,7 +180,7 @@
 <script>
 import { cloneDeep } from "lodash";
 import { Countries } from '@/plugins/i18n'
-import { regexIsURL } from '@/plugins/utils'
+import { regexIsURL, regexIsEmail } from '@/plugins/utils'
 
 export default {
   props: ["project"],
@@ -169,6 +194,7 @@ export default {
         required: v => !!v || this.$t("forms.rules.requiredField"),
         isUser: v => this.isUser(v) || this.$t("forms.rules.mustBeUser"),
         isURL: v => regexIsURL(v) || this.$t("forms.rules.mustBeURL"),
+        isEmail: v => regexIsEmail(v) || this.$t("forms.rules.mustBeEmail"),
         minlen: v =>
           v.length > 10 || this.$t("forms.rules.minimunLength", { length: 10 })
       },

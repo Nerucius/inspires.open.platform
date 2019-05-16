@@ -85,7 +85,7 @@
       <!-- <v-spacer /> -->
 
       <v-btn flat block :to="project.link">
-        Visit Project
+        {{ $t('pages.projectList.visitProject') }}
       </v-btn>
 
       <!-- <v-btn flat

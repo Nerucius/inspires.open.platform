@@ -48,7 +48,7 @@
     </v-card-text>
     <v-card-actions>
       <v-btn flat block :to="structure.link">
-        {{ $t('actions.moreInformation') }}
+        {{ $t('pages.structureList.visitStructure') }}
       </v-btn>
     </v-card-actions>
   </v-card>

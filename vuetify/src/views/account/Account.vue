@@ -115,7 +115,7 @@ th{
           </v-form>
         </v-card-text>
 
-        <v-card-actions class="px-3 pb-3">
+        <v-card-actions v-if="isOwnUser" class="px-3 pb-3">
           <v-spacer />
           <v-btn v-if="showEditForm" color="success" class="elevation-0"
             @click="submitUpdateProfile()">

@@ -39,7 +39,7 @@ class User(TrackableModel, AbstractUser):
     ]
 
     # Override email
-    email = models.EmailField(_('email address'), blank=True, unique=True)
+    email = models.EmailField(_("email address"), blank=True, unique=True)
 
     email_verification = models.BooleanField(default=False)
     reset_password_token = models.CharField(max_length=128, blank=True, null=True)
@@ -72,9 +72,9 @@ class User(TrackableModel, AbstractUser):
         return False
 
     def can_read(self, user):
-        """ Only the own user can view the detailed user info """
         # return self.pk == user.pk
-        return self.pk == user.pk
+        # Since detailed user info includes project list and other details, we have to
+        return True
 
     def can_write(self, user):
         """ Only the own user can modify the user info """

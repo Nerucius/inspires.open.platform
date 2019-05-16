@@ -26,7 +26,7 @@ th{
 
     <!-- Account Details -->
     <v-flex xs12 pb-0>
-      <h2>Details</h2>
+      <h2>{{ $t('pages.account.aboutMe') }}</h2>
     </v-flex>
 
     <v-flex xs12>
@@ -94,14 +94,14 @@ th{
     </v-flex>
 
 
-    <!-- Last 3 Cards -->
-    <v-flex xs12 pb-0>
-      <h2>Latest Updates</h2>
-    </v-flex>
 
     <v-flex xs12>
       <v-layout row wrap>
+
+        <!-- Own projects -->
         <v-flex xs12 sm6>
+          <h2 class="mb-3">{{ $t('pages.account.myProjects') }}</h2>
+
           <v-card flat>
             <v-card-text>
               <v-btn v-if="isOwnUser" fab small absolute top
@@ -136,7 +136,10 @@ th{
           </v-card>
         </v-flex>
 
+        <!-- Own structures -->
         <v-flex xs12 sm6>
+          <h2 class="mb-3">{{ $t('pages.account.myStructures') }}</h2>
+
           <v-card flat>
             <v-card-text>
               <v-btn v-if="isOwnUser" fab small absolute top

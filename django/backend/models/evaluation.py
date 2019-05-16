@@ -144,7 +144,7 @@ class Evaluation(TrackableModel):
         return role_questions.all()
 
     def can_read(self, user):
-        return self.participation.user == user
+        return self.project.can_write(user) or self.participation.user == user
 
     def can_write(self, user):
         return self.participation.user == user

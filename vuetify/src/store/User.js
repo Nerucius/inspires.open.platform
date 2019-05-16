@@ -25,13 +25,21 @@ export default {
     items: {},
     itemsDetail: {},
 
+    genders: [
+      {value:"", name:"misc.notSpecified"},
+      {value:"MALE", name:"models.userGender.male"},
+      {value:"FEMALE", name:"models.userGender.female"},
+      {value:"OTHER", name:"models.userGender.other"},
+    ],
+
     educationLevels : [
-      {value:"EDUCATION_PRIMARY", name: "models.educationLevel.primary"},
-      {value:"EDUCATION_SECONDARY", name: "models.educationLevel.secondary"},
-      {value:"EDUCATION_TERTIARY", name: "models.educationLevel.teriary"},
-      {value:"EDUCATION_DEGREE", name: "models.educationLevel.bachelors"},
-      {value:"EDUCATION_MASTER", name: "models.educationLevel.masters"},
-      {value:"EDUCATION_DOCTORAL", name: "models.educationLevel.doctoral"},
+      {value:"", name:"misc.notSpecified"},
+      {value:"PRIMARY", name: "models.educationLevel.primary"},
+      {value:"SECONDARY", name: "models.educationLevel.secondary"},
+      {value:"TERTIARY", name: "models.educationLevel.teriary"},
+      {value:"DEGREE", name: "models.educationLevel.degree"},
+      {value:"MASTER", name: "models.educationLevel.masters"},
+      {value:"DOCTORAL", name: "models.educationLevel.doctoral"},
     ]
   },
 
@@ -185,6 +193,7 @@ export default {
       return state.current != null && state.current.id > 0;
     },
 
-    educationLevels: state => state.educationLevels
+    educationLevels: state => state.educationLevels,
+    genders: state => state.genders,
   }
 };

@@ -40,7 +40,12 @@ Vue.filter('localize', value => {
     return i18n.t(value)
 })
 
-
 Vue.filter('slug', value => {
   return value.toString().substring(0,20).toLowerCase().replace(/\s/g, "-")
+})
+
+Vue.filter('twitterhandle', value => {
+  if (!value) return ""
+  value = value.replace(/\?.*/gi, '')
+  return '@'+value.split('/').slice(-1)[0]
 })

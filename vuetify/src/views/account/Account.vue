@@ -1,7 +1,8 @@
 <style scoped>
 th{
-  text-align: right;
+  text-align: left;
   padding-right: 8px;
+  padding-bottom: 4px;
 }
 .gray-hover:hover{
   background-color: #F8F8F8
@@ -12,7 +13,7 @@ th{
 <template>
   <v-layout v-if="user" row wrap align-content-start>
     <v-flex xs12>
-      <h1>Account Dashboard</h1>
+      <h1> {{user.full_name}} | {{ $t('pages.account.title') }}</h1>
     </v-flex>
 
     <v-flex v-if="$route.query.newUser" xs12>
@@ -20,42 +21,61 @@ th{
         <v-icon dark>
           check
         </v-icon>&nbsp;
-        Your new account has been created successfully. You can now access all of the features of the platform.
+        {{ $t('pages.account.accountCreated') }}
       </v-alert>
     </v-flex>
 
     <!-- Account Details -->
-    <v-flex xs12 pb-0>
-      <h2>{{ $t('pages.account.aboutMe') }}</h2>
-    </v-flex>
 
     <v-flex xs12>
       <v-card flat>
+
         <v-card-text v-if="!showEditForm">
-          <table style="max-width:400px">
-            <tr>
-              <th>First Name</th>
-              <td>{{ user.first_name }}</td>
-            </tr>
-            <tr>
-              <th>Last Name</th>
-              <td>{{ user.last_name }}</td>
-            </tr>
-            <tr>
-              <th>Email</th>
-              <td>{{ user.email }}</td>
-            </tr>
-          </table>
+          <v-layout row wrap>
+            <v-flex xs12 sm6>
+              <table width="100%">
+                <tr>
+                  <th>{{ $t('forms.fields.firstName') }}</th>
+                  <td>{{ user.first_name }}</td>
+                </tr>
+                <tr>
+                  <th>{{ $t('forms.fields.lastName') }}</th>
+                  <td>{{ user.last_name }}</td>
+                </tr>
+                <tr>
+                  <th>{{ $t('forms.fields.education') }}</th>
+                  <td v-if="user.education_level">{{ $t(`models.educationLevel.${user.education_level.toLowerCase()}`) }}</td>
+                  <td v-else>{{ $t('misc.notSpecified') }}</td>
+                </tr>
+                <tr>
+                  <th>{{ $t('forms.fields.institution') }}</th>
+                  <td>{{ user.institution || $t('misc.notSpecified') }}</td>
+                </tr>
+              </table>
+            </v-flex>
+            <v-flex xs12 sm6>
+              <table width="100%">
+                <tr>
+                  <th>{{ $t('noums.projects') }}</th>
+                  <td>{{ projectIds.length }} {{ $t('noums.projects') | lowercase }}</td>
+                </tr>
+                <tr>
+                  <th>{{ $t('noums.structures') }}</th>
+                  <td>{{ structureIds.length }} {{ $t('noums.structures') | lowercase }}</td>
+                </tr>
+              </table>
+            </v-flex>
+          </v-layout>
         </v-card-text>
+
         <v-card-text v-else>
-          <v-form ref="showEditForm">
+          <v-form ref="profileEditForm" v-model="editProfileValid">
             <v-layout pt-3 row wrap>
               <!-- Edit Profile Form -->
 
               <v-flex xs12 sm6 py-0>
                 <v-text-field
                   v-model="editUser.first_name"
-                  box
                   :rules="[rules.required]"
                   :label="$t('forms.fields.firstName')"
                 />
@@ -63,17 +83,30 @@ th{
               <v-flex xs12 sm6 py-0>
                 <v-text-field
                   v-model="editUser.last_name"
-                  box
                   :rules="[rules.required]"
                   :label="$t('forms.fields.lastName')"
                 />
               </v-flex>
               <v-flex xs12 py-0>
+                <v-select
+                  v-model="editUser.gender"
+                  :item-text="e => $t(e.name)"
+                  :items="$store.getters['user/genders']"
+                  :label="$t('forms.fields.genderIdentity')"
+                />
+              </v-flex>
+              <v-flex xs12 py-0>
+                <v-select
+                  v-model="editUser.education_level"
+                  :item-text="e => $t(e.name)"
+                  :items="$store.getters['user/educationLevels']"
+                  :label="$t('forms.fields.education')"
+                />
+              </v-flex>
+              <v-flex xs12 py-0>
                 <v-text-field
-                  v-model="editUser.email"
-                  box
-                  :rules="[rules.required]"
-                  :label="$t('forms.fields.email')"
+                  v-model="editUser.institution"
+                  :label="$t('forms.fields.institution')"
                 />
               </v-flex>
 
@@ -81,15 +114,18 @@ th{
             </v-layout>
           </v-form>
         </v-card-text>
-        <v-card-actions class="px-3">
+
+        <v-card-actions class="px-3 pb-3">
           <v-spacer />
-          <!-- <v-btn v-if="showEditForm" flat @click="showEditForm = !showEditForm">
-            Save Profile
+          <v-btn v-if="showEditForm" color="success" class="elevation-0"
+            @click="submitUpdateProfile()">
+            {{ $t('pages.account.saveProfile') }}
           </v-btn>
-          <v-btn v-else flat @click="showEditForm = !showEditForm">
-            Edit Profile
-          </v-btn> -->
+          <v-btn v-else color="success" class="elevation-0" @click="showEditForm = true">
+            {{ $t('pages.account.editProfile') }}
+          </v-btn>
         </v-card-actions>
+
       </v-card>
     </v-flex>
 
@@ -112,10 +148,6 @@ th{
               >
                 <v-icon>add</v-icon>
               </v-btn>
-
-              <h3 class="mb-2">
-                Projects
-              </h3>
 
               <template v-for="(project,idx) in projects">
                 <v-card
@@ -150,10 +182,6 @@ th{
               >
                 <v-icon>add</v-icon>
               </v-btn>
-
-              <h3 class="mb-2">
-                Structures
-              </h3>
 
               <template v-for="(structure,idx) in structures">
                 <v-card
@@ -194,7 +222,8 @@ export default {
 
   data(){
     return{
-      editUser: null,
+      editUser: {},
+      editProfileValid: null,
       showEditForm: false,
       rules: {
         required: v => !!v || this.$t("forms.rules.requiredField"),
@@ -222,12 +251,12 @@ export default {
 
     /** Projects the user has */
     projects(){
-      return this.projectIds.map(id => this.$store.getters['project/detail'](id))
+      return this.projectIds.map(id => this.$store.getters['project/get'](id))
     },
 
     /** Structures the user participates in */
     structures(){
-      return this.structureIds.map(id => this.$store.getters['structure/detail'](id))
+      return this.structureIds.map(id => this.$store.getters['structure/get'](id))
     },
 
     isOwnUser(){
@@ -263,8 +292,26 @@ export default {
       this.$router.push({name:"home"})
     }
 
-    await this.$store.dispatch("project/load", this.projectIds)
-    await this.$store.dispatch("structure/load", this.structureIds)
+    await this.$store.dispatch("project/load")
+    await this.$store.dispatch("structure/load")
+  },
+
+  methods:{
+
+    async submitUpdateProfile(){
+      try{
+        await this.$store.dispatch('user/updateCurrent', this.editUser)
+        await this.$store.dispatch("toast/success", this.$t('pages.account.updateProfileSuccess'))
+
+        await this.$store.dispatch("user/load", [this.userId])
+        this.editUser = cloneDeep(this.user)
+
+        this.showEditForm = false;
+      }catch(error){
+        this.$store.dispatch("toast/error", {message: this.$t('pages.account.updateProfileFailure')})
+      }
+    }
+
   }
 
 };

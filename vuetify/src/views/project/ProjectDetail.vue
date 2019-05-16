@@ -78,6 +78,45 @@
             </v-list-tile-content>
           </v-list-tile>
 
+          <!-- Contact Social Facebook -->
+          <v-list-tile v-if="project.contact_social_facebook" :href="project.contact_social_facebook" target="_blank">
+            <v-list-tile-avatar>
+              <v-icon size="32" color="#3b5998">mdi-facebook</v-icon>
+            </v-list-tile-avatar>
+            <v-list-tile-content>
+              <v-list-tile-title>
+                {{ project.name }}
+              </v-list-tile-title>
+              <v-list-tile-sub-title>Facebook</v-list-tile-sub-title>
+            </v-list-tile-content>
+          </v-list-tile>
+
+          <!-- Contact Social Twitter -->
+          <v-list-tile v-if="project.contact_social_twitter" :href="project.contact_social_twitter" target="_blank">
+            <v-list-tile-avatar>
+              <v-icon size="32" color="#38A1F3">mdi-twitter</v-icon>
+            </v-list-tile-avatar>
+            <v-list-tile-content>
+              <v-list-tile-title>
+                {{ project.contact_social_twitter | twitterhandle }}
+              </v-list-tile-title>
+              <v-list-tile-sub-title>Twitter</v-list-tile-sub-title>
+            </v-list-tile-content>
+          </v-list-tile>
+
+          <!-- Contact Social Other -->
+          <v-list-tile v-if="project.contact_social_other" :href="project.contact_social_other" target="_blank">
+            <v-list-tile-avatar>
+              <v-icon size="32">mdi-account-group</v-icon>
+            </v-list-tile-avatar>
+            <v-list-tile-content>
+              <v-list-tile-title>
+                {{ project.name }}
+              </v-list-tile-title>
+              <v-list-tile-sub-title>{{ $t('forms.fields.socialNetwork') }}</v-list-tile-sub-title>
+            </v-list-tile-content>
+          </v-list-tile>
+
           <!-- Contact Website -->
           <v-list-tile v-if="project.contact_website">
             <v-list-tile-content>
@@ -105,7 +144,7 @@
           <!-- Contact Address -->
           <v-list-tile v-if="project.contact_postal_address">
             <v-list-tile-content>
-              <v-list-tile-title style="height:auto">
+              <v-list-tile-title style="height:auto; padding-top:4px">
                 <vue-markdown>{{ project.contact_postal_address }}</vue-markdown>
               </v-list-tile-title>
               <v-list-tile-sub-title>{{ $t('forms.fields.postalAddress') }}</v-list-tile-sub-title>
@@ -308,9 +347,6 @@ export default {
 
     } catch (error) {
       this.$store.dispatch('toast/error', {message:this.$t('pages.projectDetail.projectNotFound'), error})
-      console.error(error)
-      // TODO: Show error instead
-      // this.$router.push("/project-not-found");
     }
   },
 

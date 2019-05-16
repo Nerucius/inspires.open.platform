@@ -10,6 +10,8 @@
       "accountCreated": "Your new account has been created successfully. You can now access all of the features of the platform.",
       "saveProfile":"Save profile",
       "editProfile":"Edit Profile",
+      "updateProfileSuccess":"Your profile has been updated",
+      "updateProfileFailure":"Could not update your profile.",
       "myProjects":"My Projects",
       "myStructures":"My Structures"
     },
@@ -93,6 +95,7 @@
       "about": "About"
     },
     "structureList": {
+      "introText": "A Structure is a knowledge intermediary unit, which can be based within a univeristy, a research centre or others that promotes interactions and dialogues between the scientific community and civil society organizations in order to jointly co-create and implement participatory research projects.\n\nThere are many labelled used at the moment to define such structures: Science Shops, Campus-community office, Citizen Science units, Social Labs, Living Labs, etc. but also citizen action research, community-based participatory research, and citizen science. Therefore, we do not intend to be exclusatory but rather gather in this open platfor all the projects that work under the 5 principles we promote: Knowledge Democracy, Citizen-led Research, Participatory Dynamics, Integrity and Transformative Change. You will find here below all the structures registered in the Open Platform.",
       "visitStructure": "Visit structure"
     },
     "structureManage": {
@@ -115,7 +118,7 @@
       "failure": "Failed to create a new structure. Try again later."
     },
     "projectList": {
-      "introText": "The InSPIRES Open Platform features participatory research and innovation projects promoted by knowledge intermediary units, such as Science Shops, Citizen Science offices, etc. You will find below all the projects registered in the Open Platform.",
+      "introText": "The InSPIRES Open Platform features participatory research and innovation projects promoted by different structures and organisations, such as Science Shops, Citizen Science offices, etc. You will find here bellow all the projects registered in the Open Platform.",
       "noKASpecified" : "No Knowledge Area specified",
       "visitProject" : "Visit project",
       "filterByArea" : "in the area of {area}"
@@ -166,6 +169,11 @@
     }
   },
   "models": {
+    "userGender":{
+      "male": "Male",
+      "female": "Female",
+      "other": "Other"
+    },
     "participationRole":{
       "scientist": "Scientist",
       "student": "Student",
@@ -176,7 +184,7 @@
       "primary": "Primary",
       "secondary": "Secondary",
       "teriary": "Teriary (Labor market)",
-      "bachelors": "Bachelors or Degree",
+      "degree": "Bachelors or Degree",
       "masters": "Masters",
       "doctoral": "Doctoral"
     },
@@ -417,7 +425,8 @@
     }
   },
   "misc":{
-    "timeAgo": "{time} ago"
+    "timeAgo": "{time} ago",
+    "notSpecified": "Not specified"
   },
   "actions": {
     "add": "Add",
@@ -499,8 +508,9 @@
       "firstName": "First Name",
       "lastName": "Last Name",
       "email": "Email",
-      "education": "Education",
+      "education": "Education Level",
       "institution": "Institution",
+      "genderIdentity": "Gender Identity",
       "summary": "Summary",
       "description": "Description",
       "participants": "Participants",
@@ -510,6 +520,7 @@
       "projectImageURL": "Project Image URL",
       "projectSummary": "Project Summary",
       "projectAcronym": "Project Acronym",
+      "socialNetwork": "Social Network",
       "contactEmail": "Contact Email",
       "projectAdministrators": "Project Administrators",
       "contactWebsite": "External Website",

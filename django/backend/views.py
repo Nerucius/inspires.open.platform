@@ -240,7 +240,7 @@ class Orderable(object):
 # ===========================
 
 
-class UsersVS(ListDetail, viewsets.ReadOnlyModelViewSet):
+class UsersVS(ListDetail, viewsets.ModelViewSet):
     queryset = models.User.objects.all()
     filterset_fields = ["id", "username"]
 

@@ -145,14 +145,14 @@
       <v-text-field
         v-model="editedProject.contact_social_facebook"
         box
-        :rules="[rules.isURL]"
+        :rules="[rules.isURL, rules.isFacebook]"
         label="Facebook"
         hint="Facebook page if applicable"
       />
       <v-text-field
         v-model="editedProject.contact_social_twitter"
         box
-        :rules="[rules.isURL]"
+        :rules="[rules.isURL, rules.isTwitter]"
         label="Twitter"
         hint="Twitter page if applicable"
       />
@@ -195,9 +195,9 @@ export default {
         required: v => !!v || this.$t("forms.rules.requiredField"),
         isUser: v => this.isUser(v) || this.$t("forms.rules.mustBeUser"),
         isURL: v => regexIsURL(v) || this.$t("forms.rules.mustBeURL"),
+        isTwitter: v => !v || v.indexOf('twitter.com') >= 0 || this.$t("forms.rules.mustBeURL"),
+        isFacebook: v => !v || v.indexOf('facebook.com') >= 0 || this.$t("forms.rules.mustBeURL"),
         isEmail: v => regexIsEmail(v) || this.$t("forms.rules.mustBeEmail"),
-        minlen: v =>
-          v.length > 10 || this.$t("forms.rules.minimunLength", { length: 10 })
       },
       userSearch: [],
       editedProject: {},

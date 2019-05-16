@@ -23,7 +23,8 @@
               <v-img src="/img/branding/inspires.png" />
             </v-flex>
 
-            <v-flex sm12 md8>
+            <!-- Form to login with credentials -->
+            <v-flex v-if="!resetPassword" sm12 md8>
               <v-alert
                 :value="failedLogin"
                 dismissible
@@ -54,21 +55,69 @@
                   type="password"
                 />
               </v-form>
+
+              <div class="text-xs-right">
+                <a @click="resetPassword = true" href="#forgot-password">{{ $t("pages.login.forgotPassword") }}</a>
+              </div>
+
             </v-flex>
+
+            <!-- Form to reset password -->
+            <v-flex v-else sm12 md8>
+              <v-alert
+                :value="resetPasswordSubmitted"
+                type="info"
+                class="my-3"
+              >
+                {{ $t("forms.toasts.resetPasswordSubmitted") }}
+              </v-alert>
+
+              <v-form
+                ref="formResetPassword"
+                v-model="validResetPassword"
+                @submit.prevent="submitResetPassword()"
+              >
+                <v-text-field
+                  v-model="credentials.username"
+                  prepend-icon="person"
+                  :label="$t('forms.fields.usernameOrEmail')"
+                  :rules="rules"
+                  type="text"
+                />
+              </v-form>
+
+              <div class="text-xs-right">
+                <a @click="resetPassword = false" href="#">{{ $t("pages.resetPassword.goBackToLogin") }}</a>
+              </div>
+
+            </v-flex>
+
+
           </v-layout>
         </v-card-text>
+
         <v-card-actions class="mt-2 pb-3 px-3 text-xs-center">
-          <v-flex shrink>
+          <v-flex shrink v-if="!resetPassword">
             <v-btn :to="{name:'register'}" dark flat outline color="primary">
-              Register now!
+              {{ $t('pages.login.registerCTA') }}
             </v-btn>
           </v-flex>
           <v-spacer />
-          <v-flex shrink>
+
+          <!-- Login with credentials action -->
+          <v-flex shrink v-if="!resetPassword">
             <v-btn :disabled="!valid" color="primary" @click="submitLogin()">
               {{ $t("actions.login") }}
             </v-btn>
           </v-flex>
+
+          <!-- Reset password action -->
+          <v-flex shrink v-else>
+            <v-btn :disabled="!validResetPassword || resetPasswordSubmitted" color="primary" @click="submitResetPassword()">
+              {{ $t("pages.resetPassword.resetPassword") }}
+            </v-btn>
+          </v-flex>
+
         </v-card-actions>
       </v-card>
     </v-flex>
@@ -86,7 +135,10 @@ export default {
   data() {
     return {
       failedLogin: false,
+      resetPassword: false,
+      resetPasswordSubmitted: false,
       valid: null,
+      validResetPassword: null,
       credentials: {
         username: "",
         password: ""
@@ -115,6 +167,24 @@ export default {
       if (this.$refs.form.validate()) {
         this.failedLogin = false;
         this.attemptLogin();
+      }
+    },
+
+    async submitResetPassword() {
+      if (this.$refs.formResetPassword.validate()) {
+        console.log("reset password for " + this.credentials.username)
+
+        try{
+          await this.$store.dispatch("user/resetPassword", this.credentials)
+          this.resetPasswordSubmitted = true
+
+        }catch(error){
+          this.$store.dispatch("toast/error", {
+            message: this.$t('pages.login.resetPasswordError'), error}
+          )
+        }
+
+
       }
     },
 

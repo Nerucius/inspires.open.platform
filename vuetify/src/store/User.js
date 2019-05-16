@@ -9,6 +9,8 @@ import { obj2slug } from "../plugins/utils";
 
 const userLoginUrl = API_SERVER + "/api-token-auth/";
 const userRegisterUrl = API_SERVER + "/user/register/";
+const userResetPasswordRequestUrl = API_SERVER + "/user/resetpassword/";
+const userResetPasswordSubmitUrl = API_SERVER + "/user/resetpasswordsubmit/";
 
 function createLink(obj){
   obj.link = {name:"account", params:{slug:obj2slug(obj, 'full_name')}}
@@ -102,6 +104,20 @@ export default {
           reject();
         }
       })
+    },
+
+    resetPassword: async function (context, credentials) {
+        let response = await Vue.http.post(
+          userResetPasswordRequestUrl, credentials, {emulateJSON: true}
+        )
+        console.log(response.body)
+    },
+
+    resetPasswordSubmit: async function (context, credentials) {
+        let response = await Vue.http.post(
+          userResetPasswordSubmitUrl, credentials, {emulateJSON: true}
+        )
+        console.log(response.body)
     },
 
     logout: async function (context) {

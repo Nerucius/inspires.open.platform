@@ -62,6 +62,29 @@ def email_new_structure(structure):
     )
 
 
+def email_reset_password(user):
+    if not settings.EMAIL_HOST:
+        return
+
+    email_from = settings.EMAIL_FROM
+
+    subject = _("Reset the password for your account")
+
+    cta_link = settings.FRONTEND_URL
+    cta_link = cta_link + "/reset-password?token=" + user.reset_password_token
+
+    context = {"user": user, "cta_link": cta_link}
+    wawp_link = create_wawp_link("email/reset_password.html", context)
+    context["wawp_link"] = wawp_link
+
+    html_message = render_to_string("email/reset_password.html", context)
+    plain_message = strip_tags(html_message)
+
+    mail.send_mail(
+        subject, plain_message, email_from, [user.email], html_message=html_message
+    )
+
+
 def email_new_collaboration(collaboration):
     if not settings.EMAIL_HOST:
         return

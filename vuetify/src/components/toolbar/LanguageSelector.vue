@@ -45,6 +45,7 @@ export default {
     getFlag(lang){
       if (lang == "en" ) return "gb"
       if (lang == "ca" ) return "es-ct"
+      if (lang == "ar" ) return "tn"
       return lang
     },
 

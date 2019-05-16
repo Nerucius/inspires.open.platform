@@ -8,11 +8,12 @@ from rest_framework.views import APIView
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.authtoken.views import ObtainAuthToken
 
+import json
+import datetime
 
+from . import email
 from . import models
 from . import serializers
-
-import json
 
 
 def email_preview(request):
@@ -49,8 +50,14 @@ def log_error(request):
     message = request.GET.get("message", "no message")
     error = request.GET.get("error", "no error")
     user = request.GET.get("user", 1)
+
+    try:
+        user = User.objects.get(pk=user)
+    except Exception:
+        user = User.objects.get(pk=1)
+
     log = LogEntry(
-        user=User.objects.get(pk=user),
+        user=user,
         object_repr="ERROR",
         action_flag=ADDITION,
         change_message=message + " | Dump: " + error,
@@ -87,9 +94,9 @@ class CustomObtainAuthToken(ObtainAuthToken):
         username = request.data["username"]
         if "@" in username:
             try:
-                request.data["username"] = models.User.objects.get(
-                    email=username
-                ).username
+                # Find user and get his
+                user = models.User.objects.get(email=username)
+                request.data["username"] = user.username
             except:
                 return HttpResponse("Email not found", status=401)
 
@@ -103,7 +110,7 @@ def logout(request):
 
 def register(request):
     userdata = request.POST
-    print(userdata)
+    # print(userdata)
     try:
         # invitation = userdata["invitation"]
         # assert invitation == "join-inspires-2019", "000 Invitation code does not match"
@@ -140,7 +147,55 @@ def register(request):
     return HttpResponse("OK")
 
 
-class CurrentUserVS(viewsets.ReadOnlyModelViewSet):
+def reset_password(request):
+    from django.db.models import Q
+    import random, string
+
+    print(request.POST)
+
+    username = request.POST["username"]
+    users = models.User.objects.filter(Q(email=username) | Q(username=username))
+
+    if len(users) == 1:
+        user = users[0]
+
+        # Generate password reset token
+        letters = string.ascii_letters + string.digits
+        token = "".join(random.choice(letters) for i in range(128))
+        user.reset_password_token = token
+        user.save()
+
+        email.email_reset_password(user)
+
+        return HttpResponse("OK")
+    else:
+        return HttpResponseBadRequest("No user found")
+
+
+def reset_password_submit(request):
+    formdata = request.POST
+    token = request.POST.get("token", "")
+    password = request.POST.get("password", "")
+    password2 = request.POST.get("password2", "")
+
+    assert token != "", "001 token not provided"
+
+    try:
+        user = models.User.objects.get(reset_password_token=token)
+        # user.reset_password_token = ""
+
+        assert password == password2, "003 password missmatch"
+        user.reset_password_token = ""
+        user.set_password(password)
+        user.save()
+
+    except Exception:
+        return HttpResponseBadRequest("002 user for token not found")
+
+    return HttpResponse("OK Password changed")
+
+
+class CurrentUserVS(viewsets.ModelViewSet):
     """ Returns the currently logged in user """
 
     serializer_class = serializers.UserSerializer
@@ -211,7 +266,7 @@ class ProjectsVS(ListDetail, Orderable, viewsets.ModelViewSet):
         "keywords",
         "participants",
         "knowledge_area",
-        "country_code"
+        "country_code",
     ]
 
     serializer_class = serializers.SimpleProjectSerializer

@@ -122,6 +122,7 @@
       <v-text-field
         v-model="editedStructure.contact_email"
         box
+        :rules="[rules.isEmail]"
         label="Contact Email"
         hint="Where should people reach you with questions about the structure?"
       />
@@ -141,18 +142,21 @@
       <v-text-field
         v-model="editedStructure.contact_social_facebook"
         box
+        :rules="[rules.isURL]"
         label="Facebook"
         hint="Facebook page if applicable"
       />
       <v-text-field
         v-model="editedStructure.contact_social_twitter"
         box
+        :rules="[rules.isURL]"
         label="Twitter"
         hint="Twitter page if applicable"
       />
       <v-text-field
         v-model="editedStructure.contact_social_other"
         box
+        :rules="[rules.isURL]"
         label="Other social networks"
         hint=""
       />
@@ -173,7 +177,7 @@
 <script>
 import { cloneDeep } from "lodash";
 import { Countries } from '@/plugins/i18n'
-import { regexIsURL } from '@/plugins/utils'
+import { regexIsURL,regexIsEmail } from '@/plugins/utils'
 import { isContext } from 'vm';
 
 export default {
@@ -188,6 +192,7 @@ export default {
         required: v => !!v || this.$t("forms.rules.requiredField"),
         isUser: v => this.isUser(v) || this.$t("forms.rules.mustBeUser"),
         isURL: v => regexIsURL(v) || this.$t("forms.rules.mustBeURL"),
+        isEmail: v => regexIsEmail(v) || this.$t("forms.rules.mustBeEmail"),
         isCountry: v => this.isCountry(v) || this.$t("forms.rules.mustBeCountry"),
         isKnowledgeArea: v => this.isKnowledgeArea(v) || this.$t("forms.rules.mustBeKnowledgeArea"),
         minlen: v =>

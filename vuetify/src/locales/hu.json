@@ -11,8 +11,8 @@
         "step4": "Majdnem kész!"
       },
       "acceptTOS": "Felhasználási feltételek elfogadása",
-      "welcomeMessage": "Welcome to the registration page of the InSPIRES Open Platform. Here you can create your own account to log onto the site, which will allow you to create and/or participate in a project, submit your request for research, create your own structure and conduct your collaborative project's evaluation.",
-      "welcomeMessage2": "A regisztrációt követően elkezdheti szerkeszteni az oldalt. További szervezeteket, kutatási projekteket adhat meg  a saját neve vagy a szervezete mellett. ",
+      "welcomeMessage": "Üdvözöljük az InSPIRES Open Platform regisztrációs felületén. Itt alakíthatja ki saját felhasználói profilját, amivel bejelentkezhet az oldalra, feltölthet projekteket/szervezeteket, beküldheti kutatási igényét, és elkészítheti projektje értékelését. ",
+      "welcomeMessage2": "A regisztrációt követően elkezdheti szerkeszteni az oldalt. További szervezeteket, kutatási projekteket adhat meg  a saját neve vagy a szervezete alatt. ",
       "step1Message": "Kérjük, adja meg felhasználónevét és jelszavát. Ezzel a felhasználónévvel jelentkezhet be a platformra.",
       "step2Message": "Kérjük, adja meg teljes nevét és email címét, hogy feltüntethessük a projektjei és más tevékenységei mellett. Az email címére kizárólag értesítéseket küldünk majd. ",
       "step3Message": "A regisztráció előtt el kell fogadnia a platform szolgáltatási feltételeit. ",
@@ -24,10 +24,10 @@
     },
     "home": {
       "mainTitle": "Üdvözli az InSPIRES csapata",
-      "worldmapTitle": "World Map",
-      "latestTitle": "Latest Updates",
-      "welcomeMessage": "Welcome to the InSPIRES Open Platform. This platform features citizen-led participatory research and innovation projects promoted by knowledge intermediary units, such as Science Shops, Citizen Science groups or units, etc.",
-      "welcomeMessageLong": "It also offers an integrated collaborative impact evaluation tool in order to assess the processes and outcomes of your own projects with respect others. The pursued objective is to produced a joint and collective reflection around this type of collaborative projects in order to learn, think, dabte and growth as a community of practice to develop better projects aiming at to improve citizens life and well-being.",
+      "worldmapTitle": "Világtérkép",
+      "latestTitle": "Legutóbbi frissítések",
+      "welcomeMessage": "Üdvözöljük az InSPIRES online adatbázisában és hatásmérő platformján. Ezen az oldalon Science Shop-okhoz, Citizen Science csoportokhoz kötődő részvételi kutatási és fejlesztési projektek szerepelnek. ",
+      "welcomeMessageLong": "Az InSPIRES Open Platform egy kollaboratív hatásmérő eszközt is kínál, amelynek segítségével a résztvevőkkel együtt értékelheti a projekt folyamatait és eredményeit. Célunk, hogy a közös értékelés, tanulás révén olyan projekteket alakítsunk ki a jövőben, amelyek még inkább hozzájárulnak az állampolgárok életminőségének és jóllétének javulásához.",
       "aboutLink": "További információ rólunk",
       "projectsSeeMore": "Összes projekt"
     },
@@ -41,13 +41,13 @@
       "missionObjective3": "Intuitív és személyre szabott hatásmérő eszköz biztosítása a közösség számára, hogy összehangolt módon rögzítse a projekt folyamatát és eredményeit.  ",
       "missionParagraph3": "Végül, reméljük, hogy a platform támogatja a közösséget (a szervezet koordinátorait és a projekt résztvevőit) a kölcsönös tanulás terén a Science Shop-ok tapasztalatainak, a  részvételi kutatási és innovációs projektek jó és rossz gyakorlatainak bemutatása révén.",
       "titleTeam": "Az InSPIRES Open Platform csapata",
-      "teamContent": "The development of this Open Platform has been led by the ISGlobal team in deep collaboration with the Data Science and OpenSystems research groups at the Barcelona University. All InSPIRES consortium members have also played an important role in its inception and evolution."
+      "teamContent": "Az Open platform fejlesztését az ISGlobal csapat vezette, együttműködésben a Barcelonai Egyetemen működő Data Science és OpenSystems kutatócsoportokkal. Emellett valamennyi InSPIRES konzorcium tag is fontos szerepet játszott a kialakításban. "
     },
     "admin": {
       "mainTitle": "Adminisztrációs felület",
       "unauthorizedAccess": "Nem jogosult az adminisztrációs felület elérésére. Ha úgy gondolja, hogy jogosult, kérjük, forduljon a platform adminisztrátorához. ",
       "pendingApproval": "A feltöltött szervezet jóváhagyásra vár",
-      "instructionsText": "A következő szervezeteket érvényesíteni szükséges, mielőtt megjelennek a honlap nyilvános listáin. Kérjük, ellenőrizze a szervezetek adatainak érvényességét.  \nKérjük, ellenőrizze a szervezethez rendelt személyt is. \n",
+      "instructionsText": "A következő szervezeteket érvényesíteni szükséges, mielőtt megjelennek az oldal nyilvános listáin. Kérjük, ellenőrizze a szervezetek adatainak érvényességét.  \nKérjük, ellenőrizze a szervezethez rendelt személyt is. \n",
       "createdBy": "Létrehozta",
       "validationSuccess": "A szervezet érvényesítése sikeres. Mostantól kezdve a nyilvános listákon is szerepel majd. ",
       "validationFailure": "A feltöltött szervezet érvényesítése sikertelen. Kérjük, vegye fel a kapcsolatot az oldalt működtető csapattal."
@@ -66,9 +66,9 @@
     },
     "projectDetail": {
       "about": "További információ",
-      "detailsTab": "Information",
-      "evaluationTab": "Project Evaluation",
-      "projectNotYetEvaluated": "This project has not received sufficient feedback and evaluations from it's participants yet, so we can't show you how it's doing. Check back another day!"
+      "detailsTab": "Információ",
+      "evaluationTab": "Projektértékelés",
+      "projectNotYetEvaluated": "Ez a projekt még nem kapott elegendő visszajelzést és értékelést a résztvevőktől, így nem tudjuk megmutatni, hogyan áll jelenleg. Nézzen vissza később!"
     },
     "structureDetail": {
       "about": "További információ"
@@ -102,20 +102,20 @@
       "failure": "Szervezet mentése sikertelen. Próbálja újra később.",
       "projectTab": "Ez a projekt",
       "participantsTab": "Résztvevők",
-      "phasesTab": "Projekt szakaszai",
-      "phasesTabDescription": "The phases of the evaluation were conceived to provide you with information on the project ongoing implementation and outcomes. Each phase consists of 6 questions, on average, which will take you approximately 5 minutes. Once all team members complete the evaluation of the current phase, the results are visualized on a project-specific, as well as aggregated level. Please be honest and critical when answering the questionnaire.",
+      "phasesTab": "Projektszakaszok",
+      "phasesTabDescription": "Az értékelés fázisai úgy készültek, hogy tájékoztatást adjanak a projekt működéséről és eredményeiről. Minden fázis átlagosan 6 kérdésből áll, amelyek megválaszolása  körülbelül 5 percet vesz igénybe. Miután az összes résztvevő elkészítette a jelenlegi fázis értékelését, az eredmények projekt-specifikus és aggregált szinten is megjelennek.\n\nAz aktuális fázis megváltoztatásához, válasszon egy másikat, majd kattintson a Mentés gombra.",
       "hasPhase": "Ez a projekt ebben a szakaszban tart ettől az időponttól kezdve.",
       "hadPhase": "A projekt ebben a szakaszban volt ettől az időponttól kezdve.",
       "notHasPhase": "Ez a projekt soha nem tartott ebben a fázisban.",
       "evaluationTab": "Értékelés",
       "evaluationTitle": "Projektértékelés",
-      "evaluationTabDescription": "The impact evaluation tool builds on a self-reflection process which is divided into four phases: a kick-off phase at the beginning of the project, a mid-term evaluation, a final assessment by the end of the project, and a further evaluation 6 months later. Every project member is expected to answer a questionnaire that evaluates, on a scale from 0 to 7, different dimensions of the principles at the core of the InSPIRES Open Platform.",
+      "evaluationTabDescription": "A hatásvizsgálati eszköz egy önreflexiós folyamatra épül, amely négy fázisra oszlik: a kick-off szakasz értékelése a projekt kezdetén, a félidei értékelés, a végső értékelés a projekt végén és egy további értékelés 6 hónappal később.",
       "collaborationSuccess": "A szervezettel való együttműködési kérelem elfogadásra került.",
       "collaborationFailure": "Együttműködési kérelem megtagadva\n",
       "deleteCollaborationAlert": "Biztos benne, hogy törli az együttműködést?",
       "collaborationDeleted": "A szervezettel való együttműködés visszavonásra került.",
       "participantsTitle": "Résztvevők a projektben",
-      "participantsIntro": "Sorolja fel azokat a személyeket, akik lehetségessé tették a projekt megvalósulását. Mindegyik emberhez rendelhet egy szerepet a projekten belül, ami meghatározza majd az adott személy hatásvizsgálaton belül betöltött szerepét. ",
+      "participantsIntro": "Résztvevőnek tekintjük azt, aki közvetlenül bekapcsolódott/bekapcsolódik a projektbe. Bármennyi résztvevőt hozzáadhat a projekthez, de minden egyes résztvevőnek egy jól körülhatárolható szereppel kell rendelkeznie a projekten belül. A résztvevő szerepe határozza meg azt, hogy milyen kérdéseket kap majd a hatásmérés során.  \n\n Keressen résztvevőket a felhasználók között, írja be a teljes nevet a lenti mezőbe.",
       "searchUsers": "A szervezettel való együttműködés visszavonásra került.",
       "evaluationSuccess": "Értékelési kérelem küldése sikeres.",
       "evaluationFailure": "Értékelési kérelem küldése sikertelen. Kérjük, próbálja újra később."
@@ -123,6 +123,7 @@
     "evaluationEntry": {
       "mainTitle": "Projektértékelő kérdőív",
       "questionnaire": "Kérdőív",
+      "questionnaireDescription": "Kérdőív",
       "questionnaireCompleted": "Ez a kérdőív már elkészült. \n",
       "evaluationOverview": "Értékelés áttekintése",
       "evaluatedPhase": "Értékelt projektfázis",
@@ -199,48 +200,48 @@
         "integrity": "Integritás"
       },
       "dimension": {
-        "CollectiveCapacity": "Collective capacity",
-        "communityAlignment": "Community alignment",
-        "degreeOfEngagement": "Degree of engagement",
-        "expectationAlignment": "Expectation alignment",
-        "genderPerspective": "Gender perspective",
-        "impactParticipatoryDynamics": "Impact of the participatory dynamics",
-        "inclusivity": "Inclusivity",
-        "knowledgeAndSkills": "Knowledge and skills",
-        "motivation": "Motivation",
-        "openness": "Openness",
-        "policyImpact": "Policy impact",
-        "reflexivity": "Reflexivity",
-        "resourceAvailability": "Resource availability",
+        "CollectiveCapacity": "Kollektív kapacitás",
+        "communityAlignment": "Közösségi összehangolás",
+        "degreeOfEngagement": "Az elköteleződés mértéke",
+        "expectationAlignment": "Elvárások összehangolása",
+        "genderPerspective": "Gender szempont",
+        "impactParticipatoryDynamics": "Részvételi dinamika hatása",
+        "inclusivity": "Inkluzivitás",
+        "knowledgeAndSkills": "Ismeretek és készségek",
+        "motivation": "Motiváció",
+        "openness": "Nyitottság",
+        "policyImpact": "Szakpolitikai hatás",
+        "reflexivity": "Reflexivitás",
+        "resourceAvailability": "Erőforrás rendelkezésre állás",
         "responsivenessCommunityAlignment": "Responsiveness to community alignment",
-        "satisfactionParticipatoryDynamics": "Satisfaction with the participatory dynamics",
-        "scientificRelevance": "Scientific relevance",
-        "selfImprovement": "Self-improvement",
-        "transdisciplinarity": "Transdisciplinarity",
-        "transparency": "Transparency"
+        "satisfactionParticipatoryDynamics": "Elégedettség a részvételi dinamikákkal ",
+        "scientificRelevance": "Tudományos jelentőség",
+        "selfImprovement": "Önfejlesztés",
+        "transdisciplinarity": "Transzdiszciplinaritás",
+        "transparency": "Átláthatóság"
       }
     },
     "answer": {
       "type": {
-        "multipleChoice": "Multiple Choice",
-        "degree": "Degree",
-        "text": "Text"
+        "multipleChoice": "Több választási lehetőség",
+        "degree": "Fokozat",
+        "text": "Szöveg"
       },
-      "A01": "Search for a topic",
-      "A02": "Formulation of research question",
-      "A03": "Method design",
-      "A04": "Data collection",
-      "A05": "Data analysis and interpretation",
-      "A06": "Publication of the results",
-      "A07": "Public awareness",
-      "A08": "Project governance",
-      "A09": "Transformative change"
+      "A01": "Témára keresni",
+      "A02": "Kutatási kérdés megfogalmazása",
+      "A03": "Módszer tervezése",
+      "A04": "Adatgyűjtés",
+      "A05": "Adatok elemzése és értelmezése",
+      "A06": "Eredmények publikálása",
+      "A07": "Közvélemény tájékoztatása",
+      "A08": "Projektirányítás",
+      "A09": "Transzformatív változás"
     },
     "question": {
-      "Q01": "In which stages of the scientific process has the community been actively involved?",
-      "Q02": "In which stages of the scientific process has the community been actively involved?",
-      "Q03": "In which stages of the scientific process has the community been actively involved?",
-      "Q04": "In which stages of the scientific process has the community been actively involved?",
+      "Q01": "A folyamat mely szakaszaiban vonták be aktívan a közösséget?",
+      "Q02": "A folyamat mely szakaszaiban vonták be aktívan a közösséget?",
+      "Q03": "A folyamat mely szakaszaiban vonták be aktívan a közösséget?",
+      "Q04": "A folyamat mely szakaszaiban vonták be aktívan a közösséget?",
       "Q05": "In which stages of the scientific process has it been most effective for you to engage the community?",
       "Q06": "In which stages of the scientific process has it been most effective for you to engage the community?",
       "Q07": "In which stages of the scientific process has it been most effective for you to engage the community?",
@@ -332,23 +333,24 @@
       "Q93": "You are motivated to get involved in similar projects.",
       "Q94": "The participatory dynamics have contributed to build more socially robust knowledge.",
       "Q95": "You were involved or invited to the final communication activity where research results were presented.",
-      "Q10XX": "Feel free to include any other comment about your impressions at this phase of the project",
+      "Q10XX": "Feel free to include any other comments related to this phase.",
+      "Q10XY": "Feel free to include any other comments related to the {phase} phase.",
       "Q1001": "What motivated you to participate in this project?",
-      "Q1002": "Is anything in the project developing differently than you expected? If so, what and why? What could be improved?",
-      "Q1003": "How would you describe the main outcomes of this project from your perspective and what has ensured the achievement of those outcomes? If the organisation that managed this project would have not existed, how would you have addressed your demand?",
-      "Q1004": "Were there changes in your context that you could attribute to this project? If so, please describe them.",
+      "Q1002": "Everything in the project is developing as you expected? Otherwise, tell us what is different and why. What could be improved?",
+      "Q1003": "Please describe the main outcomes of this project. What has been essential to achieve those outcomes? How would you have addressed this project demand without this organisation?",
+      "Q1004": "Has the project caused any change to your context? If so, please describe them.",
       "Q1005": "What motivated your organisation to accept this project?",
-      "Q1006": "Is anything in the project developing differently than you expected? If so, what and why? What could be improved?",
-      "Q1007": "How would you describe the benefits of this project from your perspective and what has ensured these achievements?",
-      "Q1008": "Do you think any other actors could have been involved on the project at the early stages?",
+      "Q1006": "Everything in the project is developing as you expected? Otherwise, tell us what is different and why. What could be improved?",
+      "Q1007": "Please describe the main benefits of this project. What has been essential to achieve these benefits?",
+      "Q1008": "Do you think any other actors could have been involved on the project? Why?",
       "Q1009": "What motivated you to participate in this project?",
-      "Q1010": "Is anything in the project developing differently than you expected? If so, what and why? What could be improved?",
-      "Q1011": "How would you describe the main outcomes of this project from your perspective and what has ensured these achievements?",
-      "Q1012": "Were there changes in your teaching approach and/or research lines that you could attribute to this project? If so, please describe them.",
+      "Q1010": "Everything in the project is developing as you expected? Otherwise, tell us what is different and why. What could be improved?",
+      "Q1011": "Please describe the main outcomes of this project. What has been essential to achieve these outcomes?",
+      "Q1012": "Has the project caused any change to your teaching approach or research lines? If so, please describe them.",
       "Q1013": "What motivated you to participate in this project?",
-      "Q1014": "Is anything in the project developing differently than you expected? If so, what and why? What could be improved?",
-      "Q1015": "How would you describe the main outcomes of this project from your perspective and what has ensured these achievements?",
-      "Q1016": "If so, please describe the main competencies that you acquired through this project."
+      "Q1014": "Everything in the project is developing as you expected? Otherwise, tell us what is different and why. What could be improved?",
+      "Q1015": "Please describe the main outcomes of this project. What has been essential to achieve these outcomes?",
+      "Q1016": "Open Science projects include public participation. What new competencies have you acquired through this project?"
     }
   },
   "toolbar": {
@@ -363,7 +365,7 @@
     }
   },
   "misc": {
-    "timeAgo": "{time} ago"
+    "timeAgo": "X idővel ezelőtt"
   },
   "actions": {
     "add": "Hozzáad",

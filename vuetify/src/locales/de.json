@@ -1,16 +1,7 @@
 {
   "pages": {
     "login": {
-      "welcomeMessage": "Welcome to the InSPIRES Platform",
-      "forgotPassword": "Forgot your password?",
-      "registerCTA": "Register now!"
-    },
-    "resetPassword":{
-      "title": "Finish resetting your password",
-      "introText": "This page will allow you to change your forgotten password. Please enter the new password you want to use from now on:",
-      "resetPassword": "Reset my password",
-      "goBackToLogin": "Go back to login",
-      "passwordChanged": "Your password has been changed successfully! You can go back to the login page with your new credentials."
+      "welcomeMessage": "Welcome to the InSPIRES Platform"
     },
     "register": {
       "titles": {
@@ -31,17 +22,16 @@
       "step4Message": "Please review the following information. If everything seems correct you can proceed with the registration. You can go back to any of the steps and review the information provided.",
       "step4MessageInvite": "During the first period of testing, we are restricting the registration to those personally invited. Please enter the code provided to you below:"
     },
-
     "home": {
       "mainTitle": "Welcome to InSPIRES",
-      "worldmapTitle":"World Map",
-      "latestTitle":"Latest Updates",
+      "worldmapTitle": "World Map",
+      "latestTitle": "Latest Updates",
       "welcomeMessage": "Welcome to the InSPIRES Open Platform. This platform features citizen-led participatory research and innovation projects promoted by knowledge intermediary units, such as Science Shops, Citizen Science groups or units, etc.",
       "welcomeMessageLong": "It also offers an integrated collaborative impact evaluation tool in order to assess the processes and outcomes of your own projects with respect others. The pursued objective is to produced a joint and collective reflection around this type of collaborative projects in order to learn, think, dabte and growth as a community of practice to develop better projects aiming at to improve citizens life and well-being.",
       "aboutLink": "More about us!",
       "projectsSeeMore": "See all projects"
     },
-    "about":{
+    "about": {
       "mainTitle": "About InSPIRES Open Platform",
       "titleMission": "Our mission",
       "missionParagraph1": "InSPIRES has embarked in the adventure of developing an online collaborative and crowdsourced database featuring Science Shops, similar structures and their related projects, as well as offering an integrated impact evaluation tool capable of producing real-time project evaluation report.",
@@ -52,9 +42,8 @@
       "missionParagraph3": "In the end, we hope that the platform will support the community (structure coordinators and project’s participants around the world) mutual learning by sharing science Shops experiences and other participatory research and innovation projects good but also failed practices, methodologies, etc.",
       "titleTeam": "The team behind InSPIRES Open Platform",
       "teamContent": "The development of this Open Platform has been led by the ISGlobal team in deep collaboration with the Data Science and OpenSystems research groups at the Barcelona University. All InSPIRES consortium members have also played an important role in its inception and evolution."
-
     },
-    "admin":{
+    "admin": {
       "mainTitle": "Administration Dashboard",
       "unauthorizedAccess": "You are not authorized to access the Administration Dashboard. If you believe you should, please contact a platform administrator.",
       "pendingApproval": "Structures pending approval",
@@ -63,7 +52,7 @@
       "validationSuccess": "Structure validated successfully. It will now show up on public lists.",
       "validationFailure": "Failed to validate the structure. Please contact support."
     },
-    "termsOfService":{
+    "termsOfService": {
       "mainTitle": "Terms of Service",
       "subTitle": "By accepting the terms of service you understand that:",
       "content": "",
@@ -104,8 +93,8 @@
       "failure": "Failed to create a new structure. Try again later."
     },
     "projectList": {
-      "noKASpecified" : "No Knowledge Area specified",
-      "filterByArea" : "in the area of {area}"
+      "noKASpecified": "No Knowledge Area specified",
+      "filterByArea": "in the area of {area}"
     },
     "projectManage": {
       "title": "Manage this Project",
@@ -114,26 +103,27 @@
       "projectTab": "This Project",
       "participantsTab": "Participants",
       "phasesTab": "Project Phases",
-      "phasesTabDescription": "The phases of the evaluation were conceived to provide you with information on the project ongoing implementation and outcomes. Each phase consists of 6 questions, on average, which will take you approximately 5 minutes. Once all team members complete the evaluation of the current phase, the results are visualized on a project-specific, as well as aggregated level. Please be honest and critical when answering the questionnaire.",
+      "phasesTabDescription": "The phases of the evaluation were conceived to provide you with information on the project ongoing implementation and outcomes. Each phase consists of 6 questions, on average, which will take you approximately 5 minutes. Once all team members complete the evaluation of the current phase, the results are visualized on a project-specific, as well as aggregated level.\n\nTo change the current phase, select one and click save.",
       "hasPhase": "This project is currently at this phase since {date}.",
       "hadPhase": "This project was on this phase starting {date}.",
       "notHasPhase": "This project has never been on this phase.",
       "evaluationTab": "Evaluation",
-      "evaluationTitle":"Project Evaluation",
-      "evaluationTabDescription": "The impact evaluation tool builds on a self-reflection process which is divided into four phases: a kick-off phase at the beginning of the project, a mid-term evaluation, a final assessment by the end of the project, and a further evaluation 6 months later. Every project member is expected to answer a questionnaire that evaluates, on a scale from 0 to 7, different dimensions of the principles at the core of the InSPIRES Open Platform.",
+      "evaluationTitle": "Project Evaluation",
+      "evaluationTabDescription": "The impact evaluation tool builds on a self-reflection process which is divided into four phases: a kick-off phase at the beginning of the project, a mid-term evaluation, a final assessment by the end of the project, and a further evaluation 6 months later.",
       "collaborationSuccess": "Collaboration with structure requested successfully.",
       "collaborationFailure": "Failed to request collaboration.",
       "deleteCollaborationAlert": "Are you sure you want to cancel the collaboration?",
       "collaborationDeleted": "Collaboration with structure has been withdrawn.",
-      "participantsTitle":"Participants in this Project",
-      "participantsIntro":"Add all the people helping to make this project possible here. Each person can have a role within the project. The Role will be used in determining what role they play in the impact evaluation tool.",
+      "participantsTitle": "Participants in this Project",
+      "participantsIntro": "Participants are everyone who will be involved directly in the project. You can add any number of participants, but each participant must have a role within the project. The participant's role will determine the questions they have to answer in the impact evaluation tool.\n\nTo add a participant you can look up users by their full name in the box below.",
       "searchUsers": "Collaboration with structure has been withdrawn.",
-      "evaluationSuccess":"Evaluation requested successfuly.",
-      "evaluationFailure":"Failed to send evaluation request. Please try again later."
+      "evaluationSuccess": "Evaluation requested successfuly.",
+      "evaluationFailure": "Failed to send evaluation request. Please try again later."
     },
-    "evaluationEntry":{
+    "evaluationEntry": {
       "mainTitle": "Project Evaluation Questionnaire",
       "questionnaire": "Questionnaire",
+      "questionnaireDescription": "Questionnaire",
       "questionnaireCompleted": "This questionnaire has already been completed.",
       "evaluationOverview": "Evaluation Overview",
       "evaluatedPhase": "Evaluated phase",
@@ -144,12 +134,12 @@
       "submitSuccess": "Your response has been recorded correctly!",
       "submitFailure": "There was a problem saving your response. Please try again later."
     },
-    "footer":{
+    "footer": {
       "europeanFundingDisclaimer": "This project has received funding from European Union's Horizon 2020 research and innovation programme under grant agreement No 741677."
     }
   },
   "models": {
-    "participationRole":{
+    "participationRole": {
       "scientist": "Scientist",
       "student": "Student",
       "civilSociety": "Civil Society",
@@ -209,7 +199,7 @@
         "transform": "Transformative Change",
         "integrity": "Integrity"
       },
-      "dimension":{
+      "dimension": {
         "CollectiveCapacity": "Collective capacity",
         "communityAlignment": "Community alignment",
         "degreeOfEngagement": "Degree of engagement",
@@ -231,8 +221,8 @@
         "transparency": "Transparency"
       }
     },
-    "answer":{
-      "type":{
+    "answer": {
+      "type": {
         "multipleChoice": "Multiple Choice",
         "degree": "Degree",
         "text": "Text"
@@ -247,7 +237,7 @@
       "A08": "Project governance",
       "A09": "Transformative change"
     },
-    "question":{
+    "question": {
       "Q01": "In which stages of the scientific process has the community been actively involved?",
       "Q02": "In which stages of the scientific process has the community been actively involved?",
       "Q03": "In which stages of the scientific process has the community been actively involved?",
@@ -343,31 +333,27 @@
       "Q93": "You are motivated to get involved in similar projects.",
       "Q94": "The participatory dynamics have contributed to build more socially robust knowledge.",
       "Q95": "You were involved or invited to the final communication activity where research results were presented.",
-
       "Q10XX": "Feel free to include any other comments related to this phase.",
-
+      "Q10XY": "Feel free to include any other comments related to the {phase} phase.",
       "Q1001": "What motivated you to participate in this project?",
       "Q1002": "Everything in the project is developing as you expected? Otherwise, tell us what is different and why. What could be improved?",
       "Q1003": "Please describe the main outcomes of this project. What has been essential to achieve those outcomes? How would you have addressed this project demand without this organisation?",
       "Q1004": "Has the project caused any change to your context? If so, please describe them.",
-
       "Q1005": "What motivated your organisation to accept this project?",
       "Q1006": "Everything in the project is developing as you expected? Otherwise, tell us what is different and why. What could be improved?",
       "Q1007": "Please describe the main benefits of this project. What has been essential to achieve these benefits?",
       "Q1008": "Do you think any other actors could have been involved on the project? Why?",
-
       "Q1009": "What motivated you to participate in this project?",
       "Q1010": "Everything in the project is developing as you expected? Otherwise, tell us what is different and why. What could be improved?",
       "Q1011": "Please describe the main outcomes of this project. What has been essential to achieve these outcomes?",
       "Q1012": "Has the project caused any change to your teaching approach or research lines? If so, please describe them.",
-
       "Q1013": "What motivated you to participate in this project?",
       "Q1014": "Everything in the project is developing as you expected? Otherwise, tell us what is different and why. What could be improved?",
       "Q1015": "Please describe the main outcomes of this project. What has been essential to achieve these outcomes?",
-      "Q1016": "What competencies have you acquired through this project that you would not have acquired performing a more classical research project?"
+      "Q1016": "Open Science projects include public participation. What new competencies have you acquired through this project?"
     }
   },
-  "toolbar":{
+  "toolbar": {
     "searchPlaceholder": "Search projects, structures...",
     "myAccount": "My Account",
     "administration": "Administration"
@@ -378,7 +364,7 @@
       "about": "About"
     }
   },
-  "misc":{
+  "misc": {
     "timeAgo": "{time} ago"
   },
   "actions": {
@@ -435,17 +421,13 @@
       "minimunLength": "Must be at least {length} characters long",
       "namedRequiredField": "{name} is a required field",
       "mustBeStructure": "Please enter a valid Structure",
-      "mustBeUser": "Please enter a valid list of Users",
-      "mustBeURL": "Please enter a valid URL",
-      "mustBeCountry": "Please enter a valid Country",
-      "mustBeKnowledgeArea": "Please enter a valid Knowledge Area"
+      "mustBeUser": "Please enter a valid list of Users"
     },
     "errors": {
       "invalidCredentials": "Invalid credentials, please verify your username and password."
     },
     "toasts": {
       "loggedOut": "You have been logged out",
-      "resetPasswordSubmitted": "A password reset email has been submitted to the user of this account.",
       "saveSuccess": "Saved successfully!",
       "saveFailure": "Failed to save, try again later",
       "projectSaveSuccess": "Project data updated!",
@@ -453,7 +435,6 @@
       "structureSaveSuccess": "Structure data updated!",
       "structureSaveFailure": "Failed to save the Structure, please try again later",
       "participantsSuccess": "Saved people involved in the project",
-
       "-": ""
     },
     "fields": {
@@ -485,7 +466,7 @@
       "knowledgeArea": "Knowledge Area",
       "knowledgeAreas": "Knowledge Areas"
     },
-    "labels":{
+    "labels": {
       "searchUsers": "Search Users"
     },
     "hints": {

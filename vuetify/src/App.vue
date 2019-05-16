@@ -130,7 +130,10 @@ export default {
       return this.$store.getters["preferences/theme"];
     },
     shouldShowNavigation(){
-      return this.$store.getters['user/isLoggedIn']
+      // TODO: completely disabled navigation drawer
+      return false;
+
+      // return this.$store.getters['user/isLoggedIn']
     },
     routePathKey(){
       // Returns a usable fullRoute key without the hash to use as in-page state

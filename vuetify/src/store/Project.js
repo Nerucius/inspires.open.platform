@@ -19,16 +19,16 @@ export default {
     itemsDetail: {},
 
     projectTypes: [
-      {value:"RESEARCH",                        name: "models.project.types.research"},
-      {value:"PARTICIPATORY_RESEARCH",          name: "models.project.types.participatoryResearch"},
-      {value:"PARTICIPATORY_ACTION_RESEARCH",   name: "models.project.types.participatoryActionResearch"},
-      {value:"CITIZEN_SCIENCE",                 name: "models.project.types.citizenScience"},
-      {value:"PUBLIC_ENGAGEMENT",               name: "models.project.types.publicEngagement"},
-      {value:"SERVICE_LEARNING",                name: "models.project.types.serviceLearning"},
-      {value:"ADVOCACY",                        name: "models.project.types.advocacy"},
-      {value:"INNOVATION",                      name: "models.project.types.innovation"},
-      {value:"POLICY_INNOVATION",               name: "models.project.types.policyInnovation"},
-      {value:"OTHER",                           name: "models.project.types.other"},
+      {value:"RESEARCH",                        name: "models.projectType.research"},
+      {value:"PARTICIPATORY_RESEARCH",          name: "models.projectType.participatoryResearch"},
+      {value:"PARTICIPATORY_ACTION_RESEARCH",   name: "models.projectType.participatoryActionResearch"},
+      {value:"CITIZEN_SCIENCE",                 name: "models.projectType.citizenScience"},
+      {value:"PUBLIC_ENGAGEMENT",               name: "models.projectType.publicEngagement"},
+      {value:"SERVICE_LEARNING",                name: "models.projectType.serviceLearning"},
+      {value:"ADVOCACY",                        name: "models.projectType.advocacy"},
+      {value:"INNOVATION",                      name: "models.projectType.innovation"},
+      {value:"POLICY_INNOVATION",               name: "models.projectType.policyInnovation"},
+      {value:"OTHER",                           name: "models.projectType.other"},
     ],
 
   },
@@ -139,6 +139,6 @@ export default {
       return ( id ) => state.itemsDetail[id] || {}
     },
 
-    types: state => state.projectTypes,
+    projectTypes: state => state.projectTypes,
   }
 };

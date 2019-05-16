@@ -24,6 +24,15 @@ export default {
     current: null,
     items: {},
     itemsDetail: {},
+
+    educationLevels : [
+      {value:"EDUCATION_PRIMARY", name: "models.educationLevel.primary"},
+      {value:"EDUCATION_SECONDARY", name: "models.educationLevel.secondary"},
+      {value:"EDUCATION_TERTIARY", name: "models.educationLevel.teriary"},
+      {value:"EDUCATION_DEGREE", name: "models.educationLevel.bachelors"},
+      {value:"EDUCATION_MASTER", name: "models.educationLevel.masters"},
+      {value:"EDUCATION_DOCTORAL", name: "models.educationLevel.doctoral"},
+    ]
   },
 
   mutations: {
@@ -174,6 +183,8 @@ export default {
 
     isLoggedIn: state => {
       return state.current != null && state.current.id > 0;
-    }
+    },
+
+    educationLevels: state => state.educationLevels
   }
 };

@@ -5,6 +5,14 @@
       "forgotPassword": "Forgot your password?",
       "registerCTA": "Register now!"
     },
+    "account":{
+      "title":"Account",
+      "accountCreated": "Your new account has been created successfully. You can now access all of the features of the platform.",
+      "saveProfile":"Save profile",
+      "editProfile":"Edit Profile",
+      "myProjects":"My Projects",
+      "myStructures":"My Structures"
+    },
     "resetPassword":{
       "title": "Finish resetting your password",
       "introText": "This page will allow you to change your forgotten password. Please enter the new password you want to use from now on:",
@@ -84,6 +92,9 @@
     "structureDetail": {
       "about": "About"
     },
+    "structureList": {
+      "visitStructure": "Visit structure"
+    },
     "structureManage": {
       "title": "Manage this Structure",
       "success": "Structure saved successfuly!",
@@ -104,7 +115,9 @@
       "failure": "Failed to create a new structure. Try again later."
     },
     "projectList": {
+      "introText": "The InSPIRES Open Platform features participatory research and innovation projects promoted by knowledge intermediary units, such as Science Shops, Citizen Science offices, etc. You will find below all the projects registered in the Open Platform.",
       "noKASpecified" : "No Knowledge Area specified",
+      "visitProject" : "Visit project",
       "filterByArea" : "in the area of {area}"
     },
     "projectManage": {
@@ -114,6 +127,9 @@
       "projectTab": "This Project",
       "participantsTab": "Participants",
       "phasesTab": "Project Phases",
+      "changePhase": "Change the current Phase",
+      "currentPhase": "This project is currently at:",
+      "noCurrentPhase": "This project is not at any phase",
       "phasesTabDescription": "The phases of the evaluation were conceived to provide you with information on the project ongoing implementation and outcomes. Each phase consists of 6 questions, on average, which will take you approximately 5 minutes. Once all team members complete the evaluation of the current phase, the results are visualized on a project-specific, as well as aggregated level.\n\nTo change the current phase, select one and click save.",
       "hasPhase": "This project is currently at this phase since {date}.",
       "hadPhase": "This project was on this phase starting {date}.",
@@ -155,6 +171,26 @@
       "student": "Student",
       "civilSociety": "Civil Society",
       "projectManager": "Project Manager"
+    },
+    "educationLevel":{
+      "primary": "Primary",
+      "secondary": "Secondary",
+      "teriary": "Teriary (Labor market)",
+      "bachelors": "Bachelors or Degree",
+      "masters": "Masters",
+      "doctoral": "Doctoral"
+    },
+    "projectType": {
+      "research": "Research",
+      "participatoryResearch": "Participatory Research",
+      "participatoryActionResearch": "Participatory Action Research",
+      "citizenScience": "Citizen Science",
+      "publicEngagement": "Public Engagement",
+      "serviceLearning": "Service Learning",
+      "advocacy": "Advocacy",
+      "innovation": "Innovation",
+      "policyInnovation": "Policy Innovation",
+      "other": "Other"
     },
     "projectPhase": {
       "phase": "Phase",
@@ -463,11 +499,14 @@
       "firstName": "First Name",
       "lastName": "Last Name",
       "email": "Email",
+      "education": "Education",
+      "institution": "Institution",
       "summary": "Summary",
       "description": "Description",
       "participants": "Participants",
       "managers": "Managers",
       "projectName": "Project Name",
+      "projectCountry": "Project country of action",
       "projectImageURL": "Project Image URL",
       "projectSummary": "Project Summary",
       "projectAcronym": "Project Acronym",

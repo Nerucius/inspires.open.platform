@@ -10,7 +10,7 @@
       </v-btn>
     </v-flex>
 
-    <v-flex v-if="isOwner" xs12>
+    <v-flex v-if="isOwner && false" xs12>
       <v-card flat>
         <v-card-text>
           <p class="subheading mb-0">

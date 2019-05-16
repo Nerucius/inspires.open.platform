@@ -101,7 +101,8 @@
       <v-select
         v-model="editedProject.project_type"
         box
-        :items="projectTypes"
+        :items="$store.getters['project/projectTypes']"
+        :item-text="e => $t(e.name)"
         :label="$t('forms.fields.projectType')"
         :hint="$t('forms.hints.projectType')"
       />
@@ -200,23 +201,6 @@ export default {
       },
       userSearch: [],
       editedProject: {},
-      roles: [
-        {id:1, name:"Scientist"},
-        {id:2, name:"Student"},
-        {id:3, name:"Civil Society"},
-      ],
-      projectTypes: [
-        {value:"RESEARCH", text:"Research"},
-        {value:"PARTICIPATORY_RESEARCH", text:"Participatory Research"},
-        {value:"PARTICIPATORY_ACTION_RESEARCH", text:"Participatory Action Research"},
-        {value:"CITIZEN_SCIENCE", text:"Citizen Science"},
-        {value:"PUBLIC_ENGAGEMENT", text:"Public Engagement"},
-        {value:"SERVICE_LEARNING", text:"Service Learning"},
-        {value:"ADVOCACY", text:"Advocacy"},
-        {value:"INNOVATION", text:"Innovation"},
-        {value:"POLICY_INNOVATION", text:"Policy Innovation"},
-        {value:"OTHER", text:"Other"},
-      ],
     };
   },
 

@@ -358,6 +358,8 @@ export default {
         && value != "12345678"
         && value != "password"
         && value != "password1"
+        && value != "password12"
+        && value != "password123"
         && value != "password1234"
         && value != this.user.username
     },

@@ -25,6 +25,11 @@ const router = new Router({
             component: Login,
         },
         {
+            path: "/reset-password",
+            name: "reset-password",
+            component: () => import( /* webpackChunkName: "reset-password" */ "./views/account/ResetPassword.vue"),
+        },
+        {
             path: "/register",
             name: "register",
             component: () => import( /* webpackChunkName: "register" */ "./views/Register.vue"),

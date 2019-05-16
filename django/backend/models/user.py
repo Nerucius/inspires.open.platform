@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.contrib.contenttypes.fields import GenericRelation
+from django.utils.translation import gettext_lazy as _
 
 from django.db import models
 
@@ -37,6 +38,12 @@ class User(TrackableModel, AbstractUser):
         (EDUCATION_DOCTORAL, "Doctoral"),
     ]
 
+    # Override email
+    email = models.EmailField(_('email address'), blank=True, unique=True)
+
+    email_verification = models.BooleanField(default=False)
+    reset_password_token = models.CharField(max_length=128, blank=True, null=True)
+
     education_level = models.CharField(
         max_length=128, blank=True, choices=EDUCATION_LEVELS
     )
@@ -61,10 +68,13 @@ class User(TrackableModel, AbstractUser):
             default,
         )
 
+    def can_create(self, user, data):
+        return False
+
     def can_read(self, user):
         """ Only the own user can view the detailed user info """
         # return self.pk == user.pk
-        return True
+        return self.pk == user.pk
 
     def can_write(self, user):
         """ Only the own user can modify the user info """

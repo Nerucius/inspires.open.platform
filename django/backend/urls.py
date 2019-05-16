@@ -26,6 +26,8 @@ urlpatterns = [
     # path("user/login/", views.login),
     # path("user/logout/", views.logout),
     path("user/register/", views.register),
+    path("user/resetpassword/", views.reset_password),
+    path("user/resetpasswordsubmit/", views.reset_password_submit),
     path("v1/log-error", views.log_error),
     path("v1/emailpreview", views.email_preview, name="email_preview"),
     path("v1/", include(routers.router.urls)),

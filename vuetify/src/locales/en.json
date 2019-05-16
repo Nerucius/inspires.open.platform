@@ -1,7 +1,16 @@
 {
   "pages": {
     "login": {
-      "welcomeMessage": "Welcome to the InSPIRES Platform"
+      "welcomeMessage": "Welcome to the InSPIRES Platform",
+      "forgotPassword": "Forgot your password?",
+      "registerCTA": "Register now!"
+    },
+    "resetPassword":{
+      "title": "Finish resetting your password",
+      "introText": "This page will allow you to change your forgotten password. Please enter the new password you want to use from now on:",
+      "resetPassword": "Reset my password",
+      "goBackToLogin": "Go back to login",
+      "passwordChanged": "Your password has been changed successfully! You can go back to the login page with your new credentials."
     },
     "register": {
       "titles": {
@@ -22,6 +31,7 @@
       "step4Message": "Please review the following information. If everything seems correct you can proceed with the registration. You can go back to any of the steps and review the information provided.",
       "step4MessageInvite": "During the first period of testing, we are restricting the registration to those personally invited. Please enter the code provided to you below:"
     },
+
     "home": {
       "mainTitle": "Welcome to InSPIRES",
       "worldmapTitle":"World Map",
@@ -435,6 +445,7 @@
     },
     "toasts": {
       "loggedOut": "You have been logged out",
+      "resetPasswordSubmitted": "A password reset email has been submitted to the user of this account.",
       "saveSuccess": "Saved successfully!",
       "saveFailure": "Failed to save, try again later",
       "projectSaveSuccess": "Project data updated!",

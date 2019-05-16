@@ -1,12 +1,22 @@
 <style>
   /* Global Styles */
 
-    /* html{overflow-y:auto} */
   ::-webkit-scrollbar {
-    width: 5px;
-    background: teal;
-    /*display: inline !important;*/
+      width: 0.65em;
   }
+
+  ::-webkit-scrollbar-track {
+    margin-top: -1px;
+    background: rgb(12, 77, 77);
+      /* -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); */
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background:#00796b;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+  }
+
   #toast-container {padding-top: 10px}
   .v-snack { padding-top: 10px; }
 </style>

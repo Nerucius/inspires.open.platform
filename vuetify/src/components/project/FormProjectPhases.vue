@@ -12,13 +12,21 @@
           </v-icon>
         </v-flex>
         <v-flex>
-          {{ $t('pages.projectManage.phasesTabDescription') }}
+          <vue-markdown>{{ $t('pages.projectManage.phasesTabDescription') }}</vue-markdown>
         </v-flex>
       </v-layout>
     </v-alert>
 
+    <h3 v-if="!!currentPhase" class="my-4 headline text-xs-center">
+      <small>{{ $t('pages.projectManage.currentPhase') }}</small>
+       {{ $t(currentPhase.name) }}
+    </h3>
+    <h3 v-else class="my-4 headline text-xs-center">
+      {{ $t('pages.projectManage.noCurrentPhase') }}
+    </h3>
+
     <h3 class="mb-2">
-      Change the current Phase
+      {{ $t('pages.projectManage.changePhase') }}
     </h3>
 
     <v-select v-model="stepperPhase"

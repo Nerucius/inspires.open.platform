@@ -229,7 +229,6 @@
 import { slug2id, obj2slug, onlyUnique } from "@/plugins/utils";
 import ProjectCardHorizontal from "@/components/project/ProjectCardHorizontal";
 import ProjectTangram from "@/components/evaluation/ProjectTangram";
-import VueMarkdown from 'vue-markdown';
 
 export default {
   metaInfo() {
@@ -241,7 +240,6 @@ export default {
   components: {
     ProjectCardHorizontal,
     ProjectTangram,
-    VueMarkdown
   },
 
   data() {

@@ -150,7 +150,6 @@
 <script>
 import { slug2id, obj2slug } from "@/plugins/utils";
 import ProjectCardHorizontal from "@/components/project/ProjectCardHorizontal";
-import VueMarkdown from 'vue-markdown';
 
 export default {
 
@@ -162,7 +161,6 @@ export default {
 
   components:{
     ProjectCardHorizontal,
-    VueMarkdown
   },
 
   data(){

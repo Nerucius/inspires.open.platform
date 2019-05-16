@@ -1,5 +1,6 @@
 <template>
   <v-layout row wrap align-content-start>
+
     <v-flex xs12>
       <h1>
         {{ $t('noums.projects') }}
@@ -7,6 +8,12 @@
           | {{ $t('pages.projectList.filterByArea', {area:$t(filterKnowledgeArea.name)}) }}
         </small>
       </h1>
+
+      <v-card flat class="hidden-xs-only" v-if="!filterKnowledgeArea">
+        <v-card-text class="subheading">
+          The InSPIRES Open Platform features participatory research and innovation projects promoted by knowledge intermediary units, such as Science Shops, Citizen Science offices, etc. You will find below all the projects registered in the Open Platform.
+        </v-card-text>
+      </v-card>
     </v-flex>
 
     <v-flex xs12>

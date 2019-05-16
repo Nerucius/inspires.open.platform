@@ -114,19 +114,19 @@
       "projectTab": "This Project",
       "participantsTab": "Participants",
       "phasesTab": "Project Phases",
-      "phasesTabDescription": "The phases of the evaluation were conceived to provide you with information on the project ongoing implementation and outcomes. Each phase consists of 6 questions, on average, which will take you approximately 5 minutes. Once all team members complete the evaluation of the current phase, the results are visualized on a project-specific, as well as aggregated level. Please be honest and critical when answering the questionnaire.",
+      "phasesTabDescription": "The phases of the evaluation were conceived to provide you with information on the project ongoing implementation and outcomes. Each phase consists of 6 questions, on average, which will take you approximately 5 minutes. Once all team members complete the evaluation of the current phase, the results are visualized on a project-specific, as well as aggregated level.\n\nTo change the current phase, select one and click save.",
       "hasPhase": "This project is currently at this phase since {date}.",
       "hadPhase": "This project was on this phase starting {date}.",
       "notHasPhase": "This project has never been on this phase.",
       "evaluationTab": "Evaluation",
       "evaluationTitle":"Project Evaluation",
-      "evaluationTabDescription": "The impact evaluation tool builds on a self-reflection process which is divided into four phases: a kick-off phase at the beginning of the project, a mid-term evaluation, a final assessment by the end of the project, and a further evaluation 6 months later. Every project member is expected to answer a questionnaire that evaluates, on a scale from 0 to 7, different dimensions of the principles at the core of the InSPIRES Open Platform.",
+      "evaluationTabDescription": "The impact evaluation tool builds on a self-reflection process which is divided into four phases: a kick-off phase at the beginning of the project, a mid-term evaluation, a final assessment by the end of the project, and a further evaluation 6 months later.",
       "collaborationSuccess": "Collaboration with structure requested successfully.",
       "collaborationFailure": "Failed to request collaboration.",
       "deleteCollaborationAlert": "Are you sure you want to cancel the collaboration?",
       "collaborationDeleted": "Collaboration with structure has been withdrawn.",
       "participantsTitle":"Participants in this Project",
-      "participantsIntro":"Add all the people helping to make this project possible here. Each person can have a role within the project. The Role will be used in determining what role they play in the impact evaluation tool.",
+      "participantsIntro":"Participants are everyone who will be involved directly in the project. You can add any number of participants, but each participant must have a role within the project. The participant's role will determine the questions they have to answer in the impact evaluation tool.\n\nTo add a participant you can look up users by their full name in the box below.",
       "searchUsers": "Collaboration with structure has been withdrawn.",
       "evaluationSuccess":"Evaluation requested successfuly.",
       "evaluationFailure":"Failed to send evaluation request. Please try again later."
@@ -134,6 +134,7 @@
     "evaluationEntry":{
       "mainTitle": "Project Evaluation Questionnaire",
       "questionnaire": "Questionnaire",
+      "questionnaireDescription": "Questionnaire",
       "questionnaireCompleted": "This questionnaire has already been completed.",
       "evaluationOverview": "Evaluation Overview",
       "evaluatedPhase": "Evaluated phase",
@@ -345,6 +346,7 @@
       "Q95": "You were involved or invited to the final communication activity where research results were presented.",
 
       "Q10XX": "Feel free to include any other comments related to this phase.",
+      "Q10XY": "Feel free to include any other comments related to the {phase} phase.",
 
       "Q1001": "What motivated you to participate in this project?",
       "Q1002": "Everything in the project is developing as you expected? Otherwise, tell us what is different and why. What could be improved?",
@@ -364,7 +366,7 @@
       "Q1013": "What motivated you to participate in this project?",
       "Q1014": "Everything in the project is developing as you expected? Otherwise, tell us what is different and why. What could be improved?",
       "Q1015": "Please describe the main outcomes of this project. What has been essential to achieve these outcomes?",
-      "Q1016": "What competencies have you acquired through this project that you would not have acquired performing a more classical research project?"
+      "Q1016": "Open Science projects include public participation. What new competencies have you acquired through this project?"
     }
   },
   "toolbar":{

@@ -13,9 +13,18 @@ table{
       {{ $t('pages.projectManage.evaluationTitle') }}
     </h2>
 
-    <p class="subheading mb-5">
-      {{ $t('pages.projectManage.evaluationIntro') }}
-    </p>
+    <v-alert color="info" class="ma-4" :value="true">
+      <v-layout row align-top>
+        <v-flex>
+          <v-icon large dark>
+            info
+          </v-icon>
+        </v-flex>
+        <v-flex>
+          {{ $t('pages.projectManage.evaluationTabDescription') }}
+        </v-flex>
+      </v-layout>
+    </v-alert>
 
     <v-expansion-panel
       v-for="phase in phases"

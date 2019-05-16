@@ -4,9 +4,18 @@
       {{ $t('pages.projectManage.phasesTab') }}
     </h2>
 
-    <p class="subheading">
-      {{ $t('pages.projectManage.phasesTabDescription') }}
-    </p>
+    <v-alert color="info" class="ma-4" :value="true">
+      <v-layout row align-top>
+        <v-flex>
+          <v-icon large dark>
+            info
+          </v-icon>
+        </v-flex>
+        <v-flex>
+          {{ $t('pages.projectManage.phasesTabDescription') }}
+        </v-flex>
+      </v-layout>
+    </v-alert>
 
     <h3 class="mb-2">
       Change the current Phase

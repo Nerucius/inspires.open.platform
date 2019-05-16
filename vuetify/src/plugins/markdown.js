@@ -1,6 +1,6 @@
-// import Vue from 'vue'
-// import VueMarkdown from 'vue-markdown'
+import Vue from 'vue'
+import VueMarkdown from 'vue-markdown';
 
-// Vue.use(VueMarkdown)
+Vue.component('vue-markdown', VueMarkdown)
 
-// export default VueMarkdown
+export default VueMarkdown

@@ -87,7 +87,8 @@ table th{
           <h2 class="mb-2">
             {{ $t('pages.evaluationEntry.questionnaire') }}
           </h2>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, autem delectus ea est dolore animi adipisci voluptas fugit omnis labore facere, repellat dolorum culpa unde repudiandae corrupti odit voluptates blanditiis.</p>
+
+          <vue-markdown>{{ $t('pages.evaluationEntry.questionnaireDescription') }}</vue-markdown>
 
           <v-form ref="form">
             <template v-for="(question, qidx) in evaluation.questions">

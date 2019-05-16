@@ -4,9 +4,18 @@
       {{ $t('pages.projectManage.participantsTitle') }}
     </h2>
 
-    <p class="subheading">
-      {{ $t('pages.projectManage.participantsIntro') }}
-    </p>
+    <v-alert color="info" class="ma-4" :value="true">
+      <v-layout row align-top>
+        <v-flex>
+          <v-icon large dark>
+            info
+          </v-icon>
+        </v-flex>
+        <v-flex>
+          <vue-markdown>{{ $t('pages.projectManage.participantsIntro') }}</vue-markdown>
+        </v-flex>
+      </v-layout>
+    </v-alert>
 
     <v-form ref="form" v-model="valid">
       <p class="pa-2 grey lighten-3">

@@ -82,7 +82,6 @@
 <script>
 import { onlyUnique, slug2id } from "@/plugins/utils";
 import { cloneDeep } from "lodash";
-import VueMarkdown from 'vue-markdown';
 
 export default {
 
@@ -92,9 +91,6 @@ export default {
     }
   },
 
-  components:{
-    VueMarkdown
-  },
 
   data(){
     return{

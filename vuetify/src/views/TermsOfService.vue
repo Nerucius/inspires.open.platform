@@ -25,13 +25,11 @@
 </template>
 
 <script>
-import VueMarkdown from 'vue-markdown'
 
 export default {
   metaInfo: {
     title: "Terms of Service"
   },
-  components: {VueMarkdown},
   data() {
     return {};
   }

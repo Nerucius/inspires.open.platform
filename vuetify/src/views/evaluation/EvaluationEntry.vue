@@ -91,29 +91,15 @@ table th{
           <vue-markdown>{{ $t('pages.evaluationEntry.questionnaireDescription') }}</vue-markdown>
 
           <v-form ref="form">
-            <template v-for="(question, qidx) in evaluation.questions">
+            <template v-for="(question, qidx) in questions">
               <!-- MULTIPLE questions -->
               <div v-if="question.answer_type == 'MULTIPLE'" :key="question.id">
                 <h3 class="mt-4">
                   {{ question.name }} {{ $t('pages.evaluationEntry.questionMultipleHelp') }}
                 </h3>
-                <v-btn disabled flat outline small style="color:#888 !important">
-                  {{ $t(role(question.role).name) }}
-                </v-btn>
-                <v-btn disabled flat outline small style="color:#888 !important">
-                  {{ $t(phase(question.phase).tag) }}
-                </v-btn>
-                <v-btn disabled flat outline small style="color:#888 !important">
-                  {{ question.principle }}
-                </v-btn>
-                <v-btn disabled flat outline small style="color:#888 !important">
-                  {{ question.dimension }}
-                </v-btn>
-                <v-btn disabled flat outline small style="color:#888 !important">
-                  {{ question.axis }}
-                </v-btn>
+
                 <v-checkbox v-for="(answer, aidx) in question.answers" :key="aidx"
-                            v-model="answersMultiple[qidx]"
+                            v-model="answers[qidx]"
                             :value="answer.key"
                             :label="answer.name"
                             hide-details
@@ -126,22 +112,6 @@ table th{
                 <h3 class="mt-4">
                   {{ question.name }}
                 </h3>
-
-                <!-- <v-btn disabled flat outline small style="color:#999 !important">
-                  {{ role(question.role).name }}
-                </v-btn>
-                <v-btn disabled flat outline small style="color:#999 !important">
-                  {{ $t(phase(question.phase).tag) }}
-                </v-btn>
-                <v-btn disabled flat outline small style="color:#999 !important">
-                  {{ question.principle }}
-                </v-btn>
-                <v-btn disabled flat outline small style="color:#999 !important">
-                  {{ question.dimension }}
-                </v-btn>
-                <v-btn disabled flat outline small style="color:#999 !important">
-                  {{ question.axis }}
-                </v-btn> -->
 
                 <v-slider
                   v-model="answers[qidx]"
@@ -158,6 +128,26 @@ table th{
                 />
               </div>
               <!-- /DEGREE Questions -->
+
+              <!-- TEXT Questions -->
+              <div v-else-if="question.answer_type == 'TEXT'" :key="question.id">
+                <h3 class="mt-4 mb-3">
+                  {{ $t(`models.question.${question.id}`) }}
+                  {{ $t('models.question.Q10XY', {phase: $t(phase(evaluation.project_phase).tag)}) }}
+                </h3>
+
+                <v-textarea
+                  outline
+                  single-line
+                  counter=500
+                  auto-grow
+                  rows=4
+                  v-model="answers[qidx]"
+                />
+
+              </div>
+              <!-- /TEXT Questions -->
+
             </template>
 
 
@@ -190,14 +180,16 @@ table th{
 <script>
 export default {
 
-  metaInfo:{
-    title: "Project Evaluation"
+  metaInfo(){
+    return {
+      title: this.$t("pages.evaluationEntry.mainTitle")
+    }
   },
-
   data(){
     return{
+      questions: [],
+      /** Multi-type array of answers, contains DEGREE, MULTIPLE CHOICE, TEXT... */
       answers:          [],
-      answersMultiple:  [[],[],[],[],[],[],[],[],[]]
     }
   },
 
@@ -232,23 +224,13 @@ export default {
       return this.evaluation.responses.length > 0
     },
 
-
     computedAnswers(){
-      return this.evaluation.questions.map( (q, idx) =>{
-        if(q.answer_type == "MULTIPLE"){
-          return ({
-            question:q.id,
-            response: this.answersMultiple[idx]
-          })
-        }
-        if(q.answer_type == "DEGREE"){
-          return ({
-            question:q.id,
-            response: this.answers[idx] || 0
-          })
-        }
-        throw new Error("unidentified answer type")
-      })
+      return this.questions.map( (q, idx) =>
+        ({
+          question: q.id,
+          response: this.answers[idx]
+        })
+      )
     }
   },
 
@@ -256,13 +238,27 @@ export default {
     await this.$store.dispatch("evaluation/load", [this.evaluationId])
     await this.$store.dispatch("project/load", [this.evaluation.project])
 
+    // Copy the evaluation questions sorting by id minus the 'Q'
+    this.questions = this.evaluation.questions.slice().sort((a,b) =>{
+      let aId = parseInt(a.id.replace('Q',''))
+      let bId = parseInt(b.id.replace('Q',''))
+      return aId - bId;
+    })
+
     // Load existing responses
     let loadedAnswers = []
-    this.evaluation.questions.forEach((question, idx) => {
+    this.questions.forEach((question, idx) => {
       let response = this.getResponse(question.id)
+
+      // Init default values on array
+      if(question.answer_type == "DEGREE") { loadedAnswers[idx] = 0 }
+      if(question.answer_type == "MULTIPLE") { loadedAnswers[idx] = [] }
+      if(question.answer_type == "TEXT") { loadedAnswers[idx] = "" }
+
       if(response){
         if(question.answer_type == "DEGREE") { loadedAnswers[idx] = response.answer_degree }
         if(question.answer_type == "MULTIPLE") { loadedAnswers[idx] = response.answer_multiple }
+        if(question.answer_type == "TEXT") { loadedAnswers[idx] = response.answer_text }
       }
     });
 
@@ -288,6 +284,10 @@ export default {
       return this.evaluation.responses.filter(r => r.question == questionId)[0]
     },
 
+    getResponseTypeField(responseTypeEnum){
+      return 'answer_' + responseTypeEnum.toLowerCase()
+    },
+
     async attemptSubmit(){
       let form = this.$refs.form
 
@@ -296,11 +296,8 @@ export default {
         for (let i = 0; i < this.computedAnswers.length; i++) {
           const answer = this.computedAnswers[i];
 
-          // Infer response type
-          let responseType
-          if (Array.isArray(answer.response)){ responseType = "answer_multiple" }
-          else{ responseType = "answer_degree" }
-
+          // get response type
+          let responseType = this.getResponseTypeField(this.questions[i].answer_type)
           let oldResponse = this.getResponse(answer.question) || {}
 
           let response = {
@@ -310,6 +307,8 @@ export default {
             [responseType]: answer.response,
           }
 
+          console.log(response)
+
           await this.$store.dispatch("evaluation/submitResponse", response)
         }
 
@@ -317,6 +316,7 @@ export default {
         this.$store.dispatch("toast/success", this.$t("pages.evaluationEntry.submitSuccess"))
 
       }catch(error){
+        console.error(error)
         this.$store.dispatch("toast/error", {
           message: this.$t("pages.evaluationEntry.submitFailure"),
           error

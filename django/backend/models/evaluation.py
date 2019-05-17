@@ -209,6 +209,9 @@ class Response(TrackableModel):
         evaluation = Evaluation.objects.get(pk=data["evaluation"])
         return evaluation.participation.user == user
 
+    def can_write(self, user):
+        return self.evaluation.participation.user == user
+
 
 @receiver(models.signals.post_save)
 def invalidate_cache(sender, instance, raw, created, using, update_fields, **kwargs):

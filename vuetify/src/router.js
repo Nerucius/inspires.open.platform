@@ -47,7 +47,22 @@ const router = new Router({
         {
             path: "/about-us/terms-of-service",
             name: "terms-of-service",
-            component: () => import( /* webpackChunkName: "terms-of-service" */ "./views/TermsOfService.vue")
+            component: () => import( /* webpackChunkName: "terms-of-service" */ "./views/about/TermsOfService.vue")
+        },
+        {
+            path: "/about-us/legal-notice",
+            name: "legal-notice",
+            component: () => import( /* webpackChunkName: "legal-notice" */ "./views/about/LegalNotice.vue")
+        },
+        {
+            path: "/about-us/privacy-policy",
+            name: "privacy-policy",
+            component: () => import( /* webpackChunkName: "privacy-policy" */ "./views/about/PrivacyPolicy.vue")
+        },
+        {
+            path: "/about-us/cookie-policy",
+            name: "cookie-policy",
+            component: () => import( /* webpackChunkName: "cookie-policy" */ "./views/about/CookiePolicy.vue")
         },
         // ======= SEARCH =======
         {

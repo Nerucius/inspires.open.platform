@@ -24,7 +24,7 @@
     </v-toolbar-title>
     <v-spacer />
 
-    <v-flex>
+    <!-- <v-flex>
       <v-form @submit.prevent="search()">
         <v-text-field
           v-model="searchTerm"
@@ -37,11 +37,11 @@
           :placeholder="$t('toolbar.searchPlaceholder')"
         />
       </v-form>
-    </v-flex>
+    </v-flex> -->
 
     <v-spacer />
 
-    <v-toolbar-items class="hidden-md-and-down">
+    <v-toolbar-items class="hidden-sm-and-down">
       <!-- Full width items -->
       <v-btn v-for="link in links.filter(l => !l.miniOnly)"
              :key="link.name" flat
@@ -61,7 +61,7 @@
     </v-toolbar-items>
 
     <!-- SM devices links -->
-    <v-menu bottom left class="hidden-lg-and-up">
+    <v-menu bottom left class="hidden-md-and-up">
       <v-btn slot="activator" large dark icon>
         <v-icon>more_vert</v-icon>
       </v-btn>

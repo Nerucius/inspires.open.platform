@@ -103,18 +103,23 @@
         </v-snackbar>
         <!-- /Snackbars -->
       </v-content>
+
+      <!-- Cookie Policy Toast -->
+      <CookieToast />
     </template>
   </v-app>
 </template>
 
 <script>
 import NavigationDrawer from "@/components/NavigationDrawer";
+import CookieToast from "@/components/CookieToast";
 import Toolbar from "@/components/Toolbar";
 import Footer from "@/components/Footer";
 
 export default {
   name: "App",
   components: {
+    CookieToast,
     NavigationDrawer,
     Toolbar,
     Footer,

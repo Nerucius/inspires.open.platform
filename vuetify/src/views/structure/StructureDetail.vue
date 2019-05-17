@@ -50,6 +50,45 @@
             </h1>
           </v-toolbar>
 
+          <!-- Contact Social Facebook -->
+          <v-list-tile v-if="structure.contact_social_facebook" :href="structure.contact_social_facebook" target="_blank">
+            <v-list-tile-avatar>
+              <v-icon size="32" color="#3b5998">mdi-facebook</v-icon>
+            </v-list-tile-avatar>
+            <v-list-tile-content>
+              <v-list-tile-title>
+                {{ structure.name }}
+              </v-list-tile-title>
+              <v-list-tile-sub-title>Facebook</v-list-tile-sub-title>
+            </v-list-tile-content>
+          </v-list-tile>
+
+          <!-- Contact Social Twitter -->
+          <v-list-tile v-if="structure.contact_social_twitter" :href="structure.contact_social_twitter" target="_blank">
+            <v-list-tile-avatar>
+              <v-icon size="32" color="#38A1F3">mdi-twitter</v-icon>
+            </v-list-tile-avatar>
+            <v-list-tile-content>
+              <v-list-tile-title>
+                {{ structure.contact_social_twitter | twitterhandle }}
+              </v-list-tile-title>
+              <v-list-tile-sub-title>Twitter</v-list-tile-sub-title>
+            </v-list-tile-content>
+          </v-list-tile>
+
+          <!-- Contact Social Other -->
+          <v-list-tile v-if="structure.contact_social_other" :href="structure.contact_social_other" target="_blank">
+            <v-list-tile-avatar>
+              <v-icon size="32">mdi-account-group</v-icon>
+            </v-list-tile-avatar>
+            <v-list-tile-content>
+              <v-list-tile-title>
+                {{ structure.name }}
+              </v-list-tile-title>
+              <v-list-tile-sub-title>{{ $t('forms.fields.socialNetwork') }}</v-list-tile-sub-title>
+            </v-list-tile-content>
+          </v-list-tile>
+
           <!-- Contact Website -->
           <v-list-tile v-if="structure.contact_website">
             <v-list-tile-content>

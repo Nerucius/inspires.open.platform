@@ -257,12 +257,12 @@ export default {
 
     /** Projects the user has */
     projects(){
-      return this.projectIds.map(id => this.$store.getters['project/get'](id))
+      return this.projectIds.map(id => this.$store.getters['project/detail'](id))
     },
 
     /** Structures the user participates in */
     structures(){
-      return this.structureIds.map(id => this.$store.getters['structure/get'](id))
+      return this.structureIds.map(id => this.$store.getters['structure/detail'](id))
     },
 
     isOwnUser(){
@@ -297,8 +297,8 @@ export default {
       this.$router.push({name:"home"})
     }
 
-    await this.$store.dispatch("project/load")
-    await this.$store.dispatch("structure/load")
+    await this.$store.dispatch("project/load", this.projectIds)
+    await this.$store.dispatch("structure/load", this.structureIds)
   },
 
   methods:{

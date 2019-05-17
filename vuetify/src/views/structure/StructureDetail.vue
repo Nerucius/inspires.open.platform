@@ -24,6 +24,10 @@
           edit
         </v-icon>Manage this Structure
       </v-btn>
+      <v-btn flat outline color="black" :href="exportLink" target='_blank'>
+        <v-icon left>mdi-database-export</v-icon>
+        Export all data
+      </v-btn>
     </v-flex>
 
     <!-- Unvalidated Project Alert -->
@@ -150,6 +154,7 @@
 <script>
 import { slug2id, obj2slug } from "@/plugins/utils";
 import ProjectCardHorizontal from "@/components/project/ProjectCardHorizontal";
+import { API_SERVER } from "@/plugins/resource";
 
 export default {
 
@@ -186,6 +191,12 @@ export default {
     manageLink() {
       return ({name:"structure-manage", params:{slug:obj2slug(this.structure)}})
     },
+
+    exportLink(){
+      // /v1/csv/export/5/structure_summary.csv
+      return `${API_SERVER}/v1/csv/export/${this.structureId}/structure_summary.csv`
+    },
+
     canManage(){
       let userId = this.$store.getters['user/current'].id
       let isOwner = this.structure.owner == userId

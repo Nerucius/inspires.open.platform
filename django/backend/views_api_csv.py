@@ -6,7 +6,7 @@ from django.http.response import HttpResponseNotFound
 from django.views import View
 
 from rest_framework.authtoken.models import Token
-from backend.models import Project, Evaluation, Response
+from backend.models import Project, Evaluation, Response, Structure
 
 import pandas as pd
 
@@ -46,6 +46,7 @@ def _authenticate_request(request, project=None):
         raise Exception("No user authentication provided")
 
     user = Token.objects.get(pk=token).user
+    request.user = user
 
     if user.is_superuser:
         # Superuser can view all
@@ -187,7 +188,7 @@ class CSVCachedAuthorizedView(View):
                 cache.set(self.cache_key, content, timeout=None)
 
         else:
-            print("WARNING: not using cache for %s" % self.request.META["PATH_INFO"])
+            # print("WARNING: not using cache for %s" % self.request.META["PATH_INFO"])
             content = self._get_content(request, *args, **kwargs)
 
         return shortcuts.HttpResponse(
@@ -445,6 +446,53 @@ class CSVProjectBullets(CSVCachedAuthorizedView):
         df_result = df_result.set_index(["Principle", "Indicator"])
 
         return df_result.round(2).to_csv()
+
+
+class CSVStructureSummaryExport(CSVCachedAuthorizedView):
+    cache_key = None
+
+    def _get_content(self, request, *args, **kwargs):
+        structure_pk = kwargs["structure"]
+        structure = Structure.objects.get(pk=structure_pk)
+
+        if not structure.can_write(request.user):
+            raise Exception("403 forbidden")
+
+        export = []
+
+        for collab in structure.collaborations.all():
+            project = collab.project
+
+            for part in project.participation_set.all():
+
+                role_name = part.role.name.split(".")[-1]
+
+                line = [structure.name, project.name, role_name, part.user.full_name]
+                export += [",".join(line)]
+
+        headers = ",".join(["Structure", "Project", "Role", "User"])
+        return "\n".join([headers] + export)
+
+
+class CSVProjectSummaryExport(CSVCachedAuthorizedView):
+    cache_key = None
+
+    def _get_content(self, request, *args, **kwargs):
+        project_pk = kwargs["project"]
+        project = Project.objects.get(pk=project_pk)
+
+        if not project.can_write(request.user):
+            raise Exception("403 forbidden")
+
+        export = []
+
+        for part in project.participation_set.all():
+            role_name = part.role.name.split(".")[-1]
+            line = [project.name, role_name, part.user.full_name]
+            export += [",".join(line)]
+
+        headers = ",".join(["Project", "Role", "User"])
+        return "\n".join([headers] + export)
 
 
 # =========================================

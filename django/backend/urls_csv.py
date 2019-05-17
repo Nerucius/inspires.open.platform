@@ -15,4 +15,12 @@ urlpatterns = [
     path("eval/<int:project>/phases.csv", views.CSVProjectPhases.as_view()),
     path("eval/<int:project>/bullets.csv", views.CSVProjectBullets.as_view()),
     path("eval/<int:project>/heatmap.csv", views.csv_heatmap),
+    path(
+        "export/<int:structure>/structure_summary.csv",
+        views.CSVStructureSummaryExport.as_view(),
+    ),
+    path(
+        "export/<int:project>/project_summary.csv",
+        views.CSVProjectSummaryExport.as_view(),
+    ),
 ]

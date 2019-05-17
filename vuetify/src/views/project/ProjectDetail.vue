@@ -46,6 +46,10 @@
           edit
         </v-icon>Manage this Project
       </v-btn>
+      <v-btn flat outline color="black" :href="exportLink" target='_blank'>
+        <v-icon left>mdi-database-export</v-icon>
+        Export all data
+      </v-btn>
     </v-flex>
 
     <!-- Unapproved Project Alert -->
@@ -268,6 +272,8 @@
 import { slug2id, obj2slug, onlyUnique } from "@/plugins/utils";
 import ProjectCardHorizontal from "@/components/project/ProjectCardHorizontal";
 import ProjectTangram from "@/components/evaluation/ProjectTangram";
+import { API_SERVER } from "@/plugins/resource";
+
 
 export default {
   metaInfo() {
@@ -312,6 +318,11 @@ export default {
         params: { slug: obj2slug(this.project) }
       };
     },
+    exportLink(){
+      // /v1/csv/export/5/structure_summary.csv
+      return `${API_SERVER}/v1/csv/export/${this.projectId}/project_summary.csv`
+    },
+
     canManage() {
       let userId = this.$store.getters["user/current"].id;
       let isOwner = this.project.owner == userId;

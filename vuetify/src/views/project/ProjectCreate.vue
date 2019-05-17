@@ -22,6 +22,13 @@ import { obj2slug } from "@/plugins/utils";
 
 export default {
 
+  metaInfo() {
+    return {
+      title: this.$t('pages.projectCreate.title')
+    };
+  },
+
+
   components:{
     FormProjectBase,
   },

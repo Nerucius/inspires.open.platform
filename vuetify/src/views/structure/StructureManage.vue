@@ -5,11 +5,12 @@
     </v-flex>
     <v-flex xs12 sm6 class="text-xs-right">
       <v-btn :to="structure.link" exact outline>
-        View public page
+        {{ $t('actions.viewPublicPage') }}
       </v-btn>
     </v-flex>
 
-    <v-flex v-if="isOwner" xs12>
+    <!-- TODO: Disabled transfer ownership -->
+    <v-flex v-if="isOwner && false" xs12>
       <v-card flat>
         <v-card-text>
           <p class="subheading mb-0">
@@ -120,6 +121,13 @@ function tabSlug(fullTabName){
 }
 
 export default {
+
+  metaInfo() {
+    return {
+      title: this.$t('actions.manage')
+    };
+  },
+
   components: {
     FormStructureBase,
   },

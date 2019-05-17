@@ -45,18 +45,19 @@
 
     <v-flex v-if="countryFilterProjects" xs12>
       <h2>
-        Projects in {{ countryFilter }}
+        {{ countryFilter }} {{ $t('noums.projects') }}
         <v-btn small color="grey lighten-2" class="elevation-0" @click="countryFilterProjects=null">
           <v-icon left>
             clear
-          </v-icon>Clear filter
+          </v-icon>
+          {{ $t('actions.clearFilter') }}
         </v-btn>
       </h2>
       <ProjectGrid :hide-title="true" :projects="countryFilterProjects" />
     </v-flex>
 
     <v-flex v-else xs12>
-      <h2>All Projects</h2>
+      <h2>{{ $t('pages.home.allProjects') }}</h2>
       <ProjectGrid :hide-title="true" :projects="projects" />
     </v-flex>
 
@@ -82,7 +83,7 @@
 import ProjectGrid from "@/components/project/ProjectGrid";
 import ProjectList from "@/components/project/ProjectList";
 // import { GeoJSONCountries } from "@/plugins/i18n";
-import { GeoJSONCountriesDetail } from "@/plugins/i18n";
+import { GeoJSONCountriesDetail, Countries } from "@/plugins/i18n";
 
 export default {
   components: {
@@ -184,7 +185,15 @@ export default {
       let feature = target.feature
       let country_code = feature.properties.ISO_A3
 
+      let countryItem = Countries.filter(c => c.alpha3Code == country_code)[0]
+      let countryLocaleName = countryItem.translations[this.$i18n.locale]
+
+      // Set country name
       this.countryFilter = feature.properties.NAME
+      if(countryLocaleName){
+        this.countryFilter = countryLocaleName
+      }
+
       this.countryFilterProjects = await this.$store.dispatch("project/search", {country_code})
     }
   }

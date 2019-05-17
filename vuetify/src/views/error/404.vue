@@ -26,6 +26,12 @@
 
 export default{
 
+    metaInfo(){
+    return {
+      title: this.$t('errors.404.title')
+    }
+  },
+
 }
 
 </script>

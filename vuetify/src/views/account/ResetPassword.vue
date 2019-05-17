@@ -70,6 +70,12 @@
 import LanguageSelector from "@/components/toolbar/LanguageSelector";
 
 export default {
+  metaInfo(){
+    return {
+      title: this.$t("pages.resetPassword.title")
+    }
+  },
+
   components: {
     LanguageSelector
   },

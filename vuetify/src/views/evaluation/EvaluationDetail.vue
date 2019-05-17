@@ -1,7 +1,7 @@
 <template>
   <v-layout v-if="project" row wrap align-content-start>
     <v-flex xs12>
-      <h1>Evaluation for {{ project.name }}</h1>
+      <h1> {{ $t('noums.evaluation') }} | {{ project.name }}</h1>
     </v-flex>
 
     <v-flex xs12>
@@ -11,7 +11,7 @@
             <v-toolbar dense dark flat color="grey darken-3">
               <v-toolbar-title>
                 <h2 class="title">
-                  Project Overall Position
+                  {{ $t('pages.evaluationDetail.projectOverallPosition') }}
                 </h2>
               </v-toolbar-title>
             </v-toolbar>
@@ -28,7 +28,7 @@
             <v-toolbar dense dark flat color="grey darken-3">
               <v-toolbar-title>
                 <h2 class="title">
-                  Project Evolution
+                  {{ $t('pages.evaluationDetail.projectEvolution') }}
                 </h2>
               </v-toolbar-title>
             </v-toolbar>
@@ -45,26 +45,26 @@
             <v-toolbar dense dark flat style="background-color:#2F4193">
               <v-toolbar-title>
                 <h2 class="title">
-                  Transformative Change
+                  {{ $t('models.evaluation.principle.transform') }}
                 </h2>
               </v-toolbar-title>
             </v-toolbar>
             <v-card-text>
               <div id="transfchart" />
               <div class="bullet">
-                <h3>Collective capacity</h3>
+                <h3>{{ $t('models.evaluation.dimension.CollectiveCapacity') }}</h3>
                 <div id="TransformativeCollectiveChart" />
               </div>
               <div class="bullet">
-                <h3>Knowledge and skills</h3>
+                <h3>{{ $t('models.evaluation.dimension.knowledgeAndSkills') }}</h3>
                 <div id="TransformativeSkillsChart" />
               </div>
               <div class="bullet">
-                <h3>Policy impact</h3>
+                <h3>{{ $t('models.evaluation.dimension.policyImpact') }}</h3>
                 <div id="TransformativePolicyChart" />
               </div>
               <div class="bullet">
-                <h3>Self-improvement</h3>
+                <h3>{{ $t('models.evaluation.dimension.selfImprovement') }}</h3>
                 <div id="TransformativeSelfChart" />
               </div>
             </v-card-text>
@@ -76,22 +76,22 @@
             <v-toolbar dense dark flat style="background-color:#2599D4">
               <v-toolbar-title>
                 <h2 class="title">
-                  Knowledge Democracy
+                  {{ $t('models.evaluation.principle.knowledge') }}
                 </h2>
               </v-toolbar-title>
             </v-toolbar>
             <v-card-text>
               <div id="knowchart" />
               <div class="bullet">
-                <h3>Openness</h3>
+                <h3>{{ $t('models.evaluation.dimension.openness') }}</h3>
                 <div id="KnowledgeOpennessChart" />
               </div>
               <div class="bullet">
-                <h3>Scientific relevance</h3>
+                <h3>{{ $t('models.evaluation.dimension.scientificRelevance') }}</h3>
                 <div id="KnowledgeRelevanceChart" />
               </div>
               <div class="bullet">
-                <h3>Transdisciplinarity</h3>
+                <h3>{{ $t('models.evaluation.dimension.transdisciplinarity') }}</h3>
                 <div id="KnowledgeTransdisciplChart" />
               </div>
             </v-card-text>
@@ -103,26 +103,26 @@
             <v-toolbar dense dark flat color="yellow darken-3">
               <v-toolbar-title>
                 <h2 class="title">
-                  Participatory Dynamics
+                  {{ $t('models.evaluation.principle.participation') }}
                 </h2>
               </v-toolbar-title>
             </v-toolbar>
             <v-card-text>
               <div id="partchart" />
               <div class="bullet">
-                <h3>Degree of engagement</h3>
+                <h3>{{ $t('models.evaluation.dimension.degreeOfEngagement') }}</h3>
                 <div id="ParticipatoryEngagementChart" />
               </div>
               <div class="bullet">
-                <h3>Impact of the participatory dynamics</h3>
+                <h3>{{ $t('models.evaluation.dimension.impactParticipatoryDynamics') }}</h3>
                 <div id="ParticipatoryImpactChart" />
               </div>
               <div class="bullet">
-                <h3>Motivation</h3>
+                <h3>{{ $t('models.evaluation.dimension.motivation') }}</h3>
                 <div id="ParticipatoryMotivationChart" />
               </div>
               <div class="bullet">
-                <h3>Satisfaction with the participatory dunamics</h3>
+                <h3>{{ $t('models.evaluation.dimension.satisfactionParticipatoryDynamics') }}</h3>
                 <div id="ParticipatorySatisfactionChart" />
               </div>
             </v-card-text>
@@ -135,34 +135,34 @@
             <v-toolbar dense dark flat color="orange darken-3">
               <v-toolbar-title>
                 <h2 class="title">
-                  Integrity
+                  {{ $t('models.evaluation.principle.integrity') }}
                 </h2>
               </v-toolbar-title>
             </v-toolbar>
             <v-card-text>
               <div id="integchart" />
               <div class="bullet">
-                <h3>Expectation alignment</h3>
+                <h3>{{ $t('models.evaluation.dimension.expectationAlignment') }}</h3>
                 <div id="IntegrityExpectationChart" />
               </div>
               <div class="bullet">
-                <h3>Gender perspective</h3>
+                <h3>{{ $t('models.evaluation.dimension.genderPerspective') }}</h3>
                 <div id="IntegrityGenderChart" />
               </div>
               <div class="bullet">
-                <h3>Inclusivity</h3>
+                <h3>{{ $t('models.evaluation.dimension.inclusivity') }}</h3>
                 <div id="IntegrityInclusivityChart" />
               </div>
               <div class="bullet">
-                <h3>Reflexivity</h3>
+                <h3>{{ $t('models.evaluation.dimension.reflexivity') }}</h3>
                 <div id="IntegrityReflexivityChart" />
               </div>
               <div class="bullet">
-                <h3>Resource availability</h3>
+                <h3>{{ $t('models.evaluation.dimension.resourceAvailability') }}</h3>
                 <div id="IntegrityResourceChart" />
               </div>
               <div class="bullet">
-                <h3>Transparency</h3>
+                <h3>{{ $t('models.evaluation.dimension.transparency') }}</h3>
                 <div id="IntegrityTransparencyChart" />
               </div>
             </v-card-text>
@@ -175,18 +175,18 @@
             <v-toolbar dense dark flat color="teal darken-2">
               <v-toolbar-title>
                 <h2 class="title">
-                  Citizen-led Research
+                  {{ $t('models.evaluation.principle.citizen') }}
                 </h2>
               </v-toolbar-title>
             </v-toolbar>
             <v-card-text>
               <div id="citizchart" />
               <div class="bullet">
-                <h3>Community alignment</h3>
+                <h3>{{ $t('models.evaluation.dimension.communityAlignment') }}</h3>
                 <div id="CitizenCommunityChart" />
               </div>
               <div class="bullet">
-                <h3>Responsiveness to community alignment</h3>
+                <h3>{{ $t('models.evaluation.dimension.responsivenessCommunityAlignment') }}</h3>
                 <div id="CitizenResponsivenessChart" />
               </div>
             </v-card-text>
@@ -206,7 +206,7 @@ import { debounce } from "lodash";
 export default {
   metaInfo() {
     return {
-      title: (this.project || {}).name
+      title: this.$t('noums.evaluation') + " " + (this.project || {}).name
     };
   },
 

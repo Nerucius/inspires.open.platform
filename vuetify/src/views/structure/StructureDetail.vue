@@ -22,11 +22,11 @@
       <v-btn flat outline color="warning" :to="manageLink">
         <v-icon left>
           edit
-        </v-icon>Manage this Structure
+        </v-icon>{{ $t('actions.manageName', {name: $t('noums.structure')}) }}
       </v-btn>
       <v-btn flat outline color="black" @click="exportCSV()">
         <v-icon left>mdi-database-export</v-icon>
-        Export all data
+        {{ $t('actions.exportAllData') }}
       </v-btn>
     </v-flex>
 
@@ -36,7 +36,7 @@
         <v-icon dark left>
           info
         </v-icon>
-        This structure is not approved yet, it will not show up in public lists.
+        {{ $t('pages.structureDetail.notApproved') }}
       </v-alert>
     </v-flex>
 

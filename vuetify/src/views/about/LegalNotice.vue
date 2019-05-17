@@ -17,13 +17,12 @@
 </template>
 
 <script>
-
 export default {
-  metaInfo: {
-    title: "Terms of Service"
-  },
-  data() {
-    return {};
+  metaInfo() {
+    return {
+      title: this.$t('pages.legal.legalNoticeTitle')
+    };
   }
 };
 </script>
+

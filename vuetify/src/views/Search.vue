@@ -10,6 +10,11 @@
 <script>
 export default {
 
+  metaInfo(){
+    return {
+      title: this.$t("pages.search.title")
+    }
+  },
 
 }
 </script>

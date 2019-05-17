@@ -38,16 +38,14 @@ import StructureCard from "@/components/structure/StructureCard";
 
 export default {
 
-  metaInfo:{
-    title: "All Structures"
+  metaInfo() {
+    return {
+      title: this.$t('noums.structures')
+    };
   },
 
   components: {
     StructureCard
-  },
-
-  data() {
-    return {};
   },
 
   computed: {

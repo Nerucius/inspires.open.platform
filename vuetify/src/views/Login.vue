@@ -128,6 +128,12 @@
 import LanguageSelector from "@/components/toolbar/LanguageSelector";
 
 export default {
+  metaInfo(){
+    return {
+      title: this.$t("forms.titles.login")
+    }
+  },
+
   components: {
     LanguageSelector
   },

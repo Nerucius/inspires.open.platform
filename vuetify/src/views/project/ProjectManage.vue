@@ -6,10 +6,11 @@
 
     <v-flex xs12 sm6 class="text-xs-right">
       <v-btn :to="project.link" exact outline>
-        View public page
+        {{ $t('actions.viewPublicPage') }}
       </v-btn>
     </v-flex>
 
+    <!-- DISABLED transfer ownership -->
     <v-flex v-if="isOwner && false" xs12>
       <v-card flat>
         <v-card-text>
@@ -115,6 +116,12 @@ function tabSlug(fullTabName){
 }
 
 export default {
+  metaInfo() {
+    return {
+      title: this.$t('noums.structures')
+    };
+  },
+
   components: {
     FormProjectBase,
     FormProjectParticipants,

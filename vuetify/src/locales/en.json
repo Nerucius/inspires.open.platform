@@ -49,6 +49,7 @@
       "welcomeMessage": "Welcome to the InSPIRES Open Platform. This platform features citizen-led participatory research and innovation projects promoted by knowledge intermediary units, such as Science Shops, Citizen Science groups or units, etc.",
       "welcomeMessageLong": "It also offers an integrated collaborative impact evaluation tool in order to assess the processes and outcomes of your own projects with respect others. The pursued objective is to produced a joint and collective reflection around this type of collaborative projects in order to learn, think, dabte and growth as a community of practice to develop better projects aiming at to improve citizens life and well-being.",
       "aboutLink": "More about us!",
+      "allProjects": "All Projects",
       "projectsSeeMore": "See all projects"
     },
     "about":{
@@ -97,9 +98,11 @@
       "about": "About",
       "detailsTab": "Information",
       "evaluationTab": "Project Evaluation",
+      "notApproved": "This project is not approved yet, it will not show up in public lists until it is registered to a Structure.",
       "projectNotYetEvaluated": "This project has not received sufficient feedback and evaluations from it's participants yet, so we can't show you how it's doing. Check back another day!"
     },
     "structureDetail": {
+      "notApproved": "This structure is not approved yet, it will not show up in public lists until a site administratot validates it.",
       "about": "About"
     },
     "structureList": {
@@ -157,6 +160,10 @@
       "searchUsers": "Collaboration with structure has been withdrawn.",
       "evaluationSuccess":"Evaluation requested successfuly.",
       "evaluationFailure":"Failed to send evaluation request. Please try again later."
+    },
+    "evaluationDetail":{
+      "projectOverallPosition": "Project Overall Position",
+      "projectEvolution": "Project Evolution"
     },
     "evaluationEntry":{
       "mainTitle": "Project Evaluation Questionnaire",
@@ -456,7 +463,12 @@
     "cancel": "Cancel",
     "more": "More",
     "next": "Next",
-    "moreInformation": "More Information"
+    "manage": "Manage",
+    "clearFilter": "Clear filter",
+    "moreInformation": "More Information",
+    "manageName": "Manage this {name}",
+    "viewPublicPage": "View public page",
+    "exportAllData": "Export all data"
   },
   "states": {
     "enabled": "Enabled",

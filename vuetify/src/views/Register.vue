@@ -1,9 +1,7 @@
 <style scoped>
-
   th, td{
     padding-bottom:10px
   }
-
 </style>
 
 
@@ -15,7 +13,7 @@
 
     <v-flex sm9 xs12>
       <h1 class="headline">
-        Registration
+        {{ $t('actions.register') }}
       </h1>
       <p class="subheading">
         {{ $t('pages.register.welcomeMessage') }}
@@ -226,35 +224,15 @@
                           </table>
                         </v-flex>
 
-                        <!-- DISABLED INVITATION CODE
-                        <v-flex xs12 py-0>
-                          <p>
-                            {{ $t('pages.register.step4MessageInvite') }}
-                          </p>
-                        </v-flex>
-
-                        <v-flex pt-0 sm8 lg6>
-                          <v-form
-                            v-model="steps[3].required.valid"
-                          >
-                            <v-text-field
-                              v-model="user.invitation"
-                              prepend-icon="code"
-                              :label="$t('forms.fields.invitationCode')"
-                              :rules="[rules.required]"
-                              type="text"
-                              @input="failedRegistration = false"
-                            />
-                          </v-form>
-                        </v-flex> -->
-
                         <v-flex xs12>
                           <v-alert :value="failedRegistration">
                             <v-icon dark left>
                               warning
-                            </v-icon>The registration has failed. Please check your invitation code.
+                            </v-icon>
+                            The registration has failed. Your username might be in use.
                           </v-alert>
                         </v-flex>
+
                       </v-layout>
                     </v-sheet>
                   </v-stepper-content>
@@ -294,8 +272,10 @@
 
 export default {
 
-  metaInfo: {
-    title: "Register"
+  metaInfo(){
+    return {
+      title: this.$t("actions.register")
+    }
   },
 
   data() {

@@ -55,11 +55,13 @@
 <script>
 
 export default {
-  name: "About",
 
-  metaInfo: {
-    title: "About Us"
+  metaInfo() {
+    return {
+      title: this.$t('pages.about.mainTitle')
+    };
   },
+
   components: {},
   data() {
     return {};

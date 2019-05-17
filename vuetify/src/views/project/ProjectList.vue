@@ -39,8 +39,8 @@ export default {
 
   metaInfo() {
     return {
-      title: "All Projects"
-    }
+      title: this.$t('noums.projects')
+    };
   },
 
   components: {

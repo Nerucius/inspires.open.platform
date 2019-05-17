@@ -44,11 +44,11 @@
       <v-btn flat outline color="warning" :to="manageLink">
         <v-icon left>
           edit
-        </v-icon>Manage this Project
+        </v-icon>{{ $t('actions.manageName', {name: $t('noums.project')}) }}
       </v-btn>
       <v-btn flat outline color="black" @click="exportCSV()">
         <v-icon left>mdi-database-export</v-icon>
-        Export all data
+        {{ $t('actions.exportAllData') }}
       </v-btn>
     </v-flex>
 
@@ -57,7 +57,8 @@
       <v-alert color="info" :value="true" class="title">
         <v-icon dark left>
           info
-        </v-icon>This project is not approved yet, it will not show up in public lists.
+        </v-icon>
+        {{ $t('pages.projectDetail.notApproved') }}
       </v-alert>
     </v-flex>
 

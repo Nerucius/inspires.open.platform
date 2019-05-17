@@ -220,6 +220,12 @@ import { cloneDeep } from "lodash";
 
 export default {
 
+  metaInfo(){
+    return {
+      title: this.$t("pages.account.title")
+    }
+  },
+
   data(){
     return{
       editUser: {},
@@ -279,7 +285,6 @@ export default {
       ]
       return pids.filter(onlyUnique)
     },
-
 
   },
 

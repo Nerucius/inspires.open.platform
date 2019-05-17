@@ -46,7 +46,7 @@
           edit
         </v-icon>Manage this Project
       </v-btn>
-      <v-btn flat outline color="black" :href="exportLink" target='_blank'>
+      <v-btn flat outline color="black" @click="exportCSV()">
         <v-icon left>mdi-database-export</v-icon>
         Export all data
       </v-btn>
@@ -376,7 +376,31 @@ export default {
 
     role(rid) {
       return this.$store.getters["evaluation/roles"][rid];
-    }
+    },
+
+    async exportCSV(){
+      let data = (await this.$http.get(this.exportLink)).bodyText
+      console.log("export trigger")
+
+      var file = new Blob([data], {type: "text/plain"});
+      var filename = this.project.name + " export.csv"
+
+      if (window.navigator.msSaveOrOpenBlob) // IE10+
+        window.navigator.msSaveOrOpenBlob(file, filename);
+      else { // Others
+          var a = document.createElement("a"),
+                  url = URL.createObjectURL(file);
+          a.href = url;
+          a.download = filename;
+          document.body.appendChild(a);
+          a.click();
+          setTimeout(function() {
+              document.body.removeChild(a);
+              window.URL.revokeObjectURL(url);
+          }, 0);
+      }
+
+    },
   }
 };
 </script>

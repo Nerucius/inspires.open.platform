@@ -50,7 +50,7 @@ class Structure(TrackableModel):
     contact_social_other = models.URLField(max_length=500, blank=True)
 
     def can_write(self, user):
-        return self.managers.filter(pk=user.pk).exists()
+        return self.owner == user or self.managers.filter(pk=user.pk).exists()
 
     def __str__(self):
         return self.name

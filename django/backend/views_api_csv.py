@@ -8,6 +8,8 @@ from django.views import View
 from rest_framework.authtoken.models import Token
 from backend.models import Project, Evaluation, Response, Structure
 
+from datetime import datetime
+
 import pandas as pd
 
 # Constants
@@ -467,10 +469,16 @@ class CSVStructureSummaryExport(CSVCachedAuthorizedView):
 
                 role_name = part.role.name.split(".")[-1]
 
-                line = [structure.name, project.name, role_name, part.user.full_name]
+                line = [
+                    structure.name,
+                    project.name,
+                    role_name,
+                    part.user.full_name,
+                    datetime.isoformat(part.created_at.replace(microsecond=0)),
+                ]
                 export += [",".join(line)]
 
-        headers = ",".join(["Structure", "Project", "Role", "User"])
+        headers = ",".join(["Structure", "Project", "Role", "User", "Date Joined"])
         return "\n".join([headers] + export)
 
 

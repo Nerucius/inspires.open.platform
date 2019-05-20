@@ -73,6 +73,10 @@ th{
             <v-layout pt-3 row wrap>
               <!-- Edit Profile Form -->
 
+              <v-flex xs12>
+                <b>Avatar Image:</b> To change your avatar image go to <a href="https://en.gravatar.com/">Gravatar</a> and create a new account with the email provided for the platform.
+              </v-flex>
+
               <v-flex xs12 sm6 py-0>
                 <v-text-field
                   v-model="editUser.first_name"

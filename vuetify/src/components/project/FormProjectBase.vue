@@ -30,6 +30,7 @@
     <v-textarea
       v-model="editedProject.summary"
       box
+      :rules="[rules.required]"
       counter="200"
       :hint="$t('forms.hints.projectSummary')"
       :label="$t('forms.fields.projectSummary')"

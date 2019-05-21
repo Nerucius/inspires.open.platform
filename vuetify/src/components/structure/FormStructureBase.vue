@@ -21,6 +21,7 @@
     <v-textarea
       v-model="editedStructure.summary"
       box
+      :rules="[rules.required]"
       counter="200"
       label="Structure Summary"
       hint="A short summary of your structure and what it encompasses.

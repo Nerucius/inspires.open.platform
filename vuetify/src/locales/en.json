@@ -537,6 +537,7 @@
       "participants": "Participants",
       "managers": "Managers",
       "projectName": "Project Name",
+      "structureCountry": "Structure country of action",
       "projectCountry": "Project country of action",
       "projectImageURL": "Project Image URL",
       "projectSummary": "Project Summary",

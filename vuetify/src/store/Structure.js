@@ -7,7 +7,7 @@ const Resource = StructureResource
 
 function createLink(obj){
   obj.link = {name:"structure-detail", params:{slug:obj2slug(obj)}}
-  obj.image_url = obj.image_url || "/img/static/structure.jpg"
+  obj.image_url = obj.image_url || "https://app.inspiresproject.com/img/static/structure.jpg"
   return obj
 }
 

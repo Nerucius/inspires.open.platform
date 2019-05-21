@@ -225,6 +225,10 @@ export default {
       ];
     }
 
+    setTimeout(() => {
+      this.$refs.form.validate()
+    }, 500);
+
     // Initialize user search with all visible users
     // this.userSearch = [...this.editedProject.participants, ...this.editedProject.managers]
   },

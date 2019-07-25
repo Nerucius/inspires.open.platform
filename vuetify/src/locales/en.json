@@ -39,7 +39,9 @@
       "step3TOSAcceptance": "By clicking the 'ACCEPT TERMS AND CONDITIONS' button I acknowledge that I have been appropriately informed and that I consent to the processing of my personal data for the stated purpose.",
       "step3MessageAccepted": "Great! we can continue with the rest of the registration.",
       "step4Message": "Please review the following information. If everything seems correct you can proceed with the registration. You can go back to any of the steps and review the information provided.",
-      "step4MessageInvite": "During the first period of testing, we are restricting the registration to those personally invited. Please enter the code provided to you below:"
+      "step4MessageInvite": "During the first period of testing, we are restricting the registration to those personally invited. Please enter the code provided to you below:",
+      "registrationFailure": "Something went wrong with your registration, please try again later.",
+      "usernameTaken": "Your username is already taken, please try a different one."
     },
 
     "home": {
@@ -200,7 +202,7 @@
       "secondary": "Secondary",
       "teriary": "Teriary (Labor market)",
       "degree": "Bachelors or Degree",
-      "masters": "Masters",
+      "master": "Masters",
       "doctoral": "Doctoral"
     },
     "projectType": {

@@ -38,7 +38,7 @@ export default {
       {value:"SECONDARY", name: "models.educationLevel.secondary"},
       {value:"TERTIARY", name: "models.educationLevel.teriary"},
       {value:"DEGREE", name: "models.educationLevel.degree"},
-      {value:"MASTER", name: "models.educationLevel.masters"},
+      {value:"MASTER", name: "models.educationLevel.master"},
       {value:"DOCTORAL", name: "models.educationLevel.doctoral"},
     ]
   },
@@ -107,20 +107,10 @@ export default {
     },
 
     login: async function (context, credentials) {
-      return new Promise(async (resolve, reject) => {
-        try {
-          let authentication = (await Vue.http.post(userLoginUrl, credentials))
-          let token = authentication.body.token
-          Cookies.set('authorization', token)
-          await context.dispatch("loadCurrent");
-          resolve();
-
-        } catch (err) {
-          // Failed to login
-          console.log(err)
-          reject();
-        }
-      })
+        let authentication = (await Vue.http.post(userLoginUrl, credentials))
+        let token = authentication.body.token
+        Cookies.set('authorization', token)
+        await context.dispatch("loadCurrent");
     },
 
     resetPassword: async function (context, credentials) {
@@ -150,20 +140,9 @@ export default {
     },
 
     register: async function(context, newUser){
-      return new Promise(async (resolve, reject) => {
-        try {
-          // await Vue.http.get(userRegisterUrl, {params: {...newUser}});
-          await Vue.http.post(userRegisterUrl, newUser, {
-            emulateJSON: true
-          });
-          // await context.dispatch("loadCurrent");
-          resolve();
-
-        } catch (err) {
-          // Failed to register
-          reject();
-        }
-      })
+      // await Vue.http.get(userRegisterUrl, {params: {...newUser}});
+      let response = await Vue.http.post(userRegisterUrl, newUser, { emulateJSON: true })
+      return response.body
     }
   },
 

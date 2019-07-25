@@ -30,6 +30,7 @@
     <v-textarea
       v-model="editedProject.summary"
       box
+      :rules="[rules.required]"
       counter="200"
       :hint="$t('forms.hints.projectSummary')"
       :label="$t('forms.fields.projectSummary')"
@@ -223,6 +224,10 @@ export default {
         this.$store.getters["user/current"]
       ];
     }
+
+    setTimeout(() => {
+      this.$refs.form.validate()
+    }, 500);
 
     // Initialize user search with all visible users
     // this.userSearch = [...this.editedProject.participants, ...this.editedProject.managers]

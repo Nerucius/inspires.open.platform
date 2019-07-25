@@ -21,6 +21,7 @@
     <v-textarea
       v-model="editedStructure.summary"
       box
+      :rules="[rules.required]"
       counter="200"
       label="Structure Summary"
       hint="A short summary of your structure and what it encompasses.
@@ -79,8 +80,8 @@
       <v-text-field
         v-model="editedStructure.year_founded"
         box
-        min="1900"
-        max="2019"
+        min="1000"
+        max="2100"
         type="number"
         label="Year the structure was founded / established"
         hint="Shown in listings as well as the structures's page."
@@ -178,7 +179,6 @@
 import { cloneDeep } from "lodash";
 import { Countries } from '@/plugins/i18n'
 import { regexIsURL,regexIsEmail } from '@/plugins/utils'
-import { isContext } from 'vm';
 
 export default {
   props: ["structure"],
@@ -189,14 +189,22 @@ export default {
       processing: false,
       valid: null,
       rules: {
+        // required: v => true,
+        // isUser: v => true,
+        // isURL: v => true,
+        isEmail: v => true,
+        isCountry: v => true,
+        isKnowledgeArea: v => true,
+        minlen: v => true,
+
         required: v => !!v || this.$t("forms.rules.requiredField"),
         isUser: v => this.isUser(v) || this.$t("forms.rules.mustBeUser"),
         isURL: v => regexIsURL(v) || this.$t("forms.rules.mustBeURL"),
-        isEmail: v => regexIsEmail(v) || this.$t("forms.rules.mustBeEmail"),
-        isCountry: v => this.isCountry(v) || this.$t("forms.rules.mustBeCountry"),
-        isKnowledgeArea: v => this.isKnowledgeArea(v) || this.$t("forms.rules.mustBeKnowledgeArea"),
-        minlen: v =>
-          v.length > 10 || this.$t("forms.rules.minimunLength", { length: 10 })
+        // isEmail: v => regexIsEmail(v) || this.$t("forms.rules.mustBeEmail"),
+        // isCountry: v => this.isCountry(v) || this.$t("forms.rules.mustBeCountry"),
+        // isKnowledgeArea: v => this.isKnowledgeArea(v) || this.$t("forms.rules.mustBeKnowledgeArea"),
+        // minlen: v =>
+        //   v.length > 10 || this.$t("forms.rules.minimunLength", { length: 10 })
       },
       userSearch: [],
       editedStructure: {},
@@ -222,6 +230,10 @@ export default {
         this.$store.getters["user/current"]
       ];
     }
+
+    setTimeout(() => {
+      this.$refs.form.validate()
+    }, 500);
 
     // Initialize user search with all visible users
     // this.userSearch = [...this.editedStructure.participants, ...this.editedStructure.managers]

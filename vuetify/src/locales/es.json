@@ -1,7 +1,26 @@
 {
   "pages": {
     "login": {
-      "welcomeMessage": "Bienvenido/a a la plataforma de InSPIRES"
+      "welcomeMessage": "Bienvenido/a a la plataforma de InSPIRES",
+      "forgotPassword": "Forgot your password?",
+      "registerCTA": "Register now!"
+    },
+    "account": {
+      "title": "Account",
+      "accountCreated": "Your new account has been created successfully. You can now access all of the features of the platform.",
+      "saveProfile": "Save profile",
+      "editProfile": "Edit Profile",
+      "updateProfileSuccess": "Your profile has been updated",
+      "updateProfileFailure": "Could not update your profile.",
+      "myProjects": "My Projects",
+      "myStructures": "My Structures"
+    },
+    "resetPassword": {
+      "title": "Finish resetting your password",
+      "introText": "This page will allow you to change your forgotten password. Please enter the new password you want to use from now on:",
+      "resetPassword": "Reset my password",
+      "goBackToLogin": "Go back to login",
+      "passwordChanged": "Your password has been changed successfully! You can go back to the login page with your new credentials."
     },
     "register": {
       "titles": {
@@ -29,6 +48,7 @@
       "welcomeMessage": "Bienvenido a la base de datos en línea y a la herramienta de evaluación de impacto de InSPIRES. Esta plataforma presenta proyectos participativos de investigación e innovación promovidos por estructuras del conocimiento tales como las \"Tiendas de ciencia\" o \"Science Shops\".",
       "welcomeMessageLong": "También ofrece una herramienta integrada de evaluación de impacto colaborativa con el fin de evaluar los procesos y resultados de sus propios proyectos con respecto a otros. El objetivo que se persigue es producir una reflexión conjunta y colectiva en torno a este tipo de proyectos de colaboración para aprender, pensar, trabajar y crecer como comunidad para desarrollar mejores proyectos que apunten a mejorar la vida y el bienestar de los ciudadanos.",
       "aboutLink": "¡Más sobre nosotros!",
+      "allProjects": "All Projects",
       "projectsSeeMore": "Ver todos los proyectos"
     },
     "about": {
@@ -52,26 +72,33 @@
       "validationSuccess": "Estructura validada con éxito. Ahora aparecerá en las listas públicas.",
       "validationFailure": "No se ha podido validar la estructura. Póngase en contacto con el servicio de asistencia."
     },
-    "termsOfService": {
-      "mainTitle": "Términos de Servicio",
-      "subTitle": "Al aceptar los términos del servicio, usted comprende:",
-      "content": " ",
-      "paragraph1": "Sus datos personales sólo serán utilizados por:",
-      "paragraph2": "Fundación Privada Instituto de Salud Global Barcelona (ISGlobal) \nCIF: G65341695\nDirección: Carrer Rosselló, número132, 2º, 5º y 7º planta - 08036 Barcelona \nTeléfono: (+34) 932 271 806 \nE-mail: inspires@isglobal.org",
-      "paragraph3": "Recopilamos y procesamos sus datos personales con el único propósito de proceder a su registro en el sitio web https://app.inspiresproject.com.",
-      "paragraph4": "Sus datos serán utilizados exclusivamente por el equipo de InSPIRES de ISGlobal que requiere acceso a los mismos para llevar a cabo su trabajo y en ningún caso serán puestos a disposición de terceros o transferidos a terceros países u organizaciones internacionales.",
-      "paragraph5": "Sólo podemos procesar sus datos personales con su consentimiento, y sólo se conservarán mientras usted no retire su consentimiento.",
-      "paragraph6": "Puede ejercer todos los derechos que le confiere la normativa vigente en materia de protección de datos, incluido el derecho de acceso, rectificación, oposición, cancelación, portabilidad y restricción, dirigiéndose por escrito al responsable de la protección de datos (lopd@isglobal.org), adjuntando una copia de su DNI o documento equivalente.",
-      "paragraph7": "Usted tiene el derecho de retirar su consentimiento en cualquier momento. La revocación del consentimiento no afecta a la legalidad del tratamiento basado en el consentimiento antes de su revocación. Si no está de acuerdo con la forma en que ISGlobal trata sus datos o considera que se han infringido sus derechos, puede presentar una queja en cualquier momento ante la Agencia Española de Protección de Datos."
+    "legal": {
+      "termsOfServiceTitle": "Terms of Service",
+      "termsOfService": "By accepting the terms of service you understand that:\n\nYour personal data will only be used by:\n\nFundación Privada Instituto de Salud Global Barcelona (ISGlobal)\nCIF: G65341695\nPostal address: Carrer Rosselló, number 132, 2nd, 5th and 7th floors - 08036 Barcelona\nTelephone: (+34) 932 271 806\nEmail: inspires@isglobal.org\n\nWe collect and process your personal data for the sole purpose of responding to your registration to the website https://app.inspiresproject.com.\n\nYour data will be used solely by the InSPIRES team of ISGlobal who require access to it to carry out their work and it will never, under any circumstances, be made available to third parties or transferred to third countries or international organisations.\n\nWe can only process your personal data with your consent, and it will be retained only as long as you do not withdraw consent.\n\nYou can exercise all your rights under current data protection regulations, including the right to access, correction, objection, erasure, portability and restriction, by writing to the Data Protection Officer (lopd@isglobal.org), attaching a copy of your national identity document or equivalent.\n\nYou have the right to withdraw your consent at any time. Withdrawal of consent does not affect the lawfulness of processing based on consent before its withdrawal. If you do not agree with the manner in which ISGlobal handles your data or you consider that your rights have been infringed, you can file a complaint at any time with the Spanish Data Protection Agency.",
+      "legalNoticeTitle": "Legal Notice",
+      "legalNotice": "### Owner of the website and the application\nFundación Privada Instituto de Salud Global Barcelona (ISGlobal)\nCIF: G65341695\nPostal address: C/ Rosselló, 132, 2ª, 5ª and 7ª - 08036 Barcelona\nRegistered in the Foundations Registry of the Directorate General of Law and Legal Entities of the Government of Catalonia under number 2,634\nTelephone number: (+34) 932 271 806\n\nThe website is the property of ISGlobal. \n\nUse of the website is subject to the following conditions of use. Please read them carefully. Accessing the website and using its content implies that you have read and accepted, without reservation, these conditions\n",
+      "conditionsOfUseTitle": "Conditions of Use",
+      "conditionsOfUse": "The website contains content prepared by ISGlobal solely for informational purposes. This content may not reflect the most up-to-date information on the matters addressed. Likewise, this material may be amended, extended or updated without notice.\n\nYou accessing this content does not create or imply any professional or trust relationship between ISGlobal and you. \n\nThe links on the website may take you to other websites, pages or applications managed by third parties over which ISGlobal has no control. ISGlobal is not responsible for the content or the state of these websites, pages and applications. Being able to access them via our website or application does not imply that ISGlobal recommends or approves their content.\n\n### Limitation of liability \n\nYou use our website at your own risk and expense. ISGlobal is not responsible for any errors or omissions in the content of the website, the application or any other sites you may access via the website or the application. ISGlobal is not liable for any damage arising from the use of our website or any action performed based on information provided on our website. \n\nISGlobal does not guarantee the absence of viruses or other harmful elements that could damage or alter your IT system, electronic documents or files on our website. As a result, ISGlobal does not accept any liability for any loss or damage that such elements could cause to you or a third party. \n\n[Updated on February 2019]",
+      "privacyPolicyTitle": "Privacy Policy",
+      "privacyPolicy": "**In accordance with the current data protection regulations**, ISGlobal informs you of the following:\n\nWhen you are requested to provide personal data for the provision of services, you will be informed of what data you must provide. \n\nIf you do not provide this required data, we will not be able to provide you with the services. The personal data you provide or that ISGlobal obtains as a result of your browsing, queries or requests via our website at www.isglobal.org (the “Website”) will be included in a file owned by ISGlobal for managing, storing and tracking your requests for information and/or contracting of goods or services offered via the website.\n\nThe information obtained from you by ISGlobal from the website when you sign up for a promotional event or send a form is processed with the utmost confidentiality for helping you to take part in the event in question or, in the second case, sending you the information you requested. The information obtained is not used for any other purpose. \n\nThe personal data provided will not be disclosed or transferred to third parties without your consent.\n\nInformation is only sent via the form(s) of the website after you have expressed your acceptance by selecting an \"ACCEPT/SEND\" (or similar) button, via which ISGlobal has proof that you gave your consent for it to process your personal data.\nIn all cases, you guarantee that the data you provide is true, exact, complete and up-to-date. ISGlobal may decline to provide the information or services requested to any user providing false data without prejudice to any other legal action open to it.\n\nIn virtue of Article 22 of Spanish Law 34/2002, of July 11, on the Information Society Services and Electronic Commerce, ISGlobal may store and retrieve \"cookies\" (data in a text file) from your machine, provided you have given consent and after we have provided you with clear and complete information on the use of these cookies. You may obtain complete information on the purpose for installing these cookies and what they are used for in the Cookies Policy page.\n\nThis does not prevent any technical storage or access for the sole purpose of carrying out or facilitating the transmission of a communication over an electronic communications network, or as strictly necessary to provide an information society service expressly requested by you. \n\nYou may exercise your rights of access, rectification, erasure, objection, portability and restriction of the processing by sending a request to lopd@isglobal.org or the ISGlobal postal address: c/ Rosselló, 132, 08036 Barcelona, Spain. The request must include your full name, address for notices, a photocopy of your ID document or passport and an indication of the right you want to exercise. \n\nIf you are unhappy with the processing done by ISGlobal or believe that your rights have been violated, you may file a claim with the Spanish Data Protection Agency at any time.\n\nIn accordance with Law 34/2002, of 11 July, on the Services of the Information Society and Electronic Commerce, if you do not wish to receive electronic commercial notices from ISGlobal in the future, you may inform us of this preference by sending an email to lopd@isglobal.org. \n\n[Updated on February 2019]",
+      "cookiePolicyTitle": "Cookie Policy",
+      "cookiePolicy": "Our website app.inspiresproject.com (the 'Website') uses cookies to collect information on how the Website is used.\n\nA cookie is a file downloaded onto your machine (computer or mobile device) for storing data that may be updated and retrieved by the entity that installed it.\n\nThe information collected via cookies may include the date and time you visited the website, the pages you viewed, the time you spent on our website and the websites you visited before and after visiting our site.\n\nWe use cookies to facilitate your browsing of our Website, distinguish you from other users, provide you a better use experience and identify problems with our Website. If you provide your consent, we will use cookies to obtain information on your preferences and tailor our Website to your interests.\n\nThe purpose of this cookies policy is to provide you with clear and precise information on the cookies used on our Website (the 'Cookies Policy'). For more information on the cookies used on our Website, please email your questions to: lopd@isglobal.org.\n\n## Type of cookies used on the Website\n\nOur Website uses the cookies described below.\n\n### First-party cookies\n\nThese cookies are sent to your computer and handled only by us to improve the operation of the Website. Information collected is used to improve the quality of our service and your user experience. These cookies remain in your browser for longer. This allows us to recognise you when you return to the Website and tailor the content offered to your preferences.\n\n## Consent\n\nBy browsing and remaining on our Website, you provide consent for our use of the cookies described for the time periods specified under the conditions of this Cookies Policy.\n\n## Disabling and blocking cookies\n\nCookies are not required for using our Website. You can block and disable cookies by configuring your browser to block the installation of all or some cookies. Most browsers can be set to warn you of the presence of cookies or block them automatically. If you block cookies, you may continue using our Website. However, the use of some of its services may be limited, and your user experience may be diminished.\n\n## Withdrawing your consent\n\nIf at any time you want to withdraw the consent you gave under this Cookies Policy, delete the cookies stored on your machine (computer or mobile device) via the settings and configuration of your web browser.\n\nFor more information on deleting, disabling or blocking cookies, visit AllAboutCookies.org\n\n## Changing your browser's cookie configuration and settings\n\nUnless you have adjusted your browser's configuration, our system creates cookies when you visit our Website. All web browsers allow changing this configuration. Click on the links below for how to adjust the cookie configuration of the following browsers:\n\n- **Internet Explorer**:\n  - [Internet Explorer 5](https://support.microsoft.com/en-gb/help/196955)\n  - [Internet Explorer 6, 7, 8 and 9](https://support.microsoft.com/en-gb/help/260971/description-of-cookies)\n  - [Internet Explorer 11](https://support.microsoft.com/en-gb/help/17442/windows-internet-explorer-delete-manage-cookies)\n- **[Firefox](https://support.microsoft.com/en-gb/help/17442/windows-internet-explorer-delete-manage-cookies)**\n- **[Chrome](https://support.google.com/chrome/answer/95647?co=GENIE.Platform%3DDesktop&hl=en)**\n- **Safari**\n  - [For Windows](https://support.apple.com/kb/ph21411?locale=es_ES)\n  - [For Mac (iOS)](https://support.apple.com/es-es/HT201265)\n\n## Changes to the Cookies Policy\n\nWe may update the Cookies Policy of our Website from time to time. We recommend that you review this policy each time you visit our Website so that you are adequately informed on how and for what we use cookies. The Cookies Policy was last updated on July 6, 2018.\n\n## Contact\n\nFor any query, comment or suggestion regarding our Cookies Policy, please email: lopd@isglobal.org.\n\n[Updated on February 2019]",
+      "cookieToast": "This website uses first- and third-party cookies to obtain information on your search habits and to improve the quality of our services and your browsing on our website. To consent to our use of cookies, click 'Accept' or continue browsing."
     },
     "projectDetail": {
       "about": "Acerca de",
       "detailsTab": "Información",
       "evaluationTab": "Evaluación de proyectos",
+      "notApproved": "This project is not approved yet, it will not show up in public lists until it is registered to a Structure.",
       "projectNotYetEvaluated": "Este proyecto aún no ha recibido suficientes respuestas y evaluaciones de sus participantes, por lo que no podemos mostrarles cómo les está yendo. ¡Vuelve a consultar otro día!"
     },
     "structureDetail": {
+      "notApproved": "This structure is not approved yet, it will not show up in public lists until a site administratot validates it.",
       "about": "Acerca de"
+    },
+    "structureList": {
+      "introText": "A Structure is a knowledge intermediary unit, which can be based within a univeristy, a research centre or others that promotes interactions and dialogues between the scientific community and civil society organizations in order to jointly co-create and implement participatory research projects.\n\nThere are many labelled used at the moment to define such structures: Science Shops, Campus-community office, Citizen Science units, Social Labs, Living Labs, etc. but also citizen action research, community-based participatory research, and citizen science. Therefore, we do not intend to be exclusatory but rather gather in this open platfor all the projects that work under the 5 principles we promote: Knowledge Democracy, Citizen-led Research, Participatory Dynamics, Integrity and Transformative Change. You will find here below all the structures registered in the Open Platform.",
+      "visitStructure": "Visit structure"
     },
     "structureManage": {
       "title": "Administrar esta estructura",
@@ -93,7 +120,9 @@
       "failure": "No se pudo crear una nueva estructura. Inténtalo de nuevo más tarde."
     },
     "projectList": {
+      "introText": "The InSPIRES Open Platform features participatory research and innovation projects promoted by different structures and organisations, such as Science Shops, Citizen Science offices, etc. You will find here bellow all the projects registered in the Open Platform.",
       "noKASpecified": "No se especifica el área de conocimiento",
+      "visitProject": "Visit project",
       "filterByArea": "en el área de {area}"
     },
     "projectManage": {
@@ -103,6 +132,9 @@
       "projectTab": "Este Proyecto",
       "participantsTab": "Participantes",
       "phasesTab": "Fases del Proyecto",
+      "changePhase": "Change the current Phase",
+      "currentPhase": "This project is currently at:",
+      "noCurrentPhase": "This project is not at any phase",
       "phasesTabDescription": "Las fases de la evaluación fueron ideadas para proporcionarle información sobre la implementación y los resultados del proyecto en curso. Cada fase consta de 6 preguntas, en promedio, que le llevará aproximadamente 5 minutos. Una vez que todos los miembros del equipo completan la evaluación de la fase actual, los resultados se visualizan en un proyecto específico, así como a nivel agregado.\n\nPara cambiar la fase actual, seleccione una y haga clic en Guardar.",
       "hasPhase": "Este proyecto se encuentra actualmente en esta fase desde {date}",
       "hadPhase": "Este proyecto estaba en esta fase que comenzó en {date}.",
@@ -119,6 +151,10 @@
       "searchUsers": "Se ha retirado la colaboración con la estructura.",
       "evaluationSuccess": "La evaluación se solicitó con éxito.",
       "evaluationFailure": "No se envió la solicitud de evaluación. Por favor, inténtelo de nuevo más tarde."
+    },
+    "evaluationDetail": {
+      "projectOverallPosition": "Project Overall Position",
+      "projectEvolution": "Project Evolution"
     },
     "evaluationEntry": {
       "mainTitle": "Cuestionario de Evaluación de Proyectos",
@@ -139,11 +175,36 @@
     }
   },
   "models": {
+    "userGender": {
+      "male": "Male",
+      "female": "Female",
+      "other": "Other"
+    },
     "participationRole": {
       "scientist": "Científico/a",
       "student": "Estudiante",
       "civilSociety": "Sociedad Civil",
       "projectManager": "Responsable del Proyecto"
+    },
+    "educationLevel": {
+      "primary": "Primary",
+      "secondary": "Secondary",
+      "teriary": "Teriary (Labor market)",
+      "degree": "Bachelors or Degree",
+      "masters": "Masters",
+      "doctoral": "Doctoral"
+    },
+    "projectType": {
+      "research": "Research",
+      "participatoryResearch": "Participatory Research",
+      "participatoryActionResearch": "Participatory Action Research",
+      "citizenScience": "Citizen Science",
+      "publicEngagement": "Public Engagement",
+      "serviceLearning": "Service Learning",
+      "advocacy": "Advocacy",
+      "innovation": "Innovation",
+      "policyInnovation": "Policy Innovation",
+      "other": "Other"
     },
     "projectPhase": {
       "phase": "Fase",
@@ -157,7 +218,7 @@
       "phase4Description": "Han pasado seis meses desde que concluyó el proyecto, por lo que se les invita a reflexionar sobre los resultados del proyecto en cuanto al conocimiento científico, al nivel de aprendizaje individual, al alineamiento de políticas y en términos de la capacidad colectiva para abordar las demandas de la comunidad.",
       "phase1Tag": "Puesta en marcha",
       "phase2Tag": "Autorreflexión",
-      "phase3Tag": "Resultado",
+      "phase3Tag": "End of Project",
       "phase4Tag": "Seis meses después"
     },
     "knowledgeArea": {
@@ -365,10 +426,12 @@
     }
   },
   "misc": {
-    "timeAgo": "Hace {time}"
+    "timeAgo": "Hace {time}",
+    "notSpecified": "Not specified"
   },
   "actions": {
     "add": "Añadir",
+    "accept": "Accept",
     "submit": "Enviar",
     "approve": "Confirmar",
     "validate": "Validar",
@@ -386,7 +449,12 @@
     "cancel": "Cancelar",
     "more": "Más",
     "next": "Siguiente",
-    "moreInformation": "Más Información"
+    "manage": "Manage",
+    "clearFilter": "Clear filter",
+    "moreInformation": "Más Información",
+    "manageName": "Manage this {name}",
+    "viewPublicPage": "View public page",
+    "exportAllData": "Export all data"
   },
   "states": {
     "enabled": "Habilitado",
@@ -421,13 +489,17 @@
       "minimunLength": "Debe tener como mínimo {length} caracteres de longitud ",
       "namedRequiredField": "{name} es un campo obligatorio",
       "mustBeStructure": "Por favor, introduzca una Estructura válida",
-      "mustBeUser": "Por favor, introduzca una lista válida de Usuarios"
+      "mustBeUser": "Por favor, introduzca una lista válida de Usuarios",
+      "mustBeURL": "Please enter a valid URL",
+      "mustBeCountry": "Please enter a valid Country",
+      "mustBeKnowledgeArea": "Please enter a valid Knowledge Area"
     },
     "errors": {
       "invalidCredentials": "Sus credenciales no son válidas, por favor verifique su nombre de usuario y contraseña."
     },
     "toasts": {
       "loggedOut": "Ha salido del sistema",
+      "resetPasswordSubmitted": "A password reset email has been submitted to the user of this account.",
       "saveSuccess": "¡Guardado con éxito!",
       "saveFailure": "No se ha podido guardar, inténtelo de nuevo más tarde.",
       "projectSaveSuccess": "¡Datos del proyecto actualizados!",
@@ -442,14 +514,19 @@
       "firstName": "Primer apellido",
       "lastName": "Segundo apellido",
       "email": "Correo electrónico",
+      "education": "Education Level",
+      "institution": "Institution",
+      "genderIdentity": "Gender Identity",
       "summary": "Resumen",
       "description": "Descripción",
       "participants": "Participantes",
       "managers": "Responsables",
       "projectName": "Nombre del Proyecto",
+      "projectCountry": "Project country of action",
       "projectImageURL": "Imagen URL del Proyecto",
       "projectSummary": "Resumen del Proyecto",
       "projectAcronym": "Acrónimo del Proyecto",
+      "socialNetwork": "Social Network",
       "contactEmail": "Email de Contacto",
       "projectAdministrators": "Administradores del Proyecto",
       "contactWebsite": "Página web externa",

@@ -95,7 +95,7 @@ table th{
               <!-- MULTIPLE questions -->
               <div v-if="question.answer_type == 'MULTIPLE'" :key="question.id">
                 <h3 class="mt-4">
-                  {{ question.name }} {{ $t('pages.evaluationEntry.questionMultipleHelp') }}
+                  {{ $t(`models.question.${question.id}`) }} {{ $t('pages.evaluationEntry.questionMultipleHelp') }}
                 </h3>
 
                 <v-checkbox v-for="(answer, aidx) in question.answers" :key="aidx"
@@ -110,7 +110,7 @@ table th{
               <!-- DEGREE Questions -->
               <div v-else-if="question.answer_type == 'DEGREE'" :key="question.id">
                 <h3 class="mt-4">
-                  {{ question.name }}
+                  {{ $t(`models.question.${question.id}`) }}
                 </h3>
 
                 <v-slider

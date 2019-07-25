@@ -339,6 +339,7 @@ export default {
 
     isParticipant(){
       let user = this.$store.getters['user/current']
+      if (user.id == -1) return false;
       let pids = [
         ...user.owned_projects,
         ...user.managed_projects,

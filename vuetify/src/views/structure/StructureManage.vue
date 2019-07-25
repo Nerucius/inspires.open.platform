@@ -64,7 +64,7 @@
 
         <!-- Project Collaboration Forms -->
         <v-tab-item key="Projects">
-          <v-card flat>
+          <v-card flat v-if="dataReady">
             <v-card-text>
               <v-list two-line>
                 <template v-for="collab in structure.collaborations">
@@ -78,7 +78,9 @@
 
                     <v-list-tile-content>
                       <v-list-tile-title>
+                        <router-link :to="project(collab.project).link">
                         {{ project(collab.project).name }}
+                        </router-link>
                       </v-list-tile-title>
                       <v-list-tile-sub-title>
                         {{ project(collab.project).summary }}
@@ -86,18 +88,20 @@
                     </v-list-tile-content>
 
                     <v-list-tile-action>
-                      <v-btn v-if="!collab.is_approved" small fab
+                      <v-btn v-if="!collab.is_approved" small
                              color="success"
                              class="elevation-0"
                              @click="approveCollab(collab.id)"
                       >
-                        <v-icon>check</v-icon>
+                        <!-- <v-icon>check</v-icon> -->
+                        {{ $t('actions.validate') }}
                       </v-btn>
-                      <v-btn v-else small fab
+                      <v-btn v-else small
                              color="error" class="elevation-0"
                              @click="cancelCollab(collab.id)"
                       >
-                        <v-icon>close</v-icon>
+                        <!-- <v-icon>close</v-icon> -->
+                        {{ $t('actions.withdraw') }}
                       </v-btn>
                     </v-list-tile-action>
                   </v-list-tile>

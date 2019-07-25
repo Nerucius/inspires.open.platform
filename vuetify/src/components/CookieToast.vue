@@ -55,7 +55,7 @@ export default {
 
   methods: {
     acceptCookies(){
-      Cookies.set('accept-cookies', true)
+      Cookies.set('accept-cookies', true, { expires: 365 })
       this.showToast = false;
     }
   },

@@ -205,6 +205,11 @@
         <!-- TAB: Project Details -->
         <v-tab-item key="pages.projectDetail.detailsTab">
           <v-card flat>
+            <div class="py-1 px-3 text-xs-right">
+              <small>
+                {{ $t('misc.lastUpdated', {time: moment(project.modified_at).fromNow()})  }}
+              </small>
+            </div>
             <div class="px-4 pt-4 pb-2 grey lighten-4 subheading" style="font-spacing:110%">
               <vue-markdown>{{ project.summary }}</vue-markdown>
             </div>
@@ -290,6 +295,7 @@ export default {
 
   data() {
     return {
+      moment,
       obj2slug,
       project: null,
       structure: null,

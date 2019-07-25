@@ -443,6 +443,7 @@
   },
   "misc":{
     "timeAgo": "{time} ago",
+    "lastUpdated": "Last updated {time} ago",
     "notSpecified": "Not specified"
   },
   "actions": {

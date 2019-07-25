@@ -358,7 +358,10 @@ export default {
 
 
     } catch (error) {
-      this.$store.dispatch('toast/error', {message:this.$t('pages.projectDetail.projectNotFound'), error})
+      this.$store.dispatch('toast/error', {
+        message:this.$t('pages.projectDetail.projectNotFound'),
+        error
+      })
     }
   },
 

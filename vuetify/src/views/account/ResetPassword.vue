@@ -122,7 +122,10 @@ export default {
           await this.$store.dispatch('user/resetPasswordSubmit', this.credentials)
           this.passwordChanged = true;
         }catch(error){
-          this.$store.dispatch("toast/error", {message: this.$t('pages.resetPassword.resetPasswordError'), error})
+          this.$store.dispatch("toast/error", {
+            message: this.$t('pages.resetPassword.resetPasswordError'),
+            error
+          })
         }
 
       }

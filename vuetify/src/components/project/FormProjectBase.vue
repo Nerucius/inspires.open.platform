@@ -283,7 +283,8 @@ export default {
       } catch(error){
         // Failed to save
         this.$store.dispatch("toast/error", {
-          message:this.$t('forms.toasts.projectSaveFailure'), error
+          message:this.$t('forms.toasts.projectSaveFailure'),
+          error
         })
       }
 

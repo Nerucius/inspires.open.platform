@@ -41,11 +41,10 @@ export default {
 
         this.$store.dispatch("toast/success", this.$t('pages.structureCreate.success'))
 
-      } catch(err){
-        console.log(err)
+      } catch(error){
         this.$store.dispatch("toast/error", {
           message:this.$t('pages.structureCreate.failure'),
-          error: err
+          error
         })
       }
     }

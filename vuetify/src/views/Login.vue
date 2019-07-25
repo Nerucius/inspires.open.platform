@@ -186,8 +186,9 @@ export default {
 
         }catch(error){
           this.$store.dispatch("toast/error", {
-            message: this.$t('pages.login.resetPasswordError'), error}
-          )
+            message: this.$t('pages.login.resetPasswordError'),
+            error
+          })
         }
 
 

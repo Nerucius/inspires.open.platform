@@ -180,7 +180,8 @@ export default {
       }catch(err){
         console.error(error)
         this.$store.dispatch("toast/error", {
-          message: this.$t('pages.projectManage.evaluationCreateFailure') , error
+          message: this.$t('pages.projectManage.evaluationCreateFailure'),
+          error
         })
       }
     },

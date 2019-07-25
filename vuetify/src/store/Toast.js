@@ -50,7 +50,8 @@ export default {
       context.dispatch("new", {color:"success", message});
     },
     error: function (context, params) {
-      let message = params, error
+      let message = params
+      let error
       if(isObject(params)) {
         message = params.message
         error = params.error

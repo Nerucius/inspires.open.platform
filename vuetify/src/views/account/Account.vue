@@ -313,7 +313,10 @@ export default {
 
         this.showEditForm = false;
       }catch(error){
-        this.$store.dispatch("toast/error", {message: this.$t('pages.account.updateProfileFailure')})
+        this.$store.dispatch("toast/error", {
+          message: this.$t('pages.account.updateProfileFailure'),
+          error
+        })
       }
     }
 

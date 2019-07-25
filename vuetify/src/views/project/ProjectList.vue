@@ -53,8 +53,13 @@ export default {
 
   computed: {
     projects() {
-      return this.$store.getters["project/all"];
+      let projectList = this.$store.getters["project/all"].slice();
+        projectList.sort( (a,b) => {
+        return a.name.localeCompare(b.name)
+      })
+      return projectList;
     },
+
     filterKnowledgeArea(){
       let areaSlug = this.$route.params.area
       if(areaSlug){

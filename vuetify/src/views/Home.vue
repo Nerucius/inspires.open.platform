@@ -38,7 +38,7 @@
       </h1>
       <v-card>
         <v-sheet height="400" style="overflow-y:auto">
-          <ProjectList :projects="projects" />
+          <ProjectList :projects="latestProjects" />
         </v-sheet>
       </v-card>
     </v-flex>
@@ -101,7 +101,18 @@ export default {
 
   computed: {
     projects() {
-      return this.$store.getters["project/all"];
+      let projectList = this.$store.getters["project/all"].slice();
+      projectList.sort( (a,b) => { return a.name.localeCompare(b.name) })
+      return projectList;
+    },
+
+    latestProjects(){
+      let projectList = this.$store.getters["project/all"].slice();
+      projectList.sort( (a,b) => {
+        return b.modified_at.localeCompare(a.modified_at)
+      })
+
+      return projectList.slice(0, 6)
     }
   },
 
@@ -195,6 +206,7 @@ export default {
       }
 
       this.countryFilterProjects = await this.$store.dispatch("project/search", {country_code})
+      this.countryFilterProjects.sort( (a,b) => { return a.name.localeCompare(b.name) })
     }
   }
 };

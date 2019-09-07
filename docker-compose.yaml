@@ -57,6 +57,7 @@ services:
       - "${HTTPD_PORT}:80"
     volumes:
       - "static_files:/usr/share/nginx/html"
+      - "upload_files:/usr/share/nginx/html/uploads"
 
   db:
     image: postgres:11-alpine
@@ -71,10 +72,18 @@ services:
       - "db_files:/data"
     restart: unless-stopped
 
-  # shell:
-  #   image: alpine
-  #   command: ["ping", "database"]
+  upload:
+    # default port: 25478 uploads to /uploads
+    image: "mayth/simple-upload-server"
+    restart: "unless-stopped"
+    command: "/usr/local/bin/app -token secret /home/uploads"
+    volumes:
+      - "upload_files:/home/uploads"
+    ports:
+      - "25478:25478"
+
 
 volumes:
   db_files: {}
   static_files: {}
+  upload_files: {}

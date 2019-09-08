@@ -28,6 +28,8 @@ services:
       - CORS_ORIGIN=${DJANGO_CORS_ORIGIN}
       - FRONTEND_URL=${DJANGO_FRONTEND_URL}
       - BACKEND_URL=${DJANGO_BACKEND_URL}
+      - UPLOAD_SERVER=${DJANGO_UPLOAD_SERVER}
+      - UPLOAD_URL=${DJANGO_UPLOAD_URL}
       - EMAIL_HOST=${DJANGO_EMAIL_HOST}
       - EMAIL_USE_TLS=${DJANGO_EMAIL_USE_TLS}
       - EMAIL_PORT=${DJANGO_EMAIL_PORT}
@@ -73,14 +75,14 @@ services:
     restart: unless-stopped
 
   upload:
-    # default port: 25478 uploads to /uploads
+    # default port: 25478
     image: "mayth/simple-upload-server"
     restart: "unless-stopped"
     command: "/usr/local/bin/app -token secret /home/uploads"
     volumes:
       - "upload_files:/home/uploads"
-    ports:
-      - "25478:25478"
+    # ports:
+    #   - "25478:25478"
 
 
 volumes:

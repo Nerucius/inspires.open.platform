@@ -61,7 +61,7 @@ export default {
     },
 
     logError: async function(context, {message, error}){
-      if (error) error = JSON.stringify(error)
+      if (error) error = JSON.stringify(error).substr(0, 1000)
       else error = "";
       let user = context.rootGetters["user/current"].id
       Vue.http.get(`${API_SERVER}/v1/log-error`, {params:{message, user, error}})

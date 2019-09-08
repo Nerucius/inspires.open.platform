@@ -1,10 +1,11 @@
-<style>
+<style scoped>
   input[type="file"] {
     display: none;
   }
   .custom-file-upload {
     height: auto;
     min-height: 80px;
+    /* padding: 40px 0; */
     cursor: pointer;
   }
 </style>
@@ -16,15 +17,17 @@
       <v-flex xs12 sm6>
         <h4>Upload new Image</h4>
         <label class="mb-3 v-input v-btn v-btn--block custom-file-upload" for="file">
-          <v-icon left>
-            cloud_upload
-          </v-icon>
-          <span v-if="!file">
-            Select a file
-          </span>
-          <span v-else>
-            File "{{ file.name }}" ready to upload
-          </span>
+          <div class="v-btn__content">
+            <v-icon left>
+              cloud_upload
+            </v-icon>
+            <span v-if="!file">
+              Select a file
+            </span>
+            <span v-else>
+              File "{{ file.name }}" ready to upload
+            </span>
+          </div>
         </label>
         <input id="file" ref="file" type="file" @change="handleFileUpload()">
         <v-btn block color="primary" :disabled="file == null" @click="submitFile()">

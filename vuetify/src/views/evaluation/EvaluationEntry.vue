@@ -69,6 +69,25 @@ table th{
       </v-card>
     </v-flex>
 
+    <v-flex xs12 v-if="evaluation.project_phase == 1">
+      <v-card flat>
+        <v-card-text>
+          <h2 class="mb-2">
+            {{ $t('pages.evaluationEntry.selfQuestionnaireTitle') }}
+          </h2>
+          {{ $t('pages.evaluationEntry.selfQuestionnaireDescription') }}
+
+          <p class="text-xs-center">
+            <v-btn large dark color="red" href="https://app.inspiresproject.com/uploads/inspires-self-questionaire.pdf" target="_blank">
+              <v-icon left>mdi-file-pdf</v-icon>
+              {{ $t('actions.download', {name: $t('pages.evaluationEntry.selfQuestionnaireTitle')}) }}
+            </v-btn>
+          </p>
+        </v-card-text>
+        <p></p>
+      </v-card>
+    </v-flex>
+
     <v-flex xs12>
       <v-card flat>
         <v-card-text>

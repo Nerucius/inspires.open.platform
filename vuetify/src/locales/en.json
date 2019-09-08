@@ -172,6 +172,8 @@
     "evaluationEntry":{
       "mainTitle": "Project Evaluation Questionnaire",
       "questionnaire": "Questionnaire",
+      "selfQuestionnaireTitle": "Self-reflection Questionnaire",
+      "selfQuestionnaireDescription": "To aid in the evaluation of the Project, we reccoment checking out the Self-reflection Questionnaire. It contains some thought-provoking questions to get you started. You can download the questionnaire here:",
       "questionnaireDescription": "Questionnaire",
       "questionnaireCompleted": "This questionnaire has already been completed.",
       "evaluationOverview": "Evaluation Overview",
@@ -473,7 +475,9 @@
     "moreInformation": "More Information",
     "manageName": "Manage this {name}",
     "viewPublicPage": "View public page",
-    "exportAllData": "Export all data"
+    "exportAllData": "Export all data",
+    "download": "Download",
+    "downloadName": "Download {name}"
   },
   "states": {
     "enabled": "Enabled",

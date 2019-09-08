@@ -69,7 +69,7 @@ table th{
       </v-card>
     </v-flex>
 
-    <v-flex xs12 v-if="evaluation.project_phase == 1">
+    <v-flex v-if="evaluation.project_phase == 1" xs12>
       <v-card flat>
         <v-card-text>
           <h2 class="mb-2">
@@ -79,12 +79,14 @@ table th{
 
           <p class="text-xs-center">
             <v-btn large dark color="red" href="https://app.inspiresproject.com/uploads/inspires-self-questionaire.pdf" target="_blank">
-              <v-icon left>mdi-file-pdf</v-icon>
-              {{ $t('actions.download', {name: $t('pages.evaluationEntry.selfQuestionnaireTitle')}) }}
+              <v-icon left>
+                mdi-file-pdf
+              </v-icon>
+              {{ $t('actions.downloadName', {name: $t('pages.evaluationEntry.selfQuestionnaireTitle')}) }}
             </v-btn>
           </p>
         </v-card-text>
-        <p></p>
+        <p />
       </v-card>
     </v-flex>
 

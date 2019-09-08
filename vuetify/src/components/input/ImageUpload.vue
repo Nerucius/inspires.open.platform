@@ -3,9 +3,9 @@
     display: none;
   }
   .custom-file-upload {
-    height: auto;
-    min-height: 80px;
-    /* padding: 40px 0; */
+    /* height: auto; */
+    /* min-height: 80px; */
+    padding: 40px 0;
     cursor: pointer;
   }
 </style>

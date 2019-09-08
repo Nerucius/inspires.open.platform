@@ -3,10 +3,14 @@
     display: none;
   }
   .custom-file-upload {
-    /* height: auto; */
-    /* min-height: 80px; */
-    padding: 40px 0;
+    height: auto;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
     cursor: pointer;
+  }
+  .custom-file-upload > * {
+    flex: 0;
   }
 </style>
 
@@ -17,7 +21,7 @@
       <v-flex xs12 sm6>
         <h4>Upload new Image</h4>
         <label class="mb-3 v-input v-btn v-btn--block custom-file-upload" for="file">
-          <div class="v-btn__content">
+          <div>
             <v-icon left>
               cloud_upload
             </v-icon>

@@ -19,7 +19,7 @@
 
     <h3 v-if="!!currentPhase" class="my-4 headline text-xs-center">
       <small>{{ $t('pages.projectManage.currentPhase') }}</small>
-       {{ $t(currentPhase.name) }}
+      {{ $t(currentPhase.name) }}
     </h3>
     <h3 v-else class="my-4 headline text-xs-center">
       {{ $t('pages.projectManage.noCurrentPhase') }}

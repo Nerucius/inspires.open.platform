@@ -54,6 +54,7 @@
       "allProjects": "All Projects",
       "projectsSeeMore": "See all projects"
     },
+
     "about":{
       "mainTitle": "About InSPIRES Open Platform",
       "titleMission": "Our mission",
@@ -67,6 +68,7 @@
       "teamContent": "The development of this Open Platform has been led by the ISGlobal team in deep collaboration with the Data Science and OpenSystems research groups at the Barcelona University. All InSPIRES consortium members have also played an important role in its inception and evolution."
 
     },
+
     "admin":{
       "mainTitle": "Administration Dashboard",
       "unauthorizedAccess": "You are not authorized to access the Administration Dashboard. If you believe you should, please contact a platform administrator.",
@@ -519,6 +521,8 @@
       "resetPasswordSubmitted": "A password reset email has been submitted to the user of this account.",
       "saveSuccess": "Saved successfully!",
       "saveFailure": "Failed to save, try again later",
+      "saveImageSuccess": "Image uploaded successfully!",
+      "saveImageFailure": "Failed to upload image.",
       "projectSaveSuccess": "Project data updated!",
       "projectSaveFailure": "Failed to save the Project, please try again later",
       "structureSaveSuccess": "Structure data updated!",
@@ -574,6 +578,7 @@
       "projectSummary": "A short summary of your project and what it encompasses. Suggested to keep it under 200 characters.",
       "projectAdministrators": "Add here all the people who will have full access to editing the project. Project Administrators can't transwer ownership.",
       "projectAcronym": "Choose a Project Acronym",
+      "structureCountry": "Country where this structure operates mainly",
       "knowledgeArea": "UNESCO Knowledge Area that best defines your project.",
       "summary": "Long-form project description. No character limit.",
       "description": "Long-form project description. No character limit.",

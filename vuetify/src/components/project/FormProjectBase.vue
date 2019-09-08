@@ -5,7 +5,7 @@
     </h2>
 
     <p class="subheading">
-      Define your project information.
+      Fill in basic information related to your Project.
     </p>
 
     <v-text-field
@@ -14,8 +14,8 @@
       :rules="[rules.required]"
       counter="10"
       maxlength="10"
-      :hint="$t('forms.hints.projectAcronym')"
       :label="$t('forms.fields.projectAcronym')"
+      :hint="$t('forms.hints.projectAcronym')"
     />
 
     <v-text-field
@@ -23,8 +23,8 @@
       box
       :rules="[rules.required]"
       counter="50"
-      :hint="$t('forms.hints.projectName')"
       :label="$t('forms.fields.projectName')"
+      :hint="$t('forms.hints.projectName')"
     />
 
     <v-textarea
@@ -32,16 +32,17 @@
       box
       :rules="[rules.required]"
       counter="200"
-      :hint="$t('forms.hints.projectSummary')"
       :label="$t('forms.fields.projectSummary')"
+      :hint="$t('forms.hints.projectSummary')"
     />
 
-    <v-textarea v-if="editedProject.id"
-                v-model="editedProject.description"
-                :label="$t('forms.fields.description')"
-                :hint="$t('forms.hints.description')"
-                box
-                rows="8"
+    <v-textarea
+      v-if="editedProject.id"
+      v-model="editedProject.description"
+      :label="$t('forms.fields.description')"
+      :hint="$t('forms.hints.description')"
+      box
+      rows="8"
     />
 
     <h2 class="mb-2">
@@ -53,21 +54,22 @@
       apply only within the platform.
     </p>
 
-    <v-combobox ref="managersCB"
-                v-model="editedProject.managers"
-                box
-                no-filter
-                :items="userSearch"
-                :rules="[rules.isUser]"
-                :hint="$t('forms.hints.projectAdministrators')"
-                :label="$t('forms.fields.projectAdministrators')"
-                item-text="full_name"
-                item-value="id"
-                multiple
-                chips
-                deletable-chips
-                @update:searchInput="updateUserSearch($event)"
-                @input="clearSearch('managersCB')"
+    <v-combobox
+      ref="managersCB"
+      v-model="editedProject.managers"
+      box
+      no-filter
+      :items="userSearch"
+      :rules="[rules.isUser]"
+      :label="$t('forms.fields.projectAdministrators')"
+      :hint="$t('forms.hints.projectAdministrators')"
+      item-text="full_name"
+      item-value="id"
+      multiple
+      chips
+      deletable-chips
+      @update:searchInput="updateUserSearch($event)"
+      @input="clearSearch('managersCB')"
     />
 
     <!-- Expanded details, only after save -->
@@ -108,14 +110,23 @@
         :hint="$t('forms.hints.projectType')"
       />
 
+      <h3 class="mb-2">
+        Poster Image
+      </h3>
 
-      <v-text-field
+      <ImageUpload
+        v-model="editedProject.image_url"
+        :title="`project-cover-${project.id}`"
+        @change="saveImage($event)"
+      />
+
+      <!-- <v-text-field
         v-model="editedProject.image_url"
         box
         :rules="[rules.isURL]"
         :hint="$t('forms.hints.projectImageURL')"
         :label="$t('forms.fields.projectImageURL')"
-      />
+      /> -->
 
       <h3 class="mb-2">
         Contact Information
@@ -164,10 +175,10 @@
         label="Other social networks"
         hint=""
       />
-
     </template>
 
 
+    <!-- Save button -->
     <v-btn block large color="success"
            :disabled="!valid || processing"
            :loading="processing"
@@ -183,8 +194,11 @@
 import { cloneDeep } from "lodash";
 import { Countries } from '@/plugins/i18n'
 import { regexIsURL, regexIsEmail } from '@/plugins/utils'
+import ImageUpload from "@/components/input/ImageUpload";
 
 export default {
+  components: {ImageUpload},
+
   props: ["project"],
 
   data() {
@@ -257,6 +271,15 @@ export default {
     localizedCountryName(country){
       let locale = this.$i18n.locale
       return country.translations[locale] || country.name
+    },
+
+    saveImage: async function(image_url) {
+      try{
+        await this.$store.dispatch("project/update", {id:this.project.id, image_url})
+        this.$store.dispatch("toast/success", this.$t('forms.toasts.saveImageSuccess'))
+      }catch (error){
+        this.$store.dispatch("toast/error", {message: this.$t('forms.toasts.saveImageFailure'), error})
+      }
     },
 
     attemptSubmit: async function() {

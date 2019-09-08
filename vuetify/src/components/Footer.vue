@@ -4,9 +4,9 @@
       <h1 class="subheading">
         InSPIRES Platform |
         <small>
-        <router-link :to="{name:'about'}">
-          {{ $t('pages.about.mainTitle') }}
-        </router-link>
+          <router-link :to="{name:'about'}">
+            {{ $t('pages.about.mainTitle') }}
+          </router-link>
         </small>
       </h1>
       <br>
@@ -14,15 +14,21 @@
       <v-layout row wrap>
         <v-flex md4 sm6 xs12>
           <p>
-
-            <router-link :to="{name:'terms-of-service'}">{{ $t('pages.legal.termsOfServiceTitle') }}</router-link>
+            <router-link :to="{name:'terms-of-service'}">
+              {{ $t('pages.legal.termsOfServiceTitle') }}
+            </router-link>
             <br>
-            <router-link :to="{name:'legal-notice'}">{{ $t('pages.legal.legalNoticeTitle') }}</router-link>
+            <router-link :to="{name:'legal-notice'}">
+              {{ $t('pages.legal.legalNoticeTitle') }}
+            </router-link>
             <br>
-            <router-link :to="{name:'privacy-policy'}">{{ $t('pages.legal.privacyPolicyTitle') }}</router-link>
+            <router-link :to="{name:'privacy-policy'}">
+              {{ $t('pages.legal.privacyPolicyTitle') }}
+            </router-link>
             <br>
-            <router-link :to="{name:'cookie-policy'}">{{ $t('pages.legal.cookiePolicyTitle') }}</router-link>
-
+            <router-link :to="{name:'cookie-policy'}">
+              {{ $t('pages.legal.cookiePolicyTitle') }}
+            </router-link>
           </p>
         </v-flex>
 
@@ -43,8 +49,6 @@
           </p>
         </v-flex>
       </v-layout>
-
-
     </v-card-text>
   </v-card>
 </template>

@@ -64,7 +64,7 @@
 
         <!-- Project Collaboration Forms -->
         <v-tab-item key="Projects">
-          <v-card flat v-if="dataReady">
+          <v-card v-if="dataReady" flat>
             <v-card-text>
               <v-list two-line>
                 <template v-for="collab in structure.collaborations">
@@ -79,7 +79,7 @@
                     <v-list-tile-content>
                       <v-list-tile-title>
                         <router-link :to="project(collab.project).link">
-                        {{ project(collab.project).name }}
+                          {{ project(collab.project).name }}
                         </router-link>
                       </v-list-tile-title>
                       <v-list-tile-sub-title>
@@ -128,7 +128,7 @@ export default {
 
   metaInfo() {
     return {
-      title: this.$t('actions.manage')
+      title: this.$t('pages.structureManage.title')
     };
   },
 

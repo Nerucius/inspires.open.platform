@@ -1,7 +1,8 @@
 <template>
   <v-form v-if="project" ref="form" v-model="valid">
-    <h2>Associated Intermediation Structure</h2>
-    <p />
+    <h2 class="mb-2">
+      Associated Intermediation Structure
+    </h2>
 
     <p class="subheading">
       Select under which Intermediation Structure your project is established.
@@ -14,8 +15,18 @@
       <v-icon dark>
         info
       </v-icon>
-      The structure has yet to approve your Project before it will be shown in
+      The Structure has yet to approve your Project before it will be shown in
       the website.
+    </v-alert>
+
+    <v-alert color="success"
+             :value="collaboration.is_approved"
+             class="subheading mb-2"
+    >
+      <v-icon dark>
+        info
+      </v-icon>
+      The Structure has approved your Project and is now public on the website.
     </v-alert>
 
     <v-combobox

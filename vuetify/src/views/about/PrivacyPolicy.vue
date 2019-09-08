@@ -3,10 +3,10 @@
     <v-flex xs12>
       <v-card flat>
         <v-card-text>
-
-          <h1 class="mb-2">{{ $t('pages.legal.privacyPolicyTitle') }}</h1>
+          <h1 class="mb-2">
+            {{ $t('pages.legal.privacyPolicyTitle') }}
+          </h1>
           <vue-markdown>{{ $t('pages.legal.privacyPolicy') }}</vue-markdown>
-
         </v-card-text>
       </v-card>
     </v-flex>

@@ -4,40 +4,38 @@
       <v-card class="elevation-12">
         <v-toolbar dense flat dark color="primary">
           <v-toolbar-title>{{ $t('pages.resetPassword.title') }}</v-toolbar-title>
-          <v-spacer/>
+          <v-spacer />
           <v-toolbar-items>
-            <LanguageSelector/>
+            <LanguageSelector />
           </v-toolbar-items>
         </v-toolbar>
 
         <v-card-text>
-
-            <v-alert
-              :value="passwordChanged"
-              type="success"
-              class="my-3"
-            >
-              {{ $t("pages.resetPassword.passwordChanged") }}
-            </v-alert>
+          <v-alert
+            :value="passwordChanged"
+            type="success"
+            class="my-3"
+          >
+            {{ $t("pages.resetPassword.passwordChanged") }}
+          </v-alert>
 
 
           <v-form v-if="!passwordChanged" ref="form" v-model="valid" @submit.prevent="submitResetPassword()">
-
             <p class="subheading my-3">
               {{ $t('pages.resetPassword.introText') }}
             </p>
 
             <v-text-field
-              type="password"
               v-model="credentials.password"
+              type="password"
               :label="$t('forms.fields.password')"
               :rules="[rules.required, rules.minimunLength, rules.passwordValid]"
-              @input="$refs.form.validate()"
               prepend-icon="lock"
+              @input="$refs.form.validate()"
             />
             <v-text-field
-              type="password"
               v-model="credentials.password2"
+              type="password"
               :label="$t('forms.fields.passwordRepeat')"
               :rules="[rules.required, rules.passwordMatch]"
               prepend-icon="lock"
@@ -46,19 +44,23 @@
         </v-card-text>
 
         <v-card-actions>
-          <v-spacer></v-spacer>
+          <v-spacer />
           <v-flex shrink>
             <v-btn
               v-if="!passwordChanged"
               :disabled="!valid"
               color="primary"
               @click="submitResetPassword()"
-            >{{ $t("pages.resetPassword.resetPassword") }}</v-btn>
+            >
+              {{ $t("pages.resetPassword.resetPassword") }}
+            </v-btn>
             <v-btn
               v-else
               color="primary"
               :to="{name:'login'}"
-            >{{ $t("pages.resetPassword.goBackToLogin") }}</v-btn>
+            >
+              {{ $t("pages.resetPassword.goBackToLogin") }}
+            </v-btn>
           </v-flex>
         </v-card-actions>
       </v-card>

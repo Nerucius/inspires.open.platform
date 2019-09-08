@@ -1,6 +1,5 @@
 <template>
   <v-layout row wrap align-content-start>
-
     <v-flex xs12>
       <h1 class="mb-3">
         {{ $t('noums.projects') }}
@@ -12,15 +11,15 @@
       <v-expansion-panel>
         <v-expansion-panel-content>
           <template v-slot:header>
-            <div class="subheading">Want to know more about projects?</div>
+            <div class="subheading">
+              Want to know more about projects?
+            </div>
           </template>
           <v-card class="px-3 py-2">
             <vue-markdown>{{ $t('pages.projectList.introText') }}</vue-markdown>
           </v-card>
         </v-expansion-panel-content>
       </v-expansion-panel>
-
-
     </v-flex>
 
     <v-flex xs12>

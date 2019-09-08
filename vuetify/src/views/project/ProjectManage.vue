@@ -2,6 +2,9 @@
   <v-layout row wrap align-content-start>
     <v-flex xs12 sm6>
       <h1>{{ $t('pages.projectManage.title') }}</h1>
+      <h2 class="text--grey">
+        <small>Project:</small> {{ project.name }}
+      </h2>
     </v-flex>
 
     <v-flex xs12 sm6 class="text-xs-right">
@@ -118,7 +121,7 @@ function tabSlug(fullTabName){
 export default {
   metaInfo() {
     return {
-      title: this.$t('noums.structures')
+      title: this.$t('pages.projectManage.title')
     };
   },
 

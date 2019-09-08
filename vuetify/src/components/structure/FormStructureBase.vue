@@ -5,7 +5,7 @@
     </h2>
 
     <p class="subheading">
-      Basic details about the structure.
+      Fill in basic information related to your Structure.
     </p>
 
     <v-text-field
@@ -14,8 +14,7 @@
       :rules="[rules.required]"
       counter="50"
       label="Structure Name"
-      hint="Choose a name that characterizes your structure.
-                Less than 50 characters suggested."
+      hint="Choose a name that characterizes your structure. Less than 50 characters suggested."
     />
 
     <v-textarea
@@ -42,24 +41,25 @@
       Structure Administrators
     </h2>
     <p class="subheading">
-      Structure managers have full access to the structure and can edit the structure's
+      Structure administrators have full access to the structure and can edit the structure's
       details as well as add and remove managers and participants.
     </p>
 
-    <v-combobox ref="managersCB"
-                v-model="editedStructure.managers"
-                box
-                no-filter
-                :items="userSearch"
-                :rules="[rules.isUser]"
-                label="Structure Managers"
-                item-text="full_name"
-                item-value="id"
-                multiple
-                chips
-                deletable-chips
-                @update:searchInput="updateUserSearch($event)"
-                @input="clearSearch('managersCB')"
+    <v-combobox
+      ref="managersCB"
+      v-model="editedStructure.managers"
+      box
+      no-filter
+      :items="userSearch"
+      :rules="[rules.isUser]"
+      label="Structure Managers"
+      item-text="full_name"
+      item-value="id"
+      multiple
+      chips
+      deletable-chips
+      @update:searchInput="updateUserSearch($event)"
+      @input="clearSearch('managersCB')"
     />
 
     <!-- Expanded details, only after save -->
@@ -108,13 +108,19 @@
       <h3 class="mb-2">
         Poster Image
       </h3>
-      <v-text-field
+      <ImageUpload
+        v-model="editedStructure.image_url"
+        :title="`structure-cover-${structure.id}`"
+        @change="saveImage($event)"
+      />
+
+      <!-- <v-text-field
         v-model="editedStructure.image_url"
         box
         :rules="[rules.isURL]"
         label="URL to an image"
         hint="Shown in listings as well as the structures's page"
-      />
+      /> -->
 
       <h3 class="mb-2">
         Contact Information
@@ -164,6 +170,7 @@
     </template>
 
 
+    <!-- Save button -->
     <v-btn block large color="success"
            :disabled="!valid || processing"
            :loading="processing"
@@ -179,8 +186,11 @@
 import { cloneDeep } from "lodash";
 import { Countries } from '@/plugins/i18n'
 import { regexIsURL,regexIsEmail } from '@/plugins/utils'
+import ImageUpload from "@/components/input/ImageUpload";
 
 export default {
+  components: { ImageUpload },
+
   props: ["structure"],
 
   data() {
@@ -259,6 +269,15 @@ export default {
       loadedStructure.knowledge_areas = (loadedStructure.knowledge_areas || []).map(id => this.knowledgeArea(id))
 
       return loadedStructure
+    },
+
+    saveImage: async function(image_url) {
+      try{
+        await this.$store.dispatch("structure/update", {id:this.structure.id, image_url})
+        this.$store.dispatch("toast/success", this.$t('forms.toasts.saveImageSuccess'))
+      }catch (error){
+        this.$store.dispatch("toast/error", {message: this.$t('forms.toasts.saveImageFailure'), error})
+      }
     },
 
     attemptSubmit: async function() {

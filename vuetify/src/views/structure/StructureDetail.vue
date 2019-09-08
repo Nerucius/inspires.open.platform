@@ -25,7 +25,9 @@
         </v-icon>{{ $t('actions.manageName', {name: $t('noums.structure')}) }}
       </v-btn>
       <v-btn flat outline color="black" @click="exportCSV()">
-        <v-icon left>mdi-database-export</v-icon>
+        <v-icon left>
+          mdi-database-export
+        </v-icon>
         {{ $t('actions.exportAllData') }}
       </v-btn>
     </v-flex>
@@ -53,7 +55,9 @@
           <!-- Contact Social Facebook -->
           <v-list-tile v-if="structure.contact_social_facebook" :href="structure.contact_social_facebook" target="_blank">
             <v-list-tile-avatar>
-              <v-icon size="32" color="#3b5998">mdi-facebook</v-icon>
+              <v-icon size="32" color="#3b5998">
+                mdi-facebook
+              </v-icon>
             </v-list-tile-avatar>
             <v-list-tile-content>
               <v-list-tile-title>
@@ -66,7 +70,9 @@
           <!-- Contact Social Twitter -->
           <v-list-tile v-if="structure.contact_social_twitter" :href="structure.contact_social_twitter" target="_blank">
             <v-list-tile-avatar>
-              <v-icon size="32" color="#38A1F3">mdi-twitter</v-icon>
+              <v-icon size="32" color="#38A1F3">
+                mdi-twitter
+              </v-icon>
             </v-list-tile-avatar>
             <v-list-tile-content>
               <v-list-tile-title>
@@ -79,7 +85,9 @@
           <!-- Contact Social Other -->
           <v-list-tile v-if="structure.contact_social_other" :href="structure.contact_social_other" target="_blank">
             <v-list-tile-avatar>
-              <v-icon size="32">mdi-account-group</v-icon>
+              <v-icon size="32">
+                mdi-account-group
+              </v-icon>
             </v-list-tile-avatar>
             <v-list-tile-content>
               <v-list-tile-title>

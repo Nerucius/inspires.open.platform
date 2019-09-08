@@ -13,7 +13,7 @@ th{
 <template>
   <v-layout v-if="user" row wrap align-content-start>
     <v-flex xs12>
-      <h1> {{user.full_name}} | {{ $t('pages.account.title') }}</h1>
+      <h1> {{ user.full_name }} | {{ $t('pages.account.title') }}</h1>
     </v-flex>
 
     <v-flex v-if="$route.query.newUser" xs12>
@@ -29,7 +29,6 @@ th{
 
     <v-flex xs12>
       <v-card flat>
-
         <v-card-text v-if="!showEditForm">
           <v-layout row wrap>
             <v-flex xs12 sm6>
@@ -44,8 +43,12 @@ th{
                 </tr>
                 <tr>
                   <th>{{ $t('forms.fields.education') }}</th>
-                  <td v-if="user.education_level">{{ $t(`models.educationLevel.${user.education_level.toLowerCase()}`) }}</td>
-                  <td v-else>{{ $t('misc.notSpecified') }}</td>
+                  <td v-if="user.education_level">
+                    {{ $t(`models.educationLevel.${user.education_level.toLowerCase()}`) }}
+                  </td>
+                  <td v-else>
+                    {{ $t('misc.notSpecified') }}
+                  </td>
                 </tr>
                 <tr>
                   <th>{{ $t('forms.fields.institution') }}</th>
@@ -74,7 +77,9 @@ th{
               <!-- Edit Profile Form -->
 
               <v-flex xs12>
-                <b>Avatar Image:</b> To change your avatar image go to <a href="https://en.gravatar.com/">Gravatar</a> and create a new account with the email provided for the platform.
+                <b>Avatar Image:</b> To change your avatar image go to <a href="https://en.gravatar.com/">
+                  Gravatar
+                </a> and create a new account with the email provided for the platform.
               </v-flex>
 
               <v-flex xs12 sm6 py-0>
@@ -122,14 +127,14 @@ th{
         <v-card-actions v-if="isOwnUser" class="px-3 pb-3">
           <v-spacer />
           <v-btn v-if="showEditForm" color="success" class="elevation-0"
-            @click="submitUpdateProfile()">
+                 @click="submitUpdateProfile()"
+          >
             {{ $t('pages.account.saveProfile') }}
           </v-btn>
           <v-btn v-else color="success" class="elevation-0" @click="showEditForm = true">
             {{ $t('pages.account.editProfile') }}
           </v-btn>
         </v-card-actions>
-
       </v-card>
     </v-flex>
 
@@ -137,10 +142,11 @@ th{
 
     <v-flex xs12>
       <v-layout row wrap>
-
         <!-- Own projects -->
         <v-flex xs12 sm6>
-          <h2 class="mb-3">{{ $t('pages.account.myProjects') }}</h2>
+          <h2 class="mb-3">
+            {{ $t('pages.account.myProjects') }}
+          </h2>
 
           <v-card flat>
             <v-card-text>
@@ -174,7 +180,9 @@ th{
 
         <!-- Own structures -->
         <v-flex xs12 sm6>
-          <h2 class="mb-3">{{ $t('pages.account.myStructures') }}</h2>
+          <h2 class="mb-3">
+            {{ $t('pages.account.myStructures') }}
+          </h2>
 
           <v-card flat>
             <v-card-text>

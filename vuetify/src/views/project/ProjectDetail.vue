@@ -47,7 +47,9 @@
         </v-icon>{{ $t('actions.manageName', {name: $t('noums.project')}) }}
       </v-btn>
       <v-btn flat outline color="black" @click="exportCSV()">
-        <v-icon left>mdi-database-export</v-icon>
+        <v-icon left>
+          mdi-database-export
+        </v-icon>
         {{ $t('actions.exportAllData') }}
       </v-btn>
     </v-flex>
@@ -86,7 +88,9 @@
           <!-- Contact Social Facebook -->
           <v-list-tile v-if="project.contact_social_facebook" :href="project.contact_social_facebook" target="_blank">
             <v-list-tile-avatar>
-              <v-icon size="32" color="#3b5998">mdi-facebook</v-icon>
+              <v-icon size="32" color="#3b5998">
+                mdi-facebook
+              </v-icon>
             </v-list-tile-avatar>
             <v-list-tile-content>
               <v-list-tile-title>
@@ -99,7 +103,9 @@
           <!-- Contact Social Twitter -->
           <v-list-tile v-if="project.contact_social_twitter" :href="project.contact_social_twitter" target="_blank">
             <v-list-tile-avatar>
-              <v-icon size="32" color="#38A1F3">mdi-twitter</v-icon>
+              <v-icon size="32" color="#38A1F3">
+                mdi-twitter
+              </v-icon>
             </v-list-tile-avatar>
             <v-list-tile-content>
               <v-list-tile-title>
@@ -112,7 +118,9 @@
           <!-- Contact Social Other -->
           <v-list-tile v-if="project.contact_social_other" :href="project.contact_social_other" target="_blank">
             <v-list-tile-avatar>
-              <v-icon size="32">mdi-account-group</v-icon>
+              <v-icon size="32">
+                mdi-account-group
+              </v-icon>
             </v-list-tile-avatar>
             <v-list-tile-content>
               <v-list-tile-title>
@@ -207,7 +215,7 @@
           <v-card flat>
             <div class="py-1 px-3 text-xs-right">
               <small>
-                {{ $t('misc.lastUpdated', {time: moment(project.modified_at).fromNow()})  }}
+                {{ $t('misc.lastUpdated', {time: moment(project.modified_at).fromNow()}) }}
               </small>
             </div>
             <div class="px-4 pt-4 pb-2 grey lighten-4 subheading" style="font-spacing:110%">

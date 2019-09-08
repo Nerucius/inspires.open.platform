@@ -232,7 +232,6 @@
                             The registration has failed. Your username might be in use.
                           </v-alert>
                         </v-flex>
-
                       </v-layout>
                     </v-sheet>
                   </v-stepper-content>

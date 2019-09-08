@@ -137,17 +137,15 @@ table th{
                 </h3>
 
                 <v-textarea
+                  v-model="answers[qidx]"
                   outline
                   single-line
-                  counter=500
+                  counter="500"
                   auto-grow
-                  rows=4
-                  v-model="answers[qidx]"
+                  rows="4"
                 />
-
               </div>
               <!-- /TEXT Questions -->
-
             </template>
 
 

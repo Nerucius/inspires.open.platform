@@ -11,26 +11,22 @@
 
 
 <template>
-
   <v-snackbar
     v-model="showToast"
     auto-height
     :timeout="0"
-    >
-
+  >
     <p>
-    {{ $t('pages.legal.cookieToast') }}
-    <router-link :to="{name:'cookie-policy'}">
-      {{ $t('actions.moreInformation') }}.
-    </router-link>
+      {{ $t('pages.legal.cookieToast') }}
+      <router-link :to="{name:'cookie-policy'}">
+        {{ $t('actions.moreInformation') }}.
+      </router-link>
     </p>
 
     <v-btn dark color="success" @click="acceptCookies()">
-    {{ $t('actions.accept') }}
+      {{ $t('actions.accept') }}
     </v-btn>
   </v-snackbar>
-
-
 </template>
 
 

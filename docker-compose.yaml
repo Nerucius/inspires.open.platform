@@ -4,19 +4,13 @@
 version: "2"
 
 services:
-  redis:
-    image: "redis:5-alpine"
-    restart: unless-stopped
-    command: redis-server --requirepass 1N5P1R3S_C4CH3
-    ports:
-      - "6379:6379"
-
   django:
     build: "./django"
     depends_on:
       - db
       - redis
       - nginx
+      - upload
     environment:
       - DEBUG=${DJANGO_DEBUG}
       - CACHE_REDIS=${DJANGO_CACHE_REDIS}
@@ -53,6 +47,13 @@ services:
       - "./vuetify/src:/vuetify/src"
       - "static_files:/vuetify/dist"
 
+  redis:
+    image: "redis:5-alpine"
+    restart: unless-stopped
+    command: redis-server --requirepass 1N5P1R3S_C4CH3
+    ports:
+      - "6379:6379"
+
   nginx:
     build: "./nginx"
     ports:
@@ -83,7 +84,6 @@ services:
       - "upload_files:/home/uploads"
     # ports:
     #   - "25478:25478"
-
 
 volumes:
   db_files: {}

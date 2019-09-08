@@ -7,6 +7,7 @@
     min-height: 80px;
     display: flex;
     flex-direction: column;
+    align-items: center;
     cursor: pointer;
   }
   .custom-file-upload > * {

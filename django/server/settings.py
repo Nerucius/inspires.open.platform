@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "backend",
+    "upload",
     "corsheaders",
     "rest_framework",
     "rest_framework.authtoken",
@@ -96,6 +97,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "server.wsgi.application"
 
+# File Upload App
+UPLOAD_SERVER = config("UPLOAD_SERVER", "")
+UPLOAD_URL = config("UPLOAD_URL", "")
 
 # Email Settings
 EMAIL_HOST = config("EMAIL_HOST", None)

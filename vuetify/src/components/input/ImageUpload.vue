@@ -20,27 +20,27 @@
   <div class="mb-3">
     <v-layout col wrap>
       <v-flex xs12 sm6>
-        <h4>Upload new Image</h4>
+        <h4>{{ $t('components.ImageUpload.title') }}</h4>
         <label class="mb-3 v-input v-btn v-btn--block custom-file-upload" for="file">
           <div>
             <v-icon left>
               cloud_upload
             </v-icon>
             <span v-if="!file">
-              Select a file
+              {{ $t('components.ImageUpload.selectFile') }}
             </span>
             <span v-else>
-              File "{{ file.name }}" ready to upload
+              {{ $t('components.ImageUpload.fileReady', {name: file.name}) }}
             </span>
           </div>
         </label>
         <input id="file" ref="file" type="file" @change="handleFileUpload()">
         <v-btn block color="primary" :disabled="file == null" @click="submitFile()">
-          Upload file
+          {{ $t('components.ImageUpload.upload') }}
         </v-btn>
       </v-flex>
       <v-flex xs12 sm6>
-        <h4>Current Image</h4>
+        <h4>{{ $t('components.ImageUpload.currentImage') }}</h4>
         <v-img aspect-ratio="2" :src="imageUrl" />
         <v-text-field
           v-model="imageUrl"

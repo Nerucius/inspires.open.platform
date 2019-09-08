@@ -115,6 +115,10 @@
     },
     "structureManage": {
       "title": "Manage this Structure",
+      "infoTitle": "Structure Details",
+      "infoDescription": "Fill in basic information related to your Structure.",
+      "infoAdministratorsTitle": "Structure Administrators",
+      "infoAdministratorsDescription": "Structure administrators have full access to the structure and can edit the structure's details as well as add and remove managers and participants.",
       "success": "Structure saved successfuly!",
       "failure": "Failed to save the structure. Try again later.",
       "collaborationFailure": "Failed to approve the project. Please try again later.",
@@ -140,6 +144,11 @@
     },
     "projectManage": {
       "title": "Manage this Project",
+      "infoTitle": "Project Details",
+      "infoDescription": "Fill in basic information related to your Project.",
+      "infoContactTitle": "Contact Information",
+      "infoAdditionalTitle": "Additional Information",
+      "infoAdditionalDescription": "Other useful details so that your project is well defined and can be found in searches.",
       "success": "Structure saved successfuly!",
       "failure": "Failed to save the Structure. Try again later.",
       "projectTab": "This Project",
@@ -187,6 +196,15 @@
     },
     "footer":{
       "europeanFundingDisclaimer": "This project has received funding from European Union's Horizon 2020 research and innovation programme under grant agreement No 741677."
+    }
+  },
+  "components":{
+    "ImageUpload":{
+      "title": "Upload new Image",
+      "selectFile": "Select a file",
+      "fileReady": "File \"{name}\" ready to upload",
+      "currentImage": "Current Image",
+      "upload": "Upload file"
     }
   },
   "models": {
@@ -547,15 +565,21 @@
       "description": "Description",
       "participants": "Participants",
       "managers": "Managers",
-      "projectName": "Project Name",
+
+      "structureName": "Structure Name",
+      "structureYearFounded": "Year this Structure was founded",
+      "structureAdministrators": "Structure Administrators",
       "structureCountry": "Structure country of action",
-      "projectCountry": "Project country of action",
-      "projectImageURL": "Project Image URL",
-      "projectSummary": "Project Summary",
+
+      "projectName": "Project Name",
       "projectAcronym": "Project Acronym",
+      "projectType": "Project Type",
+      "projectPhase": "Project Phase",
+      "projectCountry": "Project country of action",
+      "projectAdministrators": "Project Administrators",
+
       "socialNetwork": "Social Network",
       "contactEmail": "Contact Email",
-      "projectAdministrators": "Project Administrators",
       "contactWebsite": "External Website",
       "postalAddress": "Postal Address",
       "username": "Username",
@@ -565,27 +589,38 @@
       "title": "Title",
       "role": "Role",
       "invitationCode": "Invitation Code",
-      "projectPhase": "Project Phase",
-      "projectType": "Project Type",
       "knowledgeArea": "Knowledge Area",
-      "knowledgeAreas": "Knowledge Areas"
+      "knowledgeAreas": "Knowledge Areas",
+      "coverImage": "Cover Image",
+      "_": ""
     },
     "labels":{
       "searchUsers": "Search Users"
     },
+    "descriptions": {
+      "projectAdministrators":"Project administrators have full access to the project and can edit the project's details as well as add and remove other administrators and participants. These permissions apply only within the platform."
+    },
     "hints": {
-      "projectImageURL": "URL to an image that you want shown on your project's page.",
       "contactEmail": "Where should people reach you with questions about the project?",
       "contactWebsite": "URL to an external site where people can see more about your project.",
+
+      "structureName": "Choose a name that characterizes your structure. Less than 50 characters suggested.",
+      "structureSummary": "A short summary of your structure and what it encompasses. Suggested to keep it under 200 characters.",
+      "structureCountry": "Country where this structure operates mainly",
+      "structureAdministrators": "Add here all the people who will have full access to edit the Structure and approve new Projects. Strcture Administrators can't transwer ownership. Administrators are NOT participants.",
+
       "projectType": "How is your project team structured?",
       "projectName": "Choose a name that characterizes your project. Less than 50 characters suggested.",
       "projectSummary": "A short summary of your project and what it encompasses. Suggested to keep it under 200 characters.",
-      "projectAdministrators": "Add here all the people who will have full access to editing the project. Project Administrators can't transwer ownership.",
+      "projectAdministrators": "Add here all the people who will have full access to edit the Project. Project Administrators can't transwer ownership. Administrators are NOT participants.",
       "projectAcronym": "Choose a Project Acronym",
-      "structureCountry": "Country where this structure operates mainly",
+      "projectCountry": "Where is your project established or operating, mainly?",
+
+      "postalAddress": "If someone sent you a letter, where would it be addressed?",
       "knowledgeArea": "UNESCO Knowledge Area that best defines your project.",
+      "knowledgeAreas": "Select all knowledge areas of research under this structure.",
       "summary": "Long-form project description. No character limit.",
-      "description": "Long-form project description. No character limit.",
+      "description": "Long-form description. No character limit. Markdown is available for styling",
       "password": "Your password must be at least 8 characters, not be a common password and not contain your username."
     }
   },

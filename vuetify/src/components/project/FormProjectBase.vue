@@ -1,11 +1,11 @@
 <template>
   <v-form ref="form" v-model="valid">
     <h2 class="mb-2">
-      Project Details
+      {{ $t('pages.projectManage.infoTitle') }}
     </h2>
 
     <p class="subheading">
-      Fill in basic information related to your Project.
+      {{ $t('pages.projectManage.infoDescription') }}
     </p>
 
     <v-text-field
@@ -32,26 +32,24 @@
       box
       :rules="[rules.required]"
       counter="200"
-      :label="$t('forms.fields.projectSummary')"
+      :label="$t('forms.fields.summary')"
       :hint="$t('forms.hints.projectSummary')"
     />
 
     <v-textarea
       v-if="editedProject.id"
       v-model="editedProject.description"
-      :label="$t('forms.fields.description')"
-      :hint="$t('forms.hints.description')"
       box
       rows="8"
+      :label="$t('forms.fields.description')"
+      :hint="$t('forms.hints.description')"
     />
 
     <h2 class="mb-2">
-      Project Administrators
+      {{ $t('forms.fields.projectAdministrators') }}
     </h2>
     <p class="subheading">
-      Project administrators have full access to the project and can edit the project's
-      details as well as add and remove other administrators and participants. These permissions
-      apply only within the platform.
+      {{ $t('forms.descriptions.projectAdministrators') }}
     </p>
 
     <v-combobox
@@ -75,11 +73,11 @@
     <!-- Expanded details, only after save -->
     <template v-if="editedProject.id">
       <h2 class="mb-2">
-        Additional Information
+        {{ $t('pages.projectManage.infoAdditionalTitle') }}
       </h2>
 
       <p class="subheading">
-        Other useful details so that your project is well defined and can be found in searches.
+        {{ $t('pages.projectManage.infoAdditionalDescription') }}
       </p>
 
       <v-select
@@ -111,7 +109,7 @@
       />
 
       <h3 class="mb-2">
-        Poster Image
+        {{ $t('forms.fields.coverImage') }}
       </h3>
 
       <ImageUpload
@@ -120,24 +118,9 @@
         @change="saveImage($event)"
       />
 
-      <!-- <v-text-field
-        v-model="editedProject.image_url"
-        box
-        :rules="[rules.isURL]"
-        :hint="$t('forms.hints.projectImageURL')"
-        :label="$t('forms.fields.projectImageURL')"
-      /> -->
-
       <h3 class="mb-2">
-        Contact Information
+        {{ $t('pages.projectManage.infoContactTitle') }}
       </h3>
-
-      <v-textarea
-        v-model="editedProject.contact_postal_address"
-        box
-        :label="$t('forms.fields.postalAddress')"
-        :hint="$t('forms.hints.postalAddress')"
-      />
 
       <v-text-field
         v-model="editedProject.contact_email"
@@ -153,27 +136,29 @@
         :label="$t('forms.fields.contactWebsite')"
         :hint="$t('forms.hints.contactWebsite')"
       />
-
+      <v-textarea
+        v-model="editedProject.contact_postal_address"
+        box
+        :label="$t('forms.fields.postalAddress')"
+        :hint="$t('forms.hints.postalAddress')"
+      />
       <v-text-field
         v-model="editedProject.contact_social_facebook"
         box
         :rules="[rules.isURL, rules.isFacebook]"
         label="Facebook"
-        hint="Facebook page if applicable"
       />
       <v-text-field
         v-model="editedProject.contact_social_twitter"
         box
         :rules="[rules.isURL, rules.isTwitter]"
         label="Twitter"
-        hint="Twitter page if applicable"
       />
       <v-text-field
         v-model="editedProject.contact_social_other"
         box
         :rules="[rules.isURL]"
-        label="Other social networks"
-        hint=""
+        label="Social Networks"
       />
     </template>
 

@@ -1,11 +1,11 @@
 <template>
   <v-form ref="form" v-model="valid">
     <h2 class="mb-2">
-      Structure Details
+      {{ $t('pages.structureManage.infoTitle') }}
     </h2>
 
     <p class="subheading">
-      Fill in basic information related to your Structure.
+      {{ $t('pages.structureManage.infoDescription') }}
     </p>
 
     <v-text-field
@@ -13,8 +13,8 @@
       box
       :rules="[rules.required]"
       counter="50"
-      label="Structure Name"
-      hint="Choose a name that characterizes your structure. Less than 50 characters suggested."
+      :label="$t('forms.fields.structureName')"
+      :hint="$t('forms.hints.structureName')"
     />
 
     <v-textarea
@@ -22,9 +22,8 @@
       box
       :rules="[rules.required]"
       counter="200"
-      label="Structure Summary"
-      hint="A short summary of your structure and what it encompasses.
-                Suggested to keep it under 200 characters."
+      :label="$t('forms.fields.summary')"
+      :hint="$t('forms.hints.structureSummary')"
     />
 
     <v-textarea
@@ -32,17 +31,15 @@
       v-model="editedStructure.description"
       box
       rows="8"
-      label="Structure Description"
-      hint="A short summary of your structure and what it encompasses.
-                Suggested to keep it under 200 characters."
+      :label="$t('forms.fields.description')"
+      :hint="$t('forms.hints.description')"
     />
 
     <h2 class="mb-2">
-      Structure Administrators
+      {{ $t('pages.structureManage.infoAdministratorsTitle') }}
     </h2>
     <p class="subheading">
-      Structure administrators have full access to the structure and can edit the structure's
-      details as well as add and remove managers and participants.
+      {{ $t('pages.structureManage.infoAdministratorsDescription') }}
     </p>
 
     <v-combobox
@@ -52,7 +49,8 @@
       no-filter
       :items="userSearch"
       :rules="[rules.isUser]"
-      label="Structure Managers"
+      :label="$t('forms.fields.structureAdministrators')"
+      :hint="$t('forms.hints.structureAdministrators')"
       item-text="full_name"
       item-value="id"
       multiple
@@ -65,48 +63,49 @@
     <!-- Expanded details, only after save -->
     <template v-if="editedStructure.id">
       <h2 class="mb-2">
-        Additional Information
+        {{ $t('pages.projectManage.infoAdditionalTitle') }}
       </h2>
 
-      <v-select v-model="editedStructure.country_code"
-                box
-                :items="Countries"
-                :item-text="localizedCountryName"
-                item-value="alpha3Code"
-                :label="$t('forms.fields.structureCountry')"
-                :hint="$t('forms.hints.structureCountry')"
+      <v-select
+        v-model="editedStructure.country_code"
+        box
+        :items="Countries"
+        :item-text="localizedCountryName"
+        item-value="alpha3Code"
+        :label="$t('forms.fields.structureCountry')"
+        :hint="$t('forms.hints.structureCountry')"
       />
 
       <v-text-field
         v-model="editedStructure.year_founded"
         box
-        min="1000"
+        min="500"
         max="2100"
         type="number"
-        label="Year the structure was founded / established"
-        hint="Shown in listings as well as the structures's page."
+        :label="$t('forms.fields.structureYearFounded')"
       />
 
 
       <h3 class="mb-2">
-        Knowledge Areas
+        {{ $t('forms.fields.knowledgeAreas') }}
       </h3>
 
-      <v-combobox v-model="editedStructure.knowledge_areas"
-                  box
-                  label="List of Knowledge Areas"
-                  hint="Select all knowledge areas of research under this structure."
-                  multiple
-                  chips
-                  deletable-chips
-                  :rules="[rules.isKnowledgeArea]"
-                  :items="knowledgeAreas"
-                  :item-text="kaName"
-                  item-value="id"
+      <v-combobox
+        v-model="editedStructure.knowledge_areas"
+        box
+        :label="$t('forms.fields.knowledgeAreas')"
+        :hint="$t('forms.hints.knowledgeAreas')"
+        multiple
+        chips
+        deletable-chips
+        :rules="[rules.isKnowledgeArea]"
+        :items="knowledgeAreas"
+        :item-text="kaName"
+        item-value="id"
       />
 
       <h3 class="mb-2">
-        Poster Image
+        {{ $t('forms.fields.coverImage') }}
       </h3>
       <ImageUpload
         v-model="editedStructure.image_url"
@@ -123,49 +122,46 @@
       /> -->
 
       <h3 class="mb-2">
-        Contact Information
+        {{ $t('pages.projectManage.infoContactTitle') }}
       </h3>
 
       <v-text-field
         v-model="editedStructure.contact_email"
         box
         :rules="[rules.isEmail]"
-        label="Contact Email"
-        hint="Where should people reach you with questions about the structure?"
+        :label="$t('forms.fields.contactEmail')"
+        :hint="$t('forms.hints.contactEmail')"
       />
       <v-text-field
         v-model="editedStructure.contact_website"
         box
         :rules="[rules.isURL]"
-        label="Homepage / Website"
-        hint="Homepage or website of the structure"
+        :label="$t('forms.fields.contactWebsite')"
+        :hint="$t('forms.hints.contactWebsite')"
       />
       <v-textarea
         v-model="editedStructure.contact_postal_address"
         box
-        label="Postal Address"
-        hint="Physical Mailing address for postal mail"
+        :label="$t('forms.fields.postalAddress')"
+        :hint="$t('forms.hints.postalAddress')"
       />
       <v-text-field
         v-model="editedStructure.contact_social_facebook"
         box
-        :rules="[rules.isURL]"
+        :rules="[rules.isURL, rules.isFacebook]"
         label="Facebook"
-        hint="Facebook page if applicable"
       />
       <v-text-field
         v-model="editedStructure.contact_social_twitter"
         box
-        :rules="[rules.isURL]"
+        :rules="[rules.isURL, rules.isTwitter]"
         label="Twitter"
-        hint="Twitter page if applicable"
       />
       <v-text-field
         v-model="editedStructure.contact_social_other"
         box
         :rules="[rules.isURL]"
-        label="Other social networks"
-        hint=""
+        label="Social Networks"
       />
     </template>
 
@@ -210,6 +206,9 @@ export default {
         required: v => !!v || this.$t("forms.rules.requiredField"),
         isUser: v => this.isUser(v) || this.$t("forms.rules.mustBeUser"),
         isURL: v => regexIsURL(v) || this.$t("forms.rules.mustBeURL"),
+        isTwitter: v => !v || v.indexOf('twitter.com') >= 0 || this.$t("forms.rules.mustBeURL"),
+        isFacebook: v => !v || v.indexOf('facebook.com') >= 0 || this.$t("forms.rules.mustBeURL"),
+
         // isEmail: v => regexIsEmail(v) || this.$t("forms.rules.mustBeEmail"),
         // isCountry: v => this.isCountry(v) || this.$t("forms.rules.mustBeCountry"),
         // isKnowledgeArea: v => this.isKnowledgeArea(v) || this.$t("forms.rules.mustBeKnowledgeArea"),

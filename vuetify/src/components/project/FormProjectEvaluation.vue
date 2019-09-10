@@ -39,19 +39,19 @@ table{
           <h3>
             {{ $t(phase.name) }}
           </h3>
-          <v-btn flat
-            v-if="getProjectPhase(phase) && getProjectPhase(phase).is_active"
-            style="flex: 0 0 0"
-            class="my-0"
-            color="success"
+          <v-btn v-if="getProjectPhase(phase) && getProjectPhase(phase).is_active"
+                 flat
+                 style="flex: 0 0 0"
+                 class="my-0"
+                 color="success"
           >
             {{ $t("states.current") }}
           </v-btn>
-          <v-btn flat
-            v-else-if="getProjectPhase(phase)"
-            style="flex: 0 0 0"
-            class="my-0"
-            color="warning"
+          <v-btn v-else-if="getProjectPhase(phase)"
+                 flat
+                 style="flex: 0 0 0"
+                 class="my-0"
+                 color="warning"
           >
             {{ $t("states.inactive") }}
           </v-btn>
@@ -73,7 +73,6 @@ table{
                 {{ $t(roles[participant.role].name) }}
               </v-flex>
               <v-flex xs12 sm6>
-
                 <!-- Send evaluation request -->
                 <v-btn
                   v-if="!getEvaluation(phase, participant) && getProjectPhase(phase)"
@@ -87,9 +86,9 @@ table{
                   <v-flex lg6 sm12 xs6>
                     <!-- Resend request -->
                     <v-btn v-if="getEvaluation(phase, participant)" block outline
-                      color="warning"
-                      class="my-0"
-                      @click="resendEvaluationRequest(getEvaluation(phase, participant))"
+                           color="warning"
+                           class="my-0"
+                           @click="resendEvaluationRequest(getEvaluation(phase, participant))"
                     >
                       {{ $t('pages.projectManage.evalResendRequest') }}
                     </v-btn>
@@ -97,8 +96,8 @@ table{
                   <v-flex lg6 sm12 xs6>
                     <!-- View Evaluation -->
                     <v-btn v-if="getEvaluation(phase, participant)" :outline="!getEvaluation(phase, participant).is_complete" target="_blank" block color="success"
-                          class="my-0"
-                          :to="{name:'evaluation-entry', params:{ slug: getEvaluation(phase, participant).id}}"
+                           class="my-0"
+                           :to="{name:'evaluation-entry', params:{ slug: getEvaluation(phase, participant).id}}"
                     >
                       {{ $t('pages.projectManage.evalViewEvaluation') }}
                       <span v-if="getEvaluation(phase, participant).is_complete">

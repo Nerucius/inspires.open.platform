@@ -39,7 +39,7 @@
 
     <v-flex xs12>
       <!-- Tabulation Menu -->
-      <v-tabs v-model="page.tab" grow >
+      <v-tabs v-model="page.tab" grow>
         <v-tabs-slider color="primary" />
         <v-tab
           v-for="(item,idx) in page.items" :key="item"

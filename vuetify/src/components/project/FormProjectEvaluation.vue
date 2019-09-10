@@ -39,18 +39,18 @@ table{
           <h3>
             {{ $t(phase.name) }}
           </h3>
-          <v-btn
+          <v-btn flat
             v-if="getProjectPhase(phase) && getProjectPhase(phase).is_active"
             style="flex: 0 0 0"
-            class="my-0" outline
+            class="my-0"
             color="success"
           >
             {{ $t("states.current") }}
           </v-btn>
-          <v-btn
+          <v-btn flat
             v-else-if="getProjectPhase(phase)"
             style="flex: 0 0 0"
-            class="my-0" outline
+            class="my-0"
             color="warning"
           >
             {{ $t("states.inactive") }}
@@ -65,28 +65,48 @@ table{
                       class="pb-3"
             >
               <v-flex ma-0 xs6 sm3>
-                {{ user(participant.user).full_name }}
+                <strong>
+                  {{ user(participant.user).full_name }}
+                </strong>
               </v-flex>
               <v-flex xs6 sm3>
                 {{ $t(roles[participant.role].name) }}
               </v-flex>
               <v-flex xs12 sm6>
+
+                <!-- Send evaluation request -->
                 <v-btn
                   v-if="!getEvaluation(phase, participant) && getProjectPhase(phase)"
                   flat
                   block outline class="my-0" @click="sendEvaluationRequest(phase, participant)"
                 >
-                  Send Request for Evaluation
+                  {{ $t('pages.projectManage.evalSendRequest') }}
                 </v-btn>
-                <v-btn v-if="getEvaluation(phase, participant)" target="_blank" block outline color="success"
-                       class="my-0"
-                       :to="{name:'evaluation-entry', params:{ slug: getEvaluation(phase, participant).id}}"
-                >
-                  View Evaluation
-                  <span v-if="getEvaluation(phase, participant).is_complete">
-                    &nbsp; (completed)
-                  </span>
-                </v-btn>
+
+                <v-layout wrap>
+                  <v-flex lg6 sm12 xs6>
+                    <!-- Resend request -->
+                    <v-btn v-if="getEvaluation(phase, participant)" block outline
+                      color="warning"
+                      class="my-0"
+                      @click="resendEvaluationRequest(getEvaluation(phase, participant))"
+                    >
+                      {{ $t('pages.projectManage.evalResendRequest') }}
+                    </v-btn>
+                  </v-flex>
+                  <v-flex lg6 sm12 xs6>
+                    <!-- View Evaluation -->
+                    <v-btn v-if="getEvaluation(phase, participant)" :outline="!getEvaluation(phase, participant).is_complete" target="_blank" block color="success"
+                          class="my-0"
+                          :to="{name:'evaluation-entry', params:{ slug: getEvaluation(phase, participant).id}}"
+                    >
+                      {{ $t('pages.projectManage.evalViewEvaluation') }}
+                      <span v-if="getEvaluation(phase, participant).is_complete">
+                        &nbsp; {{ $t('pages.projectManage.evalComplete') }}
+                      </span>
+                    </v-btn>
+                  </v-flex>
+                </v-layout>
               </v-flex>
               <v-flex xs12 py-1>
                 <v-divider />
@@ -167,20 +187,41 @@ export default {
     },
 
     sendEvaluationRequest: async function(phase, participant) {
-      // TODO: POST new evaluation
-
       try{
         let response = await this.$store.dispatch("evaluation/create",{
           participation: participant.id,
           phase: this.getProjectPhase(phase).id
         })
         this.$store.dispatch("evaluation/loadProject", this.project.id)
-        this.$store.dispatch("toast/success", this.$t('pages.projectManage.evaluationCreateSuccess'))
+        this.$store.dispatch("toast/success", this.$t('pages.projectManage.evaluationSuccess'))
 
       }catch(err){
         console.error(error)
         this.$store.dispatch("toast/error", {
-          message: this.$t('pages.projectManage.evaluationCreateFailure'),
+          message: this.$t('pages.projectManage.evaluationFailure'),
+          error
+        })
+      }
+    },
+
+    resendEvaluationRequest: async function(evaluation) {
+
+      if (!confirm(this.$t('pages.projectManage.evalConfirmResend'))){
+        return;
+      }
+
+      try{
+        let response = await this.$store.dispatch("evaluation/update",{
+          id: evaluation.id,
+          resend_email: true
+        })
+        this.$store.dispatch("evaluation/loadProject", this.project.id)
+        this.$store.dispatch("toast/success", this.$t('pages.projectManage.evaluationSuccess'))
+
+      }catch(error){
+        console.error(error)
+        this.$store.dispatch("toast/error", {
+          message: this.$t('pages.projectManage.evaluationFailure'),
           error
         })
       }

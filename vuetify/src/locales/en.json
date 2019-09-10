@@ -115,6 +115,7 @@
     },
     "structureManage": {
       "title": "Manage this Structure",
+      "infoNotValidated": "This structure has not been validated yet and so will not show up in public lists. Please wait until a platform agent activates this structure.",
       "infoTitle": "Structure Details",
       "infoDescription": "Fill in basic information related to your Structure.",
       "infoAdministratorsTitle": "Structure Administrators",
@@ -172,7 +173,13 @@
       "participantsIntro":"Participants are everyone who will be involved directly in the project. You can add any number of participants, but each participant must have a role within the project. The participant's role will determine the questions they have to answer in the impact evaluation tool.\n\nTo add a participant you can look up users by their full name in the box below.",
       "searchUsers": "Collaboration with structure has been withdrawn.",
       "evaluationSuccess":"Evaluation requested successfuly.",
-      "evaluationFailure":"Failed to send evaluation request. Please try again later."
+      "evaluationFailure":"Failed to send evaluation request. Please try again later.",
+      "evalSendRequest": "Send Request for Evaluation",
+      "evalConfirmResend": "Are you sure you want to re-send an email to this person?",
+      "evalResendRequest": "Re-send email",
+      "evalViewEvaluation": "View Evaluation",
+      "evalComplete": "(completed)",
+      "_": ""
     },
     "evaluationDetail":{
       "projectOverallPosition": "Project Overall Position",
@@ -183,7 +190,7 @@
       "questionnaire": "Questionnaire",
       "selfQuestionnaireTitle": "Self-reflection Questionnaire",
       "selfQuestionnaireDescription": "To aid in the evaluation of the Project, we reccoment checking out the Self-reflection Questionnaire. It contains some thought-provoking questions to get you started. You can download the questionnaire here:",
-      "questionnaireDescription": "Questionnaire",
+      "questionnaireDescription": "Please answer the following questions as honestly as you can. The scale represents a 0 for 'I completely disagree' to 7 for 'I completely agree'. The estimated answer time is 5 minutes.",
       "questionnaireCompleted": "This questionnaire has already been completed.",
       "evaluationOverview": "Evaluation Overview",
       "evaluatedPhase": "Evaluated phase",

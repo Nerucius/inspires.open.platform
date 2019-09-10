@@ -2,7 +2,7 @@ from django.db import models
 from django.dispatch import receiver
 from django.conf import settings
 
-from backend.models import TrackableModel
+from backend.models import TrackableModel, Participation
 
 
 # -----------------------
@@ -115,6 +115,7 @@ class Question(models.Model):
 
 
 class Evaluation(TrackableModel):
+    resend_email = models.BooleanField(default=False)
     participation = models.ForeignKey(
         "Participation", on_delete=models.CASCADE, null=True
     )
@@ -143,11 +144,16 @@ class Evaluation(TrackableModel):
         role_questions = phase_questions.filter(role=self.participation.role)
         return role_questions.all()
 
+    @classmethod
+    def can_create(cls, user, data):
+        participation = Participation.objects.get(pk=data["participation"])
+        return participation.project.can_write(user)
+
     def can_read(self, user):
-        return self.project.can_write(user) or self.participation.user == user
+        return self.project.can_write(user)
 
     def can_write(self, user):
-        return self.participation.user == user
+        return self.project.can_write(user)
 
     def __str__(self):
         return "EVAL [%s:%s] by %s" % (
@@ -166,11 +172,14 @@ def email_new_evaluation(
 ):
     # TODO: Abort on shell scripts and such
 
-    if created and isinstance(instance, Evaluation):
-        from backend import email
+    if isinstance(instance, Evaluation):
+        # Send or resend email
+        if created or instance.resend_email:
+            instance.resend_email = False
+            from backend import email
 
-        email.email_new_evaluation(instance)
-        print("Sent email for new structure")
+            email.email_new_evaluation(instance)
+            print("Sent email for new evaluation")
 
 
 class Answer(models.Model):

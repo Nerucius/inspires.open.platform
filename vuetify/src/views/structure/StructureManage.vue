@@ -3,6 +3,7 @@
     <v-flex xs12 sm6>
       <h1>{{ $t('pages.structureManage.title') }}</h1>
     </v-flex>
+
     <v-flex xs12 sm6 class="text-xs-right">
       <v-btn :to="structure.link" exact outline>
         {{ $t('actions.viewPublicPage') }}
@@ -31,21 +32,18 @@
         <v-icon dark>
           info
         </v-icon>
-        This structure has not been validated yet and so will not show up in public lists.
-        Please wait until a platform agent activates this structure..
+        {{ $t('pages.structureManage.infoNotValidated') }}
       </v-alert>
     </v-flex>
 
 
     <v-flex xs12>
       <!-- Tabulation Menu -->
-      <v-tabs
-        v-model="page.tab"
-        grow
-      >
+      <v-tabs v-model="page.tab" grow >
         <v-tabs-slider color="primary" />
-        <v-tab v-for="(item,idx) in page.items" :key="item"
-               @click="saveTab(idx)"
+        <v-tab
+          v-for="(item,idx) in page.items" :key="item"
+          @click="saveTab(idx)"
         >
           {{ $t(item) }}
         </v-tab>

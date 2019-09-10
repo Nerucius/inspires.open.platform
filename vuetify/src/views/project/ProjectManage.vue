@@ -3,7 +3,7 @@
     <v-flex xs12 sm6>
       <h1>{{ $t('pages.projectManage.title') }}</h1>
       <h2 class="text--grey">
-        <small>Project:</small> {{ project.name }}
+        <small>{{ $t('noums.project') }}:</small> {{ project.name }}
       </h2>
     </v-flex>
 
@@ -13,7 +13,7 @@
       </v-btn>
     </v-flex>
 
-    <!-- DISABLED transfer ownership -->
+    <!-- TODO: Disabled transfer ownership -->
     <v-flex v-if="isOwner && false" xs12>
       <v-card flat>
         <v-card-text>

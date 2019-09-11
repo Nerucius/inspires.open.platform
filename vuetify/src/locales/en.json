@@ -183,7 +183,8 @@
     },
     "evaluationDetail":{
       "projectOverallPosition": "Project Overall Position",
-      "projectEvolution": "Project Evolution"
+      "projectEvolution": "Project Evolution",
+      "commentsByParticipants": "Comments left by participants:"
     },
     "evaluationEntry":{
       "mainTitle": "Project Evaluation Questionnaire",

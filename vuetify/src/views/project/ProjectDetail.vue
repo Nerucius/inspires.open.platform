@@ -233,7 +233,7 @@
           <v-card flat>
             <v-card-text>
               <h2 class="mb-2">
-                Project Evaluation
+                {{ $t('pages.projectDetail.evaluationTab') }}
               </h2>
 
               <template v-if="isParticipant">

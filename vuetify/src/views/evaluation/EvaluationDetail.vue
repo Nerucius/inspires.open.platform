@@ -1,7 +1,32 @@
+<style scoped>
+  .quote > div{
+    border-left: 4px solid lightgray;
+    padding: 4px 0px 2px 12px;
+  }
+</style>
+
 <template>
   <v-layout v-if="project" row wrap align-content-start>
     <v-flex xs12>
       <h1> {{ $t('noums.evaluation') }} | {{ project.name }}</h1>
+    </v-flex>
+
+    <v-flex xs12 v-if="textResponses.length > 0">
+      <v-card>
+        <v-card-text>
+          <h2 class="mb-2">{{ $t('pages.evaluationDetail.commentsByParticipants') }}</h2>
+          <v-sheet :max-height="200" style="overflow-y:auto; overflow-x:hidden">
+            <v-layout ma-0 pa-0 wrap>
+
+              <!-- Single participant quote -->
+              <v-flex class="quote" xs12 md6 xl4 v-for="response in textResponses" :key="response.id">
+                <vue-markdown>{{ response.answer_text }}</vue-markdown>
+              </v-flex>
+
+            </v-layout>
+          </v-sheet>
+        </v-card-text>
+      </v-card>
     </v-flex>
 
     <v-flex xs12>
@@ -194,6 +219,7 @@
         </v-flex>
       </v-layout>
     </v-flex>
+
   </v-layout>
 </template>
 
@@ -221,10 +247,11 @@ export default {
     projectId() {
       return slug2id(this.$route.params.slug);
     },
-    structure() {
-      return this.$store.getters["structure/detail"](
-        this.project.collaboration.structure
-      );
+    evaluations(){
+      return this.$store.getters['evaluation/project'](this.projectId);
+    },
+    textResponses(){
+      return this.$store.getters['evaluation/responses'].filter(r => r.question.length == 5)
     },
     isApprovedProject() {
       return (
@@ -236,15 +263,17 @@ export default {
 
   async created() {
     try {
-      this.$store.dispatch("project/load");
+      // Load project
       await this.$store.dispatch("project/load", [this.projectId]);
       this.project = this.$store.getters["project/detail"](this.projectId);
-      this.$store.dispatch("structure/load", [
-        this.project.collaboration.structure
-      ]);
-    } catch (err) {
-      // TODO: Show error instead
-      this.$router.push("/project-not-found");
+
+      // Load evaluations
+      await this.$store.dispatch("evaluation/loadProject", this.projectId)
+      var evalIds = this.$store.getters['evaluation/project'](this.projectId).map(ev => ev.id);
+      this.$store.dispatch("evaluation/loadResponses", evalIds)
+
+    } catch (error) {
+      this.$store.dispatch("toast/error", {message: "message.error", error})
     }
 
     window.addEventListener("resize", this.onResize);
@@ -282,11 +311,6 @@ export default {
 .title{
   font-size: 100% !important;
   font-weight: bold;
-}
-
-.v-card__text{
-  /* padding: 0px; */
-  /* margin: 20px; */
 }
 
 .vega-embed{

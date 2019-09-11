@@ -1,4 +1,5 @@
 import Vue from "../plugins/resource";
+import { flatten } from "lodash";
 import {
   EvaluationResource,
   ResponsesResource,
@@ -26,6 +27,8 @@ export default {
     projects: {},
 
     itemsDetail: {},
+
+    responses: {},
 
     phases: {
       1: {id:1, name:"models.projectPhase.phase1", tag:"models.projectPhase.phase1Tag"},
@@ -63,6 +66,11 @@ export default {
       let newItems = {}
       items.map(createLink).forEach(i => {newItems[i.id] = i})
       state.itemsDetail = { ...state.itemsDetail, ...newItems }
+    },
+    ADD_RESPONSES(state, items) {
+      let newItems = {}
+      items.map(createLink).forEach(i => {newItems[i.id] = i})
+      state.responses = { ...state.responses, ...newItems }
     },
   },
 
@@ -106,10 +114,17 @@ export default {
       }
     },
 
+    loadResponses: async function (context, evaluationIds=[]) {
+      // Ids provided, get detailed information
+      let items = await Promise.all(evaluationIds.map(id => EvaluationResponsesResource.get({id})))
+      items = items.map(i => i.body.responses)
+      items = flatten(items)
+      context.commit("ADD_RESPONSES", items)
+    },
+
     loadProject: async function(context, projectId){
       let response = (await ProjectEvaluationsResource.get({id:projectId})).body
       let items = response.evaluations
-
       context.commit("SET_PROJECT_EVALS", {projectId, items})
     },
 
@@ -157,5 +172,6 @@ export default {
 
     phases: state => state.phases,
     roles: state => state.roles,
+    responses: state => Object.values(state.responses)
   }
 };

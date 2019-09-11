@@ -218,6 +218,12 @@ class Response(TrackableModel):
         evaluation = Evaluation.objects.get(pk=data["evaluation"])
         return evaluation.participation.user == user
 
+    def can_read(self, user):
+        return (
+            self.evaluation.participation.user == user
+            or self.evaluation.participation.project.can_write(user)
+        )
+
     def can_write(self, user):
         return self.evaluation.participation.user == user
 

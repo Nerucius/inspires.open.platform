@@ -16,7 +16,7 @@ th{
       <h1> {{ user.full_name }} | {{ $t('pages.account.title') }}</h1>
     </v-flex>
 
-    <v-flex v-if="$route.query.newUser" xs12>
+    <v-flex v-if="$route.query.welcome" xs12>
       <v-alert color="success" :value="true" class="subheading">
         <v-icon dark>
           check

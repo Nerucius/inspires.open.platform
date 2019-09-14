@@ -536,6 +536,7 @@
       "passwordMatch": "The two passwords do not match",
       "maximunLength": "Must be at most {length} characters long",
       "minimunLength": "Must be at least {length} characters long",
+      "usernameInUse": "This username is already in use, please choose a different one.",
       "namedRequiredField": "{name} is a required field",
       "mustBeStructure": "Please enter a valid Structure",
       "mustBeUser": "Please enter a valid list of Users",
@@ -611,6 +612,8 @@
     "hints": {
       "contactEmail": "Where should people reach you with questions about the project?",
       "contactWebsite": "URL to an external site where people can see more about your project.",
+
+      "username": "Enter your login user name. A good choice is firstname.lastname (i.e. john.doe)",
 
       "structureName": "Choose a name that characterizes your structure. Less than 50 characters suggested.",
       "structureSummary": "A short summary of your structure and what it encompasses. Suggested to keep it under 200 characters.",

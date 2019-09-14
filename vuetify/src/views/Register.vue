@@ -68,7 +68,7 @@
                               v-model="user.username"
                               :label="$t('forms.fields.username')"
                               :hint="$t('forms.hints.username')"
-                              :rules="[rules.required, rules.minimunLength6]"
+                              :rules="[rules.required, rules.minimunLength6, rules.unusedUsername]"
                               prepend-icon="person"
                               type="text"
                             />
@@ -291,6 +291,7 @@ export default {
       user: {},
       rules: {
         required: v => !!v || this.$t("forms.rules.requiredField"),
+        unusedUsername: v => this.isUsernameFree(v) || this.$t('forms.rules.usernameInUse'),
         minimunLength6: v => (v||"").length >= 6 || this.$t("forms.rules.minimunLength", {'length':6}),
         minimunLength: v => (v||"").length >= 8 || this.$t("forms.rules.minimunLength", {'length':8}),
         passwordValid: v => this.isValidPassword(v) || this.$t("forms.rules.passwordField"),
@@ -301,7 +302,7 @@ export default {
   },
 
   mounted(){
-    this.$store.dispatch("user/logout")
+    this.$store.dispatch('user/logout')
   },
 
   methods: {
@@ -315,7 +316,7 @@ export default {
           username: newUser.username,
           password: newUser.password
         })
-        this.$router.push({ name: 'account', query: { newUser: true } })
+        this.$router.push({ name: 'account', query: { welcome: true } })
 
       } catch(error){
         this.$store.dispatch("toast/error", {
@@ -324,6 +325,11 @@ export default {
         })
         this.failedRegistration = true
       }
+    },
+
+    isUsernameFree(username){
+      let allUsers = this.$store.getters['user/all']
+      return allUsers.filter(u => u.username == username).length == 0
     },
 
     isEmail(value=""){

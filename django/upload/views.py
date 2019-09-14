@@ -46,7 +46,6 @@ class UploadFileView(View):
         response_data = json.loads(response.content)
         if "ok" in response_data and response_data["ok"] == True:
             file_url = "%s/%s" % (settings.UPLOAD_URL, filename)
-            print(file_url)
             return _r({"url": file_url})
 
         # Return error response

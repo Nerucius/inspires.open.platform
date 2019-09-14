@@ -101,9 +101,6 @@ def update_trackable(sender, instance, raw, using, update_fields, **kwargs):
         if not request_user or isinstance(request_user, AnonymousUser):
             return
 
-        if settings.DEBUG:
-            print("Tracked model %s by %s" % (sender, request_user.username))
-
         # If we are editing a user, set the owner to itself
         if sender.__name__ == "User":
             instance.owner = instance

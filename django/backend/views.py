@@ -110,7 +110,6 @@ def logout(request):
 
 def register(request):
     userdata = request.POST
-    # print(userdata)
     try:
         # invitation = userdata["invitation"]
         # assert invitation == "join-inspires-2019", "000 Invitation code does not match"

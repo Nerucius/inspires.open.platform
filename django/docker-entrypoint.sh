@@ -9,13 +9,14 @@ python manage.py migrate
 python manage.py collectstatic --no-input
 # Load necessary fixtures
 echo "Loading Fixtures..."
-# python manage.py loaddata auth-group TODO: BROKEN
-python manage.py loaddata auth-user
-python manage.py loaddata eval-answer
-python manage.py loaddata eval-question
-python manage.py loaddata knowledgearea
-python manage.py loaddata participationrole
-python manage.py loaddata projectphase
+# python manage.py loaddata auth.permission TODO: BROKEN
+# python manage.py loaddata auth.group TODO: BROKEN
+python manage.py loaddata backend.user
+python manage.py loaddata backend.answer
+python manage.py loaddata backend.question
+python manage.py loaddata backend.knowledgearea
+python manage.py loaddata backend.participationrole
+python manage.py loaddata backend.projectphase
 
 # Start Server
 uwsgi --ini uwsgi.ini

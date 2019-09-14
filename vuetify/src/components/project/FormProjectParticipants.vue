@@ -182,7 +182,12 @@ export default {
       if( confirm(this.$t('dialog.confirm.participationDeletion')) ) {
         // Delete only if participation was saved
         if(!!user.partId){
-          this.$store.dispatch("participation/delete", user.partId)
+          try{
+            await this.$store.dispatch("participation/delete", user.partId)
+            this.$store.dispatch("toast/success", this.$t('forms.toasts.saveSuccess'))
+          }catch(error){
+            this.$store.dispatch("toast/error", {error, message:this.$t('forms.toasts.saveFailure')})
+          }
         }
 
         this.participants = this.participants.filter(u => u.id != user.id)

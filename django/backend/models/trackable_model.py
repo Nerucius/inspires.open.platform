@@ -4,6 +4,8 @@ from django.db import models
 from django.dispatch import receiver
 from django.conf import settings
 from django.contrib.auth.models import AnonymousUser
+from django.contrib.contenttypes.models import ContentType
+from django.contrib.admin.models import LogEntry, ADDITION, CHANGE, DELETION
 
 from hashlib import md5
 
@@ -71,12 +73,30 @@ def get_current_request_user():
     return None
 
 
-@receiver(models.signals.pre_save)
-def update_trackable(sender, instance, raw, using, update_fields, **kwargs):
+@receiver(models.signals.pre_delete)
+def delete_trackable(sender, instance, using, **kwargs):
     is_trackable = hasattr(sender, "is_trackable")
     if is_trackable:
 
-        # Abort on shell scripts and such
+        request_user = get_current_request_user()
+        if not request_user or isinstance(request_user, AnonymousUser):
+            return
+
+        LogEntry.objects.log_action(
+            user_id=request_user.id,
+            content_type_id=ContentType.objects.get_for_model(instance).pk,
+            object_id=instance.id,
+            object_repr=str(instance),
+            action_flag=DELETION,
+            change_message="TrackableModel Deleted",
+        )
+
+
+@receiver(models.signals.pre_save)
+def update_trackable(sender, instance, raw, using, update_fields, **kwargs):
+    is_trackable = hasattr(sender, "is_trackable")
+    if is_trackable and not raw:
+
         request_user = get_current_request_user()
         if not request_user or isinstance(request_user, AnonymousUser):
             return
@@ -93,3 +113,24 @@ def update_trackable(sender, instance, raw, using, update_fields, **kwargs):
             instance.owner = request_user
         else:
             instance.modified_by = request_user
+
+
+@receiver(models.signals.post_save)
+def save_trackable(sender, instance, created, raw, using, update_fields, **kwargs):
+    is_trackable = hasattr(sender, "is_trackable")
+
+    if is_trackable and not raw:
+
+        request_user = get_current_request_user()
+        if not request_user or isinstance(request_user, AnonymousUser):
+            return
+
+        # Log Action
+        LogEntry.objects.log_action(
+            user_id=request_user.id,
+            content_type_id=ContentType.objects.get_for_model(instance).pk,
+            object_id=instance.id,
+            object_repr=str(instance),
+            action_flag=(ADDITION if created else CHANGE),
+            change_message="TrackableModel %s" % ("Created" if created else "Changed"),
+        )

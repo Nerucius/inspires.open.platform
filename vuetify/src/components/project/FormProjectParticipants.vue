@@ -56,7 +56,7 @@
                 box
                 :label="$t('forms.labels.searchUsers')"
                 :items="userSearch"
-                item-text="full_name"
+                item-text="form_name"
                 item-value="id"
                 @update:searchInput="updateUserSearch($event)"
                 @change="addParticipant($event); clearSearch()"

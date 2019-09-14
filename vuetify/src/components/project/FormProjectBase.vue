@@ -61,7 +61,7 @@
       :rules="[rules.isUser]"
       :label="$t('forms.fields.projectAdministrators')"
       :hint="$t('forms.hints.projectAdministrators')"
-      item-text="full_name"
+      item-text="form_name"
       item-value="id"
       multiple
       chips

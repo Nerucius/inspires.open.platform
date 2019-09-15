@@ -173,7 +173,7 @@ else:
             "NAME": "django",  # database name
             "USER": "postgres",
             "PASSWORD": "postgres",
-            "HOST": "db",  # set in docker-compose.yml
+            "HOST": config("DB_HOST", "db"),  # set in docker-compose.yml
             "PORT": 5432,  # default postgres port
         }
     }

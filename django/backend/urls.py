@@ -29,6 +29,7 @@ urlpatterns = [
     path("user/resetpassword/", views.reset_password),
     path("user/resetpasswordsubmit/", views.reset_password_submit),
     path("v1/log-error", views.log_error),
+    path("v1/search", views.search),
     path("v1/emailpreview", views.email_preview, name="email_preview"),
     path("v1/", include(routers.router.urls)),
     path("v1/csv/", include(urls_csv)),

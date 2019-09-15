@@ -4,9 +4,12 @@ from django.http.response import HttpResponseBadRequest, HttpResponse
 
 from rest_framework import viewsets
 from rest_framework.response import Response
+from rest_framework.renderers import JSONRenderer
 from rest_framework.views import APIView
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.authtoken.views import ObtainAuthToken
+
+from django.contrib.postgres.search import SearchVector
 
 import json
 import datetime
@@ -40,6 +43,38 @@ def csrf_token(request):
     return HttpResponse(
         json.dumps({"csrf_token": token}), content_type="application/json"
     )
+
+
+def search(request):
+    term = request.GET.get("term", None)
+    if not term or len(term) < 4:
+        return HttpResponseBadRequest("missing required parameter: term (min: 4 characters)")
+
+    projects = models.Project.objects.filter(name__contains=term)
+    projects |= models.Project.objects.filter(summary__contains=term)
+    projects |= models.Project.objects.filter(
+        collaboration__structure__name__contains=term
+    )
+    structures = models.Structure.objects.filter(name__contains=term)
+    structures |= models.Structure.objects.filter(summary__contains=term)
+
+    objects = []
+    objects += projects
+    objects += structures
+
+    data = []
+
+    for obj in objects:
+        if isinstance(obj, models.Project):
+            obj_data = serializers.SimpleProjectSerializer(obj).data
+            obj_data["_type"] = "Project"
+        if isinstance(obj, models.Structure):
+            obj_data = serializers.SimpleStructureSerializer(obj).data
+            obj_data["_type"] = "Structure"
+        data += [obj_data]
+
+    response = JSONRenderer().render({"count": len(data), "data": data})
+    return HttpResponse(response)
 
 
 def log_error(request):

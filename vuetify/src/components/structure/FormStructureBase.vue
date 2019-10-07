@@ -67,6 +67,16 @@
       </h2>
 
       <v-select
+        v-model="editedStructure.structure_type"
+        box
+        :items="$store.getters['structure/structureTypes']"
+        :item-text="e => $t(e.name)"
+        :label="$t('forms.fields.structureType')"
+        :hint="$t('forms.hints.structureType')"
+      />
+
+
+      <v-select
         v-model="editedStructure.country_code"
         box
         :items="Countries"

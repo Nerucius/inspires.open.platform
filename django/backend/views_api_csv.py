@@ -170,6 +170,10 @@ def _get_df_responses_all(answer_type):
     return all_responses
 
 
+def _newline_to_br(text):
+    return text.replace("\r\n", "\n").replace("\r", "\n").replace("\n", "<br/> ")
+
+
 def _structures_to_csv_lines(structures):
     lines = []
     for structure in structures:
@@ -181,8 +185,8 @@ def _structures_to_csv_lines(structures):
             structure.name,
             structure.structure_type,
             structure.country_code,
-            structure.summary.replace("\n", "<br/>"),
-            structure.description.replace("\n", "<br/>"),
+            _newline_to_br(structure.summary),
+            _newline_to_br(structure.description),
             knowledge_areas,
         ]
         lines += [CSV_COLUMN_SEPARATOR.join(line)]
@@ -223,8 +227,8 @@ def _projects_to_csv_lines(projects):
             project.project_type,
             knowledge_area,
             project.country_code,
-            project.summary.replace("\n", "<br/>"),
-            project.description.replace("\n", "<br/>"),
+            _newline_to_br(project.summary),
+            _newline_to_br(project.description),
             project_phase,
             project.contact_website,
             participants,

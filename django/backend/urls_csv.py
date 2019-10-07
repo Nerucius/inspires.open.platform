@@ -23,4 +23,8 @@ urlpatterns = [
         "export/<int:project>/project_summary.csv",
         views.CSVProjectSummaryExport.as_view(),
     ),
+    path("export/all_own_projects.csv", views.CSVAllOwnProjectsExport.as_view()),
+    path("export/all_own_structures.csv", views.CSVAllOwnStructresExport.as_view()),
+    path("export/admin/all_projects.csv", views.CSVAdminAllProjects.as_view()),
+    path("export/admin/all_structures.csv", views.CSVAdminAllStructures.as_view()),
 ]

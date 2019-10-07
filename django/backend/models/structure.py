@@ -6,21 +6,28 @@ from backend.models import TrackableModel, User
 
 class Structure(TrackableModel):
 
+    TYPE_ACADEMIC_RESEARCH = "ACADEMIC_RESEARCH"
+    TYPE_CIVIL_SOCIETY_ORG = "CIVIL_SOCIETY_ORG"
+    TYPE_NGO_NON_PROFIT = "NGO_NON_PROFIT"
+    TYPE_COMPANY = "COMPANY"
+    TYPE_GOVERNMENT_ORG = "GOVERNMENT_ORG"
+    TYPE_OTHER = "OTHER"
+
+    TYPES = [
+        (TYPE_ACADEMIC_RESEARCH, "Academic and/or Research"),
+        (TYPE_CIVIL_SOCIETY_ORG, "Civil Society Association"),
+        (TYPE_NGO_NON_PROFIT, "NGO and Non-Profit"),
+        (TYPE_COMPANY, "Company or For-Profit"),
+        (TYPE_GOVERNMENT_ORG, "Governmental Entity"),
+        (TYPE_OTHER, "Other"),
+    ]
+
     managers = models.ManyToManyField(
         User,
         blank=True,
         related_name="managed_structures",
         related_query_name="managed_structure",
     )
-
-    # validation = models.OneToOneField(
-    #     "StructureValidation",
-    #     related_name="structure",
-    #     related_query_name="structure",
-    #     on_delete=models.SET_NULL,
-    #     blank=True,
-    #     null=True,
-    # )
 
     name = models.CharField(max_length=254, unique=True)
     summary = models.TextField()
@@ -30,10 +37,7 @@ class Structure(TrackableModel):
     description = models.TextField(blank=True)
 
     knowledge_areas = models.ManyToManyField("KnowledgeArea", blank=True)
-
-    # TODO: Define if should be choice fields or foreign keys
-    # structure_type = models.CharField(max_length=254)
-    # structure_research_type = models.CharField(max_length=254)
+    structure_type = models.CharField(max_length=254, blank=True, choices=TYPES)
 
     # TODO: this will have to be like the form for "participants"
     # funding = models.ManyToManyField("Funding")

@@ -52,7 +52,6 @@ class ProjectSerializer(TrackableModelSerializer):
     class Meta:
         model = models.Project
         fields = "__all__"
-        # fields = ["collaboration", "participants", "managers", "keywords"]
 
 
 class ProjectEvaluationsSerializer(TrackableModelSerializer):

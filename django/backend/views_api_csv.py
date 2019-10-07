@@ -17,6 +17,9 @@ PHASE_TITLES = ["Phase 1", "Phase 2", "Phase 3", "Phase 4"]
 QUANT = [0, 0.25, 0.50, 0.75, 1]
 QUANT_TITLES = ["MIN", "Q1", "Q2", "Q3", "MAX"]
 
+CSV_LINE_SEPARATOR = "\n"
+CSV_COLUMN_SEPARATOR = "|"
+
 
 def _token_header(request):
     try:
@@ -165,6 +168,83 @@ def _get_df_responses_all(answer_type):
     del all_responses["index"]
 
     return all_responses
+
+
+def _structures_to_csv_lines(structures):
+    lines = []
+    for structure in structures:
+        knowledge_areas = ";".join(
+            [ka.name.split(".")[-1].upper() for ka in structure.knowledge_areas.all()]
+        )
+
+        line = [
+            structure.name,
+            structure.structure_type,
+            structure.country_code,
+            structure.summary.replace("\n", "<br/>"),
+            structure.description.replace("\n", "<br/>"),
+            knowledge_areas,
+        ]
+        lines += [CSV_COLUMN_SEPARATOR.join(line)]
+
+    headers = CSV_COLUMN_SEPARATOR.join(
+        [
+            "name",
+            "structure_type",
+            "country_code",
+            "summary",
+            "description",
+            "knowledge_areas",
+        ]
+    )
+    return CSV_LINE_SEPARATOR.join([headers] + lines)
+
+
+def _projects_to_csv_lines(projects):
+    lines = []
+    for project in projects:
+
+        knowledge_area = (
+            project.knowledge_area.name.split(".")[-1].upper()
+            if project.knowledge_area
+            else ""
+        )
+        pap = project.phases.filter(projectatphase__is_active=True).first()
+        project_phase = str(pap) if pap else ""
+        participants = ";".join(
+            [
+                "%s (%s)" % (p.user.full_name, p.role)
+                for p in project.participation_set.all()
+            ]
+        )
+
+        line = [
+            project.name,
+            project.project_type,
+            knowledge_area,
+            project.country_code,
+            project.summary.replace("\n", "<br/>"),
+            project.description.replace("\n", "<br/>"),
+            project_phase,
+            project.contact_website,
+            participants,
+        ]
+        lines += [CSV_COLUMN_SEPARATOR.join(line)]
+
+    headers = CSV_COLUMN_SEPARATOR.join(
+        [
+            "name",
+            "project_type",
+            "knowledge_area",
+            "country_code",
+            "summary",
+            "description",
+            "current_phase",
+            "contact_website",
+            "participants",
+        ]
+    )
+    return CSV_LINE_SEPARATOR.join([headers] + lines)
 
 
 class CSVCachedAuthorizedView(View):
@@ -497,10 +577,55 @@ class CSVProjectSummaryExport(CSVCachedAuthorizedView):
         for part in project.participation_set.all():
             role_name = part.role.name.split(".")[-1]
             line = [project.name, role_name, part.user.full_name]
-            export += [",".join(line)]
+            export += [CSV_COLUMN_SEPARATOR.join(line)]
 
-        headers = ",".join(["Project", "Role", "User"])
-        return "\n".join([headers] + export)
+        headers = CSV_COLUMN_SEPARATOR.join(["Project", "Role", "User"])
+        return CSV_LINE_SEPARATOR.join([headers] + export)
+
+
+class CSVAllOwnProjectsExport(CSVCachedAuthorizedView):
+    cache_key = None
+
+    def _get_content(self, request, *args, **kwargs):
+        all_projects = user.owned_projects.all()
+        all_projects |= user.managed_projects.all()
+        all_projects |= user.researched_projects.all()
+        all_projects = set(all_projects)
+
+        return _projects_to_csv_lines(all_projects)
+
+
+class CSVAllOwnStructresExport(CSVCachedAuthorizedView):
+    cache_key = None
+
+    def _get_content(self, request, *args, **kwargs):
+        all_structures = user.owned_structures.all()
+        all_structures |= user.managed_structures.all()
+        all_structures = set(all_structures)
+
+        return _structures_to_csv_lines(all_structures)
+
+
+class CSVAdminAllProjects(CSVCachedAuthorizedView):
+    cache_key = None
+
+    def _get_content(self, request, *args, **kwargs):
+        if not request.user.is_administrator:
+            raise Exception("Must be administrator")
+
+        all_projects = Project.objects.all()
+        return _projects_to_csv_lines(all_projects)
+
+
+class CSVAdminAllStructures(CSVCachedAuthorizedView):
+    cache_key = None
+
+    def _get_content(self, request, *args, **kwargs):
+        if not request.user.is_administrator:
+            raise Exception("Must be administrator")
+
+        all_structures = Structure.objects.all()
+        return _structures_to_csv_lines(all_structures)
 
 
 # =========================================

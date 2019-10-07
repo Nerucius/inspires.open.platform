@@ -68,7 +68,7 @@
                               v-model="user.username"
                               :label="$t('forms.fields.username')"
                               :hint="$t('forms.hints.username')"
-                              :rules="[rules.required, rules.minimunLength6, rules.unusedUsername]"
+                              :rules="[rules.required, rules.minimunLength6, rules.unusedUsername, rules.validUsername]"
                               prepend-icon="person"
                               type="text"
                             />
@@ -291,6 +291,7 @@ export default {
       user: {},
       rules: {
         required: v => !!v || this.$t("forms.rules.requiredField"),
+        validUsername: v => this.isValidUsername(v) || this.$t('forms.rules.invalidUsername'),
         unusedUsername: v => this.isUsernameFree(v) || this.$t('forms.rules.usernameInUse'),
         minimunLength6: v => (v||"").length >= 6 || this.$t("forms.rules.minimunLength", {'length':6}),
         minimunLength: v => (v||"").length >= 8 || this.$t("forms.rules.minimunLength", {'length':8}),
@@ -325,6 +326,10 @@ export default {
         })
         this.failedRegistration = true
       }
+    },
+
+    isValidUsername(username){
+      return /^[a-zA-Z0-9@\.\+\-_]{6,32}$/.test(username)
     },
 
     isUsernameFree(username){

@@ -538,6 +538,7 @@
       "login": "Log In"
     },
     "rules": {
+      "invalidUsername": "This username is not valid",
       "requiredField": "This is a required field",
       "passwordField": "The password you entered is not valid",
       "passwordMatch": "The two passwords do not match",

@@ -247,6 +247,13 @@
       "policyInnovation": "Policy Innovation",
       "other": "Other"
     },
+    "structureType": {
+      "academicResearcg": "Academic and/or Research",
+      "civilSocietyOrg": "Civil Society Association",
+      "ngoNonPofit": "NGO and Non-Profit",
+      "companyForProfit": "Company or For-Profit",
+      "governmentOrg": "Governmental Entity"
+    },
     "projectPhase": {
       "phase": "Phase",
       "phase1": "Phase 1: Project Kick-off and Expectations",
@@ -548,6 +555,7 @@
       "invalidCredentials": "Invalid credentials, please verify your username and password."
     },
     "toasts": {
+      "uploadError": "There was an error uploading your file",
       "loggedOut": "You have been logged out",
       "resetPasswordSubmitted": "A password reset email has been submitted to the user of this account.",
       "saveSuccess": "Saved successfully!",
@@ -576,6 +584,7 @@
       "managers": "Managers",
 
       "structureName": "Structure Name",
+      "structureType": "Structure Type",
       "structureYearFounded": "Year this Structure was founded",
       "structureAdministrators": "Structure Administrators",
       "structureCountry": "Structure country of action",

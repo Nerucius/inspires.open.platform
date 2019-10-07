@@ -182,6 +182,7 @@ def _structures_to_csv_lines(structures):
         )
 
         line = [
+            str(structure.id),
             structure.name,
             structure.structure_type,
             structure.country_code,
@@ -193,6 +194,7 @@ def _structures_to_csv_lines(structures):
 
     headers = CSV_COLUMN_SEPARATOR.join(
         [
+            "id",
             "name",
             "structure_type",
             "country_code",
@@ -223,6 +225,9 @@ def _projects_to_csv_lines(projects):
         )
 
         line = [
+            str(project.structure.id) if project.structure else "",
+            project.structure.name if project.structure else "",
+            str(project.id),
             project.name,
             project.project_type,
             knowledge_area,
@@ -237,6 +242,9 @@ def _projects_to_csv_lines(projects):
 
     headers = CSV_COLUMN_SEPARATOR.join(
         [
+            "structure_id",
+            "structure",
+            "id",
             "name",
             "project_type",
             "knowledge_area",

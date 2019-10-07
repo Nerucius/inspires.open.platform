@@ -19,7 +19,7 @@ export default {
     itemsDetail: {},
 
     projectTypes: [
-      {value:"", name:"misc.notSpecified"},
+      {value:"",                                name: "misc.notSpecified"},
       {value:"RESEARCH",                        name: "models.projectType.research"},
       {value:"PARTICIPATORY_RESEARCH",          name: "models.projectType.participatoryResearch"},
       {value:"PARTICIPATORY_ACTION_RESEARCH",   name: "models.projectType.participatoryActionResearch"},

@@ -432,7 +432,6 @@ export default {
               window.URL.revokeObjectURL(url);
           }, 0);
       }
-
     },
   }
 };

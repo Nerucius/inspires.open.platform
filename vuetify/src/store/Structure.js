@@ -17,6 +17,16 @@ export default {
   state: {
     items: {},
     itemsDetail: {},
+
+    structureTypes: [
+      {value:"",                            name: "misc.notSpecified"},
+      {value:"ACADEMIC_RESEARCH",           name: "models.structureType.academicResearcg"},
+      {value:"CIVIL_SOCIETY_ORG",           name: "models.structureType.civilSocietyOrg"},
+      {value:"NGO_NON_PROFIT",              name: "models.structureType.ngoNonPofit"},
+      {value:"COMPANY",                     name: "models.structureType.companyForProfit"},
+      {value:"GOVERNMENT_ORG",              name: "models.structureType.governmentOrg"},
+      {value:"OTHER",                       name: "models.projectType.other"},
+    ],
   },
 
   mutations: {
@@ -112,5 +122,7 @@ export default {
     detail: state =>{
       return ( id ) => state.itemsDetail[id] || {}
     },
+
+    structureTypes : state => state.structureTypes,
   }
 };

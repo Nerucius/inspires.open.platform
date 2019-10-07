@@ -11,18 +11,18 @@
       <h1> {{ $t('noums.evaluation') }} | {{ project.name }}</h1>
     </v-flex>
 
-    <v-flex xs12 v-if="textResponses.length > 0">
+    <v-flex v-if="textResponses.length > 0" xs12>
       <v-card>
         <v-card-text>
-          <h2 class="mb-2">{{ $t('pages.evaluationDetail.commentsByParticipants') }}</h2>
+          <h2 class="mb-2">
+            {{ $t('pages.evaluationDetail.commentsByParticipants') }}
+          </h2>
           <v-sheet :max-height="200" style="overflow-y:auto; overflow-x:hidden">
             <v-layout ma-0 pa-0 wrap>
-
               <!-- Single participant quote -->
-              <v-flex class="quote" xs12 md6 xl4 v-for="response in textResponses" :key="response.id">
+              <v-flex v-for="response in textResponses" :key="response.id" class="quote" xs12 md6 xl4>
                 <vue-markdown>{{ response.answer_text }}</vue-markdown>
               </v-flex>
-
             </v-layout>
           </v-sheet>
         </v-card-text>
@@ -219,7 +219,6 @@
         </v-flex>
       </v-layout>
     </v-flex>
-
   </v-layout>
 </template>
 

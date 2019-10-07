@@ -139,7 +139,6 @@ th{
     </v-flex>
 
 
-
     <v-flex xs12>
       <v-layout row wrap>
         <!-- Own projects -->
@@ -152,8 +151,17 @@ th{
             <v-card-text>
               <v-btn v-if="isOwnUser" fab small absolute top
                      right
-                     title="Create new Project"
+                     dark
+                     style="margin-right:60px"
+                     :title="$t('actions.exportAllData')"
+                     @click="exportProjectsCSV()"
+              >
+                <v-icon>mdi-database-export</v-icon>
+              </v-btn>
+              <v-btn v-if="isOwnUser" fab small absolute top
+                     right
                      color="success"
+                     :title="$t('pages.projectCreate.title')"
                      :to="{name:'project-create'}"
               >
                 <v-icon>add</v-icon>
@@ -188,8 +196,17 @@ th{
             <v-card-text>
               <v-btn v-if="isOwnUser" fab small absolute top
                      right
-                     title="Create new Structure"
+                     dark
+                     style="margin-right:60px"
+                     :title="$t('actions.exportAllData')"
+                     @click="exportStructuresCSV()"
+              >
+                <v-icon>mdi-database-export</v-icon>
+              </v-btn>
+              <v-btn v-if="isOwnUser" fab small absolute top
+                     right
                      color="success"
+                     :title="$t('pages.structureCreate.title')"
                      :to="{name:'structure-create'}"
               >
                 <v-icon>add</v-icon>
@@ -227,7 +244,8 @@ th{
 </template>
 
 <script>
-import { onlyUnique, slug2id } from "@/plugins/utils";
+import { onlyUnique, slug2id, donwloadAsyncCSV } from "@/plugins/utils";
+import { API_SERVER } from "@/plugins/resource";
 import { cloneDeep } from "lodash";
 
 export default {
@@ -314,6 +332,16 @@ export default {
   },
 
   methods:{
+
+    async exportProjectsCSV(){
+      let exportUrl = `${API_SERVER}/v1/csv/export/all_own_projects.csv`;
+      await donwloadAsyncCSV(this, exportUrl, 'all_own_projects.csv');
+    },
+
+    async exportStructuresCSV(){
+      let exportUrl = `${API_SERVER}/v1/csv/export/all_own_structures.csv`;
+      await donwloadAsyncCSV(this, exportUrl, 'all_own_structures.csv');
+    },
 
     async submitUpdateProfile(){
       try{

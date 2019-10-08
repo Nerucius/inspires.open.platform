@@ -60,10 +60,11 @@ def _authenticate_request(request, project=None):
         # If project, only participants
         return True
     elif project is None:
+        # No project requested, continue
         return True
     else:
         # Otherwise fuck off
-        raise Exception("User can't vie this project's Evaluation")
+        raise Exception("403 Forbidden")
 
 
 def _get_dataframe_cache(cache_key, factory, *args, **kwargs):

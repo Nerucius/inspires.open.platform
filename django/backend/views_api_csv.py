@@ -550,7 +550,7 @@ class CSVStructureSummaryExport(CSVCachedAuthorizedView):
         structure = Structure.objects.get(pk=structure_pk)
 
         if not structure.can_write(request.user):
-            raise Exception("403 forbidden")
+            raise Exception("403 No access to structure")
 
         export = []
 
@@ -566,12 +566,22 @@ class CSVStructureSummaryExport(CSVCachedAuthorizedView):
                     project.name,
                     role_name,
                     part.user.full_name,
+                    part.user.email,
                     datetime.isoformat(part.created_at.replace(microsecond=0)),
                 ]
-                export += [",".join(line)]
+                export += [CSV_COLUMN_SEPARATOR.join(line)]
 
-        headers = ",".join(["Structure", "Project", "Role", "User", "Date Joined"])
-        return "\n".join([headers] + export)
+        headers = CSV_COLUMN_SEPARATOR.join(
+            [
+                "structure_name",
+                "project_name",
+                "user_role",
+                "user_name",
+                "user_email",
+                "user_date_joined",
+            ]
+        )
+        return CSV_LINE_SEPARATOR.join([headers] + export)
 
 
 class CSVProjectSummaryExport(CSVCachedAuthorizedView):
@@ -582,16 +592,18 @@ class CSVProjectSummaryExport(CSVCachedAuthorizedView):
         project = Project.objects.get(pk=project_pk)
 
         if not project.can_write(request.user):
-            raise Exception("403 forbidden")
+            raise Exception("403 no access to project")
 
         export = []
 
         for part in project.participation_set.all():
             role_name = part.role.name.split(".")[-1]
-            line = [project.name, role_name, part.user.full_name]
+            line = [project.name, role_name, part.user.full_name, part.user.email]
             export += [CSV_COLUMN_SEPARATOR.join(line)]
 
-        headers = CSV_COLUMN_SEPARATOR.join(["Project", "Role", "User"])
+        headers = CSV_COLUMN_SEPARATOR.join(
+            ["project_name", "user_role", "user_name", "user_email"]
+        )
         return CSV_LINE_SEPARATOR.join([headers] + export)
 
 

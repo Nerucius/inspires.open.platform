@@ -599,6 +599,7 @@ class CSVAllOwnProjectsExport(CSVCachedAuthorizedView):
     cache_key = None
 
     def _get_content(self, request, *args, **kwargs):
+        user = request.user
         all_projects = user.owned_projects.all()
         all_projects |= user.managed_projects.all()
         all_projects |= user.researched_projects.all()
@@ -611,6 +612,7 @@ class CSVAllOwnStructresExport(CSVCachedAuthorizedView):
     cache_key = None
 
     def _get_content(self, request, *args, **kwargs):
+        user = request.user
         all_structures = user.owned_structures.all()
         all_structures |= user.managed_structures.all()
         all_structures = set(all_structures)

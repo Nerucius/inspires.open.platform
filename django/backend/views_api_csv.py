@@ -219,7 +219,7 @@ def _projects_to_csv_lines(projects):
         project_phase = str(pap) if pap else ""
         participants = ";".join(
             [
-                "%s (%s)" % (p.user.full_name, p.role)
+                "%s (%s)" % (p.user.full_name, p.role.upper())
                 for p in project.participation_set.all()
             ]
         )
@@ -558,20 +558,33 @@ class CSVStructureSummaryExport(CSVCachedAuthorizedView):
             project = collab.project
 
             for part in project.participation_set.all():
-
-                role_name = part.role.name.split(".")[-1]
+                role_name = part.role.name.split(".")[-1].upper()
 
                 line = [
+                    str(structure.id),
                     structure.name,
+                    str(project.id),
                     project.name,
                     role_name,
                     part.user.full_name,
+                    part.user.email,
                     datetime.isoformat(part.created_at.replace(microsecond=0)),
                 ]
-                export += [",".join(line)]
+                export += [CSV_COLUMN_SEPARATOR.join(line)]
 
-        headers = ",".join(["Structure", "Project", "Role", "User", "Date Joined"])
-        return "\n".join([headers] + export)
+        headers = CSV_COLUMN_SEPARATOR.join(
+            [
+                "structure_id",
+                "structure_name",
+                "project_id",
+                "project_name",
+                "user_role",
+                "user_name",
+                "user_email",
+                "user_date_joined",
+            ]
+        )
+        return CSV_LINE_SEPARATOR.join([headers] + export)
 
 
 class CSVProjectSummaryExport(CSVCachedAuthorizedView):
@@ -587,11 +600,31 @@ class CSVProjectSummaryExport(CSVCachedAuthorizedView):
         export = []
 
         for part in project.participation_set.all():
-            role_name = part.role.name.split(".")[-1]
-            line = [project.name, role_name, part.user.full_name]
+            role_name = part.role.name.split(".")[-1].upper()
+            line = [
+                str(project.structure.id) if project.structure else "",
+                project.structure.name if project.structure else "",
+                str(project.id),
+                project.name,
+                role_name,
+                part.user.full_name,
+                part.user.email,
+                datetime.isoformat(part.created_at.replace(microsecond=0)),
+            ]
             export += [CSV_COLUMN_SEPARATOR.join(line)]
 
-        headers = CSV_COLUMN_SEPARATOR.join(["Project", "Role", "User"])
+        headers = CSV_COLUMN_SEPARATOR.join(
+            [
+                "structure_id",
+                "structure_name",
+                "project_id",
+                "project_name",
+                "user_role",
+                "user_name",
+                "user_email",
+                "user_date_joined",
+            ]
+        )
         return CSV_LINE_SEPARATOR.join([headers] + export)
 
 

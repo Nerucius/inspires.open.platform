@@ -30,7 +30,7 @@
       v-if="editedStructure.id"
       v-model="editedStructure.description"
       box
-      rows="8"
+      rows="16"
       :label="$t('forms.fields.description')"
       :hint="$t('forms.hints.description')"
     />

@@ -642,6 +642,7 @@
       "knowledgeAreas": "Select all knowledge areas of research under this structure.",
       "summary": "Long-form project description. No character limit.",
       "description": "Long-form description. No character limit. Markdown is available for styling",
+      "descriptionTemplate": "Please follow the prodived template and do not remove the section headers (Lines starting with '##'). Fill in your project specifics replacing the instructional lines.",
       "password": "Your password must be at least 8 characters, not be a common password and not contain your username."
     }
   },

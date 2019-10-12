@@ -237,7 +237,7 @@
               </h2>
 
               <template v-if="isParticipant">
-                <p>{{ $t('pages.evaluationEntry.questionnaireDescription') }}</p>
+                <p>{{ $t('pages.evaluationEntry.selfQuestionnaireDescription') }}</p>
 
                 <p class="text-xs-center">
                   <v-btn large dark color="red" href="https://app.inspiresproject.com/uploads/inspires-self-questionaire.pdf" target="_blank">

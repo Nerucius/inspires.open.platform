@@ -2,6 +2,27 @@ from django.db import models
 
 from backend.models import TrackableModel
 
+DEFAULT_DESCRIPTION = """## Background
+
+(Explain your project's backstory and motivations)
+
+## Objective
+
+(What is the mission of your Project?)
+
+## Method
+
+(How is / was your project executed?)
+
+## Results and discussion
+
+(Write about what your project has found)
+
+## Conclusion
+
+(What have you learned?)
+"""
+
 
 class Project(TrackableModel):
 
@@ -51,7 +72,7 @@ class Project(TrackableModel):
     acronym = models.CharField(max_length=32)
     name = models.CharField(max_length=254)
     summary = models.TextField(blank=True)
-    description = models.TextField(blank=True)
+    description = models.TextField(blank=True, default=DEFAULT_DESCRIPTION)
     country_code = models.CharField(max_length=16, blank=True)
 
     image_url = models.URLField(max_length=500, blank=True)

@@ -36,11 +36,21 @@
       :hint="$t('forms.hints.projectSummary')"
     />
 
+    <h3 class="mb-2">
+      {{ $t('forms.fields.description') }}
+    </h3>
+
+    <p class="subheading">
+      {{ $t('forms.hints.description') }}
+      {{ $t('forms.hints.descriptionTemplate') }}
+    </p>
+
+
     <v-textarea
       v-if="editedProject.id"
       v-model="editedProject.description"
       box
-      rows="8"
+      rows="26"
       :label="$t('forms.fields.description')"
       :hint="$t('forms.hints.description')"
     />

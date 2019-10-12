@@ -60,10 +60,11 @@ def _authenticate_request(request, project=None):
         # If project, only participants
         return True
     elif project is None:
+        # No project requested, continue
         return True
     else:
         # Otherwise fuck off
-        raise Exception("User can't vie this project's Evaluation")
+        raise Exception("403 Forbidden")
 
 
 def _get_dataframe_cache(cache_key, factory, *args, **kwargs):
@@ -550,7 +551,7 @@ class CSVStructureSummaryExport(CSVCachedAuthorizedView):
         structure = Structure.objects.get(pk=structure_pk)
 
         if not structure.can_write(request.user):
-            raise Exception("403 forbidden")
+            raise Exception("403 No access to structure")
 
         export = []
 
@@ -595,7 +596,7 @@ class CSVProjectSummaryExport(CSVCachedAuthorizedView):
         project = Project.objects.get(pk=project_pk)
 
         if not project.can_write(request.user):
-            raise Exception("403 forbidden")
+            raise Exception("403 no access to project")
 
         export = []
 
@@ -632,6 +633,7 @@ class CSVAllOwnProjectsExport(CSVCachedAuthorizedView):
     cache_key = None
 
     def _get_content(self, request, *args, **kwargs):
+        user = request.user
         all_projects = user.owned_projects.all()
         all_projects |= user.managed_projects.all()
         all_projects |= user.researched_projects.all()
@@ -644,6 +646,7 @@ class CSVAllOwnStructresExport(CSVCachedAuthorizedView):
     cache_key = None
 
     def _get_content(self, request, *args, **kwargs):
+        user = request.user
         all_structures = user.owned_structures.all()
         all_structures |= user.managed_structures.all()
         all_structures = set(all_structures)

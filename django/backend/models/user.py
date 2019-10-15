@@ -69,6 +69,7 @@ class User(TrackableModel, AbstractUser):
         )
 
     def can_create(self, user, data):
+        # Dedicated endpoint for this
         return False
 
     def can_read(self, user):

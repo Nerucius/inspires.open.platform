@@ -108,7 +108,7 @@ class Question(models.Model):
     answer_range = models.PositiveSmallIntegerField(blank=True, null=True)
 
     def __str__(self):
-        return "QUEST [%s] %s" % (self.answer_type, self.name[:50])
+        return "Question [%s] %s" % (self.answer_type, self.name[:50])
 
     class Meta:
         ordering = ["id"]
@@ -150,13 +150,13 @@ class Evaluation(TrackableModel):
         return participation.project.can_write(user)
 
     def can_read(self, user):
-        return self.project.can_write(user)
+        return self.project.can_write(user) or self.participation.user == user
 
     def can_write(self, user):
-        return self.project.can_write(user)
+        return self.project.can_write(user) or self.participation.user == user
 
     def __str__(self):
-        return "EVAL [%s:%s] by %s" % (
+        return "Evaluation for %s (%s) by %s" % (
             self.project,
             self.phase.project_phase,
             self.participation.user,
@@ -212,6 +212,9 @@ class Response(TrackableModel):
     class Meta:
         # Only one response per question per evaluation per person
         unique_together = ("evaluation", "question")
+
+    def __str__(self):
+        return "Response for %s" % (self.evaluation)
 
     @classmethod
     def can_create(cls, user, data):

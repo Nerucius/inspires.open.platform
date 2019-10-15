@@ -99,10 +99,6 @@ class Project(TrackableModel):
 
     # TODO: RequestForResearch
     # request = models.ForeignKey("RequestForReseach", null=True, blank=True, on_delete=models.SET_NULL)
-
-    # TODO: Related to Evaluation
-    # stage = models.ForeignKey("Stage", null=True, on_delete=models.SET_NULL)
-
     related_projects = models.ManyToManyField("Project", blank=True)
 
     @property

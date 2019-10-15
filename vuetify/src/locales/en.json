@@ -499,6 +499,7 @@
     "logout": "Logout",
     "register": "Register",
     "save": "Save",
+    "loading": "Loading",
     "close": "Close",
     "cancel": "Cancel",
     "more": "More",
@@ -556,6 +557,7 @@
       "invalidCredentials": "Invalid credentials, please verify your username and password."
     },
     "toasts": {
+      "permissionError": "There was an error while accessing the resource, you might not have permission to view this.",
       "uploadError": "There was an error uploading your file",
       "loggedOut": "You have been logged out",
       "resetPasswordSubmitted": "A password reset email has been submitted to the user of this account.",

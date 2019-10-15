@@ -15,6 +15,7 @@ table th{
 </style>
 
 <template>
+
   <v-layout v-if="project.id" row wrap align-content-start>
     <v-flex xs12>
       <h1> {{ $t('pages.evaluationEntry.mainTitle') }}</h1>
@@ -194,6 +195,15 @@ table th{
       </v-card>
     </v-flex>
   </v-layout>
+
+  <v-layout v-else row wrap align-content-start>
+    <v-flex xs12>
+        <h1 class="title">{{ $t('actions.loading') }}...</h1>
+        <br>
+        <p>{{ message }}</p>
+    </v-flex>
+  </v-layout>
+
 </template>
 
 <script>
@@ -206,6 +216,7 @@ export default {
   },
   data(){
     return{
+      message: '',
       questions: [],
       /** Multi-type array of answers, contains DEGREE, MULTIPLE CHOICE, TEXT... */
       answers:          [],
@@ -226,17 +237,14 @@ export default {
     currentUser(){
       return this.$store.getters['user/current']
     },
-
     evaluationUser(){
       let participation = this.project.participants
         .filter(part => part.id == this.evaluation.participation)[0]
       return this.$store.getters['user/get'](participation.user)
     },
-
     canModify(){
       let isSameUser = this.currentUser.id == this.evaluationUser.id
-      let isSuperUser = this.currentUser.id == 1
-      return isSameUser || isSuperUser
+      return isSameUser || this.currentUser.is_administrator
     },
 
     isCompleted(){
@@ -254,8 +262,17 @@ export default {
   },
 
   async created(){
-    await this.$store.dispatch("evaluation/load", [this.evaluationId])
-    await this.$store.dispatch("project/load", [this.evaluation.project])
+    try{
+      await this.$store.dispatch("evaluation/load", [this.evaluationId])
+      await this.$store.dispatch("project/load", [this.evaluation.project])
+    }catch(error){
+      this.$store.dispatch("toast/error", {
+        message:this.$t('forms.toasts.permissionError'),
+        error
+      })
+      this.message = this.$t('forms.toasts.permissionError');
+      return;
+    }
 
     // Copy the evaluation questions sorting by id minus the 'Q'
     this.questions = this.evaluation.questions.slice().sort((a,b) =>{

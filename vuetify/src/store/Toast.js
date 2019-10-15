@@ -55,6 +55,10 @@ export default {
       if(isObject(params)) {
         message = params.message
         error = params.error
+        try{
+          let serverError = error.body.detail
+          message += `<br/><small><pre>ERROR: ${serverError}</pre></small>`
+        }catch(_){}
       }
       context.dispatch("new", {color:"error", message});
       context.dispatch("logError", {message, error});

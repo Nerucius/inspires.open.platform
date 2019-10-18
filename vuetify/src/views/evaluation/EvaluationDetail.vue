@@ -11,22 +11,8 @@
       <h1> {{ $t('noums.evaluation') }} | {{ project.name }}</h1>
     </v-flex>
 
-    <v-flex v-if="textResponses.length > 0" xs12>
-      <v-card>
-        <v-card-text>
-          <h2 class="mb-2">
-            {{ $t('pages.evaluationDetail.commentsByParticipants') }}
-          </h2>
-          <v-sheet :max-height="200" style="overflow-y:auto; overflow-x:hidden">
-            <v-layout ma-0 pa-0 wrap>
-              <!-- Single participant quote -->
-              <v-flex v-for="response in textResponses" :key="response.id" class="quote" xs12 md6 xl4>
-                <vue-markdown>{{ response.answer_text }}</vue-markdown>
-              </v-flex>
-            </v-layout>
-          </v-sheet>
-        </v-card-text>
-      </v-card>
+    <v-flex xs12>
+      <EvaluationTextResponses :project-id="projectId" />
     </v-flex>
 
     <v-flex xs12>
@@ -223,6 +209,8 @@
 </template>
 
 <script>
+import EvaluationTextResponses from "@/components/evaluation/EvaluationTextResponses";
+
 import { createParticipantGraph } from "@/plugins/vega.evaluation";
 import { slug2id, obj2slug } from "@/plugins/utils";
 import { API_SERVER } from '@/plugins/resource';
@@ -233,6 +221,10 @@ export default {
     return {
       title: this.$t('noums.evaluation') + " " + (this.project || {}).name
     };
+  },
+
+  components:{
+    EvaluationTextResponses
   },
 
   data() {
@@ -249,9 +241,6 @@ export default {
     evaluations(){
       return this.$store.getters['evaluation/project'](this.projectId);
     },
-    textResponses(){
-      return this.$store.getters['evaluation/responses'].filter(r => r.question.length == 5)
-    },
     isApprovedProject() {
       return (
         this.project.collaboration != null &&
@@ -266,13 +255,8 @@ export default {
       await this.$store.dispatch("project/load", [this.projectId]);
       this.project = this.$store.getters["project/detail"](this.projectId);
 
-      // Load evaluations
-      await this.$store.dispatch("evaluation/loadProject", this.projectId)
-      var evalIds = this.$store.getters['evaluation/project'](this.projectId).map(ev => ev.id);
-      this.$store.dispatch("evaluation/loadResponses", evalIds)
-
     } catch (error) {
-      this.$store.dispatch("toast/error", {message: "message.error", error})
+      this.$store.dispatch("toast/error", {message: "Could not load Project", error})
     }
 
     window.addEventListener("resize", this.onResize);

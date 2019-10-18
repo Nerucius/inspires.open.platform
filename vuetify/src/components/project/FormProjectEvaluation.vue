@@ -194,7 +194,7 @@ export default {
         this.$store.dispatch("evaluation/loadProject", this.project.id)
         this.$store.dispatch("toast/success", this.$t('pages.projectManage.evaluationSuccess'))
 
-      }catch(err){
+      }catch(error){
         console.error(error)
         this.$store.dispatch("toast/error", {
           message: this.$t('pages.projectManage.evaluationFailure'),

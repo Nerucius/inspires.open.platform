@@ -11,12 +11,6 @@ import {
 const Resource = EvaluationResource
 
 function createLink(obj) {
-  // obj.link = {
-  //   name: "project-detail",
-  //   params: {
-  //     slug: obj2slug(obj)
-  //   }
-  // }
   return obj
 }
 
@@ -143,10 +137,7 @@ export default {
     },
 
     delete: async function (context, id) {
-      let result = (await EvaluationResource.delete({
-        id
-      }))
-      // context.dispatch("delete", id)
+      let result = (await EvaluationResource.delete({ id }))
       return result
     },
 

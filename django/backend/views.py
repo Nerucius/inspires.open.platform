@@ -8,6 +8,7 @@ from rest_framework.renderers import JSONRenderer
 from rest_framework.views import APIView
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.authtoken.views import ObtainAuthToken
+from rest_framework.exceptions import PermissionDenied
 
 from django.contrib.postgres.search import SearchVector
 
@@ -48,7 +49,9 @@ def csrf_token(request):
 def search(request):
     term = request.GET.get("term", None)
     if not term or len(term) < 4:
-        return HttpResponseBadRequest("missing required parameter: term (min: 4 characters)")
+        return HttpResponseBadRequest(
+            "missing required parameter: term (min: 4 characters)"
+        )
 
     projects = models.Project.objects.filter(name__contains=term)
     projects |= models.Project.objects.filter(summary__contains=term)
@@ -403,11 +406,6 @@ class EvaluationResponsesVS(RequirePKMixin, viewsets.ModelViewSet):
     serializer_class = serializers.EvaluationResponsesSerializer
 
 
-class ResponsesVS(viewsets.ModelViewSet):
-    queryset = models.Response.objects.all()
-    serializer_class = serializers.ResponseSerializer
-
-
 class QuestionVS(ListDetail, viewsets.ModelViewSet):
     queryset = models.Question.objects.all()
     serializer_class = serializers.SimpleQuestionSerializer
@@ -415,8 +413,23 @@ class QuestionVS(ListDetail, viewsets.ModelViewSet):
 
 
 class ResponseVS(viewsets.ModelViewSet):
+    """ Response API. If using as a listing, must provide project pk to validate. """
+
     queryset = models.Response.objects.all()
     serializer_class = serializers.ResponseSerializer
+
+    filterset_fields = ["evaluation"]
+
+    def get_queryset(self):
+        if self.action == "list" and "project" not in self.request.GET:
+            raise PermissionDenied(
+                "Can't list global Response set. Please filter by 'project'"
+            )
+        project = models.Project.objects.get(pk=self.request.GET["project"])
+        if not project.can_write(self.request.user):
+            raise PermissionDenied("User does not have admin access to this project.")
+
+        return super().get_queryset()
 
 
 # ===========================

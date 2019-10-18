@@ -55,7 +55,7 @@ class TrackableModel(models.Model):
         return True
 
     def can_write(self, user):
-        return False
+        return user == self.owner
 
     class Meta:
         abstract = True

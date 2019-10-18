@@ -97,6 +97,8 @@ class QuestionSerializer(serializers.ModelSerializer):
 
 
 class ResponseSerializer(serializers.ModelSerializer):
+    project = serializers.IntegerField(read_only=True)
+
     class Meta:
         model = models.Response
         fields = "__all__"

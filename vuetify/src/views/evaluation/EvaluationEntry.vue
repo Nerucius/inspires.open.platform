@@ -17,8 +17,15 @@ table th{
 <template>
   <v-layout v-if="project.id" row wrap align-content-start>
     <v-flex xs12>
-      <h1> {{ $t('pages.evaluationEntry.mainTitle') }}</h1>
+      <h1 class="mb-2">
+        {{ $t('pages.evaluationEntry.mainTitle') }}
+      </h1>
+      <h2>
+        <small>{{ $t('noums.project') }}:</small>
+        {{ project.name }}
+      </h2>
     </v-flex>
+
 
     <!-- Not validated Alert -->
     <v-flex v-if="isCompleted" xs12>
@@ -254,8 +261,14 @@ export default {
   },
 
   async created(){
-    await this.$store.dispatch("evaluation/load", [this.evaluationId])
-    await this.$store.dispatch("project/load", [this.evaluation.project])
+    // Retrieve data
+    try{
+      await this.$store.dispatch("evaluation/load", [this.evaluationId])
+      await this.$store.dispatch("project/load", [this.evaluation.project])
+    }catch(error){
+      this.$store.dispatch("toast/error", {message: this.$t('errors.couldNotLoad'), error})
+      return
+    }
 
     // Copy the evaluation questions sorting by id minus the 'Q'
     this.questions = this.evaluation.questions.slice().sort((a,b) =>{
@@ -335,7 +348,6 @@ export default {
         this.$store.dispatch("toast/success", this.$t("pages.evaluationEntry.submitSuccess"))
 
       }catch(error){
-        console.error(error)
         this.$store.dispatch("toast/error", {
           message: this.$t("pages.evaluationEntry.submitFailure"),
           error

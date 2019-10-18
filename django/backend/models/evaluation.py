@@ -209,6 +209,12 @@ class Response(TrackableModel):
     answer_text = models.CharField(max_length=1024, blank=True)
     answer_degree = models.PositiveSmallIntegerField(blank=True, null=True)
 
+    @property
+    def project(self):
+        if self.evaluation:
+            return self.evaluation.project.id
+        return None
+
     class Meta:
         # Only one response per question per evaluation per person
         unique_together = ("evaluation", "question")

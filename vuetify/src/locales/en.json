@@ -528,6 +528,7 @@
     "evaluation": "Evaluation"
   },
   "errors": {
+    "couldNotLoad": "There was a problem loading this page. Are you sure you have access?",
     "404": {
       "title": "Oops! This page was not found",
       "text": "The page at '{route}' does not exist. Are you sure you've typed it correctly?"

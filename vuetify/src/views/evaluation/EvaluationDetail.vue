@@ -3,16 +3,16 @@
     border-left: 4px solid lightgray;
     padding: 4px 0px 2px 12px;
   }
+  .v-card__text{
+    /* Hide graphs going out of cards */
+    overflow: hidden;
+  }
 </style>
 
 <template>
   <v-layout v-if="project" row wrap align-content-start>
     <v-flex xs12>
       <h1> {{ $t('noums.evaluation') }} | {{ project.name }}</h1>
-    </v-flex>
-
-    <v-flex xs12>
-      <EvaluationTextResponses :project-id="projectId" />
     </v-flex>
 
     <v-flex xs12>
@@ -205,6 +205,11 @@
         </v-flex>
       </v-layout>
     </v-flex>
+
+    <v-flex xs12>
+      <EvaluationTextResponses :project-id="projectId" />
+    </v-flex>
+
   </v-layout>
 </template>
 
@@ -275,7 +280,7 @@ export default {
     createGraph: debounce( function () {
       let width = document.querySelector("#reference-width").clientWidth
       createParticipantGraph(this.projectId, width)
-    }),
+    }, 750, {leading: false, trailing: true}),
 
     user(uid) {
       return this.$store.getters["user/get"](uid);

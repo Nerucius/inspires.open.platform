@@ -1,8 +1,8 @@
 import Vue from "../plugins/resource";
-import { flatten } from "lodash";
 import {
   EvaluationResource,
-  ResponsesResource,
+  QuestionResource,
+  ResponseResource,
   ProjectEvaluationsResource,
   EvaluationQuestionsResource,
   EvaluationResponsesResource
@@ -21,6 +21,8 @@ export default {
     projects: {},
 
     itemsDetail: {},
+
+    questions: {},
 
     responses: {},
 
@@ -66,6 +68,11 @@ export default {
       items.map(createLink).forEach(i => {newItems[i.id] = i})
       state.responses = { ...state.responses, ...newItems }
     },
+    ADD_QUESTIONS(state, items) {
+      let newItems = {}
+      items.map(createLink).forEach(i => {newItems[i.id] = i})
+      state.questions = { ...state.questions, ...newItems }
+    },
   },
 
   actions: {
@@ -108,12 +115,16 @@ export default {
       }
     },
 
-    loadResponses: async function (context, evaluationIds=[]) {
+    loadResponses: async function (context, args={}) {
       // Ids provided, get detailed information
-      let items = await Promise.all(evaluationIds.map(id => EvaluationResponsesResource.get({id})))
-      items = items.map(i => i.body.responses)
-      items = flatten(items)
-      context.commit("ADD_RESPONSES", items)
+      let response = (await ResponseResource.get(args)).body
+      context.commit("ADD_RESPONSES", response.results)
+    },
+
+    loadQuestions: async function (context, args={}) {
+      // Ids provided, get detailed information
+      let response = (await QuestionResource.get(args)).body
+      context.commit("ADD_QUESTIONS", response.results)
     },
 
     loadProject: async function(context, projectId){
@@ -144,9 +155,9 @@ export default {
     submitResponse: async function (context, response){
       let result
       if(response.id){
-        result = (await ResponsesResource.update({id:response.id}, response))
+        result = (await ResponseResource.update({id:response.id}, response))
       } else {
-        result = (await ResponsesResource.save(response))
+        result = (await ResponseResource.save(response))
       }
 
       return result
@@ -163,6 +174,7 @@ export default {
 
     phases: state => state.phases,
     roles: state => state.roles,
-    responses: state => Object.values(state.responses)
+    responses: state => Object.values(state.responses),
+    questions: state => Object.values(state.questions)
   }
 };

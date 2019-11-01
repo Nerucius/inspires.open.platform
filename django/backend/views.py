@@ -8,7 +8,7 @@ from rest_framework.renderers import JSONRenderer
 from rest_framework.views import APIView
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.authtoken.views import ObtainAuthToken
-from rest_framework.exceptions import PermissionDenied
+from rest_framework.exceptions import PermissionDenied, AuthenticationFailed, NotFound
 
 from django.contrib.postgres.search import SearchVector
 
@@ -18,6 +18,7 @@ import datetime
 from . import email
 from . import models
 from . import serializers
+from . import filters
 
 
 def email_preview(request):
@@ -188,8 +189,6 @@ def reset_password(request):
     from django.db.models import Q
     import random, string
 
-    print(request.POST)
-
     username = request.POST["username"]
     users = models.User.objects.filter(Q(email=username) | Q(username=username))
 
@@ -253,7 +252,9 @@ class RequirePKMixin(object):
 
     def get_queryset(self):
         if self.action == "list" and "pk" not in self.kwargs:
-            raise Exception("Must provide a Query PK")
+            raise PermissionDenied(
+                "This list endpoint requries a primary key to access."
+            )
         return super().get_queryset()
 
 
@@ -417,15 +418,17 @@ class ResponseVS(viewsets.ModelViewSet):
 
     queryset = models.Response.objects.all()
     serializer_class = serializers.ResponseSerializer
-
-    filterset_fields = ["evaluation"]
+    filterset_class = filters.ResponseFilter
 
     def get_queryset(self):
         if self.action == "list" and "project" not in self.request.GET:
             raise PermissionDenied(
                 "Can't list global Response set. Please filter by 'project'"
             )
-        project = models.Project.objects.get(pk=self.request.GET["project"])
+        try:
+            project = models.Project.objects.get(pk=self.request.GET["project"])
+        except:
+            raise NotFound("Project not found")
         if not project.can_write(self.request.user):
             raise PermissionDenied("User does not have admin access to this project.")
 

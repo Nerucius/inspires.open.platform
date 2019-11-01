@@ -41,7 +41,7 @@ class Collaboration(TrackableModel):
 
     def can_write(self, user):
         # Only structure may change the instance
-        return self.structure.managers.filter(pk=user.pk).exists()
+        return self.owner == user or self.structure.managers.filter(pk=user.pk).exists()
 
     def __str__(self):
         return "Collab %s <-> %s" % (self.structure.name, self.project.name)

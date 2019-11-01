@@ -215,6 +215,10 @@ class Response(TrackableModel):
             return self.evaluation.project.id
         return None
 
+    @property
+    def answer_type(self):
+        return self.question.answer_type
+
     class Meta:
         # Only one response per question per evaluation per person
         unique_together = ("evaluation", "question")

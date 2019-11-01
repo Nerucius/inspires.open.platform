@@ -20,7 +20,8 @@ router.register("knowledgeareas", views.KnowledgeAreasVS)
 router.register("projectphases", views.ProjectPhasesVS)
 router.register("projectatphases", views.ProjectAtPhasesVS)
 
-router.register("responses", views.ResponseVS)
+router.register("question", views.QuestionVS)
+router.register("response", views.ResponseVS)
 
 router.register("eval/evaluations", views.EvaluationVS)
 router.register(

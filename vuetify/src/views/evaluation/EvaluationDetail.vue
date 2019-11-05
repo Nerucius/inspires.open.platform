@@ -11,12 +11,20 @@
 
 <template>
   <v-layout v-if="project" row wrap align-content-start>
-    <v-flex xs12>
-      <h1> {{ $t('noums.evaluation') }} | {{ project.name }}</h1>
+    <v-flex xs12 md6>
+      <h1> <small>{{ $t('noums.evaluation') }} | </small> {{ project.name }}</h1>
+    </v-flex>
+
+    <v-flex xs6 md3>
+      <v-btn block color="primary" class="elevation-0">Dimension View</v-btn>
+    </v-flex>
+    <v-flex xs6 md3>
+      <v-btn block color="primary" class="elevation-0">Role View</v-btn>
     </v-flex>
 
     <v-flex xs12>
       <v-layout id="target-graph-area" row wrap>
+        <!-- Overall Position -->
         <v-flex xs12 sm6 xl4>
           <v-card>
             <v-toolbar dense dark flat color="grey darken-3">
@@ -34,6 +42,7 @@
           </v-card>
         </v-flex>
 
+        <!-- Project Evolution -->
         <v-flex xs12 sm6 xl4>
           <v-card>
             <v-toolbar dense dark flat color="grey darken-3">
@@ -51,6 +60,23 @@
           </v-card>
         </v-flex>
 
+        <!--  Involvement -->
+        <v-flex xs12 sm6 xl4>
+          <v-card>
+            <v-toolbar dense dark flat style="background-color:#2F4193">
+              <v-toolbar-title>
+                <h2 class="title">
+                  {{ $t('pages.evaluationDetail.heatchart.title') }}
+                </h2>
+              </v-toolbar-title>
+            </v-toolbar>
+            <v-card-text>
+              <div id="heatchart" />
+            </v-card-text>
+          </v-card>
+        </v-flex>
+
+        <!--  Transform -->
         <v-flex xs12 sm6 xl4>
           <v-card>
             <v-toolbar dense dark flat style="background-color:#2F4193">
@@ -109,6 +135,7 @@
           </v-card>
         </v-flex>
 
+        <!-- Participation -->
         <v-flex xs12 sm6 xl4>
           <v-card>
             <v-toolbar dense dark flat color="yellow darken-3">
@@ -140,7 +167,7 @@
           </v-card>
         </v-flex>
 
-
+        <!-- Integrity -->
         <v-flex xs12 sm6 xl4>
           <v-card>
             <v-toolbar dense dark flat color="orange darken-3">
@@ -180,7 +207,7 @@
           </v-card>
         </v-flex>
 
-
+        <!-- Citizen-Led -->
         <v-flex xs12 sm6 xl4>
           <v-card>
             <v-toolbar dense dark flat color="teal darken-2">
@@ -203,6 +230,7 @@
             </v-card-text>
           </v-card>
         </v-flex>
+
       </v-layout>
     </v-flex>
 

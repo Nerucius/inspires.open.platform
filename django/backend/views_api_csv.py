@@ -742,28 +742,36 @@ def csv_heatmap(request, project):
     ownProject = Project.objects.get(pk=project)
     _authenticate_request(request, ownProject)
 
+    # Get multiple answer responses
+    df = _get_df_responses_project(ownProject, "MULTIPLE")
+
+    # create one column per answer of answers
+    df["response"] = df["response"].fillna("")
+    for key in "123456789":
+        df["multi_%s" % key] = df["response"].str.contains(key) * 1
+    print(df)
+
     return shortcuts.HttpResponse(
-        """
-        Principle,Dimension,Indicator,Value
-        1,1. Search for a topic,AG1Stage1,3.00
-        1,2. Formulation of research question,AG1Stage2,4.00
-        1,3. Method design,AG1Stage3,3.00
-        1,4. Data collection,AG1Stage4,4.00
-        1,5. Data analysis and interpretation,AG1Stage5,2.00
-        1,6. Publication of the results,AG1Stage6,2.00
-        1,7. Public awareness,AG1Stage7,3.00
-        1,8. Project governance,AG1Stage8,0.00
-        1,9. Transformative change,AG1Stage9,2.00
-        2,1. Search for a topic,AG2Stage1,2.00
-        2,2. Formulation of research question,AG2Stage2,4.00
-        2,3. Method design,AG2Stage3,4.00
-        2,4. Data collection,AG2Stage4,2.00
-        2,5. Data analysis and interpretation,AG2Stage5,0.00
-        2,6. Publication of the results,AG2Stage6,0.00
-        2,7. Public awareness,AG2Stage7,0.00
-        2,8. Project governance,AG2Stage8,0.00
-        2,9. Transformative change,AG2Stage9,0.00
-        """,
+        """Principle,Dimension,Indicator,Value
+1,1. Search for a topic,,3.00
+1,2. Formulation of research question,,4.00
+1,3. Method design,,3.00
+1,4. Data collection,,4.00
+1,5. Data analysis and interpretation,,2.00
+1,6. Publication of the results,,2.00
+1,7. Public awareness,,3.00
+1,8. Project governance,,0.00
+1,9. Transformative change,,2.00
+2,1. Search for a topic,,2.00
+2,2. Formulation of research question,,4.00
+2,3. Method design,,4.00
+2,4. Data collection,,2.00
+2,5. Data analysis and interpretation,,0.00
+2,6. Publication of the results,,0.00
+2,7. Public awareness,,0.00
+2,8. Project governance,,0.00
+2,9. Transformative change,,0.00
+""",
         content_type="text/plain",
     )
 

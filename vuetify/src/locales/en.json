@@ -182,6 +182,11 @@
       "_": ""
     },
     "evaluationDetail":{
+      "heatchart":{
+        "title": "Involvement",
+        "engagement": "Engagement",
+        "responsiveness": "Responsiveness"
+      },
       "projectOverallPosition": "Project Overall Position",
       "projectEvolution": "Project Evolution",
       "commentsByParticipants": "Comments left by participants:"
@@ -522,6 +527,7 @@
   },
   "noums": {
     "user": "User",
+    "stage": "Stage",
     "project": "Project",
     "projects": "Projects",
     "structure": "Structure",

@@ -15,12 +15,15 @@
       <h1> <small>{{ $t('noums.evaluation') }} | </small> {{ project.name }}</h1>
     </v-flex>
 
-    <v-flex xs6 md3>
-      <v-btn block color="primary" class="elevation-0">Dimension View</v-btn>
-    </v-flex>
-    <v-flex xs6 md3>
-      <v-btn block color="primary" class="elevation-0">Role View</v-btn>
-    </v-flex>
+    <template v-if="isUserProjectManager">
+      <v-flex xs6 md3>
+        <v-btn block :disabled="!bulletChartRoles" @click="bulletChartRoles=false;createGraphs()" color="primary" class="elevation-0">View Dimensions</v-btn>
+      </v-flex>
+      <v-flex xs6 md3>
+        <v-btn block :disabled="bulletChartRoles" @click="bulletChartRoles=true;createGraphs()" color="primary" class="elevation-0">View by Role</v-btn>
+      </v-flex>
+    </template>
+
 
     <v-flex xs12>
       <v-layout id="target-graph-area" row wrap>
@@ -63,7 +66,7 @@
         <!--  Involvement -->
         <v-flex xs12 sm6 xl4>
           <v-card>
-            <v-toolbar dense dark flat style="background-color:#2F4193">
+            <v-toolbar dense dark flat color="grey darken-3">
               <v-toolbar-title>
                 <h2 class="title">
                   {{ $t('pages.evaluationDetail.heatchart.title') }}
@@ -76,7 +79,11 @@
           </v-card>
         </v-flex>
 
-        <!--  Transform -->
+        <!-- ================ -->
+        <!-- PRINCIPLE CHARTS -->
+        <!-- ================ -->
+
+        <!-- Transform -->
         <v-flex xs12 sm6 xl4>
           <v-card>
             <v-toolbar dense dark flat style="background-color:#2F4193">
@@ -88,26 +95,49 @@
             </v-toolbar>
             <v-card-text>
               <div id="transfchart" />
-              <div class="bullet">
-                <h3>{{ $t('models.evaluation.dimension.CollectiveCapacity') }}</h3>
-                <div id="TransformativeCollectiveChart" />
+              <!-- Dimension Charts -->
+              <div key="dimTransform" v-if="!bulletChartRoles">
+                <div class="bullet">
+                  <h3>{{ $t('models.evaluation.dimension.CollectiveCapacity') }}</h3>
+                  <div id="TransformativeCollectiveChart" />
+                </div>
+                <div class="bullet">
+                  <h3>{{ $t('models.evaluation.dimension.knowledgeAndSkills') }}</h3>
+                  <div id="TransformativeSkillsChart" />
+                </div>
+                <div class="bullet">
+                  <h3>{{ $t('models.evaluation.dimension.policyImpact') }}</h3>
+                  <div id="TransformativePolicyChart" />
+                </div>
+                <div class="bullet">
+                  <h3>{{ $t('models.evaluation.dimension.selfImprovement') }}</h3>
+                  <div id="TransformativeSelfChart" />
+                </div>
               </div>
-              <div class="bullet">
-                <h3>{{ $t('models.evaluation.dimension.knowledgeAndSkills') }}</h3>
-                <div id="TransformativeSkillsChart" />
-              </div>
-              <div class="bullet">
-                <h3>{{ $t('models.evaluation.dimension.policyImpact') }}</h3>
-                <div id="TransformativePolicyChart" />
-              </div>
-              <div class="bullet">
-                <h3>{{ $t('models.evaluation.dimension.selfImprovement') }}</h3>
-                <div id="TransformativeSelfChart" />
+              <!-- Roles Charts -->
+              <div key="roleTransform" v-else>
+                <div class="bullet">
+                  <h3>{{ $t('models.participationRole.projectManager') }}</h3>
+                  <div id="TransformativeProjectChart" />
+                </div>
+                <div class="bullet">
+                  <h3>{{ $t('models.participationRole.civilSociety') }}</h3>
+                  <div id="TransformativeCivilChart" />
+                </div>
+                <div class="bullet">
+                  <h3>{{ $t('models.participationRole.scientist') }}</h3>
+                  <div id="TransformativeScientistChart" />
+                </div>
+                <div class="bullet">
+                  <h3>{{ $t('models.participationRole.student') }}</h3>
+                  <div id="TransformativeStudentChart" />
+                </div>
               </div>
             </v-card-text>
           </v-card>
         </v-flex>
 
+        <!-- Knowledge -->
         <v-flex xs12 sm6 xl4>
           <v-card>
             <v-toolbar dense dark flat style="background-color:#2599D4">
@@ -119,17 +149,39 @@
             </v-toolbar>
             <v-card-text>
               <div id="knowchart" />
-              <div class="bullet">
-                <h3>{{ $t('models.evaluation.dimension.openness') }}</h3>
-                <div id="KnowledgeOpennessChart" />
+              <!-- Dimension Charts -->
+              <div key="dimKnowledge" v-if="!bulletChartRoles">
+                <div class="bullet">
+                  <h3>{{ $t('models.evaluation.dimension.openness') }}</h3>
+                  <div id="KnowledgeOpennessChart" />
+                </div>
+                <div class="bullet">
+                  <h3>{{ $t('models.evaluation.dimension.scientificRelevance') }}</h3>
+                  <div id="KnowledgeRelevanceChart" />
+                </div>
+                <div class="bullet">
+                  <h3>{{ $t('models.evaluation.dimension.transdisciplinarity') }}</h3>
+                  <div id="KnowledgeTransdisciplChart" />
+                </div>
               </div>
-              <div class="bullet">
-                <h3>{{ $t('models.evaluation.dimension.scientificRelevance') }}</h3>
-                <div id="KnowledgeRelevanceChart" />
-              </div>
-              <div class="bullet">
-                <h3>{{ $t('models.evaluation.dimension.transdisciplinarity') }}</h3>
-                <div id="KnowledgeTransdisciplChart" />
+              <!-- Roles Charts -->
+              <div key="roleKnowledge" v-else>
+                <div class="bullet">
+                  <h3>{{ $t('models.participationRole.projectManager') }}</h3>
+                  <div id="KnowledgeProjectChart" />
+                </div>
+                <div class="bullet">
+                  <h3>{{ $t('models.participationRole.civilSociety') }}</h3>
+                  <div id="KnowledgeCivilChart" />
+                </div>
+                <div class="bullet">
+                  <h3>{{ $t('models.participationRole.scientist') }}</h3>
+                  <div id="KnowledgeScientistChart" />
+                </div>
+                <div class="bullet">
+                  <h3>{{ $t('models.participationRole.student') }}</h3>
+                  <div id="KnowledgeStudentChart" />
+                </div>
               </div>
             </v-card-text>
           </v-card>
@@ -147,21 +199,43 @@
             </v-toolbar>
             <v-card-text>
               <div id="partchart" />
-              <div class="bullet">
-                <h3>{{ $t('models.evaluation.dimension.degreeOfEngagement') }}</h3>
-                <div id="ParticipatoryEngagementChart" />
+              <!-- Dimension Charts -->
+              <div key="dimParticipation" v-if="!bulletChartRoles">
+                <div class="bullet">
+                  <h3>{{ $t('models.evaluation.dimension.degreeOfEngagement') }}</h3>
+                  <div id="ParticipatoryEngagementChart" />
+                </div>
+                <div class="bullet">
+                  <h3>{{ $t('models.evaluation.dimension.impactParticipatoryDynamics') }}</h3>
+                  <div id="ParticipatoryImpactChart" />
+                </div>
+                <div class="bullet">
+                  <h3>{{ $t('models.evaluation.dimension.motivation') }}</h3>
+                  <div id="ParticipatoryMotivationChart" />
+                </div>
+                <div class="bullet">
+                  <h3>{{ $t('models.evaluation.dimension.satisfactionParticipatoryDynamics') }}</h3>
+                  <div id="ParticipatorySatisfactionChart" />
+                </div>
               </div>
-              <div class="bullet">
-                <h3>{{ $t('models.evaluation.dimension.impactParticipatoryDynamics') }}</h3>
-                <div id="ParticipatoryImpactChart" />
-              </div>
-              <div class="bullet">
-                <h3>{{ $t('models.evaluation.dimension.motivation') }}</h3>
-                <div id="ParticipatoryMotivationChart" />
-              </div>
-              <div class="bullet">
-                <h3>{{ $t('models.evaluation.dimension.satisfactionParticipatoryDynamics') }}</h3>
-                <div id="ParticipatorySatisfactionChart" />
+              <!-- Roles Charts -->
+              <div key="roleParticipation" v-else>
+                <div class="bullet">
+                  <h3>{{ $t('models.participationRole.projectManager') }}</h3>
+                  <div id="ParticipatoryProjectChart" />
+                </div>
+                <div class="bullet">
+                  <h3>{{ $t('models.participationRole.civilSociety') }}</h3>
+                  <div id="ParticipatoryCivilChart" />
+                </div>
+                <div class="bullet">
+                  <h3>{{ $t('models.participationRole.scientist') }}</h3>
+                  <div id="ParticipatoryScientistChart" />
+                </div>
+                <div class="bullet">
+                  <h3>{{ $t('models.participationRole.student') }}</h3>
+                  <div id="ParticipatoryStudentChart" />
+                </div>
               </div>
             </v-card-text>
           </v-card>
@@ -179,29 +253,51 @@
             </v-toolbar>
             <v-card-text>
               <div id="integchart" />
-              <div class="bullet">
-                <h3>{{ $t('models.evaluation.dimension.expectationAlignment') }}</h3>
-                <div id="IntegrityExpectationChart" />
+              <!-- Dimension Charts -->
+              <div key="dimIntegrity" v-if="!bulletChartRoles">
+                <div class="bullet">
+                  <h3>{{ $t('models.evaluation.dimension.expectationAlignment') }}</h3>
+                  <div id="IntegrityExpectationChart" />
+                </div>
+                <div class="bullet">
+                  <h3>{{ $t('models.evaluation.dimension.genderPerspective') }}</h3>
+                  <div id="IntegrityGenderChart" />
+                </div>
+                <div class="bullet">
+                  <h3>{{ $t('models.evaluation.dimension.inclusivity') }}</h3>
+                  <div id="IntegrityInclusivityChart" />
+                </div>
+                <div class="bullet">
+                  <h3>{{ $t('models.evaluation.dimension.reflexivity') }}</h3>
+                  <div id="IntegrityReflexivityChart" />
+                </div>
+                <div class="bullet">
+                  <h3>{{ $t('models.evaluation.dimension.resourceAvailability') }}</h3>
+                  <div id="IntegrityResourceChart" />
+                </div>
+                <div class="bullet">
+                  <h3>{{ $t('models.evaluation.dimension.transparency') }}</h3>
+                  <div id="IntegrityTransparencyChart" />
+                </div>
               </div>
-              <div class="bullet">
-                <h3>{{ $t('models.evaluation.dimension.genderPerspective') }}</h3>
-                <div id="IntegrityGenderChart" />
-              </div>
-              <div class="bullet">
-                <h3>{{ $t('models.evaluation.dimension.inclusivity') }}</h3>
-                <div id="IntegrityInclusivityChart" />
-              </div>
-              <div class="bullet">
-                <h3>{{ $t('models.evaluation.dimension.reflexivity') }}</h3>
-                <div id="IntegrityReflexivityChart" />
-              </div>
-              <div class="bullet">
-                <h3>{{ $t('models.evaluation.dimension.resourceAvailability') }}</h3>
-                <div id="IntegrityResourceChart" />
-              </div>
-              <div class="bullet">
-                <h3>{{ $t('models.evaluation.dimension.transparency') }}</h3>
-                <div id="IntegrityTransparencyChart" />
+              <!-- Roles Charts -->
+              <div key="roleIntegrity" v-else>
+                <div class="bullet">
+                  <h3>{{ $t('models.participationRole.projectManager') }}</h3>
+                  <div id="IntegrityProjectChart" />
+                </div>
+                <div class="bullet">
+                  <h3>{{ $t('models.participationRole.civilSociety') }}</h3>
+                  <div id="IntegrityCivilChart" />
+                </div>
+                <div class="bullet">
+                  <h3>{{ $t('models.participationRole.scientist') }}</h3>
+                  <div id="IntegrityScientistChart" />
+                </div>
+                <div class="bullet">
+                  <h3>{{ $t('models.participationRole.student') }}</h3>
+                  <div id="IntegrityStudentChart" />
+                </div>
               </div>
             </v-card-text>
           </v-card>
@@ -219,13 +315,35 @@
             </v-toolbar>
             <v-card-text>
               <div id="citizchart" />
-              <div class="bullet">
-                <h3>{{ $t('models.evaluation.dimension.communityAlignment') }}</h3>
-                <div id="CitizenCommunityChart" />
+              <!-- Dimension Charts -->
+              <div key="dimCitizen" v-if="!bulletChartRoles">
+                <div class="bullet">
+                  <h3>{{ $t('models.evaluation.dimension.communityAlignment') }}</h3>
+                  <div id="CitizenCommunityChart" />
+                </div>
+                <div class="bullet">
+                  <h3>{{ $t('models.evaluation.dimension.responsivenessCommunityAlignment') }}</h3>
+                  <div id="CitizenResponsivenessChart" />
+                </div>
               </div>
-              <div class="bullet">
-                <h3>{{ $t('models.evaluation.dimension.responsivenessCommunityAlignment') }}</h3>
-                <div id="CitizenResponsivenessChart" />
+              <!-- Roles Charts -->
+              <div key="roleCitizen" v-else>
+                <div class="bullet">
+                  <h3>{{ $t('models.participationRole.projectManager') }}</h3>
+                  <div id="CitizenProjectChart" />
+                </div>
+                <div class="bullet">
+                  <h3>{{ $t('models.participationRole.civilSociety') }}</h3>
+                  <div id="CitizenCivilChart" />
+                </div>
+                <div class="bullet">
+                  <h3>{{ $t('models.participationRole.scientist') }}</h3>
+                  <div id="CitizenScientistChart" />
+                </div>
+                <div class="bullet">
+                  <h3>{{ $t('models.participationRole.student') }}</h3>
+                  <div id="CitizenStudentChart" />
+                </div>
               </div>
             </v-card-text>
           </v-card>
@@ -244,7 +362,7 @@
 <script>
 import EvaluationTextResponses from "@/components/evaluation/EvaluationTextResponses";
 
-import { createParticipantGraph } from "@/plugins/vega.evaluation";
+import { createCommonGraphs, createParticipantBulletGraph, createManagerBulletGraph } from "@/plugins/vega.evaluation";
 import { slug2id, obj2slug } from "@/plugins/utils";
 import { API_SERVER } from '@/plugins/resource';
 import { debounce } from "lodash";
@@ -262,6 +380,7 @@ export default {
 
   data() {
     return {
+      bulletChartRoles: false,
       obj2slug,
       project: null,
     };
@@ -279,6 +398,17 @@ export default {
         this.project.collaboration != null &&
         this.project.collaboration.is_approved
       );
+    },
+    isUserProjectManager(){
+      let userId = this.$store.getters['user/current'].id
+      let project = this.$store.getters['project/detail'](this.projectId)
+
+      // Check for all 3 posibilities
+      let isManager = project.managers.indexOf(userId) != -1
+      let isPM = project.participants.filter(p => p.role == 4).map(p => p.user).indexOf(userId) != -1
+      let isOwner = project.owner == userId
+
+      return isManager || isPM || isOwner
     }
   },
 
@@ -295,20 +425,25 @@ export default {
     window.addEventListener("resize", this.onResize);
 
     setTimeout(() => {
-      this.createGraph()
+      this.createGraphs()
     }, 300);
 
   },
 
   methods: {
     onResize(event){
-      this.createGraph()
+      this.createGraphs()
     },
 
-    createGraph: debounce( function () {
+    createGraphs: debounce( function () {
       let width = document.querySelector("#reference-width").clientWidth
-      createParticipantGraph(this.projectId, width)
-    }, 750, {leading: false, trailing: true}),
+      createCommonGraphs(this.projectId, width)
+      if(this.bulletChartRoles){
+        createManagerBulletGraph(this.projectId, width)
+      }else{
+        createParticipantBulletGraph(this.projectId, width)
+      }
+    }, 100, {leading: false, trailing: true}),
 
     user(uid) {
       return this.$store.getters["user/get"](uid);
@@ -335,7 +470,8 @@ export default {
 
 .bullet{
   display: flex;
-  align-items: center
+  align-items: center;
+  /* min-height: 68px; */
 }
 
 .bullet h3{
@@ -347,61 +483,4 @@ export default {
   overflow: hidden;
   padding-bottom: 20px;
 }
-
-
-
-/* hr {
-  margin-top: -10px;
-  width: 405px;
-  float: left;
-}
-h2 {
-  margin-top: 20px;
-  height: 2em;
-  font-size: 1.2em;
-}
-h3 {
-  width: 120px;
-  height: 40px;
-  line-height: 1.1em;
-  font-size: 0.9em;
-  margin: 0;
-  padding: 0.9em 0 0 0;
-  float: left;
-}
-.bullet {
-  width: 100%;
-  padding: 0;
-  margin: 0;
-}
-.vega-embed {
-  width: 280px;
-  padding-right: 0 !important;
-  margin: 0;
-}
-#main {
-  display: grid;
-  grid-template-columns: 40px 400px 40px 400px 40px;
-  grid-template-rows: 60px 280px auto;
-}
-#scatter {
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 2;
-}
-#line {
-  grid-column-start: 4;
-  grid-column-end: 5;
-  grid-row-start: 2;
-}
-#transf {
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 3;
-}
-#heat {
-  grid-column-start: 4;
-  grid-column-end: 5;
-  grid-row-start: 3;
-} */
 </style>

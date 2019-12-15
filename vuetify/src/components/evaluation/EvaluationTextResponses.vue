@@ -54,12 +54,12 @@ export default {
   async created() {
     // Load evaluations
     try{
+      await this.$store.dispatch("evaluation/loadQuestions", {limit: 1000})
       await this.$store.dispatch("evaluation/loadResponses", {
         limit: 1000,
         project: this.projectId,
         answer_type: "TEXT"
       })
-      await this.$store.dispatch("evaluation/loadQuestions", {limit: 1000})
     }catch(error){
       // this.$store.dispatch("toast/error", {message: this.$t('forms.toasts.permissionError'), error})
       // nothing, user does not have permission to view responses

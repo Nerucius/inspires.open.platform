@@ -7,9 +7,9 @@ services:
   django:
     build: "./django"
     depends_on:
-      - db
       - redis
       - nginx
+      - db
       - upload
     environment:
       - DEBUG=${DJANGO_DEBUG}
@@ -64,6 +64,7 @@ services:
 
   db:
     image: postgres:11-alpine
+    restart: unless-stopped
     # ports:
     #   - '${POSTGRES_EXT_PORT}:5432'
     environment:
@@ -73,7 +74,6 @@ services:
       - PGDATA=/data/postgres
     volumes:
       - "db_files:/data"
-    restart: unless-stopped
 
   upload:
     # default port: 25478

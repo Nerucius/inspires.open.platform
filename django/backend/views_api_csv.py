@@ -415,8 +415,82 @@ class CSVProjectPhases(CSVCachedAuthorizedView):
         return df.set_index("Dimension").round(2).to_csv()
 
 
-class CSVProjectBullets(CSVCachedAuthorizedView):
-    # cache_key = None
+class CSVProjectBulletPrinciples(CSVCachedAuthorizedView):
+    cache_key = None
+
+    def _get_content(self, request, *args, **kwargs):
+        ownProject = Project.objects.get(pk=kwargs["project"])
+
+        # Load data
+        df_all = _get_df_responses_all(answer_type="DEGREE")
+        df_self = _get_df_responses_project(ownProject, answer_type="DEGREE")
+
+        # Reduce to principle from role -> name -> dimension -> principle
+        df_all = df_all.groupby(
+            ["project", "principle", "dimension", "phase", "role", "name"]
+        ).mean()
+        df_all = df_all.groupby(
+            ["project", "principle", "dimension", "phase", "name"]
+        ).mean()
+        df_all_dim = df_all.groupby(["project", "principle", "dimension"]).mean()
+        df_all_princ = df_all_dim.groupby(["project", "principle"]).mean()
+
+        # For each specified quantile level, get value.
+        _tmp = []
+        _tmp2 = df_all_princ.groupby("principle")
+        for i, q in enumerate(QUANT_TITLES):
+            df_quantile = _tmp2.quantile(QUANT[i])
+            df_quantile.columns = [q]
+            _tmp += [df_quantile]
+
+        # Concatenate results
+        all_princ_quant = pd.concat(_tmp, axis=1)
+
+        # Calculate this project's values
+        df_self = df_self.groupby(
+            ["principle", "dimension", "phase", "role", "name"]
+        ).mean()
+        df_self = df_self.groupby(["principle", "dimension", "phase", "name"]).mean()
+        df_self_dim = df_self.groupby(["principle", "dimension"]).mean()
+        df_self_princ = df_self_dim.groupby(["principle"]).mean()
+
+        df_self = df_self_princ
+        df_self.columns = ["AbsValue"]
+
+        df_result = pd.concat([df_self, all_princ_quant], axis=1)
+        df_result = df_result.sort_index().reset_index()
+        df_result["Threshold"] = 3
+        df_result["Dimension"] = "Total"
+        df_result["Indicator"] = [
+            "Citizen-led",
+            "Integrity",
+            "Knowledge",
+            "Participatory",
+            "Transformative",
+        ]
+        df_result["Principle"] = [
+            "Citizen-led Research",
+            "Integrity",
+            "Knowledge Democracy",
+            "Participatory Dynamics",
+            "Transformative Change",
+        ]
+        df_result = df_result[
+            [
+                "Principle",
+                "Dimension",
+                "Indicator",
+                "AbsValue",
+                *QUANT_TITLES,
+                "Threshold",
+            ]
+        ]
+
+        return df_result.round(2).to_csv(index=False)
+
+
+class CSVProjectBulletDimensions(CSVCachedAuthorizedView):
+    cache_key = None
 
     def _get_content(self, request, *args, **kwargs):
         ownProject = Project.objects.get(pk=kwargs["project"])
@@ -426,121 +500,192 @@ class CSVProjectBullets(CSVCachedAuthorizedView):
         df_self = _get_df_responses_project(ownProject, answer_type="DEGREE")
 
         # Start of process
+        # Reduce to (principle, role)
         df_all = df_all.groupby(
             ["project", "principle", "dimension", "phase", "role", "name"]
         ).mean()
-        df_all = df_all.groupby(
-            ["project", "principle", "dimension", "phase", "name"]
+        df_all_dim = df_all.groupby(
+            ["project", "principle", "dimension", "role"]
         ).mean()
-        df_all_dim = df_all.groupby(["project", "principle", "dimension"]).mean()
+        df_all_dim = df_all_dim.groupby(["project", "principle", "dimension"]).mean()
 
-        df_all_princ = df_all_dim.groupby(["project", "principle"]).mean()
-        df_all_princ = df_all.reset_index()
+        # For each specified quantile level, get value.
+        _tmp = []
+        _tmp2 = df_all_dim.groupby(["principle", "dimension"])
+        for i, q in enumerate(QUANT_TITLES):
+            df_quantile = _tmp2.quantile(QUANT[i])
+            df_quantile.columns = [q]
+            _tmp += [df_quantile]
 
-        # Principle Quantiles
-        princ_quant = df_all_princ.groupby(["principle"]).quantile(QUANT).reset_index()
-        princ_quant["level_1"] = princ_quant.level_1.replace(QUANT, QUANT_TITLES)
-        princ_quant = princ_quant.pivot_table(
-            columns="level_1", values="response", index="principle"
-        )
-        princ_quant
+        # Concatenate results
+        all_dim_quant = pd.concat(_tmp, axis=1)
 
-        # Dimension Quantiles
-        dim_quant = (
-            df_all_dim.groupby(["principle", "dimension"]).quantile(QUANT).reset_index()
-        )
-        dim_quant["level_2"] = dim_quant.level_2.replace(QUANT, QUANT_TITLES)
-        dim_quant = dim_quant.pivot_table(
-            columns="level_2", values="response", index=["principle", "dimension"]
-        )
-
-        all_quant = pd.concat([princ_quant, dim_quant])
-
-        # ========================
-        #  OWN PROJECT
-        # ========================
+        # # Calculate this project's values
         df_self = df_self.groupby(
             ["principle", "dimension", "phase", "role", "name"]
         ).mean()
-        df_self = df_self.groupby(["principle", "dimension", "phase", "name"]).mean()
+        df_self = df_self.groupby(["principle", "dimension", "phase", "role"]).mean()
+        df_self = df_self.groupby(["principle", "dimension", "role"]).mean()
+        df_self = df_self.groupby(["principle", "dimension"]).mean()
+        df_self.columns = ["AbsValue"]
 
-        df_self_dim = df_self.groupby(["principle", "dimension"]).mean()
-        df_self_princ = df_self_dim.groupby(["principle"]).mean()
-
-        df_self = pd.concat([df_self_princ, df_self_dim])
-        # df_self_princ = df_self_princ.reset_index()
-
-        # =====================
-        #  JOIN BOTH DATAFRAMES BY INDEX
-        # =====================
-        df_result = pd.concat([df_self, all_quant], axis=1)
-
-        # Flatten the tuple index
-        def flatten(val):
-            if len(val) == 2:
-                return "_".join(val)
-            return val
-
-        df_result = df_result.reset_index()
-        df_result["index"] = list(map(lambda x: flatten(x), df_result["index"]))
-
-        df_result["Indicator"] = df_result["index"].replace(
-            {
-                "^CITIZEN$": "Citizen-led",
-                "^CITIZEN_": "Citizen",
-                "ALIGNEMENT$": "Community",
-                "RESPONSIVENESS$": "Responsiveness",
-                "^INTEGRITY_?": "Integrity",
-                "EXPECTATION$": "Expectation",
-                "GENDER$": "Gender",
-                "INCLUSIVITY$": "Inclusivity",
-                "REFLEXIVITY$": "Reflexivity",
-                "RESOURCES$": "Resource",
-                "TRANSPARENCY$": "Transparency",
-                "^KNOWLEDGE_?": "Knowledge",
-                "OPENNESS$": "Openness",
-                "RELEVANCE$": "Relevance",
-                "TRANSDISCIPLINAR$": "Transdiscipl",
-                "^PARTICIPATION_?": "Participatory",
-                "ENGAGEMENT$": "Engagement",
-                "PARTICIPATION_IMPACT$": "Impact",
-                "MOTIVATION$": "Motivation",
-                "SATISFACTION$": "Satisfaction",
-                "^TRANSFORM_?": "Transformative",
-                "COLLECTIVE$": "Collective",
-                "KNOWLEDGE$": "Skills",
-                "POLICY_IMPACT$": "Policy",
-                "SELFIMPROVE$": "Self",
-            },
-            regex=True,
-        )
-
-        # Final adjustments
-
-        def get_principle(indicator):
-            if "Citizen" in indicator:
-                return "Citizen-led Research"
-            if "Integrity" in indicator:
-                return "Integrity"
-            if "Knowledge" in indicator:
-                return "Knowledge Democracy"
-            if "Participatory" in indicator:
-                return "Participatory Dynamics"
-            if "Transformative" in indicator:
-                return "Transformative Change"
-            return "NOT FOUND"
-
-        df_result["Principle"] = list(
-            map(lambda x: get_principle(x), df_result["Indicator"])
-        )
-
-        df_result["AbsValue"] = df_result["response"]
-        df_result = df_result[["Principle", "Indicator", "AbsValue"] + QUANT_TITLES]
+        # # Build resulting dataframe
+        df_result = pd.concat([df_self, all_dim_quant], axis=1)
+        df_result = df_result.sort_index().reset_index()
         df_result["Threshold"] = 3
+        df_result["Principle"] = df_result.principle.replace(
+            {
+                "CITIZEN": "Citizen-led Research",
+                "INTEGRITY": "Integrity",
+                "KNOWLEDGE": "Knowledge Democracy",
+                "PARTICIPATION": "Participatory Dynamics",
+                "TRANSFORM": "Transformative Change",
+            }
+        )
+        del df_result["principle"]
+        df_result["Dimension"] = df_result.dimension.replace(
+            {
+                "ALIGNEMENT": "Community alignment",
+                "RESPONSIVENESS": "Responsiveness to community alignment",
+                "EXPECTATION": "Expectation alignment",
+                "GENDER": "Gender perspective",
+                "INCLUSIVITY": "Inclusivity",
+                "REFLEXIVITY": "Reflexivity",
+                "RESOURCES": "Resource availability",
+                "TRANSPARENCY": "Transparency",
+                "OPENNESS": "Openness",
+                "RELEVANCE": "Scientific relevance",
+                "TRANSDISCIPLINAR": "Transdisciplinarity",
+                "ENGAGEMENT": "Degree of engagement",
+                "MOTIVATION": "Impact of the participatory dynamics",
+                "PARTICIPATION_IMPACT": "Motivation",
+                "SATISFACTION": "Satisfaction with the participatory dynamics",
+                "COLLECTIVE": "Collective capacity",
+                "KNOWLEDGE": "Knowledge and skills",
+                "POLICY_IMPACT": "Policy impact",
+                "SELFIMPROVE": "Self-improvement",
+            }
+        )
+        del df_result["dimension"]
+        df_result
 
-        df_result = df_result.set_index(["Principle", "Indicator"])
+        def to_indicator(it):
+            row = it[1]
+            return (
+                row["Principle"].split()[0].split("-")[0]
+                + row["Dimension"].split()[0].split("-")[0]
+            )
 
-        return df_result.round(2).to_csv()
+        df_result["Indicator"] = list(map(to_indicator, df_result.iterrows()))
+
+        # Final fixes to names
+        df_result.Indicator.replace(
+            {
+                "TransformativeKnowledge": "TransformativeSkills",
+                "ParticipatoryDegree": "ParticipatoryEngagement",
+                "KnowledgeScientific": "KnowledgeRelevance",
+                "KnowledgeTransdisciplinarity": "KnowledgeTransdiscipl",
+            },
+            inplace=True,
+        )
+
+        # Reorder columns
+        df_result = df_result[
+            [
+                "Principle",
+                "Dimension",
+                "Indicator",
+                "AbsValue",
+                *QUANT_TITLES,
+                "Threshold",
+            ]
+        ]
+
+        return df_result.round(2).to_csv(index=False)
+
+
+class CSVProjectBulletRoles(CSVCachedAuthorizedView):
+    cache_key = None
+
+    def _get_content(self, request, *args, **kwargs):
+        ownProject = Project.objects.get(pk=kwargs["project"])
+
+        # Load data
+        df_all = _get_df_responses_all(answer_type="DEGREE")
+        df_self = _get_df_responses_project(ownProject, answer_type="DEGREE")
+
+        # Start of process
+        # Reduce to (principle, role)
+        df_all = df_all.groupby(
+            ["project", "principle", "dimension", "phase", "role", "name"]
+        ).mean()
+        df_all_dim = df_all.groupby(
+            ["project", "principle", "dimension", "role"]
+        ).mean()
+        df_all_role = df_all_dim.groupby(["project", "principle", "role"]).mean()
+
+        # For each specified quantile level, get value.
+        _tmp = []
+        _tmp2 = df_all_role.groupby(["principle", "role"])
+        for i, q in enumerate(QUANT_TITLES):
+            df_quantile = _tmp2.quantile(QUANT[i])
+            df_quantile.columns = [q]
+            _tmp += [df_quantile]
+
+        # Concatenate results
+        all_role_quant = pd.concat(_tmp, axis=1)
+
+        # Calculate this project's values
+        df_self = df_self.groupby(
+            ["principle", "dimension", "phase", "role", "name"]
+        ).mean()
+        df_self = df_self.groupby(["principle", "dimension", "phase", "role"]).mean()
+        df_self_dim = df_self.groupby(["principle", "dimension", "role"]).mean()
+        df_self_princ = df_self_dim.groupby(["principle", "role"]).mean()
+
+        df_self = df_self_princ
+        df_self.columns = ["AbsValue"]
+
+        # Build resulting dataframe
+        df_result = pd.concat([df_self, all_role_quant], axis=1)
+        df_result = df_result.sort_index().reset_index()
+        df_result["Threshold"] = 3
+        df_result["Dimension"] = df_result["role"]
+        df_result["Principle"] = df_result["principle"]
+        del df_result["role"]
+        del df_result["principle"]
+
+        df_result.replace(
+            {
+                "CITIZEN": "Citizen-led Research",
+                "INTEGRITY": "Integrity",
+                "KNOWLEDGE": "Knowledge Democracy",
+                "PARTICIPATION": "Participatory Dynamics",
+                "TRANSFORM": "Transformative Change",
+            },
+            inplace=True,
+        )
+
+        def to_indicator(it):
+            row = it[1]
+            return (
+                row["Principle"].split()[0].split("-")[0]
+                + row["Dimension"].split()[0][:12]
+            )
+
+        df_result["Indicator"] = list(map(to_indicator, df_result.iterrows()))
+        df_result = df_result[
+            [
+                "Principle",
+                "Dimension",
+                "Indicator",
+                "AbsValue",
+                *QUANT_TITLES,
+                "Threshold",
+            ]
+        ]
+
+        return df_result.round(2).to_csv(index=False)
 
 
 class CSVStructureSummaryExport(CSVCachedAuthorizedView):
@@ -745,33 +890,34 @@ def csv_heatmap(request, project):
     # Get multiple answer responses
     df = _get_df_responses_project(ownProject, "MULTIPLE")
 
-    # create one column per answer of answers
     df["response"] = df["response"].fillna("")
     for key in "123456789":
         df["multi_%s" % key] = df["response"].str.contains(key) * 1
-    print(df)
 
-    return shortcuts.HttpResponse(
-        """Principle,Dimension,Indicator,Value
-1,1. Search for a topic,,3.00
-1,2. Formulation of research question,,4.00
-1,3. Method design,,3.00
-1,4. Data collection,,4.00
-1,5. Data analysis and interpretation,,2.00
-1,6. Publication of the results,,2.00
-1,7. Public awareness,,3.00
-1,8. Project governance,,0.00
-1,9. Transformative change,,2.00
-2,1. Search for a topic,,2.00
-2,2. Formulation of research question,,4.00
-2,3. Method design,,4.00
-2,4. Data collection,,2.00
-2,5. Data analysis and interpretation,,0.00
-2,6. Publication of the results,,0.00
-2,7. Public awareness,,0.00
-2,8. Project governance,,0.00
-2,9. Transformative change,,0.00
-""",
-        content_type="text/plain",
-    )
+    df = df.groupby(["role", "dimension", "principle"]).mean()
+    df = df.groupby(["dimension", "principle"]).sum().round()
 
+    df = df.transpose()
+    df = df.stack()
+    df = df.reset_index().sort_values(["principle"])
+    df.fillna(0, inplace=True)
+
+    df = df.replace("multi_1", "1. Search for a topic")
+    df = df.replace("multi_2", "2. Formulation of research question")
+    df = df.replace("multi_3", "3. Method design")
+    df = df.replace("multi_4", "4. Data collection")
+    df = df.replace("multi_5", "5. Data analysis and interpretation")
+    df = df.replace("multi_6", "6. Publication of the results")
+    df = df.replace("multi_7", "7. Public awareness")
+    df = df.replace("multi_8", "8. Project governance")
+    df = df.replace("multi_9", "9. Transformative change")
+
+    df["Value"] = df.ENGAGEMENT + df.RESPONSIVENESS
+
+    df = df[["principle", "level_0", "Value", "Value"]]
+    df.columns = ["Principle", "Dimension", "Indicator", "Value"]
+    df.Indicator = 0
+    df = df.replace("CITIZEN", 1)
+    df = df.replace("PARTICIPATION", 2)
+
+    return shortcuts.HttpResponse(df.to_csv(index=False), content_type="text/plain")

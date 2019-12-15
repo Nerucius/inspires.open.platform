@@ -97,7 +97,7 @@ class QuestionSerializer(serializers.ModelSerializer):
 
 
 class ResponseSerializer(serializers.ModelSerializer):
-    project = serializers.IntegerField(read_only=True)
+    project = serializers.IntegerField(source="project_pk", read_only=True)
     answer_type = serializers.CharField(read_only=True)
 
     class Meta:

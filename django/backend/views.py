@@ -419,18 +419,22 @@ class ResponseVS(viewsets.ModelViewSet):
     queryset = models.Response.objects.all()
     serializer_class = serializers.ResponseSerializer
     filterset_class = filters.ResponseFilter
+    # filterset_fields = ["evaluation__phase__project", "question__answer_type"]
 
     def get_queryset(self):
+        # For list action, require project filter (specified in custom filter)
         if self.action == "list" and "project" not in self.request.GET:
             raise PermissionDenied(
                 "Can't list global Response set. Please filter by 'project'"
             )
-        try:
-            project = models.Project.objects.get(pk=self.request.GET["project"])
-        except:
-            raise NotFound("Project not found")
-        if not project.can_write(self.request.user):
-            raise PermissionDenied("User does not have admin access to this project.")
+            try:
+                project = models.Project.objects.get(pk=self.request.GET["project"])
+            except:
+                raise NotFound("Project not found")
+            if not project.can_write(self.request.user):
+                raise PermissionDenied(
+                    "User does not have admin access to this project."
+                )
 
         return super().get_queryset()
 

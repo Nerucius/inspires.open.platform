@@ -29,9 +29,8 @@ class Collaboration(TrackableModel):
 
     @classmethod
     def can_create(cls, user, data):
-        # Check performed by framework
-        if len(data) == 0:
-            return True
+        if "project" not in data:
+            return user.is_superuser
 
         # Can only create in a state of not approved and when user has write perm
         # to the project

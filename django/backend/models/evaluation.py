@@ -2,7 +2,7 @@ from django.db import models
 from django.dispatch import receiver
 from django.conf import settings
 
-from backend.models import TrackableModel, Participation
+from backend.models import TrackableModel, Participation, Project
 
 
 # -----------------------
@@ -146,6 +146,9 @@ class Evaluation(TrackableModel):
 
     @classmethod
     def can_create(cls, user, data):
+        if "participation" not in data:
+            return user.is_superuser
+
         participation = Participation.objects.get(pk=data["participation"])
         return participation.project.can_write(user)
 
@@ -212,7 +215,13 @@ class Response(TrackableModel):
     @property
     def project(self):
         if self.evaluation:
-            return self.evaluation.project.id
+            return self.evaluation.project
+        return None
+
+    @property
+    def project_pk(self):
+        if self.evaluation:
+            return self.evaluation.project.pk
         return None
 
     @property
@@ -228,17 +237,23 @@ class Response(TrackableModel):
 
     @classmethod
     def can_create(cls, user, data):
+        if "evaluation" not in data:
+            return user.is_superuser
+
         evaluation = Evaluation.objects.get(pk=data["evaluation"])
-        return evaluation.participation.user == user
+        return (
+            evaluation.project.can_write(user) or evaluation.participation.user == user
+        )
 
     def can_read(self, user):
-        return (
-            self.evaluation.participation.user == user
-            or self.evaluation.participation.project.can_write(user)
+        return self.evaluation.participation.user == user or self.project.can_write(
+            user
         )
 
     def can_write(self, user):
-        return self.evaluation.participation.user == user
+        return self.evaluation.participation.user == user or self.project.can_write(
+            user
+        )
 
 
 @receiver(models.signals.post_save)

@@ -13,7 +13,15 @@ urlpatterns = [
     path("eval/<int:project>/tangram.csv", views.csv_tangram),  #  Public Evaluation
     path("eval/<int:project>/global.csv", views.CSVProjectOverallPosition.as_view()),
     path("eval/<int:project>/phases.csv", views.CSVProjectPhases.as_view()),
-    path("eval/<int:project>/bullets.csv", views.CSVProjectBullets.as_view()),
+    path(
+        "eval/<int:project>/bullet_principles.csv",
+        views.CSVProjectBulletPrinciples.as_view(),
+    ),
+    path(
+        "eval/<int:project>/bullet_dimensions.csv",
+        views.CSVProjectBulletDimensions.as_view(),
+    ),
+    path("eval/<int:project>/bullet_roles.csv", views.CSVProjectBulletRoles.as_view()),
     path("eval/<int:project>/heatmap.csv", views.csv_heatmap),
     path(
         "export/<int:structure>/structure_summary.csv",

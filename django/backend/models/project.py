@@ -159,6 +159,9 @@ class ProjectAtPhase(TrackableModel):
 
     @classmethod
     def can_create(cls, user, data):
+        if "project" not in data:
+            return user.is_superuser
+
         project = Project.objects.get(pk=data["project"])
         return project.can_write(user)
 
@@ -179,6 +182,9 @@ class Participation(TrackableModel):
 
     @classmethod
     def can_create(cls, user, data):
+        if "project" not in data:
+            return user.is_superuser
+
         project = Project.objects.get(pk=data["project"])
         return project.can_write(user)
 

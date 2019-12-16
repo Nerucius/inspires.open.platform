@@ -220,7 +220,7 @@ def _projects_to_csv_lines(projects):
         project_phase = str(pap) if pap else ""
         participants = ";".join(
             [
-                "%s (%s)" % (p.user.full_name, p.role.upper())
+                "%s (%s)" % (p.user.full_name, str(p.role).replace(" ", "").upper())
                 for p in project.participation_set.all()
             ]
         )
@@ -268,6 +268,12 @@ class CSVCachedAuthorizedView(View):
     def _get_content(self, request, *args, **kwargs):
         return ""
 
+    def _get_content_wrapper(self, request, *args, **kwargs):
+        try:
+            return self._get_content(request, *args, **kwargs)
+        except Exception:
+            return ""
+
     def get(self, request, *args, **kwargs):
         project = None
         if "project" in kwargs:
@@ -275,16 +281,15 @@ class CSVCachedAuthorizedView(View):
 
         _authenticate_request(request, project)
 
+        # Use cache
         if self.cache_key:
-            # Use cache
             content = cache.get(self.cache_key)
             if not content:
                 content = self._get_content(request, *args, **kwargs)
                 cache.set(self.cache_key, content, timeout=None)
-
         else:
-            # print("WARNING: not using cache for %s" % self.request.META["PATH_INFO"])
             content = self._get_content(request, *args, **kwargs)
+            cache.set(self.cache_key, content, timeout=None)
 
         return shortcuts.HttpResponse(
             content, content_type="text/plain", charset="utf8"
@@ -326,7 +331,7 @@ class CSVProjectResponsesDegree(CSVCachedAuthorizedView):
 
 
 class CSVProjectOverallPosition(CSVCachedAuthorizedView):
-    # cache_key = None
+    cache_key = None
 
     def _get_content(self, request, *args, **kwargs):
         ownProject = Project.objects.get(pk=kwargs["project"])
@@ -361,7 +366,7 @@ class CSVProjectOverallPosition(CSVCachedAuthorizedView):
 
 
 class CSVProjectPhases(CSVCachedAuthorizedView):
-    # cache_key = None
+    cache_key = None
 
     def _get_content(self, request, *args, **kwargs):
         ownProject = Project.objects.get(pk=kwargs["project"])
@@ -374,15 +379,11 @@ class CSVProjectPhases(CSVCachedAuthorizedView):
         )
         df_all = _get_df_responses_all(answer_type="DEGREE")
 
-        # Phases information
-        df_p = df_self.groupby(
-            ["principle", "dimension", "phase", "role", "name"]
-        ).mean()
-        df_p = df_p.groupby(["principle", "dimension", "phase", "name"]).mean()
-        df_p = df_p.groupby(["principle", "dimension", "phase"]).mean()
-        df_p = df_p.groupby(["phase"]).mean().round(2)
+        PHASE_TITLES = ["Phase 1", "Phase 2", "Phase 3", "Phase 4"]
+        QUANT = [0, 0.25, 0.50, 0.75, 1]
+        QUANT_TITLES = ["MIN", "Q1", "Q2", "Q3", "MAX"]
 
-        # Calculate percentile for all phases
+        # Group by all projects all phases
         df_pa = df_all.groupby(
             ["project", "principle", "dimension", "phase", "role", "name"]
         ).mean()
@@ -390,29 +391,97 @@ class CSVProjectPhases(CSVCachedAuthorizedView):
             ["project", "principle", "dimension", "phase", "name"]
         ).mean()
         df_pa = df_pa.groupby(["project", "principle", "dimension", "phase"]).mean()
-        df_pa = df_pa.groupby(["project", "phase"]).mean().round(2).reset_index()
+        df_pa = df_pa.groupby(["project", "phase"]).mean()
+        df_pa = df_pa.reset_index()
 
+        # Calculate each phase percentile according to all projects
         quant_p1 = df_pa[df_pa.phase == "Phase 1"].quantile(QUANT)["response"].values
         quant_p2 = df_pa[df_pa.phase == "Phase 2"].quantile(QUANT)["response"].values
         quant_p3 = df_pa[df_pa.phase == "Phase 3"].quantile(QUANT)["response"].values
         quant_p4 = df_pa[df_pa.phase == "Phase 4"].quantile(QUANT)["response"].values
-
-        df_quant = pd.DataFrame(
+        # Join all info into single dataframe
+        df_qa = pd.DataFrame(
             index=PHASE_TITLES,
             columns=QUANT_TITLES,
             data=[quant_p1, quant_p2, quant_p3, quant_p4],
         )
+        df_qa.index.name = "phase"
 
-        df = pd.DataFrame(data=df_p["response"].values, columns=["Value"])
-        df["Dimension"] = PHASE_TITLES
-        df["MIN"] = df_quant["MIN"].values
-        df["Q1"] = df_quant["Q1"].values
-        df["Q2"] = df_quant["Q2"].values
-        df["Q3"] = df_quant["Q3"].values
-        df["MAX"] = df_quant["MAX"].values
-        df["Threshold"] = 3
+        # Calculate self value
+        df_ps = df_self.groupby(
+            ["principle", "dimension", "phase", "role", "name"]
+        ).mean()
+        df_ps = df_ps.groupby(["principle", "dimension", "phase", "name"]).mean()
+        df_ps = df_ps.groupby(["principle", "dimension", "phase"]).mean()
+        df_ps = df_ps.groupby(["phase"]).mean()
 
-        return df.set_index("Dimension").round(2).to_csv()
+        # Create result by concatenation
+        df_result = df_qa
+        df_result["Value"] = df_ps
+        df_result["Principle"] = "General"
+        df_result["Threshold"] = 3.0
+        df_result["Dimension"] = ["Phase1", "Phase2", "Phase3", "Phase4"]
+
+        df_result = df_result[
+            ["Principle", "Dimension", "Value", *QUANT_TITLES, "Threshold"]
+        ]
+
+        return df_result.fillna(0).round(2).to_csv(index=False)
+
+
+class CSVProjectHeatmap(CSVCachedAuthorizedView):
+    cache_key = None
+
+    def _get_content(self, request, *args, **kwargs):
+        ownProject = Project.objects.get(pk=kwargs["project"])
+
+        df_self = _get_dataframe_cache(
+            "/v1/csv/_responses/%d/MULTIPLE" % ownProject.id,
+            _get_df_responses_project,
+            project=ownProject,
+            answer_type="MULTIPLE",
+        )
+
+        df = df_self
+
+        df["response"] = df["response"].fillna("")
+        for key in "123456789":
+            df["multi_%s" % key] = df["response"].str.contains(key) * 1
+
+        df = df.groupby(["role", "dimension", "principle"]).mean()
+        df = df.groupby(["dimension", "principle"]).sum().round()
+
+        df = df.transpose()
+        df = df.stack()
+        df = df.reset_index().sort_values(["principle"])
+        df.fillna(0, inplace=True)
+
+        df = df.replace("multi_1", "1. Search for a topic")
+        df = df.replace("multi_2", "2. Formulation of research question")
+        df = df.replace("multi_3", "3. Method design")
+        df = df.replace("multi_4", "4. Data collection")
+        df = df.replace("multi_5", "5. Data analysis and interpretation")
+        df = df.replace("multi_6", "6. Publication of the results")
+        df = df.replace("multi_7", "7. Public awareness")
+        df = df.replace("multi_8", "8. Project governance")
+        df = df.replace("multi_9", "9. Transformative change")
+
+        df["Value"] = 0
+        try:
+            df["Value"] += df.ENGAGEMENT
+        except Exception:
+            pass
+        try:
+            df["Value"] += df.RESPONSIVENESS
+        except Exception:
+            pass
+
+        df = df[["principle", "level_0", "Value"]]
+        df.columns = ["Principle", "Dimension", "Value"]
+        df = df.replace({"CITIZEN": 1, "PARTICIPATION": 2})
+        df_result = df
+
+        return df_result.to_csv(index=False)
 
 
 class CSVProjectBulletPrinciples(CSVCachedAuthorizedView):
@@ -881,43 +950,3 @@ def csv_tangram(request, project):
     del df_all["index"]
 
     return shortcuts.HttpResponse(df_all.to_csv(), content_type="text/plain")
-
-
-def csv_heatmap(request, project):
-    ownProject = Project.objects.get(pk=project)
-    _authenticate_request(request, ownProject)
-
-    # Get multiple answer responses
-    df = _get_df_responses_project(ownProject, "MULTIPLE")
-
-    df["response"] = df["response"].fillna("")
-    for key in "123456789":
-        df["multi_%s" % key] = df["response"].str.contains(key) * 1
-
-    df = df.groupby(["role", "dimension", "principle"]).mean()
-    df = df.groupby(["dimension", "principle"]).sum().round()
-
-    df = df.transpose()
-    df = df.stack()
-    df = df.reset_index().sort_values(["principle"])
-    df.fillna(0, inplace=True)
-
-    df = df.replace("multi_1", "1. Search for a topic")
-    df = df.replace("multi_2", "2. Formulation of research question")
-    df = df.replace("multi_3", "3. Method design")
-    df = df.replace("multi_4", "4. Data collection")
-    df = df.replace("multi_5", "5. Data analysis and interpretation")
-    df = df.replace("multi_6", "6. Publication of the results")
-    df = df.replace("multi_7", "7. Public awareness")
-    df = df.replace("multi_8", "8. Project governance")
-    df = df.replace("multi_9", "9. Transformative change")
-
-    df["Value"] = df.ENGAGEMENT + df.RESPONSIVENESS
-
-    df = df[["principle", "level_0", "Value", "Value"]]
-    df.columns = ["Principle", "Dimension", "Indicator", "Value"]
-    df.Indicator = 0
-    df = df.replace("CITIZEN", 1)
-    df = df.replace("PARTICIPATION", 2)
-
-    return shortcuts.HttpResponse(df.to_csv(index=False), content_type="text/plain")

@@ -22,7 +22,7 @@ urlpatterns = [
         views.CSVProjectBulletDimensions.as_view(),
     ),
     path("eval/<int:project>/bullet_roles.csv", views.CSVProjectBulletRoles.as_view()),
-    path("eval/<int:project>/heatmap.csv", views.csv_heatmap),
+    path("eval/<int:project>/heatmap.csv", views.CSVProjectHeatmap.as_view()),
     path(
         "export/<int:structure>/structure_summary.csv",
         views.CSVStructureSummaryExport.as_view(),

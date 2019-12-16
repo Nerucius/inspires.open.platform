@@ -50,6 +50,8 @@ export default {
     },
 
     selectLanguage(lang) {
+      // change text orientation
+      this.$vuetify.rtl = lang == "ar";
       this.$store.dispatch("preferences/set", { lang });
     }
   }

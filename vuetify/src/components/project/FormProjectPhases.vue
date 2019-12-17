@@ -4,7 +4,7 @@
       {{ $t('pages.projectManage.phasesTab') }}
     </h2>
 
-    <v-alert color="info" class="ma-4" :value="true">
+    <v-alert color="info" class="ma-4" :value="true" dismissible>
       <v-layout row align-top>
         <v-flex>
           <v-icon large dark>

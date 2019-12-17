@@ -41,6 +41,7 @@
 
     <v-spacer />
 
+    <!-- Desktop toolbar items -->
     <v-toolbar-items class="hidden-sm-and-down">
       <!-- Full width items -->
       <v-btn v-for="link in links.filter(l => !l.miniOnly)"
@@ -60,13 +61,13 @@
       <LoginLogoutButton />
     </v-toolbar-items>
 
-    <!-- SM devices links -->
+    <!-- Mobile toolbar links -->
     <v-menu bottom left class="hidden-md-and-up">
       <v-btn slot="activator" large dark icon>
         <v-icon>more_vert</v-icon>
       </v-btn>
 
-      <v-list>
+      <v-list class="pa-0">
         <template v-for="(link,idx) in links">
           <v-list-tile v-if="!link.divider"
                        :key="link.name" exact :to="{name:link.name}"
@@ -117,11 +118,19 @@ export default {
   computed: {
     links(){
       if(this.userIsLoggedIn){
-        return [
-          {miniOnly: true, name:"account", label: this.currentUser.first_name},
-          {miniOnly: true, divider:true},
-          ...this.$data.menuLinks,
+        let links = [
+          {miniOnly: true, name:"account", label: this.currentUser.first_name}
         ]
+        if(this.currentUser.is_administrator){
+          links.push({miniOnly: true, divider:true})
+          links.push({miniOnly: true, name:"administration", label: "Administration"})
+        }
+
+        links.push({miniOnly: true, divider:true})
+        links.push(...this.$data.menuLinks)
+
+
+        return links
       }
       return this.menuLinks;
     },

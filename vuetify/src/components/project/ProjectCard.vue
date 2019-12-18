@@ -88,7 +88,7 @@
     </template>
 
     <!-- Evaluation tangram view -->
-    <v-sheet height="351" v-else>
+    <v-sheet v-else height="351" class="overflow-hidden">
       <v-sheet class="pa-2" height="260">
         <ProjectTangram :project="project">
           <v-layout fill-height column align-center justify-center>
@@ -103,10 +103,10 @@
       </v-sheet>
 
       <v-card-text class="pb-0">
-        <v-sheet class="overflow-hidden mb-2">
+        <v-sheet class="mb-2">
         <!-- Project Title -->
           <h2 style="font-size:125%" class="mb-2">
-            <router-link :to="project.link">
+            <router-link :to="project.link" :title="project.name">
               {{ project.name }}
               <small>
                 <span v-if="project.structure"> | {{ project.structure.name }}</span>
@@ -120,7 +120,12 @@
     </v-sheet>
 
     <v-card-actions>
-      <!-- <v-rating
+      <v-btn flat block :to="project.link">
+        {{ $t('pages.projectList.visitProject') }}
+      </v-btn>
+
+      <!--
+      <v-rating
         class="hidden-sm-and-down"
         readonly
         color="orange darken-3"
@@ -134,22 +139,8 @@
         color="orange darken-3"
         background-color="orange darken-3"
         :value="project.rating"
-      />-->
-      <!-- <v-spacer /> -->
-
-      <v-btn flat block :to="project.link">
-        {{ $t('pages.projectList.visitProject') }}
-      </v-btn>
-
-      <!-- <v-btn flat
-        :title="project.name"
-        :to="project.link"
-      >
-        {{ $t('actions.more') }}
-        <v-icon right class="hidden-sm-and-down">
-          mdi-chevron-right
-        </v-icon>
-      </v-btn> -->
+      />
+      -->
     </v-card-actions>
   </v-card>
 </template>

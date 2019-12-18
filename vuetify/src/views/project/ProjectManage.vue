@@ -102,6 +102,7 @@
           </v-layout>
         </v-tab-item>
 
+        <!--
         <v-tab-item key="pages.projectManage.attachmentsTab">
           <v-layout row wrap>
             <v-flex xs12>
@@ -113,6 +114,7 @@
             </v-flex>
           </v-layout>
         </v-tab-item>
+        -->
 
 
       </v-tabs-items>
@@ -160,7 +162,7 @@ export default {
           "pages.projectManage.participantsTab",
           "pages.projectManage.phasesTab",
           "pages.projectManage.evaluationTab",
-          "pages.projectManage.attachmentsTab",
+          // "pages.projectManage.attachmentsTab",
         ]
       },
     }

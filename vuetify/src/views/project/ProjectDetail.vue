@@ -204,7 +204,7 @@
 
 
     <v-flex xs12 sm8>
-      <v-img :src="project.image_url" height="200">
+      <v-img :src="project.image_url" height="260">
         <v-toolbar flat style="background-color:rgba(0,0,0,.3)" dark>
           <h1 class="title">
             {{ project.name }}

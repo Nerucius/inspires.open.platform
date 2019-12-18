@@ -18,6 +18,7 @@
 
 <template>
   <v-layout v-if="structure" row wrap align-content-start>
+
     <v-flex v-if="canManage" pa-0 xs12 class="text-xs-right">
       <v-btn flat outline color="warning" :to="manageLink">
         <v-icon left>
@@ -159,12 +160,30 @@
     <!-- Main Body -->
     <v-flex xs12 sm8>
       <v-card flat>
-        <v-img :src="structure.image_url" height="200">
-          <v-toolbar dense flat style="background-color:rgba(0,0,0,.3)" dark>
-            <h1 class="title">
-              {{ structure.name }}
-            </h1>
-          </v-toolbar>
+        <v-img :src="structure.image_url" height="260">
+
+          <v-layout ma-0 pa-0 justify-space-between column fill-height>
+            <v-flex pa-0 shrink>
+              <v-toolbar dense flat style="background-color:rgba(0,0,0,.3)" dark>
+                <h1 class="title">
+                  {{ structure.name }}
+                </h1>
+              </v-toolbar>
+            </v-flex>
+
+          <v-flex pa-0 shrink>
+            <v-toolbar style="background-color:rgba(0,0,0,.3); white-space: nowrap" dense flat>
+              <v-chip v-for="area in structure.knowledge_areas" :key="area.code"
+                      dark color="grey darken-4"
+                      :title="$t(ka(area).name)"
+                      @click="$router.push(`/structures/areas/${obj2slug(ka(area))}`)"
+              >
+                {{ $t(ka(area).name) }}
+              </v-chip>
+            </v-toolbar>
+          </v-flex>
+
+          </v-layout>
         </v-img>
 
         <div class="px-4 pt-4 pb-2 grey lighten-4" style="font-spacing:110%">
@@ -252,11 +271,12 @@ export default {
     }
   },
 
-  async mounted(){
+  async created(){
     try{
       await this.$store.dispatch("structure/load", [this.structureId])
       this.structure = this.$store.getters['structure/detail'](this.structureId)
       await this.$store.dispatch("project/load")
+      await this.$store.dispatch("knowledgearea/load")
     }catch(err){
       // TODO: Show error instead
       this.$router.push("/structure-not-found")
@@ -266,6 +286,10 @@ export default {
   methods:{
     user(uid){
       return this.$store.getters["user/get"](uid)
+    },
+
+    ka(id){
+      return this.$store.getters['knowledgearea/get'](id)
     },
 
     async exportCSV(){

@@ -263,6 +263,8 @@ def _projects_to_csv_lines(projects):
 
 
 class CSVCachedAuthorizedView(View):
+    public_api = False
+
     @property
     def cache_key(self):
         return self.request.META["PATH_INFO"]
@@ -281,7 +283,8 @@ class CSVCachedAuthorizedView(View):
         if "project" in kwargs:
             project = Project.objects.get(pk=kwargs["project"])
 
-        _authenticate_request(request, project)
+        if not self.public_api:
+            _authenticate_request(request, project)
 
         # Use cache
         if self.cache_key:
@@ -299,7 +302,7 @@ class CSVCachedAuthorizedView(View):
 
 
 class CSVAllResponsesMultiple(CSVCachedAuthorizedView):
-    #    cache_key = None
+    cache_key = None
 
     def _get_content(self, request, *args, **kwargs):
         df = _get_df_responses_all(answer_type="MULTIPLE")
@@ -307,7 +310,7 @@ class CSVAllResponsesMultiple(CSVCachedAuthorizedView):
 
 
 class CSVAllResponsesDegree(CSVCachedAuthorizedView):
-    #    cache_key = None
+    cache_key = None
 
     def _get_content(self, request, *args, **kwargs):
         df = _get_df_responses_all(answer_type="DEGREE")
@@ -315,7 +318,7 @@ class CSVAllResponsesDegree(CSVCachedAuthorizedView):
 
 
 class CSVProjectResponsesMultiple(CSVCachedAuthorizedView):
-    #    cache_key = None
+    cache_key = None
 
     def _get_content(self, request, *args, **kwargs):
         ownProject = Project.objects.get(pk=kwargs["project"])
@@ -324,7 +327,7 @@ class CSVProjectResponsesMultiple(CSVCachedAuthorizedView):
 
 
 class CSVProjectResponsesDegree(CSVCachedAuthorizedView):
-    #    cache_key = None
+    cache_key = None
 
     def _get_content(self, request, *args, **kwargs):
         ownProject = Project.objects.get(pk=kwargs["project"])
@@ -333,7 +336,7 @@ class CSVProjectResponsesDegree(CSVCachedAuthorizedView):
 
 
 class CSVProjectOverallPosition(CSVCachedAuthorizedView):
-    #    cache_key = None
+    cache_key = None
 
     def _get_content(self, request, *args, **kwargs):
         ownProject = Project.objects.get(pk=kwargs["project"])
@@ -368,7 +371,7 @@ class CSVProjectOverallPosition(CSVCachedAuthorizedView):
 
 
 class CSVProjectPhases(CSVCachedAuthorizedView):
-    #    cache_key = None
+    cache_key = None
 
     def _get_content(self, request, *args, **kwargs):
         ownProject = Project.objects.get(pk=kwargs["project"])
@@ -432,7 +435,7 @@ class CSVProjectPhases(CSVCachedAuthorizedView):
 
 
 class CSVProjectHeatmap(CSVCachedAuthorizedView):
-    #    cache_key = None
+    cache_key = None
 
     def _get_content(self, request, *args, **kwargs):
         ownProject = Project.objects.get(pk=kwargs["project"])
@@ -487,7 +490,8 @@ class CSVProjectHeatmap(CSVCachedAuthorizedView):
 
 
 class CSVProjectTangram(CSVCachedAuthorizedView):
-    #    cache_key = None
+    cache_key = None
+    public_api = True
 
     def _get_content(self, request, *args, **kwargs):
         ownProject = Project.objects.get(pk=kwargs["project"])
@@ -545,7 +549,7 @@ class CSVProjectTangram(CSVCachedAuthorizedView):
 
 
 class CSVProjectBulletPrinciples(CSVCachedAuthorizedView):
-    #    cache_key = None
+    cache_key = None
 
     def _get_content(self, request, *args, **kwargs):
         ownProject = Project.objects.get(pk=kwargs["project"])
@@ -619,7 +623,7 @@ class CSVProjectBulletPrinciples(CSVCachedAuthorizedView):
 
 
 class CSVProjectBulletDimensions(CSVCachedAuthorizedView):
-    #    cache_key = None
+    cache_key = None
 
     def _get_content(self, request, *args, **kwargs):
         ownProject = Project.objects.get(pk=kwargs["project"])
@@ -734,7 +738,7 @@ class CSVProjectBulletDimensions(CSVCachedAuthorizedView):
 
 
 class CSVProjectBulletRoles(CSVCachedAuthorizedView):
-    #    cache_key = None
+    cache_key = None
 
     def _get_content(self, request, *args, **kwargs):
         ownProject = Project.objects.get(pk=kwargs["project"])
@@ -818,7 +822,7 @@ class CSVProjectBulletRoles(CSVCachedAuthorizedView):
 
 
 class CSVStructureSummaryExport(CSVCachedAuthorizedView):
-    #    cache_key = None
+    cache_key = None
 
     def _get_content(self, request, *args, **kwargs):
         structure_pk = kwargs["structure"]
@@ -863,7 +867,7 @@ class CSVStructureSummaryExport(CSVCachedAuthorizedView):
 
 
 class CSVProjectSummaryExport(CSVCachedAuthorizedView):
-    #    cache_key = None
+    cache_key = None
 
     def _get_content(self, request, *args, **kwargs):
         project_pk = kwargs["project"]
@@ -904,7 +908,7 @@ class CSVProjectSummaryExport(CSVCachedAuthorizedView):
 
 
 class CSVAllOwnProjectsExport(CSVCachedAuthorizedView):
-    #    cache_key = None
+    cache_key = None
 
     def _get_content(self, request, *args, **kwargs):
         user = request.user
@@ -917,7 +921,7 @@ class CSVAllOwnProjectsExport(CSVCachedAuthorizedView):
 
 
 class CSVAllOwnStructresExport(CSVCachedAuthorizedView):
-    #    cache_key = None
+    cache_key = None
 
     def _get_content(self, request, *args, **kwargs):
         user = request.user
@@ -929,7 +933,7 @@ class CSVAllOwnStructresExport(CSVCachedAuthorizedView):
 
 
 class CSVAdminAllProjects(CSVCachedAuthorizedView):
-    #    cache_key = None
+    cache_key = None
 
     def _get_content(self, request, *args, **kwargs):
         if not request.user.is_administrator:
@@ -940,7 +944,7 @@ class CSVAdminAllProjects(CSVCachedAuthorizedView):
 
 
 class CSVAdminAllStructures(CSVCachedAuthorizedView):
-    #    cache_key = None
+    cache_key = None
 
     def _get_content(self, request, *args, **kwargs):
         if not request.user.is_administrator:

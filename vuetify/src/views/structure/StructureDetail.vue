@@ -53,6 +53,19 @@
             </h1>
           </v-toolbar>
 
+
+          <!-- Country -->
+          <v-list-tile v-if="structure.country_code" :to="structure.link">
+            <v-list-tile-avatar tile>
+              <flag style="font-size:40px" :squared="false" :iso="iso3toiso2(structure.country_code)"></flag>
+              <!-- <v-img :src="structure.image_url" /> -->
+            </v-list-tile-avatar>
+            <v-list-tile-content>
+              <v-list-tile-title>{{ countryTranslation(structure.country_code) }}</v-list-tile-title>
+              <v-list-tile-sub-title>{{ $t('forms.fields.structureCountry') }}</v-list-tile-sub-title>
+            </v-list-tile-content>
+          </v-list-tile>
+
           <!-- Contact Social Facebook -->
           <v-list-tile v-if="structure.contact_social_facebook" :href="structure.contact_social_facebook" target="_blank">
             <v-list-tile-avatar>
@@ -218,7 +231,9 @@
 
 
 <script>
+import { iso3toiso2, translateCountryName } from '@/plugins/countries'
 import { slug2id, obj2slug } from "@/plugins/utils";
+
 import ProjectCardHorizontal from "@/components/project/ProjectCardHorizontal";
 import { API_SERVER } from "@/plugins/resource";
 
@@ -237,6 +252,7 @@ export default {
   data(){
     return {
       obj2slug,
+      iso3toiso2,
       structure: null
     }
   },
@@ -290,6 +306,11 @@ export default {
 
     ka(id){
       return this.$store.getters['knowledgearea/get'](id)
+    },
+
+    countryTranslation(iso3){
+      let locale = this.$i18n.locale
+      return translateCountryName(iso3, locale);
     },
 
     async exportCSV(){

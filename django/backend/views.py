@@ -55,13 +55,13 @@ def search(request):
             content_type="application/json",
         )
 
-    projects = models.Project.objects.filter(name__contains=term)
-    projects |= models.Project.objects.filter(summary__contains=term)
+    projects = models.Project.objects.filter(name__icontains=term)
+    projects |= models.Project.objects.filter(summary__icontains=term)
     projects |= models.Project.objects.filter(
-        collaboration__structure__name__contains=term
+        collaboration__structure__name__icontains=term
     )
-    structures = models.Structure.objects.filter(name__contains=term)
-    structures |= models.Structure.objects.filter(summary__contains=term)
+    structures = models.Structure.objects.filter(name__icontains=term)
+    structures |= models.Structure.objects.filter(summary__icontains=term)
 
     objects = []
     objects += structures

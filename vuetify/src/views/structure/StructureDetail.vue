@@ -189,7 +189,7 @@
               <v-chip v-for="area in structure.knowledge_areas" :key="area.code"
                       dark color="grey darken-4"
                       :title="$t(ka(area).name)"
-                      @click="$router.push(`/structures/areas/${obj2slug(ka(area))}`)"
+                      @click="$router.push(ka(area).link)"
               >
                 {{ $t(ka(area).name) }}
               </v-chip>

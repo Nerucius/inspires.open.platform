@@ -484,6 +484,64 @@ class CSVProjectHeatmap(CSVCachedAuthorizedView):
         return df_result.to_csv(index=False)
 
 
+class CSVProjectTangram(CSVCachedAuthorizedView):
+    cache_key = None
+
+    def _get_content(self, request, *args, **kwargs):
+        ownProject = Project.objects.get(pk=kwargs["project"])
+
+        df_self = _get_dataframe_cache(
+            "/v1/csv/_responses/%d/DEGREE" % ownProject.id,
+            _get_df_responses_project,
+            project=ownProject,
+            answer_type="DEGREE",
+        )
+        df_all = _get_df_responses_all(answer_type="DEGREE")
+
+        if df_self is None:
+            raise Exception("No data for project")
+
+        df_all = df_all.groupby(
+            ["project", "principle", "dimension", "phase", "role", "name"]
+        ).mean()
+        df_all = df_all.groupby(
+            ["project", "principle", "dimension", "phase", "name"]
+        ).mean()
+        df_all = df_all.groupby(["project", "principle", "dimension"]).mean()
+        df_all = df_all.groupby(["project", "principle"]).mean()
+        df_all = df_all.groupby(["principle"]).quantile(QUANT)
+        df_all = df_all.reset_index()
+        df_all = df_all.pivot_table(
+            columns="level_1", values="response", index="principle"
+        )
+        df_all.columns = QUANT_TITLES
+
+        # Calculate where
+        df_self = df_self.groupby(
+            ["principle", "dimension", "phase", "role", "name"]
+        ).mean()
+        df_self = df_self.groupby(["principle", "dimension", "phase", "name"]).mean()
+        df_self = df_self.groupby(["principle", "dimension"]).mean()
+        df_self = df_self.groupby(["principle"]).mean()
+        df_self.columns = ["value"]
+
+        df_all["Quartile"] = 1
+        df_all["Quartile"] = df_all["Quartile"] + (df_self.value > df_all.Q1) * 1
+        df_all["Quartile"] = df_all["Quartile"] + (df_self.value > df_all.Q2) * 1
+        df_all["Quartile"] = df_all["Quartile"] + (df_self.value > df_all.Q3) * 1
+
+        df_all = df_all.pivot_table(values="Quartile", columns="principle")
+        df_all.columns = [
+            "citizen",
+            "integrity",
+            "knowledge",
+            "participation",
+            "transform",
+        ]
+
+        return df_all.to_csv(index=False)
+
+
 class CSVProjectBulletPrinciples(CSVCachedAuthorizedView):
     cache_key = None
 
@@ -946,7 +1004,5 @@ def csv_tangram(request, project):
 
     df_all = df_all.pivot_table(values="Quartile", columns="principle")
     df_all.columns = ["citizen", "integrity", "knowledge", "participation", "transform"]
-    df_all = df_all.reset_index()
-    del df_all["index"]
 
-    return shortcuts.HttpResponse(df_all.to_csv(), content_type="text/plain")
+    return shortcuts.HttpResponse(df_all.to_csv(index=False), content_type="text/plain")

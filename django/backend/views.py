@@ -49,9 +49,10 @@ def csrf_token(request):
 
 def search(request):
     term = request.GET.get("term", None)
-    if not term or len(term) < 4:
+    if not term or len(term) < 3:
         return HttpResponseBadRequest(
-            "missing required parameter: term (min: 4 characters)"
+            '{"error": "Missing  or invalid  parameter: `term` (min: 3 characters)"}',
+            content_type="application/json",
         )
 
     projects = models.Project.objects.filter(name__contains=term)
@@ -63,8 +64,8 @@ def search(request):
     structures |= models.Structure.objects.filter(summary__contains=term)
 
     objects = []
-    objects += projects
     objects += structures
+    objects += projects
 
     data = []
 

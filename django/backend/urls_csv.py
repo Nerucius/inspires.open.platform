@@ -10,7 +10,9 @@ urlpatterns = [
         "eval/<int:project>/responses_multi.csv",
         views.CSVProjectResponsesMultiple.as_view(),
     ),
-    path("eval/<int:project>/tangram.csv", views.csv_tangram),  #  Public Evaluation
+    path(
+        "eval/<int:project>/tangram.csv", views.CSVProjectTangram.as_view()
+    ),  #  Public Evaluation
     path("eval/<int:project>/global.csv", views.CSVProjectOverallPosition.as_view()),
     path("eval/<int:project>/phases.csv", views.CSVProjectPhases.as_view()),
     path(

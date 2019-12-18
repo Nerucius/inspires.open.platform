@@ -1,5 +1,5 @@
 <template>
-  <v-layout row wrap>
+  <v-layout row wrap align-content-start>
     <v-flex v-for="project in projects" :key="project.id" xs12 sm6 md4 lg3 xl2 mb-3>
       <ProjectCard :project="project" />
     </v-flex>
@@ -15,7 +15,7 @@ export default {
     ProjectCard
   },
 
-  props: ["projects", "hideTitle"],
+  props: ["projects"],
 
   data() {
     return {

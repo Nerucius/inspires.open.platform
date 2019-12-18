@@ -177,8 +177,6 @@ export default {
 
     async submitResetPassword() {
       if (this.$refs.formResetPassword.validate()) {
-        console.log("reset password for " + this.credentials.username)
-
         try{
           await this.$store.dispatch("user/resetPassword", this.credentials)
           this.resetPasswordSubmitted = true

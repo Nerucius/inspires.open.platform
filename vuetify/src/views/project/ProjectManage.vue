@@ -101,6 +101,20 @@
             </v-flex>
           </v-layout>
         </v-tab-item>
+
+        <v-tab-item key="pages.projectManage.attachmentsTab">
+          <v-layout row wrap>
+            <v-flex xs12>
+              <v-card flat style="min-height:85vh">
+                <v-card-text>
+                  <FormProjectAttachments v-if="dataReady" :project="project" />
+                </v-card-text>
+              </v-card>
+            </v-flex>
+          </v-layout>
+        </v-tab-item>
+
+
       </v-tabs-items>
     </v-flex>
   </v-layout>
@@ -112,6 +126,7 @@ import FormProjectParticipants from "@/components/project/FormProjectParticipant
 import FormProjectStructure from "@/components/project/FormProjectStructure";
 import FormProjectPhases from "@/components/project/FormProjectPhases";
 import FormProjectEvaluation from "@/components/project/FormProjectEvaluation";
+import FormProjectAttachments from "@/components/project/FormProjectAttachments";
 import { slug2id } from "@/plugins/utils";
 
 function tabSlug(fullTabName){
@@ -131,6 +146,7 @@ export default {
     FormProjectStructure,
     FormProjectPhases,
     FormProjectEvaluation,
+    FormProjectAttachments,
   },
 
   data() {
@@ -143,7 +159,8 @@ export default {
           "pages.projectManage.projectTab",
           "pages.projectManage.participantsTab",
           "pages.projectManage.phasesTab",
-          "pages.projectManage.evaluationTab"
+          "pages.projectManage.evaluationTab",
+          "pages.projectManage.attachmentsTab",
         ]
       },
     }

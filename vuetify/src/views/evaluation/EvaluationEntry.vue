@@ -351,8 +351,6 @@ export default {
             [responseType]: answer.response,
           }
 
-          console.log(response)
-
           await this.$store.dispatch("evaluation/submitResponse", response)
         }
 

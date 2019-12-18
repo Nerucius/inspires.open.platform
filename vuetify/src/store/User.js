@@ -118,14 +118,12 @@ export default {
         let response = await Vue.http.post(
           userResetPasswordRequestUrl, credentials, {emulateJSON: true}
         )
-        console.log(response.body)
     },
 
     resetPasswordSubmit: async function (context, credentials) {
         let response = await Vue.http.post(
           userResetPasswordSubmitUrl, credentials, {emulateJSON: true}
         )
-        console.log(response.body)
     },
 
     logout: async function (context) {

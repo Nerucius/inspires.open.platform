@@ -15,7 +15,8 @@
   "alpha2Code": "AF",
   "alpha3Code": "AFG",
   "region": "Asia",
-  "subregion": "Southern Asia"
+  "subregion": "Southern Asia",
+  "demonym": "Afghan"
 }, {
   "translations": {
     "br": "Ilhas de Aland",
@@ -33,7 +34,8 @@
   "alpha2Code": "AX",
   "alpha3Code": "ALA",
   "region": "Europe",
-  "subregion": "Northern Europe"
+  "subregion": "Northern Europe",
+  "demonym": "Ålandish"
 }, {
   "translations": {
     "br": "Albânia",
@@ -51,7 +53,8 @@
   "alpha2Code": "AL",
   "alpha3Code": "ALB",
   "region": "Europe",
-  "subregion": "Southern Europe"
+  "subregion": "Southern Europe",
+  "demonym": "Albanian"
 }, {
   "translations": {
     "br": "Argélia",
@@ -69,7 +72,8 @@
   "alpha2Code": "DZ",
   "alpha3Code": "DZA",
   "region": "Africa",
-  "subregion": "Northern Africa"
+  "subregion": "Northern Africa",
+  "demonym": "Algerian"
 }, {
   "translations": {
     "br": "Samoa Americana",
@@ -87,7 +91,8 @@
   "alpha2Code": "AS",
   "alpha3Code": "ASM",
   "region": "Oceania",
-  "subregion": "Polynesia"
+  "subregion": "Polynesia",
+  "demonym": "American Samoan"
 }, {
   "translations": {
     "br": "Andorra",
@@ -105,7 +110,8 @@
   "alpha2Code": "AD",
   "alpha3Code": "AND",
   "region": "Europe",
-  "subregion": "Southern Europe"
+  "subregion": "Southern Europe",
+  "demonym": "Andorran"
 }, {
   "translations": {
     "br": "Angola",
@@ -123,7 +129,8 @@
   "alpha2Code": "AO",
   "alpha3Code": "AGO",
   "region": "Africa",
-  "subregion": "Middle Africa"
+  "subregion": "Middle Africa",
+  "demonym": "Angolan"
 }, {
   "translations": {
     "br": "Anguila",
@@ -141,7 +148,8 @@
   "alpha2Code": "AI",
   "alpha3Code": "AIA",
   "region": "Americas",
-  "subregion": "Caribbean"
+  "subregion": "Caribbean",
+  "demonym": "Anguillian"
 }, {
   "translations": {
     "br": "Antártida",
@@ -159,7 +167,8 @@
   "alpha2Code": "AQ",
   "alpha3Code": "ATA",
   "region": "Polar",
-  "subregion": ""
+  "subregion": "",
+  "demonym": ""
 }, {
   "translations": {
     "br": "Antígua e Barbuda",
@@ -177,7 +186,8 @@
   "alpha2Code": "AG",
   "alpha3Code": "ATG",
   "region": "Americas",
-  "subregion": "Caribbean"
+  "subregion": "Caribbean",
+  "demonym": "Antiguan, Barbudan"
 }, {
   "translations": {
     "br": "Argentina",
@@ -195,7 +205,8 @@
   "alpha2Code": "AR",
   "alpha3Code": "ARG",
   "region": "Americas",
-  "subregion": "South America"
+  "subregion": "South America",
+  "demonym": "Argentinean"
 }, {
   "translations": {
     "br": "Armênia",
@@ -213,7 +224,8 @@
   "alpha2Code": "AM",
   "alpha3Code": "ARM",
   "region": "Asia",
-  "subregion": "Western Asia"
+  "subregion": "Western Asia",
+  "demonym": "Armenian"
 }, {
   "translations": {
     "br": "Aruba",
@@ -231,7 +243,8 @@
   "alpha2Code": "AW",
   "alpha3Code": "ABW",
   "region": "Americas",
-  "subregion": "Caribbean"
+  "subregion": "Caribbean",
+  "demonym": "Aruban"
 }, {
   "translations": {
     "br": "Austrália",
@@ -249,7 +262,8 @@
   "alpha2Code": "AU",
   "alpha3Code": "AUS",
   "region": "Oceania",
-  "subregion": "Australia and New Zealand"
+  "subregion": "Australia and New Zealand",
+  "demonym": "Australian"
 }, {
   "translations": {
     "br": "áustria",
@@ -267,7 +281,8 @@
   "alpha2Code": "AT",
   "alpha3Code": "AUT",
   "region": "Europe",
-  "subregion": "Western Europe"
+  "subregion": "Western Europe",
+  "demonym": "Austrian"
 }, {
   "translations": {
     "br": "Azerbaijão",
@@ -285,7 +300,8 @@
   "alpha2Code": "AZ",
   "alpha3Code": "AZE",
   "region": "Asia",
-  "subregion": "Western Asia"
+  "subregion": "Western Asia",
+  "demonym": "Azerbaijani"
 }, {
   "translations": {
     "br": "Bahamas",
@@ -303,7 +319,8 @@
   "alpha2Code": "BS",
   "alpha3Code": "BHS",
   "region": "Americas",
-  "subregion": "Caribbean"
+  "subregion": "Caribbean",
+  "demonym": "Bahamian"
 }, {
   "translations": {
     "br": "Bahrein",
@@ -321,7 +338,8 @@
   "alpha2Code": "BH",
   "alpha3Code": "BHR",
   "region": "Asia",
-  "subregion": "Western Asia"
+  "subregion": "Western Asia",
+  "demonym": "Bahraini"
 }, {
   "translations": {
     "br": "Bangladesh",
@@ -339,7 +357,8 @@
   "alpha2Code": "BD",
   "alpha3Code": "BGD",
   "region": "Asia",
-  "subregion": "Southern Asia"
+  "subregion": "Southern Asia",
+  "demonym": "Bangladeshi"
 }, {
   "translations": {
     "br": "Barbados",
@@ -357,7 +376,8 @@
   "alpha2Code": "BB",
   "alpha3Code": "BRB",
   "region": "Americas",
-  "subregion": "Caribbean"
+  "subregion": "Caribbean",
+  "demonym": "Barbadian"
 }, {
   "translations": {
     "br": "Bielorrússia",
@@ -375,7 +395,8 @@
   "alpha2Code": "BY",
   "alpha3Code": "BLR",
   "region": "Europe",
-  "subregion": "Eastern Europe"
+  "subregion": "Eastern Europe",
+  "demonym": "Belarusian"
 }, {
   "translations": {
     "br": "Bélgica",
@@ -393,7 +414,8 @@
   "alpha2Code": "BE",
   "alpha3Code": "BEL",
   "region": "Europe",
-  "subregion": "Western Europe"
+  "subregion": "Western Europe",
+  "demonym": "Belgian"
 }, {
   "translations": {
     "br": "Belize",
@@ -411,7 +433,8 @@
   "alpha2Code": "BZ",
   "alpha3Code": "BLZ",
   "region": "Americas",
-  "subregion": "Central America"
+  "subregion": "Central America",
+  "demonym": "Belizean"
 }, {
   "translations": {
     "br": "Benin",
@@ -429,7 +452,8 @@
   "alpha2Code": "BJ",
   "alpha3Code": "BEN",
   "region": "Africa",
-  "subregion": "Western Africa"
+  "subregion": "Western Africa",
+  "demonym": "Beninese"
 }, {
   "translations": {
     "br": "Bermudas",
@@ -447,7 +471,8 @@
   "alpha2Code": "BM",
   "alpha3Code": "BMU",
   "region": "Americas",
-  "subregion": "Northern America"
+  "subregion": "Northern America",
+  "demonym": "Bermudian"
 }, {
   "translations": {
     "br": "Butão",
@@ -465,7 +490,8 @@
   "alpha2Code": "BT",
   "alpha3Code": "BTN",
   "region": "Asia",
-  "subregion": "Southern Asia"
+  "subregion": "Southern Asia",
+  "demonym": "Bhutanese"
 }, {
   "translations": {
     "br": "Bolívia",
@@ -483,7 +509,8 @@
   "alpha2Code": "BO",
   "alpha3Code": "BOL",
   "region": "Americas",
-  "subregion": "South America"
+  "subregion": "South America",
+  "demonym": "Bolivian"
 }, {
   "translations": {
     "br": "Bonaire",
@@ -497,7 +524,8 @@
   "alpha2Code": "BQ",
   "alpha3Code": "BES",
   "region": "Americas",
-  "subregion": "Caribbean"
+  "subregion": "Caribbean",
+  "demonym": "Dutch"
 }, {
   "translations": {
     "br": "Bósnia e Herzegovina",
@@ -515,7 +543,8 @@
   "alpha2Code": "BA",
   "alpha3Code": "BIH",
   "region": "Europe",
-  "subregion": "Southern Europe"
+  "subregion": "Southern Europe",
+  "demonym": "Bosnian, Herzegovinian"
 }, {
   "translations": {
     "br": "Botsuana",
@@ -533,7 +562,8 @@
   "alpha2Code": "BW",
   "alpha3Code": "BWA",
   "region": "Africa",
-  "subregion": "Southern Africa"
+  "subregion": "Southern Africa",
+  "demonym": "Motswana"
 }, {
   "translations": {
     "br": "Ilha Bouvet",
@@ -551,7 +581,8 @@
   "alpha2Code": "BV",
   "alpha3Code": "BVT",
   "region": "",
-  "subregion": ""
+  "subregion": "",
+  "demonym": ""
 }, {
   "translations": {
     "br": "Brasil",
@@ -569,7 +600,8 @@
   "alpha2Code": "BR",
   "alpha3Code": "BRA",
   "region": "Americas",
-  "subregion": "South America"
+  "subregion": "South America",
+  "demonym": "Brazilian"
 }, {
   "translations": {
     "br": "Território Britânico do Oceano íÍdico",
@@ -587,7 +619,8 @@
   "alpha2Code": "IO",
   "alpha3Code": "IOT",
   "region": "Africa",
-  "subregion": "Eastern Africa"
+  "subregion": "Eastern Africa",
+  "demonym": "Indian"
 }, {
   "translations": {
     "br": "Ilhas Menores Distantes dos Estados Unidos",
@@ -605,7 +638,8 @@
   "alpha2Code": "UM",
   "alpha3Code": "UMI",
   "region": "Americas",
-  "subregion": "Northern America"
+  "subregion": "Northern America",
+  "demonym": "American"
 }, {
   "translations": {
     "br": "Ilhas Virgens Britânicas",
@@ -623,7 +657,8 @@
   "alpha2Code": "VG",
   "alpha3Code": "VGB",
   "region": "Americas",
-  "subregion": "Caribbean"
+  "subregion": "Caribbean",
+  "demonym": "Virgin Islander"
 }, {
   "translations": {
     "br": "Ilhas Virgens Americanas",
@@ -640,7 +675,8 @@
   "alpha2Code": "VI",
   "alpha3Code": "VIR",
   "region": "Americas",
-  "subregion": "Caribbean"
+  "subregion": "Caribbean",
+  "demonym": "Virgin Islander"
 }, {
   "translations": {
     "br": "Brunei",
@@ -658,7 +694,8 @@
   "alpha2Code": "BN",
   "alpha3Code": "BRN",
   "region": "Asia",
-  "subregion": "South-Eastern Asia"
+  "subregion": "South-Eastern Asia",
+  "demonym": "Bruneian"
 }, {
   "translations": {
     "br": "Bulgária",
@@ -676,7 +713,8 @@
   "alpha2Code": "BG",
   "alpha3Code": "BGR",
   "region": "Europe",
-  "subregion": "Eastern Europe"
+  "subregion": "Eastern Europe",
+  "demonym": "Bulgarian"
 }, {
   "translations": {
     "br": "Burkina Faso",
@@ -694,7 +732,8 @@
   "alpha2Code": "BF",
   "alpha3Code": "BFA",
   "region": "Africa",
-  "subregion": "Western Africa"
+  "subregion": "Western Africa",
+  "demonym": "Burkinabe"
 }, {
   "translations": {
     "br": "Burundi",
@@ -712,7 +751,8 @@
   "alpha2Code": "BI",
   "alpha3Code": "BDI",
   "region": "Africa",
-  "subregion": "Eastern Africa"
+  "subregion": "Eastern Africa",
+  "demonym": "Burundian"
 }, {
   "translations": {
     "br": "Camboja",
@@ -730,7 +770,8 @@
   "alpha2Code": "KH",
   "alpha3Code": "KHM",
   "region": "Asia",
-  "subregion": "South-Eastern Asia"
+  "subregion": "South-Eastern Asia",
+  "demonym": "Cambodian"
 }, {
   "translations": {
     "br": "Camarões",
@@ -748,7 +789,8 @@
   "alpha2Code": "CM",
   "alpha3Code": "CMR",
   "region": "Africa",
-  "subregion": "Middle Africa"
+  "subregion": "Middle Africa",
+  "demonym": "Cameroonian"
 }, {
   "translations": {
     "br": "Canadá",
@@ -766,7 +808,8 @@
   "alpha2Code": "CA",
   "alpha3Code": "CAN",
   "region": "Americas",
-  "subregion": "Northern America"
+  "subregion": "Northern America",
+  "demonym": "Canadian"
 }, {
   "translations": {
     "br": "Cabo Verde",
@@ -784,7 +827,8 @@
   "alpha2Code": "CV",
   "alpha3Code": "CPV",
   "region": "Africa",
-  "subregion": "Western Africa"
+  "subregion": "Western Africa",
+  "demonym": "Cape Verdian"
 }, {
   "translations": {
     "br": "Ilhas Cayman",
@@ -802,7 +846,8 @@
   "alpha2Code": "KY",
   "alpha3Code": "CYM",
   "region": "Americas",
-  "subregion": "Caribbean"
+  "subregion": "Caribbean",
+  "demonym": "Caymanian"
 }, {
   "translations": {
     "br": "República Centro-Africana",
@@ -820,7 +865,8 @@
   "alpha2Code": "CF",
   "alpha3Code": "CAF",
   "region": "Africa",
-  "subregion": "Middle Africa"
+  "subregion": "Middle Africa",
+  "demonym": "Central African"
 }, {
   "translations": {
     "br": "Chade",
@@ -838,7 +884,8 @@
   "alpha2Code": "TD",
   "alpha3Code": "TCD",
   "region": "Africa",
-  "subregion": "Middle Africa"
+  "subregion": "Middle Africa",
+  "demonym": "Chadian"
 }, {
   "translations": {
     "br": "Chile",
@@ -856,7 +903,8 @@
   "alpha2Code": "CL",
   "alpha3Code": "CHL",
   "region": "Americas",
-  "subregion": "South America"
+  "subregion": "South America",
+  "demonym": "Chilean"
 }, {
   "translations": {
     "br": "China",
@@ -874,7 +922,8 @@
   "alpha2Code": "CN",
   "alpha3Code": "CHN",
   "region": "Asia",
-  "subregion": "Eastern Asia"
+  "subregion": "Eastern Asia",
+  "demonym": "Chinese"
 }, {
   "translations": {
     "br": "Ilha Christmas",
@@ -892,7 +941,8 @@
   "alpha2Code": "CX",
   "alpha3Code": "CXR",
   "region": "Oceania",
-  "subregion": "Australia and New Zealand"
+  "subregion": "Australia and New Zealand",
+  "demonym": "Christmas Island"
 }, {
   "translations": {
     "br": "Ilhas Cocos",
@@ -910,7 +960,8 @@
   "alpha2Code": "CC",
   "alpha3Code": "CCK",
   "region": "Oceania",
-  "subregion": "Australia and New Zealand"
+  "subregion": "Australia and New Zealand",
+  "demonym": "Cocos Islander"
 }, {
   "translations": {
     "br": "Colômbia",
@@ -928,7 +979,8 @@
   "alpha2Code": "CO",
   "alpha3Code": "COL",
   "region": "Americas",
-  "subregion": "South America"
+  "subregion": "South America",
+  "demonym": "Colombian"
 }, {
   "translations": {
     "br": "Comores",
@@ -946,7 +998,8 @@
   "alpha2Code": "KM",
   "alpha3Code": "COM",
   "region": "Africa",
-  "subregion": "Eastern Africa"
+  "subregion": "Eastern Africa",
+  "demonym": "Comoran"
 }, {
   "translations": {
     "br": "Congo",
@@ -964,7 +1017,8 @@
   "alpha2Code": "CG",
   "alpha3Code": "COG",
   "region": "Africa",
-  "subregion": "Middle Africa"
+  "subregion": "Middle Africa",
+  "demonym": "Congolese"
 }, {
   "translations": {
     "br": "RD Congo",
@@ -982,7 +1036,8 @@
   "alpha2Code": "CD",
   "alpha3Code": "COD",
   "region": "Africa",
-  "subregion": "Middle Africa"
+  "subregion": "Middle Africa",
+  "demonym": "Congolese"
 }, {
   "translations": {
     "br": "Ilhas Cook",
@@ -1000,7 +1055,8 @@
   "alpha2Code": "CK",
   "alpha3Code": "COK",
   "region": "Oceania",
-  "subregion": "Polynesia"
+  "subregion": "Polynesia",
+  "demonym": "Cook Islander"
 }, {
   "translations": {
     "br": "Costa Rica",
@@ -1018,7 +1074,8 @@
   "alpha2Code": "CR",
   "alpha3Code": "CRI",
   "region": "Americas",
-  "subregion": "Central America"
+  "subregion": "Central America",
+  "demonym": "Costa Rican"
 }, {
   "translations": {
     "br": "Croácia",
@@ -1036,7 +1093,8 @@
   "alpha2Code": "HR",
   "alpha3Code": "HRV",
   "region": "Europe",
-  "subregion": "Southern Europe"
+  "subregion": "Southern Europe",
+  "demonym": "Croatian"
 }, {
   "translations": {
     "br": "Cuba",
@@ -1054,7 +1112,8 @@
   "alpha2Code": "CU",
   "alpha3Code": "CUB",
   "region": "Americas",
-  "subregion": "Caribbean"
+  "subregion": "Caribbean",
+  "demonym": "Cuban"
 }, {
   "translations": {
     "br": "Curaçao",
@@ -1069,7 +1128,8 @@
   "alpha2Code": "CW",
   "alpha3Code": "CUW",
   "region": "Americas",
-  "subregion": "Caribbean"
+  "subregion": "Caribbean",
+  "demonym": "Dutch"
 }, {
   "translations": {
     "br": "Chipre",
@@ -1087,7 +1147,8 @@
   "alpha2Code": "CY",
   "alpha3Code": "CYP",
   "region": "Europe",
-  "subregion": "Southern Europe"
+  "subregion": "Southern Europe",
+  "demonym": "Cypriot"
 }, {
   "translations": {
     "br": "República Tcheca",
@@ -1105,7 +1166,8 @@
   "alpha2Code": "CZ",
   "alpha3Code": "CZE",
   "region": "Europe",
-  "subregion": "Eastern Europe"
+  "subregion": "Eastern Europe",
+  "demonym": "Czech"
 }, {
   "translations": {
     "br": "Dinamarca",
@@ -1123,7 +1185,8 @@
   "alpha2Code": "DK",
   "alpha3Code": "DNK",
   "region": "Europe",
-  "subregion": "Northern Europe"
+  "subregion": "Northern Europe",
+  "demonym": "Danish"
 }, {
   "translations": {
     "br": "Djibuti",
@@ -1141,7 +1204,8 @@
   "alpha2Code": "DJ",
   "alpha3Code": "DJI",
   "region": "Africa",
-  "subregion": "Eastern Africa"
+  "subregion": "Eastern Africa",
+  "demonym": "Djibouti"
 }, {
   "translations": {
     "br": "Dominica",
@@ -1159,7 +1223,8 @@
   "alpha2Code": "DM",
   "alpha3Code": "DMA",
   "region": "Americas",
-  "subregion": "Caribbean"
+  "subregion": "Caribbean",
+  "demonym": "Dominican"
 }, {
   "translations": {
     "br": "República Dominicana",
@@ -1177,7 +1242,8 @@
   "alpha2Code": "DO",
   "alpha3Code": "DOM",
   "region": "Americas",
-  "subregion": "Caribbean"
+  "subregion": "Caribbean",
+  "demonym": "Dominican"
 }, {
   "translations": {
     "br": "Equador",
@@ -1195,7 +1261,8 @@
   "alpha2Code": "EC",
   "alpha3Code": "ECU",
   "region": "Americas",
-  "subregion": "South America"
+  "subregion": "South America",
+  "demonym": "Ecuadorean"
 }, {
   "translations": {
     "br": "Egito",
@@ -1213,7 +1280,8 @@
   "alpha2Code": "EG",
   "alpha3Code": "EGY",
   "region": "Africa",
-  "subregion": "Northern Africa"
+  "subregion": "Northern Africa",
+  "demonym": "Egyptian"
 }, {
   "translations": {
     "br": "El Salvador",
@@ -1231,7 +1299,8 @@
   "alpha2Code": "SV",
   "alpha3Code": "SLV",
   "region": "Americas",
-  "subregion": "Central America"
+  "subregion": "Central America",
+  "demonym": "Salvadoran"
 }, {
   "translations": {
     "br": "Guiné Equatorial",
@@ -1249,7 +1318,8 @@
   "alpha2Code": "GQ",
   "alpha3Code": "GNQ",
   "region": "Africa",
-  "subregion": "Middle Africa"
+  "subregion": "Middle Africa",
+  "demonym": "Equatorial Guinean"
 }, {
   "translations": {
     "br": "Eritreia",
@@ -1267,7 +1337,8 @@
   "alpha2Code": "ER",
   "alpha3Code": "ERI",
   "region": "Africa",
-  "subregion": "Eastern Africa"
+  "subregion": "Eastern Africa",
+  "demonym": "Eritrean"
 }, {
   "translations": {
     "br": "Estônia",
@@ -1285,7 +1356,8 @@
   "alpha2Code": "EE",
   "alpha3Code": "EST",
   "region": "Europe",
-  "subregion": "Northern Europe"
+  "subregion": "Northern Europe",
+  "demonym": "Estonian"
 }, {
   "translations": {
     "br": "Etiópia",
@@ -1303,7 +1375,8 @@
   "alpha2Code": "ET",
   "alpha3Code": "ETH",
   "region": "Africa",
-  "subregion": "Eastern Africa"
+  "subregion": "Eastern Africa",
+  "demonym": "Ethiopian"
 }, {
   "translations": {
     "br": "Ilhas Malvinas",
@@ -1321,7 +1394,8 @@
   "alpha2Code": "FK",
   "alpha3Code": "FLK",
   "region": "Americas",
-  "subregion": "South America"
+  "subregion": "South America",
+  "demonym": "Falkland Islander"
 }, {
   "translations": {
     "br": "Ilhas Faroé",
@@ -1339,7 +1413,8 @@
   "alpha2Code": "FO",
   "alpha3Code": "FRO",
   "region": "Europe",
-  "subregion": "Northern Europe"
+  "subregion": "Northern Europe",
+  "demonym": "Faroese"
 }, {
   "translations": {
     "br": "Fiji",
@@ -1357,7 +1432,8 @@
   "alpha2Code": "FJ",
   "alpha3Code": "FJI",
   "region": "Oceania",
-  "subregion": "Melanesia"
+  "subregion": "Melanesia",
+  "demonym": "Fijian"
 }, {
   "translations": {
     "br": "Finlândia",
@@ -1375,7 +1451,8 @@
   "alpha2Code": "FI",
   "alpha3Code": "FIN",
   "region": "Europe",
-  "subregion": "Northern Europe"
+  "subregion": "Northern Europe",
+  "demonym": "Finnish"
 }, {
   "translations": {
     "br": "França",
@@ -1393,7 +1470,8 @@
   "alpha2Code": "FR",
   "alpha3Code": "FRA",
   "region": "Europe",
-  "subregion": "Western Europe"
+  "subregion": "Western Europe",
+  "demonym": "French"
 }, {
   "translations": {
     "br": "Guiana Francesa",
@@ -1411,7 +1489,8 @@
   "alpha2Code": "GF",
   "alpha3Code": "GUF",
   "region": "Americas",
-  "subregion": "South America"
+  "subregion": "South America",
+  "demonym": ""
 }, {
   "translations": {
     "br": "Polinésia Francesa",
@@ -1429,7 +1508,8 @@
   "alpha2Code": "PF",
   "alpha3Code": "PYF",
   "region": "Oceania",
-  "subregion": "Polynesia"
+  "subregion": "Polynesia",
+  "demonym": "French Polynesian"
 }, {
   "translations": {
     "br": "Terras Austrais e Antárticas Francesas",
@@ -1447,7 +1527,8 @@
   "alpha2Code": "TF",
   "alpha3Code": "ATF",
   "region": "Africa",
-  "subregion": "Southern Africa"
+  "subregion": "Southern Africa",
+  "demonym": "French"
 }, {
   "translations": {
     "br": "Gabão",
@@ -1465,7 +1546,8 @@
   "alpha2Code": "GA",
   "alpha3Code": "GAB",
   "region": "Africa",
-  "subregion": "Middle Africa"
+  "subregion": "Middle Africa",
+  "demonym": "Gabonese"
 }, {
   "translations": {
     "br": "Gâmbia",
@@ -1483,7 +1565,8 @@
   "alpha2Code": "GM",
   "alpha3Code": "GMB",
   "region": "Africa",
-  "subregion": "Western Africa"
+  "subregion": "Western Africa",
+  "demonym": "Gambian"
 }, {
   "translations": {
     "br": "Geórgia",
@@ -1501,7 +1584,8 @@
   "alpha2Code": "GE",
   "alpha3Code": "GEO",
   "region": "Asia",
-  "subregion": "Western Asia"
+  "subregion": "Western Asia",
+  "demonym": "Georgian"
 }, {
   "translations": {
     "br": "Alemanha",
@@ -1519,7 +1603,8 @@
   "alpha2Code": "DE",
   "alpha3Code": "DEU",
   "region": "Europe",
-  "subregion": "Western Europe"
+  "subregion": "Western Europe",
+  "demonym": "German"
 }, {
   "translations": {
     "br": "Gana",
@@ -1537,7 +1622,8 @@
   "alpha2Code": "GH",
   "alpha3Code": "GHA",
   "region": "Africa",
-  "subregion": "Western Africa"
+  "subregion": "Western Africa",
+  "demonym": "Ghanaian"
 }, {
   "translations": {
     "br": "Gibraltar",
@@ -1555,7 +1641,8 @@
   "alpha2Code": "GI",
   "alpha3Code": "GIB",
   "region": "Europe",
-  "subregion": "Southern Europe"
+  "subregion": "Southern Europe",
+  "demonym": "Gibraltar"
 }, {
   "translations": {
     "br": "Grécia",
@@ -1573,7 +1660,8 @@
   "alpha2Code": "GR",
   "alpha3Code": "GRC",
   "region": "Europe",
-  "subregion": "Southern Europe"
+  "subregion": "Southern Europe",
+  "demonym": "Greek"
 }, {
   "translations": {
     "br": "Groelândia",
@@ -1591,7 +1679,8 @@
   "alpha2Code": "GL",
   "alpha3Code": "GRL",
   "region": "Americas",
-  "subregion": "Northern America"
+  "subregion": "Northern America",
+  "demonym": "Greenlandic"
 }, {
   "translations": {
     "br": "Granada",
@@ -1609,7 +1698,8 @@
   "alpha2Code": "GD",
   "alpha3Code": "GRD",
   "region": "Americas",
-  "subregion": "Caribbean"
+  "subregion": "Caribbean",
+  "demonym": "Grenadian"
 }, {
   "translations": {
     "br": "Guadalupe",
@@ -1627,7 +1717,8 @@
   "alpha2Code": "GP",
   "alpha3Code": "GLP",
   "region": "Americas",
-  "subregion": "Caribbean"
+  "subregion": "Caribbean",
+  "demonym": "Guadeloupian"
 }, {
   "translations": {
     "br": "Guam",
@@ -1645,7 +1736,8 @@
   "alpha2Code": "GU",
   "alpha3Code": "GUM",
   "region": "Oceania",
-  "subregion": "Micronesia"
+  "subregion": "Micronesia",
+  "demonym": "Guamanian"
 }, {
   "translations": {
     "br": "Guatemala",
@@ -1663,7 +1755,8 @@
   "alpha2Code": "GT",
   "alpha3Code": "GTM",
   "region": "Americas",
-  "subregion": "Central America"
+  "subregion": "Central America",
+  "demonym": "Guatemalan"
 }, {
   "translations": {
     "br": "Guernsey",
@@ -1681,7 +1774,8 @@
   "alpha2Code": "GG",
   "alpha3Code": "GGY",
   "region": "Europe",
-  "subregion": "Northern Europe"
+  "subregion": "Northern Europe",
+  "demonym": "Channel Islander"
 }, {
   "translations": {
     "br": "Guiné",
@@ -1699,7 +1793,8 @@
   "alpha2Code": "GN",
   "alpha3Code": "GIN",
   "region": "Africa",
-  "subregion": "Western Africa"
+  "subregion": "Western Africa",
+  "demonym": "Guinean"
 }, {
   "translations": {
     "br": "Guiné-Bissau",
@@ -1717,7 +1812,8 @@
   "alpha2Code": "GW",
   "alpha3Code": "GNB",
   "region": "Africa",
-  "subregion": "Western Africa"
+  "subregion": "Western Africa",
+  "demonym": "Guinea-Bissauan"
 }, {
   "translations": {
     "br": "Guiana",
@@ -1735,7 +1831,8 @@
   "alpha2Code": "GY",
   "alpha3Code": "GUY",
   "region": "Americas",
-  "subregion": "South America"
+  "subregion": "South America",
+  "demonym": "Guyanese"
 }, {
   "translations": {
     "br": "Haiti",
@@ -1753,7 +1850,8 @@
   "alpha2Code": "HT",
   "alpha3Code": "HTI",
   "region": "Americas",
-  "subregion": "Caribbean"
+  "subregion": "Caribbean",
+  "demonym": "Haitian"
 }, {
   "translations": {
     "br": "Ilha Heard e Ilhas McDonald",
@@ -1771,7 +1869,8 @@
   "alpha2Code": "HM",
   "alpha3Code": "HMD",
   "region": "",
-  "subregion": ""
+  "subregion": "",
+  "demonym": "Heard and McDonald Islander"
 }, {
   "translations": {
     "br": "Vaticano",
@@ -1789,7 +1888,8 @@
   "alpha2Code": "VA",
   "alpha3Code": "VAT",
   "region": "Europe",
-  "subregion": "Southern Europe"
+  "subregion": "Southern Europe",
+  "demonym": ""
 }, {
   "translations": {
     "br": "Honduras",
@@ -1807,7 +1907,8 @@
   "alpha2Code": "HN",
   "alpha3Code": "HND",
   "region": "Americas",
-  "subregion": "Central America"
+  "subregion": "Central America",
+  "demonym": "Honduran"
 }, {
   "translations": {
     "br": "Hong Kong",
@@ -1825,7 +1926,8 @@
   "alpha2Code": "HK",
   "alpha3Code": "HKG",
   "region": "Asia",
-  "subregion": "Eastern Asia"
+  "subregion": "Eastern Asia",
+  "demonym": "Chinese"
 }, {
   "translations": {
     "br": "Hungria",
@@ -1843,7 +1945,8 @@
   "alpha2Code": "HU",
   "alpha3Code": "HUN",
   "region": "Europe",
-  "subregion": "Eastern Europe"
+  "subregion": "Eastern Europe",
+  "demonym": "Hungarian"
 }, {
   "translations": {
     "br": "Islândia",
@@ -1861,7 +1964,8 @@
   "alpha2Code": "IS",
   "alpha3Code": "ISL",
   "region": "Europe",
-  "subregion": "Northern Europe"
+  "subregion": "Northern Europe",
+  "demonym": "Icelander"
 }, {
   "translations": {
     "br": "Índia",
@@ -1879,7 +1983,8 @@
   "alpha2Code": "IN",
   "alpha3Code": "IND",
   "region": "Asia",
-  "subregion": "Southern Asia"
+  "subregion": "Southern Asia",
+  "demonym": "Indian"
 }, {
   "translations": {
     "br": "Indonésia",
@@ -1897,7 +2002,8 @@
   "alpha2Code": "ID",
   "alpha3Code": "IDN",
   "region": "Asia",
-  "subregion": "South-Eastern Asia"
+  "subregion": "South-Eastern Asia",
+  "demonym": "Indonesian"
 }, {
   "translations": {
     "br": "Costa do Marfim",
@@ -1915,7 +2021,8 @@
   "alpha2Code": "CI",
   "alpha3Code": "CIV",
   "region": "Africa",
-  "subregion": "Western Africa"
+  "subregion": "Western Africa",
+  "demonym": "Ivorian"
 }, {
   "translations": {
     "br": "Irã",
@@ -1932,7 +2039,8 @@
   "alpha2Code": "IR",
   "alpha3Code": "IRN",
   "region": "Asia",
-  "subregion": "Southern Asia"
+  "subregion": "Southern Asia",
+  "demonym": "Iranian"
 }, {
   "translations": {
     "br": "Iraque",
@@ -1950,7 +2058,8 @@
   "alpha2Code": "IQ",
   "alpha3Code": "IRQ",
   "region": "Asia",
-  "subregion": "Western Asia"
+  "subregion": "Western Asia",
+  "demonym": "Iraqi"
 }, {
   "translations": {
     "br": "Irlanda",
@@ -1968,7 +2077,8 @@
   "alpha2Code": "IE",
   "alpha3Code": "IRL",
   "region": "Europe",
-  "subregion": "Northern Europe"
+  "subregion": "Northern Europe",
+  "demonym": "Irish"
 }, {
   "translations": {
     "br": "Ilha de Man",
@@ -1986,7 +2096,8 @@
   "alpha2Code": "IM",
   "alpha3Code": "IMN",
   "region": "Europe",
-  "subregion": "Northern Europe"
+  "subregion": "Northern Europe",
+  "demonym": "Manx"
 }, {
   "translations": {
     "br": "Israel",
@@ -2004,7 +2115,8 @@
   "alpha2Code": "IL",
   "alpha3Code": "ISR",
   "region": "Asia",
-  "subregion": "Western Asia"
+  "subregion": "Western Asia",
+  "demonym": "Israeli"
 }, {
   "translations": {
     "br": "Itália",
@@ -2022,7 +2134,8 @@
   "alpha2Code": "IT",
   "alpha3Code": "ITA",
   "region": "Europe",
-  "subregion": "Southern Europe"
+  "subregion": "Southern Europe",
+  "demonym": "Italian"
 }, {
   "translations": {
     "br": "Jamaica",
@@ -2040,7 +2153,8 @@
   "alpha2Code": "JM",
   "alpha3Code": "JAM",
   "region": "Americas",
-  "subregion": "Caribbean"
+  "subregion": "Caribbean",
+  "demonym": "Jamaican"
 }, {
   "translations": {
     "br": "Japão",
@@ -2058,7 +2172,8 @@
   "alpha2Code": "JP",
   "alpha3Code": "JPN",
   "region": "Asia",
-  "subregion": "Eastern Asia"
+  "subregion": "Eastern Asia",
+  "demonym": "Japanese"
 }, {
   "translations": {
     "br": "Jersey",
@@ -2076,7 +2191,8 @@
   "alpha2Code": "JE",
   "alpha3Code": "JEY",
   "region": "Europe",
-  "subregion": "Northern Europe"
+  "subregion": "Northern Europe",
+  "demonym": "Channel Islander"
 }, {
   "translations": {
     "br": "Jordânia",
@@ -2094,7 +2210,8 @@
   "alpha2Code": "JO",
   "alpha3Code": "JOR",
   "region": "Asia",
-  "subregion": "Western Asia"
+  "subregion": "Western Asia",
+  "demonym": "Jordanian"
 }, {
   "translations": {
     "br": "Cazaquistão",
@@ -2112,7 +2229,8 @@
   "alpha2Code": "KZ",
   "alpha3Code": "KAZ",
   "region": "Asia",
-  "subregion": "Central Asia"
+  "subregion": "Central Asia",
+  "demonym": "Kazakhstani"
 }, {
   "translations": {
     "br": "Quênia",
@@ -2130,7 +2248,8 @@
   "alpha2Code": "KE",
   "alpha3Code": "KEN",
   "region": "Africa",
-  "subregion": "Eastern Africa"
+  "subregion": "Eastern Africa",
+  "demonym": "Kenyan"
 }, {
   "translations": {
     "br": "Kiribati",
@@ -2148,7 +2267,8 @@
   "alpha2Code": "KI",
   "alpha3Code": "KIR",
   "region": "Oceania",
-  "subregion": "Micronesia"
+  "subregion": "Micronesia",
+  "demonym": "I-Kiribati"
 }, {
   "translations": {
     "br": "Kuwait",
@@ -2166,7 +2286,8 @@
   "alpha2Code": "KW",
   "alpha3Code": "KWT",
   "region": "Asia",
-  "subregion": "Western Asia"
+  "subregion": "Western Asia",
+  "demonym": "Kuwaiti"
 }, {
   "translations": {
     "br": "Quirguistão",
@@ -2184,7 +2305,8 @@
   "alpha2Code": "KG",
   "alpha3Code": "KGZ",
   "region": "Asia",
-  "subregion": "Central Asia"
+  "subregion": "Central Asia",
+  "demonym": "Kirghiz"
 }, {
   "translations": {
     "br": "Laos",
@@ -2202,7 +2324,8 @@
   "alpha2Code": "LA",
   "alpha3Code": "LAO",
   "region": "Asia",
-  "subregion": "South-Eastern Asia"
+  "subregion": "South-Eastern Asia",
+  "demonym": "Laotian"
 }, {
   "translations": {
     "br": "Letônia",
@@ -2220,7 +2343,8 @@
   "alpha2Code": "LV",
   "alpha3Code": "LVA",
   "region": "Europe",
-  "subregion": "Northern Europe"
+  "subregion": "Northern Europe",
+  "demonym": "Latvian"
 }, {
   "translations": {
     "br": "Líbano",
@@ -2238,7 +2362,8 @@
   "alpha2Code": "LB",
   "alpha3Code": "LBN",
   "region": "Asia",
-  "subregion": "Western Asia"
+  "subregion": "Western Asia",
+  "demonym": "Lebanese"
 }, {
   "translations": {
     "br": "Lesoto",
@@ -2256,7 +2381,8 @@
   "alpha2Code": "LS",
   "alpha3Code": "LSO",
   "region": "Africa",
-  "subregion": "Southern Africa"
+  "subregion": "Southern Africa",
+  "demonym": "Mosotho"
 }, {
   "translations": {
     "br": "Libéria",
@@ -2274,7 +2400,8 @@
   "alpha2Code": "LR",
   "alpha3Code": "LBR",
   "region": "Africa",
-  "subregion": "Western Africa"
+  "subregion": "Western Africa",
+  "demonym": "Liberian"
 }, {
   "translations": {
     "br": "Líbia",
@@ -2292,7 +2419,8 @@
   "alpha2Code": "LY",
   "alpha3Code": "LBY",
   "region": "Africa",
-  "subregion": "Northern Africa"
+  "subregion": "Northern Africa",
+  "demonym": "Libyan"
 }, {
   "translations": {
     "br": "Liechtenstein",
@@ -2310,7 +2438,8 @@
   "alpha2Code": "LI",
   "alpha3Code": "LIE",
   "region": "Europe",
-  "subregion": "Western Europe"
+  "subregion": "Western Europe",
+  "demonym": "Liechtensteiner"
 }, {
   "translations": {
     "br": "Lituânia",
@@ -2328,7 +2457,8 @@
   "alpha2Code": "LT",
   "alpha3Code": "LTU",
   "region": "Europe",
-  "subregion": "Northern Europe"
+  "subregion": "Northern Europe",
+  "demonym": "Lithuanian"
 }, {
   "translations": {
     "br": "Luxemburgo",
@@ -2346,7 +2476,8 @@
   "alpha2Code": "LU",
   "alpha3Code": "LUX",
   "region": "Europe",
-  "subregion": "Western Europe"
+  "subregion": "Western Europe",
+  "demonym": "Luxembourger"
 }, {
   "translations": {
     "br": "Macau",
@@ -2364,7 +2495,8 @@
   "alpha2Code": "MO",
   "alpha3Code": "MAC",
   "region": "Asia",
-  "subregion": "Eastern Asia"
+  "subregion": "Eastern Asia",
+  "demonym": "Chinese"
 }, {
   "translations": {
     "br": "Macedônia",
@@ -2382,7 +2514,8 @@
   "alpha2Code": "MK",
   "alpha3Code": "MKD",
   "region": "Europe",
-  "subregion": "Southern Europe"
+  "subregion": "Southern Europe",
+  "demonym": "Macedonian"
 }, {
   "translations": {
     "br": "Madagascar",
@@ -2400,7 +2533,8 @@
   "alpha2Code": "MG",
   "alpha3Code": "MDG",
   "region": "Africa",
-  "subregion": "Eastern Africa"
+  "subregion": "Eastern Africa",
+  "demonym": "Malagasy"
 }, {
   "translations": {
     "br": "Malawi",
@@ -2418,7 +2552,8 @@
   "alpha2Code": "MW",
   "alpha3Code": "MWI",
   "region": "Africa",
-  "subregion": "Eastern Africa"
+  "subregion": "Eastern Africa",
+  "demonym": "Malawian"
 }, {
   "translations": {
     "br": "Malásia",
@@ -2436,7 +2571,8 @@
   "alpha2Code": "MY",
   "alpha3Code": "MYS",
   "region": "Asia",
-  "subregion": "South-Eastern Asia"
+  "subregion": "South-Eastern Asia",
+  "demonym": "Malaysian"
 }, {
   "translations": {
     "br": "Maldivas",
@@ -2454,7 +2590,8 @@
   "alpha2Code": "MV",
   "alpha3Code": "MDV",
   "region": "Asia",
-  "subregion": "Southern Asia"
+  "subregion": "Southern Asia",
+  "demonym": "Maldivan"
 }, {
   "translations": {
     "br": "Mali",
@@ -2472,7 +2609,8 @@
   "alpha2Code": "ML",
   "alpha3Code": "MLI",
   "region": "Africa",
-  "subregion": "Western Africa"
+  "subregion": "Western Africa",
+  "demonym": "Malian"
 }, {
   "translations": {
     "br": "Malta",
@@ -2490,7 +2628,8 @@
   "alpha2Code": "MT",
   "alpha3Code": "MLT",
   "region": "Europe",
-  "subregion": "Southern Europe"
+  "subregion": "Southern Europe",
+  "demonym": "Maltese"
 }, {
   "translations": {
     "br": "Ilhas Marshall",
@@ -2508,7 +2647,8 @@
   "alpha2Code": "MH",
   "alpha3Code": "MHL",
   "region": "Oceania",
-  "subregion": "Micronesia"
+  "subregion": "Micronesia",
+  "demonym": "Marshallese"
 }, {
   "translations": {
     "br": "Martinica",
@@ -2526,7 +2666,8 @@
   "alpha2Code": "MQ",
   "alpha3Code": "MTQ",
   "region": "Americas",
-  "subregion": "Caribbean"
+  "subregion": "Caribbean",
+  "demonym": "French"
 }, {
   "translations": {
     "br": "Mauritânia",
@@ -2544,7 +2685,8 @@
   "alpha2Code": "MR",
   "alpha3Code": "MRT",
   "region": "Africa",
-  "subregion": "Western Africa"
+  "subregion": "Western Africa",
+  "demonym": "Mauritanian"
 }, {
   "translations": {
     "br": "Maurício",
@@ -2562,7 +2704,8 @@
   "alpha2Code": "MU",
   "alpha3Code": "MUS",
   "region": "Africa",
-  "subregion": "Eastern Africa"
+  "subregion": "Eastern Africa",
+  "demonym": "Mauritian"
 }, {
   "translations": {
     "br": "Mayotte",
@@ -2580,7 +2723,8 @@
   "alpha2Code": "YT",
   "alpha3Code": "MYT",
   "region": "Africa",
-  "subregion": "Eastern Africa"
+  "subregion": "Eastern Africa",
+  "demonym": "French"
 }, {
   "translations": {
     "br": "México",
@@ -2598,7 +2742,8 @@
   "alpha2Code": "MX",
   "alpha3Code": "MEX",
   "region": "Americas",
-  "subregion": "Central America"
+  "subregion": "Central America",
+  "demonym": "Mexican"
 }, {
   "translations": {
     "br": "Micronésia",
@@ -2616,7 +2761,8 @@
   "alpha2Code": "FM",
   "alpha3Code": "FSM",
   "region": "Oceania",
-  "subregion": "Micronesia"
+  "subregion": "Micronesia",
+  "demonym": "Micronesian"
 }, {
   "translations": {
     "br": "Moldávia",
@@ -2634,7 +2780,8 @@
   "alpha2Code": "MD",
   "alpha3Code": "MDA",
   "region": "Europe",
-  "subregion": "Eastern Europe"
+  "subregion": "Eastern Europe",
+  "demonym": "Moldovan"
 }, {
   "translations": {
     "br": "Mônaco",
@@ -2652,7 +2799,8 @@
   "alpha2Code": "MC",
   "alpha3Code": "MCO",
   "region": "Europe",
-  "subregion": "Western Europe"
+  "subregion": "Western Europe",
+  "demonym": "Monegasque"
 }, {
   "translations": {
     "br": "Mongólia",
@@ -2670,7 +2818,8 @@
   "alpha2Code": "MN",
   "alpha3Code": "MNG",
   "region": "Asia",
-  "subregion": "Eastern Asia"
+  "subregion": "Eastern Asia",
+  "demonym": "Mongolian"
 }, {
   "translations": {
     "br": "Montenegro",
@@ -2688,7 +2837,8 @@
   "alpha2Code": "ME",
   "alpha3Code": "MNE",
   "region": "Europe",
-  "subregion": "Southern Europe"
+  "subregion": "Southern Europe",
+  "demonym": "Montenegrin"
 }, {
   "translations": {
     "br": "Montserrat",
@@ -2706,7 +2856,8 @@
   "alpha2Code": "MS",
   "alpha3Code": "MSR",
   "region": "Americas",
-  "subregion": "Caribbean"
+  "subregion": "Caribbean",
+  "demonym": "Montserratian"
 }, {
   "translations": {
     "br": "Marrocos",
@@ -2724,7 +2875,8 @@
   "alpha2Code": "MA",
   "alpha3Code": "MAR",
   "region": "Africa",
-  "subregion": "Northern Africa"
+  "subregion": "Northern Africa",
+  "demonym": "Moroccan"
 }, {
   "translations": {
     "br": "Moçambique",
@@ -2742,7 +2894,8 @@
   "alpha2Code": "MZ",
   "alpha3Code": "MOZ",
   "region": "Africa",
-  "subregion": "Eastern Africa"
+  "subregion": "Eastern Africa",
+  "demonym": "Mozambican"
 }, {
   "translations": {
     "br": "Myanmar",
@@ -2760,7 +2913,8 @@
   "alpha2Code": "MM",
   "alpha3Code": "MMR",
   "region": "Asia",
-  "subregion": "South-Eastern Asia"
+  "subregion": "South-Eastern Asia",
+  "demonym": "Burmese"
 }, {
   "translations": {
     "br": "Namíbia",
@@ -2778,7 +2932,8 @@
   "alpha2Code": "NA",
   "alpha3Code": "NAM",
   "region": "Africa",
-  "subregion": "Southern Africa"
+  "subregion": "Southern Africa",
+  "demonym": "Namibian"
 }, {
   "translations": {
     "br": "Nauru",
@@ -2796,7 +2951,8 @@
   "alpha2Code": "NR",
   "alpha3Code": "NRU",
   "region": "Oceania",
-  "subregion": "Micronesia"
+  "subregion": "Micronesia",
+  "demonym": "Nauruan"
 }, {
   "translations": {
     "br": "Nepal",
@@ -2814,7 +2970,8 @@
   "alpha2Code": "NP",
   "alpha3Code": "NPL",
   "region": "Asia",
-  "subregion": "Southern Asia"
+  "subregion": "Southern Asia",
+  "demonym": "Nepalese"
 }, {
   "translations": {
     "br": "Holanda",
@@ -2832,7 +2989,8 @@
   "alpha2Code": "NL",
   "alpha3Code": "NLD",
   "region": "Europe",
-  "subregion": "Western Europe"
+  "subregion": "Western Europe",
+  "demonym": "Dutch"
 }, {
   "translations": {
     "br": "Nova Caledônia",
@@ -2850,7 +3008,8 @@
   "alpha2Code": "NC",
   "alpha3Code": "NCL",
   "region": "Oceania",
-  "subregion": "Melanesia"
+  "subregion": "Melanesia",
+  "demonym": "New Caledonian"
 }, {
   "translations": {
     "br": "Nova Zelândia",
@@ -2868,7 +3027,8 @@
   "alpha2Code": "NZ",
   "alpha3Code": "NZL",
   "region": "Oceania",
-  "subregion": "Australia and New Zealand"
+  "subregion": "Australia and New Zealand",
+  "demonym": "New Zealander"
 }, {
   "translations": {
     "br": "Nicarágua",
@@ -2886,7 +3046,8 @@
   "alpha2Code": "NI",
   "alpha3Code": "NIC",
   "region": "Americas",
-  "subregion": "Central America"
+  "subregion": "Central America",
+  "demonym": "Nicaraguan"
 }, {
   "translations": {
     "br": "Níger",
@@ -2904,7 +3065,8 @@
   "alpha2Code": "NE",
   "alpha3Code": "NER",
   "region": "Africa",
-  "subregion": "Western Africa"
+  "subregion": "Western Africa",
+  "demonym": "Nigerien"
 }, {
   "translations": {
     "br": "Nigéria",
@@ -2922,7 +3084,8 @@
   "alpha2Code": "NG",
   "alpha3Code": "NGA",
   "region": "Africa",
-  "subregion": "Western Africa"
+  "subregion": "Western Africa",
+  "demonym": "Nigerian"
 }, {
   "translations": {
     "br": "Niue",
@@ -2940,7 +3103,8 @@
   "alpha2Code": "NU",
   "alpha3Code": "NIU",
   "region": "Oceania",
-  "subregion": "Polynesia"
+  "subregion": "Polynesia",
+  "demonym": "Niuean"
 }, {
   "translations": {
     "br": "Ilha Norfolk",
@@ -2958,7 +3122,8 @@
   "alpha2Code": "NF",
   "alpha3Code": "NFK",
   "region": "Oceania",
-  "subregion": "Australia and New Zealand"
+  "subregion": "Australia and New Zealand",
+  "demonym": "Norfolk Islander"
 }, {
   "translations": {
     "br": "Coreia do Norte",
@@ -2976,7 +3141,8 @@
   "alpha2Code": "KP",
   "alpha3Code": "PRK",
   "region": "Asia",
-  "subregion": "Eastern Asia"
+  "subregion": "Eastern Asia",
+  "demonym": "North Korean"
 }, {
   "translations": {
     "br": "Ilhas Marianas",
@@ -2994,7 +3160,8 @@
   "alpha2Code": "MP",
   "alpha3Code": "MNP",
   "region": "Oceania",
-  "subregion": "Micronesia"
+  "subregion": "Micronesia",
+  "demonym": "American"
 }, {
   "translations": {
     "br": "Noruega",
@@ -3012,7 +3179,8 @@
   "alpha2Code": "NO",
   "alpha3Code": "NOR",
   "region": "Europe",
-  "subregion": "Northern Europe"
+  "subregion": "Northern Europe",
+  "demonym": "Norwegian"
 }, {
   "translations": {
     "br": "Omã",
@@ -3030,7 +3198,8 @@
   "alpha2Code": "OM",
   "alpha3Code": "OMN",
   "region": "Asia",
-  "subregion": "Western Asia"
+  "subregion": "Western Asia",
+  "demonym": "Omani"
 }, {
   "translations": {
     "br": "Paquistão",
@@ -3048,7 +3217,8 @@
   "alpha2Code": "PK",
   "alpha3Code": "PAK",
   "region": "Asia",
-  "subregion": "Southern Asia"
+  "subregion": "Southern Asia",
+  "demonym": "Pakistani"
 }, {
   "translations": {
     "br": "Palau",
@@ -3066,7 +3236,8 @@
   "alpha2Code": "PW",
   "alpha3Code": "PLW",
   "region": "Oceania",
-  "subregion": "Micronesia"
+  "subregion": "Micronesia",
+  "demonym": "Palauan"
 }, {
   "translations": {
     "br": "Palestina",
@@ -3084,7 +3255,8 @@
   "alpha2Code": "PS",
   "alpha3Code": "PSE",
   "region": "Asia",
-  "subregion": "Western Asia"
+  "subregion": "Western Asia",
+  "demonym": "Palestinian"
 }, {
   "translations": {
     "br": "Panamá",
@@ -3102,7 +3274,8 @@
   "alpha2Code": "PA",
   "alpha3Code": "PAN",
   "region": "Americas",
-  "subregion": "Central America"
+  "subregion": "Central America",
+  "demonym": "Panamanian"
 }, {
   "translations": {
     "br": "Papua Nova Guiné",
@@ -3120,7 +3293,8 @@
   "alpha2Code": "PG",
   "alpha3Code": "PNG",
   "region": "Oceania",
-  "subregion": "Melanesia"
+  "subregion": "Melanesia",
+  "demonym": "Papua New Guinean"
 }, {
   "translations": {
     "br": "Paraguai",
@@ -3138,7 +3312,8 @@
   "alpha2Code": "PY",
   "alpha3Code": "PRY",
   "region": "Americas",
-  "subregion": "South America"
+  "subregion": "South America",
+  "demonym": "Paraguayan"
 }, {
   "translations": {
     "br": "Peru",
@@ -3156,7 +3331,8 @@
   "alpha2Code": "PE",
   "alpha3Code": "PER",
   "region": "Americas",
-  "subregion": "South America"
+  "subregion": "South America",
+  "demonym": "Peruvian"
 }, {
   "translations": {
     "br": "Filipinas",
@@ -3174,7 +3350,8 @@
   "alpha2Code": "PH",
   "alpha3Code": "PHL",
   "region": "Asia",
-  "subregion": "South-Eastern Asia"
+  "subregion": "South-Eastern Asia",
+  "demonym": "Filipino"
 }, {
   "translations": {
     "br": "Ilhas Pitcairn",
@@ -3192,7 +3369,8 @@
   "alpha2Code": "PN",
   "alpha3Code": "PCN",
   "region": "Oceania",
-  "subregion": "Polynesia"
+  "subregion": "Polynesia",
+  "demonym": "Pitcairn Islander"
 }, {
   "translations": {
     "br": "Polônia",
@@ -3210,7 +3388,8 @@
   "alpha2Code": "PL",
   "alpha3Code": "POL",
   "region": "Europe",
-  "subregion": "Eastern Europe"
+  "subregion": "Eastern Europe",
+  "demonym": "Polish"
 }, {
   "translations": {
     "br": "Portugal",
@@ -3228,7 +3407,8 @@
   "alpha2Code": "PT",
   "alpha3Code": "PRT",
   "region": "Europe",
-  "subregion": "Southern Europe"
+  "subregion": "Southern Europe",
+  "demonym": "Portuguese"
 }, {
   "translations": {
     "br": "Porto Rico",
@@ -3246,7 +3426,8 @@
   "alpha2Code": "PR",
   "alpha3Code": "PRI",
   "region": "Americas",
-  "subregion": "Caribbean"
+  "subregion": "Caribbean",
+  "demonym": "Puerto Rican"
 }, {
   "translations": {
     "br": "Catar",
@@ -3264,7 +3445,8 @@
   "alpha2Code": "QA",
   "alpha3Code": "QAT",
   "region": "Asia",
-  "subregion": "Western Asia"
+  "subregion": "Western Asia",
+  "demonym": "Qatari"
 }, {
   "translations": {
     "br": "Kosovo",
@@ -3277,7 +3459,8 @@
   "alpha2Code": "XK",
   "alpha3Code": "KOS",
   "region": "Europe",
-  "subregion": "Eastern Europe"
+  "subregion": "Eastern Europe",
+  "demonym": "Kosovar"
 }, {
   "translations": {
     "br": "Reunião",
@@ -3295,7 +3478,8 @@
   "alpha2Code": "RE",
   "alpha3Code": "REU",
   "region": "Africa",
-  "subregion": "Eastern Africa"
+  "subregion": "Eastern Africa",
+  "demonym": "French"
 }, {
   "translations": {
     "br": "Romênia",
@@ -3313,7 +3497,8 @@
   "alpha2Code": "RO",
   "alpha3Code": "ROU",
   "region": "Europe",
-  "subregion": "Eastern Europe"
+  "subregion": "Eastern Europe",
+  "demonym": "Romanian"
 }, {
   "translations": {
     "br": "Rússia",
@@ -3331,7 +3516,8 @@
   "alpha2Code": "RU",
   "alpha3Code": "RUS",
   "region": "Europe",
-  "subregion": "Eastern Europe"
+  "subregion": "Eastern Europe",
+  "demonym": "Russian"
 }, {
   "translations": {
     "br": "Ruanda",
@@ -3349,7 +3535,8 @@
   "alpha2Code": "RW",
   "alpha3Code": "RWA",
   "region": "Africa",
-  "subregion": "Eastern Africa"
+  "subregion": "Eastern Africa",
+  "demonym": "Rwandan"
 }, {
   "translations": {
     "br": "São Bartolomeu",
@@ -3367,7 +3554,8 @@
   "alpha2Code": "BL",
   "alpha3Code": "BLM",
   "region": "Americas",
-  "subregion": "Caribbean"
+  "subregion": "Caribbean",
+  "demonym": "Saint Barthélemy Islander"
 }, {
   "translations": {
     "br": "Santa Helena",
@@ -3385,7 +3573,8 @@
   "alpha2Code": "SH",
   "alpha3Code": "SHN",
   "region": "Africa",
-  "subregion": "Western Africa"
+  "subregion": "Western Africa",
+  "demonym": "Saint Helenian"
 }, {
   "translations": {
     "br": "São Cristóvão e Neves",
@@ -3403,7 +3592,8 @@
   "alpha2Code": "KN",
   "alpha3Code": "KNA",
   "region": "Americas",
-  "subregion": "Caribbean"
+  "subregion": "Caribbean",
+  "demonym": "Kittian and Nevisian"
 }, {
   "translations": {
     "br": "Santa Lúcia",
@@ -3421,7 +3611,8 @@
   "alpha2Code": "LC",
   "alpha3Code": "LCA",
   "region": "Americas",
-  "subregion": "Caribbean"
+  "subregion": "Caribbean",
+  "demonym": "Saint Lucian"
 }, {
   "translations": {
     "br": "Saint Martin",
@@ -3439,7 +3630,8 @@
   "alpha2Code": "MF",
   "alpha3Code": "MAF",
   "region": "Americas",
-  "subregion": "Caribbean"
+  "subregion": "Caribbean",
+  "demonym": "Saint Martin Islander"
 }, {
   "translations": {
     "br": "Saint-Pierre e Miquelon",
@@ -3457,7 +3649,8 @@
   "alpha2Code": "PM",
   "alpha3Code": "SPM",
   "region": "Americas",
-  "subregion": "Northern America"
+  "subregion": "Northern America",
+  "demonym": "French"
 }, {
   "translations": {
     "br": "São Vicente e Granadinas",
@@ -3475,7 +3668,8 @@
   "alpha2Code": "VC",
   "alpha3Code": "VCT",
   "region": "Americas",
-  "subregion": "Caribbean"
+  "subregion": "Caribbean",
+  "demonym": "Saint Vincentian"
 }, {
   "translations": {
     "br": "Samoa",
@@ -3493,7 +3687,8 @@
   "alpha2Code": "WS",
   "alpha3Code": "WSM",
   "region": "Oceania",
-  "subregion": "Polynesia"
+  "subregion": "Polynesia",
+  "demonym": "Samoan"
 }, {
   "translations": {
     "br": "San Marino",
@@ -3511,7 +3706,8 @@
   "alpha2Code": "SM",
   "alpha3Code": "SMR",
   "region": "Europe",
-  "subregion": "Southern Europe"
+  "subregion": "Southern Europe",
+  "demonym": "Sammarinese"
 }, {
   "translations": {
     "br": "São Tomé e Príncipe",
@@ -3529,7 +3725,8 @@
   "alpha2Code": "ST",
   "alpha3Code": "STP",
   "region": "Africa",
-  "subregion": "Middle Africa"
+  "subregion": "Middle Africa",
+  "demonym": "Sao Tomean"
 }, {
   "translations": {
     "br": "Arábia Saudita",
@@ -3547,7 +3744,8 @@
   "alpha2Code": "SA",
   "alpha3Code": "SAU",
   "region": "Asia",
-  "subregion": "Western Asia"
+  "subregion": "Western Asia",
+  "demonym": "Saudi Arabian"
 }, {
   "translations": {
     "br": "Senegal",
@@ -3565,7 +3763,8 @@
   "alpha2Code": "SN",
   "alpha3Code": "SEN",
   "region": "Africa",
-  "subregion": "Western Africa"
+  "subregion": "Western Africa",
+  "demonym": "Senegalese"
 }, {
   "translations": {
     "br": "Sérvia",
@@ -3583,7 +3782,8 @@
   "alpha2Code": "RS",
   "alpha3Code": "SRB",
   "region": "Europe",
-  "subregion": "Southern Europe"
+  "subregion": "Southern Europe",
+  "demonym": "Serbian"
 }, {
   "translations": {
     "br": "Seicheles",
@@ -3601,7 +3801,8 @@
   "alpha2Code": "SC",
   "alpha3Code": "SYC",
   "region": "Africa",
-  "subregion": "Eastern Africa"
+  "subregion": "Eastern Africa",
+  "demonym": "Seychellois"
 }, {
   "translations": {
     "br": "Serra Leoa",
@@ -3619,7 +3820,8 @@
   "alpha2Code": "SL",
   "alpha3Code": "SLE",
   "region": "Africa",
-  "subregion": "Western Africa"
+  "subregion": "Western Africa",
+  "demonym": "Sierra Leonean"
 }, {
   "translations": {
     "br": "Singapura",
@@ -3637,7 +3839,8 @@
   "alpha2Code": "SG",
   "alpha3Code": "SGP",
   "region": "Asia",
-  "subregion": "South-Eastern Asia"
+  "subregion": "South-Eastern Asia",
+  "demonym": "Singaporean"
 }, {
   "translations": {
     "br": "Sint Maarten",
@@ -3652,7 +3855,8 @@
   "alpha2Code": "SX",
   "alpha3Code": "SXM",
   "region": "Americas",
-  "subregion": "Caribbean"
+  "subregion": "Caribbean",
+  "demonym": "Dutch"
 }, {
   "translations": {
     "br": "Eslováquia",
@@ -3670,7 +3874,8 @@
   "alpha2Code": "SK",
   "alpha3Code": "SVK",
   "region": "Europe",
-  "subregion": "Eastern Europe"
+  "subregion": "Eastern Europe",
+  "demonym": "Slovak"
 }, {
   "translations": {
     "br": "Eslovênia",
@@ -3688,7 +3893,8 @@
   "alpha2Code": "SI",
   "alpha3Code": "SVN",
   "region": "Europe",
-  "subregion": "Southern Europe"
+  "subregion": "Southern Europe",
+  "demonym": "Slovene"
 }, {
   "translations": {
     "br": "Ilhas Salomão",
@@ -3706,7 +3912,8 @@
   "alpha2Code": "SB",
   "alpha3Code": "SLB",
   "region": "Oceania",
-  "subregion": "Melanesia"
+  "subregion": "Melanesia",
+  "demonym": "Solomon Islander"
 }, {
   "translations": {
     "br": "Somália",
@@ -3724,7 +3931,8 @@
   "alpha2Code": "SO",
   "alpha3Code": "SOM",
   "region": "Africa",
-  "subregion": "Eastern Africa"
+  "subregion": "Eastern Africa",
+  "demonym": "Somali"
 }, {
   "translations": {
     "br": "República Sul-Africana",
@@ -3742,7 +3950,8 @@
   "alpha2Code": "ZA",
   "alpha3Code": "ZAF",
   "region": "Africa",
-  "subregion": "Southern Africa"
+  "subregion": "Southern Africa",
+  "demonym": "South African"
 }, {
   "translations": {
     "br": "Ilhas Geórgias do Sul e Sandwich do Sul",
@@ -3760,7 +3969,8 @@
   "alpha2Code": "GS",
   "alpha3Code": "SGS",
   "region": "Americas",
-  "subregion": "South America"
+  "subregion": "South America",
+  "demonym": "South Georgia and the South Sandwich Islander"
 }, {
   "translations": {
     "br": "Coreia do Sul",
@@ -3778,7 +3988,8 @@
   "alpha2Code": "KR",
   "alpha3Code": "KOR",
   "region": "Asia",
-  "subregion": "Eastern Asia"
+  "subregion": "Eastern Asia",
+  "demonym": "South Korean"
 }, {
   "translations": {
     "br": "Sudão do Sul",
@@ -3796,7 +4007,8 @@
   "alpha2Code": "SS",
   "alpha3Code": "SSD",
   "region": "Africa",
-  "subregion": "Middle Africa"
+  "subregion": "Middle Africa",
+  "demonym": "South Sudanese"
 }, {
   "translations": {
     "br": "Espanha",
@@ -3814,7 +4026,8 @@
   "alpha2Code": "ES",
   "alpha3Code": "ESP",
   "region": "Europe",
-  "subregion": "Southern Europe"
+  "subregion": "Southern Europe",
+  "demonym": "Spanish"
 }, {
   "translations": {
     "br": "Sri Lanka",
@@ -3832,7 +4045,8 @@
   "alpha2Code": "LK",
   "alpha3Code": "LKA",
   "region": "Asia",
-  "subregion": "Southern Asia"
+  "subregion": "Southern Asia",
+  "demonym": "Sri Lankan"
 }, {
   "translations": {
     "br": "Sudão",
@@ -3850,7 +4064,8 @@
   "alpha2Code": "SD",
   "alpha3Code": "SDN",
   "region": "Africa",
-  "subregion": "Northern Africa"
+  "subregion": "Northern Africa",
+  "demonym": "Sudanese"
 }, {
   "translations": {
     "br": "Suriname",
@@ -3868,7 +4083,8 @@
   "alpha2Code": "SR",
   "alpha3Code": "SUR",
   "region": "Americas",
-  "subregion": "South America"
+  "subregion": "South America",
+  "demonym": "Surinamer"
 }, {
   "translations": {
     "br": "Svalbard",
@@ -3886,7 +4102,8 @@
   "alpha2Code": "SJ",
   "alpha3Code": "SJM",
   "region": "Europe",
-  "subregion": "Northern Europe"
+  "subregion": "Northern Europe",
+  "demonym": "Norwegian"
 }, {
   "translations": {
     "br": "Suazilândia",
@@ -3904,7 +4121,8 @@
   "alpha2Code": "SZ",
   "alpha3Code": "SWZ",
   "region": "Africa",
-  "subregion": "Southern Africa"
+  "subregion": "Southern Africa",
+  "demonym": "Swazi"
 }, {
   "translations": {
     "br": "Suécia",
@@ -3922,7 +4140,8 @@
   "alpha2Code": "SE",
   "alpha3Code": "SWE",
   "region": "Europe",
-  "subregion": "Northern Europe"
+  "subregion": "Northern Europe",
+  "demonym": "Swedish"
 }, {
   "translations": {
     "br": "Suíça",
@@ -3940,7 +4159,8 @@
   "alpha2Code": "CH",
   "alpha3Code": "CHE",
   "region": "Europe",
-  "subregion": "Western Europe"
+  "subregion": "Western Europe",
+  "demonym": "Swiss"
 }, {
   "translations": {
     "br": "Síria",
@@ -3958,7 +4178,8 @@
   "alpha2Code": "SY",
   "alpha3Code": "SYR",
   "region": "Asia",
-  "subregion": "Western Asia"
+  "subregion": "Western Asia",
+  "demonym": "Syrian"
 }, {
   "translations": {
     "br": "Taiwan",
@@ -3976,7 +4197,8 @@
   "alpha2Code": "TW",
   "alpha3Code": "TWN",
   "region": "Asia",
-  "subregion": "Eastern Asia"
+  "subregion": "Eastern Asia",
+  "demonym": "Taiwanese"
 }, {
   "translations": {
     "br": "Tajiquistão",
@@ -3994,7 +4216,8 @@
   "alpha2Code": "TJ",
   "alpha3Code": "TJK",
   "region": "Asia",
-  "subregion": "Central Asia"
+  "subregion": "Central Asia",
+  "demonym": "Tadzhik"
 }, {
   "translations": {
     "br": "Tanzânia",
@@ -4012,7 +4235,8 @@
   "alpha2Code": "TZ",
   "alpha3Code": "TZA",
   "region": "Africa",
-  "subregion": "Eastern Africa"
+  "subregion": "Eastern Africa",
+  "demonym": "Tanzanian"
 }, {
   "translations": {
     "br": "Tailândia",
@@ -4030,7 +4254,8 @@
   "alpha2Code": "TH",
   "alpha3Code": "THA",
   "region": "Asia",
-  "subregion": "South-Eastern Asia"
+  "subregion": "South-Eastern Asia",
+  "demonym": "Thai"
 }, {
   "translations": {
     "br": "Timor Leste",
@@ -4048,7 +4273,8 @@
   "alpha2Code": "TL",
   "alpha3Code": "TLS",
   "region": "Asia",
-  "subregion": "South-Eastern Asia"
+  "subregion": "South-Eastern Asia",
+  "demonym": "East Timorese"
 }, {
   "translations": {
     "br": "Togo",
@@ -4066,7 +4292,8 @@
   "alpha2Code": "TG",
   "alpha3Code": "TGO",
   "region": "Africa",
-  "subregion": "Western Africa"
+  "subregion": "Western Africa",
+  "demonym": "Togolese"
 }, {
   "translations": {
     "br": "Tokelau",
@@ -4084,7 +4311,8 @@
   "alpha2Code": "TK",
   "alpha3Code": "TKL",
   "region": "Oceania",
-  "subregion": "Polynesia"
+  "subregion": "Polynesia",
+  "demonym": "Tokelauan"
 }, {
   "translations": {
     "br": "Tonga",
@@ -4102,7 +4330,8 @@
   "alpha2Code": "TO",
   "alpha3Code": "TON",
   "region": "Oceania",
-  "subregion": "Polynesia"
+  "subregion": "Polynesia",
+  "demonym": "Tongan"
 }, {
   "translations": {
     "br": "Trinidad e Tobago",
@@ -4120,7 +4349,8 @@
   "alpha2Code": "TT",
   "alpha3Code": "TTO",
   "region": "Americas",
-  "subregion": "Caribbean"
+  "subregion": "Caribbean",
+  "demonym": "Trinidadian"
 }, {
   "translations": {
     "br": "Tunísia",
@@ -4138,7 +4368,8 @@
   "alpha2Code": "TN",
   "alpha3Code": "TUN",
   "region": "Africa",
-  "subregion": "Northern Africa"
+  "subregion": "Northern Africa",
+  "demonym": "Tunisian"
 }, {
   "translations": {
     "br": "Turquia",
@@ -4156,7 +4387,8 @@
   "alpha2Code": "TR",
   "alpha3Code": "TUR",
   "region": "Asia",
-  "subregion": "Western Asia"
+  "subregion": "Western Asia",
+  "demonym": "Turkish"
 }, {
   "translations": {
     "br": "Turcomenistão",
@@ -4174,7 +4406,8 @@
   "alpha2Code": "TM",
   "alpha3Code": "TKM",
   "region": "Asia",
-  "subregion": "Central Asia"
+  "subregion": "Central Asia",
+  "demonym": "Turkmen"
 }, {
   "translations": {
     "br": "Ilhas Turcas e Caicos",
@@ -4192,7 +4425,8 @@
   "alpha2Code": "TC",
   "alpha3Code": "TCA",
   "region": "Americas",
-  "subregion": "Caribbean"
+  "subregion": "Caribbean",
+  "demonym": "Turks and Caicos Islander"
 }, {
   "translations": {
     "br": "Tuvalu",
@@ -4210,7 +4444,8 @@
   "alpha2Code": "TV",
   "alpha3Code": "TUV",
   "region": "Oceania",
-  "subregion": "Polynesia"
+  "subregion": "Polynesia",
+  "demonym": "Tuvaluan"
 }, {
   "translations": {
     "br": "Uganda",
@@ -4228,7 +4463,8 @@
   "alpha2Code": "UG",
   "alpha3Code": "UGA",
   "region": "Africa",
-  "subregion": "Eastern Africa"
+  "subregion": "Eastern Africa",
+  "demonym": "Ugandan"
 }, {
   "translations": {
     "br": "Ucrânia",
@@ -4246,7 +4482,8 @@
   "alpha2Code": "UA",
   "alpha3Code": "UKR",
   "region": "Europe",
-  "subregion": "Eastern Europe"
+  "subregion": "Eastern Europe",
+  "demonym": "Ukrainian"
 }, {
   "translations": {
     "br": "Emirados árabes Unidos",
@@ -4264,7 +4501,8 @@
   "alpha2Code": "AE",
   "alpha3Code": "ARE",
   "region": "Asia",
-  "subregion": "Western Asia"
+  "subregion": "Western Asia",
+  "demonym": "Emirati"
 }, {
   "translations": {
     "br": "Reino Unido",
@@ -4282,7 +4520,8 @@
   "alpha2Code": "GB",
   "alpha3Code": "GBR",
   "region": "Europe",
-  "subregion": "Northern Europe"
+  "subregion": "Northern Europe",
+  "demonym": "British"
 }, {
   "translations": {
     "br": "Estados Unidos",
@@ -4300,7 +4539,8 @@
   "alpha2Code": "US",
   "alpha3Code": "USA",
   "region": "Americas",
-  "subregion": "Northern America"
+  "subregion": "Northern America",
+  "demonym": "American"
 }, {
   "translations": {
     "br": "Uruguai",
@@ -4318,7 +4558,8 @@
   "alpha2Code": "UY",
   "alpha3Code": "URY",
   "region": "Americas",
-  "subregion": "South America"
+  "subregion": "South America",
+  "demonym": "Uruguayan"
 }, {
   "translations": {
     "br": "Uzbequistão",
@@ -4336,7 +4577,8 @@
   "alpha2Code": "UZ",
   "alpha3Code": "UZB",
   "region": "Asia",
-  "subregion": "Central Asia"
+  "subregion": "Central Asia",
+  "demonym": "Uzbekistani"
 }, {
   "translations": {
     "br": "Vanuatu",
@@ -4354,7 +4596,8 @@
   "alpha2Code": "VU",
   "alpha3Code": "VUT",
   "region": "Oceania",
-  "subregion": "Melanesia"
+  "subregion": "Melanesia",
+  "demonym": "Ni-Vanuatu"
 }, {
   "translations": {
     "br": "Venezuela",
@@ -4372,7 +4615,8 @@
   "alpha2Code": "VE",
   "alpha3Code": "VEN",
   "region": "Americas",
-  "subregion": "South America"
+  "subregion": "South America",
+  "demonym": "Venezuelan"
 }, {
   "translations": {
     "br": "Vietnã",
@@ -4390,7 +4634,8 @@
   "alpha2Code": "VN",
   "alpha3Code": "VNM",
   "region": "Asia",
-  "subregion": "South-Eastern Asia"
+  "subregion": "South-Eastern Asia",
+  "demonym": "Vietnamese"
 }, {
   "translations": {
     "br": "Wallis e Futuna",
@@ -4408,7 +4653,8 @@
   "alpha2Code": "WF",
   "alpha3Code": "WLF",
   "region": "Oceania",
-  "subregion": "Polynesia"
+  "subregion": "Polynesia",
+  "demonym": "Wallis and Futuna Islander"
 }, {
   "translations": {
     "br": "Saara Ocidental",
@@ -4426,7 +4672,8 @@
   "alpha2Code": "EH",
   "alpha3Code": "ESH",
   "region": "Africa",
-  "subregion": "Northern Africa"
+  "subregion": "Northern Africa",
+  "demonym": "Sahrawi"
 }, {
   "translations": {
     "br": "Iêmen",
@@ -4444,7 +4691,8 @@
   "alpha2Code": "YE",
   "alpha3Code": "YEM",
   "region": "Asia",
-  "subregion": "Western Asia"
+  "subregion": "Western Asia",
+  "demonym": "Yemeni"
 }, {
   "translations": {
     "br": "Zâmbia",
@@ -4462,7 +4710,8 @@
   "alpha2Code": "ZM",
   "alpha3Code": "ZMB",
   "region": "Africa",
-  "subregion": "Eastern Africa"
+  "subregion": "Eastern Africa",
+  "demonym": "Zambian"
 }, {
   "translations": {
     "br": "Zimbabwe",
@@ -4480,5 +4729,6 @@
   "alpha2Code": "ZW",
   "alpha3Code": "ZWE",
   "region": "Africa",
-  "subregion": "Eastern Africa"
+  "subregion": "Eastern Africa",
+  "demonym": "Zimbabwean"
 }]

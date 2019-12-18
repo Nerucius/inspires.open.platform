@@ -17,15 +17,15 @@
         <span style="text-transform:none">
           InSPIRES
         </span>
-        <span style="font-size:70%" class="font-weight-light hidden-sm-and-down">
+        <span style="font-size:70%" class="font-weight-light hidden-md-and-down">
           &nbsp; Open Platform
         </span>
       </router-link>
     </v-toolbar-title>
     <v-spacer />
 
-    <!-- <v-flex>
-      <v-form @submit.prevent="search()">
+    <v-flex>
+      <v-form @submit.prevent="search()" ref="searchForm">
         <v-text-field
           v-model="searchTerm"
           class="pa-0"
@@ -34,10 +34,11 @@
           single-line
           prepend-icon="search"
           browser-autocomplete="off"
+          :rules="[rules.minimunLength]"
           :placeholder="$t('toolbar.searchPlaceholder')"
         />
       </v-form>
-    </v-flex> -->
+    </v-flex>
 
     <v-spacer />
 
@@ -105,14 +106,20 @@ export default {
 
   data(){
     return{
-
       searchTerm: "",
       menuLinks: [
         {name: "home", label:"navigation.links.home"},
         {name: "project-list", label:"noums.projects"},
         {name: "structure-list", label:"noums.structures"},
-      ]
+      ],
+      rules: {
+        minimunLength: v => (!v || v.length >= 3) || this.$t("forms.rules.minimunLength", {'length':3}),
+      }
     }
+  },
+
+  created() {
+    this.searchTerm = this.$route.query['term']
   },
 
   computed: {
@@ -144,9 +151,9 @@ export default {
 
   methods: {
     search(){
-      if(this.searchTerm == '') return
-      this.$router.push({name:"search", query:{q:this.searchTerm}})
-
+      if(this.$refs.searchForm.validate()){
+        this.$router.push({name:"search", query:{q:this.searchTerm}})
+      }
     },
     getCourses() {
       this.$router.push("/courses");

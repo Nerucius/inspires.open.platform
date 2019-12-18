@@ -85,6 +85,18 @@
             </v-list-tile-content>
           </v-list-tile>
 
+          <!-- Country -->
+          <v-list-tile v-if="project.country_code" :to="structure.link">
+            <v-list-tile-avatar tile>
+              <flag style="font-size:40px" :squared="false" :iso="iso3toiso2(project.country_code)"></flag>
+              <!-- <v-img :src="structure.image_url" /> -->
+            </v-list-tile-avatar>
+            <v-list-tile-content>
+              <v-list-tile-title>{{ countryTranslation(project.country_code) }}</v-list-tile-title>
+              <v-list-tile-sub-title>{{ $t('forms.fields.projectCountry') }}</v-list-tile-sub-title>
+            </v-list-tile-content>
+          </v-list-tile>
+
           <!-- Contact Social Facebook -->
           <v-list-tile v-if="project.contact_social_facebook" :href="project.contact_social_facebook" target="_blank">
             <v-list-tile-avatar>
@@ -236,6 +248,18 @@
                 {{ $t('pages.projectDetail.evaluationTab') }}
               </h2>
 
+              <div v-if="isParticipant" class="my-4 text-xs-center">
+                <v-btn large dark
+                       :to="{...project.link, name:'evaluation-detail'}"
+                       class="elevation-0"
+                >
+                  <v-icon left>
+                    mdi-school
+                  </v-icon>
+                  View detailed evaluation for participants
+                </v-btn>
+              </div>
+
               <template v-if="isParticipant">
                 <p>{{ $t('pages.evaluationEntry.selfQuestionnaireDescription') }}</p>
 
@@ -254,20 +278,16 @@
                 <h3 class="display-1">
                   {{ project.name }}
                 </h3>
-                <ProjectTangram :project="project" />
+
+                <v-sheet height="600">
+                  <ProjectTangram :project="project">
+                    <div class="subheading py-4">
+                      {{ $t('pages.projectDetail.projectNotYetEvaluated') }}
+                    </div>
+                  </ProjectTangram>
+                </v-sheet>
               </div>
 
-              <div v-if="isParticipant" class="my-4 text-xs-center">
-                <v-btn dark
-                       :to="{...project.link, name:'evaluation-detail'}"
-                       class="elevation-0"
-                >
-                  <v-icon left>
-                    mdi-school
-                  </v-icon>
-                  View detailed evaluation for participants
-                </v-btn>
-              </div>
             </v-card-text>
           </v-card>
         </v-tab-item>
@@ -295,8 +315,8 @@
 </template>
 
 
-
 <script>
+import { iso3toiso2, translateCountryName } from '@/plugins/countries'
 import { slug2id, obj2slug, onlyUnique } from "@/plugins/utils";
 import ProjectCardHorizontal from "@/components/project/ProjectCardHorizontal";
 import ProjectTangram from "@/components/evaluation/ProjectTangram";
@@ -319,6 +339,7 @@ export default {
     return {
       moment,
       obj2slug,
+      iso3toiso2,
       project: null,
       structure: null,
       page:{
@@ -411,9 +432,13 @@ export default {
       return this.$store.getters["evaluation/roles"][rid];
     },
 
+    countryTranslation(iso3){
+      let locale = this.$i18n.locale
+      return translateCountryName(iso3, locale);
+    },
+
     async exportCSV(){
       let data = (await this.$http.get(this.exportLink)).bodyText
-      console.log("export trigger")
 
       var file = new Blob([data], {type: "text/plain"});
       var filename = this.project.name + " export.csv"

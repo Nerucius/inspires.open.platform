@@ -66,7 +66,7 @@ const router = new Router({
         },
         // ======= SEARCH =======
         {
-            path: "/seearch",
+            path: "/search",
             name: "search",
             component: () => import( /* webpackChunkName: "search" */ "./views/Search.vue")
         },

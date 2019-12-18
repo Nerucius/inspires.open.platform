@@ -1,13 +1,14 @@
 <template>
+
   <svg v-if="projectIsEvaluated"
        id="svg8"
        xmlns:svg="http://www.w3.org/2000/svg"
        xmlns="http://www.w3.org/2000/svg"
-       width="90%"
+       width="100%"
        height="90%"
        viewBox="0 0 370.42557 357.84293"
        version="1.1"
-  >
+    >
     <g id="tot" transform="translate(208.26933,30.088134)">
       <text
         id="textPart"
@@ -350,24 +351,37 @@
     </g>
   </svg>
 
-  <p v-else class="my-4 subheading">
-    {{ $t('pages.projectDetail.projectNotYetEvaluated') }}
-  </p>
+  <div v-else-if="loading" style="width:100%; height:100%">
+    <v-layout fill-height column align-center justify-center>
+      <v-flex shrink>
+        <v-btn flat fab large loading />
+      </v-flex>
+      <v-flex shrink>
+        {{ $t('actions.loading') }}
+      </v-flex>
+    </v-layout>
+  </div>
+
+  <div style="width:100%; height:100%" v-else>
+    <slot />
+  </div>
+
 </template>
 
 
 <script>
 import { API_SERVER } from "@/plugins/resource";
 
-function createTangram({citizen, integrity, knowledge, participation, transform}) {
-  const root = document.documentElement;
+function createTangram(vm, {citizen, integrity, knowledge, participation, transform}) {
+  // const root = document.documentElement;
+  const root = vm.$el;
 
   switch (citizen) {
     case 1:
       root.style.setProperty("--citQcolor", "var(--citQ1color)");
       root.style.setProperty("--citQx", "var(--citQ1x)");
       root.style.setProperty("--citQy", "var(--citQ1y)");
-      console.log(root.style.getPropertyValue("--citQcolor"));
+      // console.log(root.style.getPropertyValue("--citQcolor"));
       break;
     case 2:
       root.style.setProperty("--citQcolor", "var(--citQ2color)");
@@ -390,7 +404,6 @@ function createTangram({citizen, integrity, knowledge, participation, transform}
       root.style.setProperty("--intQcolor", "var(--intQ1color)");
       root.style.setProperty("--intQx", "var(--intQ1x)");
       root.style.setProperty("--intQy", "var(--intQ1y)");
-      console.log("q1");
       break;
     case 2:
       root.style.setProperty("--intQcolor", "var(--intQ2color)");
@@ -413,7 +426,6 @@ function createTangram({citizen, integrity, knowledge, participation, transform}
       root.style.setProperty("--knowQcolor", "var(--knowQ1color)");
       root.style.setProperty("--knowQx", "var(--knowQ1x)");
       root.style.setProperty("--knowQy", "var(--knowQ1y)");
-      console.log("q1");
       break;
     case 2:
       root.style.setProperty("--knowQcolor", "var(--knowQ2color)");
@@ -436,7 +448,6 @@ function createTangram({citizen, integrity, knowledge, participation, transform}
       root.style.setProperty("--partQcolor", "var(--partQ1color)");
       root.style.setProperty("--partQx", "var(--partQ1x)");
       root.style.setProperty("--partQy", "var(--partQ1y)");
-      console.log("q1");
       break;
     case 2:
       root.style.setProperty("--partQcolor", "var(--partQ2color)");
@@ -459,7 +470,6 @@ function createTangram({citizen, integrity, knowledge, participation, transform}
       root.style.setProperty("--transfQcolor", "var(--transfQ1color)");
       root.style.setProperty("--transfQx", "var(--transfQ1x)");
       root.style.setProperty("--transfQy", "var(--transfQ1y)");
-      console.log("q1");
       break;
     case 2:
       root.style.setProperty("--transfQcolor", "var(--transfQ2color)");
@@ -484,6 +494,7 @@ export default {
 
   data() {
     return {
+      loading: true,
       projectIsEvaluated: false
     }
   },
@@ -496,6 +507,8 @@ export default {
       this.projectIsEvaluated = true
     } catch (error) {
       return
+    } finally {
+      this.loading = false
     }
 
     // Parse CSV
@@ -505,282 +518,284 @@ export default {
 
     // zip values, fixing the trimming on the headers
     let principles = {}
-    header.map(principle => principle.trim())
+    header
+      .map(principle => principle.trim())
       .map((principle, idx) => principles[principle] = parseInt(data[idx]))
 
-    createTangram(principles);
+    // Defer creation of graph so view can refresh new elements
+    setTimeout(() => createTangram(this, principles), 0)
   }
 };
 </script>
 
 <style>
-:root {
-  --triangleColor: yellow;
-  --triangleBorder: gray;
-  --intQ1color: #e1c3a7;
-  --intQ2color: #e3a872;
-  --intQ3color: #ee8e34;
-  --intQ4color: #f17600;
-  --intQcolor: var(--intQ4color);
-  --transfQ1color: #a8aab2;
-  --transfQ2color: #7f87a8;
-  --transfQ3color: #4f5fa5;
-  --transfQ4color: #2f4193;
-  --transfQcolor: var(--transfQ4color);
-  --knowQ1color: #b8cbd4;
-  --knowQ2color: #8cb8ce;
-  --knowQ3color: #58a7ce;
-  --knowQ4color: #2599d4;
-  --knowQcolor: var(--knowQ4color);
-  --partQ1color: #f4f4ea;
-  --partQ2color: #edeed2;
-  --partQ3color: #e1e49a;
-  --partQ4color: #dae14b;
-  --partQcolor: var(--partQ4color);
-  --citQ1color: #baecd7;
-  --citQ2color: #7be9c6;
-  --citQ3color: #0fcba3;
-  --citQ4color: #00796b;
-  --citQcolor: var(--citQ4color);
-  --int2Q1color: #e1c3a7;
-  --int2Q2color: #e3a872;
-  --int2Q3color: #ee8e34;
-  --int2Q4color: #ff8c00;
-  --int2Qcolor: var(--int2Q4color);
-  --know2Q1color: #b8cbd4;
-  --know2Q2color: #8cb8ce;
-  --know2Q3color: #58a7ce;
-  --know2Q4color: #56b2e4;
-  --know2Qcolor: var(--know2Q4color);
-  --partQ4x: -123px;
-  --partQ4y: 347px;
-  --partQ3x: -70px;
-  --partQ3y: 347px;
-  --partQ2x: -17px;
-  --partQ2y: 347px;
-  --partQ1x: 36px;
-  --partQ1y: 347px;
-  --partQx: var(--partQ4x);
-  --partQy: var(--partQ4y);
-  --intQ1x: -124px;
-  --intQ1y: 282px;
-  --intQ2x: -140px;
-  --intQ2y: 233px;
-  --intQ3x: -156px;
-  --intQ3y: 184px;
-  --intQ4x: -172px;
-  --intQ4y: 135px;
-  --intQx: var(--intQ4x);
-  --intQy: var(--intQ4y);
-  --transfQ1x: -172px;
-  --transfQ1y: 105px;
-  --transfQ2x: -128px;
-  --transfQ2y: 73px;
-  --transfQ3x: -84px;
-  --transfQ3y: 41px;
-  --transfQ4x: -40px;
-  --transfQ4y: 9px;
-  --transfQx: var(--transfQ4x);
-  --transfQy: var(--transfQ4y);
-  --knowQ1x: -15px;
-  --knowQ1y: 1px;
-  --knowQ2x: 28px;
-  --knowQ2y: 33px;
-  --knowQ3x: 71px;
-  --knowQ3y: 65px;
-  --knowQ4x: 114px;
-  --knowQ4y: 97px;
-  --knowQx: var(--knowQ4x);
-  --knowQy: var(--knowQ4y);
-  --citQ1x: 131px;
-  --citQ1y: 122px;
-  --citQ2x: 115px;
-  --citQ2y: 171px;
-  --citQ3x: 99px;
-  --citQ3y: 220px;
-  --citQ4x: 83px;
-  --citQ4y: 269px;
-  --citQx: var(--citQ4x);
-  --citQy: var(--citQ4y);
-}
-#pathTail {
-  animation-name: colibriColorizePart;
-  animation-duration: 5s;
-  animation-iteration-count: 1;
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: forwards;
-}
-#pathSuperiorBodyRear {
-  animation-name: colibriColorizeInt;
-  animation-duration: 5s;
-  animation-iteration-count: 1;
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: forwards;
-}
-#pathSuperiorBodyFront {
-  animation-name: colibriColorizeInt2;
-  animation-duration: 5s;
-  animation-iteration-count: 1;
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: forwards;
-}
-#pathInferiorBodyFront {
-  animation-name: colibriColorizeCit;
-  animation-duration: 5s;
-  animation-iteration-count: 1;
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: forwards;
-}
-#pathInferiorHead {
-  animation-name: colibriColorizeKnow2;
-  animation-duration: 5s;
-  animation-iteration-count: 1;
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: forwards;
-}
-#pathSuperiorHead {
-  animation-name: colibriColorizeKnow;
-  animation-duration: 5s;
-  animation-iteration-count: 1;
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: forwards;
-}
-#pathWing {
-  animation-name: colibriColorizeTransf;
-  animation-duration: 5s;
-  animation-iteration-count: 1;
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: forwards;
-}
-#trianglepartg {
-  animation-name: indicatorMovePart;
-  animation-duration: 5s;
-  animation-iteration-count: 1;
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: forwards;
-}
-#triangleintg {
-  animation-name: indicatorMoveInt;
-  animation-duration: 5s;
-  animation-iteration-count: 1;
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: forwards;
-}
-#triangletransfg {
-  animation-name: indicatorMoveTransf;
-  animation-duration: 5s;
-  animation-iteration-count: 1;
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: forwards;
-}
-#triangleknowg {
-  animation-name: indicatorMoveKnow;
-  animation-duration: 5s;
-  animation-iteration-count: 1;
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: forwards;
-}
-#trianglecitg {
-  animation-name: indicatorMoveCit;
-  animation-duration: 5s;
-  animation-iteration-count: 1;
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: forwards;
-}
-@keyframes colibriColorizePart {
-  0% {
-    fill: var(--partQ1color);
+  :root {
+    --triangleColor: yellow;
+    --triangleBorder: gray;
+    --intQ1color: #e1c3a7;
+    --intQ2color: #e3a872;
+    --intQ3color: #ee8e34;
+    --intQ4color: #f17600;
+    --intQcolor: var(--intQ4color);
+    --transfQ1color: #a8aab2;
+    --transfQ2color: #7f87a8;
+    --transfQ3color: #4f5fa5;
+    --transfQ4color: #2f4193;
+    --transfQcolor: var(--transfQ4color);
+    --knowQ1color: #b8cbd4;
+    --knowQ2color: #8cb8ce;
+    --knowQ3color: #58a7ce;
+    --knowQ4color: #2599d4;
+    --knowQcolor: var(--knowQ4color);
+    --partQ1color: #f4f4ea;
+    --partQ2color: #edeed2;
+    --partQ3color: #e1e49a;
+    --partQ4color: #dae14b;
+    --partQcolor: var(--partQ4color);
+    --citQ1color: #baecd7;
+    --citQ2color: #7be9c6;
+    --citQ3color: #0fcba3;
+    --citQ4color: #00796b;
+    --citQcolor: var(--citQ4color);
+    --int2Q1color: #e1c3a7;
+    --int2Q2color: #e3a872;
+    --int2Q3color: #ee8e34;
+    --int2Q4color: #ff8c00;
+    --int2Qcolor: var(--int2Q4color);
+    --know2Q1color: #b8cbd4;
+    --know2Q2color: #8cb8ce;
+    --know2Q3color: #58a7ce;
+    --know2Q4color: #56b2e4;
+    --know2Qcolor: var(--know2Q4color);
+    --partQ4x: -123px;
+    --partQ4y: 347px;
+    --partQ3x: -70px;
+    --partQ3y: 347px;
+    --partQ2x: -17px;
+    --partQ2y: 347px;
+    --partQ1x: 36px;
+    --partQ1y: 347px;
+    --partQx: var(--partQ4x);
+    --partQy: var(--partQ4y);
+    --intQ1x: -124px;
+    --intQ1y: 282px;
+    --intQ2x: -140px;
+    --intQ2y: 233px;
+    --intQ3x: -156px;
+    --intQ3y: 184px;
+    --intQ4x: -172px;
+    --intQ4y: 135px;
+    --intQx: var(--intQ4x);
+    --intQy: var(--intQ4y);
+    --transfQ1x: -172px;
+    --transfQ1y: 105px;
+    --transfQ2x: -128px;
+    --transfQ2y: 73px;
+    --transfQ3x: -84px;
+    --transfQ3y: 41px;
+    --transfQ4x: -40px;
+    --transfQ4y: 9px;
+    --transfQx: var(--transfQ4x);
+    --transfQy: var(--transfQ4y);
+    --knowQ1x: -15px;
+    --knowQ1y: 1px;
+    --knowQ2x: 28px;
+    --knowQ2y: 33px;
+    --knowQ3x: 71px;
+    --knowQ3y: 65px;
+    --knowQ4x: 114px;
+    --knowQ4y: 97px;
+    --knowQx: var(--knowQ4x);
+    --knowQy: var(--knowQ4y);
+    --citQ1x: 131px;
+    --citQ1y: 122px;
+    --citQ2x: 115px;
+    --citQ2y: 171px;
+    --citQ3x: 99px;
+    --citQ3y: 220px;
+    --citQ4x: 83px;
+    --citQ4y: 269px;
+    --citQx: var(--citQ4x);
+    --citQy: var(--citQ4y);
   }
-  100% {
-    fill: var(--partQcolor);
+  #pathTail {
+    animation-name: colibriColorizePart;
+    animation-duration: 5s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
   }
-}
-@keyframes colibriColorizeInt {
-  0% {
-    fill: var(--intQ1color);
+  #pathSuperiorBodyRear {
+    animation-name: colibriColorizeInt;
+    animation-duration: 5s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
   }
-  100% {
-    fill: var(--intQcolor);
+  #pathSuperiorBodyFront {
+    animation-name: colibriColorizeInt2;
+    animation-duration: 5s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
   }
-}
-@keyframes colibriColorizeInt2 {
-  0% {
-    fill: var(--int2Q1color);
+  #pathInferiorBodyFront {
+    animation-name: colibriColorizeCit;
+    animation-duration: 5s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
   }
-  100% {
-    fill: var(--int2Qcolor);
+  #pathInferiorHead {
+    animation-name: colibriColorizeKnow2;
+    animation-duration: 5s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
   }
-}
-@keyframes colibriColorizeKnow {
-  0% {
-    fill: var(--knowQ1color);
+  #pathSuperiorHead {
+    animation-name: colibriColorizeKnow;
+    animation-duration: 5s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
   }
-  100% {
-    fill: var(--knowQcolor);
+  #pathWing {
+    animation-name: colibriColorizeTransf;
+    animation-duration: 5s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
   }
-}
-@keyframes colibriColorizeKnow2 {
-  0% {
-    fill: var(--know2Q1color);
+  #trianglepartg {
+    animation-name: indicatorMovePart;
+    animation-duration: 5s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
   }
-  100% {
-    fill: var(--know2Qcolor);
+  #triangleintg {
+    animation-name: indicatorMoveInt;
+    animation-duration: 5s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
   }
-}
-@keyframes colibriColorizeTransf {
-  0% {
-    fill: var(--transfQ1color);
+  #triangletransfg {
+    animation-name: indicatorMoveTransf;
+    animation-duration: 5s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
   }
-  100% {
-    fill: var(--transfQcolor);
+  #triangleknowg {
+    animation-name: indicatorMoveKnow;
+    animation-duration: 5s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
   }
-}
-@keyframes colibriColorizeCit {
-  0% {
-    fill: var(--citQ1color);
+  #trianglecitg {
+    animation-name: indicatorMoveCit;
+    animation-duration: 5s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
   }
-  100% {
-    fill: var(--citQcolor);
+  @keyframes colibriColorizePart {
+    0% {
+      fill: var(--partQ1color);
+    }
+    100% {
+      fill: var(--partQcolor);
+    }
   }
-}
-@keyframes indicatorMovePart {
-  0% {
-    transform: translate(var(--partQ1x), var(--partQ1y)) rotate(-108deg);
+  @keyframes colibriColorizeInt {
+    0% {
+      fill: var(--intQ1color);
+    }
+    100% {
+      fill: var(--intQcolor);
+    }
   }
-  100% {
-    transform: translate(var(--partQx), var(--partQy)) rotate(-108deg);
+  @keyframes colibriColorizeInt2 {
+    0% {
+      fill: var(--int2Q1color);
+    }
+    100% {
+      fill: var(--int2Qcolor);
+    }
   }
-}
-@keyframes indicatorMoveInt {
-  0% {
-    transform: translate(var(--intQ1x), var(--intQ1y)) rotate(-35deg);
+  @keyframes colibriColorizeKnow {
+    0% {
+      fill: var(--knowQ1color);
+    }
+    100% {
+      fill: var(--knowQcolor);
+    }
   }
-  100% {
-    transform: translate(var(--intQx), var(--intQy)) rotate(-35deg);
+  @keyframes colibriColorizeKnow2 {
+    0% {
+      fill: var(--know2Q1color);
+    }
+    100% {
+      fill: var(--know2Qcolor);
+    }
   }
-}
-@keyframes indicatorMoveTransf {
-  0% {
-    transform: translate(var(--transfQ1x), var(--transfQ1y)) rotate(30deg);
+  @keyframes colibriColorizeTransf {
+    0% {
+      fill: var(--transfQ1color);
+    }
+    100% {
+      fill: var(--transfQcolor);
+    }
   }
-  100% {
-    transform: translate(var(--transfQx), var(--transfQy)) rotate(30deg);
+  @keyframes colibriColorizeCit {
+    0% {
+      fill: var(--citQ1color);
+    }
+    100% {
+      fill: var(--citQcolor);
+    }
   }
-}
-@keyframes indicatorMoveKnow {
-  0% {
-    transform: translate(var(--knowQ1x), var(--knowQ1y)) rotate(105deg);
+  @keyframes indicatorMovePart {
+    0% {
+      transform: translate(var(--partQ1x), var(--partQ1y)) rotate(-108deg);
+    }
+    100% {
+      transform: translate(var(--partQx), var(--partQy)) rotate(-108deg);
+    }
   }
-  100% {
-    transform: translate(var(--knowQx), var(--knowQy)) rotate(105deg);
+  @keyframes indicatorMoveInt {
+    0% {
+      transform: translate(var(--intQ1x), var(--intQ1y)) rotate(-35deg);
+    }
+    100% {
+      transform: translate(var(--intQx), var(--intQy)) rotate(-35deg);
+    }
   }
-}
-@keyframes indicatorMoveCit {
-  0% {
-    transform: translate(var(--citQ1x), var(--citQ1y)) rotate(180deg);
+  @keyframes indicatorMoveTransf {
+    0% {
+      transform: translate(var(--transfQ1x), var(--transfQ1y)) rotate(30deg);
+    }
+    100% {
+      transform: translate(var(--transfQx), var(--transfQy)) rotate(30deg);
+    }
   }
-  100% {
-    transform: translate(var(--citQx), var(--citQy)) rotate(180deg);
+  @keyframes indicatorMoveKnow {
+    0% {
+      transform: translate(var(--knowQ1x), var(--knowQ1y)) rotate(105deg);
+    }
+    100% {
+      transform: translate(var(--knowQx), var(--knowQy)) rotate(105deg);
+    }
   }
-}
+  @keyframes indicatorMoveCit {
+    0% {
+      transform: translate(var(--citQ1x), var(--citQ1y)) rotate(180deg);
+    }
+    100% {
+      transform: translate(var(--citQx), var(--citQy)) rotate(180deg);
+    }
+  }
 </style>

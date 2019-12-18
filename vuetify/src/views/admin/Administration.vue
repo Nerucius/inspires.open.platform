@@ -220,7 +220,6 @@ export default {
         this.$store.dispatch("toast/success", this.$t("pages.admin.validationSuccess"))
 
       }catch(error){
-        console.log(error)
         this.$store.dispatch("toast/error", {
           message: this.$t("pages.admin.validationFailure"),
           error

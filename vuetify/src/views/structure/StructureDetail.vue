@@ -270,7 +270,6 @@ export default {
 
     async exportCSV(){
       let data = (await this.$http.get(this.exportLink)).bodyText
-      console.log("export trigger")
 
       var file = new Blob([data], {type: "text/plain"});
       var filename = this.structure.name + " export.csv"

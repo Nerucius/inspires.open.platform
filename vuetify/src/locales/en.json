@@ -69,6 +69,12 @@
 
     },
 
+    "search":{
+      "searchResults": "Search Results",
+      "searchResultsFor": "Search Results for '{term}'",
+      "searchFound": "We've found {number} matching items for your query:"
+    },
+
     "admin":{
       "mainTitle": "Administration Dashboard",
       "unauthorizedAccess": "You are not authorized to access the Administration Dashboard. If you believe you should, please contact a platform administrator.",
@@ -139,6 +145,7 @@
     },
     "projectList": {
       "introText": "The InSPIRES Open Platform features participatory research and innovation projects promoted by different structures and organisations, such as Science Shops, Citizen Science offices, etc. You will find here bellow all the projects registered in the Open Platform.",
+      "showEvaluations": "Show evaluation results",
       "noKASpecified" : "No Knowledge Area specified",
       "visitProject" : "Visit project",
       "filterByArea" : "in the area of {area}"
@@ -179,6 +186,7 @@
       "evalResendRequest": "Re-send email",
       "evalViewEvaluation": "View Evaluation",
       "evalComplete": "(completed)",
+      "attachmentsTab": "File Attachments",
       "_": ""
     },
     "evaluationDetail":{

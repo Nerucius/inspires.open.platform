@@ -1,12 +1,25 @@
 <template>
   <v-layout row wrap align-content-start>
     <v-flex xs12>
-      <h1 class="mb-3">
-        {{ $t('noums.projects') }}
-        <small v-if="filterKnowledgeArea">
-          | {{ $t('pages.projectList.filterByArea', {area:$t(filterKnowledgeArea.name)}) }}
-        </small>
-      </h1>
+      <v-layout>
+        <v-flex grow>
+          <h1>
+              {{ $t('noums.projects') }}
+              <small v-if="filterKnowledgeArea">
+                | {{ $t('pages.projectList.filterByArea', {area:$t(filterKnowledgeArea.name)}) }}
+              </small>
+          </h1>
+        </v-flex>
+
+        <v-flex shrink>
+          <v-switch color="primary"
+            class="mt-0 pa-0"
+            v-model="showEvaluations"
+            :label="$t('pages.projectList.showEvaluations')"
+            />
+        </v-flex>
+
+      </v-layout>
 
       <v-expansion-panel>
         <v-expansion-panel-content>
@@ -23,14 +36,19 @@
     </v-flex>
 
     <v-flex xs12>
-      <ProjectGrid hide-title="true" :projects="projects" />
+      <v-layout row wrap align-content-start>
+        <v-flex v-for="project in projects" :key="project.id" xs12 sm6 md4 lg3 xl2 mb-3>
+          <ProjectCard :show-evaluation="showEvaluations" :project="project"/>
+        </v-flex>
+      </v-layout>
     </v-flex>
+
   </v-layout>
 </template>
 
 
 <script>
-import ProjectGrid from "@/components/project/ProjectGrid";
+import ProjectCard from "@/components/project/ProjectCard";
 import { slug2id } from "@/plugins/utils";
 
 
@@ -43,11 +61,13 @@ export default {
   },
 
   components: {
-    ProjectGrid
+    ProjectCard
   },
 
   data() {
-    return {};
+    return {
+      showEvaluations: false,
+    };
   },
 
   computed: {

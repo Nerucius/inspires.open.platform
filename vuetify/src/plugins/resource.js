@@ -38,5 +38,6 @@ export const EvaluationQuestionsResource  = Vue.resource(API_SERVER + "/v1/eval/
 export const EvaluationResponsesResource  = Vue.resource(API_SERVER + "/v1/eval/responses{/id}/", {}, PATCH);
 export const QuestionResource             = Vue.resource(API_SERVER + "/v1/question{/id}/", {}, PATCH);
 export const ResponseResource             = Vue.resource(API_SERVER + "/v1/response{/id}/", {}, PATCH);
+export const SearchResource               = Vue.resource(API_SERVER + "/v1/search?term={term}");
 
 export default Vue

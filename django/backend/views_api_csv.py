@@ -12,7 +12,9 @@ from datetime import datetime
 
 import pandas as pd
 
-# Constants
+# CONFIG
+CACHE_TIMEOUT = 60 * 15
+
 PHASE_TITLES = ["Phase 1", "Phase 2", "Phase 3", "Phase 4"]
 QUANT = [0, 0.25, 0.50, 0.75, 1]
 QUANT_TITLES = ["MIN", "Q1", "Q2", "Q3", "MAX"]
@@ -81,7 +83,7 @@ def _get_dataframe_cache(cache_key, factory, *args, **kwargs):
     dataframe = factory(*args, **kwargs)
     if dataframe is not None:
         serialized_df = dataframe.to_msgpack()
-        cache.set(cache_key, serialized_df)
+        cache.set(cache_key, serialized_df, timeout=CACHE_TIMEOUT)
 
     return dataframe
 
@@ -286,10 +288,10 @@ class CSVCachedAuthorizedView(View):
             content = cache.get(self.cache_key)
             if not content:
                 content = self._get_content(request, *args, **kwargs)
-                cache.set(self.cache_key, content, timeout=None)
+                cache.set(self.cache_key, content, timeout=CACHE_TIMEOUT)
         else:
             content = self._get_content(request, *args, **kwargs)
-            cache.set(self.cache_key, content, timeout=None)
+            cache.set(self.cache_key, content, timeout=CACHE_TIMEOUT)
 
         return shortcuts.HttpResponse(
             content, content_type="text/plain", charset="utf8"
@@ -297,7 +299,7 @@ class CSVCachedAuthorizedView(View):
 
 
 class CSVAllResponsesMultiple(CSVCachedAuthorizedView):
-    cache_key = None
+    #    cache_key = None
 
     def _get_content(self, request, *args, **kwargs):
         df = _get_df_responses_all(answer_type="MULTIPLE")
@@ -305,7 +307,7 @@ class CSVAllResponsesMultiple(CSVCachedAuthorizedView):
 
 
 class CSVAllResponsesDegree(CSVCachedAuthorizedView):
-    cache_key = None
+    #    cache_key = None
 
     def _get_content(self, request, *args, **kwargs):
         df = _get_df_responses_all(answer_type="DEGREE")
@@ -313,7 +315,7 @@ class CSVAllResponsesDegree(CSVCachedAuthorizedView):
 
 
 class CSVProjectResponsesMultiple(CSVCachedAuthorizedView):
-    cache_key = None
+    #    cache_key = None
 
     def _get_content(self, request, *args, **kwargs):
         ownProject = Project.objects.get(pk=kwargs["project"])
@@ -322,7 +324,7 @@ class CSVProjectResponsesMultiple(CSVCachedAuthorizedView):
 
 
 class CSVProjectResponsesDegree(CSVCachedAuthorizedView):
-    cache_key = None
+    #    cache_key = None
 
     def _get_content(self, request, *args, **kwargs):
         ownProject = Project.objects.get(pk=kwargs["project"])
@@ -331,7 +333,7 @@ class CSVProjectResponsesDegree(CSVCachedAuthorizedView):
 
 
 class CSVProjectOverallPosition(CSVCachedAuthorizedView):
-    cache_key = None
+    #    cache_key = None
 
     def _get_content(self, request, *args, **kwargs):
         ownProject = Project.objects.get(pk=kwargs["project"])
@@ -366,7 +368,7 @@ class CSVProjectOverallPosition(CSVCachedAuthorizedView):
 
 
 class CSVProjectPhases(CSVCachedAuthorizedView):
-    cache_key = None
+    #    cache_key = None
 
     def _get_content(self, request, *args, **kwargs):
         ownProject = Project.objects.get(pk=kwargs["project"])
@@ -430,7 +432,7 @@ class CSVProjectPhases(CSVCachedAuthorizedView):
 
 
 class CSVProjectHeatmap(CSVCachedAuthorizedView):
-    cache_key = None
+    #    cache_key = None
 
     def _get_content(self, request, *args, **kwargs):
         ownProject = Project.objects.get(pk=kwargs["project"])
@@ -485,7 +487,7 @@ class CSVProjectHeatmap(CSVCachedAuthorizedView):
 
 
 class CSVProjectTangram(CSVCachedAuthorizedView):
-    cache_key = None
+    #    cache_key = None
 
     def _get_content(self, request, *args, **kwargs):
         ownProject = Project.objects.get(pk=kwargs["project"])
@@ -543,7 +545,7 @@ class CSVProjectTangram(CSVCachedAuthorizedView):
 
 
 class CSVProjectBulletPrinciples(CSVCachedAuthorizedView):
-    cache_key = None
+    #    cache_key = None
 
     def _get_content(self, request, *args, **kwargs):
         ownProject = Project.objects.get(pk=kwargs["project"])
@@ -617,7 +619,7 @@ class CSVProjectBulletPrinciples(CSVCachedAuthorizedView):
 
 
 class CSVProjectBulletDimensions(CSVCachedAuthorizedView):
-    cache_key = None
+    #    cache_key = None
 
     def _get_content(self, request, *args, **kwargs):
         ownProject = Project.objects.get(pk=kwargs["project"])
@@ -732,7 +734,7 @@ class CSVProjectBulletDimensions(CSVCachedAuthorizedView):
 
 
 class CSVProjectBulletRoles(CSVCachedAuthorizedView):
-    cache_key = None
+    #    cache_key = None
 
     def _get_content(self, request, *args, **kwargs):
         ownProject = Project.objects.get(pk=kwargs["project"])
@@ -816,7 +818,7 @@ class CSVProjectBulletRoles(CSVCachedAuthorizedView):
 
 
 class CSVStructureSummaryExport(CSVCachedAuthorizedView):
-    cache_key = None
+    #    cache_key = None
 
     def _get_content(self, request, *args, **kwargs):
         structure_pk = kwargs["structure"]
@@ -861,7 +863,7 @@ class CSVStructureSummaryExport(CSVCachedAuthorizedView):
 
 
 class CSVProjectSummaryExport(CSVCachedAuthorizedView):
-    cache_key = None
+    #    cache_key = None
 
     def _get_content(self, request, *args, **kwargs):
         project_pk = kwargs["project"]
@@ -902,7 +904,7 @@ class CSVProjectSummaryExport(CSVCachedAuthorizedView):
 
 
 class CSVAllOwnProjectsExport(CSVCachedAuthorizedView):
-    cache_key = None
+    #    cache_key = None
 
     def _get_content(self, request, *args, **kwargs):
         user = request.user
@@ -915,7 +917,7 @@ class CSVAllOwnProjectsExport(CSVCachedAuthorizedView):
 
 
 class CSVAllOwnStructresExport(CSVCachedAuthorizedView):
-    cache_key = None
+    #    cache_key = None
 
     def _get_content(self, request, *args, **kwargs):
         user = request.user
@@ -927,7 +929,7 @@ class CSVAllOwnStructresExport(CSVCachedAuthorizedView):
 
 
 class CSVAdminAllProjects(CSVCachedAuthorizedView):
-    cache_key = None
+    #    cache_key = None
 
     def _get_content(self, request, *args, **kwargs):
         if not request.user.is_administrator:
@@ -938,7 +940,7 @@ class CSVAdminAllProjects(CSVCachedAuthorizedView):
 
 
 class CSVAdminAllStructures(CSVCachedAuthorizedView):
-    cache_key = None
+    #    cache_key = None
 
     def _get_content(self, request, *args, **kwargs):
         if not request.user.is_administrator:

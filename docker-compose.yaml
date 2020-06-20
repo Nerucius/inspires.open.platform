@@ -43,6 +43,8 @@ services:
       - VUE_APP_API_SERVER
       - VUE_APP_I18N_LOCALE
       - VUE_APP_I18N_FALLBACK_LOCALE
+      - VUE_APP_ANALYTICS_SITE_URL
+      - VUE_APP_ANALYTICS_SITE_ID
     volumes:
       # - "./vuetify/src:/vuetify/src"
       - "static_files:/vuetify/dist"

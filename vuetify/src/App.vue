@@ -38,7 +38,7 @@
 
 
 <template>
-  <v-app :[theme]="true">
+  <v-app :[theme]="true" @setLanguage="checkRTL($event)">
     <template v-if="loading">
       <v-content>
         <v-container fill-height>
@@ -174,7 +174,10 @@ export default {
   methods: {
     toggleDrawer() {
       this.$refs.navigationDrawer.toggleDrawer();
-    }
+    },
+    checkRTL (lang) {
+      this.$vuetify.rtl = lang == "ar"
+    },
   }
 };
 </script>

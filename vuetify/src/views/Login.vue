@@ -24,7 +24,7 @@
             </v-flex>
 
             <!-- Form to login with credentials -->
-            <v-flex v-if="!resetPassword" sm12 md8>
+            <v-flex v-if="!resetPassword" md8>
               <v-alert
                 :value="failedLogin"
                 dismissible
@@ -37,7 +37,6 @@
               <v-form
                 ref="form"
                 v-model="valid"
-                @keyup.native.enter="valid && submitLogin()"
                 @submit.prevent="submitLogin()"
               >
                 <v-text-field
@@ -54,17 +53,25 @@
                   :rules="rules"
                   type="password"
                 />
+
+                <v-layout wrap justify-space-between>
+                  <v-flex shrink>
+                    <v-btn outline @click="resetPassword = true">
+                      {{ $t("pages.login.forgotPassword") }}
+                    </v-btn>
+                  </v-flex>
+                  <v-flex shrink>
+                    <v-btn type="submit" :disabled="!valid"  color="primary" @click="submitLogin()">
+                      {{ $t("actions.login") }}
+                    </v-btn>
+                  </v-flex>
+                </v-layout>
               </v-form>
 
-              <div class="text-xs-right">
-                <a href="#forgot-password" @click="resetPassword = true">
-                  {{ $t("pages.login.forgotPassword") }}
-                </a>
-              </div>
             </v-flex>
 
             <!-- Form to reset password -->
-            <v-flex v-else sm12 md8>
+            <v-flex v-else md8>
               <v-alert
                 :value="resetPasswordSubmitted"
                 type="info"
@@ -87,37 +94,42 @@
                 />
               </v-form>
 
-              <div class="text-xs-right">
-                <a href="#" @click="resetPassword = false">
-                  {{ $t("pages.resetPassword.goBackToLogin") }}
-                </a>
-              </div>
+              <v-layout mt-5 wrap justify-space-between>
+                <v-flex shrink>
+                  <v-btn outline @click="resetPassword = false">
+                    {{ $t("pages.resetPassword.goBackToLogin") }}
+                  </v-btn>
+                </v-flex>
+                <v-flex shrink>
+                  <v-btn type="submit" :disabled="!validResetPassword || resetPasswordSubmitted" color="primary" @click="submitResetPassword()">
+                    {{ $t("pages.resetPassword.resetPassword") }}
+                  </v-btn>
+                </v-flex>
+              </v-layout>
+
             </v-flex>
           </v-layout>
         </v-card-text>
 
-        <v-card-actions class="mt-2 pb-3 px-3 text-xs-center">
+        <!-- <v-card-actions class="mt-2 pb-3 px-3 text-xs-center">
           <v-flex v-if="!resetPassword" shrink>
             <v-btn :to="{name:'register'}" dark flat outline color="primary">
               {{ $t('pages.login.registerCTA') }}
             </v-btn>
           </v-flex>
           <v-spacer />
-
-          <!-- Login with credentials action -->
           <v-flex v-if="!resetPassword" shrink>
             <v-btn :disabled="!valid" color="primary" @click="submitLogin()">
               {{ $t("actions.login") }}
             </v-btn>
           </v-flex>
-
-          <!-- Reset password action -->
           <v-flex v-else shrink>
             <v-btn :disabled="!validResetPassword || resetPasswordSubmitted" color="primary" @click="submitResetPassword()">
               {{ $t("pages.resetPassword.resetPassword") }}
             </v-btn>
           </v-flex>
-        </v-card-actions>
+        </v-card-actions> -->
+
       </v-card>
     </v-flex>
   </v-layout>

@@ -4,6 +4,7 @@ import router from "./router";
 import store from "./store";
 import i18n from './plugins/i18n';
 import "./plugins/vuetify"
+import "./plugins/matomo"
 import "./plugins/filters";
 import "./plugins/markdown";
 import "./plugins/resource";
@@ -20,5 +21,5 @@ export default new Vue({
   i18n,
 
   render: h => h(App),
-  // mounted: () => document.dispatchEvent(new Event('x-app-rendered')),
+  mounted: () => document.dispatchEvent(new Event('x-app-rendered')),
 }).$mount("#app");

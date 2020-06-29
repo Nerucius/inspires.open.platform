@@ -111,14 +111,15 @@
           </v-layout>
         </v-card-text>
 
-        <!-- <v-card-actions class="mt-2 pb-3 px-3 text-xs-center">
+        <v-card-actions class="mt-2 pb-3 px-3 text-xs-center">
           <v-flex v-if="!resetPassword" shrink>
             <v-btn :to="{name:'register'}" dark flat outline color="primary">
               {{ $t('pages.login.registerCTA') }}
             </v-btn>
           </v-flex>
           <v-spacer />
-          <v-flex v-if="!resetPassword" shrink>
+
+          <!-- <v-flex v-if="!resetPassword" shrink>
             <v-btn :disabled="!valid" color="primary" @click="submitLogin()">
               {{ $t("actions.login") }}
             </v-btn>
@@ -127,8 +128,8 @@
             <v-btn :disabled="!validResetPassword || resetPasswordSubmitted" color="primary" @click="submitResetPassword()">
               {{ $t("pages.resetPassword.resetPassword") }}
             </v-btn>
-          </v-flex>
-        </v-card-actions> -->
+          </v-flex> -->
+        </v-card-actions>
 
       </v-card>
     </v-flex>

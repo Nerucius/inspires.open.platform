@@ -8,6 +8,11 @@ const Resource = StructureResource
 export function createLink(obj){
   obj.link = {name:"structure-detail", params:{slug:obj2slug(obj)}}
   obj.image_url = obj.image_url || "https://app.inspiresproject.com/img/static/structure.jpg"
+
+  obj.isManager = function(userId){
+    return userId == obj.owner || (obj.managers && obj.managers.indexOf(userId) >= 0)
+  }
+
   return obj
 }
 

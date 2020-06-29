@@ -14,8 +14,11 @@
               {{ $t('pages.home.welcomeMessage') }}
             </v-sheet>
             <p class="text-xs-right ma-0">
-              <v-btn flat outline dark :to="{name:'about'}">
+              <v-btn :to="{name:'about'}" flat outline dark color="grey lighten-1">
                 {{ $t('pages.home.aboutLink') }}
+              </v-btn>
+              <v-btn :to="{name:'register'}" flat outline dark>
+              {{ $t('pages.login.registerCTA') }}
               </v-btn>
             </p>
           </div>

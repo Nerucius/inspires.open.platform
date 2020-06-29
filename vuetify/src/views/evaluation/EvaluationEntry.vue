@@ -201,6 +201,7 @@ table th{
         </v-card-text>
       </v-card>
     </v-flex>
+
   </v-layout>
 
   <v-layout v-else row wrap align-content-start>
@@ -221,6 +222,7 @@ export default {
       title: this.$t("pages.evaluationEntry.mainTitle")
     }
   },
+
   data(){
     return{
       message: '',
@@ -251,7 +253,7 @@ export default {
     },
     canModify(){
       let isSameUser = this.currentUser.id == this.evaluationUser.id
-      return isSameUser || this.currentUser.is_administrator
+      return isSameUser || this.currentUser.is_administrator || this.project.isManager(this.currentUser.id)
     },
 
     isCompleted(){

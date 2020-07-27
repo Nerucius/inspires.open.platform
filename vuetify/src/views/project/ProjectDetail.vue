@@ -86,7 +86,8 @@
           </v-list-tile>
 
           <!-- Country -->
-          <v-list-tile v-if="project.country_code" :to="structure.link">
+          <!-- TODO: Add link to structure list page filtered by country -->
+          <v-list-tile v-if="project.country_code">
             <v-list-tile-avatar tile>
               <flag style="font-size:40px" :squared="false" :iso="iso3toiso2(project.country_code)"></flag>
               <!-- <v-img :src="structure.image_url" /> -->

@@ -1552,4 +1552,228 @@
         "answer_range": 7,
         "answers": []
     }
+}, {
+    "model": "backend.question",
+    "pk": "Q1001",
+    "fields": {
+        "version": 1,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimmension": "COLLECTIVE",
+        "role": 3,
+        "phase": 1,
+        "answer_type": "TEXT",
+        "name": "What motivated you to participate in this project?",
+        "answers": []
+    }
+}, {
+    "model": "backend.question",
+    "pk": "Q1002",
+    "fields": {
+        "version": 1,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimmension": "COLLECTIVE",
+        "role": 3,
+        "phase": 2,
+        "answer_type": "TEXT",
+        "name": "Everything in the project is developing as you expected? Otherwise, tell us what is different and why. What could be improved?",
+        "answers": []
+    }
+}, {
+    "model": "backend.question",
+    "pk": "Q1003",
+    "fields": {
+        "version": 1,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimmension": "COLLECTIVE",
+        "role": 3,
+        "phase": 3,
+        "answer_type": "TEXT",
+        "name": "Please describe the main outcomes of this project. What has been essential to achieve those outcomes? How would you have addressed this project demand without this organisation?",
+        "answers": []
+    }
+}, {
+    "model": "backend.question",
+    "pk": "Q1004",
+    "fields": {
+        "version": 1,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimmension": "COLLECTIVE",
+        "role": 3,
+        "phase": 4,
+        "answer_type": "TEXT",
+        "name": "Has the project caused any change to your context? If so, please describe them.",
+        "answers": []
+    }
+}, {
+    "model": "backend.question",
+    "pk": "Q1005",
+    "fields": {
+        "version": 1,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimmension": "COLLECTIVE",
+        "role": 4,
+        "phase": 1,
+        "answer_type": "TEXT",
+        "name": "What motivated your organisation to accept this project?",
+        "answers": []
+    }
+}, {
+    "model": "backend.question",
+    "pk": "Q1006",
+    "fields": {
+        "version": 1,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimmension": "COLLECTIVE",
+        "role": 4,
+        "phase": 2,
+        "answer_type": "TEXT",
+        "name": "Everything in the project is developing as you expected? Otherwise, tell us what is different and why. What could be improved?",
+        "answers": []
+    }
+}, {
+    "model": "backend.question",
+    "pk": "Q1007",
+    "fields": {
+        "version": 1,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimmension": "COLLECTIVE",
+        "role": 4,
+        "phase": 3,
+        "answer_type": "TEXT",
+        "name": "Please describe the main benefits of this project. What has been essential to achieve these benefits?",
+        "answers": []
+    }
+}, {
+    "model": "backend.question",
+    "pk": "Q1008",
+    "fields": {
+        "version": 1,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimmension": "COLLECTIVE",
+        "role": 4,
+        "phase": 4,
+        "answer_type": "TEXT",
+        "name": "Do you think any other actors could have been involved on the project? Why?",
+        "answers": []
+    }
+}, {
+    "model": "backend.question",
+    "pk": "Q1009",
+    "fields": {
+        "version": 1,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimmension": "COLLECTIVE",
+        "role": 1,
+        "phase": 1,
+        "answer_type": "TEXT",
+        "name": "What motivated you to participate in this project?",
+        "answers": []
+    }
+}, {
+    "model": "backend.question",
+    "pk": "Q1010",
+    "fields": {
+        "version": 1,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimmension": "COLLECTIVE",
+        "role": 1,
+        "phase": 2,
+        "answer_type": "TEXT",
+        "name": "Everything in the project is developing as you expected? Otherwise, tell us what is different and why. What could be improved?",
+        "answers": []
+    }
+}, {
+    "model": "backend.question",
+    "pk": "Q1011",
+    "fields": {
+        "version": 1,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimmension": "COLLECTIVE",
+        "role": 1,
+        "phase": 3,
+        "answer_type": "TEXT",
+        "name": "Please describe the main outcomes of this project. What has been essential to achieve these outcomes?",
+        "answers": []
+    }
+}, {
+    "model": "backend.question",
+    "pk": "Q1012",
+    "fields": {
+        "version": 1,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimmension": "COLLECTIVE",
+        "role": 1,
+        "phase": 4,
+        "answer_type": "TEXT",
+        "name": "Has the project caused any change to your teaching approach or research lines? If so, please describe them.",
+        "answers": []
+    }
+}, {
+    "model": "backend.question",
+    "pk": "Q1013",
+    "fields": {
+        "version": 1,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimmension": "COLLECTIVE",
+        "role": 2,
+        "phase": 1,
+        "answer_type": "TEXT",
+        "name": "What motivated you to participate in this project?",
+        "answers": []
+    }
+}, {
+    "model": "backend.question",
+    "pk": "Q1014",
+    "fields": {
+        "version": 1,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimmension": "COLLECTIVE",
+        "role": 2,
+        "phase": 2,
+        "answer_type": "TEXT",
+        "name": "Everything in the project is developing as you expected? Otherwise, tell us what is different and why. What could be improved?",
+        "answers": []
+    }
+}, {
+    "model": "backend.question",
+    "pk": "Q1015",
+    "fields": {
+        "version": 1,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimmension": "COLLECTIVE",
+        "role": 2,
+        "phase": 3,
+        "answer_type": "TEXT",
+        "name": "Please describe the main outcomes of this project. What has been essential to achieve these outcomes?",
+        "answers": []
+    }
+}, {
+    "model": "backend.question",
+    "pk": "Q1016",
+    "fields": {
+        "version": 1,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimmension": "COLLECTIVE",
+        "role": 2,
+        "phase": 4,
+        "answer_type": "TEXT",
+        "name": "Open Science projects include public participation. What new competencies have you acquired through this project?",
+        "answers": []
+    }
 }]

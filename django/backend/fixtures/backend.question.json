@@ -1556,7 +1556,6 @@
     "model": "backend.question",
     "pk": "Q1001",
     "fields": {
-        "version": 1,
         "axis": "COLLECTIVE",
         "principle": "KNOWLEDGE",
         "dimmension": "COLLECTIVE",
@@ -1570,7 +1569,6 @@
     "model": "backend.question",
     "pk": "Q1002",
     "fields": {
-        "version": 1,
         "axis": "COLLECTIVE",
         "principle": "KNOWLEDGE",
         "dimmension": "COLLECTIVE",
@@ -1584,7 +1582,6 @@
     "model": "backend.question",
     "pk": "Q1003",
     "fields": {
-        "version": 1,
         "axis": "COLLECTIVE",
         "principle": "KNOWLEDGE",
         "dimmension": "COLLECTIVE",
@@ -1598,7 +1595,6 @@
     "model": "backend.question",
     "pk": "Q1004",
     "fields": {
-        "version": 1,
         "axis": "COLLECTIVE",
         "principle": "KNOWLEDGE",
         "dimmension": "COLLECTIVE",
@@ -1612,7 +1608,6 @@
     "model": "backend.question",
     "pk": "Q1005",
     "fields": {
-        "version": 1,
         "axis": "COLLECTIVE",
         "principle": "KNOWLEDGE",
         "dimmension": "COLLECTIVE",
@@ -1626,7 +1621,6 @@
     "model": "backend.question",
     "pk": "Q1006",
     "fields": {
-        "version": 1,
         "axis": "COLLECTIVE",
         "principle": "KNOWLEDGE",
         "dimmension": "COLLECTIVE",
@@ -1640,7 +1634,6 @@
     "model": "backend.question",
     "pk": "Q1007",
     "fields": {
-        "version": 1,
         "axis": "COLLECTIVE",
         "principle": "KNOWLEDGE",
         "dimmension": "COLLECTIVE",
@@ -1654,7 +1647,6 @@
     "model": "backend.question",
     "pk": "Q1008",
     "fields": {
-        "version": 1,
         "axis": "COLLECTIVE",
         "principle": "KNOWLEDGE",
         "dimmension": "COLLECTIVE",
@@ -1668,7 +1660,6 @@
     "model": "backend.question",
     "pk": "Q1009",
     "fields": {
-        "version": 1,
         "axis": "COLLECTIVE",
         "principle": "KNOWLEDGE",
         "dimmension": "COLLECTIVE",
@@ -1682,7 +1673,6 @@
     "model": "backend.question",
     "pk": "Q1010",
     "fields": {
-        "version": 1,
         "axis": "COLLECTIVE",
         "principle": "KNOWLEDGE",
         "dimmension": "COLLECTIVE",
@@ -1696,7 +1686,6 @@
     "model": "backend.question",
     "pk": "Q1011",
     "fields": {
-        "version": 1,
         "axis": "COLLECTIVE",
         "principle": "KNOWLEDGE",
         "dimmension": "COLLECTIVE",
@@ -1710,7 +1699,6 @@
     "model": "backend.question",
     "pk": "Q1012",
     "fields": {
-        "version": 1,
         "axis": "COLLECTIVE",
         "principle": "KNOWLEDGE",
         "dimmension": "COLLECTIVE",
@@ -1724,7 +1712,6 @@
     "model": "backend.question",
     "pk": "Q1013",
     "fields": {
-        "version": 1,
         "axis": "COLLECTIVE",
         "principle": "KNOWLEDGE",
         "dimmension": "COLLECTIVE",
@@ -1738,7 +1725,6 @@
     "model": "backend.question",
     "pk": "Q1014",
     "fields": {
-        "version": 1,
         "axis": "COLLECTIVE",
         "principle": "KNOWLEDGE",
         "dimmension": "COLLECTIVE",
@@ -1752,7 +1738,6 @@
     "model": "backend.question",
     "pk": "Q1015",
     "fields": {
-        "version": 1,
         "axis": "COLLECTIVE",
         "principle": "KNOWLEDGE",
         "dimmension": "COLLECTIVE",
@@ -1766,7 +1751,6 @@
     "model": "backend.question",
     "pk": "Q1016",
     "fields": {
-        "version": 1,
         "axis": "COLLECTIVE",
         "principle": "KNOWLEDGE",
         "dimmension": "COLLECTIVE",

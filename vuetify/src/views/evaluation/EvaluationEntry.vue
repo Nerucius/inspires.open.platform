@@ -421,6 +421,11 @@ export default {
           }
 
           await this.$store.dispatch("evaluation/submitResponse", response)
+
+          if(!this.isCompleted){
+            // Evaluation submit event for the first time
+            this.$matomo && this.$matomo.trackEvent('evaluation', 'evaluation--submit')
+          }
         }
 
         await this.$store.dispatch("evaluation/load", [this.evaluationId])

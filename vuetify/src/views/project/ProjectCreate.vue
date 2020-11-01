@@ -48,6 +48,9 @@ export default {
 
       try{
         let project = await this.$store.dispatch("project/create", projectData)
+
+        this.$matomo && this.$matomo.trackEvent('project', 'project--create')
+
         this.$store.dispatch("toast/success", this.$t('pages.projectCreate.success'))
         let slug = obj2slug(project)
         this.$router.push({name:"project-manage", params:{slug}})

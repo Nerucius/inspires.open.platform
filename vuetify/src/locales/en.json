@@ -5,17 +5,17 @@
       "forgotPassword": "Forgot your password?",
       "registerCTA": "Register now!"
     },
-    "account":{
-      "title":"Account",
+    "account": {
+      "title": "Account",
       "accountCreated": "Your new account has been created successfully. You can now access all of the features of the platform.",
-      "saveProfile":"Save profile",
-      "editProfile":"Edit Profile",
-      "updateProfileSuccess":"Your profile has been updated",
-      "updateProfileFailure":"Could not update your profile.",
-      "myProjects":"My Projects",
-      "myStructures":"My Structures"
+      "saveProfile": "Save profile",
+      "editProfile": "Edit Profile",
+      "updateProfileSuccess": "Your profile has been updated",
+      "updateProfileFailure": "Could not update your profile.",
+      "myProjects": "My Projects",
+      "myStructures": "My Structures"
     },
-    "resetPassword":{
+    "resetPassword": {
       "title": "Finish resetting your password",
       "introText": "This page will allow you to change your forgotten password. Please enter the new password you want to use from now on:",
       "resetPassword": "Reset my password",
@@ -46,8 +46,8 @@
 
     "home": {
       "mainTitle": "Welcome to InSPIRES",
-      "worldmapTitle":"World Map",
-      "latestTitle":"Latest Updates",
+      "worldmapTitle": "World Map",
+      "latestTitle": "Latest Updates",
       "welcomeMessage": "Welcome to the InSPIRES Open Platform. This platform features citizen-led participatory research and innovation projects promoted by knowledge intermediary units, such as Science Shops, Citizen Science groups or units, etc.",
       "welcomeMessageLong": "It also offers an integrated collaborative impact evaluation tool in order to assess the processes and outcomes of your own projects with respect others. The pursued objective is to produced a joint and collective reflection around this type of collaborative projects in order to learn, think, dabte and growth as a community of practice to develop better projects aiming at to improve citizens life and well-being.",
       "aboutLink": "More about us!",
@@ -55,7 +55,7 @@
       "projectsSeeMore": "See all projects"
     },
 
-    "about":{
+    "about": {
       "mainTitle": "About InSPIRES Open Platform",
       "titleMission": "Our mission",
       "missionParagraph1": "InSPIRES has embarked in the adventure of developing an online collaborative and crowdsourced database featuring Science Shops, similar structures and their related projects, as well as offering an integrated impact evaluation tool capable of producing real-time project evaluation report.",
@@ -69,13 +69,13 @@
 
     },
 
-    "search":{
+    "search": {
       "searchResults": "Search Results",
       "searchResultsFor": "Search Results for '{term}'",
       "searchFound": "We've found {number} matching items for your query:"
     },
 
-    "admin":{
+    "admin": {
       "mainTitle": "Administration Dashboard",
       "unauthorizedAccess": "You are not authorized to access the Administration Dashboard. If you believe you should, please contact a platform administrator.",
       "pendingApproval": "Structures pending approval",
@@ -85,7 +85,7 @@
       "validationFailure": "Failed to validate the structure. Please contact support."
     },
 
-    "legal":{
+    "legal": {
       "termsOfServiceTitle": "Terms of Service",
       "termsOfService": "By accepting the terms of service you understand that:\n\nYour personal data will only be used by:\n\nFundación Privada Instituto de Salud Global Barcelona (ISGlobal)\nCIF: G65341695\nPostal address: Carrer Rosselló, number 132, 2nd, 5th and 7th floors - 08036 Barcelona\nTelephone: (+34) 932 271 806\nEmail: inspires@isglobal.org\n\nWe collect and process your personal data for the sole purpose of responding to your registration to the website https://app.inspiresproject.com.\n\nYour data will be used solely by the InSPIRES team of ISGlobal who require access to it to carry out their work and it will never, under any circumstances, be made available to third parties or transferred to third countries or international organisations.\n\nWe can only process your personal data with your consent, and it will be retained only as long as you do not withdraw consent.\n\nYou can exercise all your rights under current data protection regulations, including the right to access, correction, objection, erasure, portability and restriction, by writing to the Data Protection Officer (lopd@isglobal.org), attaching a copy of your national identity document or equivalent.\n\nYou have the right to withdraw your consent at any time. Withdrawal of consent does not affect the lawfulness of processing based on consent before its withdrawal. If you do not agree with the manner in which ISGlobal handles your data or you consider that your rights have been infringed, you can file a complaint at any time with the Spanish Data Protection Agency.",
 
@@ -101,7 +101,7 @@
       "cookiePolicyTitle": "Cookie Policy",
       "cookiePolicy": "Our website https://app.inspiresproject.com (the 'Website') uses cookies to collect information on how the Website is used.\n\nA cookie is a file downloaded onto your machine (computer or mobile device) for storing data that may be updated and retrieved by the entity that installed it.\n\nThe information collected via cookies may include the date and time you visited the website, the pages you viewed, the time you spent on our website and the websites you visited before and after visiting our site.\n\nWe use cookies to facilitate your browsing of our Website, distinguish you from other users, provide you a better use experience and identify problems with our Website. If you provide your consent, we will use cookies to obtain information on your preferences and tailor our Website to your interests.\n\nThe purpose of this cookies policy is to provide you with clear and precise information on the cookies used on our Website (the 'Cookies Policy'). For more information on the cookies used on our Website, please email your questions to: lopd@isglobal.org.\n\n## Type of cookies used on the Website\n\nOur Website uses the cookies described below.\n\n### First-party cookies\n\nThese cookies are sent to your computer and handled only by us to improve the operation of the Website. Information collected is used to improve the quality of our service and your user experience. These cookies remain in your browser for longer. This allows us to recognise you when you return to the Website and tailor the content offered to your preferences.\n\n## Consent\n\nBy browsing and remaining on our Website, you provide consent for our use of the cookies described for the time periods specified under the conditions of this Cookies Policy.\n\n## Disabling and blocking cookies\n\nCookies are not required for using our Website. You can block and disable cookies by configuring your browser to block the installation of all or some cookies. Most browsers can be set to warn you of the presence of cookies or block them automatically. If you block cookies, you may continue using our Website. However, the use of some of its services may be limited, and your user experience may be diminished.\n\n## Withdrawing your consent\n\nIf at any time you want to withdraw the consent you gave under this Cookies Policy, delete the cookies stored on your machine (computer or mobile device) via the settings and configuration of your web browser.\n\nFor more information on deleting, disabling or blocking cookies, visit AllAboutCookies.org\n\n## Changing your browser's cookie configuration and settings\n\nUnless you have adjusted your browser's configuration, our system creates cookies when you visit our Website. All web browsers allow changing this configuration. Click on the links below for how to adjust the cookie configuration of the following browsers:\n\n- **Internet Explorer**:\n  - [Internet Explorer 5](https://support.microsoft.com/en-gb/help/196955)\n  - [Internet Explorer 6, 7, 8 and 9](https://support.microsoft.com/en-gb/help/260971/description-of-cookies)\n  - [Internet Explorer 11](https://support.microsoft.com/en-gb/help/17442/windows-internet-explorer-delete-manage-cookies)\n- **[Firefox](https://support.microsoft.com/en-gb/help/17442/windows-internet-explorer-delete-manage-cookies)**\n- **[Chrome](https://support.google.com/chrome/answer/95647?co=GENIE.Platform%3DDesktop&hl=en)**\n- **Safari**\n  - [For Windows](https://support.apple.com/kb/ph21411?locale=es_ES)\n  - [For Mac (iOS)](https://support.apple.com/es-es/HT201265)\n\n## Changes to the Cookies Policy\n\nWe may update the Cookies Policy of our Website from time to time. We recommend that you review this policy each time you visit our Website so that you are adequately informed on how and for what we use cookies. The Cookies Policy was last updated on July 6, 2018.\n\n## Contact\n\nFor any query, comment or suggestion regarding our Cookies Policy, please email: lopd@isglobal.org.\n\n[Updated on February 2019]",
 
-      "cookieToast" : "This website uses first- and third-party cookies to obtain information on your search habits and to improve the quality of our services and your browsing on our website. To consent to our use of cookies, click 'Accept' or continue browsing."
+      "cookieToast": "This website uses first- and third-party cookies to obtain information on your search habits and to improve the quality of our services and your browsing on our website. To consent to our use of cookies, click 'Accept' or continue browsing."
     },
 
     "projectDetail": {
@@ -146,9 +146,9 @@
     "projectList": {
       "introText": "The InSPIRES Open Platform features participatory research and innovation projects promoted by different structures and organisations, such as Science Shops, Citizen Science offices, etc. You will find here bellow all the projects registered in the Open Platform.",
       "showEvaluations": "Show evaluation results",
-      "noKASpecified" : "No Knowledge Area specified",
-      "visitProject" : "Visit project",
-      "filterByArea" : "in the area of {area}"
+      "noKASpecified": "No Knowledge Area specified",
+      "visitProject": "Visit project",
+      "filterByArea": "in the area of {area}"
     },
     "projectManage": {
       "title": "Manage this Project",
@@ -170,17 +170,17 @@
       "hadPhase": "This project was on this phase starting {date}.",
       "notHasPhase": "This project has never been on this phase.",
       "evaluationTab": "Evaluation",
-      "evaluationTitle":"Project Evaluation",
+      "evaluationTitle": "Project Evaluation",
       "evaluationTabDescription": "The impact evaluation tool builds on a self-reflection process which is divided into four phases: a kick-off phase at the beginning of the project, a mid-term evaluation, a final assessment by the end of the project, and a further evaluation 6 months later.",
       "collaborationSuccess": "Collaboration with structure requested successfully.",
       "collaborationFailure": "Failed to request collaboration.",
       "deleteCollaborationAlert": "Are you sure you want to cancel the collaboration?",
       "collaborationDeleted": "Collaboration with structure has been withdrawn.",
-      "participantsTitle":"Participants in this Project",
-      "participantsIntro":"Participants are everyone who will be involved directly in the project. You can add any number of participants, but each participant must have a role within the project. The participant's role will determine the questions they have to answer in the impact evaluation tool.\n\nTo add a participant you can look up users by their full name in the box below.",
+      "participantsTitle": "Participants in this Project",
+      "participantsIntro": "Participants are everyone who will be involved directly in the project. You can add any number of participants, but each participant must have a role within the project. The participant's role will determine the questions they have to answer in the impact evaluation tool.\n\nTo add a participant you can look up users by their full name in the box below.",
       "searchUsers": "Collaboration with structure has been withdrawn.",
-      "evaluationSuccess":"Evaluation requested successfuly.",
-      "evaluationFailure":"Failed to send evaluation request. Please try again later.",
+      "evaluationSuccess": "Evaluation requested successfuly.",
+      "evaluationFailure": "Failed to send evaluation request. Please try again later.",
       "evalSendRequest": "Send Request for Evaluation",
       "evalConfirmResend": "Are you sure you want to re-send an email to this person?",
       "evalResendRequest": "Re-send email",
@@ -189,8 +189,8 @@
       "attachmentsTab": "File Attachments",
       "_": ""
     },
-    "evaluationDetail":{
-      "heatchart":{
+    "evaluationDetail": {
+      "heatchart": {
         "title": "Involvement",
         "engagement": "Engagement",
         "responsiveness": "Responsiveness"
@@ -199,7 +199,7 @@
       "projectEvolution": "Project Evolution",
       "commentsByParticipants": "Comments left by participants:"
     },
-    "evaluationEntry":{
+    "evaluationEntry": {
       "mainTitle": "Project Evaluation Questionnaire",
       "questionnaire": "Questionnaire",
       "selfQuestionnaireTitle": "Self-reflection Questionnaire",
@@ -215,12 +215,12 @@
       "submitSuccess": "Your response has been recorded correctly!",
       "submitFailure": "There was a problem saving your response. Please try again later."
     },
-    "footer":{
+    "footer": {
       "europeanFundingDisclaimer": "This project has received funding from European Union's Horizon 2020 research and innovation programme under grant agreement No 741677."
     }
   },
-  "components":{
-    "ImageUpload":{
+  "components": {
+    "ImageUpload": {
       "title": "Upload new Image",
       "selectFile": "Select a file",
       "fileReady": "File \"{name}\" ready to upload",
@@ -229,18 +229,18 @@
     }
   },
   "models": {
-    "userGender":{
+    "userGender": {
       "male": "Male",
       "female": "Female",
       "other": "Other"
     },
-    "participationRole":{
+    "participationRole": {
       "scientist": "Scientist",
       "student": "Student",
       "civilSociety": "Civil Society",
       "projectManager": "Project Manager"
     },
-    "educationLevel":{
+    "educationLevel": {
       "primary": "Primary",
       "secondary": "Secondary",
       "teriary": "Teriary (Labor market)",
@@ -321,7 +321,7 @@
         "transform": "Transformative Change",
         "integrity": "Integrity"
       },
-      "dimension":{
+      "dimension": {
         "CollectiveCapacity": "Collective capacity",
         "communityAlignment": "Community alignment",
         "degreeOfEngagement": "Degree of engagement",
@@ -343,8 +343,8 @@
         "transparency": "Transparency"
       }
     },
-    "answer":{
-      "type":{
+    "answer": {
+      "type": {
         "multipleChoice": "Multiple Choice",
         "degree": "Degree",
         "text": "Text"
@@ -359,7 +359,7 @@
       "A08": "Project governance",
       "A09": "Transformative change"
     },
-    "question":{
+    "question": {
       "Q01": "In which stages of the scientific process has the community been actively involved?",
       "Q02": "In which stages of the scientific process has the community been actively involved?",
       "Q03": "In which stages of the scientific process has the community been actively involved?",
@@ -477,10 +477,118 @@
       "Q1013": "What motivated you to participate in this project?",
       "Q1014": "Everything in the project is developing as you expected? Otherwise, tell us what is different and why. What could be improved?",
       "Q1015": "Please describe the main outcomes of this project. What has been essential to achieve these outcomes?",
-      "Q1016": "Open Science projects include public participation. What new competencies have you acquired through this project?"
+      "Q1016": "Open Science projects include public participation. What new competencies have you acquired through this project?",
+
+      "v2": {
+        "Q01": "In which stages of the research process has the community been actively involved?",
+        "Q02": "In which stages of the research process has the community been actively involved?",
+        "Q03": "In which stages of the research process has the community been actively involved?",
+        "Q04": "In which stages of the research process has the community been actively involved?",
+        "Q05": "In which stages of the research process has it been most effective for you to engage the community?",
+        "Q06": "In which stages of the research process has it been most effective for you to engage the community?",
+        "Q07": "In which stages of the research process has it been most effective for you to engage the community?",
+        "Q08": "In which stages of the research process has it been most effective for you to engage the community?",
+        "Q09": "The research objectives cannot be reached without involving the community in the research process.",
+        "Q10": "The research objectives cannot be reached without involving the community in the research process.",
+        "Q11": "The research objectives cannot be reached without involving the community in the research process.",
+        "Q12": "The research objectives cannot be reached without involving the community in the research process.",
+        "Q13": "The project objectives meet the community needs, concerns and priorities.",
+        "Q14": "You are learning or enhancing new skills, knowledge and attitudes during the project.",
+        "Q15": "The participation in the workshops, group discussions, meetings, online / collaborative data collection process, has been easy and effective.",
+        "Q16": "The participation in the workshops, group discussions, meetings, online / collaborative data collection process, has positively contributing to building stronger knowledge.",
+        "Q16a": "The participation in the workshops, group discussions, meetings, online / collaborative data collection process, has positively contributing to building stronger knowledge.",
+        "Q17": "The participation in the workshops, group discussions, meetings, online / collaborative data collection process, has been easy and effective.",
+        "Q24a": "The financial resources were appropriate for the project.",
+        "Q25a": "The personal resources were appropriate for the project.",
+        "Q26": "You have learnt or enhanced new skills, knowledge and attitudes during the project.",
+        "Q27": "Project results are made available to the stakeholders in an appropriate understandable format.",
+        "Q27a": "Project results are made available to the general public in an appropriate understandable format.",
+        "Q30": "You have informed the civil society members about what the data is going to be used for, where the data is going to be stored and shared.",
+        "Q32": "The project includes perspectives and feedbacks from the community throughout the research process.",
+        "Q33": "The project includes perspectives and feedbacks from the community throughout the research process.",
+        "Q33a": "The project includes perspectives and feedbacks from the community throughout the research process.",
+        "Q35": "The participation of the community in the project can positively contribute to meet community needs, concerns and priorities.",
+        "Q36": "The participation of the community in the project can positively contribute to meet community needs, concerns and priorities.",
+        "Q37": "The participation of the community in the project can positively contribute to meet community needs, concerns and priorities.",
+        "Q37a": "The participation of the community in the project can positively contribute to meet community needs, concerns and priorities.",
+        "Q38": "You are able to contribute to the project by expressing your knowledge and experience.",
+        "Q39": "You feel confident to contribute the project.",
+        "Q40": "You feel confident to contribute the project.",
+        "Q41": "Your participation in the project can positively contribute to meet community needs, concerns and priorities.",
+        "Q42": "You feel confident to use the results to achieve your purposes.",
+        "Q47": "You are satisfied of the participation activities, such as for example participatory workshops, group discussions, meetings, online / collaborative data collection process, of the project.",
+        "Q48": "You are satisfied of the participation activities, such as for example participatory workshops, group discussions, meetings, online / collaborative data collection process, of the project.",
+        "Q49": "You are satisfied of the participation activities, such as for example participatory workshops, group discussions, meetings, online / collaborative data collection process, of the project.",
+        "Q50": "You are satisfied of the participation activities, such as for example participatory workshops, group discussions, meetings, online / collaborative data collection process, of the project.",
+        "Q54a": "You are motivated to continue being involved in the project.",
+        "Q55": "Project results are made available to the stakeholders in an appropriate understandable format.",
+        "Q55a": "Project results are made available to the general public in an appropriate understandable format.",
+        "Q56": "The results of the project have contributed to generate new knowledge relevant for each stakeholder.",
+        "Q57": "The project includes perspectives and feedbacks from the community throughout the research process.",
+        "Q59": "The project has answered the community needs, concerns and priorities.",
+        "Q64": "The project objectives meet the community needs, concerns and priorities.",
+        "Q65": "The project objectives meet the community needs, concerns and priorities.",
+        "Q66": "The project objectives meet the community needs, concerns and priorities.",
+        "Q67": "The project objectives meet the community needs, concerns and priorities.",
+        "Q69": "The project results actively contributed to the scientific discourse (via scientific publications, reports, blogs, etc.).",
+        "Q70": "The project helped to better identify the ways research processes can be applied to respond to societal issues.",
+        "Q70a": "The project helped to better identify the ways societal knowledge and practices can be applied to improve research.",
+        "Q71": "Project like this one can increase the probability to get funding.",
+        "Q71a": "Project like this one can increase the probability to get funding.",
+        "Q71b": "Project like this one can increase the probability to get funding.",
+        "Q72": "The dissemination activities and outputs of the research findings caused alternative policy, programme, process, product or service options to be considered.",
+        "Q73": "The dissemination activities and outputs of the research findings caused alternative policy, programme, process, product or service options to be considered.",
+        "Q74": "The dissemination activities and outputs of the research findings caused alternative policy, programme, process, product or service options to be considered.",
+        "Q75": "The dissemination activities and outputs of the research findings led to improvements in on existing policy, programme, process, product or service.",
+        "Q76": "The dissemination activities and outputs of the research findings led to improvements in on existing policy, programme, process, product or service.",
+        "Q77": "The dissemination activities and outputs of the research findings led to improvements in on existing policy, programme, process, product or service.",
+        "Q79": "The project results actively contributed to the scientific discourse (via scientific publications, blogs, etc.).",
+        "Q80": "The project helped to better identify the ways research processes can be applied to respond to societal issues.",
+        "Q80a": "The project helped to better identify the ways societal knowledge and practices can be applied to improve research.",
+        "Q81": "The skills, knowledge and attitudes acquired during the project have positively contributed to impulse your professional career.",
+        "Q82": "Thanks to the participatory activities, such as for example participatory workshops, group discussions, meetings, online / collaborative data collection process, you have been able to address the problem.",
+        "Q83": "Your participation in the project has changed your behavior and/or your attitude.",
+        "Q84": "The project helped to better identify the ways research processes can be applied to respond to societal issues.",
+        "Q84a": "The project helped to better identify the ways societal knowledge and practices can be applied to improve research.",
+        "Q85a": "Your participation in the project has increased your knowledge about the project topic.",
+        "Q86": "The participation in the project has fostered your confidence to contribute to collaboorative research projects driven by social needs.",
+        "Q87a": "The project generated new research questions, new projects and/or proposals.",
+        "Q88": "The project helped to better identify the ways research processes can be applied to respond to societal issues.",
+        "Q88a": "The project helped to better identify the ways societal knowledge and practices can be applied to improve research.",
+        "Q89": "The project's results actively contributed to the scientific discourse (via scientific publications, blogs, etc.).",
+        "Q90": "The project includes traditionally excluded groups, groups that would not have access to research in another way and/or particular groups expressing specific interests and needs.",
+        "Q91": "The project will produce scientific results that are relevant and increase the knowledge of the topic.",
+        "Q94": "The participatory activities such as workshops, group discussions, meetings, online / collaborative data collection process, have contributed to build more socially relevant knowledge.",
+        "Q94a": "The participatory activities such as workshops, group discussions, meetings, online / collaborative data collection process, have contributed to build more socially relevant knowledge.",
+        "QN01": "The design/orientation of the project is not guided only by academic or scientific experts' ideas.",
+        "QN02": "The design/orientation of the project is not guided only by academic or scientific experts' ideas.",
+        "QN03": "The design/orientation of the project was not guided only by academic or scientific experts' ideas.",
+        "QN04": "The design/orientation of the project is not guided only by academic or scientific experts' ideas.",
+        "QN05": "The design/orientation of the project is not guided only by academic or scientific experts' ideas.",
+        "QN06": "The design/orientation of the project was not guided only by academic or scientific experts' ideas.",
+        "QN07": "The design/orientation of the project is not guided only by academic or scientific experts' ideas.",
+        "QN08": "The project makes an effort to involve diverse gender  experiences and give equal importance to each of them.",
+        "QN09": "The project makes an effort to involve diverse gender  experiences and give equal importance to each of them.",
+        "QN10": "The project makes an effort to involve diverse gender  experiences and give equal importance to each of them.",
+        "QN11": "The design/orientation of the project is not guided only by academic or scientific experts' ideas.",
+        "QN12": "The possible effects of the research in gender inequalities (gender role, access, control of ressources, equality) were considered.",
+        "QN13": "The possible effects of the research in gender inequalities (gender role, access, control of resources, equality) were considered.",
+        "QN14": "The possible effects of the research in gender inequalities (gender role, access, control of resources, equality) were considered.",
+        "QN15": "The design/orientation of the project was not guided only by academic or scientific experts' ideas.",
+        "QN16": "The design/orientation of the project is not guided only by academic or scientific experts' ideas.",
+        "QN17": "The design/orientation of the project is not guided only by academic or scientific experts' ideas.",
+        "QN18": "The design/orientation of the project was not guided only by academic or scientific experts' ideas.",
+        "QN19": "Discussions in the project were based on what was said, not whom said it, and arguments were exchanged in a respectful but rational way.",
+        "QN20": "Discussions in the project were based on what was said, not whom said it, and arguments were exchanged in a respectful but rational way.",
+        "QN21": "Discussions in the project were based on what was said, not whom said it, and arguments were exchanged in a respectful but rational way.",
+        "QN22": "Discussions in the project were based on what was said, not whom said it, and arguments were exchanged in a respectful but rational way.",
+        "QN23": "You have learnt or enhanced new skills, knowledge and attitudes in engagement practices (e.g. how to communicate with civil society members, how to conduct focus groups and workshop, etc.).",
+        "QX01": "Research methodologies are described clearly, so others could adapt or re-use them.",
+        "QX02": "Raw data that does not infringe privacy or other ethical constraints is available in a FAIR way."
+      }
     }
   },
-  "toolbar":{
+  "toolbar": {
     "searchPlaceholder": "Search projects, structures...",
     "myAccount": "My Account",
     "administration": "Administration"
@@ -491,7 +599,7 @@
       "about": "About"
     }
   },
-  "misc":{
+  "misc": {
     "timeAgo": "{time} ago",
     "lastUpdated": "Last updated {time} ago",
     "notSpecified": "Not specified"
@@ -630,11 +738,11 @@
       "coverImage": "Cover Image",
       "_": ""
     },
-    "labels":{
+    "labels": {
       "searchUsers": "Search Users"
     },
     "descriptions": {
-      "projectAdministrators":"Project administrators have full access to the project and can edit the project's details as well as add and remove other administrators and participants. These permissions apply only within the platform."
+      "projectAdministrators": "Project administrators have full access to the project and can edit the project's details as well as add and remove other administrators and participants. These permissions apply only within the platform."
     },
     "hints": {
       "contactEmail": "Where should people reach you with questions about the project?",

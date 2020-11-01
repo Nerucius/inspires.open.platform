@@ -6,7 +6,8 @@ from django.contrib.contenttypes.models import ContentType
 
 from backend import models
 
-HIDDEN_FIELDS = ["password", "created_at", "created_by", "modified_at", "modified_by"]
+READONLY_FIELDS = ["password", "created_at", "created_by", "modified_at", "modified_by"]
+LIST_HIDDEN_FIELDS = ["password", "created_at", "created_by", "modified_at", "modified_by", "description"]
 
 
 def column_lister(model):
@@ -14,10 +15,10 @@ def column_lister(model):
 
     class ListAdmin(admin.ModelAdmin):
         readonly_fields = [
-            f.name for f in model._meta.fields if f.name in HIDDEN_FIELDS
+            f.name for f in model._meta.fields if f.name in READONLY_FIELDS
         ]
         list_display = [
-            f.name for f in model._meta.fields if f.name not in HIDDEN_FIELDS
+            f.name for f in model._meta.fields if f.name not in LIST_HIDDEN_FIELDS
         ]
 
     return ListAdmin

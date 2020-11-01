@@ -13,10 +13,12 @@ echo "Loading Fixtures..."
 # python manage.py loaddata auth.group TODO: BROKEN
 python manage.py loaddata backend.user
 python manage.py loaddata backend.answer
-python manage.py loaddata backend.question
 python manage.py loaddata backend.knowledgearea
 python manage.py loaddata backend.participationrole
 python manage.py loaddata backend.projectphase
+# python manage.py loaddata backend.question
+# python manage.py loaddata backend.questionv2
+
 
 # Start Server
 uwsgi --ini uwsgi.ini

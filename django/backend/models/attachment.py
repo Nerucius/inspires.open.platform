@@ -1,10 +1,11 @@
+from django.db import models
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
-from django.db import models
 
 from backend.models import TrackableModel
 
 
+# class Attachment(TrackableModel):
 #     url = models.URLField()
 #     name = models.CharField(max_length=512)
 #     # extension = models.CharField(max_length=128)

@@ -1,4 +1,6 @@
-<style>
+<style scoped>
+/* Styles affecting the router-view content (this page) */
+
 table{
   width: 100%;
 }
@@ -12,18 +14,66 @@ table th{
 .v-input .accent--text{
   color: #00796b !important; /* primary */
 }
+
+small{
+  color:darkslategray;
+  background-color: lightgray;
+  border-radius: 5px;
+  padding: 3px;
+  margin-right: 8px;
+}
+</style>
+
+<style>
+/* Styles affecting the entire page, not just the router-view content */
+
+.theme--light.v-label{
+  color:rgba(0, 0, 0, 0.75) !important
+}
+
+.media-print{
+  display: none;
+}
+
+@media print {
+
+  nav{
+    display: none !important;
+  }
+  #footer{
+    display: none !important;
+  }
+
+  .media-screen{
+    display: none;
+  }
+  .media-print {
+    display: inherit;
+  }
+
+  .v-content{
+    padding: 0;
+    margin: 0;
+  }
+
+  #self-questionnaire{
+    display: none;
+  }
+  #project-phase{
+    display: none;
+  }
+}
 </style>
 
 <template>
 
   <v-layout v-if="project.id" row wrap align-content-start>
     <v-flex xs12>
-      <h1 class="mb-2">
-        {{ $t('pages.evaluationEntry.mainTitle') }}
-      </h1>
-      <h2>
-        <small>{{ $t('noums.project') }}:</small>
+      <h1>
         {{ project.name }}
+      </h1>
+      <h2 class="mt-2">
+        {{ $t('pages.evaluationEntry.mainTitle') }}
       </h2>
     </v-flex>
 
@@ -49,6 +99,10 @@ table th{
             <!-- table col 1 -->
             <v-flex xs12 sm6 py-0>
               <table>
+                <colgroup>
+                  <col style="width:40%">
+                  <col>
+                </colgroup>
                 <tr>
                   <th>{{ $t('noums.project') }}</th>
                   <td>{{ project.name }}</td>
@@ -62,6 +116,10 @@ table th{
             <!-- Table col 2 -->
             <v-flex xs12 sm6 py-0>
               <table>
+                <colgroup>
+                  <col style="width:40%">
+                  <col>
+                </colgroup>
                 <tr>
                   <th>{{ $t('pages.evaluationEntry.evaluator') }}</th>
                   <td>{{ evaluationUser.full_name }}</td>
@@ -77,7 +135,7 @@ table th{
       </v-card>
     </v-flex>
 
-    <v-flex v-if="evaluation.project_phase == 1" xs12>
+    <v-flex id="self-questionnaire" v-if="evaluation.project_phase == 1" xs12>
       <v-card flat>
         <v-card-text>
           <h2 class="mb-2">
@@ -98,7 +156,7 @@ table th{
       </v-card>
     </v-flex>
 
-    <v-flex xs12>
+    <v-flex id="project-phase" xs12>
       <v-card flat>
         <v-card-text>
           <h2 class="mb-2">
@@ -121,10 +179,12 @@ table th{
 
           <v-form ref="form">
             <template v-for="(question, qidx) in questions">
-              <!-- MULTIPLE questions -->
+
+              <!-- MULTIPLE ANSWER questions -->
               <div v-if="question.answer_type == 'MULTIPLE'" :key="question.id">
                 <h3 class="mt-4">
-                  {{ $t(`models.question.${question.id}`) }} {{ $t('pages.evaluationEntry.questionMultipleHelp') }}
+                  <small>{{ question.id }}</small>
+                  {{ $t(`${question.i18n}`) }} {{ $t('pages.evaluationEntry.questionMultipleHelp') }}
                 </h3>
 
                 <v-checkbox v-for="(answer, aidx) in question.answers" :key="aidx"
@@ -134,12 +194,13 @@ table th{
                             hide-details
                 />
               </div>
-              <!-- /MULTIPLE QUESTIONS -->
+              <!-- /MULTIPLE ANSWER QUESTIONS -->
 
               <!-- DEGREE Questions -->
               <div v-else-if="question.answer_type == 'DEGREE'" :key="question.id">
                 <h3 class="mt-4">
-                  {{ $t(`models.question.${question.id}`) }}
+                  <small>{{ question.id }}</small>
+                  {{ $t(`${question.i18n}`) }}
                 </h3>
 
                 <v-slider
@@ -161,7 +222,8 @@ table th{
               <!-- TEXT Questions -->
               <div v-else-if="question.answer_type == 'TEXT'" :key="question.id">
                 <h3 class="mt-4 mb-3">
-                  {{ $t(`models.question.${question.id}`) }}
+                  <small>{{ question.id }}</small>
+                  {{ $t(`${question.i18n}`) }}
                   {{ $t('models.question.Q10XY', {phase: $t(phase(evaluation.project_phase).tag)}) }}
                 </h3>
 
@@ -178,25 +240,30 @@ table th{
             </template>
 
 
-            <v-btn v-if="canModify && !isCompleted" block large color="success"
-                   class="mt-5"
-                   @click="attemptSubmit()"
-            >
-              {{ $t('actions.submit') }}
-            </v-btn>
+            <div class="media-screen">
 
-            <v-btn v-else-if="canModify" block large color="success"
-                   class="mt-5"
-                   @click="attemptSubmit()"
-            >
-              {{ $t('actions.updateResponse') }}
-            </v-btn>
+              <v-btn v-if="canModify && !isCompleted" block large color="success"
+                    class="mt-5"
+                    @click="attemptSubmit()"
+              >
+                {{ $t('actions.submit') }}
+              </v-btn>
 
-            <v-btn v-else block large color="primary"
-                   class="mt-5" disabled
-            >
-              {{ $t('pages.evaluationEntry.viewOnly') }}
-            </v-btn>
+              <v-btn v-else-if="canModify" block large color="success"
+                    class="mt-5"
+                    @click="attemptSubmit()"
+              >
+                {{ $t('actions.updateResponse') }}
+              </v-btn>
+
+              <v-btn v-else block large color="primary"
+                    class="mt-5" disabled
+              >
+                {{ $t('pages.evaluationEntry.viewOnly') }}
+              </v-btn>
+
+            </div>
+
           </v-form>
         </v-card-text>
       </v-card>

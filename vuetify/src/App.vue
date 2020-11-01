@@ -76,7 +76,7 @@
         </v-container>
 
         <!-- Footer Area -->
-        <v-container>
+        <v-container id="footer">
           <v-layout row>
             <v-flex xs12>
               <Footer />

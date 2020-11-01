@@ -88,6 +88,10 @@ class Project(TrackableModel):
     date_end = models.DateField(blank=True, null=True)
 
     project_type = models.CharField(max_length=128, blank=True, choices=TYPES)
+
+    # Evaluation
+
+    eval_version = models.IntegerField(default=1)
     phases = models.ManyToManyField(
         "ProjectPhase", through="ProjectAtPhase", blank=True
     )

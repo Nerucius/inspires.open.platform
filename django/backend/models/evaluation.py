@@ -76,7 +76,7 @@ DIMENSION_CHOICES = [
     (DIM_SATISFACTION, "Satisfaction with the participatory dynamics"),
     (DIM_RELEVANCE, "Scientific relevance"),
     (DIM_SELFIMPROVE, "Self-improvement"),
-    (DIM_TRANSDISCIPLINAR, "Transdisciplinarity"),
+    (DIM_TRANSDISCIPLINAR, "Knowledge Integration"), # Name changed for v2
     (DIM_TRANSPARENCY, "Transparency"),
 ]
 
@@ -95,6 +95,7 @@ ANSWER_CHOICES = [
 
 class Question(models.Model):
     id = models.CharField(primary_key=True, max_length=8)
+    version = models.IntegerField(default=1)
 
     axis = models.CharField(choices=AXIS_CHOICES, max_length=32)
     principle = models.CharField(choices=PRINCIPLE_CHOICES, max_length=32)
@@ -107,11 +108,13 @@ class Question(models.Model):
     answer_type = models.CharField(choices=ANSWER_CHOICES, max_length=32)
     answer_range = models.PositiveSmallIntegerField(blank=True, null=True)
 
+    i18n = models.CharField(max_length=256, blank=True)
+
     def __str__(self):
         return "Question [%s] %s" % (self.answer_type, self.name[:50])
 
     class Meta:
-        ordering = ["id"]
+        ordering = ["answer_type","id"]
 
 
 class Evaluation(TrackableModel):
@@ -139,9 +142,15 @@ class Evaluation(TrackableModel):
 
     @property
     def questions(self):
+        if self.project is None:
+            return None
+
+        # Filter questions by project's evaluation version as well as  role and phase
         all_questions = Question.objects
-        phase_questions = all_questions.filter(phase=self.phase.project_phase)
+        version_questions = all_questions.filter(version=self.project.eval_version)
+        phase_questions = version_questions.filter(phase=self.phase.project_phase)
         role_questions = phase_questions.filter(role=self.participation.role)
+
         return role_questions.all()
 
     @classmethod

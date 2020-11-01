@@ -1,0 +1,2393 @@
+[{
+    "model": "backend.question",
+    "pk": "QV2.01",
+    "fields": {
+        "version": 2,
+        "axis": "SCIENCE",
+        "principle": "PARTICIPATION",
+        "dimension": "ENGAGEMENT",
+        "role": 4,
+        "phase": 3,
+        "answer_type": "MULTIPLE",
+        "name": "In which stages of the research process has the community been actively involved?",
+        "answers": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+        "i18n": "models.question.v2.Q01"
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.02",
+    "fields": {
+        "version": 2,
+        "axis": "SCIENCE",
+        "principle": "PARTICIPATION",
+        "dimension": "ENGAGEMENT",
+        "role": 3,
+        "phase": 3,
+        "answer_type": "MULTIPLE",
+        "name": "In which stages of the research process has the community been actively involved?",
+        "answers": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+        "i18n": "models.question.v2.Q02"
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.03",
+    "fields": {
+        "version": 2,
+        "axis": "SCIENCE",
+        "principle": "PARTICIPATION",
+        "dimension": "ENGAGEMENT",
+        "role": 2,
+        "phase": 3,
+        "answer_type": "MULTIPLE",
+        "name": "In which stages of the research process has the community been actively involved?",
+        "answers": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+        "i18n": "models.question.v2.Q03"
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.04",
+    "fields": {
+        "version": 2,
+        "axis": "SCIENCE",
+        "principle": "PARTICIPATION",
+        "dimension": "ENGAGEMENT",
+        "role": 1,
+        "phase": 3,
+        "answer_type": "MULTIPLE",
+        "name": "In which stages of the research process has the community been actively involved?",
+        "answers": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+        "i18n": "models.question.v2.Q04"
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.05",
+    "fields": {
+        "version": 2,
+        "axis": "SCIENCE",
+        "principle": "CITIZEN",
+        "dimension": "RESPONSIVENESS",
+        "role": 4,
+        "phase": 3,
+        "answer_type": "MULTIPLE",
+        "name": "In which stages of the research process has it been most effective for you to engage the community?",
+        "answers": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+        "i18n": "models.question.v2.Q05"
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.06",
+    "fields": {
+        "version": 2,
+        "axis": "SCIENCE",
+        "principle": "CITIZEN",
+        "dimension": "RESPONSIVENESS",
+        "role": 1,
+        "phase": 3,
+        "answer_type": "MULTIPLE",
+        "name": "In which stages of the research process has it been most effective for you to engage the community?",
+        "answers": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+        "i18n": "models.question.v2.Q06"
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.07",
+    "fields": {
+        "version": 2,
+        "axis": "SCIENCE",
+        "principle": "CITIZEN",
+        "dimension": "RESPONSIVENESS",
+        "role": 2,
+        "phase": 3,
+        "answer_type": "MULTIPLE",
+        "name": "In which stages of the research process has it been most effective for you to engage the community?",
+        "answers": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+        "i18n": "models.question.v2.Q07"
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.08",
+    "fields": {
+        "version": 2,
+        "axis": "SCIENCE",
+        "principle": "CITIZEN",
+        "dimension": "RESPONSIVENESS",
+        "role": 3,
+        "phase": 3,
+        "answer_type": "MULTIPLE",
+        "name": "In which stages of the research process has it been most effective for you to engage the community?",
+        "answers": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+        "i18n": "models.question.v2.Q08"
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.09",
+    "fields": {
+        "version": 2,
+        "axis": "SCIENCE",
+        "principle": "CITIZEN",
+        "dimension": "RESPONSIVENESS",
+        "role": 4,
+        "phase": 1,
+        "answer_type": "DEGREE",
+        "name": "The research objectives cannot be reached without involving the community in the research process.",
+        "answers": [],
+        "i18n": "models.question.v2.Q09",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.10",
+    "fields": {
+        "version": 2,
+        "axis": "SCIENCE",
+        "principle": "CITIZEN",
+        "dimension": "RESPONSIVENESS",
+        "role": 1,
+        "phase": 1,
+        "answer_type": "DEGREE",
+        "name": "The research objectives cannot be reached without involving the community in the research process.",
+        "answers": [],
+        "i18n": "models.question.v2.Q10",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.1001",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimension": "COLLECTIVE",
+        "role": 3,
+        "phase": 1,
+        "answer_type": "TEXT",
+        "name": "What motivated you to participate in this project?",
+        "answers": [],
+        "i18n": "models.question.Q1001"
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.1002",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimension": "COLLECTIVE",
+        "role": 3,
+        "phase": 2,
+        "answer_type": "TEXT",
+        "name": "Everything in the project is developing as you expected? Otherwise, tell us what is different and why. What could be improved?",
+        "answers": [],
+        "i18n": "models.question.Q1002"
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.1003",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimension": "COLLECTIVE",
+        "role": 3,
+        "phase": 3,
+        "answer_type": "TEXT",
+        "name": "Please describe the main outcomes of this project. What has been essential to achieve those outcomes? How would you have addressed this project demand without this organisation?",
+        "answers": [],
+        "i18n": "models.question.Q1003"
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.1004",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimension": "COLLECTIVE",
+        "role": 3,
+        "phase": 4,
+        "answer_type": "TEXT",
+        "name": "Has the project caused any change to your context? If so, please describe them.",
+        "answers": [],
+        "i18n": "models.question.Q1004"
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.1005",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimension": "COLLECTIVE",
+        "role": 4,
+        "phase": 1,
+        "answer_type": "TEXT",
+        "name": "What motivated your organisation to accept this project?",
+        "answers": [],
+        "i18n": "models.question.Q1005"
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.1006",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimension": "COLLECTIVE",
+        "role": 4,
+        "phase": 2,
+        "answer_type": "TEXT",
+        "name": "Everything in the project is developing as you expected? Otherwise, tell us what is different and why. What could be improved?",
+        "answers": [],
+        "i18n": "models.question.Q1006"
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.1007",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimension": "COLLECTIVE",
+        "role": 4,
+        "phase": 3,
+        "answer_type": "TEXT",
+        "name": "Please describe the main benefits of this project. What has been essential to achieve these benefits?",
+        "answers": [],
+        "i18n": "models.question.Q1007"
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.1008",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimension": "COLLECTIVE",
+        "role": 4,
+        "phase": 4,
+        "answer_type": "TEXT",
+        "name": "Do you think any other actors could have been involved on the project? Why?",
+        "answers": [],
+        "i18n": "models.question.Q1008"
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.1009",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimension": "COLLECTIVE",
+        "role": 1,
+        "phase": 1,
+        "answer_type": "TEXT",
+        "name": "What motivated you to participate in this project?",
+        "answers": [],
+        "i18n": "models.question.Q1009"
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.1010",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimension": "COLLECTIVE",
+        "role": 1,
+        "phase": 2,
+        "answer_type": "TEXT",
+        "name": "Everything in the project is developing as you expected? Otherwise, tell us what is different and why. What could be improved?",
+        "answers": [],
+        "i18n": "models.question.Q1010"
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.1011",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimension": "COLLECTIVE",
+        "role": 1,
+        "phase": 3,
+        "answer_type": "TEXT",
+        "name": "Please describe the main outcomes of this project. What has been essential to achieve these outcomes?",
+        "answers": [],
+        "i18n": "models.question.Q1011"
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.1012",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimension": "COLLECTIVE",
+        "role": 1,
+        "phase": 4,
+        "answer_type": "TEXT",
+        "name": "Has the project caused any change to your teaching approach or research lines? If so, please describe them.",
+        "answers": [],
+        "i18n": "models.question.Q1012"
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.1013",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimension": "COLLECTIVE",
+        "role": 2,
+        "phase": 1,
+        "answer_type": "TEXT",
+        "name": "What motivated you to participate in this project?",
+        "answers": [],
+        "i18n": "models.question.Q1013"
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.1014",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimension": "COLLECTIVE",
+        "role": 2,
+        "phase": 2,
+        "answer_type": "TEXT",
+        "name": "Everything in the project is developing as you expected? Otherwise, tell us what is different and why. What could be improved?",
+        "answers": [],
+        "i18n": "models.question.Q1014"
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.1015",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimension": "COLLECTIVE",
+        "role": 2,
+        "phase": 3,
+        "answer_type": "TEXT",
+        "name": "Please describe the main outcomes of this project. What has been essential to achieve these outcomes?",
+        "answers": [],
+        "i18n": "models.question.Q1015"
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.1016",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimension": "COLLECTIVE",
+        "role": 2,
+        "phase": 4,
+        "answer_type": "TEXT",
+        "name": "Open Science projects include public participation. What new competencies have you acquired through this project?",
+        "answers": [],
+        "i18n": "models.question.Q1016"
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.11",
+    "fields": {
+        "version": 2,
+        "axis": "SCIENCE",
+        "principle": "CITIZEN",
+        "dimension": "RESPONSIVENESS",
+        "role": 3,
+        "phase": 1,
+        "answer_type": "DEGREE",
+        "name": "The research objectives cannot be reached without involving the community in the research process.",
+        "answers": [],
+        "i18n": "models.question.v2.Q11",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.12",
+    "fields": {
+        "version": 2,
+        "axis": "SCIENCE",
+        "principle": "CITIZEN",
+        "dimension": "RESPONSIVENESS",
+        "role": 2,
+        "phase": 1,
+        "answer_type": "DEGREE",
+        "name": "The research objectives cannot be reached without involving the community in the research process.",
+        "answers": [],
+        "i18n": "models.question.v2.Q12",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.13",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "CITIZEN",
+        "dimension": "ALIGNEMENT",
+        "role": 3,
+        "phase": 2,
+        "answer_type": "DEGREE",
+        "name": "The project objectives meet the community needs, concerns and priorities.",
+        "answers": [],
+        "i18n": "models.question.v2.Q13",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.14",
+    "fields": {
+        "version": 2,
+        "axis": "INDIVIDUAL",
+        "principle": "TRANSFORM",
+        "dimension": "KNOWLEDGE",
+        "role": 2,
+        "phase": 2,
+        "answer_type": "DEGREE",
+        "name": "You are learning or enhancing new skills, knowledge and attitudes during the project.",
+        "answers": [],
+        "i18n": "models.question.v2.Q14",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.15",
+    "fields": {
+        "version": 2,
+        "axis": "SCIENCE",
+        "principle": "PARTICIPATION",
+        "dimension": "SATISFACTION",
+        "role": 4,
+        "phase": 3,
+        "answer_type": "DEGREE",
+        "name": "The participation in the workshops, group discussions, meetings, online / collaborative data collection process, has been easy and effective.",
+        "answers": [],
+        "i18n": "models.question.v2.Q15",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.16",
+    "fields": {
+        "version": 2,
+        "axis": "SCIENCE",
+        "principle": "PARTICIPATION",
+        "dimension": "SATISFACTION",
+        "role": 4,
+        "phase": 3,
+        "answer_type": "DEGREE",
+        "name": "The participation in the workshops, group discussions, meetings, online / collaborative data collection process, has positively contributing to building stronger knowledge.",
+        "answers": [],
+        "i18n": "models.question.v2.Q16",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.16a",
+    "fields": {
+        "version": 2,
+        "axis": "SCIENCE",
+        "principle": "PARTICIPATION",
+        "dimension": "SATISFACTION",
+        "role": 1,
+        "phase": 3,
+        "answer_type": "DEGREE",
+        "name": "The participation in the workshops, group discussions, meetings, online / collaborative data collection process, has positively contributing to building stronger knowledge.",
+        "answers": [],
+        "i18n": "models.question.v2.Q16a",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.17",
+    "fields": {
+        "version": 2,
+        "axis": "SCIENCE",
+        "principle": "PARTICIPATION",
+        "dimension": "SATISFACTION",
+        "role": 1,
+        "phase": 3,
+        "answer_type": "DEGREE",
+        "name": "The participation in the workshops, group discussions, meetings, online / collaborative data collection process, has been easy and effective.",
+        "answers": [],
+        "i18n": "models.question.v2.Q17",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.18",
+    "fields": {
+        "version": 2,
+        "axis": "SCIENCE",
+        "principle": "INTEGRITY",
+        "dimension": "REFLEXIVITY",
+        "role": 4,
+        "phase": 1,
+        "answer_type": "DEGREE",
+        "name": "Analysing your project design with Self-Reflection Questionnaire One (downloadable PDF document) has helped you to raise or ratify awareness on crucial decisions at this stage of the process (Choose 0 if you have not used it).",
+        "answers": [],
+        "i18n": "models.question.Q18",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.19",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "INTEGRITY",
+        "dimension": "EXPECTATION",
+        "role": 4,
+        "phase": 1,
+        "answer_type": "DEGREE",
+        "name": "Expectations are clearly defined and communicated at the beginning of the project.",
+        "answers": [],
+        "i18n": "models.question.Q19",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.20",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "INTEGRITY",
+        "dimension": "EXPECTATION",
+        "role": 3,
+        "phase": 1,
+        "answer_type": "DEGREE",
+        "name": "Expectations are clearly defined and communicated at the beginning of the project.",
+        "answers": [],
+        "i18n": "models.question.Q20",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.21",
+    "fields": {
+        "version": 2,
+        "axis": "SCIENCE",
+        "principle": "INTEGRITY",
+        "dimension": "RESOURCES",
+        "role": 4,
+        "phase": 1,
+        "answer_type": "DEGREE",
+        "name": "The financial resources to conduct the project are available.",
+        "answers": [],
+        "i18n": "models.question.Q21",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.22",
+    "fields": {
+        "version": 2,
+        "axis": "SCIENCE",
+        "principle": "INTEGRITY",
+        "dimension": "GENDER",
+        "role": 4,
+        "phase": 1,
+        "answer_type": "DEGREE",
+        "name": "The project promotes a gender perspective in the research process and results.",
+        "answers": [],
+        "i18n": "models.question.Q22",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.23",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "INTEGRITY",
+        "dimension": "GENDER",
+        "role": 4,
+        "phase": 3,
+        "answer_type": "DEGREE",
+        "name": "A gender perspective has contributed to improve the project results.",
+        "answers": [],
+        "i18n": "models.question.Q23",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.24",
+    "fields": {
+        "version": 2,
+        "axis": "SCIENCE",
+        "principle": "INTEGRITY",
+        "dimension": "RESOURCES",
+        "role": 4,
+        "phase": 3,
+        "answer_type": "DEGREE",
+        "name": "The financial resources were appropriate for the project.",
+        "answers": [],
+        "i18n": "models.question.Q24",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.24a",
+    "fields": {
+        "version": 2,
+        "axis": "SCIENCE",
+        "principle": "INTEGRITY",
+        "dimension": "RESOURCES",
+        "role": 1,
+        "phase": 3,
+        "answer_type": "DEGREE",
+        "name": "The financial resources were appropriate for the project.",
+        "answers": [],
+        "i18n": "models.question.v2.Q24a",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.25",
+    "fields": {
+        "version": 2,
+        "axis": "SCIENCE",
+        "principle": "INTEGRITY",
+        "dimension": "RESOURCES",
+        "role": 4,
+        "phase": 3,
+        "answer_type": "DEGREE",
+        "name": "The personal resources were appropriate for the project.",
+        "answers": [],
+        "i18n": "models.question.Q25",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.25a",
+    "fields": {
+        "version": 2,
+        "axis": "SCIENCE",
+        "principle": "INTEGRITY",
+        "dimension": "RESOURCES",
+        "role": 1,
+        "phase": 3,
+        "answer_type": "DEGREE",
+        "name": "The personal resources were appropriate for the project.",
+        "answers": [],
+        "i18n": "models.question.v2.Q25a",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.26",
+    "fields": {
+        "version": 2,
+        "axis": "INDIVIDUAL",
+        "principle": "TRANSFORM",
+        "dimension": "KNOWLEDGE",
+        "role": 2,
+        "phase": 3,
+        "answer_type": "DEGREE",
+        "name": "You have learnt or enhanced new skills, knowledge and attitudes during the project.",
+        "answers": [],
+        "i18n": "models.question.v2.Q26",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.27",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimension": "OPENNESS",
+        "role": 4,
+        "phase": 3,
+        "answer_type": "DEGREE",
+        "name": "Project results are made available to the stakeholders in an appropriate understandable format.",
+        "answers": [],
+        "i18n": "models.question.v2.Q27",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.27a",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimension": "OPENNESS",
+        "role": 4,
+        "phase": 3,
+        "answer_type": "DEGREE",
+        "name": "Project results are made available to the general public in an appropriate understandable format.",
+        "answers": [],
+        "i18n": "models.question.v2.Q27a",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.29",
+    "fields": {
+        "version": 2,
+        "axis": "SCIENCE",
+        "principle": "INTEGRITY",
+        "dimension": "REFLEXIVITY",
+        "role": 4,
+        "phase": 3,
+        "answer_type": "DEGREE",
+        "name": "Analysing your project's closure with Self-Reflection Questionnaire Two (downloadable PDF document) has helped you to raise or ratify awareness on crucial decisions for future processes (Choose 0 if you have not used it).",
+        "answers": [],
+        "i18n": "models.question.Q29",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.30",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "INTEGRITY",
+        "dimension": "TRANSPARENCY",
+        "role": 4,
+        "phase": 3,
+        "answer_type": "DEGREE",
+        "name": "You have informed the civil society members about what the data is going to be used for, where the data is going to be stored and shared.",
+        "answers": [],
+        "i18n": "models.question.v2.Q30",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.31",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "INTEGRITY",
+        "dimension": "TRANSPARENCY",
+        "role": 3,
+        "phase": 2,
+        "answer_type": "DEGREE",
+        "name": "You are clearly informed about what the data is going to be used for, where the data is going to be stored and shared.",
+        "answers": [],
+        "i18n": "models.question.Q31",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.32",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "INTEGRITY",
+        "dimension": "INCLUSIVITY",
+        "role": 4,
+        "phase": 2,
+        "answer_type": "DEGREE",
+        "name": "The project includes perspectives and feedbacks from the community throughout the research process.",
+        "answers": [],
+        "i18n": "models.question.v2.Q32",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.33",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "INTEGRITY",
+        "dimension": "INCLUSIVITY",
+        "role": 3,
+        "phase": 2,
+        "answer_type": "DEGREE",
+        "name": "The project includes perspectives and feedbacks from the community throughout the research process.",
+        "answers": [],
+        "i18n": "models.question.v2.Q33",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.33a",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "INTEGRITY",
+        "dimension": "INCLUSIVITY",
+        "role": 2,
+        "phase": 2,
+        "answer_type": "DEGREE",
+        "name": "The project includes perspectives and feedbacks from the community throughout the research process.",
+        "answers": [],
+        "i18n": "models.question.v2.Q33a",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.34",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "CITIZEN",
+        "dimension": "RESPONSIVENESS",
+        "role": 3,
+        "phase": 2,
+        "answer_type": "DEGREE",
+        "name": "You are able to contribute to the project by expressing a personal viewpoint.",
+        "answers": [],
+        "i18n": "models.question.Q34",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.35",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "CITIZEN",
+        "dimension": "ALIGNEMENT",
+        "role": 4,
+        "phase": 1,
+        "answer_type": "DEGREE",
+        "name": "The participation of the community in the project can positively contribute to meet community needs, concerns and priorities.",
+        "answers": [],
+        "i18n": "models.question.v2.Q35",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.36",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "CITIZEN",
+        "dimension": "ALIGNEMENT",
+        "role": 1,
+        "phase": 1,
+        "answer_type": "DEGREE",
+        "name": "The participation of the community in the project can positively contribute to meet community needs, concerns and priorities.",
+        "answers": [],
+        "i18n": "models.question.v2.Q36",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.37",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "CITIZEN",
+        "dimension": "ALIGNEMENT",
+        "role": 2,
+        "phase": 1,
+        "answer_type": "DEGREE",
+        "name": "The participation of the community in the project can positively contribute to meet community needs, concerns and priorities.",
+        "answers": [],
+        "i18n": "models.question.v2.Q37",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.37a",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "CITIZEN",
+        "dimension": "ALIGNEMENT",
+        "role": 3,
+        "phase": 1,
+        "answer_type": "DEGREE",
+        "name": "The participation of the community in the project can positively contribute to meet community needs, concerns and priorities.",
+        "answers": [],
+        "i18n": "models.question.v2.Q37a",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.38",
+    "fields": {
+        "version": 2,
+        "axis": "INDIVIDUAL",
+        "principle": "CITIZEN",
+        "dimension": "RESPONSIVENESS",
+        "role": 3,
+        "phase": 1,
+        "answer_type": "DEGREE",
+        "name": "You are able to contribute to the project by expressing your knowledge and experience.",
+        "answers": [],
+        "i18n": "models.question.v2.Q38",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.39",
+    "fields": {
+        "version": 2,
+        "axis": "INDIVIDUAL",
+        "principle": "TRANSFORM",
+        "dimension": "SELFIMPROVE",
+        "role": 3,
+        "phase": 1,
+        "answer_type": "DEGREE",
+        "name": "You feel confident to contribute the project.",
+        "answers": [],
+        "i18n": "models.question.v2.Q39",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.40",
+    "fields": {
+        "version": 2,
+        "axis": "INDIVIDUAL",
+        "principle": "TRANSFORM",
+        "dimension": "SELFIMPROVE",
+        "role": 2,
+        "phase": 1,
+        "answer_type": "DEGREE",
+        "name": "You feel confident to contribute the project.",
+        "answers": [],
+        "i18n": "models.question.v2.Q40",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.41",
+    "fields": {
+        "version": 2,
+        "axis": "INDIVIDUAL",
+        "principle": "CITIZEN",
+        "dimension": "ALIGNEMENT",
+        "role": 3,
+        "phase": 2,
+        "answer_type": "DEGREE",
+        "name": "Your participation in the project can positively contribute to meet community needs, concerns and priorities.",
+        "answers": [],
+        "i18n": "models.question.v2.Q41",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.42",
+    "fields": {
+        "version": 2,
+        "axis": "INDIVIDUAL",
+        "principle": "TRANSFORM",
+        "dimension": "SELFIMPROVE",
+        "role": 3,
+        "phase": 3,
+        "answer_type": "DEGREE",
+        "name": "You feel confident to use the results to achieve your purposes.",
+        "answers": [],
+        "i18n": "models.question.v2.Q42",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.43",
+    "fields": {
+        "version": 2,
+        "axis": "INDIVIDUAL",
+        "principle": "PARTICIPATION",
+        "dimension": "MOTIVATION",
+        "role": 4,
+        "phase": 1,
+        "answer_type": "DEGREE",
+        "name": "You are motivated to participate in the project.",
+        "answers": [],
+        "i18n": "models.question.Q43",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.44",
+    "fields": {
+        "version": 2,
+        "axis": "INDIVIDUAL",
+        "principle": "PARTICIPATION",
+        "dimension": "MOTIVATION",
+        "role": 1,
+        "phase": 1,
+        "answer_type": "DEGREE",
+        "name": "You are motivated to participate in the project.",
+        "answers": [],
+        "i18n": "models.question.Q44",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.45",
+    "fields": {
+        "version": 2,
+        "axis": "INDIVIDUAL",
+        "principle": "PARTICIPATION",
+        "dimension": "MOTIVATION",
+        "role": 2,
+        "phase": 1,
+        "answer_type": "DEGREE",
+        "name": "You are motivated to participate in the project.",
+        "answers": [],
+        "i18n": "models.question.Q45",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.46",
+    "fields": {
+        "version": 2,
+        "axis": "INDIVIDUAL",
+        "principle": "PARTICIPATION",
+        "dimension": "MOTIVATION",
+        "role": 3,
+        "phase": 1,
+        "answer_type": "DEGREE",
+        "name": "You are motivated to participate in the project.",
+        "answers": [],
+        "i18n": "models.question.Q46",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.47",
+    "fields": {
+        "version": 2,
+        "axis": "INDIVIDUAL",
+        "principle": "PARTICIPATION",
+        "dimension": "SATISFACTION",
+        "role": 4,
+        "phase": 2,
+        "answer_type": "DEGREE",
+        "name": "You are satisfied of the participation activities, such as for example participatory workshops, group discussions, meetings, online / collaborative data collection process, of the project.",
+        "answers": [],
+        "i18n": "models.question.v2.Q47",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.48",
+    "fields": {
+        "version": 2,
+        "axis": "INDIVIDUAL",
+        "principle": "PARTICIPATION",
+        "dimension": "SATISFACTION",
+        "role": 1,
+        "phase": 2,
+        "answer_type": "DEGREE",
+        "name": "You are satisfied of the participation activities, such as for example participatory workshops, group discussions, meetings, online / collaborative data collection process, of the project.",
+        "answers": [],
+        "i18n": "models.question.v2.Q48",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.49",
+    "fields": {
+        "version": 2,
+        "axis": "INDIVIDUAL",
+        "principle": "PARTICIPATION",
+        "dimension": "SATISFACTION",
+        "role": 2,
+        "phase": 2,
+        "answer_type": "DEGREE",
+        "name": "You are satisfied of the participation activities, such as for example participatory workshops, group discussions, meetings, online / collaborative data collection process, of the project.",
+        "answers": [],
+        "i18n": "models.question.v2.Q49",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.50",
+    "fields": {
+        "version": 2,
+        "axis": "INDIVIDUAL",
+        "principle": "PARTICIPATION",
+        "dimension": "SATISFACTION",
+        "role": 3,
+        "phase": 2,
+        "answer_type": "DEGREE",
+        "name": "You are satisfied of the participation activities, such as for example participatory workshops, group discussions, meetings, online / collaborative data collection process, of the project.",
+        "answers": [],
+        "i18n": "models.question.v2.Q50",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.51",
+    "fields": {
+        "version": 2,
+        "axis": "INDIVIDUAL",
+        "principle": "PARTICIPATION",
+        "dimension": "MOTIVATION",
+        "role": 2,
+        "phase": 3,
+        "answer_type": "DEGREE",
+        "name": "You are motivated to get involved in similar projects.",
+        "answers": [],
+        "i18n": "models.question.Q51",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.52",
+    "fields": {
+        "version": 2,
+        "axis": "INDIVIDUAL",
+        "principle": "PARTICIPATION",
+        "dimension": "MOTIVATION",
+        "role": 3,
+        "phase": 3,
+        "answer_type": "DEGREE",
+        "name": "You are motivated to get involved in similar projects.",
+        "answers": [],
+        "i18n": "models.question.Q52",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.53",
+    "fields": {
+        "version": 2,
+        "axis": "INDIVIDUAL",
+        "principle": "PARTICIPATION",
+        "dimension": "MOTIVATION",
+        "role": 2,
+        "phase": 2,
+        "answer_type": "DEGREE",
+        "name": "You are motivated to continue being involved in the project.",
+        "answers": [],
+        "i18n": "models.question.Q53",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.54",
+    "fields": {
+        "version": 2,
+        "axis": "INDIVIDUAL",
+        "principle": "PARTICIPATION",
+        "dimension": "MOTIVATION",
+        "role": 3,
+        "phase": 2,
+        "answer_type": "DEGREE",
+        "name": "You are motivated to continue being involved in the project.",
+        "answers": [],
+        "i18n": "models.question.Q54",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.54a",
+    "fields": {
+        "version": 2,
+        "axis": "INDIVIDUAL",
+        "principle": "PARTICIPATION",
+        "dimension": "MOTIVATION",
+        "role": 1,
+        "phase": 2,
+        "answer_type": "DEGREE",
+        "name": "You are motivated to continue being involved in the project.",
+        "answers": [],
+        "i18n": "models.question.v2.Q54a",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.55",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimension": "OPENNESS",
+        "role": 3,
+        "phase": 3,
+        "answer_type": "DEGREE",
+        "name": "Project results are made available to the stakeholders in an appropriate understandable format.",
+        "answers": [],
+        "i18n": "models.question.v2.Q55",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.55a",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimension": "OPENNESS",
+        "role": 3,
+        "phase": 3,
+        "answer_type": "DEGREE",
+        "name": "Project results are made available to the general public in an appropriate understandable format.",
+        "answers": [],
+        "i18n": "models.question.v2.Q55a",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.56",
+    "fields": {
+        "version": 2,
+        "axis": "SCIENCE",
+        "principle": "KNOWLEDGE",
+        "dimension": "RELEVANCE",
+        "role": 1,
+        "phase": 3,
+        "answer_type": "DEGREE",
+        "name": "The results of the project have contributed to generate new knowledge relevant for each stakeholder.",
+        "answers": [],
+        "i18n": "models.question.v2.Q56",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.57",
+    "fields": {
+        "version": 2,
+        "axis": "SCIENCE",
+        "principle": "INTEGRITY",
+        "dimension": "INCLUSIVITY",
+        "role": 1,
+        "phase": 2,
+        "answer_type": "DEGREE",
+        "name": "The project includes perspectives and feedbacks from the community throughout the research process.",
+        "answers": [],
+        "i18n": "models.question.v2.Q57",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.58",
+    "fields": {
+        "version": 2,
+        "axis": "INDIVIDUAL",
+        "principle": "INTEGRITY",
+        "dimension": "EXPECTATION",
+        "role": 2,
+        "phase": 3,
+        "answer_type": "DEGREE",
+        "name": "The project met your expectations.",
+        "answers": [],
+        "i18n": "models.question.Q58",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.59",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "CITIZEN",
+        "dimension": "ALIGNEMENT",
+        "role": 3,
+        "phase": 3,
+        "answer_type": "DEGREE",
+        "name": "The project has answered the community needs, concerns and priorities.",
+        "answers": [],
+        "i18n": "models.question.v2.Q59",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.60",
+    "fields": {
+        "version": 2,
+        "axis": "INDIVIDUAL",
+        "principle": "INTEGRITY",
+        "dimension": "EXPECTATION",
+        "role": 4,
+        "phase": 3,
+        "answer_type": "DEGREE",
+        "name": "The project met your expectations.",
+        "answers": [],
+        "i18n": "models.question.Q60",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.61",
+    "fields": {
+        "version": 2,
+        "axis": "INDIVIDUAL",
+        "principle": "INTEGRITY",
+        "dimension": "EXPECTATION",
+        "role": 1,
+        "phase": 3,
+        "answer_type": "DEGREE",
+        "name": "The project met your expectations.",
+        "answers": [],
+        "i18n": "models.question.Q61",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.62",
+    "fields": {
+        "version": 2,
+        "axis": "INDIVIDUAL",
+        "principle": "INTEGRITY",
+        "dimension": "GENDER",
+        "role": 1,
+        "phase": 3,
+        "answer_type": "DEGREE",
+        "name": "A gender perspective has contributed to improve the project results.",
+        "answers": [],
+        "i18n": "models.question.Q62",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.63",
+    "fields": {
+        "version": 2,
+        "axis": "INDIVIDUAL",
+        "principle": "INTEGRITY",
+        "dimension": "EXPECTATION",
+        "role": 3,
+        "phase": 3,
+        "answer_type": "DEGREE",
+        "name": "The project met your expectations.",
+        "answers": [],
+        "i18n": "models.question.Q63",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.64",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "CITIZEN",
+        "dimension": "ALIGNEMENT",
+        "role": 4,
+        "phase": 1,
+        "answer_type": "DEGREE",
+        "name": "The project objectives meet the community needs, concerns and priorities.",
+        "answers": [],
+        "i18n": "models.question.v2.Q64",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.65",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "CITIZEN",
+        "dimension": "ALIGNEMENT",
+        "role": 1,
+        "phase": 1,
+        "answer_type": "DEGREE",
+        "name": "The project objectives meet the community needs, concerns and priorities.",
+        "answers": [],
+        "i18n": "models.question.v2.Q65",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.66",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "CITIZEN",
+        "dimension": "ALIGNEMENT",
+        "role": 2,
+        "phase": 1,
+        "answer_type": "DEGREE",
+        "name": "The project objectives meet the community needs, concerns and priorities.",
+        "answers": [],
+        "i18n": "models.question.v2.Q66",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.67",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "CITIZEN",
+        "dimension": "ALIGNEMENT",
+        "role": 3,
+        "phase": 1,
+        "answer_type": "DEGREE",
+        "name": "The project objectives meet the community needs, concerns and priorities.",
+        "answers": [],
+        "i18n": "models.question.v2.Q67",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.68",
+    "fields": {
+        "version": 2,
+        "axis": "SCIENCE",
+        "principle": "TRANSFORM",
+        "dimension": "COLLECTIVE",
+        "role": 4,
+        "phase": 4,
+        "answer_type": "DEGREE",
+        "name": "The project generated new research questions, new projects and/or proposals.",
+        "answers": [],
+        "i18n": "models.question.Q68",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.69",
+    "fields": {
+        "version": 2,
+        "axis": "SCIENCE",
+        "principle": "KNOWLEDGE",
+        "dimension": "RELEVANCE",
+        "role": 4,
+        "phase": 4,
+        "answer_type": "DEGREE",
+        "name": "The project results actively contributed to the scientific discourse (via scientific publications, reports, blogs, etc.).",
+        "answers": [],
+        "i18n": "models.question.v2.Q69",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.70",
+    "fields": {
+        "version": 2,
+        "axis": "INDIVIDUAL",
+        "principle": "KNOWLEDGE",
+        "dimension": "TRANSDISCIPLINAR",
+        "role": 4,
+        "phase": 4,
+        "answer_type": "DEGREE",
+        "name": "The project helped to better identify the ways research processes can be applied to respond to societal issues.",
+        "answers": [],
+        "i18n": "models.question.v2.Q70",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.70a",
+    "fields": {
+        "version": 2,
+        "axis": "INDIVIDUAL",
+        "principle": "KNOWLEDGE",
+        "dimension": "TRANSDISCIPLINAR",
+        "role": 4,
+        "phase": 4,
+        "answer_type": "DEGREE",
+        "name": "The project helped to better identify the ways societal knowledge and practices can be applied to improve research.",
+        "answers": [],
+        "i18n": "models.question.v2.Q70a",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.71",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "TRANSFORM",
+        "dimension": "COLLECTIVE",
+        "role": 4,
+        "phase": 4,
+        "answer_type": "DEGREE",
+        "name": "Project like this one can increase the probability to get funding.",
+        "answers": [],
+        "i18n": "models.question.v2.Q71",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.71a",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "TRANSFORM",
+        "dimension": "COLLECTIVE",
+        "role": 3,
+        "phase": 4,
+        "answer_type": "DEGREE",
+        "name": "Project like this one can increase the probability to get funding.",
+        "answers": [],
+        "i18n": "models.question.v2.Q71a",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.71b",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "TRANSFORM",
+        "dimension": "COLLECTIVE",
+        "role": 1,
+        "phase": 4,
+        "answer_type": "DEGREE",
+        "name": "Project like this one can increase the probability to get funding.",
+        "answers": [],
+        "i18n": "models.question.v2.Q71b",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.72",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "TRANSFORM",
+        "dimension": "Impact",
+        "role": 4,
+        "phase": 4,
+        "answer_type": "DEGREE",
+        "name": "The dissemination activities and outputs of the research findings caused alternative policy, programme, process, product or service options to be considered.",
+        "answers": [],
+        "i18n": "models.question.v2.Q72",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.73",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "TRANSFORM",
+        "dimension": "Impact",
+        "role": 1,
+        "phase": 4,
+        "answer_type": "DEGREE",
+        "name": "The dissemination activities and outputs of the research findings caused alternative policy, programme, process, product or service options to be considered.",
+        "answers": [],
+        "i18n": "models.question.v2.Q73",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.74",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "TRANSFORM",
+        "dimension": "Impact",
+        "role": 3,
+        "phase": 4,
+        "answer_type": "DEGREE",
+        "name": "The dissemination activities and outputs of the research findings caused alternative policy, programme, process, product or service options to be considered.",
+        "answers": [],
+        "i18n": "models.question.v2.Q74",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.75",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "TRANSFORM",
+        "dimension": "Impact",
+        "role": 4,
+        "phase": 4,
+        "answer_type": "DEGREE",
+        "name": "The dissemination activities and outputs of the research findings led to improvements in on existing policy, programme, process, product or service.",
+        "answers": [],
+        "i18n": "models.question.v2.Q75",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.76",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "TRANSFORM",
+        "dimension": "Impact",
+        "role": 1,
+        "phase": 4,
+        "answer_type": "DEGREE",
+        "name": "The dissemination activities and outputs of the research findings led to improvements in on existing policy, programme, process, product or service.",
+        "answers": [],
+        "i18n": "models.question.v2.Q76",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.77",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "TRANSFORM",
+        "dimension": "Impact",
+        "role": 3,
+        "phase": 4,
+        "answer_type": "DEGREE",
+        "name": "The dissemination activities and outputs of the research findings led to improvements in on existing policy, programme, process, product or service.",
+        "answers": [],
+        "i18n": "models.question.v2.Q77",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.78",
+    "fields": {
+        "version": 2,
+        "axis": "SCIENCE",
+        "principle": "TRANSFORM",
+        "dimension": "COLLECTIVE",
+        "role": 1,
+        "phase": 4,
+        "answer_type": "DEGREE",
+        "name": "The project generated new research questions, new projects and/or proposals.",
+        "answers": [],
+        "i18n": "models.question.Q78",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.79",
+    "fields": {
+        "version": 2,
+        "axis": "SCIENCE",
+        "principle": "KNOWLEDGE",
+        "dimension": "RELEVANCE",
+        "role": 1,
+        "phase": 4,
+        "answer_type": "DEGREE",
+        "name": "The project results actively contributed to the scientific discourse (via scientific publications, blogs, etc.).",
+        "answers": [],
+        "i18n": "models.question.v2.Q79",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.80",
+    "fields": {
+        "version": 2,
+        "axis": "INDIVIDUAL",
+        "principle": "KNOWLEDGE",
+        "dimension": "TRANSDISCIPLINAR",
+        "role": 1,
+        "phase": 4,
+        "answer_type": "DEGREE",
+        "name": "The project helped to better identify the ways research processes can be applied to respond to societal issues.",
+        "answers": [],
+        "i18n": "models.question.v2.Q80",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.80a",
+    "fields": {
+        "version": 2,
+        "axis": "INDIVIDUAL",
+        "principle": "KNOWLEDGE",
+        "dimension": "TRANSDISCIPLINAR",
+        "role": 1,
+        "phase": 4,
+        "answer_type": "DEGREE",
+        "name": "The project helped to better identify the ways societal knowledge and practices can be applied to improve research.",
+        "answers": [],
+        "i18n": "models.question.v2.Q80a",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.81",
+    "fields": {
+        "version": 2,
+        "axis": "INDIVIDUAL",
+        "principle": "TRANSFORM",
+        "dimension": "KNOWLEDGE",
+        "role": 2,
+        "phase": 4,
+        "answer_type": "DEGREE",
+        "name": "The skills, knowledge and attitudes acquired during the project have positively contributed to impulse your professional career.",
+        "answers": [],
+        "i18n": "models.question.v2.Q81",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.82",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "PARTICIPATION",
+        "dimension": "PARTICIPATION_IMPACT",
+        "role": 3,
+        "phase": 4,
+        "answer_type": "DEGREE",
+        "name": "Thanks to the participatory activities, such as for example participatory workshops, group discussions, meetings, online / collaborative data collection process, you have been able to address the problem.",
+        "answers": [],
+        "i18n": "models.question.v2.Q82",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.83",
+    "fields": {
+        "version": 2,
+        "axis": "INDIVIDUAL",
+        "principle": "TRANSFORM",
+        "dimension": "SELFIMPROVE",
+        "role": 3,
+        "phase": 4,
+        "answer_type": "DEGREE",
+        "name": "Your participation in the project has changed your behavior and/or your attitude.",
+        "answers": [],
+        "i18n": "models.question.v2.Q83",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.84",
+    "fields": {
+        "version": 2,
+        "axis": "INDIVIDUAL",
+        "principle": "KNOWLEDGE",
+        "dimension": "TRANSDISCIPLINAR",
+        "role": 3,
+        "phase": 4,
+        "answer_type": "DEGREE",
+        "name": "The project helped to better identify the ways research processes can be applied to respond to societal issues.",
+        "answers": [],
+        "i18n": "models.question.v2.Q84",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.84a",
+    "fields": {
+        "version": 2,
+        "axis": "INDIVIDUAL",
+        "principle": "KNOWLEDGE",
+        "dimension": "TRANSDISCIPLINAR",
+        "role": 3,
+        "phase": 4,
+        "answer_type": "DEGREE",
+        "name": "The project helped to better identify the ways societal knowledge and practices can be applied to improve research.",
+        "answers": [],
+        "i18n": "models.question.v2.Q84a",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.85",
+    "fields": {
+        "version": 2,
+        "axis": "INDIVIDUAL",
+        "principle": "TRANSFORM",
+        "dimension": "KNOWLEDGE",
+        "role": 3,
+        "phase": 3,
+        "answer_type": "DEGREE",
+        "name": "Your participation in the project has increased your knowledge about the project topic.",
+        "answers": [],
+        "i18n": "models.question.Q85",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.85a",
+    "fields": {
+        "version": 2,
+        "axis": "INDIVIDUAL",
+        "principle": "TRANSFORM",
+        "dimension": "KNOWLEDGE",
+        "role": 3,
+        "phase": 4,
+        "answer_type": "DEGREE",
+        "name": "Your participation in the project has increased your knowledge about the project topic.",
+        "answers": [],
+        "i18n": "models.question.v2.Q85a",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.86",
+    "fields": {
+        "version": 2,
+        "axis": "INDIVIDUAL",
+        "principle": "TRANSFORM",
+        "dimension": "SELFIMPROVE",
+        "role": 3,
+        "phase": 4,
+        "answer_type": "DEGREE",
+        "name": "The participation in the project has fostered your confidence to contribute to collaboorative research projects driven by social needs.",
+        "answers": [],
+        "i18n": "models.question.v2.Q86",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.87",
+    "fields": {
+        "version": 2,
+        "axis": "SCIENCE",
+        "principle": "TRANSFORM",
+        "dimension": "COLLECTIVE",
+        "role": 2,
+        "phase": 4,
+        "answer_type": "DEGREE",
+        "name": "The project generated new research questions, new projects and/or proposals.",
+        "answers": [],
+        "i18n": "models.question.Q87",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.87a",
+    "fields": {
+        "version": 2,
+        "axis": "SCIENCE",
+        "principle": "TRANSFORM",
+        "dimension": "COLLECTIVE",
+        "role": 3,
+        "phase": 4,
+        "answer_type": "DEGREE",
+        "name": "The project generated new research questions, new projects and/or proposals.",
+        "answers": [],
+        "i18n": "models.question.v2.Q87a",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.88",
+    "fields": {
+        "version": 2,
+        "axis": "INDIVIDUAL",
+        "principle": "KNOWLEDGE",
+        "dimension": "TRANSDISCIPLINAR",
+        "role": 2,
+        "phase": 4,
+        "answer_type": "DEGREE",
+        "name": "The project helped to better identify the ways research processes can be applied to respond to societal issues.",
+        "answers": [],
+        "i18n": "models.question.v2.Q88",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.88a",
+    "fields": {
+        "version": 2,
+        "axis": "INDIVIDUAL",
+        "principle": "KNOWLEDGE",
+        "dimension": "TRANSDISCIPLINAR",
+        "role": 2,
+        "phase": 4,
+        "answer_type": "DEGREE",
+        "name": "The project helped to better identify the ways societal knowledge and practices can be applied to improve research.",
+        "answers": [],
+        "i18n": "models.question.v2.Q88a",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.89",
+    "fields": {
+        "version": 2,
+        "axis": "SCIENCE",
+        "principle": "KNOWLEDGE",
+        "dimension": "RELEVANCE",
+        "role": 2,
+        "phase": 4,
+        "answer_type": "DEGREE",
+        "name": "The project's results actively contributed to the scientific discourse (via scientific publications, blogs, etc.).",
+        "answers": [],
+        "i18n": "models.question.v2.Q89",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.90",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "INTEGRITY",
+        "dimension": "INCLUSIVITY",
+        "role": 4,
+        "phase": 2,
+        "answer_type": "DEGREE",
+        "name": "The project includes traditionally excluded groups, groups that would not have access to research in another way and/or particular groups expressing specific interests and needs.",
+        "answers": [],
+        "i18n": "models.question.v2.Q90",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.91",
+    "fields": {
+        "version": 2,
+        "axis": "SCIENCE",
+        "principle": "KNOWLEDGE",
+        "dimension": "RELEVANCE",
+        "role": 1,
+        "phase": 2,
+        "answer_type": "DEGREE",
+        "name": "The project will produce scientific results that are relevant and increase the knowledge of the topic.",
+        "answers": [],
+        "i18n": "models.question.v2.Q91",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.93",
+    "fields": {
+        "version": 2,
+        "axis": "INDIVIDUAL",
+        "principle": "PARTICIPATION",
+        "dimension": "MOTIVATION",
+        "role": 1,
+        "phase": 3,
+        "answer_type": "DEGREE",
+        "name": "You are motivated to get involved in similar projects.",
+        "answers": [],
+        "i18n": "models.question.Q93",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.94",
+    "fields": {
+        "version": 2,
+        "axis": "SCIENCE",
+        "principle": "PARTICIPATION",
+        "dimension": "PARTICIPATION_IMPACT",
+        "role": 1,
+        "phase": 3,
+        "answer_type": "DEGREE",
+        "name": "The participatory activities such as workshops, group discussions, meetings, online / collaborative data collection process, have contributed to build more socially relevant knowledge.",
+        "answers": [],
+        "i18n": "models.question.v2.Q94",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.94a",
+    "fields": {
+        "version": 2,
+        "axis": "SCIENCE",
+        "principle": "PARTICIPATION",
+        "dimension": "PARTICIPATION_IMPACT",
+        "role": 3,
+        "phase": 3,
+        "answer_type": "DEGREE",
+        "name": "The participatory activities such as workshops, group discussions, meetings, online / collaborative data collection process, have contributed to build more socially relevant knowledge.",
+        "answers": [],
+        "i18n": "models.question.v2.Q94a",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.95",
+    "fields": {
+        "version": 2,
+        "axis": "INDIVIDUAL",
+        "principle": "PARTICIPATION",
+        "dimension": "ENGAGEMENT",
+        "role": 3,
+        "phase": 3,
+        "answer_type": "DEGREE",
+        "name": "You were involved or invited to the final communication activity where research results were presented.",
+        "answers": [],
+        "i18n": "models.question.Q95",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.N01",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimension": "TRANSDISCIPLINAR",
+        "role": 3,
+        "phase": 1,
+        "answer_type": "DEGREE",
+        "name": "The design/orientation of the project is not guided only by academic or scientific experts' ideas.",
+        "answers": [],
+        "i18n": "models.question.v2.QN01",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.N02",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimension": "TRANSDISCIPLINAR",
+        "role": 3,
+        "phase": 2,
+        "answer_type": "DEGREE",
+        "name": "The design/orientation of the project is not guided only by academic or scientific experts' ideas.",
+        "answers": [],
+        "i18n": "models.question.v2.QN02",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.N03",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimension": "TRANSDISCIPLINAR",
+        "role": 3,
+        "phase": 3,
+        "answer_type": "DEGREE",
+        "name": "The design/orientation of the project was not guided only by academic or scientific experts' ideas.",
+        "answers": [],
+        "i18n": "models.question.v2.QN03",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.N04",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimension": "TRANSDISCIPLINAR",
+        "role": 4,
+        "phase": 1,
+        "answer_type": "DEGREE",
+        "name": "The design/orientation of the project is not guided only by academic or scientific experts' ideas.",
+        "answers": [],
+        "i18n": "models.question.v2.QN04",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.N05",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimension": "TRANSDISCIPLINAR",
+        "role": 4,
+        "phase": 2,
+        "answer_type": "DEGREE",
+        "name": "The design/orientation of the project is not guided only by academic or scientific experts' ideas.",
+        "answers": [],
+        "i18n": "models.question.v2.QN05",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.N06",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimension": "TRANSDISCIPLINAR",
+        "role": 4,
+        "phase": 3,
+        "answer_type": "DEGREE",
+        "name": "The design/orientation of the project was not guided only by academic or scientific experts' ideas.",
+        "answers": [],
+        "i18n": "models.question.v2.QN06",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.N07",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimension": "TRANSDISCIPLINAR",
+        "role": 1,
+        "phase": 1,
+        "answer_type": "DEGREE",
+        "name": "The design/orientation of the project is not guided only by academic or scientific experts' ideas.",
+        "answers": [],
+        "i18n": "models.question.v2.QN07",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.N08",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "INTEGRITY",
+        "dimension": "GENDER",
+        "role": 3,
+        "phase": 2,
+        "answer_type": "DEGREE",
+        "name": "The project makes an effort to involve diverse gender  experiences and give equal importance to each of them.",
+        "answers": [],
+        "i18n": "models.question.v2.QN08",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.N09",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "INTEGRITY",
+        "dimension": "GENDER",
+        "role": 4,
+        "phase": 2,
+        "answer_type": "DEGREE",
+        "name": "The project makes an effort to involve diverse gender  experiences and give equal importance to each of them.",
+        "answers": [],
+        "i18n": "models.question.v2.QN09",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.N10",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "INTEGRITY",
+        "dimension": "GENDER",
+        "role": 1,
+        "phase": 2,
+        "answer_type": "DEGREE",
+        "name": "The project makes an effort to involve diverse gender  experiences and give equal importance to each of them.",
+        "answers": [],
+        "i18n": "models.question.v2.QN10",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.N11",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimension": "TRANSDISCIPLINAR",
+        "role": 1,
+        "phase": 2,
+        "answer_type": "DEGREE",
+        "name": "The design/orientation of the project is not guided only by academic or scientific experts' ideas.",
+        "answers": [],
+        "i18n": "models.question.v2.QN11",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.N12",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "INTEGRITY",
+        "dimension": "gender perspective",
+        "role": 3,
+        "phase": 3,
+        "answer_type": "DEGREE",
+        "name": "The possible effects of the research in gender inequalities (gender role, access, control of ressources, equality) were considered.",
+        "answers": [],
+        "i18n": "models.question.v2.QN12",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.N13",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "INTEGRITY",
+        "dimension": "GENDER",
+        "role": 4,
+        "phase": 3,
+        "answer_type": "DEGREE",
+        "name": "The possible effects of the research in gender inequalities (gender role, access, control of resources, equality) were considered.",
+        "answers": [],
+        "i18n": "models.question.v2.QN13",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.N14",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "INTEGRITY",
+        "dimension": "GENDER",
+        "role": 1,
+        "phase": 3,
+        "answer_type": "DEGREE",
+        "name": "The possible effects of the research in gender inequalities (gender role, access, control of resources, equality) were considered.",
+        "answers": [],
+        "i18n": "models.question.v2.QN14",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.N15",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimension": "TRANSDISCIPLINAR",
+        "role": 1,
+        "phase": 3,
+        "answer_type": "DEGREE",
+        "name": "The design/orientation of the project was not guided only by academic or scientific experts' ideas.",
+        "answers": [],
+        "i18n": "models.question.v2.QN15",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.N16",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimension": "TRANSDISCIPLINAR",
+        "role": 2,
+        "phase": 1,
+        "answer_type": "DEGREE",
+        "name": "The design/orientation of the project is not guided only by academic or scientific experts' ideas.",
+        "answers": [],
+        "i18n": "models.question.v2.QN16",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.N17",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimension": "TRANSDISCIPLINAR",
+        "role": 2,
+        "phase": 2,
+        "answer_type": "DEGREE",
+        "name": "The design/orientation of the project is not guided only by academic or scientific experts' ideas.",
+        "answers": [],
+        "i18n": "models.question.v2.QN17",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.N18",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimension": "TRANSDISCIPLINAR",
+        "role": 2,
+        "phase": 3,
+        "answer_type": "DEGREE",
+        "name": "The design/orientation of the project was not guided only by academic or scientific experts' ideas.",
+        "answers": [],
+        "i18n": "models.question.v2.QN18",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.N19",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimension": "TRANSDISCIPLINAR",
+        "role": 3,
+        "phase": 3,
+        "answer_type": "DEGREE",
+        "name": "Discussions in the project were based on what was said, not whom said it, and arguments were exchanged in a respectful but rational way.",
+        "answers": [],
+        "i18n": "models.question.v2.QN19",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.N20",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimension": "TRANSDISCIPLINAR",
+        "role": 4,
+        "phase": 3,
+        "answer_type": "DEGREE",
+        "name": "Discussions in the project were based on what was said, not whom said it, and arguments were exchanged in a respectful but rational way.",
+        "answers": [],
+        "i18n": "models.question.v2.QN20",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.N21",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimension": "TRANSDISCIPLINAR",
+        "role": 1,
+        "phase": 3,
+        "answer_type": "DEGREE",
+        "name": "Discussions in the project were based on what was said, not whom said it, and arguments were exchanged in a respectful but rational way.",
+        "answers": [],
+        "i18n": "models.question.v2.QN21",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.N22",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimension": "TRANSDISCIPLINAR",
+        "role": 2,
+        "phase": 3,
+        "answer_type": "DEGREE",
+        "name": "Discussions in the project were based on what was said, not whom said it, and arguments were exchanged in a respectful but rational way.",
+        "answers": [],
+        "i18n": "models.question.v2.QN22",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.N23",
+    "fields": {
+        "version": 2,
+        "axis": "INDIVIDUAL",
+        "principle": "TRANSFORM",
+        "dimension": "KNOWLEDGE",
+        "role": 1,
+        "phase": 3,
+        "answer_type": "DEGREE",
+        "name": "You have learnt or enhanced new skills, knowledge and attitudes in engagement practices (e.g. how to communicate with civil society members, how to conduct focus groups and workshop, etc.).",
+        "answers": [],
+        "i18n": "models.question.v2.QN23",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.X01",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimension": "OPENNESS",
+        "role": 4,
+        "phase": 3,
+        "answer_type": "DEGREE",
+        "name": "Research methodologies are described clearly, so others could adapt or re-use them.",
+        "answers": [],
+        "i18n": "models.question.v2.QX01",
+        "answer_range": 7
+    }
+}, {
+    "model": "backend.question",
+    "pk": "QV2.X02",
+    "fields": {
+        "version": 2,
+        "axis": "COLLECTIVE",
+        "principle": "KNOWLEDGE",
+        "dimension": "OPENNESS",
+        "role": 4,
+        "phase": 3,
+        "answer_type": "DEGREE",
+        "name": "Raw data that does not infringe privacy or other ethical constraints is available in a FAIR way.",
+        "answers": [],
+        "i18n": "models.question.v2.QX02",
+        "answer_range": 7
+    }
+}]

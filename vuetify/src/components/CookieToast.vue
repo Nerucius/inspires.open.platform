@@ -1,12 +1,10 @@
 <style scoped>
-
   a{
     color:lightgreen;
   }
   p{
     margin: 0
   }
-
 </style>
 
 

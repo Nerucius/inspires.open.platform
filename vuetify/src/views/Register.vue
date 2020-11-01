@@ -7,21 +7,25 @@
 
 <template>
   <v-layout align-content-start row wrap>
-    <v-flex sm3 class="hidden-xs-only">
-      <img height="150" src="/img/branding/inspires.png">
-    </v-flex>
 
-    <v-flex sm9 xs12>
-      <h1 class="headline">
-        {{ $t('actions.register') }}
-      </h1>
-      <p class="subheading">
-        {{ $t('pages.register.welcomeMessage') }}
-      </p>
-      <p class="subheading hidden-xs-only">
-        {{ $t('pages.register.welcomeMessage2') }}
-      </p>
-    </v-flex>
+    <v-layout>
+      <v-flex shrink mx-3 class="hidden-xs-only">
+        <img height="150" src="/img/branding/inspires.png">
+      </v-flex>
+
+      <v-flex>
+        <h1 class="headline">
+          {{ $t('actions.register') }}
+        </h1>
+        <p class="subheading">
+          {{ $t('pages.register.welcomeMessage') }}
+        </p>
+        <p class="subheading hidden-xs-only">
+          {{ $t('pages.register.welcomeMessage2') }}
+        </p>
+      </v-flex>
+    </v-layout>
+
 
     <v-flex xs12 mt-3>
       <v-card class="elevation-12">

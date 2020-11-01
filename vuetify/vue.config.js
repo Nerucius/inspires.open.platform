@@ -14,10 +14,10 @@ module.exports = {
     // disable hot reload
     // config.plugins.delete("hmr");
     // enable hashed filenames
-    // config.plugin('html').tap(args => {
-    //   args[0].hash = true
-    //   return args
-    // })
+    config.plugin('html').tap(args => {
+      args[0].hash = true
+      return args
+    })
   },
 
   lintOnSave: undefined,

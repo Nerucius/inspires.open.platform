@@ -115,8 +115,6 @@
           </v-layout>
         </v-tab-item>
         -->
-
-
       </v-tabs-items>
     </v-flex>
   </v-layout>
@@ -148,7 +146,7 @@ export default {
     FormProjectStructure,
     FormProjectPhases,
     FormProjectEvaluation,
-    FormProjectAttachments,
+    // FormProjectAttachments,
   },
 
   data() {
@@ -190,6 +188,11 @@ export default {
     // Important to await before moving on here
     await this.$store.dispatch("project/load", [this.projectId])
     this.dataReady = true
+
+    if(!this.project.isManager(this.$store.getters['user/current'].id)){
+      this.$store.dispatch('toast/error', this.$t('forms.toasts.permissionError'))
+      this.$router.push({name:"home"})
+    }
 
     // Change tab on next tick
     setTimeout(() => {

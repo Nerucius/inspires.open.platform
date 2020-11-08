@@ -28,6 +28,7 @@ class SimpleUserSerializer(serializers.ModelSerializer):
             "last_name",
             "full_name",
             "avatar_url",
+            "groups",
         ]
 
 

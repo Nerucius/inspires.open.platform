@@ -7,6 +7,9 @@ import {
 } from "../plugins/resource";
 import { obj2slug } from "../plugins/utils";
 
+export const GROUP_USER = 1
+export const GROUP_ADMIN = 2
+
 const userLoginUrl = API_SERVER + "/api-token-auth/";
 const userRegisterUrl = API_SERVER + "/user/register/";
 const userResetPasswordRequestUrl = API_SERVER + "/user/resetpassword/";
@@ -15,6 +18,8 @@ const userResetPasswordSubmitUrl = API_SERVER + "/user/resetpasswordsubmit/";
 function createLink(obj){
   obj.link = {name:"account", params:{slug:obj2slug(obj, 'full_name')}}
   obj.form_name = `${obj.full_name} (${obj.username})`
+
+  obj.is_superuser = obj.groups.indexOf(GROUP_ADMIN) > 0;
   return obj
 }
 

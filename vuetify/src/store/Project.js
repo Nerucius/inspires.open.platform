@@ -1,6 +1,5 @@
 import Vue from "../plugins/resource";
 import { ProjectResource } from "../plugins/resource";
-import { cloneDeep } from "lodash";
 import { obj2slug } from "@/plugins/utils";
 
 const Resource = ProjectResource
@@ -9,7 +8,8 @@ export function createLink(obj){
   obj.link = {name:"project-detail", params:{slug:obj2slug(obj)}}
   obj.image_url = obj.image_url || "https://app.inspiresproject.com/img/static/project.jpg"
 
-  obj.isManager = function(userId){
+  obj.isManager = function(user){
+    if (user.is_superuser) return true;
     return userId == obj.owner || (obj.managers && obj.managers.indexOf(userId) >= 0)
   }
 

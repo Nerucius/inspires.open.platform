@@ -25,7 +25,7 @@
     <v-spacer />
 
     <v-flex>
-      <v-form @submit.prevent="search()" ref="searchForm">
+      <v-form ref="searchForm" @submit.prevent="search()">
         <v-text-field
           v-model="searchTerm"
           class="pa-0"
@@ -118,10 +118,6 @@ export default {
     }
   },
 
-  created() {
-    this.searchTerm = this.$route.query['term']
-  },
-
   computed: {
     links(){
       if(this.userIsLoggedIn){
@@ -147,6 +143,10 @@ export default {
     currentUser(){
       return this.$store.getters["user/current"]
     }
+  },
+
+  created() {
+    this.searchTerm = this.$route.query['term']
   },
 
   methods: {

@@ -89,7 +89,7 @@
           <!-- TODO: Add link to structure list page filtered by country -->
           <v-list-tile v-if="project.country_code">
             <v-list-tile-avatar tile>
-              <flag style="font-size:40px" :squared="false" :iso="iso3toiso2(project.country_code)"></flag>
+              <flag style="font-size:40px" :squared="false" :iso="iso3toiso2(project.country_code)" />
               <!-- <v-img :src="structure.image_url" /> -->
             </v-list-tile-avatar>
             <v-list-tile-content>
@@ -288,7 +288,6 @@
                   </ProjectTangram>
                 </v-sheet>
               </div>
-
             </v-card-text>
           </v-card>
         </v-tab-item>

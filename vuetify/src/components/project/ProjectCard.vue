@@ -9,7 +9,6 @@
 
 <template>
   <v-card v-if="project.id" style="overflow: visible">
-
     <!-- Regular image view -->
     <template v-if="!showEvaluation">
       <v-img
@@ -17,7 +16,7 @@
         :src="project.image_url"
         height="180"
         @click="$router.push(project.link)"
-        >
+      >
         <!-- <v-btn flat absolute style="padding: 0; font-size:160%; top:0px; right: 0px">
         <flag :iso="iso3toiso2(project.country_code)" :squared="false"/>
         </v-btn> -->
@@ -51,19 +50,23 @@
 
       <v-card-text class="pb-0">
         <v-sheet :height="7*21" class="overflow-hidden mb-2">
-        <!-- Project Title -->
+          <!-- Project Title -->
           <h2 style="font-size:125%" class="mb-2">
             <router-link :to="project.link">
               {{ project.name }}
               <small>
-                <span v-if="project.structure"> | {{ project.structure.name }}</span>
-                <span v-if="project.knowledge_area"> | {{ $t(project.knowledge_area.name) }}</span>
+                <span v-if="project.structure">
+                  | {{ project.structure.name }}
+                </span>
+                <span v-if="project.knowledge_area">
+                  | {{ $t(project.knowledge_area.name) }}
+                </span>
               </small>
             </router-link>
           </h2>
 
-        <!-- Project Area -->
-        <!-- <v-sheet >
+          <!-- Project Area -->
+          <!-- <v-sheet >
           <v-btn
             v-if="project.knowledge_area"
             :to="kaLink(project.knowledge_area)" flat
@@ -75,16 +78,14 @@
         </v-sheet>
 
         <v-sheet v-else height="36"></v-sheet> -->
-        <!-- <v-btn v-else disabled flat class="my-1 mx-0 pa-2 caption font-weight-light text-uppercase">
+          <!-- <v-btn v-else disabled flat class="my-1 mx-0 pa-2 caption font-weight-light text-uppercase">
           {{ $t('pages.projectList.noKASpecified') }}
         </v-btn> -->
 
-        <!-- Project Summary -->
+          <!-- Project Summary -->
           {{ project.summary | ellipsis(200) }}
         </v-sheet>
-
       </v-card-text>
-
     </template>
 
     <!-- Evaluation tangram view -->
@@ -93,7 +94,9 @@
         <ProjectTangram :project="project">
           <v-layout fill-height column align-center justify-center>
             <v-flex shrink>
-              <v-icon large >assignment_late</v-icon>
+              <v-icon large>
+                assignment_late
+              </v-icon>
             </v-flex>
             <v-flex shrink>
               {{ $t('$vuetify.noDataText') }}
@@ -104,19 +107,22 @@
 
       <v-card-text class="pb-0">
         <v-sheet class="mb-2">
-        <!-- Project Title -->
+          <!-- Project Title -->
           <h2 style="font-size:125%" class="mb-2">
             <router-link :to="project.link" :title="project.name">
               {{ project.name }}
               <small>
-                <span v-if="project.structure"> | {{ project.structure.name }}</span>
-                <span v-if="project.knowledge_area"> | {{ $t(project.knowledge_area.name) }}</span>
+                <span v-if="project.structure">
+                  | {{ project.structure.name }}
+                </span>
+                <span v-if="project.knowledge_area">
+                  | {{ $t(project.knowledge_area.name) }}
+                </span>
               </small>
             </router-link>
           </h2>
         </v-sheet>
       </v-card-text>
-
     </v-sheet>
 
     <v-card-actions>
@@ -153,15 +159,15 @@ import { obj2slug } from "@/plugins/utils";
 import ProjectTangram from "@/components/evaluation/ProjectTangram";
 
 export default {
+
+  components:{
+    ProjectTangram
+  },
   props: ['project', 'showEvaluation'],
 
   data(){
     return{
     }
-  },
-
-  components:{
-    ProjectTangram
   },
 
 

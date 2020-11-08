@@ -1,5 +1,4 @@
 <template>
-
   <svg v-if="projectIsEvaluated"
        id="svg8"
        xmlns:svg="http://www.w3.org/2000/svg"
@@ -8,7 +7,7 @@
        height="90%"
        viewBox="0 0 370.42557 357.84293"
        version="1.1"
-    >
+  >
     <g id="tot" transform="translate(208.26933,30.088134)">
       <text
         id="textPart"
@@ -362,10 +361,9 @@
     </v-layout>
   </div>
 
-  <div style="width:100%; height:100%" v-else>
+  <div v-else style="width:100%; height:100%">
     <slot />
   </div>
-
 </template>
 
 

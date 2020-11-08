@@ -4,21 +4,20 @@
       <v-layout>
         <v-flex grow>
           <h1>
-              {{ $t('noums.projects') }}
-              <small v-if="filterKnowledgeArea">
-                | {{ $t('pages.projectList.filterByArea', {area:$t(filterKnowledgeArea.name)}) }}
-              </small>
+            {{ $t('noums.projects') }}
+            <small v-if="filterKnowledgeArea">
+              | {{ $t('pages.projectList.filterByArea', {area:$t(filterKnowledgeArea.name)}) }}
+            </small>
           </h1>
         </v-flex>
 
         <v-flex shrink>
-          <v-switch color="primary"
-            class="mt-0 pa-0"
-            v-model="showEvaluations"
-            :label="$t('pages.projectList.showEvaluations')"
-            />
+          <v-switch v-model="showEvaluations"
+                    color="primary"
+                    class="mt-0 pa-0"
+                    :label="$t('pages.projectList.showEvaluations')"
+          />
         </v-flex>
-
       </v-layout>
 
       <v-expansion-panel>
@@ -38,11 +37,10 @@
     <v-flex xs12>
       <v-layout row wrap align-content-start>
         <v-flex v-for="project in projects" :key="project.id" xs12 sm6 md4 lg3 xl2 mb-3>
-          <ProjectCard :show-evaluation="showEvaluations" :project="project"/>
+          <ProjectCard :show-evaluation="showEvaluations" :project="project" />
         </v-flex>
       </v-layout>
     </v-flex>
-
   </v-layout>
 </template>
 

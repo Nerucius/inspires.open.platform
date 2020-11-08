@@ -7,7 +7,6 @@
 
 <template>
   <v-layout align-content-start row wrap>
-
     <v-layout>
       <v-flex shrink mx-3 class="hidden-xs-only">
         <img height="150" src="/img/branding/inspires.png">

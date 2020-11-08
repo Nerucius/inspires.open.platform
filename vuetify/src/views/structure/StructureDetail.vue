@@ -18,7 +18,6 @@
 
 <template>
   <v-layout v-if="structure" row wrap align-content-start>
-
     <v-flex v-if="canManage" pa-0 xs12 class="text-xs-right">
       <v-btn flat outline color="warning" :to="manageLink">
         <v-icon left>
@@ -57,7 +56,7 @@
           <!-- Country -->
           <v-list-tile v-if="structure.country_code" :to="structure.link">
             <v-list-tile-avatar tile>
-              <flag style="font-size:40px" :squared="false" :iso="iso3toiso2(structure.country_code)"></flag>
+              <flag style="font-size:40px" :squared="false" :iso="iso3toiso2(structure.country_code)" />
               <!-- <v-img :src="structure.image_url" /> -->
             </v-list-tile-avatar>
             <v-list-tile-content>
@@ -174,7 +173,6 @@
     <v-flex xs12 sm8>
       <v-card flat>
         <v-img :src="structure.image_url" height="260">
-
           <v-layout ma-0 pa-0 justify-space-between column fill-height>
             <v-flex pa-0 shrink>
               <v-toolbar dense flat style="background-color:rgba(0,0,0,.3)" dark>
@@ -184,18 +182,17 @@
               </v-toolbar>
             </v-flex>
 
-          <v-flex pa-0 shrink>
-            <v-toolbar style="background-color:rgba(0,0,0,.3); white-space: nowrap" dense flat>
-              <v-chip v-for="area in structure.knowledge_areas" :key="area.code"
-                      dark color="grey darken-4"
-                      :title="$t(ka(area).name)"
-                      @click="$router.push(ka(area).link)"
-              >
-                {{ $t(ka(area).name) }}
-              </v-chip>
-            </v-toolbar>
-          </v-flex>
-
+            <v-flex pa-0 shrink>
+              <v-toolbar style="background-color:rgba(0,0,0,.3); white-space: nowrap" dense flat>
+                <v-chip v-for="area in structure.knowledge_areas" :key="area.code"
+                        dark color="grey darken-4"
+                        :title="$t(ka(area).name)"
+                        @click="$router.push(ka(area).link)"
+                >
+                  {{ $t(ka(area).name) }}
+                </v-chip>
+              </v-toolbar>
+            </v-flex>
           </v-layout>
         </v-img>
 

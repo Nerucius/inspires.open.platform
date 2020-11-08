@@ -5,7 +5,6 @@
       <h3>
         {{ $t('pages.search.searchFound', {number:searchResultsCount}) }}
       </h3>
-
     </v-flex>
 
     <v-flex xs12>
@@ -13,8 +12,12 @@
         <v-flex v-for="object in searchResults" :key="object._type+object.id" xs12 sm6 md4 lg3 xl2 mb-3>
           <v-card flat dark>
             <v-card-title class="px-3 py-1 text-uppercase">
-              <span v-if="object._type=='Project'">{{ $t('noums.project') }}</span>
-              <span v-if="object._type=='Structure'">{{ $t('noums.structure') }}</span>
+              <span v-if="object._type=='Project'">
+                {{ $t('noums.project') }}
+              </span>
+              <span v-if="object._type=='Structure'">
+                {{ $t('noums.structure') }}
+              </span>
             </v-card-title>
           </v-card>
           <StructureCard v-if="object._type=='Structure'" :structure="object" />
@@ -22,7 +25,6 @@
         </v-flex>
       </v-layout>
     </v-flex>
-
   </v-layout>
 </template>
 
@@ -43,16 +45,16 @@ export default {
     }
   },
 
+  components: {
+    StructureCard,
+    ProjectCard
+  },
+
   data() {
     return {
       searchResults : [],
       searchResultsCount : 0,
     }
-  },
-
-  components: {
-    StructureCard,
-    ProjectCard
   },
 
   computed: {

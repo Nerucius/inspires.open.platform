@@ -66,7 +66,6 @@ small{
 </style>
 
 <template>
-
   <v-layout v-if="project.id" row wrap align-content-start>
     <v-flex xs12>
       <h1>
@@ -135,7 +134,7 @@ small{
       </v-card>
     </v-flex>
 
-    <v-flex id="self-questionnaire" v-if="evaluation.project_phase == 1" xs12>
+    <v-flex v-if="evaluation.project_phase == 1" id="self-questionnaire" xs12>
       <v-card flat>
         <v-card-text>
           <h2 class="mb-2">
@@ -179,7 +178,6 @@ small{
 
           <v-form ref="form">
             <template v-for="(question, qidx) in questions">
-
               <!-- MULTIPLE ANSWER questions -->
               <div v-if="question.answer_type == 'MULTIPLE'" :key="question.id">
                 <h3 class="mt-4">
@@ -241,44 +239,41 @@ small{
 
 
             <div class="media-screen">
-
               <v-btn v-if="canModify && !isCompleted" block large color="success"
-                    class="mt-5"
-                    @click="attemptSubmit()"
+                     class="mt-5"
+                     @click="attemptSubmit()"
               >
                 {{ $t('actions.submit') }}
               </v-btn>
 
               <v-btn v-else-if="canModify" block large color="success"
-                    class="mt-5"
-                    @click="attemptSubmit()"
+                     class="mt-5"
+                     @click="attemptSubmit()"
               >
                 {{ $t('actions.updateResponse') }}
               </v-btn>
 
               <v-btn v-else block large color="primary"
-                    class="mt-5" disabled
+                     class="mt-5" disabled
               >
                 {{ $t('pages.evaluationEntry.viewOnly') }}
               </v-btn>
-
             </div>
-
           </v-form>
         </v-card-text>
       </v-card>
     </v-flex>
-
   </v-layout>
 
   <v-layout v-else row wrap align-content-start>
     <v-flex xs12>
-        <h1 class="title">{{ $t('actions.loading') }}...</h1>
-        <br>
-        <p>{{ message }}</p>
+      <h1 class="title">
+        {{ $t('actions.loading') }}...
+      </h1>
+      <br>
+      <p>{{ message }}</p>
     </v-flex>
   </v-layout>
-
 </template>
 
 <script>

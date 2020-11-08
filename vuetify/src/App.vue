@@ -96,7 +96,7 @@
           :timeout="toast.timeout"
           style="z-index:999999"
         >
-          <span v-html="toast.message"></span>
+          <span v-html="toast.message" />
           <v-btn dark flat fab @click="toast.close()">
             <v-icon>close</v-icon>
           </v-btn>

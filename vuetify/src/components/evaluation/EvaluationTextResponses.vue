@@ -19,7 +19,6 @@
     <v-card-text>
       <v-sheet :max-height="400" style="overflow-y:auto; overflow-x:hidden">
         <v-layout ma-0 pa-0 wrap>
-
           <!-- Single participant quote -->
           <v-flex v-for="response in textResponses" :key="response.id" class="quote" xs12>
             <small class="text-uppercase">
@@ -27,7 +26,6 @@
             </small>
             <vue-markdown>{{ response.answer_text }}</vue-markdown>
           </v-flex>
-
         </v-layout>
       </v-sheet>
     </v-card-text>
@@ -45,12 +43,6 @@ export default {
     },
   },
 
-  methods: {
-    question(questionId){
-      return this.$store.getters['evaluation/questions'].filter(q => q.id == questionId)[0]
-    }
-  },
-
   async created() {
     // Load evaluations
     try{
@@ -63,6 +55,12 @@ export default {
     }catch(error){
       // this.$store.dispatch("toast/error", {message: this.$t('forms.toasts.permissionError'), error})
       // nothing, user does not have permission to view responses
+    }
+  },
+
+  methods: {
+    question(questionId){
+      return this.$store.getters['evaluation/questions'].filter(q => q.id == questionId)[0]
     }
   },
 

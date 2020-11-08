@@ -18,7 +18,7 @@
                 {{ $t('pages.home.aboutLink') }}
               </v-btn>
               <v-btn :to="{name:'register'}" flat outline dark>
-              {{ $t('pages.login.registerCTA') }}
+                {{ $t('pages.login.registerCTA') }}
               </v-btn>
             </p>
           </div>

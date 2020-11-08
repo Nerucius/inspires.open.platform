@@ -17,10 +17,14 @@
 
     <template v-if="isUserProjectManager">
       <v-flex xs6 md3>
-        <v-btn block :disabled="!bulletChartRoles" @click="bulletChartRoles=false;createGraphs()" color="primary" class="elevation-0">View Dimensions</v-btn>
+        <v-btn block :disabled="!bulletChartRoles" color="primary" class="elevation-0" @click="bulletChartRoles=false;createGraphs()">
+          View Dimensions
+        </v-btn>
       </v-flex>
       <v-flex xs6 md3>
-        <v-btn block :disabled="bulletChartRoles" @click="bulletChartRoles=true;createGraphs()" color="primary" class="elevation-0">View by Role</v-btn>
+        <v-btn block :disabled="bulletChartRoles" color="primary" class="elevation-0" @click="bulletChartRoles=true;createGraphs()">
+          View by Role
+        </v-btn>
       </v-flex>
     </template>
 
@@ -96,7 +100,7 @@
             <v-card-text>
               <div id="transfchart" />
               <!-- Dimension Charts -->
-              <div key="dimTransform" v-if="!bulletChartRoles">
+              <div v-if="!bulletChartRoles" key="dimTransform">
                 <div class="bullet">
                   <h3>{{ $t('models.evaluation.dimension.CollectiveCapacity') }}</h3>
                   <div id="TransformativeCollectiveChart" />
@@ -115,7 +119,7 @@
                 </div>
               </div>
               <!-- Roles Charts -->
-              <div key="roleTransform" v-else>
+              <div v-else key="roleTransform">
                 <div class="bullet">
                   <h3>{{ $t('models.participationRole.projectManager') }}</h3>
                   <div id="TransformativeProjectChart" />
@@ -150,7 +154,7 @@
             <v-card-text>
               <div id="knowchart" />
               <!-- Dimension Charts -->
-              <div key="dimKnowledge" v-if="!bulletChartRoles">
+              <div v-if="!bulletChartRoles" key="dimKnowledge">
                 <div class="bullet">
                   <h3>{{ $t('models.evaluation.dimension.openness') }}</h3>
                   <div id="KnowledgeOpennessChart" />
@@ -165,7 +169,7 @@
                 </div>
               </div>
               <!-- Roles Charts -->
-              <div key="roleKnowledge" v-else>
+              <div v-else key="roleKnowledge">
                 <div class="bullet">
                   <h3>{{ $t('models.participationRole.projectManager') }}</h3>
                   <div id="KnowledgeProjectChart" />
@@ -200,7 +204,7 @@
             <v-card-text>
               <div id="partchart" />
               <!-- Dimension Charts -->
-              <div key="dimParticipation" v-if="!bulletChartRoles">
+              <div v-if="!bulletChartRoles" key="dimParticipation">
                 <div class="bullet">
                   <h3>{{ $t('models.evaluation.dimension.degreeOfEngagement') }}</h3>
                   <div id="ParticipatoryEngagementChart" />
@@ -219,7 +223,7 @@
                 </div>
               </div>
               <!-- Roles Charts -->
-              <div key="roleParticipation" v-else>
+              <div v-else key="roleParticipation">
                 <div class="bullet">
                   <h3>{{ $t('models.participationRole.projectManager') }}</h3>
                   <div id="ParticipatoryProjectChart" />
@@ -254,7 +258,7 @@
             <v-card-text>
               <div id="integchart" />
               <!-- Dimension Charts -->
-              <div key="dimIntegrity" v-if="!bulletChartRoles">
+              <div v-if="!bulletChartRoles" key="dimIntegrity">
                 <div class="bullet">
                   <h3>{{ $t('models.evaluation.dimension.expectationAlignment') }}</h3>
                   <div id="IntegrityExpectationChart" />
@@ -281,7 +285,7 @@
                 </div>
               </div>
               <!-- Roles Charts -->
-              <div key="roleIntegrity" v-else>
+              <div v-else key="roleIntegrity">
                 <div class="bullet">
                   <h3>{{ $t('models.participationRole.projectManager') }}</h3>
                   <div id="IntegrityProjectChart" />
@@ -316,7 +320,7 @@
             <v-card-text>
               <div id="citizchart" />
               <!-- Dimension Charts -->
-              <div key="dimCitizen" v-if="!bulletChartRoles">
+              <div v-if="!bulletChartRoles" key="dimCitizen">
                 <div class="bullet">
                   <h3>{{ $t('models.evaluation.dimension.communityAlignment') }}</h3>
                   <div id="CitizenCommunityChart" />
@@ -327,7 +331,7 @@
                 </div>
               </div>
               <!-- Roles Charts -->
-              <div key="roleCitizen" v-else>
+              <div v-else key="roleCitizen">
                 <div class="bullet">
                   <h3>{{ $t('models.participationRole.projectManager') }}</h3>
                   <div id="CitizenProjectChart" />
@@ -348,14 +352,12 @@
             </v-card-text>
           </v-card>
         </v-flex>
-
       </v-layout>
     </v-flex>
 
     <v-flex xs12>
       <EvaluationTextResponses :project-id="projectId" />
     </v-flex>
-
   </v-layout>
 </template>
 

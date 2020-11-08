@@ -61,13 +61,12 @@
                     </v-btn>
                   </v-flex>
                   <v-flex shrink>
-                    <v-btn type="submit" :disabled="!valid"  color="primary" @click="submitLogin()">
+                    <v-btn type="submit" :disabled="!valid" color="primary" @click="submitLogin()">
                       {{ $t("actions.login") }}
                     </v-btn>
                   </v-flex>
                 </v-layout>
               </v-form>
-
             </v-flex>
 
             <!-- Form to reset password -->
@@ -106,7 +105,6 @@
                   </v-btn>
                 </v-flex>
               </v-layout>
-
             </v-flex>
           </v-layout>
         </v-card-text>
@@ -130,7 +128,6 @@
             </v-btn>
           </v-flex> -->
         </v-card-actions>
-
       </v-card>
     </v-flex>
   </v-layout>

@@ -20,9 +20,14 @@ router.register("knowledgeareas", views.KnowledgeAreasVS)
 router.register("projectphases", views.ProjectPhasesVS)
 router.register("projectatphases", views.ProjectAtPhasesVS)
 
+# Content
+
+router.register("content", views.ContentVS)
+
+# Evaluatiion Routes
+
 router.register("question", views.QuestionVS)
 router.register("response", views.ResponseVS)
-
 router.register("eval/evaluations", views.EvaluationVS)
 router.register(
     "eval/project", views.ProjectEvaluationsVS, basename="project-evaluations"
@@ -33,6 +38,5 @@ router.register(
 router.register(
     "eval/responses", views.EvaluationResponsesVS, basename="evaluation-responses"
 )
-
 
 # Nested Objects Views

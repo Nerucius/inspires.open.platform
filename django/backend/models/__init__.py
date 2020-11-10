@@ -23,3 +23,5 @@ from backend.models.keyword import Keyword
 # from backend.models.attachment import Attachment
 
 from backend.models.evaluation import Evaluation, Question, Answer, Response
+
+from backend.models.content import ContentMaster, Content

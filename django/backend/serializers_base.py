@@ -180,3 +180,26 @@ class EvaluationSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Evaluation
         fields = "__all__"
+
+
+class ContentMasterSerializer(TrackableModelSerializer):
+    class Meta:
+        model = models.ContentMaster
+        fields = ["id", "type", "name"]
+
+
+class SimpleContentSerializer(serializers.ModelSerializer):
+    type = serializers.CharField(read_only=True)
+    # master = ContentMasterSerializer()
+
+    class Meta:
+        model = models.Content
+        fields = ["master", "type", "title", "topic", "summary", "slug", "locale", "published"]
+
+
+class ContentSerializer(TrackableModelSerializer):
+    # type = serializers.CharField(read_only=True, source="type")
+    class Meta:
+        model = models.Content
+        fields = "__all__"
+        lookup_field = 'slug'

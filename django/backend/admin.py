@@ -6,8 +6,16 @@ from django.contrib.contenttypes.models import ContentType
 
 from backend import models
 
-READONLY_FIELDS = ["password", "created_at", "created_by", "modified_at", "modified_by"]
-LIST_HIDDEN_FIELDS = ["password", "created_at", "created_by", "modified_at", "modified_by", "description"]
+READONLY_FIELDS = ["password", "created_at", "created_by", "modified_at", "modified_by", "slug"]
+LIST_HIDDEN_FIELDS = [
+    "password",
+    "created_at",
+    "created_by",
+    "modified_at",
+    "modified_by",
+    "description",
+    "body",
+]
 
 
 def column_lister(model):
@@ -42,6 +50,8 @@ for model in [
     models.Participation,
     models.ParticipationRole,
     models.KnowledgeArea,
+    models.ContentMaster,
+    models.Content,
     models.Keyword,
     models.Evaluation,
     models.Question,

@@ -260,8 +260,8 @@ class RequirePKMixin(object):
 
 
 class ListDetail(object):
-    """ Custom ViewSet that can have a simple serializer for LIST and one
-        for the rest of views. use `detail_serializer_class`. """
+    """Custom ViewSet that can have a simple serializer for LIST and one
+    for the rest of views. use `detail_serializer_class`."""
 
     def get_serializer_class(self):
         if self.action != "list":
@@ -381,6 +381,20 @@ class ProjectPhasesVS(viewsets.ModelViewSet):
 class ProjectAtPhasesVS(RequirePKMixin, viewsets.ModelViewSet):
     queryset = models.ProjectAtPhase.objects.all()
     serializer_class = serializers.ProjectAtPhaseSerializer
+
+
+# ===========================
+# CONTENT ENDPOINT
+# ===========================
+
+
+class ContentVS(ListDetail, viewsets.ModelViewSet):
+    queryset = models.Content.objects.filter(published=True)
+    serializer_class = serializers.SimpleContentSerializer
+    detail_serializer_class = serializers.ContentSerializer
+
+    lookup_field = 'slug'
+    filterset_fields = ["locale", "master", "master__type"]
 
 
 # ===========================

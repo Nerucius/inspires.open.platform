@@ -11,8 +11,8 @@ from hashlib import md5
 
 
 class TrackableModel(models.Model):
-    """ Base abstract model for all other models, adds tracking capabilities to the
-        database and allows for more complex permissions.
+    """Base abstract model for all other models, adds tracking capabilities to the
+    database and allows for more complex permissions.
     """
 
     is_trackable = True

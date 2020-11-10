@@ -10,7 +10,7 @@ export function createLink(obj){
 
   obj.isManager = function(user){
     if (user.is_superuser) return true;
-    return userId == obj.owner || (obj.managers && obj.managers.indexOf(userId) >= 0)
+    return user.id == obj.owner || (obj.managers && obj.managers.indexOf(user.id) >= 0)
   }
 
   return obj

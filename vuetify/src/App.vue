@@ -116,6 +116,8 @@ import CookieToast from "@/components/CookieToast";
 import Toolbar from "@/components/Toolbar";
 import Footer from "@/components/Footer";
 
+import { setI18nLanguage } from "@/plugins/i18n";
+
 export default {
   name: "App",
   components: {
@@ -165,6 +167,20 @@ export default {
     await this.$store.dispatch("user/load");
     this.loading = false;
 
+    // Listener for language selection
+    this.$store.subscribe((mutation, state) => {
+      if(mutation.type == 'preferences/SET_PREFERENCE'
+        && mutation.payload.hasOwnProperty('lang')){
+
+        let lang = mutation.payload.lang
+        this.$vuetify.rtl = lang == 'ar';
+
+        console.log('Language Change request: '+ lang)
+        setI18nLanguage(lang);
+
+      }
+    });
+
     // Trigger SSR
     setTimeout(()=>{
       document.dispatchEvent(new Event('x-app-rendered'))
@@ -174,9 +190,6 @@ export default {
   methods: {
     toggleDrawer() {
       this.$refs.navigationDrawer.toggleDrawer();
-    },
-    checkRTL (lang) {
-      this.$vuetify.rtl = lang == "ar"
     },
   }
 };

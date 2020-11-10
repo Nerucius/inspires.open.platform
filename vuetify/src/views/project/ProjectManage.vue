@@ -2,7 +2,7 @@
   <v-layout row wrap align-content-start>
     <v-flex xs12 sm6>
       <h1>{{ $t('pages.projectManage.title') }}</h1>
-      <h2 class="text--grey">
+      <h2>
         <small>{{ $t('noums.project') }}:</small> {{ project.name }}
       </h2>
     </v-flex>
@@ -152,7 +152,6 @@ export default {
   data() {
     return {
       dataReady: false,
-      activeTab: 1,
       page: {
         tab: null,
         items: [
@@ -189,16 +188,15 @@ export default {
     await this.$store.dispatch("project/load", [this.projectId])
     this.dataReady = true
 
-    if(!this.project.isManager(this.$store.getters['user/current'].id)){
+    if(!this.project.isManager(this.$store.getters['user/current'])){
       this.$store.dispatch('toast/error', this.$t('forms.toasts.permissionError'))
       this.$router.push({name:"home"})
     }
 
     // Change tab on next tick
-    setTimeout(() => {
+    this.$nextTick(() => {
       this.page.tab = this.getTabForName(this.$route.hash)
-    }, 500);
-
+    })
   },
 
   methods:{

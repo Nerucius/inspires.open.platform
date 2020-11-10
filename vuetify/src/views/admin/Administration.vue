@@ -175,7 +175,7 @@ export default {
     },
 
     authorized(){
-      return this.user.is_administrator
+      return this.user.is_superuser
     },
 
     structures(){

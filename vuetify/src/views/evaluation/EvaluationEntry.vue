@@ -315,7 +315,7 @@ export default {
     },
     canModify(){
       let isSameUser = this.currentUser.id == this.evaluationUser.id
-      return isSameUser || this.currentUser.is_administrator || this.project.isManager(this.currentUser.id)
+      return isSameUser || this.currentUser.is_superuser || this.project.isManager(this.currentUser.id)
     },
 
     isCompleted(){

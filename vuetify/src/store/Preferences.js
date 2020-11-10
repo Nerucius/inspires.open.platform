@@ -1,7 +1,3 @@
-import { setI18nLanguage } from "../plugins/i18n";
-
-const LOCAL_STORAGE_KEY = "vue-app/preferences"
-
 export default {
   namespaced: true,
 
@@ -39,7 +35,6 @@ export default {
       return state.preferences.theme;
     },
     lang: state => {
-      setI18nLanguage(state.preferences.lang);
       return state.preferences.lang;
     },
   }

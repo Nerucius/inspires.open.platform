@@ -47,7 +47,7 @@
       <!-- Full width items -->
       <v-btn v-for="link in links.filter(l => !l.miniOnly)"
              :key="link.name" flat
-             exact
+             :exact="link.name == 'home'"
              :to="{name:link.name}"
       >
         {{ $t(link.label) }}
@@ -109,6 +109,7 @@ export default {
       searchTerm: "",
       menuLinks: [
         {name: "home", label:"navigation.links.home"},
+        // {name: "help", label:"navigation.links.help"},
         {name: "project-list", label:"noums.projects"},
         {name: "structure-list", label:"noums.structures"},
       ],
@@ -124,7 +125,7 @@ export default {
         let links = [
           {miniOnly: true, name:"account", label: this.currentUser.first_name}
         ]
-        if(this.currentUser.is_administrator){
+        if(this.currentUser.is_superuser){
           links.push({miniOnly: true, divider:true})
           links.push({miniOnly: true, name:"administration", label: "Administration"})
         }

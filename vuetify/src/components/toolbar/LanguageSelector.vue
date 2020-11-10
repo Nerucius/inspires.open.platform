@@ -16,7 +16,7 @@
           <small>{{ lang | uppercase }}</small>
         </v-list-tile-title>
 
-        <flag :iso="getFlag(lang)" :squared="false" style="width:40px" />
+        <flag :iso="getFlagIso(lang)" :squared="false" style="width:40px" />
       </v-list-tile>
     </v-list>
   </v-menu>
@@ -24,7 +24,8 @@
 
 
 <script>
-import { ListOfLocales } from "@/plugins/i18n";
+import { ListOfLocales, getFlagIso } from "@/plugins/i18n";
+
 
 export default {
   name: "LanguageSelector",
@@ -32,6 +33,7 @@ export default {
   data() {
     return {
       ListOfLocales,
+      getFlagIso
     };
   },
 
@@ -41,16 +43,13 @@ export default {
     }
   },
 
-  methods: {
-    getFlag(lang){
-      if (lang == "en" ) return "gb"
-      if (lang == "ca" ) return "es-ct"
-      if (lang == "ar" ) return "tn"
-      return lang
-    },
+  created() {
+    // Reset the language
+    this.$store.dispatch("preferences/set", { lang:this.currentLanguage });
+  },
 
+  methods: {
     selectLanguage(lang) {
-      this.$emit('setLanguage', lang)
       this.$store.dispatch("preferences/set", { lang });
     }
   }

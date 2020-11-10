@@ -101,7 +101,6 @@ export default {
       try{
         let response = await CurrentUserResource.get()
         let user = response.body.results[0]
-        user.is_administrator = user.groups.indexOf(2) >= 0;
         context.commit("SET_CURRENT", user);
         context.commit("ADD_DETAIL", [user]);
       }catch(err){

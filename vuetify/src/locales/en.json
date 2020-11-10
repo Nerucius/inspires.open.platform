@@ -55,6 +55,13 @@
       "projectsSeeMore": "See all projects"
     },
 
+    "help": {
+      "title": "Help Center",
+      "description": "TODO: text",
+      "allArticles": "All Articles",
+      "articlesOtherLanguages": "Articles in other languages"
+    },
+
     "about": {
       "mainTitle": "About InSPIRES Open Platform",
       "titleMission": "Our mission",
@@ -186,6 +193,9 @@
       "evalResendRequest": "Re-send email",
       "evalViewEvaluation": "View Evaluation",
       "evalComplete": "(completed)",
+      "evalUpgradeAvailableTitle": "New Evaluation Version available",
+      "evalUpgradeAvailable": "A new version of the evaluation questionnaires is available for your project, You may choose to enable this new version for all participants.\n\nPlease make sure you understand all the implications of upgrading your version as it might cause you to lose data on existing evaluations.",
+      "evalConvertProject": "Enable new Version",
       "attachmentsTab": "File Attachments",
       "_": ""
     },
@@ -596,7 +606,8 @@
   "navigation": {
     "links": {
       "home": "Home",
-      "about": "About"
+      "about": "About",
+      "help": "Help"
     }
   },
   "misc": {
@@ -625,6 +636,7 @@
     "cancel": "Cancel",
     "more": "More",
     "next": "Next",
+    "back": "Go Back",
     "manage": "Manage",
     "clearFilter": "Clear filter",
     "moreInformation": "More Information",
@@ -632,7 +644,9 @@
     "viewPublicPage": "View public page",
     "exportAllData": "Export all data",
     "download": "Download",
-    "downloadName": "Download {name}"
+    "downloadName": "Download {name}",
+    "tellMeMore" : "Tell me more",
+    "notInterested" : "Not interested"
   },
   "states": {
     "enabled": "Enabled",

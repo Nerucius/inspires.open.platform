@@ -11,6 +11,9 @@ import project from "./store/Project";
 import knowledgearea from "./store/KnowledgeArea";
 import structure from "./store/Structure";
 import collaboration from "./store/Collaboration";
+
+import content from "./store/Content";
+
 import participation from "./store/Participation";
 import evaluation from "./store/Evaluation";
 
@@ -26,6 +29,7 @@ export default new Vuex.Store({
     project,
     knowledgearea,
     structure,
+    content,
     collaboration,
     participation,
     evaluation,

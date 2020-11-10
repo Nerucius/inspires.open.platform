@@ -32,6 +32,8 @@ export const StructureResource            = Vue.resource(API_SERVER + "/v1/struc
 export const StructureValidationResource  = Vue.resource(API_SERVER + "/v1/structures/validations{/id}/", {}, PATCH);
 export const CollaborationResource        = Vue.resource(API_SERVER + "/v1/collaborations{/id}/", {}, PATCH);
 
+export const ContentResource              = Vue.resource(API_SERVER + "/v1/content{/id}/", {}, PATCH);
+
 export const ProjectEvaluationsResource   = Vue.resource(API_SERVER + "/v1/eval/project{/id}/", {}, PATCH);
 export const EvaluationResource           = Vue.resource(API_SERVER + "/v1/eval/evaluations{/id}/", {}, PATCH);
 export const EvaluationQuestionsResource  = Vue.resource(API_SERVER + "/v1/eval/questions{/id}/", {}, PATCH);

@@ -123,6 +123,12 @@ const router = new Router({
         },
         // ======= Evaluation =======
         {
+            path: "/help-center/:page?",
+            name: "help",
+            component: () => import( /* webpackChunkName: "help-center" */ "./views/help/HelpCenter.vue"),
+        },
+        // ======= Evaluation =======
+        {
             path: "/evaluation/:slug/entry",
             name: "evaluation-entry",
             component: () => import( /* webpackChunkName: "evaluation-entry" */ "./views/evaluation/EvaluationEntry.vue"),
@@ -140,7 +146,7 @@ const router = new Router({
             name: "account",
             component: () => import( /* webpackChunkName: "account" */ "./views/account/Account.vue")
         },
-        // ======= ACCOUNT =======
+        // ======= ADMINISTRATION =======
         {
             path: "/administration/",
             name: "administration",

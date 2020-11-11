@@ -134,6 +134,10 @@ export default {
         links.push({miniOnly: true, divider:true})
         links.push(...this.$data.menuLinks)
 
+        if(this.currentUser.is_administrator){
+          links.push({miniOnly: false, name:"help", label: "navigation.links.help"})
+        }
+
 
         return links
       }

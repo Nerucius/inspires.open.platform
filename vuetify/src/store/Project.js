@@ -1,5 +1,5 @@
 import Vue from "../plugins/resource";
-import { ProjectResource } from "../plugins/resource";
+import { API_SERVER, ProjectResource } from "../plugins/resource";
 import { obj2slug } from "@/plugins/utils";
 
 const Resource = ProjectResource
@@ -125,6 +125,14 @@ export default {
       let updatedItem = (await Resource.update({id:object.id}, object)).body
       context.commit("ADD_DETAIL", [updatedItem])
       return updatedItem
+    },
+
+    updateEvaluation: async function (context, {id, evalVersion}){
+      let response = (await Vue.http.post(
+        `${API_SERVER}/v1/rpc/project/${id}/eval/update`,
+        {eval_version: evalVersion}
+      )).body
+      return response
     },
 
     delete: async function (context, id){

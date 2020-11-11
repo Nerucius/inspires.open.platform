@@ -1,9 +1,7 @@
 <style scoped>
-
 table{
   width: 100%;
 }
-
 </style>
 
 
@@ -12,6 +10,9 @@ table{
     <h2 class="mb-2">
       {{ $t('pages.projectManage.evaluationTitle') }}
     </h2>
+
+    <!-- Evaluation version alert -->
+    <EvaluationUpdateAlert v-if="currentUser.is_administrator" :project="project" />
 
     <v-alert color="info" class="ma-4" :value="true" dismissible>
       <v-layout row align-top>
@@ -120,10 +121,15 @@ table{
 
 
 <script>
-import { cloneDeep } from "lodash";
+import Cookies from 'js-cookie'
 import { ProjectAtPhaseResource } from "@/plugins/resource";
+import EvaluationUpdateAlert from "@/components/evaluation/EvaluationUpdateAlert";
 
 export default {
+  components:{
+    EvaluationUpdateAlert
+  },
+
   props: ["project"],
 
   data() {
@@ -138,6 +144,9 @@ export default {
   },
 
   computed: {
+    currentUser(){
+      return this.$store.getters['user/current']
+    },
     evaluations(){
       return this.$store.getters['evaluation/project'](this.project.id)
     },
@@ -154,7 +163,7 @@ export default {
         return this.phases[phaseId]
       }
       return {id:0}
-    }
+    },
   },
 
   async mounted() {
@@ -162,9 +171,9 @@ export default {
     await this.$store.dispatch("evaluation/loadProject", this.project.id)
 
     // Opening the phase tab seems to break the overflow
-    setTimeout(() => {
-      // this.panel[this.currentPhase.id] = [1]
-    }, 1000);
+    this.$nextTick(() => {
+      this.panel[this.currentPhase.id] = [1]
+    });
 
   },
 

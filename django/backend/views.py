@@ -55,13 +55,22 @@ def search(request):
             content_type="application/json",
         )
 
+    # Projects
     projects = models.Project.objects.filter(name__icontains=term)
     projects |= models.Project.objects.filter(summary__icontains=term)
     projects |= models.Project.objects.filter(
         collaboration__structure__name__icontains=term
     )
+    ## Filter by validated
+    projects = projects.filter(collaboration__is_approved=True).filter(
+        collaboration__structure__validation__is_approved=True
+    )
+
+    # Structures
     structures = models.Structure.objects.filter(name__icontains=term)
     structures |= models.Structure.objects.filter(summary__icontains=term)
+    ## Filter by validated
+    structures = structures.filter(validation__is_approved=True)
 
     objects = []
     objects += structures

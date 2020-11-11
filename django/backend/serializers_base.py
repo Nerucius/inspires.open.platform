@@ -29,6 +29,8 @@ class SimpleUserSerializer(serializers.ModelSerializer):
             "full_name",
             "avatar_url",
             "groups",
+            "is_superuser",
+            "is_administrator",
         ]
 
 

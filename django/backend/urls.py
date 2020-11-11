@@ -20,6 +20,7 @@ from backend import views
 from backend import routers
 
 from backend import urls_csv
+from backend import urls_rpc
 
 urlpatterns = [
     # path("csrf_token/", views.csrf_token),
@@ -33,6 +34,7 @@ urlpatterns = [
     path("v1/emailpreview", views.email_preview, name="email_preview"),
     path("v1/", include(routers.router.urls)),
     path("v1/csv/", include(urls_csv)),
+    path("v1/rpc/", include(urls_rpc)),
     path(
         "api-token-auth/", views.CustomObtainAuthToken.as_view(), name="api_token_auth"
     ),

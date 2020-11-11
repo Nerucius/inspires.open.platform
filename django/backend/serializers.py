@@ -5,7 +5,7 @@ from backend.serializers_base import *
 
 
 class UserSerializer(serializers.ModelSerializer):
-    groups = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
+    # groups = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
     managed_projects = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
     researched_projects = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
     managed_structures = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
@@ -24,16 +24,18 @@ class UserSerializer(serializers.ModelSerializer):
             "gender",
             "institution",
             "education_level",
-            "groups",
             "owned_projects",
             "managed_projects",
             "researched_projects",
             "managed_structures",
             "owned_structures",
+            "is_administrator",
+            "is_superuser",
         ]
 
 
 class ProjectSerializer(TrackableModelSerializer):
+    eval_version = serializers.IntegerField(read_only=True)
     collaboration = CollaborationSerializer(read_only=True)
     participants = ParticipationSerializer(
         source="participation_set", many=True, read_only=True

@@ -98,20 +98,23 @@
         </v-toolbar>
 
         <v-card-text>
-          <ArticleList :articles="articlesSameLanguage" />
-          <hr class="mt-3 mb-1">
-        </v-card-text>
+          <v-layout justify-center>
+            <v-flex xs12 sm9 md6>
+              <v-text-field
+                v-model="searchTerm"
+                outline
+                class="my-3"
+                hide-details
+                single-line
+                prepend-icon="search"
+                browser-autocomplete="off"
+                :placeholder="$t('actions.search')"
+              />
+            </v-flex>
+          </v-layout>
 
-        <v-expansion-panel class="elevation-0">
-          <v-expansion-panel-content>
-            <template v-slot:header>
-              <h3>{{ $t('pages.help.articlesOtherLanguages') }}</h3>
-            </template>
-            <v-card-text>
-              <ArticleList :articles="articlesDiffLanguage" :flags="true" />
-            </v-card-text>
-          </v-expansion-panel-content>
-        </v-expansion-panel>
+          <ArticleList :articles="articleSearch" :flags="true" />
+        </v-card-text>
       </v-card>
     </v-flex>
   </v-layout>
@@ -136,6 +139,7 @@ export default {
     return {
       getFlagIso,
       moment,
+      searchTerm: '',
       article: null,
       articles: [],
       onDestroy: [],
@@ -149,23 +153,34 @@ export default {
     articleSlug() {
       return this.$route.params.page;
     },
-    articlesSameLanguage() {
-      return this.articles.filter((a) => a.locale == this.currentLang);
-    },
-    articlesDiffLanguage() {
-      return this.articles.filter((a) => a.locale != this.currentLang).sort((a,b) => b.master-a.master);
-    },
+    articleSearch(){
+      if(!this.searchTerm) return this.articles;
+      let l = s => s.toLowerCase()
+      let s = l(this.searchTerm)
+
+      return this.articles.filter(a => {
+        if (l(a.topic).indexOf(s) >= 0) return true
+        if (l(a.title).indexOf(s) >= 0) return true
+        if (l(a.summary).indexOf(s) >= 0) return true
+        return false
+      })
+    }
   },
 
   async created() {
-    this.loadArticles();
-    this.loadArticleDetail();
+    await Promise.all([this.loadArticles(), this.loadArticleDetail()])
 
     let unsub = this.$store.subscribe((mutation, _) => {
       // Listen to Language changes to refresh article list
       if (mutation.type == "preferences/SET_PREFERENCE") this.loadArticles();
     });
     this.onDestroy = this.onDestroy.concat(unsub);
+
+    this.$nextTick(() => {
+      if (!!this.$route.query.q){
+        this.searchTerm = this.$route.query.q
+      }
+    })
   },
 
   destroyed() {
@@ -185,14 +200,11 @@ export default {
 
     async loadArticleDetail() {
       if (!this.articleSlug) return;
+
       // load current article
       this.$store.dispatch("content/clear");
       await this.$store.dispatch("content/load", [this.articleSlug]);
       this.article = this.$store.getters["content/detail"](this.articleSlug);
-
-      // filter article list for this master
-      // await this.$store.dispatch("content/load", {params: {master: this.article.master}});
-      // this.articles = this.$store.getters["content/all"];
     },
 
     articlesSameMaster(masterId) {

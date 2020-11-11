@@ -11,10 +11,10 @@
         <v-btn dark :to="{name:'help'}" color="blue darken-2">{{ $t('actions.tellMeMore') }}</v-btn>
       </v-flex>
       <v-flex shrink>
-        <v-btn @click="updateProject" dark color="green darken-2"><v-icon left>mdi-alert-outline</v-icon> {{ $t('pages.projectManage.evalConvertProject') }}</v-btn>
+        <v-btn dark color="green darken-2" @click="updateProject"><v-icon left>mdi-alert-outline</v-icon> {{ $t('pages.projectManage.evalConvertProject') }}</v-btn>
       </v-flex>
       <v-flex shrink>
-        <v-btn @click="dissmissAlert" dark color="orange darken-4">{{ $t('actions.notInterested') }}</v-btn>
+        <v-btn dark color="orange darken-4" @click="dissmissAlert">{{ $t('actions.notInterested') }}</v-btn>
       </v-flex>
     </v-layout>
   </v-alert>

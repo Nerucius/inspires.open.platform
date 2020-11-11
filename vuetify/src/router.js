@@ -125,7 +125,7 @@ const router = new Router({
         {
             path: "/help-center/:page?",
             name: "help",
-            component: () => import( /* webpackChunkName: "help-center" */ "./views/help/HelpCenter.vue"),
+            component: () => import( /* webpackChunkName: "help" */ "./views/help/HelpCenter.vue"),
         },
         // ======= Evaluation =======
         {
@@ -148,7 +148,7 @@ const router = new Router({
         },
         // ======= ADMINISTRATION =======
         {
-            path: "/administration/",
+            path: "/administration",
             name: "administration",
             component: () => import( /* webpackChunkName: "administration" */ "./views/admin/Administration.vue"),
             meta: {requiresAuth: true}

@@ -93,9 +93,11 @@ export default {
     if (this.filterKnowledgeArea){
       let knowledge_area = this.filterKnowledgeArea.id
       this.$store.dispatch("project/clear")
-      await this.$store.dispatch("project/load", {params:{limit:20, knowledge_area}})
+      // await this.$store.dispatch("project/load", {params:{limit:20, knowledge_area}})
+      await this.$store.dispatch("project/load", {params:{knowledge_area}})
     }else{
-      await this.$store.dispatch("project/load", {params:{limit:20}})
+      // await this.$store.dispatch("project/load", {params:{limit:20}})
+      await this.$store.dispatch("project/load")
     }
   }
 };

@@ -177,9 +177,6 @@ export default {
     },
     isOwner(){
       return this.projectOwner.id == this.$store.getters['user/current'].id
-    },
-    activeTabName(){
-      return this.page.items[this.page.tab].split('.')[2]
     }
   },
 

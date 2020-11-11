@@ -37,27 +37,8 @@
     />
 
     <h3 class="mb-2">
-      {{ $t('forms.fields.description') }}
-    </h3>
-
-    <p class="subheading">
-      {{ $t('forms.hints.description') }}
-      {{ $t('forms.hints.descriptionTemplate') }}
-    </p>
-
-
-    <v-textarea
-      v-if="editedProject.id"
-      v-model="editedProject.description"
-      box
-      rows="26"
-      :label="$t('forms.fields.description')"
-      :hint="$t('forms.hints.description')"
-    />
-
-    <h2 class="mb-2">
       {{ $t('forms.fields.projectAdministrators') }}
-    </h2>
+    </h3>
     <p class="subheading">
       {{ $t('forms.descriptions.projectAdministrators') }}
     </p>
@@ -80,6 +61,8 @@
       @input="clearSearch('managersCB')"
     />
 
+    <p class="mb-3" />
+
     <!-- Expanded details, only after save -->
     <template v-if="editedProject.id">
       <h2 class="mb-2">
@@ -89,6 +72,23 @@
       <p class="subheading">
         {{ $t('pages.projectManage.infoAdditionalDescription') }}
       </p>
+
+      <h3 class="mb-2">
+        {{ $t('forms.fields.description') }}
+      </h3>
+
+      <p class="subheading">
+        {{ $t('forms.hints.description') }}
+        {{ $t('forms.hints.descriptionTemplate') }}
+      </p>
+
+      <v-textarea
+        v-model="editedProject.description"
+        box
+        rows="26"
+        :label="$t('forms.fields.description')"
+        :hint="$t('forms.hints.description')"
+      />
 
       <v-select
         v-model="editedProject.knowledge_area"

@@ -21,7 +21,7 @@
       </v-icon>
     </v-btn>
     <v-list>
-      <v-list-tile v-if="user.is_superuser" :to="{name:'administration'}">
+      <v-list-tile v-if="user.is_administrator" :to="{name:'administration'}">
         <v-list-tile-title>
           {{ $t('toolbar.administration') }}
         </v-list-tile-title>

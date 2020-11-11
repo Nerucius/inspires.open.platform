@@ -34,8 +34,8 @@ export default {
     new: function(context, toast){
       let toastKey = key()
       toast = {
-        ...toast,
         timeout: 5000,
+        ...toast,
         key: toastKey,
         close: () => context.commit("REMOTE_TOAST", toastKey)
       }
@@ -57,10 +57,10 @@ export default {
         error = params.error
         try{
           let serverError = error.body.detail
-          message += `<br/><small><pre>ERROR: ${serverError}</pre></small>`
+          message += `<br/><br/><small><pre>ERROR: ${serverError}</pre></small>`
         }catch(_){}
       }
-      context.dispatch("new", {color:"error", message});
+      context.dispatch("new", {color:"error", message, timeout: 99999});
       context.dispatch("logError", {message, error});
     },
 

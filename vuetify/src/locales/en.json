@@ -196,6 +196,10 @@
       "evalUpgradeAvailableTitle": "New Evaluation Version available",
       "evalUpgradeAvailable": "A new version of the evaluation questionnaires is available for your project, You may choose to enable this new version for all participants.\n\nPlease make sure you understand all the implications of upgrading your version as it might cause you to lose data on existing evaluations.",
       "evalConvertProject": "Enable new Version",
+      "evalUpgradeError": "Failed to Update this project's Evaluation Version.",
+      "evalUpgradeSuccess": "Updated this project's Evaluation Version.",
+      "evalConfirmUpdate": "Are you sure you want to update your project to Version 2? You will lose ALL data related to your project's evaluations.\n\nPlease read the Help page if you are unsure of the consequences.",
+      "evalConfirmDismiss": "If you dismiss this alert this option will no longer be available to you.",
       "attachmentsTab": "File Attachments",
       "_": ""
     },
@@ -631,6 +635,7 @@
     "logout": "Logout",
     "register": "Register",
     "save": "Save",
+    "search": "Search",
     "loading": "Loading",
     "close": "Close",
     "cancel": "Cancel",

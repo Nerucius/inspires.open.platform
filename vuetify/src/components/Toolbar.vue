@@ -125,7 +125,8 @@ export default {
         let links = [
           {miniOnly: true, name:"account", label: this.currentUser.first_name}
         ]
-        if(this.currentUser.is_superuser){
+        // Admin Panel Link
+        if(this.currentUser.is_administrator){
           links.push({miniOnly: true, divider:true})
           links.push({miniOnly: true, name:"administration", label: "Administration"})
         }

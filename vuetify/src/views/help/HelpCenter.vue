@@ -17,7 +17,20 @@
 <template>
   <v-layout row wrap align-content-start>
     <v-flex xs12>
-      <h1>{{ $t("pages.help.title") }}</h1>
+      <v-layout row wrap justify-end pa-2>
+        <v-flex grow pa-0 pl-1>
+          <h1>{{ $t("pages.help.title") }}</h1>
+        </v-flex>
+        <!-- Admin Controls -->
+        <template v-if="currentUser.is_administrator">
+          <v-flex shrink pa-0>
+            <v-btn outline color="success" :href="createContentURL" target="_blank">Create New Content</v-btn>
+          </v-flex>
+          <v-flex v-if="isArticleDetail" shrink pa-0>
+            <v-btn outline color="warning" :href="editContentURL" target="_blank">Edit This content</v-btn>
+          </v-flex>
+        </template>
+      </v-layout>
     </v-flex>
 
     <!-- <v-flex md4 hidden-sm-and-down>
@@ -125,6 +138,7 @@
 <script>
 import ArticleList from "@/components/help/ArticleList";
 import { getFlagIso } from "@/plugins/i18n";
+import { API_SERVER } from "@/plugins/resource";
 
 export default {
   metaInfo() {
@@ -149,8 +163,18 @@ export default {
   },
 
   computed: {
+    currentUser(){
+      return this.$store.getters['user/current']
+    },
     currentLang() {
       return this.$store.getters["preferences/lang"];
+    },
+    createContentURL(){
+      return API_SERVER + '/admin/backend/content/'
+    },
+    editContentURL(){
+      if(!this.article) return ''
+      return API_SERVER + '/admin/backend/content/' + this.article.id + '/change/'
     },
     isArticleDetail(){
       return !!this.$route.params.page

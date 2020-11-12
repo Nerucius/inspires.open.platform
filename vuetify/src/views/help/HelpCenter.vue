@@ -31,7 +31,7 @@
       </v-card>
     </v-flex> -->
 
-    <v-flex xs12>
+    <v-flex v-if="isArticleDetail" xs12>
       <!-- Article Page -->
       <v-card v-if="article != null" flat>
         <v-toolbar dense flat dark color="grey darken-3">
@@ -90,9 +90,11 @@
           </v-layout>
         </v-card-text>
       </v-card>
+    </v-flex>
 
+    <v-flex v-else xs12>
       <!-- Article List Page -->
-      <v-card v-else flat class="pb-3">
+      <v-card flat class="pb-3">
         <v-toolbar dense flat dark color="grey darken-3">
           <v-toolbar-title>{{ $t("pages.help.allArticles") }}</v-toolbar-title>
         </v-toolbar>
@@ -127,7 +129,7 @@ import { getFlagIso } from "@/plugins/i18n";
 export default {
   metaInfo() {
     return {
-      title: this.$t("pages.helpCenter.title"),
+      title: this.$t("pages.help.title"),
     };
   },
 
@@ -149,6 +151,9 @@ export default {
   computed: {
     currentLang() {
       return this.$store.getters["preferences/lang"];
+    },
+    isArticleDetail(){
+      return !!this.$route.params.page
     },
     articleSlug() {
       return this.$route.params.page;

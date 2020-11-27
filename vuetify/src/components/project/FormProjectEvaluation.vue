@@ -77,8 +77,8 @@ table{
                 <!-- Send evaluation request -->
                 <v-btn
                   v-if="!getEvaluation(phase, participant) && getProjectPhase(phase)"
-                  flat
-                  block outline class="my-0" @click="sendEvaluationRequest(phase, participant)"
+                  @click="sendEvaluationRequest(phase, participant)"
+                  flat block outline class="my-0"
                 >
                   {{ $t('pages.projectManage.evalSendRequest') }}
                 </v-btn>
@@ -86,6 +86,7 @@ table{
                 <!-- Show evaluation Buttons -->
                 <v-layout wrap v-else>
                   <v-flex lg6 sm12 xs6>
+
                     <v-btn block dark
                           v-if="getEvaluation(phase, participant).user_eval_token != null"
                            color="blue darken-2"
@@ -94,6 +95,7 @@ table{
                     >
                       {{ $t('pages.projectManage.evalOpenUniqueLink') }}
                     </v-btn>
+
                     <!-- Resend request -->
                     <v-btn v-else block outline
                            color="warning"
@@ -102,9 +104,11 @@ table{
                     >
                       {{ $t('pages.projectManage.evalResendRequest') }}
                     </v-btn>
+
                   </v-flex>
                   <v-flex lg6 sm12 xs6>
-                    <!-- View Evaluation -->
+
+                    <!-- Copy Evaluation link -->
                     <v-btn :outline="!getEvaluation(phase, participant).is_complete" target="_blank" block color="success"
                            class="my-0"
                            :to="{name:'evaluation-entry', params:{ slug: getEvaluation(phase, participant).id}}"
@@ -114,9 +118,33 @@ table{
                         &nbsp; {{ $t('pages.projectManage.evalComplete') }}
                       </span>
                     </v-btn>
-                  </v-flex>
+
+                  </v-flex>                  
                 </v-layout>
               </v-flex>
+
+              <v-flex xs12 v-if="!!getEvaluation(phase,participant) && !!getEvaluation(phase, participant).user_eval_token">
+                <v-text-field
+                  :value="window.location.origin + $router.resolve({
+                      name: 'evaluation-entry',
+                      query: {
+                          eval_token: getEvaluation(phase, participant).user_eval_token,
+                          user_id: getEvaluation(phase, participant).user
+                      },
+                      params: {
+                          slug: getEvaluation(phase, participant).id
+                      }
+                  }).route.fullPath"
+                  readonly
+                  persistent-hint
+                  label="Direct Access Link"
+                  hint="Use or share this link to answer the Evaluation Questionnaire"
+                  prepend-icon="mdi-lock-open"
+                  append-outer-icon='mdi-content-copy'
+                  @click:append-outer="copyToClipboard"
+                />
+              </v-flex>
+
               <v-flex xs12 py-1>
                 <v-divider />
               </v-flex>
@@ -143,6 +171,7 @@ export default {
 
   data() {
     return {
+      window,
       panel: {1:[0],2:[0],3:[0],4:[0]},
       valid: null,
       processing: false,
@@ -243,6 +272,10 @@ export default {
         })
       }
     },
+
+    copyToClipboard(event){
+      navigator.clipboard.writeText("test 123")
+    }
 
   }
 };

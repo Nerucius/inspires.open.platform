@@ -194,8 +194,6 @@ export default {
   },
 
   async mounted() {
-    Cookies.remove('evalToken')
-
     // Important to await before moving on here
     await this.$store.dispatch("project/load", [this.projectId])
     this.dataReady = true

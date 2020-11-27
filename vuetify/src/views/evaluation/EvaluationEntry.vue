@@ -300,6 +300,7 @@ export default {
 
   data(){
     return{
+      headers: null,
       message: '',
       questions: [],
       /** Multi-type array of answers, contains DEGREE, MULTIPLE CHOICE, TEXT... */
@@ -348,16 +349,14 @@ export default {
   },
 
   async created(){
-    // Detect evaluation token and save to temp auth token
-    if(this.$route.query.eval_token){
-      Cookies.set('evalToken', this.$route.query.eval_token)
-    }else{
-      Cookies.remove('evalToken')
-    }
-
+      // Detect evaluation token and save to custom headers
+      if(this.$route.query.eval_token){
+        this.headers = {'Authorization':'Token '+this.$route.query.eval_token}
+      }
+    
       // Retrieve data
       try{
-        await this.$store.dispatch("evaluation/load", [this.evaluationId])
+        await this.$store.dispatch("evaluation/load", {id: this.evaluationId, headers:this.headers})
         await this.$store.dispatch("project/load", [this.evaluation.project])
       }catch(error){
         this.$store.dispatch("toast/error", {
@@ -423,31 +422,29 @@ export default {
     async attemptSubmit(){
       let form = this.$refs.form
 
-      try{
-        // Try to submit answers
-        for (let i = 0; i < this.computedAnswers.length; i++) {
-          const answer = this.computedAnswers[i];
+      // Construct responses array
+      let responses = [];
+      for (let i = 0; i < this.computedAnswers.length; i++) {
+        const answer = this.computedAnswers[i];
 
-          // get response type
-          let responseType = this.getResponseTypeField(this.questions[i].answer_type)
-          let oldResponse = this.getResponse(answer.question) || {}
+        // get response type
+        let responseType = this.getResponseTypeField(this.questions[i].answer_type)
+        let oldResponse = this.getResponse(answer.question) || {}
 
-          let response = {
-            "id": oldResponse.id,
-            "evaluation": this.evaluationId,
-            "question": answer.question,
-            [responseType]: answer.response,
-          }
-
-          await this.$store.dispatch("evaluation/submitResponse", response)
-
-          if(!this.isCompleted){
-            // Evaluation submit event for the first time
-            this.$matomo && this.$matomo.trackEvent('evaluation', 'evaluation--submit')
-          }
+        let response = {
+          "id": oldResponse.id,
+          "evaluation": this.evaluationId,
+          "question": answer.question,
+          [responseType]: answer.response,
         }
 
-        await this.$store.dispatch("evaluation/load", [this.evaluationId])
+        responses.push(response)
+      }
+
+      // Try to submit answers
+      try{
+        await Promise.all(responses.map(response => this.$store.dispatch('evaluation/submitResponse', {response, headers:this.headers})))
+        this.$store.dispatch("evaluation/load", {id: this.evaluationId, headers:this.headers})
         this.$store.dispatch("toast/success", this.$t("pages.evaluationEntry.submitSuccess"))
 
       }catch(error){
@@ -455,6 +452,11 @@ export default {
           message: this.$t("pages.evaluationEntry.submitFailure"),
           error
         })
+      }
+        
+      if(!this.isCompleted){
+        // Evaluation submit event for the first time
+        this.$matomo && this.$matomo.trackEvent('evaluation', 'evaluation--submit')
       }
 
     }

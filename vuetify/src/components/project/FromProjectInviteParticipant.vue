@@ -106,9 +106,7 @@ export default {
 
   methods: {
     attemptSubmit: async function () {
-      console.log("attemptSubmit")
       if (this.$refs.form.validate()) {
-        console.log("form is valid")
         try {
           await this.$store.dispatch("project/invite", {
             id: this.project.id,

@@ -77,8 +77,24 @@ export default {
 
   actions: {
 
-    load: async function (context, payload={}, headers=null) {
-      if (Array.isArray(payload)){
+    load: async function (context, payload) {
+      if (!!payload && !!payload.id){
+        // Custom callout and arguments
+        let item = (await Resource.get({...payload})).body
+        let items = [item]
+
+        // Get Eval questions
+        for (let index = 0; index < items.length; index++) {
+          let evaluation = items[index];
+          let questions = (await EvaluationQuestionsResource.get({id:evaluation.id, headers:payload.headers})).body
+          let responses = (await EvaluationResponsesResource.get({id:evaluation.id, headers:payload.headers})).body
+          evaluation.questions = questions.questions
+          evaluation.responses = responses.responses
+        }
+
+        context.commit("ADD_DETAIL", items)
+
+      }else if (Array.isArray(payload)){
         // Ids provided, get detailed information on given pids
         let ids = payload
         let items;
@@ -99,8 +115,9 @@ export default {
 
       }else{
         // No ids provided, just get list of all
-        let params = payload.params || {}
-        let query = {ordering: "-modified_at", ...params}
+        // let params = payload.params || {}
+        // let query = {ordering: "-modified_at", ...params}
+        let query = {}
 
         let response = (await Resource.get(query)).body
         let items = response.results
@@ -154,12 +171,12 @@ export default {
       return result
     },
 
-    submitResponse: async function (context, response){
+    submitResponse: async function (context, {response, headers}){
       let result
       if(response.id){
-        result = (await ResponseResource.update({id:response.id}, response))
+        result = (await ResponseResource.update({id:response.id, headers}, response))
       } else {
-        result = (await ResponseResource.save(response))
+        result = (await ResponseResource.save({headers}, response))
       }
 
       return result

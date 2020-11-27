@@ -132,7 +132,7 @@ const router = new Router({
             path: "/evaluation/:slug/entry",
             name: "evaluation-entry",
             component: () => import( /* webpackChunkName: "evaluation-entry" */ "./views/evaluation/EvaluationEntry.vue"),
-            // meta: {requiresAuth: true}
+            meta: {requiresAuth: true}
         },
         {
             path: "/projects/:slug/evaluation",
@@ -167,10 +167,11 @@ router.beforeEach((to, from, next) => {
     if(to.matched.some(record => record.meta.requiresAuth)) {
         // For a route marked as "requiresAuth", perform a check
         let hasAuth = Cookies.get("authorization") != null
+        hasAuth = hasAuth || !!to.query.eval_token
 
         if (!hasAuth) {
             // Redirect to login
-            console.log("force login for route")
+            console.log("force login for route", to.fullPath)
             next({
                 name: 'login',
                 query: { redirect: to.fullPath }
@@ -182,7 +183,6 @@ router.beforeEach((to, from, next) => {
     }
 
     next()
-
 })
 
 

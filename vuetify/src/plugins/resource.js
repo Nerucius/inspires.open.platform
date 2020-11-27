@@ -12,6 +12,17 @@ export const API_SERVER = process.env.VUE_APP_API_SERVER
 
 // Setup VueResource to work with DRF Token Auth
 Vue.http.interceptors.push(function(request) {
+  // Evaluation token intercept
+  if(request.url.indexOf('/v1/eval') > 0 || request.url.indexOf('/v1/response') > 0){
+    console.log("Injecting Eval Token")
+    let evalToken = Cookies.get('evalToken')
+    if(!!evalToken){
+      request.headers.set('Authorization', `Token ${evalToken}`);
+      return
+    }
+  }
+  // console.log(request)
+
   let token = Cookies.get('authorization')
   if(token){
     request.headers.set('Authorization', `Token ${token}`);

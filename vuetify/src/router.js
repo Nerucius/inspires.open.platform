@@ -132,7 +132,7 @@ const router = new Router({
             path: "/evaluation/:slug/entry",
             name: "evaluation-entry",
             component: () => import( /* webpackChunkName: "evaluation-entry" */ "./views/evaluation/EvaluationEntry.vue"),
-            meta: {requiresAuth: true}
+            // meta: {requiresAuth: true}
         },
         {
             path: "/projects/:slug/evaluation",

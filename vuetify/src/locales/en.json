@@ -188,6 +188,7 @@
       "searchUsers": "Collaboration with structure has been withdrawn.",
       "evaluationSuccess": "Evaluation requested successfuly.",
       "evaluationFailure": "Failed to send evaluation request. Please try again later.",
+      "evalOpenUniqueLink": "Open Form as User",
       "evalSendRequest": "Send Request for Evaluation",
       "evalConfirmResend": "Are you sure you want to re-send an email to this person?",
       "evalResendRequest": "Re-send email",
@@ -200,6 +201,8 @@
       "evalUpgradeSuccess": "Updated this project's Evaluation Version.",
       "evalConfirmUpdate": "Are you sure you want to update your project to Version 2? You will lose ALL data related to your project's evaluations.\n\nPlease read the Help page if you are unsure of the consequences.",
       "evalConfirmDismiss": "If you dismiss this alert this option will no longer be available to you.",
+      "inviteParticipantsTitle": "Invite a Participant to this Project",
+      "inviteParticipantsInfo": "If one or more of your participants is unable to create an account by themselves, or you would prefer to fill in the evaluation in their name, you can use this form to create a User in the platform for them.",
       "attachmentsTab": "File Attachments",
       "_": ""
     },
@@ -225,6 +228,7 @@
       "evaluator": "Evaluator",
       "evaluationRole": "Evaluation role",
       "questionMultipleHelp": "(choose all that apply)",
+      "answeringAsToken": "You are answering as {name}. Please keep this link safe as it is unique to you.",
       "viewOnly": "You may only view the responses, not modify them",
       "submitSuccess": "Your response has been recorded correctly!",
       "submitFailure": "There was a problem saving your response. Please try again later."
@@ -616,6 +620,7 @@
   },
   "misc": {
     "timeAgo": "{time} ago",
+    "optional": "Optional",
     "lastUpdated": "Last updated {time} ago",
     "notSpecified": "Not specified"
   },
@@ -643,6 +648,7 @@
     "next": "Next",
     "back": "Go Back",
     "manage": "Manage",
+    "invite": "Invite",
     "clearFilter": "Clear filter",
     "moreInformation": "More Information",
     "manageName": "Manage this {name}",
@@ -678,7 +684,8 @@
   },
   "forms": {
     "titles": {
-      "login": "Log In"
+      "login": "Log In",
+      "newParticipant": "New Participant Details"
     },
     "rules": {
       "invalidUsername": "This username is not valid",

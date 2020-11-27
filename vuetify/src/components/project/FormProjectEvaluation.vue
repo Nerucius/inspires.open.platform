@@ -86,11 +86,11 @@ table{
                 <!-- Show evaluation Buttons -->
                 <v-layout wrap v-else>
                   <v-flex lg6 sm12 xs6>
-                    <v-btn block outline
+                    <v-btn block dark
                           v-if="getEvaluation(phase, participant).user_eval_token != null"
-                           color="warning"
+                           color="blue darken-2"
                            class="my-0"
-                           :to="{name:'evaluation-entry', query:{eval_token: getEvaluation(phase, participant).user_eval_token}, params:{ slug: getEvaluation(phase, participant).id}}"
+                           :to="{name:'evaluation-entry', query:{eval_token: getEvaluation(phase, participant).user_eval_token, user_id:getEvaluation(phase, participant).user}, params:{ slug: getEvaluation(phase, participant).id}}"
                     >
                       {{ $t('pages.projectManage.evalOpenUniqueLink') }}
                     </v-btn>

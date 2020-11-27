@@ -17,10 +17,10 @@
       </v-layout>
     </v-alert>
 
-    <v-form ref="form" v-model="valid" @submit.prevent="attemptSubmit()">
+    <v-form lazy-validation ref="form" v-model="valid" @submit.prevent="attemptSubmit()">
       <v-card>
         <v-card-text>
-          <h2>New Participant Details</h2>
+          <h2>{{ $t("forms.titles.newParticipant") }}</h2>
 
           <v-select
             v-model="inviteUser.role"
@@ -59,6 +59,8 @@
           <v-text-field
             v-model="inviteUser.institution"
             :label="$t('forms.fields.institution')"
+            :hint="$t('misc.optional')"
+            persistent-hint
           />
         </v-card-text>
 
@@ -119,7 +121,10 @@ export default {
           
           await this.$store.dispatch("user/load");
           await this.$store.dispatch("project/load", [this.project.id]);
-          this.$root.$emit('project-manage:invite')          
+          this.$root.$emit('project-manage:invite')     
+          
+          this.inviteUser = {}
+          this.$refs.form.reset()
 
         } catch (error) {
           this.$store.dispatch("toast/error", {

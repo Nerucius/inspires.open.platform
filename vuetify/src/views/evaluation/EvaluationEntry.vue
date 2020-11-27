@@ -77,13 +77,24 @@ small{
     </v-flex>
 
 
-    <!-- Not validated Alert -->
+    <!-- Completed Dialog -->
     <v-flex v-if="isCompleted" xs12>
       <v-alert color="success" :value="true" class="subheading">
         <v-icon dark left>
           check
         </v-icon>&nbsp;
         {{ $t('pages.evaluationEntry.questionnaireCompleted') }}
+      </v-alert>
+    </v-flex>
+
+
+    <!-- Eval token -->
+    <v-flex v-if="!!this.$route.query.eval_token" xs12>
+      <v-alert color="info" :value="true" class="subheading">
+        <v-icon dark left>
+          info
+        </v-icon>&nbsp;
+        {{ $t('pages.evaluationEntry.answeringAsToken', {name:evaluationUser.full_name}) }}
       </v-alert>
     </v-flex>
 
@@ -277,6 +288,8 @@ small{
 </template>
 
 <script>
+import Cookies from 'js-cookie'
+
 export default {
 
   metaInfo(){
@@ -304,8 +317,10 @@ export default {
     project(){
       return this.$store.getters['project/detail'](this.evaluation.project)
     },
-
     currentUser(){
+      // Override for token links
+      if(!!this.$route.query.user_id)
+        return this.$store.getters['user/get'](this.$route.query.user_id)
       return this.$store.getters['user/current']
     },
     evaluationUser(){
@@ -333,18 +348,27 @@ export default {
   },
 
   async created(){
-    // Retrieve data
-    try{
-      await this.$store.dispatch("evaluation/load", [this.evaluationId])
-      await this.$store.dispatch("project/load", [this.evaluation.project])
-    }catch(error){
-      this.$store.dispatch("toast/error", {
-        message:this.$t('forms.toasts.permissionError'),
-        error
-      })
-      this.message = this.$t('forms.toasts.permissionError');
-      return;
+    // Detect evaluation token and save to temp auth token
+    if(this.$route.query.eval_token){
+      Cookies.set('evalToken', this.$route.query.eval_token)
+    }else{
+      Cookies.remove('evalToken')
     }
+
+      // Retrieve data
+      try{
+        await this.$store.dispatch("evaluation/load", [this.evaluationId])
+        await this.$store.dispatch("project/load", [this.evaluation.project])
+      }catch(error){
+        this.$store.dispatch("toast/error", {
+          message:this.$t('forms.toasts.permissionError'),
+          error
+        })
+        this.message = this.$t('forms.toasts.permissionError');
+        return;
+      }
+    // }
+
 
     // Copy the evaluation questions sorting by id minus the 'Q'
     this.questions = this.evaluation.questions.slice().sort((a,b) =>{

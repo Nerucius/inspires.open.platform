@@ -77,11 +77,13 @@ export default {
 
   actions: {
 
-    load: async function (context, payload={}) {
+    load: async function (context, payload={}, headers=null) {
       if (Array.isArray(payload)){
         // Ids provided, get detailed information on given pids
         let ids = payload
-        let items = await Promise.all(ids.map(id => Resource.get({id})))
+        let items;
+
+        items = await Promise.all(ids.map(id => Resource.get({id})))
         items = items.map(i => i.body)
 
         // Get Eval questions

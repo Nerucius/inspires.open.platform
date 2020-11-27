@@ -74,7 +74,7 @@
                 </v-card-text>
               </v-card>
               <v-flex xs12></v-flex>
-              <v-card flat>
+              <v-card flat v-if="currentUser.is_administrator">
                 <v-card-text>
                   <FromProjectInviteParticipant v-if="dataReady" :project="project" />
                 </v-card-text>
@@ -181,6 +181,9 @@ export default {
     },
     project(){
       return this.$store.getters["project/detail"](this.projectId)
+    },
+    currentUser(){
+      return this.$store.getters["user/current"]
     },
     projectOwner(){
       return this.$store.getters["user/get"](this.project.owner)

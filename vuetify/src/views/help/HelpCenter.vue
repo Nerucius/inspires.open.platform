@@ -199,11 +199,12 @@ export default {
   async created() {
     await Promise.all([this.loadArticles(), this.loadArticleDetail()])
 
-    let unsub = this.$store.subscribe((mutation, _) => {
+    let listener = this.$store.subscribe((mutation, _) => {
       // Listen to Language changes to refresh article list
       if (mutation.type == "preferences/SET_PREFERENCE") this.loadArticles();
     });
-    this.onDestroy = this.onDestroy.concat(unsub);
+
+    this.onDestroy = [...this.onDestroy, listener]
 
     this.$nextTick(() => {
       if (!!this.$route.query.q){
@@ -215,6 +216,7 @@ export default {
   destroyed() {
     // cancel all subs
     this.onDestroy.forEach((f) => f());
+    this.onDestroy = []
   },
 
   methods: {

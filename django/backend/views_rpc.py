@@ -35,11 +35,12 @@ class InviteProjectParticipant(View):
         project = Project.objects.get(pk=project)
         try:
             _authenticate_request(request, project)
-            assert project.can_write(request.user), "Not authorized to modify this Project."
-            assert project.structure != None, "Project not linked to any structure."
-            assert project.structure.validation != None, "Structure not validated."
-            assert project.structure.validation.is_approved, "Structure not validated."
-            assert project.collaboration.is_approved, "Your structure has not validated this Project."
+            if not request.user.is_superuser:
+                assert project.can_write(request.user), "Not authorized to modify this Project."
+                assert project.structure != None, "Project not linked to any structure."
+                assert project.structure.validation != None, "Structure not validated."
+                assert project.structure.validation.is_approved, "Structure not validated."
+                assert project.collaboration.is_approved, "Your Structure has not validated this Project."
         except Exception as e:
             return json_response_error(e)
 

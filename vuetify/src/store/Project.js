@@ -135,6 +135,13 @@ export default {
       return response
     },
 
+    invite: async function (context, {id, user}){
+      let response = (await Vue.http.post(
+        `${API_SERVER}/v1/rpc/project/${id}/invite`, user
+      )).body
+      return response
+    },
+
     delete: async function (context, id){
       let result = (await Resource.delete({id}))
       context.dispatch("delete", id)

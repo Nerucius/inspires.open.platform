@@ -12,7 +12,7 @@ table{
     </h2>
 
     <!-- Evaluation version alert -->
-    <EvaluationUpdateAlert v-if="currentUser.is_administrator" :project="project" />
+    <!-- <EvaluationUpdateAlert v-if="currentUser.is_administrator" :project="project" /> -->
 
     <v-alert color="info" class="ma-4" :value="true" dismissible>
       <v-layout row align-top>
@@ -83,10 +83,19 @@ table{
                   {{ $t('pages.projectManage.evalSendRequest') }}
                 </v-btn>
 
-                <v-layout wrap>
+                <!-- Show evaluation Buttons -->
+                <v-layout wrap v-else>
                   <v-flex lg6 sm12 xs6>
+                    <v-btn block outline
+                          v-if="getEvaluation(phase, participant).user_eval_token != null"
+                           color="warning"
+                           class="my-0"
+                           :to="{name:'evaluation-entry', query:{eval_token: getEvaluation(phase, participant).user_eval_token}, params:{ slug: getEvaluation(phase, participant).id}}"
+                    >
+                      {{ $t('pages.projectManage.evalOpenUniqueLink') }}
+                    </v-btn>
                     <!-- Resend request -->
-                    <v-btn v-if="getEvaluation(phase, participant)" block outline
+                    <v-btn v-else block outline
                            color="warning"
                            class="my-0"
                            @click="resendEvaluationRequest(getEvaluation(phase, participant))"
@@ -96,7 +105,7 @@ table{
                   </v-flex>
                   <v-flex lg6 sm12 xs6>
                     <!-- View Evaluation -->
-                    <v-btn v-if="getEvaluation(phase, participant)" :outline="!getEvaluation(phase, participant).is_complete" target="_blank" block color="success"
+                    <v-btn :outline="!getEvaluation(phase, participant).is_complete" target="_blank" block color="success"
                            class="my-0"
                            :to="{name:'evaluation-entry', params:{ slug: getEvaluation(phase, participant).id}}"
                     >

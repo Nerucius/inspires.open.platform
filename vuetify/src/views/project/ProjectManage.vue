@@ -73,6 +73,12 @@
                   <FormProjectParticipants v-if="dataReady" :project="project" />
                 </v-card-text>
               </v-card>
+              <v-flex xs12></v-flex>
+              <v-card flat>
+                <v-card-text>
+                  <FromProjectInviteParticipant v-if="dataReady" :project="project" />
+                </v-card-text>
+              </v-card>
             </v-flex>
           </v-layout>
         </v-tab-item>
@@ -123,6 +129,7 @@
 <script>
 import FormProjectBase from "@/components/project/FormProjectBase";
 import FormProjectParticipants from "@/components/project/FormProjectParticipants";
+import FromProjectInviteParticipant from "@/components/project/FromProjectInviteParticipant";
 import FormProjectStructure from "@/components/project/FormProjectStructure";
 import FormProjectPhases from "@/components/project/FormProjectPhases";
 import FormProjectEvaluation from "@/components/project/FormProjectEvaluation";
@@ -143,6 +150,7 @@ export default {
   components: {
     FormProjectBase,
     FormProjectParticipants,
+    FromProjectInviteParticipant,
     FormProjectStructure,
     FormProjectPhases,
     FormProjectEvaluation,

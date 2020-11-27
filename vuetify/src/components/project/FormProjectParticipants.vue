@@ -6,7 +6,7 @@
 
     <v-alert color="info" class="ma-4" :value="true" dismissible>
       <v-layout row align-top>
-        <v-flex>
+        <v-flex shrink>
           <v-icon large dark>
             info
           </v-icon>
@@ -108,6 +108,16 @@ export default {
 
   async mounted() {
     this.loadParticipants()
+
+    let listener = this.$root.$on('project-manage:invite', () => {
+      this.loadParticipants()
+    })
+  },
+
+
+  destroyed() {
+    // cancel all subs
+    this.$root.$off('project-manage:invite')
   },
 
   methods: {

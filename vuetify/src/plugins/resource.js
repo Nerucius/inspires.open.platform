@@ -21,8 +21,8 @@ Vue.http.interceptors.push(function(request) {
       return
     }
   }
-  // console.log(request)
 
+  // Normal auth token
   let token = Cookies.get('authorization')
   if(token){
     request.headers.set('Authorization', `Token ${token}`);

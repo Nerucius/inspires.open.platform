@@ -718,6 +718,7 @@
       "projectSaveFailure": "Failed to save the Project, please try again later",
       "structureSaveSuccess": "Structure data updated!",
       "structureSaveFailure": "Failed to save the Structure, please try again later",
+      "inviteParticipantFailure": "Failed to invite this Person. Please verify your Project is validated. The email might be in use already.",
       "participantsSuccess": "Saved people involved in the project",
 
       "-": ""

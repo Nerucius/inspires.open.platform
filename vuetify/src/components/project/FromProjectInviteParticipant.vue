@@ -17,7 +17,7 @@
       </v-layout>
     </v-alert>
 
-    <v-form lazy-validation ref="form" v-model="valid" @submit.prevent="attemptSubmit()">
+    <v-form ref="form" v-model="valid" @submit.prevent="attemptSubmit()">
       <v-card>
         <v-card-text>
           <h2>{{ $t("forms.titles.newParticipant") }}</h2>
@@ -26,7 +26,6 @@
             v-model="inviteUser.role"
             :items="roles"
             :label="$t('forms.fields.role')"
-            :hint="$t('forms.hints.role')"
             :rules="[rules.required]"
             :item-text="translateName"
             item-value="id"
@@ -107,7 +106,9 @@ export default {
 
   methods: {
     attemptSubmit: async function () {
+      console.log("attemptSubmit")
       if (this.$refs.form.validate()) {
+        console.log("form is valid")
         try {
           await this.$store.dispatch("project/invite", {
             id: this.project.id,

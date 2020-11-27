@@ -134,6 +134,8 @@ import FormProjectStructure from "@/components/project/FormProjectStructure";
 import FormProjectPhases from "@/components/project/FormProjectPhases";
 import FormProjectEvaluation from "@/components/project/FormProjectEvaluation";
 import FormProjectAttachments from "@/components/project/FormProjectAttachments";
+
+import Cookies from 'js-cookie'
 import { slug2id } from "@/plugins/utils";
 
 function tabSlug(fullTabName){
@@ -189,6 +191,8 @@ export default {
   },
 
   async mounted() {
+    Cookies.remove('evalToken')
+
     // Important to await before moving on here
     await this.$store.dispatch("project/load", [this.projectId])
     this.dataReady = true

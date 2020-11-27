@@ -178,6 +178,7 @@ class EvaluationSerializer(serializers.ModelSerializer):
     )
     role = serializers.IntegerField(source="participation.role.pk", read_only=True)
     project_phase = serializers.IntegerField(source="project_phase.pk", read_only=True)
+    user = serializers.IntegerField(source="participation.user.id", read_only=True)
     user_eval_token = serializers.CharField(source="participation.user.eval_token", read_only=True)
 
     class Meta:

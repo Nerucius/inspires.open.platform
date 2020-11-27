@@ -10,6 +10,8 @@ from django.http.response import (
     HttpResponseBadRequest,
 )
 
+from rest_framework.authtoken.models import Token
+
 from backend.models import Project, Evaluation, Participation, ParticipationRole
 from backend.views_api_csv import _authenticate_request
 from backend.serializers import SimpleUserSerializer
@@ -54,7 +56,6 @@ class InviteProjectParticipant(View):
             email=request_data['email'],
             gender=request_data['gender'] if 'gender' in request else '',
             institution=request_data['institution'] if 'institution' in request else '',
-            eval_token=str(uuid.uuid4())
         )
         try:
             newUser.save()
@@ -63,6 +64,11 @@ class InviteProjectParticipant(View):
             newUser.save()
         except Exception as e:
             return json_response_error("Failed to create User: " + str(e))
+
+        # Get the user a valid login token:
+        token, created = Token.objects.get_or_create(user=newUser)
+        newUser.eval_token = token.key
+        newUser.save()
 
         # User created, now we have to link them to this project
         participation = Participation(
@@ -82,5 +88,6 @@ class InviteProjectParticipant(View):
             {
                 "status": "OK",
                 "user_id": newUser.pk,
+                "eval_token": newUser.eval_token
             }
         )

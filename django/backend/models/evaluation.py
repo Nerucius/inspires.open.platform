@@ -246,7 +246,7 @@ class Response(TrackableModel):
         unique_together = ("evaluation", "question")
 
     def __str__(self):
-        return "Response for %s" % (self.evaluation)
+        return f"{self.question.id} by {self.evaluation.participation.user}"
 
     @classmethod
     def can_create(cls, user, data):

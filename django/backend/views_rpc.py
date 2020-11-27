@@ -1,4 +1,7 @@
 import json
+import uuid
+
+from decouple import config
 
 from django.views import View
 from django.http.response import (
@@ -7,58 +10,77 @@ from django.http.response import (
     HttpResponseBadRequest,
 )
 
-from backend.models import Project, Evaluation
+from backend.models import Project, Evaluation, Participation, ParticipationRole
 from backend.views_api_csv import _authenticate_request
+from backend.serializers import SimpleUserSerializer
 
-
+from backend.models import User, Group
 
 def json_response(data, status=200):
-    return HttpResponse(json.dumps(data), status=status, content_type="application/json")
+    return HttpResponse(
+        json.dumps(data), status=status, content_type="application/json"
+    )
 
+def json_response_error(exception, status=400):
+    data = {"detail": str(exception)}
+    return HttpResponse(
+        json.dumps(data), status=status, content_type="application/json"
+    )
 
-class UpdateProjectEvaluation(View):
-
-    MAX_EVAL_VERSION = 2
-
-    def get(self, request, project, *args, **kwargs):
-        project = Project.objects.get(pk=project)
-        try:
-            _authenticate_request(request, project)
-        except Exception:
-            return HttpResponseForbidden()
-
-        return json_response(
-            {
-                "id": project.id,
-                "name": project.name,
-                "eval_version": project.eval_version,
-            }
-        )
+class InviteProjectParticipant(View):
 
     def post(self, request, project, *args, **kwargs):
         project = Project.objects.get(pk=project)
         try:
             _authenticate_request(request, project)
-        except Exception:
-            return HttpResponseForbidden()
+            assert project.can_write(request.user), "Not authorized to modify this Project."
+            assert project.structure != None, "Project not linked to any structure."
+            assert project.structure.validation != None, "Structure not validated."
+            assert project.structure.validation.is_approved, "Structure not validated."
+            assert project.collaboration.is_approved, "Your structure has not validated this Project."
+        except Exception as e:
+            return json_response_error(e)
 
-        request_version = json.loads(request.body)['eval_version']
+        request_data = json.loads(request.body)
 
-        # Check for max version
-        if project.eval_version == UpdateProjectEvaluation.MAX_EVAL_VERSION:
-            return json_response({"detail": "Project is already at the latest evaluation version."}, 400)
+        # Check for existing users
+        if(User.objects.filter(email=request_data['email']).exists()):
+            return json_response_error("User with this email already exists.")
 
-        if project.eval_version >= request_version:
-            return json_response({"detail": "Project is already at this version or newer."}, 400)
+        newUser = User(
+            username=request_data['email'],
+            first_name=request_data['first_name'],
+            last_name=request_data['last_name'],
+            email=request_data['email'],
+            gender=request_data['gender'] if 'gender' in request else '',
+            institution=request_data['institution'] if 'institution' in request else '',
+            eval_token=str(uuid.uuid4())
+        )
+        try:
+            newUser.save()
+            userGroup = Group.objects.get(name="Users")
+            newUser.groups.add(userGroup)
+            newUser.save()
+        except Exception as e:
+            return json_response_error("Failed to create User: " + str(e))
 
-        if request_version > UpdateProjectEvaluation.MAX_EVAL_VERSION:
-            return json_response({"detail": "Requested version does not exist."}, 400)
+        # User created, now we have to link them to this project
+        participation = Participation(
+            user=newUser,
+            project=project,
+            role=ParticipationRole.objects.get(pk=request_data['role'])
+        )
 
-        # All clear, we can go ahead and migrate the project
-        project.eval_version = request_version
-        project.save()
+        try:
+            participation.save()
+        except Exception as e:
+            newUser.delete()
+            return json_response_error("Could not link User to Project: " + str(e))
 
-        evals_to_delete = Evaluation.objects.filter(participation__project=project).all()
-        evals_to_delete.delete()
 
-        return json_response({"status": "OK", "eval_version": request_version, "evaluations_deleted": len(evals_to_delete)})
+        return json_response(
+            {
+                "status": "OK",
+                "user_id": newUser.pk,
+            }
+        )

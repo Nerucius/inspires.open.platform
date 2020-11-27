@@ -14,6 +14,7 @@ from django.contrib.postgres.search import SearchVector
 
 import json
 import datetime
+import uuid
 
 from . import email
 from . import models
@@ -206,9 +207,7 @@ def reset_password(request):
         user = users[0]
 
         # Generate password reset token
-        letters = string.ascii_letters + string.digits
-        token = "".join(random.choice(letters) for i in range(128))
-        user.reset_password_token = token
+        user.reset_password_token = str(uuid.uuid4())
         user.save()
 
         email.email_reset_password(user)
@@ -233,6 +232,8 @@ def reset_password_submit(request):
         assert password == password2, "003 password missmatch"
         user.reset_password_token = ""
         user.set_password(password)
+        # Remove the eval token used for "Invite" users. This user now becomes a real user
+        user.eval_token = ""
         user.save()
 
     except Exception:

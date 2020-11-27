@@ -44,6 +44,9 @@ class User(TrackableModel, AbstractUser):
     email_verification = models.BooleanField(default=False)
     reset_password_token = models.CharField(max_length=128, blank=True, null=True)
 
+    # Login token to log-in via URL
+    eval_token = models.CharField(max_length=128, blank=True, null=True)
+
     education_level = models.CharField(
         max_length=128, blank=True, choices=EDUCATION_LEVELS
     )

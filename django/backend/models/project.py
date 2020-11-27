@@ -1,6 +1,6 @@
 from django.db import models
 
-from backend.models import TrackableModel
+from backend.models import TrackableModel, User
 
 DEFAULT_DESCRIPTION = """## Background
 
@@ -189,6 +189,12 @@ class Participation(TrackableModel):
         if "project" not in data:
             return user.is_superuser
 
+        # Special guard against adding "invited" users
+        user = User.objects.get(pk=data["user"])
+        if user.eval_token != '':
+            return False
+        
+        # Check project write access
         project = Project.objects.get(pk=data["project"])
         return project.can_write(user)
 

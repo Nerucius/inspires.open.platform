@@ -185,6 +185,10 @@ def email_new_evaluation(
     # TODO: Abort on shell scripts and such
 
     if isinstance(instance, Evaluation):
+        # Don't send evaluation emails for Invite users
+        if instance.participation.user.eval_token != '':
+            return
+
         # Send or resend email
         if created or instance.resend_email:
             instance.resend_email = False

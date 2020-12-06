@@ -407,10 +407,6 @@ export default {
       return this.$store.getters["user/get"](id)
     },
 
-    getParticipant(participationId){
-      return this.project.participants.filter(part => part.id == participationId)
-    },
-
     getResponse(questionId){
       return this.evaluation.responses.filter(r => r.question == questionId)[0]
     },

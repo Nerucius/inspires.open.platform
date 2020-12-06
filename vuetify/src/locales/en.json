@@ -601,7 +601,7 @@
         "QN21": "Discussions in the project were based on what was said, not whom said it, and arguments were exchanged in a respectful but rational way.",
         "QN22": "Discussions in the project were based on what was said, not whom said it, and arguments were exchanged in a respectful but rational way.",
         "QN23": "You have learnt or enhanced new skills, knowledge and attitudes in engagement practices (e.g. how to communicate with civil society members, how to conduct focus groups and workshop, etc.).",
-        "QX01": "Research methodologies are described clearly, so others could adapt or re-use them.",
+        "QX01": "Research protocol includes a clear description of the Research methodologies used in the project.",
         "QX02": "Raw data that does not infringe privacy or other ethical constraints is available in a FAIR way."
       }
     }
@@ -713,13 +713,15 @@
       "saveSuccess": "Saved successfully!",
       "saveFailure": "Failed to save, try again later",
       "saveImageSuccess": "Image uploaded successfully!",
-      "saveImageFailure": "Failed to upload image.",
+      "saveImageFailure": "Failed to upload image",
       "projectSaveSuccess": "Project data updated!",
       "projectSaveFailure": "Failed to save the Project, please try again later",
       "structureSaveSuccess": "Structure data updated!",
-      "structureSaveFailure": "Failed to save the Structure, please try again later",
+      "structureSaveFailure": "Failed to save the Structure, please try again later.",
       "inviteParticipantFailure": "Failed to invite this Person. Please verify your Project is validated. The email might be in use already.",
-      "participantsSuccess": "Saved people involved in the project",
+      "participantsSuccess": "Saved people involved in the project.",
+      "copiedToClipboard": "Copied to Cliboard!",
+      "errorClipboard": "Could not copy to clipboard, please copy manually.",
 
       "-": ""
     },

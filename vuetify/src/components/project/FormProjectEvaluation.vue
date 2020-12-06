@@ -125,23 +125,14 @@ table{
 
               <v-flex xs12 v-if="!!getEvaluation(phase,participant) && !!getEvaluation(phase, participant).user_eval_token">
                 <v-text-field
-                  :value="window.location.origin + $router.resolve({
-                      name: 'evaluation-entry',
-                      query: {
-                          eval_token: getEvaluation(phase, participant).user_eval_token,
-                          user_id: getEvaluation(phase, participant).user
-                      },
-                      params: {
-                          slug: getEvaluation(phase, participant).id
-                      }
-                  }).route.fullPath"
+                  :value="getEvaluationInviteLink(getEvaluation(phase, participant))"
                   readonly
                   persistent-hint
                   label="Direct Access Link"
                   hint="Use or share this link to answer the Evaluation Questionnaire"
-                  prepend-icon="mdi-lock-open"
+                  prepend-icon="mdi-lock"
                   append-outer-icon='mdi-content-copy'
-                  @click:append-outer="copyToClipboard"
+                  @click:append-outer="copyLinkToClipboard(getEvaluation(phase, participant))"
                 />
               </v-flex>
 
@@ -273,8 +264,31 @@ export default {
       }
     },
 
-    copyToClipboard(event){
-      navigator.clipboard.writeText("test 123")
+    getEvaluationInviteLink(evaluation){
+      // TODO: verify this
+      let evalPath = this.$router.resolve({
+          name: 'evaluation-entry',
+          query: {
+              eval_token: evaluation.user_eval_token,
+              user_id: evaluation.user
+          },
+          params: { slug: evaluation.id }
+      }).route.fullPath;
+
+      return window.location.origin + evalPath;
+    },
+
+    copyLinkToClipboard(evaluation){
+      // TODO: verify this
+      let evalLink = this.getEvaluationInviteLink(evaluation)
+
+      try {
+        navigator.clipboard.writeText(evalLink)
+        this.$store.dispatch('toast/success', this.$t('toasts.copiedToClipboard'))
+      } catch (error) {
+        this.$store.dispatch('toast/error', this.$t('toasts.errorClipboard'))
+      }
+
     }
 
   }

@@ -112,7 +112,7 @@ export default {
     login: async function (context, credentials) {
         let authentication = (await Vue.http.post(userLoginUrl, credentials))
         let token = authentication.body.token
-        Cookies.set('authorization', token)
+        Cookies.set('authorization', token, {sameSite:"Strict"})
         await context.dispatch("loadCurrent");
     },
 

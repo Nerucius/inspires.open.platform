@@ -11,8 +11,8 @@
         </v-flex>
         <v-flex>
           <vue-markdown>{{
-            $t("pages.projectManage.inviteParticipantsInfo")
-          }}</vue-markdown>
+              $t("pages.projectManage.inviteParticipantsInfo")
+            }}</vue-markdown>
         </v-flex>
       </v-layout>
     </v-alert>
@@ -29,6 +29,13 @@
             :rules="[rules.required]"
             :item-text="translateName"
             item-value="id"
+          />
+
+          <v-checkbox
+            v-model="inviteUser.hide_realname"
+            :label="$t('forms.fields.isAnonymous')"
+            :hint="$t('forms.hints.isAnonymousInvite')"
+            persistent-hint
           />
 
           <v-layout wrap>
@@ -52,8 +59,10 @@
 
           <v-text-field
             v-model="inviteUser.email"
-            :rules="[rules.required, rules.isEmail]"
+            :rules="[rules.isEmail]"
             :label="$t('forms.fields.email')"
+            :hint="$t('misc.optional')"
+            persistent-hint
           />
           <v-text-field
             v-model="inviteUser.institution"
@@ -91,7 +100,7 @@ export default {
       valid: null,
       rules: {
         required: (v) => !!v || this.$t("forms.rules.requiredField"),
-        isEmail: (v) => this.isEmail(v) || this.$t("forms.rules.requiredField"),
+        isEmail: (v) => this.isEmail(v) || this.$t("forms.rules.invalidEmail"),
       },
       inviteUser: {},
       processing: false,
@@ -117,11 +126,11 @@ export default {
             "toast/success",
             this.$t("forms.toasts.inviteParticipantSuccess")
           );
-          
+
           await this.$store.dispatch("user/load");
           await this.$store.dispatch("project/load", [this.project.id]);
-          this.$root.$emit('project-manage:invite')     
-          
+          this.$root.$emit('project-manage:invite')
+
           this.inviteUser = {}
           this.$refs.form.reset()
 
@@ -136,7 +145,8 @@ export default {
 
     isExistingUser() {},
 
-    isEmail(value = "") {
+    isEmail(value) {
+      if(!value) return true;
       let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       return re.test(String(value).toLowerCase());
     },
@@ -144,7 +154,7 @@ export default {
     translateName(item) {
       return this.$t(item.name);
     },
-    
+
   },
 };
 </script>

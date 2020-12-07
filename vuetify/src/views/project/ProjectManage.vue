@@ -73,8 +73,8 @@
                   <FormProjectParticipants v-if="dataReady" :project="project" />
                 </v-card-text>
               </v-card>
-              <v-flex xs12></v-flex>
-              <v-card flat v-if="currentUser.is_administrator">
+              <v-flex xs12 />
+              <v-card v-if="currentUser.is_administrator" flat>
                 <v-card-text>
                   <FromProjectInviteParticipant v-if="dataReady" :project="project" />
                 </v-card-text>

@@ -58,11 +58,13 @@ export default {
     },
 
     dissmissAlert(){
-      if(confirm(this.$t('pages.projectManage.evalConfirmDismiss'))){
-        let cookieKey = `eval-dismissed-project-${this.project.id}`
-        Cookies.set(cookieKey, true, { expires: 90 })
-        this.showAlert = false
-      }
+      this.showAlert = false
+      // TODO: rewrite this?
+      // if(confirm(this.$t('pages.projectManage.evalConfirmDismiss'))){
+      //   let cookieKey = `eval-dismissed-project-${this.project.id}`
+      //   Cookies.set(cookieKey, true, { expires: 90,  })
+      //   this.showAlert = false
+      // }
     }
   },
 

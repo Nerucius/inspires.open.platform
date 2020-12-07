@@ -60,10 +60,9 @@ table{
         <!-- Content of Phase -->
         <v-card>
           <v-card-text>
-            <v-layout v-for="participant in project.participants" :key="participant.id" row
-                      wrap
-                      align-center
-                      class="pb-3"
+            <!-- For each Participant -->
+            <v-layout v-for="(participant, i) in project.participants" :key="participant.id" row
+                      wrap align-center
             >
               <v-flex ma-0 xs6 sm3>
                 <strong>
@@ -73,57 +72,63 @@ table{
               <v-flex xs6 sm3>
                 {{ $t(roles[participant.role].name) }}
               </v-flex>
+
               <v-flex xs12 sm6>
-                <!-- Send evaluation request -->
-                <v-btn
-                  v-if="!getEvaluation(phase, participant) && getProjectPhase(phase)"
-                  @click="sendEvaluationRequest(phase, participant)"
-                  flat block outline class="my-0"
-                >
-                  {{ $t('pages.projectManage.evalSendRequest') }}
-                </v-btn>
+                <!-- Send evaluation request (only if phase is active) -->
+                <template v-if="!getEvaluation(phase, participant)">
+                  <v-btn
+                    v-if="getProjectPhase(phase)"
+                    flat
+                    block outline class="my-0" @click="sendEvaluationRequest(phase, participant)"
+                  >
+                    {{ $t('pages.projectManage.evalSendRequest') }}
+                  </v-btn>
+                </template>
 
-                <!-- Show evaluation Buttons -->
-                <v-layout wrap v-else>
-                  <v-flex lg6 sm12 xs6>
+                <!-- Evaluation is sent, switch on invited / non-invited  -->
+                <template v-else>
+                  <!-- Regular Users (no token) -->
+                  <template v-if="getEvaluation(phase, participant).user_eval_token == null">
+                    <v-layout wrap>
+                      <!-- View Evaluation -->
+                      <v-flex lg6 sm12 xs6>
+                        <v-btn :outline="!getEvaluation(phase, participant).is_complete" target="_blank" block color="success"
+                               class="my-0"
+                               :to="{name:'evaluation-entry', params:{ slug: getEvaluation(phase, participant).id}}"
+                        >
+                          {{ $t('pages.projectManage.evalViewEvaluation') }}
+                          <span v-if="getEvaluation(phase, participant).is_complete">
+                            &nbsp; {{ $t('pages.projectManage.evalComplete') }}
+                          </span>
+                        </v-btn>
+                      </v-flex>
+                      <!-- Resend request -->
+                      <v-flex lg6 sm12 xs6>
+                        <v-btn block outline
+                               color="warning"
+                               class="my-0"
+                               @click="resendEvaluationRequest(getEvaluation(phase, participant))"
+                        >
+                          {{ $t('pages.projectManage.evalResendRequest') }}
+                        </v-btn>
+                      </v-flex>
+                    </v-layout>
+                  </template>
 
+                  <!-- Invited Users -->
+                  <template v-else>
                     <v-btn block dark
-                          v-if="getEvaluation(phase, participant).user_eval_token != null"
                            color="blue darken-2"
                            class="my-0"
-                           :to="{name:'evaluation-entry', query:{eval_token: getEvaluation(phase, participant).user_eval_token, user_id:getEvaluation(phase, participant).user}, params:{ slug: getEvaluation(phase, participant).id}}"
+                           :to="getEvaluationInviteRoute(getEvaluation(phase, participant))"
                     >
                       {{ $t('pages.projectManage.evalOpenUniqueLink') }}
                     </v-btn>
-
-                    <!-- Resend request -->
-                    <v-btn v-else block outline
-                           color="warning"
-                           class="my-0"
-                           @click="resendEvaluationRequest(getEvaluation(phase, participant))"
-                    >
-                      {{ $t('pages.projectManage.evalResendRequest') }}
-                    </v-btn>
-
-                  </v-flex>
-                  <v-flex lg6 sm12 xs6>
-
-                    <!-- Copy Evaluation link -->
-                    <v-btn :outline="!getEvaluation(phase, participant).is_complete" target="_blank" block color="success"
-                           class="my-0"
-                           :to="{name:'evaluation-entry', params:{ slug: getEvaluation(phase, participant).id}}"
-                    >
-                      {{ $t('pages.projectManage.evalViewEvaluation') }}
-                      <span v-if="getEvaluation(phase, participant).is_complete">
-                        &nbsp; {{ $t('pages.projectManage.evalComplete') }}
-                      </span>
-                    </v-btn>
-
-                  </v-flex>                  
-                </v-layout>
+                  </template>
+                </template>
               </v-flex>
 
-              <v-flex xs12 v-if="!!getEvaluation(phase,participant) && !!getEvaluation(phase, participant).user_eval_token">
+              <v-flex v-if="!!getEvaluation(phase,participant) && !!getEvaluation(phase, participant).user_eval_token" xs12>
                 <v-text-field
                   :value="getEvaluationInviteLink(getEvaluation(phase, participant))"
                   readonly
@@ -131,12 +136,12 @@ table{
                   label="Direct Access Link"
                   hint="Use or share this link to answer the Evaluation Questionnaire"
                   prepend-icon="mdi-lock"
-                  append-outer-icon='mdi-content-copy'
+                  append-outer-icon="mdi-content-copy"
                   @click:append-outer="copyLinkToClipboard(getEvaluation(phase, participant))"
                 />
               </v-flex>
 
-              <v-flex xs12 py-1>
+              <v-flex v-if="i+1 != project.participants.length" xs12 py-1>
                 <v-divider />
               </v-flex>
             </v-layout>
@@ -151,12 +156,10 @@ table{
 <script>
 import Cookies from 'js-cookie'
 import { ProjectAtPhaseResource } from "@/plugins/resource";
-import EvaluationUpdateAlert from "@/components/evaluation/EvaluationUpdateAlert";
+// import EvaluationUpdateAlert from "@/components/evaluation/EvaluationUpdateAlert";
 
 export default {
-  components:{
-    EvaluationUpdateAlert
-  },
+  components:{ },
 
   props: ["project"],
 
@@ -198,6 +201,8 @@ export default {
   async mounted() {
     // Load all evaluations for this project
     await this.$store.dispatch("evaluation/loadProject", this.project.id)
+
+    // Set participant evaluations
 
     // Opening the phase tab seems to break the overflow
     this.$nextTick(() => {
@@ -264,16 +269,20 @@ export default {
       }
     },
 
-    getEvaluationInviteLink(evaluation){
-      // TODO: verify this
-      let evalPath = this.$router.resolve({
+    getEvaluationInviteRoute(evaluation){
+      return {
           name: 'evaluation-entry',
           query: {
               eval_token: evaluation.user_eval_token,
               user_id: evaluation.user
           },
           params: { slug: evaluation.id }
-      }).route.fullPath;
+      }
+    },
+
+    getEvaluationInviteLink(evaluation){
+      // TODO: verify this
+      let evalPath = this.$router.resolve(this.getEvaluationInviteRoute(evaluation)).route.fullPath;
 
       return window.location.origin + evalPath;
     },
@@ -284,9 +293,9 @@ export default {
 
       try {
         navigator.clipboard.writeText(evalLink)
-        this.$store.dispatch('toast/success', this.$t('toasts.copiedToClipboard'))
+        this.$store.dispatch('toast/success', this.$t('forms.toasts.copiedToClipboard'))
       } catch (error) {
-        this.$store.dispatch('toast/error', this.$t('toasts.errorClipboard'))
+        this.$store.dispatch('toast/error', this.$t('forms.toasts.errorClipboard'))
       }
 
     }

@@ -40,8 +40,10 @@ class User(TrackableModel, AbstractUser):
 
     # Override email
     email = models.EmailField(_("email address"), blank=True, unique=True)
-
     email_verification = models.BooleanField(default=False)
+
+    hide_realname = models.BooleanField(default=False)
+
     reset_password_token = models.CharField(max_length=128, blank=True, null=True)
 
     # Login token to log-in via URL
@@ -59,8 +61,16 @@ class User(TrackableModel, AbstractUser):
         return self.groups.filter(name="Administration").exists()
 
     @property
+    def first_name_anon(self):
+        return self.first_name if not self.hide_realname else 'Participant'
+
+    @property
+    def last_name_anon(self):
+        return self.last_name if not self.hide_realname else self.pk
+
+    @property
     def full_name(self):
-        return "%s %s" % (self.first_name, self.last_name)
+        return "%s %s" % (self.first_name_anon, self.last_name_anon)
 
     @property
     def avatar_url(self):

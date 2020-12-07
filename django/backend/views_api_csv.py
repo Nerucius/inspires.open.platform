@@ -886,7 +886,7 @@ class CSVProjectSummaryExport(CSVCachedAuthorizedView):
                 str(project.id),
                 project.name,
                 role_name,
-                part.user.full_name,
+                part.user.first_name + ' ' + part.user.last_name,
                 part.user.email,
                 datetime.isoformat(part.created_at.replace(microsecond=0)),
             ]

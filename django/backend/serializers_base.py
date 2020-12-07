@@ -19,6 +19,10 @@ class SimpleGroupSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class SimpleUserSerializer(serializers.ModelSerializer):
+
+    first_name = serializers.CharField(source="first_name_anon", read_only=True)
+    last_name = serializers.CharField(source="last_name_anon", read_only=True)
+
     class Meta:
         model = models.User
         fields = [

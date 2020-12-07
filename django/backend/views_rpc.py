@@ -46,15 +46,25 @@ class InviteProjectParticipant(View):
 
         request_data = json.loads(request.body)
 
-        # Check for existing users
-        if(User.objects.filter(email=request_data['email']).exists()):
-            return json_response_error("User with this email already exists.")
+        # Create a fictitious email if none is sent
+        if 'email' in request_data and request_data['email'] != '':
+            user_username = request_data['email']
+            user_email = request_data['email']
+        else:
+            user_username = str(uuid.uuid4())
+            user_email = user_username + '@app.inspiresproject.com'
 
+        # Check for existing users
+        if User.objects.filter(email=user_email).exists():
+            return json_response_error("pages.register.emailTaken")
+
+        # Create user including empty field defaults
         newUser = User(
-            username=request_data['email'],
+            username=user_username,
             first_name=request_data['first_name'],
             last_name=request_data['last_name'],
-            email=request_data['email'],
+            email=user_email,
+            hide_realname='hide_realname' in request_data and request_data['hide_realname'],
             gender=request_data['gender'] if 'gender' in request else '',
             institution=request_data['institution'] if 'institution' in request else '',
         )

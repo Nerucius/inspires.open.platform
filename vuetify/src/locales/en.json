@@ -39,9 +39,9 @@
       "step3TOSAcceptance": "By clicking the 'ACCEPT TERMS AND CONDITIONS' button I acknowledge that I have been appropriately informed and that I consent to the processing of my personal data for the stated purpose.",
       "step3MessageAccepted": "Great! we can continue with the rest of the registration.",
       "step4Message": "Please review the following information. If everything seems correct you can proceed with the registration. You can go back to any of the steps and review the information provided.",
-      "step4MessageInvite": "During the first period of testing, we are restricting the registration to those personally invited. Please enter the code provided to you below:",
-      "registrationFailure": "Something went wrong with your registration, please try again later.",
-      "usernameTaken": "Your username is already taken, please try a different one."
+      "step4MessageInvite": "During emailTakenthe first period of testing, we are restricting the registration to those personally invited. Please enter the code provided to you below:",
+      "registrationFailure": "Something went wrong with your registration, please try again.",
+      "emailTaken": "This email is already in use. Try another one or attempt to recover your password."
     },
 
     "home": {
@@ -188,7 +188,7 @@
       "searchUsers": "Collaboration with structure has been withdrawn.",
       "evaluationSuccess": "Evaluation requested successfuly.",
       "evaluationFailure": "Failed to send evaluation request. Please try again later.",
-      "evalOpenUniqueLink": "Open Form as User",
+      "evalOpenUniqueLink": "Open Questionnaire as this Person",
       "evalSendRequest": "Send Request for Evaluation",
       "evalConfirmResend": "Are you sure you want to re-send an email to this person?",
       "evalResendRequest": "Re-send email",
@@ -202,9 +202,8 @@
       "evalConfirmUpdate": "Are you sure you want to update your project to Version 2? You will lose ALL data related to your project's evaluations.\n\nPlease read the Help page if you are unsure of the consequences.",
       "evalConfirmDismiss": "If you dismiss this alert this option will no longer be available to you.",
       "inviteParticipantsTitle": "Invite a Participant to this Project",
-      "inviteParticipantsInfo": "If one or more of your participants is unable to create an account by themselves, or you would prefer to fill in the evaluation in their name, you can use this form to create a User in the platform for them.",
-      "attachmentsTab": "File Attachments",
-      "_": ""
+      "inviteParticipantsInfo": "If one or more of your participants is unable to create an account by themselves, or you would prefer to fill in the evaluation in their name, you can use this form to create a User in the platform for them.\n\n**NOTE**: Your Project must be validated and part of a Structure.",
+      "attachmentsTab": "File Attachments"
     },
     "evaluationDetail": {
       "heatchart": {
@@ -685,10 +684,11 @@
   "forms": {
     "titles": {
       "login": "Log In",
-      "newParticipant": "New Participant Details"
+      "newParticipant": "Participant Information"
     },
     "rules": {
       "invalidUsername": "This username is not valid",
+      "invalidEmail": "This email is not valid",
       "requiredField": "This is a required field",
       "passwordField": "The password you entered is not valid",
       "passwordMatch": "The two passwords do not match",
@@ -720,15 +720,15 @@
       "structureSaveFailure": "Failed to save the Structure, please try again later.",
       "inviteParticipantFailure": "Failed to invite this Person. Please verify your Project is validated. The email might be in use already.",
       "participantsSuccess": "Saved people involved in the project.",
+      "inviteParticipantSuccess": "Invitation created successfully.",
       "copiedToClipboard": "Copied to Cliboard!",
-      "errorClipboard": "Could not copy to clipboard, please copy manually.",
-
-      "-": ""
+      "errorClipboard": "Could not copy to clipboard, please copy manually."
     },
     "fields": {
       "name": "Name",
       "firstName": "First Name",
       "lastName": "Last Name",
+      "isAnonymous": "Anonymous Participant",
       "email": "Email",
       "education": "Education Level",
       "institution": "Institution",
@@ -764,8 +764,7 @@
       "invitationCode": "Invitation Code",
       "knowledgeArea": "Knowledge Area",
       "knowledgeAreas": "Knowledge Areas",
-      "coverImage": "Cover Image",
-      "_": ""
+      "coverImage": "Cover Image"
     },
     "labels": {
       "searchUsers": "Search Users"
@@ -774,6 +773,8 @@
       "projectAdministrators": "Project administrators have full access to the project and can edit the project's details as well as add and remove other administrators and participants. These permissions apply only within the platform."
     },
     "hints": {
+      "isAnonymous": "Hide your real name from Public pages.",
+      "isAnonymousInvite": "Hide this Participant's real name on Public pages.",
       "contactEmail": "Where should people reach you with questions about the project?",
       "contactWebsite": "URL to an external site where people can see more about your project.",
 

@@ -21,6 +21,8 @@ from . import models
 from . import serializers
 from . import filters
 
+from backend.views_rpc import json_response_error
+
 
 def email_preview(request):
     from django import shortcuts
@@ -137,22 +139,6 @@ def login(request):
         return HttpResponse("Invalid Credentials", status=401)
 
 
-class CustomObtainAuthToken(ObtainAuthToken):
-    """ Custom Token auth to also login with email """
-
-    def post(self, request, *args, **kwargs):
-        username = request.data["username"]
-        if "@" in username:
-            try:
-                # Find user and get his
-                user = models.User.objects.get(email=username)
-                request.data["username"] = user.username
-            except:
-                return HttpResponse("Email not found", status=401)
-
-        return super(CustomObtainAuthToken, self).post(request, args, kwargs)
-
-
 def logout(request):
     auth.logout(request)
     return HttpResponse("OK")
@@ -160,22 +146,24 @@ def logout(request):
 
 def register(request):
     userdata = request.POST
+
+    username = userdata["username"]
+    password = userdata["password"]
+    password2 = userdata["password2"]
+    first_name = userdata["first_name"]
+    last_name = userdata["last_name"]
+    email = userdata["email"]
+
+    if password != password2:
+        return json_response_error('Passwords do not match.')
+
+    if models.User.objects.filter(username=username).exists():
+        return json_response_error('forms.rules.usernameInUse')
+
+    if models.User.objects.filter(email=email).exists():
+        return json_response_error('pages.register.emailTaken')
+
     try:
-        # invitation = userdata["invitation"]
-        # assert invitation == "join-inspires-2019", "000 Invitation code does not match"
-
-        username = userdata["username"]
-        password = userdata["password"]
-        password2 = userdata["password2"]
-        first_name = userdata["first_name"]
-        last_name = userdata["last_name"]
-        email = userdata["email"]
-
-        assert password == password2, "001 Passwords don't match"
-        assert not models.User.objects.filter(
-            username=username
-        ).exists(), "002 Username already exists"
-
         newUser = models.User.objects.create_user(
             username,
             email=email,
@@ -186,12 +174,9 @@ def register(request):
         userGroup = models.Group.objects.get(name="Users")
         newUser.groups.add(userGroup)
         newUser.save()
-        # auth.login(request, newUser)
 
-    except:
-        import sys
-
-        return HttpResponseBadRequest(sys.exc_info())
+    except Exception as e:
+        return json_response_error(e)
 
     return HttpResponse("OK")
 
@@ -236,10 +221,26 @@ def reset_password_submit(request):
         user.eval_token = ""
         user.save()
 
-    except Exception:
-        return HttpResponseBadRequest("002 user for token not found")
+    except Exception as e:
+        return HttpResponseBadRequest(e)
 
     return HttpResponse("OK Password changed")
+
+
+class CustomObtainAuthToken(ObtainAuthToken):
+    """ Custom Token auth to also login with email """
+
+    def post(self, request, *args, **kwargs):
+        username = request.data["username"]
+        if "@" in username:
+            try:
+                # Find user and get his
+                user = models.User.objects.get(email=username)
+                request.data["username"] = user.username
+            except:
+                return HttpResponse("Email not found", status=401)
+
+        return super(CustomObtainAuthToken, self).post(request, args, kwargs)
 
 
 class CurrentUserVS(viewsets.ModelViewSet):

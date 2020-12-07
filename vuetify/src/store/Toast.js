@@ -1,4 +1,5 @@
-import Vue from "../plugins/resource";
+import Vue from "vue";
+import { i18n } from "../plugins/i18n"
 import { API_SERVER} from "../plugins/resource";
 
 
@@ -58,7 +59,7 @@ export default {
         console.log("error")
         console.log(error)
         try{
-          let serverError = error.body.detail
+          let serverError = i18n.t(error.body.detail)
           message += `<br/><br/><tt><b>ERROR DETAIL:</b> ${serverError}</tt>`
         }catch(_){}
       }

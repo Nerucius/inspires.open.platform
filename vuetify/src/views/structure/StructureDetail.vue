@@ -18,6 +18,7 @@
 
 <template>
   <v-layout v-if="structure" row wrap align-content-start>
+
     <v-flex v-if="canManage" pa-0 xs12 class="text-xs-right">
       <v-btn flat outline color="warning" :to="manageLink">
         <v-icon left>
@@ -200,27 +201,24 @@
           <vue-markdown>{{ structure.summary }}</vue-markdown>
         </div>
 
-        <v-card-text>
+        <v-card-text style="max-height:400px; overflow-y:auto">
           <vue-markdown>{{ structure.description }}</vue-markdown>
         </v-card-text>
       </v-card>
     </v-flex>
 
     <!-- Projects under the structure -->
-    <v-flex xs12>
+    <!-- <v-flex xs12>
       <v-card flat>
         <v-card-text>
-          <h2 class="headline mb-2">
-            Projects under this Structure
-          </h2>
-
-          <p class="subheading mb-5">
-            Overview of all the projects that are nested under this structure.
-          </p>
-
           <ProjectCardHorizontal v-for="project in projects" :key="project.id" :project="project" />
         </v-card-text>
       </v-card>
+    </v-flex> -->
+
+    <v-flex xs12>
+      <h2>{{ $t('noums.projects') }}</h2>
+      <ProjectGrid :projects="projects" />
     </v-flex>
   </v-layout>
 </template>
@@ -231,26 +229,26 @@
 import { iso3toiso2, translateCountryName } from '@/plugins/countries'
 import { slug2id, obj2slug } from "@/plugins/utils";
 
-import ProjectCardHorizontal from "@/components/project/ProjectCardHorizontal";
+import ProjectGrid from "@/components/project/ProjectGrid";
 import { API_SERVER } from "@/plugins/resource";
 
 export default {
 
   metaInfo(){
     return {
-      title: (this.structure || {}).name
+      title: (this.structure ?? {}).name
     }
   },
 
   components:{
-    ProjectCardHorizontal,
+    ProjectGrid,
   },
 
   data(){
     return {
       obj2slug,
       iso3toiso2,
-      structure: null
+      structure: null,
     }
   },
 
@@ -287,9 +285,11 @@ export default {
   async created(){
     try{
       await this.$store.dispatch("structure/load", [this.structureId])
-      this.structure = this.$store.getters['structure/detail'](this.structureId)
       await this.$store.dispatch("project/load")
       await this.$store.dispatch("knowledgearea/load")
+
+      this.structure = this.$store.getters['structure/detail'](this.structureId)
+      // this.projects = this.projectIds.map(pid => this.$store.getters['project/get'](pid))
     }catch(err){
       // TODO: Show error instead
       this.$router.push("/structure-not-found")

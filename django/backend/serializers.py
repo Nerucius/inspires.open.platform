@@ -11,6 +11,9 @@ class UserSerializer(serializers.ModelSerializer):
     managed_structures = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
     owned_structures = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
 
+    first_name = serializers.CharField(source="first_name_anon", read_only=True)
+    last_name = serializers.CharField(source="last_name_anon", read_only=True)
+
     class Meta:
         model = models.User
         fields = [
@@ -32,6 +35,11 @@ class UserSerializer(serializers.ModelSerializer):
             "is_administrator",
             "is_superuser",
         ]
+
+
+class CurrentUserSerializer(UserSerializer):
+    first_name = serializers.CharField()
+    last_name = serializers.CharField()
 
 
 class ProjectSerializer(TrackableModelSerializer):

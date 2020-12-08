@@ -10,19 +10,10 @@
 import ProjectCard from "@/components/project/ProjectCard";
 
 export default {
-
   components:{
     ProjectCard
   },
 
   props: ["projects"],
-
-  data() {
-    return {
-    }
-  },
-
-  methods: {
-  }
 };
 </script>

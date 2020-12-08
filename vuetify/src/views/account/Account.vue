@@ -54,6 +54,11 @@ th{
                   <th>{{ $t('forms.fields.institution') }}</th>
                   <td>{{ user.institution || $t('misc.notSpecified') }}</td>
                 </tr>
+                <tr>
+                  <th>{{ $t('forms.fields.genderIdentity') }}</th>
+                  <td v-if="user.gender">{{ $t(`models.userGender.${user.gender.toLowerCase()}`) }}</td>
+                  <td v-else>{{ $t('misc.notSpecified') }}</td>
+                </tr>
               </table>
             </v-flex>
             <v-flex xs12 sm6>
@@ -72,7 +77,7 @@ th{
         </v-card-text>
 
         <v-card-text v-else>
-          <v-form ref="profileEditForm" v-model="editProfileValid">
+          <v-form ref="profileEditForm" v-model="editProfileValid" @submit.prevent="submitUpdateProfile()">
             <v-layout pt-3 row wrap>
               <!-- Edit Profile Form -->
 
@@ -121,6 +126,7 @@ th{
 
             <!-- /Edit Profile Form -->
             </v-layout>
+            <input type="submit" style="display:none" />
           </v-form>
         </v-card-text>
 
@@ -131,7 +137,7 @@ th{
           >
             {{ $t('pages.account.saveProfile') }}
           </v-btn>
-          <v-btn v-else color="success" class="elevation-0" @click="showEditForm = true">
+          <v-btn v-else outline color="success" class="elevation-0" @click="showEditForm = true">
             {{ $t('pages.account.editProfile') }}
           </v-btn>
         </v-card-actions>
@@ -320,7 +326,7 @@ export default {
 
   async mounted(){
     await this.$store.dispatch("user/load", [this.userId])
-    this.editUser = cloneDeep(this.user)
+    this.editUser = cloneDeep(this.$store.getters['user/current'])
 
     if(this.userId == null){
       console.error("Account.vue: No logged in user or request.")

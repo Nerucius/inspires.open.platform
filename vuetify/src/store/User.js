@@ -135,7 +135,7 @@ export default {
     },
 
     updateCurrent: async function(context, user){
-      let changed = (await UserResource.update({id:user.id}, user)).body
+      let changed = (await CurrentUserResource.update({id:user.id}, user)).body
       context.commit("SET_CURRENT", changed)
       return changed
     },

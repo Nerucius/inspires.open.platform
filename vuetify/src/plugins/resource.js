@@ -42,7 +42,7 @@ const PATCH = {
   }
 }
 
-export const CurrentUserResource = Vue.resource(API_SERVER + "/v1/user/");
+export const CurrentUserResource = Vue.resource(API_SERVER + "/v1/user{/id}/", {}, PATCH);
 export const UserResource = Vue.resource(API_SERVER + "/v1/users{/id}/", {}, PATCH);
 export const ProjectResource = Vue.resource(API_SERVER + "/v1/projects{/id}/", {}, PATCH);
 export const ProjectPhaseResource = Vue.resource(API_SERVER + "/v1/projectphases{/id}/", {}, PATCH);

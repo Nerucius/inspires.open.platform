@@ -246,7 +246,7 @@ class CustomObtainAuthToken(ObtainAuthToken):
 class CurrentUserVS(viewsets.ModelViewSet):
     """ Returns the currently logged in user """
 
-    serializer_class = serializers.UserSerializer
+    serializer_class = serializers.CurrentUserSerializer
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):

@@ -40,7 +40,7 @@ export default {
       {value:"", name:"misc.notSpecified"},
       {value:"PRIMARY", name: "models.educationLevel.primary"},
       {value:"SECONDARY", name: "models.educationLevel.secondary"},
-      {value:"TERTIARY", name: "models.educationLevel.teriary"},
+      {value:"TERTIARY", name: "models.educationLevel.tertiary"},
       {value:"DEGREE", name: "models.educationLevel.degree"},
       {value:"MASTER", name: "models.educationLevel.master"},
       {value:"DOCTORAL", name: "models.educationLevel.doctoral"},

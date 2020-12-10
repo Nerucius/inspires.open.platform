@@ -25,14 +25,14 @@ small{
 </style>
 
 <style>
-/* Styles affecting the entire page, not just the router-view content */
+/* Styles affecting the entire page, not just this component */
 
-.theme--light.v-label{
-  color:rgba(0, 0, 0, 0.75) !important
-}
+  .theme--light.v-label{
+    color:rgba(0, 0, 0, 0.85) !important
+  }
 
-.media-print{
-  display: none;
+  .media-print{
+    display: none;
 }
 
 @media print {
@@ -91,10 +91,15 @@ small{
     <!-- Eval token -->
     <v-flex v-if="!!this.$route.query.eval_token" xs12>
       <v-alert color="info" :value="true" class="subheading">
-        <v-icon dark left>
-          info
-        </v-icon>&nbsp;
-        {{ $t('pages.evaluationEntry.answeringAsToken', {name:evaluationUser.full_name}) }}
+        <v-layout align-center>
+        <v-flex shrink>
+          <v-icon dark>info</v-icon>
+        </v-flex>
+        <v-flex>
+          <p>{{ $t('pages.evaluationEntry.answeringAsToken', {name:evaluationUser.full_name}) }}</p>
+          {{ $t('pages.evaluationEntry.manageProfileLink') }} <v-btn outline flat color="white" :to="{name:'login', query:{'token': $route.query.eval_token}}">{{$t('toolbar.myAccount')}}</v-btn>
+        </v-flex>
+        </v-layout>
       </v-alert>
     </v-flex>
 
@@ -196,12 +201,16 @@ small{
                   {{ $t(`${question.i18n}`) }} {{ $t('pages.evaluationEntry.questionMultipleHelp') }}
                 </h3>
 
-                <v-checkbox v-for="(answer, aidx) in question.answers" :key="aidx"
-                            v-model="answers[qidx]"
-                            :value="answer.key"
-                            :label="answer.name"
-                            hide-details
-                />
+                <v-layout row wrap mb-5>
+                  <v-flex v-for="(answer, aidx) in question.answers" :key="aidx" xs12 sm6 py-0>
+                    <v-checkbox
+                      v-model="answers[qidx]"
+                      :value="answer.key"
+                      :label="answer.name"
+                      hide-details
+                    />
+                  </v-flex>
+                </v-layout>
               </div>
               <!-- /MULTIPLE ANSWER QUESTIONS -->
 
@@ -233,6 +242,8 @@ small{
                 <h3 class="mt-4 mb-3">
                   <small>{{ question.id }}</small>
                   {{ $t(`${question.i18n}`) }}
+                  <br/>
+                  <br/>
                   {{ $t('models.question.Q10XY', {phase: $t(phase(evaluation.project_phase).tag)}) }}
                 </h3>
 
@@ -353,7 +364,7 @@ export default {
       if(this.$route.query.eval_token){
         this.headers = {'Authorization':'Token '+this.$route.query.eval_token}
       }
-    
+
       // Retrieve data
       try{
         await this.$store.dispatch("evaluation/load", {id: this.evaluationId, headers:this.headers})
@@ -449,7 +460,7 @@ export default {
           error
         })
       }
-        
+
       if(!this.isCompleted){
         // Evaluation submit event for the first time
         this.$matomo && this.$matomo.trackEvent('evaluation', 'evaluation--submit')

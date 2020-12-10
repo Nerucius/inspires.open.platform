@@ -2,7 +2,7 @@ from django import shortcuts
 from django.db.models import Sum, Avg
 
 from django.core.cache import cache
-from django.http.response import HttpResponseNotFound
+from django.http.response import HttpResponseNotFound, HttpResponse
 from django.views import View
 
 from rest_framework.authtoken.models import Token
@@ -260,6 +260,17 @@ def _projects_to_csv_lines(projects):
         ]
     )
     return CSV_LINE_SEPARATOR.join([headers] + lines)
+
+
+def download_headers_test(request):
+    """ Response headers that automatically download  """
+    response = HttpResponse()
+    response["Content-Type"] = "text/csv; charset=utf-8"
+    response["Content-Disposition"] = 'attachment; filename="test_file.csv"'
+
+    response.content = "col1,col2\ncol3,col4"
+
+    return response
 
 
 class CSVCachedAuthorizedView(View):
@@ -880,13 +891,20 @@ class CSVProjectSummaryExport(CSVCachedAuthorizedView):
 
         for part in project.participation_set.all():
             role_name = part.role.name.split(".")[-1].upper()
+
+            # Anonymous participants get their realname and ID appended
+            if part.user.hide_realname:
+                user_name = f"{part.user.first_name} {part.user.last_name} ({part.user.last_name_anon})"
+            else:
+                user_name = part.user.full_name
+
             line = [
                 str(project.structure.id) if project.structure else "",
                 project.structure.name if project.structure else "",
                 str(project.id),
                 project.name,
                 role_name,
-                part.user.first_name + ' ' + part.user.last_name,
+                user_name,
                 part.user.email,
                 datetime.isoformat(part.created_at.replace(microsecond=0)),
             ]
@@ -961,11 +979,11 @@ class CSVAdminAllStructures(CSVCachedAuthorizedView):
 
 def csv_tangram(request, project):
     """
-        Public evaluation results
-        ```
-        citizen,    integrity,  knowledge,  participation,  transform
-        2,          4,          2,          2,              4
-        ```
+    Public evaluation results
+    ```
+    citizen,    integrity,  knowledge,  participation,  transform
+    2,          4,          2,          2,              4
+    ```
     """
     ownProject = Project.objects.get(pk=project)
     _authenticate_request(request, project=None)

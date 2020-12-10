@@ -22,6 +22,7 @@ from . import serializers
 from . import filters
 
 from backend.views_rpc import json_response_error
+from backend.permissions import HasWriteAccess
 
 
 def email_preview(request):
@@ -155,13 +156,13 @@ def register(request):
     email = userdata["email"]
 
     if password != password2:
-        return json_response_error('Passwords do not match.')
+        return json_response_error("Passwords do not match.")
 
     if models.User.objects.filter(username=username).exists():
-        return json_response_error('forms.rules.usernameInUse')
+        return json_response_error("forms.rules.usernameInUse")
 
     if models.User.objects.filter(email=email).exists():
-        return json_response_error('pages.register.emailTaken')
+        return json_response_error("pages.register.emailTaken")
 
     try:
         newUser = models.User.objects.create_user(
@@ -404,7 +405,7 @@ class ContentVS(ListDetail, viewsets.ModelViewSet):
     serializer_class = serializers.SimpleContentSerializer
     detail_serializer_class = serializers.ContentSerializer
 
-    lookup_field = 'slug'
+    lookup_field = "slug"
     filterset_fields = ["locale", "master", "master__type"]
 
 
@@ -421,6 +422,9 @@ class EvaluationVS(RequirePKMixin, viewsets.ModelViewSet):
 class ProjectEvaluationsVS(RequirePKMixin, viewsets.ModelViewSet):
     queryset = models.Project.objects.all()
     serializer_class = serializers.ProjectEvaluationsSerializer
+    filterset_fields = ["participation__user"]
+
+    permission_classes = [IsAuthenticated, HasWriteAccess]
 
 
 class EvaluationQuestionsVS(RequirePKMixin, viewsets.ModelViewSet):
@@ -431,6 +435,9 @@ class EvaluationQuestionsVS(RequirePKMixin, viewsets.ModelViewSet):
 class EvaluationResponsesVS(RequirePKMixin, viewsets.ModelViewSet):
     queryset = models.Evaluation.objects.all()
     serializer_class = serializers.EvaluationResponsesSerializer
+
+    # TODO: Retrieve only your responses or all if Manager
+    permission_classes = [IsAuthenticated]
 
 
 class QuestionVS(ListDetail, viewsets.ModelViewSet):
@@ -445,7 +452,8 @@ class ResponseVS(viewsets.ModelViewSet):
     queryset = models.Response.objects.all()
     serializer_class = serializers.ResponseSerializer
     filterset_class = filters.ResponseFilter
-    # filterset_fields = ["evaluation__phase__project", "question__answer_type"]
+
+    permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         # For list action, require project filter (specified in custom filter)
@@ -463,8 +471,3 @@ class ResponseVS(viewsets.ModelViewSet):
                 )
 
         return super().get_queryset()
-
-
-# ===========================
-# RELATED OBJECTS ENDPOINTS
-# ===========================

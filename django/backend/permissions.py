@@ -4,10 +4,10 @@ from backend.models import TrackableModel
 
 
 class CustomPermissionSet(permissions.DjangoModelPermissions):
-    """ Custom application logic Permissions. Premise is user MUST
-        be logged in for any kind of permission.
-        Runs the DjangoModelPermissions schema first so that
-        group permissions work.
+    """Custom application logic Permissions. Premise is user MUST
+    be logged in for any kind of permission.
+    Runs the DjangoModelPermissions schema first so that
+    group permissions work.
     """
 
     CREATE_METHOD = "POST"
@@ -55,10 +55,10 @@ class CustomPermissionSet(permissions.DjangoModelPermissions):
         return has_model_perm
 
     def has_write_permission(self, request, view):
-        """ Define write permission to a model as two different options:
-            1. Is creating a new Object: check "can_create" class method.
-            2. Is patching an existing object: check django permission.
-            In all cases the model permission is checked.
+        """Define write permission to a model as two different options:
+        1. Is creating a new Object: check "can_create" class method.
+        2. Is patching an existing object: check django permission.
+        In all cases the model permission is checked.
         """
 
         has_model_perm = super(CustomPermissionSet, self).has_permission(request, view)
@@ -96,3 +96,14 @@ class CustomPermissionSet(permissions.DjangoModelPermissions):
         return has_model_perm and (
             obj.created_by == user or obj.owner == user or obj.can_write(user)
         )
+
+
+class HasWriteAccess(permissions.BasePermission):
+    """
+    Allows individual access only Users with Write Access
+    """
+
+    def has_object_permission(self, request, view, obj):
+        if request.user.is_superuser:
+            return True
+        return obj.can_write(request.user)

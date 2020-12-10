@@ -32,7 +32,7 @@ class User(TrackableModel, AbstractUser):
     EDUCATION_LEVELS = [
         (EDUCATION_PRIMARY, "Primary"),
         (EDUCATION_SECONDARY, "Secondary"),
-        (EDUCATION_TERTIARY, "Teriary (Labor market)"),
+        (EDUCATION_TERTIARY, "Tertiary (Labor market)"),
         (EDUCATION_DEGREE, "Bachelors or Degree"),
         (EDUCATION_MASTER, "Masters"),
         (EDUCATION_DOCTORAL, "Doctoral"),
@@ -62,11 +62,16 @@ class User(TrackableModel, AbstractUser):
 
     @property
     def first_name_anon(self):
-        return self.first_name if not self.hide_realname else 'Participant'
+        return self.first_name if not self.hide_realname else "Anonymous"
 
     @property
     def last_name_anon(self):
-        return self.last_name if not self.hide_realname else self.pk
+        pk_ascci = str(self.pk).encode("ascii")
+        return (
+            self.last_name
+            if not self.hide_realname
+            else md5(pk_ascci).hexdigest()[:6].upper()
+        )
 
     @property
     def full_name(self):

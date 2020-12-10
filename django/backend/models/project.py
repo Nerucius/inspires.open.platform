@@ -191,9 +191,9 @@ class Participation(TrackableModel):
 
         # Special guard against adding "invited" users
         user = User.objects.get(pk=data["user"])
-        if user.eval_token != '':
+        if user.eval_token != "":
             return False
-        
+
         # Check project write access
         project = Project.objects.get(pk=data["project"])
         return project.can_write(user)

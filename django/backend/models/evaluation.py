@@ -4,7 +4,6 @@ from django.conf import settings
 
 from backend.models import TrackableModel, Participation, Project
 
-
 # -----------------------
 # Evaluation AXII
 # -----------------------
@@ -76,7 +75,7 @@ DIMENSION_CHOICES = [
     (DIM_SATISFACTION, "Satisfaction with the participatory dynamics"),
     (DIM_RELEVANCE, "Scientific relevance"),
     (DIM_SELFIMPROVE, "Self-improvement"),
-    (DIM_TRANSDISCIPLINAR, "Knowledge Integration"), # Name changed for v2
+    (DIM_TRANSDISCIPLINAR, "Knowledge Integration"),  # Name changed for v2
     (DIM_TRANSPARENCY, "Transparency"),
 ]
 
@@ -103,18 +102,18 @@ class Question(models.Model):
     role = models.ForeignKey("ParticipationRole", on_delete=models.SET_NULL, null=True)
     phase = models.ForeignKey("ProjectPhase", on_delete=models.SET_NULL, null=True)
 
-    name = models.CharField(max_length=1024)
+    i18n = models.CharField(max_length=256, blank=True)
+    # name = models.CharField(max_length=1024)
+
     answers = models.ManyToManyField("Answer", blank=True)
     answer_type = models.CharField(choices=ANSWER_CHOICES, max_length=32)
     answer_range = models.PositiveSmallIntegerField(blank=True, null=True)
 
-    i18n = models.CharField(max_length=256, blank=True)
-
     def __str__(self):
-        return "Question [%s] %s" % (self.answer_type, self.name[:50])
+        return "Question [%s] %s" % (self.answer_type, self.i18n)
 
     class Meta:
-        ordering = ["answer_type","id"]
+        ordering = ["answer_type", "id"]
 
 
 class Evaluation(TrackableModel):
@@ -186,7 +185,7 @@ def email_new_evaluation(
 
     if isinstance(instance, Evaluation):
         # Don't send evaluation emails for Invite users
-        if instance.participation.user.eval_token != '':
+        if instance.participation.user.eval_token != "":
             return
 
         # Send or resend email
@@ -271,8 +270,8 @@ class Response(TrackableModel):
 
 @receiver(models.signals.post_save)
 def invalidate_cache(sender, instance, raw, created, using, update_fields, **kwargs):
-    """ This receiver listes for any updated questionaire responses, and performs a
-        cache invalidation of the entire CSV endpoint for evaluations. """
+    """This receiver listes for any updated questionaire responses, and performs a
+    cache invalidation of the entire CSV endpoint for evaluations."""
 
     if settings.CACHE_REDIS and isinstance(instance, Response):
         from django.core.cache import cache

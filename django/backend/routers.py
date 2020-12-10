@@ -24,7 +24,7 @@ router.register("projectatphases", views.ProjectAtPhasesVS)
 
 router.register("content", views.ContentVS)
 
-# Evaluatiion Routes
+# Evaluation Routes
 
 router.register("question", views.QuestionVS)
 router.register("response", views.ResponseVS)

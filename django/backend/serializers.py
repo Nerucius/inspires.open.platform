@@ -37,9 +37,34 @@ class UserSerializer(serializers.ModelSerializer):
         ]
 
 
-class CurrentUserSerializer(UserSerializer):
-    first_name = serializers.CharField()
-    last_name = serializers.CharField()
+class CurrentUserSerializer(serializers.ModelSerializer):
+    managed_projects = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
+    researched_projects = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
+    managed_structures = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
+    owned_structures = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
+
+    class Meta:
+        model = models.User
+        fields = [
+            "id",
+            "username",
+            "full_name",
+            "first_name",
+            "last_name",
+            "email",
+            "hide_realname",
+            "avatar_url",
+            "gender",
+            "institution",
+            "education_level",
+            "owned_projects",
+            "managed_projects",
+            "researched_projects",
+            "managed_structures",
+            "owned_structures",
+            "is_administrator",
+            "is_superuser",
+        ]
 
 
 class ProjectSerializer(TrackableModelSerializer):

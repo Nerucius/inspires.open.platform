@@ -87,6 +87,15 @@ th{
                 </a> and create a new account with the email provided for the platform.
               </v-flex>
 
+              <v-flex xs12>
+                <v-checkbox
+                  v-model="editUser.hide_realname"
+                  :label="$t('forms.fields.isAnonymous')"
+                  :hint="$t('forms.hints.isAnonymous')"
+                  persistent-hint
+                />
+              </v-flex>
+
               <v-flex xs12 sm6 py-0>
                 <v-text-field
                   v-model="editUser.first_name"
@@ -145,6 +154,50 @@ th{
     </v-flex>
 
 
+    <!-- Evaluations -->
+    <v-flex xs12>
+      <v-card flat>
+        <v-card-title>
+          <h2 class="title">
+            {{ $t('pages.account.evaluationRequests') }}
+          </h2>
+        </v-card-title>
+        <v-card-text>
+
+          <v-list two-line>
+            <!-- Project Export -->
+            <v-list-tile>
+              <v-list-tile-avatar>
+                <v-icon>mdi-student</v-icon>
+              </v-list-tile-avatar>
+
+              <v-list-tile-content>
+                <v-list-tile-title>
+                  <strong>
+                    evaluation.project
+                  </strong>
+                </v-list-tile-title>
+                <v-list-tile-sub-title>
+                  evaluation.project.summary
+                </v-list-tile-sub-title>
+              </v-list-tile-content>
+
+              <v-list-tile-action>
+                <v-btn color="success" class="elevation-0 px-2">
+                  {{ $t('pages.projectManage.evalViewEvaluation') }}
+                </v-btn>
+              </v-list-tile-action>
+            </v-list-tile>
+
+            <v-divider />
+
+          </v-list>
+
+        </v-card-text>
+      </v-card>
+    </v-flex>
+
+    <!-- Project and Structures -->
     <v-flex xs12>
       <v-layout row wrap>
         <!-- Own projects -->
@@ -354,8 +407,9 @@ export default {
         await this.$store.dispatch('user/updateCurrent', this.editUser)
         await this.$store.dispatch("toast/success", this.$t('pages.account.updateProfileSuccess'))
 
+        await this.$store.dispatch("user/load")
         await this.$store.dispatch("user/load", [this.userId])
-        this.editUser = cloneDeep(this.user)
+        this.editUser = cloneDeep(this.$store.getters['user/current'])
 
         this.showEditForm = false;
       }catch(error){

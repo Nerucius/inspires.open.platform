@@ -145,7 +145,7 @@
 </template>
 
 <script>
-import { onlyUnique, slug2id, donwloadAsyncCSV} from "@/plugins/utils";
+import { onlyUnique, slug2id, donwloadAsyncCSV } from "@/plugins/utils";
 import { cloneDeep } from "lodash";
 import { API_SERVER } from "@/plugins/resource";
 

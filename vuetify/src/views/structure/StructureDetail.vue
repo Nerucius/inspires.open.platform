@@ -236,7 +236,7 @@ export default {
 
   metaInfo(){
     return {
-      title: (this.structure ?? {}).name
+      title: (this.structure || {}).name
     }
   },
 

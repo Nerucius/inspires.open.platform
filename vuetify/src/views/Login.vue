@@ -134,6 +134,7 @@
 </template>
 
 <script>
+import Cookies from "js-cookie";
 import LanguageSelector from "@/components/toolbar/LanguageSelector";
 
 export default {
@@ -169,6 +170,14 @@ export default {
   },
 
   mounted(){
+
+    // Autologin
+    if(this.$route.query.token){
+      Cookies.set('authorization', this.$route.query.token, {sameSite:"Strict"});
+      this.$store.dispatch('user/load')
+      this.redirectToPage();
+    }
+
     // Avoid showing this page if the user is logged in
     setTimeout(() => {
       if (this.isLoggedIn){

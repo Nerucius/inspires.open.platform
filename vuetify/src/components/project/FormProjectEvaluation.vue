@@ -27,6 +27,26 @@ table{
       </v-layout>
     </v-alert>
 
+    <v-layout pa-0 ma-0 mb-4 justify-center>
+      <v-flex grow pa-0 ma-0>
+        <v-btn large block dark color="grey darken-3"
+                :to="{...project.link, name:'evaluation-detail'}"
+                class="elevation-0"
+        >
+          <v-icon left>
+            mdi-school
+          </v-icon>
+          {{ $t('pages.projectManage.evalViewEvaluationResults') }}
+        </v-btn>
+      </v-flex>
+    </v-layout>
+
+    <FormProjectDownloadEval :project="project" />
+
+    <h2 class="my-4">
+      {{ $t('pages.projectManage.evaluationsPerPhase') }}
+    </h2>
+
     <v-expansion-panel
       v-for="phase in phases"
       :key="phase.id"
@@ -156,10 +176,13 @@ table{
 <script>
 import Cookies from 'js-cookie'
 import { ProjectAtPhaseResource } from "@/plugins/resource";
+import FormProjectDownloadEval from "@/components/project/FormProjectDownloadEval";
 // import EvaluationUpdateAlert from "@/components/evaluation/EvaluationUpdateAlert";
 
 export default {
-  components:{ },
+  components:{
+    FormProjectDownloadEval
+  },
 
   props: ["project"],
 
@@ -214,6 +237,10 @@ export default {
   methods: {
     user(uid){
       return this.$store.getters['user/get'](uid)
+    },
+
+    tName(obj){
+      return this.$t(obj.name)
     },
 
     getEvaluation(phase, participant){

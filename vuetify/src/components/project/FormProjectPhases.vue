@@ -4,6 +4,14 @@
       {{ $t('pages.projectManage.phasesTab') }}
     </h2>
 
+    <h3 v-if="!!currentPhase" class="my-4 headline text-xs-center">
+      <!-- <small>{{ $t('pages.projectManage.currentPhase') }}</small> -->
+      <b>{{ $t(currentPhase.name) }}</b>
+    </h3>
+    <h3 v-else class="my-4 headline text-xs-center">
+      {{ $t('pages.projectManage.noCurrentPhase') }}
+    </h3>
+
     <v-alert color="info" class="ma-4" :value="true" dismissible>
       <v-layout row align-top>
         <v-flex>
@@ -16,14 +24,6 @@
         </v-flex>
       </v-layout>
     </v-alert>
-
-    <h3 v-if="!!currentPhase" class="my-4 headline text-xs-center">
-      <small>{{ $t('pages.projectManage.currentPhase') }}</small>
-      {{ $t(currentPhase.name) }}
-    </h3>
-    <h3 v-else class="my-4 headline text-xs-center">
-      {{ $t('pages.projectManage.noCurrentPhase') }}
-    </h3>
 
     <h3 class="mb-2">
       {{ $t('pages.projectManage.changePhase') }}

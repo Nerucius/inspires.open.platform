@@ -92,7 +92,7 @@ class AnswerSerializer(serializers.ModelSerializer):
 class SimpleQuestionSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Question
-        fields = ["id", "name"]
+        fields = ["id", "i18n", "answer_type", "answer_range", "answers"]
 
 
 class QuestionSerializer(serializers.ModelSerializer):

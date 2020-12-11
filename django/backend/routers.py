@@ -28,6 +28,7 @@ router.register("content", views.ContentVS)
 
 router.register("question", views.QuestionVS)
 router.register("response", views.ResponseVS)
+router.register("answer", views.AnswerVS)
 router.register("eval/evaluations", views.EvaluationVS)
 router.register(
     "eval/project", views.ProjectEvaluationsVS, basename="project-evaluations"

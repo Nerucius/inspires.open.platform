@@ -445,6 +445,13 @@ class QuestionVS(ListDetail, viewsets.ModelViewSet):
     serializer_class = serializers.SimpleQuestionSerializer
     detail_serializer_class = serializers.QuestionSerializer
 
+    filterset_fields = ['version', 'role', 'phase']
+
+
+class AnswerVS(viewsets.ModelViewSet):
+    queryset = models.Answer.objects.all()
+    serializer_class = serializers.AnswerSerializer
+
 
 class ResponseVS(viewsets.ModelViewSet):
     """ Response API. If using as a listing, must provide project pk to validate. """

@@ -77,6 +77,16 @@
       padding: 0
     }
 
+
+    small {
+      color: darkslategray;
+      border: 1px solid darkslategray;
+      background: none !important;
+      border-radius: 5px;
+      padding: 3px;
+      margin-right: 8px;
+    }
+
     #self-questionnaire {
       display: none;
     }

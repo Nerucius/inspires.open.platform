@@ -120,7 +120,7 @@ def _get_df_responses_project(project, answer_type):
                 response.question.dimension,
                 str(response.evaluation.participation.role),
                 str(response.evaluation.phase.project_phase),
-                response.question.name,
+                response.question.i18n,
                 float(response.answer_degree or 0)
                 if answer_type == "DEGREE"
                 else "|".join([str(x.key) for x in response.answer_multiple.all()]),

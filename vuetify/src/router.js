@@ -135,6 +135,11 @@ const router = new Router({
             meta: {requiresAuth: true}
         },
         {
+            path: "/evaluation/print",
+            name: "evaluation-print",
+            component: () => import( /* webpackChunkName: "evaluation-print" */ "./views/evaluation/EvaluationPrint.vue"),
+        },
+        {
             path: "/projects/:slug/evaluation",
             name: "evaluation-detail",
             component: () => import( /* webpackChunkName: "evaluation-detail" */ "./views/evaluation/EvaluationDetail.vue"),

@@ -41,8 +41,8 @@
                   v-model="item.role"
                   :label="$t('forms.fields.role')"
                   :rules="[rules.required]"
-                  :items="roles"
-                  item-text="name"
+                  :items="Object.values(roles)"
+                  :item-text="tName"
                   item-value="id"
                 />
               </v-flex>
@@ -90,20 +90,17 @@ export default {
       participants: null,
       processing: false,
       userSearch: [],
-      targetUser: null,
-      roles: [
-        {id:1, name:"Scientist"},
-        {id:2, name:"Student"},
-        {id:3, name:"Civil Society"},
-        {id:4, name:"Project Manager"},
-      ],
+      targetUser: null
     };
   },
 
   computed: {
     structures() {
       return this.$store.getters["structure/all"]
-    }
+    },
+    roles(){
+      return this.$store.getters['evaluation/roles']
+    },
   },
 
   async mounted() {
@@ -124,6 +121,11 @@ export default {
     user(uid){
       return this.$store.getters['user/get'](uid)
     },
+
+    tName(obj){
+      return this.$t(obj.name)
+    },
+
 
     loadParticipants: async function(){
       // Transform attributes to be compatible with Form

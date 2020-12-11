@@ -250,14 +250,14 @@
               </h2>
 
               <div v-if="isParticipant" class="my-4 text-xs-center">
-                <v-btn large dark
+                <v-btn large dark color="grey darken-3"
                        :to="{...project.link, name:'evaluation-detail'}"
                        class="elevation-0"
                 >
                   <v-icon left>
                     mdi-school
                   </v-icon>
-                  View detailed evaluation for participants
+                  {{ $t('pages.projectManage.evalViewEvaluationResults') }}
                 </v-btn>
               </div>
 

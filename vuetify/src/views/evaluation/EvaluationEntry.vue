@@ -201,12 +201,12 @@ small{
                   {{ $t(`${question.i18n}`) }} {{ $t('pages.evaluationEntry.questionMultipleHelp') }}
                 </h3>
 
-                <v-layout row wrap mb-5>
+                <v-layout row wrap mb-5 px-3>
                   <v-flex v-for="(answer, aidx) in question.answers" :key="aidx" xs12 sm6 py-0>
                     <v-checkbox
                       v-model="answers[qidx]"
                       :value="answer.key"
-                      :label="answer.name"
+                      :label="tAnswer(answer)"
                       hide-details
                     />
                   </v-flex>
@@ -416,6 +416,10 @@ export default {
     },
     user(id){
       return this.$store.getters["user/get"](id)
+    },
+
+    tAnswer(answer){
+      return this.$t(`models.answer.A0${answer.key}`)
     },
 
     getResponse(questionId){

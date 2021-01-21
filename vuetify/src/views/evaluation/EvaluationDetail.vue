@@ -164,7 +164,7 @@
                   <div id="KnowledgeRelevanceChart" />
                 </div>
                 <div class="bullet">
-                  <h3>{{ $t('models.evaluation.dimension.transdisciplinarity') }}</h3>
+                  <h3>{{ $t('models.evaluation.dimension.knowledgeIntegration') }}</h3>
                   <div id="KnowledgeTransdisciplChart" />
                 </div>
               </div>

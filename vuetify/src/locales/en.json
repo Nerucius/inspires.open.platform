@@ -211,6 +211,8 @@
     "evaluationDetail": {
       "heatchart": {
         "title": "Involvement",
+        "real": "Real",
+        "effective": "Effective",
         "engagement": "Engagement",
         "responsiveness": "Responsiveness"
       },
@@ -361,6 +363,7 @@
         "scientificRelevance": "Scientific relevance",
         "selfImprovement": "Self-improvement",
         "transdisciplinarity": "Transdisciplinarity",
+        "knowledgeIntegration": "Knowledge Integration",
         "transparency": "Transparency"
       }
     },

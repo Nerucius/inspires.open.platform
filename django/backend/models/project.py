@@ -215,9 +215,10 @@ class Participation(TrackableModel):
         if "project" not in data:
             return user.is_superuser
 
+        invited_user = User.objects.get(pk=data["user"])
+
         # Special guard against adding "invited" users
-        user = User.objects.get(pk=data["user"])
-        if user.eval_token != "":
+        if invited_user.eval_token != None and len(invited_user.eval_token) > 0:
             return False
 
         # Check project write access

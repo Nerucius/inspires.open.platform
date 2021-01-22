@@ -97,6 +97,15 @@ class ProjectEvaluationsSerializer(TrackableModelSerializer):
         fields = ["evaluations"]
 
 
+class ProjectStatsSerializer(TrackableModelSerializer):
+    statN = serializers.IntegerField()
+    statPhases = serializers.CharField()
+
+    class Meta:
+        model = models.Project
+        fields = ["statN", "statPhases"]
+
+
 class StructureSerializer(TrackableModelSerializer):
     managers = serializers.PrimaryKeyRelatedField(
         many=True, queryset=models.User.objects

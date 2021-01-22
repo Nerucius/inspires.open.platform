@@ -427,6 +427,13 @@ class ProjectEvaluationsVS(RequirePKMixin, viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated, HasWriteAccess]
 
 
+class ProjectEvaluationStatsVS(RequirePKMixin, viewsets.ModelViewSet):
+    queryset = models.Project.objects.all()
+    serializer_class = serializers.ProjectStatsSerializer
+
+    permission_classes = [IsAuthenticated]
+
+
 class EvaluationQuestionsVS(RequirePKMixin, viewsets.ModelViewSet):
     queryset = models.Evaluation.objects.all()
     serializer_class = serializers.EvaluationQuestionsSerializer
@@ -445,7 +452,7 @@ class QuestionVS(ListDetail, viewsets.ModelViewSet):
     serializer_class = serializers.SimpleQuestionSerializer
     detail_serializer_class = serializers.QuestionSerializer
 
-    filterset_fields = ['version', 'role', 'phase']
+    filterset_fields = ["version", "role", "phase"]
 
 
 class AnswerVS(viewsets.ModelViewSet):

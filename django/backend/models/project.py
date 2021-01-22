@@ -1,5 +1,6 @@
 from django.db import models
 
+import backend.models
 from backend.models import TrackableModel, User
 
 DEFAULT_DESCRIPTION = """## Background
@@ -118,6 +119,31 @@ class Project(TrackableModel):
         if hasattr(self, "collaboration"):
             return self.collaboration.structure
         return None
+
+    @property
+    def statN(self):
+        return self.participants.count()
+
+    @property
+    def statPhases(self):
+        phases = ProjectPhase.objects.all()
+        roles = ParticipationRole.objects.all()
+
+        project_evals = backend.models.Evaluation.objects.filter(
+            participation__project=self.pk
+        )
+        scores = [0, 0, 0, 0]
+
+        for idx, phase in enumerate(phases):
+            for role in roles:
+                evals = project_evals.filter(
+                    phase__project_phase=phase, participation__role=role
+                )
+                # Add to score if any of them is completed
+                if any([e.is_complete for e in evals.all()]):
+                    scores[idx] += 0.25
+
+        return ";".join(map(str, scores))
 
     def can_write(self, user):
         return self.owner == user or self.managers.filter(pk=user.pk).exists()

@@ -125,7 +125,7 @@ class Evaluation(TrackableModel):
 
     @property
     def is_complete(self):
-        return len(self.response_set.all()) > 0
+        return self.response_set.count() > 0
 
     @property
     def project(self):

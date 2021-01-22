@@ -34,6 +34,9 @@ router.register(
     "eval/project", views.ProjectEvaluationsVS, basename="project-evaluations"
 )
 router.register(
+    "eval/project/stats", views.ProjectEvaluationStatsVS, basename="project-evaluations"
+)
+router.register(
     "eval/questions", views.EvaluationQuestionsVS, basename="evaluation-questions"
 )
 router.register(

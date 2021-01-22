@@ -4,7 +4,7 @@
     <v-card-text>
       <h3>{{ $t('pages.projectManage.evalViewPrintVersion') }}</h3>
 
-      <v-form v-model="valid" ref="form" @submit.prevent="downloadQuestionnaire">
+      <v-form ref="form" v-model="valid" @submit.prevent="downloadQuestionnaire">
         <v-layout wrap>
           <v-flex xs12 sm6 md4>
             <v-select

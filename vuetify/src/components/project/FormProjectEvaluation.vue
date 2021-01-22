@@ -30,8 +30,8 @@ table{
     <v-layout pa-0 ma-0 mb-4 justify-center>
       <v-flex grow pa-0 ma-0>
         <v-btn large block dark color="grey darken-3"
-                :to="{...project.link, name:'evaluation-detail'}"
-                class="elevation-0"
+               :to="{...project.link, name:'evaluation-detail'}"
+               class="elevation-0"
         >
           <v-icon left>
             mdi-school

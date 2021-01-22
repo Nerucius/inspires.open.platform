@@ -94,7 +94,6 @@
 
 <template>
   <v-layout row wrap align-content-start justify-end>
-
     <v-flex xs12 class="media-screen">
       <v-btn color="grey darken-3" block dark @click="printPage">
         <v-icon left>print</v-icon>
@@ -130,11 +129,10 @@
             <tr>
               <th>{{ $t('pages.evaluationEntry.evaluator') }}</th>
               <td>
-                <v-text-field single-line hide-details readonly></v-text-field>
+                <v-text-field single-line hide-details readonly />
               </td>
             </tr>
           </table>
-
         </v-card-text>
       </v-card>
     </v-flex>
@@ -146,30 +144,28 @@
           <h2 class="mb-2">
             {{ $t('pages.evaluationEntry.questionnaire') }}
           </h2>
-          <template v-for="(question, qidx) in questions">
-
+          <template v-for="question in questions">
             <!-- DEGREE Questions -->
-            <div class="no-page-break mb-4" v-if="question.answer_type == 'DEGREE'" :key="question.id">
+            <div v-if="question.answer_type == 'DEGREE'" :key="question.id" class="no-page-break mb-4">
               <h3>
                 <small>{{ question.id }}</small>
                 {{ $t(`${question.i18n}`) }}
               </h3>
 
               <v-layout row justify-space-around>
-                <v-flex shrink
-                  v-for="i in '01234567'" :key="i"
-                  class="text-xs-center"
-                  >
+                <v-flex v-for="i in '01234567'"
+                        :key="i" shrink
+                        class="text-xs-center"
+                >
                   <v-icon>mdi-circle-outline</v-icon><br>
                   <b>{{ i }}</b>
                 </v-flex>
               </v-layout>
-
             </div>
             <!-- /DEGREE Questions -->
 
             <!-- MULTIPLE ANSWER QUESTIONS -->
-            <div class="no-page-break mt-5" v-if="question.answer_type == 'MULTIPLE'" :key="question.id">
+            <div v-if="question.answer_type == 'MULTIPLE'" :key="question.id" class="no-page-break mt-5">
               <h3>
                 <small>{{ question.id }}</small>
                 {{ $t(`${question.i18n}`) }} {{ $t('pages.evaluationEntry.questionMultipleHelp') }}
@@ -187,12 +183,12 @@
             <!-- /MULTIPLE ANSWER QUESTIONS -->
 
             <!-- TEXT Questions -->
-            <div class="no-page-break mt-5" v-if="question.answer_type == 'TEXT'" :key="question.id">
+            <div v-if="question.answer_type == 'TEXT'" :key="question.id" class="no-page-break mt-5">
               <h3 class="">
                 <small>{{ question.id }}</small>
                 {{ $t(`${question.i18n}`) }}
-                <br/>
-                <br/>
+                <br>
+                <br>
                 {{ $t('models.question.Q10XY', {phase: $t(phase(evaluation.project_phase).tag)}) }}
               </h3>
 
@@ -204,17 +200,11 @@
               />
             </div>
             <!-- /TEXT Questions -->
-
           </template>
-
         </v-card-text>
       </v-card>
     </v-flex>
-
-
   </v-layout>
-
-
 </template>
 
 <script>

@@ -135,7 +135,7 @@ th{
 
             <!-- /Edit Profile Form -->
             </v-layout>
-            <input type="submit" style="display:none" />
+            <input type="submit" style="display:none">
           </v-form>
         </v-card-text>
 
@@ -163,7 +163,6 @@ th{
           </h2>
         </v-card-title>
         <v-card-text>
-
           <v-list two-line>
             <!-- Project Export -->
             <v-list-tile>
@@ -190,9 +189,7 @@ th{
             </v-list-tile>
 
             <v-divider />
-
           </v-list>
-
         </v-card-text>
       </v-card>
     </v-flex>

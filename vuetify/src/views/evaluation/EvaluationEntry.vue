@@ -92,13 +92,13 @@ small{
     <v-flex v-if="!!this.$route.query.eval_token" xs12>
       <v-alert color="info" :value="true" class="subheading">
         <v-layout align-center>
-        <v-flex shrink>
-          <v-icon dark>info</v-icon>
-        </v-flex>
-        <v-flex>
-          <p>{{ $t('pages.evaluationEntry.answeringAsToken', {name:evaluationUser.full_name}) }}</p>
-          {{ $t('pages.evaluationEntry.manageProfileLink') }} <v-btn outline flat color="white" :to="{name:'login', query:{'token': $route.query.eval_token}}">{{$t('toolbar.myAccount')}}</v-btn>
-        </v-flex>
+          <v-flex shrink>
+            <v-icon dark>info</v-icon>
+          </v-flex>
+          <v-flex>
+            <p>{{ $t('pages.evaluationEntry.answeringAsToken', {name:evaluationUser.full_name}) }}</p>
+            {{ $t('pages.evaluationEntry.manageProfileLink') }} <v-btn outline flat color="white" :to="{name:'login', query:{'token': $route.query.eval_token}}">{{ $t('toolbar.myAccount') }}</v-btn>
+          </v-flex>
         </v-layout>
       </v-alert>
     </v-flex>
@@ -242,8 +242,8 @@ small{
                 <h3 class="mt-4 mb-3">
                   <small>{{ question.id }}</small>
                   {{ $t(`${question.i18n}`) }}
-                  <br/>
-                  <br/>
+                  <br>
+                  <br>
                   {{ $t('models.question.Q10XY', {phase: $t(phase(evaluation.project_phase).tag)}) }}
                 </h3>
 

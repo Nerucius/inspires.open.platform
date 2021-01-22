@@ -148,10 +148,10 @@
       <div v-if="evalStats" style="display:flex; justify-content:space-around">
         <div style="flex: 0 0 auto; display:flex">
           <!-- Filled bullets -->
-          <div :key="idx" v-for="(p,idx) in evalStats.statPhases" style="flex: 0 0 auto; margin: 0 8px">
+          <div v-for="(p,idx) in evalStats.statPhases" :key="idx" style="flex: 0 0 auto; margin: 0 8px">
             <div class="circle" :title="$t(`models.projectPhase.phase${idx+1}Tag`)">
               <div class="circle__padding">
-                <div :class="{circle__fill:true, ['p'+idx]:true}" :style="{height: p*14+'px'}"></div>
+                <div :class="{circle__fill:true, ['p'+idx]:true}" :style="{height: p*14+'px'}" />
               </div>
             </div>
           </div>

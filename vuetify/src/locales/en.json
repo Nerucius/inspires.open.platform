@@ -249,6 +249,9 @@
       "fileReady": "File \"{name}\" ready to upload",
       "currentImage": "Current Image",
       "upload": "Upload file"
+    },
+    "ProjectCard":{
+      "numberOfParticipants": "Number of participants"
     }
   },
   "models": {

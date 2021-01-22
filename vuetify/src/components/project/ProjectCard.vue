@@ -4,6 +4,46 @@
     text-decoration: none;
     color:inherit;
   }
+
+  .circle{
+    width: 18px;
+    height: 18px;
+    border: 1px solid darkslategray;
+    border-radius: 100%;
+    overflow:hidden;
+  }
+
+  .circle .circle__padding{
+    width: 16px;
+    height: 16px;
+    border: 2px solid white;
+    border-radius: 100%;
+    overflow:hidden;
+
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .circle .circle__fill{
+    width: 14px;
+    height: 14px;
+  }
+
+  .circle .circle__fill.p0{
+    background-color: teal;
+  }
+
+  .circle .circle__fill.p1{
+    background-color: teal;
+  }
+
+  .circle .circle__fill.p2{
+    background-color: teal;
+  }
+
+  .circle .circle__fill.p3{
+    background-color: teal;
+  }
 </style>
 
 
@@ -105,6 +145,22 @@
         </ProjectTangram>
       </v-sheet>
 
+      <div v-if="evalStats" style="display:flex; justify-content:space-around">
+        <div style="flex: 0 0 auto; display:flex">
+          <!-- Filled bullets -->
+          <div :key="idx" v-for="(p,idx) in evalStats.statPhases" style="flex: 0 0 auto; margin: 0 8px">
+            <div class="circle" :title="$t(`models.projectPhase.phase${idx+1}Tag`)">
+              <div class="circle__padding">
+                <div :class="{circle__fill:true, ['p'+idx]:true}" :style="{height: p*14+'px'}"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div :title="$t('components.ProjectCard.numberOfParticipants')" style="flex: 0 0 auto; line-height:20px; font-size: 16px;">
+          N:<b>{{ evalStats.statN }}</b>
+        </div>
+      </div>
+
       <v-card-text class="pb-0">
         <v-sheet class="mb-2">
           <!-- Project Title -->
@@ -156,6 +212,8 @@
 // import ProjectTangram from "@/components/evaluation/ProjectTangram";
 // import { iso3toiso2, translateCountryName } from '@/plugins/countries'
 import { obj2slug } from "@/plugins/utils";
+import { ProjectEvaluationStatsResource } from "@/plugins/resource";
+
 import ProjectTangram from "@/components/evaluation/ProjectTangram";
 
 export default {
@@ -167,6 +225,19 @@ export default {
 
   data(){
     return{
+      evalStats: null
+    }
+  },
+
+  watch:{
+    async showEvaluation(){
+      // If the evaluation is requested, query for participations stats
+      var evalStats = (await ProjectEvaluationStatsResource.get({id: this.project.id})).body
+
+      this.evalStats = {
+        statN : evalStats.statN,
+        statPhases: evalStats.statPhases.split(';').map(parseFloat)
+      }
     }
   },
 

@@ -56,6 +56,7 @@ export const CollaborationResource = Vue.resource(API_SERVER + "/v1/collaboratio
 export const ContentResource = Vue.resource(API_SERVER + "/v1/content{/id}/", {}, PATCH);
 
 export const ProjectEvaluationsResource = Vue.resource(API_SERVER + "/v1/eval/project{/id}/", {}, PATCH);
+export const ProjectEvaluationStatsResource = Vue.resource(API_SERVER + "/v1/eval/project/stats{/id}/", {}, PATCH);
 export const EvaluationResource = Vue.resource(API_SERVER + "/v1/eval/evaluations{/id}/", {}, PATCH);
 export const EvaluationQuestionsResource = Vue.resource(API_SERVER + "/v1/eval/questions{/id}/", {}, PATCH);
 export const EvaluationResponsesResource = Vue.resource(API_SERVER + "/v1/eval/responses{/id}/", {}, PATCH);

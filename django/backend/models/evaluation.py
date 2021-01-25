@@ -184,8 +184,10 @@ def email_new_evaluation(
     # TODO: Abort on shell scripts and such
 
     if isinstance(instance, Evaluation):
-        # Don't send evaluation emails for Invite users
-        if instance.participation.user.eval_token != "":
+        # Don't send evaluation emails for Invited users
+        user_eval_token = instance.participation.user.eval_token
+        if user_eval_token != None and len(user_eval_token) > 0:
+            print("No email for invited users")
             return
 
         # Send or resend email

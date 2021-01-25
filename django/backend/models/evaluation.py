@@ -193,8 +193,9 @@ def email_new_evaluation(
         # Send or resend email
         if created or instance.resend_email:
             instance.resend_email = False
+            instance.save()
+            
             from backend import email
-
             email.email_new_evaluation(instance)
             print("Sent email for new evaluation")
 

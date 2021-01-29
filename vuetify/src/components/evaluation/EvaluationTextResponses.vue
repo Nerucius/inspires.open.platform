@@ -17,7 +17,7 @@
       </h2>
     </v-card-title>
     <v-card-text>
-      <v-sheet :max-height="400" style="overflow-y:auto; overflow-x:hidden">
+      <v-sheet :max-height="600" style="overflow-y:auto; overflow-x:hidden">
         <v-layout ma-0 pa-0 wrap>
           <!-- Single participant quote -->
           <v-flex v-for="response in textResponses" :key="response.id" class="quote" xs12>

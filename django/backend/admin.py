@@ -40,6 +40,7 @@ for model in [
     Permission,
     LogEntry,
     ContentType,
+    models.Attachment,
     models.Structure,
     models.StructureValidation,
     models.Collaboration,

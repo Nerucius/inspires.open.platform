@@ -641,7 +641,9 @@
     "projects": "Projects",
     "structure": "Structure",
     "structures": "Structures",
-    "evaluation": "Evaluation"
+    "evaluation": "Evaluation",
+    "attachment": "Attachment",
+    "attachments": "Attachments"
   },
   "errors": {
     "couldNotLoad": "There was a problem loading this page. Are you sure you have access?",

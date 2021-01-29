@@ -44,65 +44,9 @@
       </v-card>
     </v-flex> -->
 
-    <v-flex v-if="isArticleDetail" xs12>
+    <v-flex v-if="isArticleDetail && !!article" xs12>
       <!-- Article Page -->
-      <v-card v-if="article != null" flat>
-        <v-toolbar dense flat dark color="grey darken-3">
-          <v-toolbar-title>
-            <span class="grey--text">
-              {{ article.topic }} |
-            </span>{{ article.title }}
-          </v-toolbar-title>
-          <v-spacer />
-          <!-- Back button -->
-          <v-btn flat exact :to="{ name: 'help' }">
-            <v-icon left>
-              mdi-arrow-left
-            </v-icon>{{ $t("actions.back") }}
-          </v-btn>
-          <!-- This article in other languages -->
-          <v-menu offset-y>
-            <v-btn slot="activator" flat>
-              {{ article.locale }}
-              <v-icon right>
-                expand_more
-              </v-icon>
-            </v-btn>
-            <v-list>
-              <v-list-tile
-                v-for="a in articlesSameMaster(article.master)"
-                :key="a.slug"
-                :to="a.link"
-              >
-                <v-list-tile-title>
-                  <small>{{ a.locale | uppercase }}</small>
-                </v-list-tile-title>
-
-                <flag
-                  :iso="getFlagIso(a.locale)"
-                  :squared="false"
-                  style="width: 40px"
-                />
-              </v-list-tile>
-            </v-list>
-          </v-menu>
-        </v-toolbar>
-
-        <v-card-text class="markdown">
-          <vue-markdown v-if="article != null">{{ article.body }}</vue-markdown>
-          <v-layout mt-3 justify-end>
-            <v-flex shrink class="grey--text">
-              <span :title="moment(article.modified_at).format('L LT')">
-                {{
-                  $t("misc.lastUpdated", {
-                    time: moment(article.modified_at).fromNow(),
-                  })
-                }}
-              </span>
-            </v-flex>
-          </v-layout>
-        </v-card-text>
-      </v-card>
+      <ArticleContent :article="article" :articlesSameMaster="articlesSameMaster(article)" />
     </v-flex>
 
     <v-flex v-else xs12>
@@ -137,6 +81,7 @@
 
 <script>
 import ArticleList from "@/components/help/ArticleList";
+import ArticleContent from "@/components/help/ArticleContent";
 import { getFlagIso } from "@/plugins/i18n";
 import { API_SERVER } from "@/plugins/resource";
 
@@ -149,6 +94,7 @@ export default {
 
   components: {
     ArticleList,
+    ArticleContent,
   },
 
   data() {

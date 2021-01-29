@@ -183,11 +183,19 @@ class EvaluationSerializer(serializers.ModelSerializer):
     role = serializers.IntegerField(source="participation.role.pk", read_only=True)
     project_phase = serializers.IntegerField(source="project_phase.pk", read_only=True)
     user = serializers.IntegerField(source="participation.user.id", read_only=True)
-    user_eval_token = serializers.CharField(source="participation.user.eval_token", read_only=True)
+    user_eval_token = serializers.CharField(
+        source="participation.user.eval_token", read_only=True
+    )
 
     class Meta:
         model = models.Evaluation
         fields = "__all__"
+
+
+class AttachmentSerializer(TrackableModelSerializer):
+    class Meta:
+        model = models.Attachment
+        fields = ["id", "name", "mime_type", "url"]
 
 
 class ContentMasterSerializer(TrackableModelSerializer):
@@ -202,12 +210,22 @@ class SimpleContentSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.Content
-        fields = ["master", "type", "title", "topic", "summary", "slug", "locale", "published"]
+        fields = [
+            "master",
+            "type",
+            "title",
+            "topic",
+            "summary",
+            "slug",
+            "locale",
+            "published",
+        ]
 
 
 class ContentSerializer(TrackableModelSerializer):
-    # type = serializers.CharField(read_only=True, source="type")
+    attachments = AttachmentSerializer(read_only=True, many=True)
+
     class Meta:
         model = models.Content
         fields = "__all__"
-        lookup_field = 'slug'
+        lookup_field = "slug"

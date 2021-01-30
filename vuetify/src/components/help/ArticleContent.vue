@@ -100,7 +100,9 @@ export default {
 
   computed:{
     isPdf(){
-      return true;
+      if(!this.article.attachments || this.article.attachments.length == 0)
+        return false;
+      return this.article.attachments[0].mime_type == 'application/pdf';
     },
     pdfURL(){
       return this.article.attachments[0].url;

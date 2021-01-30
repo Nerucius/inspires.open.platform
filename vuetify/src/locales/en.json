@@ -709,6 +709,8 @@
       "participants": "Participants",
       "managers": "Managers",
 
+      "attachmentName": "Attachment title",
+
       "structureName": "Structure Name",
       "structureType": "Structure Type",
       "structureYearFounded": "Year this Structure was founded",

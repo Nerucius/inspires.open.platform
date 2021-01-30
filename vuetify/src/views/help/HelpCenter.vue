@@ -102,7 +102,6 @@ export default {
       getFlagIso,
       moment,
       searchTerm: '',
-      article: null,
       articles: [],
       onDestroy: [],
     };
@@ -127,6 +126,11 @@ export default {
     },
     articleSlug() {
       return this.$route.params.page;
+    },
+    article(){
+      if(this.articleSlug)
+        return this.$store.getters["content/detail"](this.articleSlug);
+      return null;
     },
     articleSearch(){
       if(!this.searchTerm) return this.articles;
@@ -181,7 +185,6 @@ export default {
       // load current article
       this.$store.dispatch("content/clear");
       await this.$store.dispatch("content/load", [this.articleSlug]);
-      this.article = this.$store.getters["content/detail"](this.articleSlug);
     },
 
     articlesSameMaster(masterId) {

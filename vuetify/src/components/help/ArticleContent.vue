@@ -69,27 +69,52 @@
     <!-- Attachments -->
     <v-card-text>
       <v-sheet class="grey lighten-4 pa-3">
+
         <h2 class="mb-2">{{ $t('noums.attachments') }}</h2>
+
         <v-list>
-          <v-list-tile v-for="att in article.attachments" :key="att.id" :to="att.url">
-            <v-list-tile-action>
-              <v-icon>mdi-file</v-icon>
-            </v-list-tile-action>
-            <v-list-tile-content>
-              {{ att.name }}
-            </v-list-tile-content>
-          </v-list-tile>
+            <transition-group name="list">
+              <v-list-tile v-for="att in article.attachments" :key="att.id">
+                <v-list-tile-avatar>
+                  <v-icon>mdi-file</v-icon>
+                </v-list-tile-avatar>
+                <v-list-tile-content>
+                  {{ att.name }} 
+                  <small class="grey--text">{{att.mime_type}}, {{ sizeToStr(att.size) }}</small>
+                </v-list-tile-content>
+                <v-list-tile-action style="flex-direction: unset">
+                  <v-btn icon ripple :href="att.url"><v-icon color="primary">download</v-icon></v-btn>
+                  <template v-if="currentUser.is_administrator">
+                    <v-btn icon ripple class="ml-1" :href="editAttachmentLink(att)"><v-icon color="orange">edit</v-icon></v-btn>
+                    <v-btn icon ripple class="ml-1" @click="deleteAttachment(att)"><v-icon color="red">delete</v-icon></v-btn>
+                  </template>
+                </v-list-tile-action>
+              </v-list-tile>
+            </transition-group>
         </v-list>
+
+        <template v-if="currentUser.is_administrator">
+          <br />
+          <AttachmentUpload model='content' :objectId='article.id' @upload="reloadArticle"/>
+        </template>
+
       </v-sheet>
+      
     </v-card-text>
   </v-card>
 </template>
 
 <script>
+import { API_SERVER } from "@/plugins/resource";
 import { getFlagIso } from "@/plugins/i18n";
+import AttachmentUpload from "@/components/input/AttachmentUpload";
 
 export default {
   props : ["article", "articlesSameMaster"],
+
+  components:{
+    AttachmentUpload
+  },
 
   data(){
     return {
@@ -99,6 +124,9 @@ export default {
   },
 
   computed:{
+    currentUser(){
+      return this.$store.getters['user/current']
+    },
     isPdf(){
       if(!this.article.attachments || this.article.attachments.length == 0)
         return false;
@@ -107,7 +135,32 @@ export default {
     pdfURL(){
       return this.article.attachments[0].url;
     }
-  }
+  },
+
+  methods: {
+    editAttachmentLink(att){
+      return `${API_SERVER}/admin/backend/attachment/${att.id}/change/`
+    },
+    sizeToStr(size){
+      let number = size / 1024;
+      let unit = "KB"
+      if (size / 1024 > 1024){
+        number = size / (1024*1024)
+        unit = "MB"
+      }
+
+      return Math.round(number*100) / 100 + ' ' + unit;
+        
+    },
+    async deleteAttachment(att){
+      await this.$store.dispatch("attachment/delete", att.id)
+      this.reloadArticle();
+    },
+    async reloadArticle(){
+      console.log("Reloading article")
+      this.$store.dispatch('content/load', [this.article.slug])
+    }
+  },
 
 }
 </script>

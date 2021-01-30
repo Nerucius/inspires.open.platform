@@ -23,9 +23,7 @@
         <h4>{{ $t('components.ImageUpload.title') }}</h4>
         <label class="mb-3 v-input v-btn v-btn--block custom-file-upload" for="file">
           <div>
-            <v-icon left>
-              cloud_upload
-            </v-icon>
+            <v-icon left>cloud_upload</v-icon>
             <span v-if="!file">
               {{ $t('components.ImageUpload.selectFile') }}
             </span>
@@ -42,10 +40,7 @@
       <v-flex xs12 sm6>
         <h4>{{ $t('components.ImageUpload.currentImage') }}</h4>
         <v-img aspect-ratio="2" :src="imageUrl" />
-        <v-text-field
-          v-model="imageUrl"
-          readonly
-        />
+        <v-text-field v-model="imageUrl" readonly />
       </v-flex>
     </v-layout>
   </div>

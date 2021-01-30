@@ -21,7 +21,7 @@
   .v-snack { padding-top: 10px; }
 </style>
 
-<style scoped>
+<style>
   /* Transitions */
   .fade-enter-active,
   .fade-leave-active {
@@ -34,6 +34,13 @@
   .fade-leave-active {
     opacity: 0
   }
+
+  .list-enter-active, .list-leave-active {
+    transition: all 0.5s;
+  }
+  .list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
+    opacity: 0;
+}
 </style>
 
 

@@ -20,9 +20,6 @@ input[type="file"] {
 
 
 <template>
-  <div>
-    <h2 mb-2>Upload Attachment</h2>
-
     <v-form ref="form" v-model="valid" @submit.prevent="uploadAttachment">
       <v-layout wrap>
         <v-flex xs12>
@@ -54,7 +51,6 @@ input[type="file"] {
         </v-flex>
       </v-layout>
     </v-form>
-  </div>
 </template>
 
 

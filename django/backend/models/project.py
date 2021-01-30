@@ -92,7 +92,7 @@ class Project(TrackableModel):
 
     # Evaluation
 
-    eval_version = models.IntegerField(default=1)
+    eval_version = models.IntegerField(default=2)
     phases = models.ManyToManyField(
         "ProjectPhase", through="ProjectAtPhase", blank=True
     )

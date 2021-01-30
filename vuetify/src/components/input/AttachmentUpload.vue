@@ -112,14 +112,10 @@ export default {
 
       try {
         // Attempt to upload File
-        var response = await this.$http.post(
+        let response = await this.$http.post(
           `${API_SERVER}/upload/file/${fileName}`,
           formData, { headers: { "Content-Type": "multipart/form-data" } }
         );
-
-        let response = {
-          data: { url: 'https://example.org' }
-        }
 
         let attachmentData = {
           ...this.attachment,

@@ -59,7 +59,8 @@
       "title": "Help Center",
       "description": "TODO: text",
       "allArticles": "All Articles",
-      "articlesOtherLanguages": "Articles in other languages"
+      "articlesOtherLanguages": "Articles in other languages",
+      "articleDoesNotExist": "The article you are looking for no longer exists."
     },
 
     "about": {

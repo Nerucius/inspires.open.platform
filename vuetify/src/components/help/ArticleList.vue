@@ -15,7 +15,7 @@
   <div>
     <v-list two-line>
       <template v-for="(group, i) in groupedArticles">
-        <v-divider v-if="i > 0" :key="group.master_id + '-sep'" />
+        <v-divider :key="group.master_id + '-sep'" />
 
         <v-list-tile :key="group.master_id" :to="group.article.link">
           <v-flex shrink mr-5 class="hidden-xs-only text-xs-center">
@@ -51,7 +51,11 @@
             </v-layout>
           </v-list-tile-action>
         </v-list-tile>
+
+        <v-divider class="mb-4" v-if="group.spaceAfter" :key="group.master_id + '-spacer'" />
+
       </template>
+      <v-divider />
     </v-list>
   </div>
 </template>
@@ -83,6 +87,7 @@ export default {
 
           let flags = masterArticles.map(a => a.locale)
           let userArticle
+          // Decide the article we show to the user, if we can match the user's language, shwo that one, otherwise, find the english one.
           try {
             userArticle = masterArticles.filter(a => a.locale == userLang)[0]
           } catch (error) {
@@ -95,6 +100,12 @@ export default {
             flags: flags
           }
         })
+
+        // Dividers on topic change
+        for(let i = 0; i < grouped.length-1; i++){
+          if(grouped[i].article.topic != grouped[i+1].article.topic)
+            grouped[i].spaceAfter = true;
+        }
 
         return grouped
       }

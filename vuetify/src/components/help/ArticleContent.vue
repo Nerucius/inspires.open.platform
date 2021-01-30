@@ -115,7 +115,7 @@ export default {
     }
   },
 
-  created() {
+  created() {    
     if(this.isPdf && !this.isSmallScreen){
       this.viewAsPDF = true;
     }

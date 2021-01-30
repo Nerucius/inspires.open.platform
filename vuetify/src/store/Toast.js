@@ -50,6 +50,9 @@ export default {
     success: function (context, message) {
       context.dispatch("new", {color:"success", message});
     },
+    warning: function (context, message) {
+      context.dispatch("new", {color:"warning", message});
+    },
     error: function (context, params) {
       let message = params
       let error

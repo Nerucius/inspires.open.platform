@@ -34,7 +34,6 @@
       </v-layout>
     </v-flex>
 
-
     <!-- Article Page -->
     <v-flex v-if="isArticleDetail && !!article" xs12>
       <ArticleContent :key="article.id" :article="article" :articlesSameMaster="articlesSameMaster(article.master)" />
@@ -63,6 +62,13 @@
             </v-flex>
           </v-layout>
 
+          <!-- TODO: Filter by Topic -->
+          <!-- <v-layout mb-3 wrap>
+            <v-flex pa-0 ma-0 shrink v-for="topic in topics" :key="topic">
+              <v-btn @click="filterTopic = topic" :disabled="topic==filterTopic">{{ topic }}</v-btn>
+            </v-flex>
+          </v-layout> -->
+
           <ArticleList :articles="articleSearch" :flags="true" />
         </v-card-text>
       </v-card>
@@ -75,6 +81,10 @@ import ArticleList from "@/components/help/ArticleList";
 import ArticleContent from "@/components/help/ArticleContent";
 import { getFlagIso } from "@/plugins/i18n";
 import { API_SERVER } from "@/plugins/resource";
+
+const unique = (value, index, self) => {
+  return self.indexOf(value) === index
+}
 
 export default {
   metaInfo() {
@@ -93,6 +103,7 @@ export default {
       getFlagIso,
       moment,
       searchTerm: '',
+      filterTopic: '',
       articles: [],
       onDestroy: [],
     };
@@ -118,13 +129,22 @@ export default {
     articleSlug() {
       return this.$route.params.page;
     },
+    topics(){
+      return this.articles.map(a => a.topic).filter(unique)
+    },
     article(){
       if(this.articleSlug)
         return this.$store.getters["content/detail"](this.articleSlug);
       return null;
     },
     articleSearch(){
-      if(!this.searchTerm) return this.articles;
+      let articles = this.articles;
+
+      if(this.filterTopic){
+        articles = articles.filter(a => a.topic == this.filterTopic);
+      }
+
+      if(!this.searchTerm) return articles;
       let l = s => s.toLowerCase()
       let s = l(this.searchTerm)
 
@@ -176,7 +196,12 @@ export default {
 
       // load current article
       this.$store.dispatch("content/clear");
-      await this.$store.dispatch("content/load", [this.articleSlug]);
+      try {
+        await this.$store.dispatch("content/load", [this.articleSlug]);
+      } catch (error) {
+          this.$router.push({ name: 'help' });
+          this.$store.dispatch('toast/warning', this.$t('pages.help.articleDoesNotExist'))
+      }
     },
 
     articlesSameMaster(masterId) {

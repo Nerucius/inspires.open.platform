@@ -13,6 +13,7 @@ import structure from "./store/Structure";
 import collaboration from "./store/Collaboration";
 
 import content from "./store/Content";
+import attachment from "./store/Attachment";
 
 import participation from "./store/Participation";
 import evaluation from "./store/Evaluation";
@@ -30,6 +31,7 @@ export default new Vuex.Store({
     knowledgearea,
     structure,
     content,
+    attachment,
     collaboration,
     participation,
     evaluation,

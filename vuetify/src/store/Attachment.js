@@ -1,5 +1,4 @@
-import Vue from "../plugins/resource";
-import { AttachmentResource } from "../plugins/resource";
+import { AttachmentResource, ContentTypeResource } from "../plugins/resource";
 
 const Resource = AttachmentResource
 
@@ -12,30 +11,27 @@ export default {
   namespaced: true,
 
   state: {
-    items: {},
     itemsDetail: {},
+    contentTypes: [],
   },
 
   mutations: {
-    ADD(state, items){
-      let newItems = {}
-      items.map(handle).forEach(i => {newItems[i.id] = i})
-      state.items = { ...state.items, ...newItems}
+    
+    ADD_DETAIL(state, items) {
+        let newItems = {}
+        items.map(handle).forEach(i => {newItems[i.id] = i})
+        state.itemsDetail = { ...state.itemsDetail, ...newItems }
     },
 
-    ADD_DETAIL(state, items) {
-      let newItems = {}
-      items.map(handle).forEach(i => {newItems[i.id] = i})
-      state.itemsDetail = { ...state.itemsDetail, ...newItems }
+    ADD_CONTENTYPES(state, items){
+        state.contentTypes = items;
     },
 
     CLEAR(state){
-      state.items = []
       state.itemsDetail = []
     },
 
     REMOVE(state, id){
-      delete state.items[id]
       delete state.itemsDetail[id]
     }
   },
@@ -67,22 +63,23 @@ export default {
 
     delete: async function (context, id){
       let result = (await Resource.delete({id}))
-      context.dispatch("delete", id)
+      context.commit("REMOVE", id)
       return result
+    },
+
+    loadContentTypes: async function(context, _){
+        let response = await ContentTypeResource.get();
+        context.commit("ADD_CONTENTYPES", response.body.results)
     },
   },
 
   getters: {
-    all: state => {
-      return Object.values(state.items)
-    },
-
-    get: state =>{
-      return ( id ) => state.items[id] || {}
-    },
-
     detail: state =>{
       return ( id ) => state.itemsDetail[id] || {}
+    },
+
+    contentType: state =>{
+      return ( model ) => state.contentTypes.filter(ct => ct.model==model)[0]
     },
   }
 };

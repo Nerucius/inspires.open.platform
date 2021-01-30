@@ -57,7 +57,7 @@ export default {
       state.itemsDetail = []
     },
 
-    DELETE(state, id){
+    REMOVE(state, id){
       delete state.items[id]
       delete state.itemsDetail[id]
     }
@@ -144,7 +144,7 @@ export default {
 
     delete: async function (context, id){
       let result = (await Resource.delete({id}))
-      context.dispatch("delete", id)
+      context.commit("REMOVE", id)
       return result
     },
   },

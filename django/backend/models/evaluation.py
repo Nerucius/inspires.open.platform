@@ -224,7 +224,7 @@ class Response(TrackableModel):
         related_name="single_answers",
         related_query_name="single_answer",
     )
-    answer_text = models.CharField(max_length=1024, blank=True)
+    answer_text = models.CharField(max_length=4096, blank=True)
     answer_degree = models.PositiveSmallIntegerField(blank=True, null=True)
 
     @property

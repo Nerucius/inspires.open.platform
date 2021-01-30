@@ -153,8 +153,10 @@ export default {
         
     },
     async deleteAttachment(att){
-      await this.$store.dispatch("attachment/delete", att.id)
-      this.reloadArticle();
+      if(confirm('Are you sure you want to delete this attachment?')){
+        await this.$store.dispatch("attachment/delete", att.id)
+        this.reloadArticle();
+      }
     },
     async reloadArticle(){
       console.log("Reloading article")

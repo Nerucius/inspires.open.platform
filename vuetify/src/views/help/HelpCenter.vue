@@ -16,6 +16,7 @@
 
 <template>
   <v-layout row wrap align-content-start>
+    <!-- Title bar -->
     <v-flex xs12>
       <v-layout row wrap justify-end pa-2>
         <v-flex grow pa-0 pl-1>
@@ -33,24 +34,14 @@
       </v-layout>
     </v-flex>
 
-    <!-- <v-flex md4 hidden-sm-and-down>
-      <v-card flat>
-        <v-card-title>
-          <h2>About the Help Center</h2>
-        </v-card-title>
-        <v-card-text>
 
-        </v-card-text>
-      </v-card>
-    </v-flex> -->
-
+    <!-- Article Page -->
     <v-flex v-if="isArticleDetail && !!article" xs12>
-      <!-- Article Page -->
       <ArticleContent :key="article.id" :article="article" :articlesSameMaster="articlesSameMaster(article.master)" />
     </v-flex>
 
+    <!-- Article List Page -->
     <v-flex v-else xs12>
-      <!-- Article List Page -->
       <v-card flat class="pb-3">
         <v-toolbar dense flat dark color="grey darken-3">
           <v-toolbar-title>{{ $t("pages.help.allArticles") }}</v-toolbar-title>
@@ -149,12 +140,11 @@ export default {
   async created() {
     await Promise.all([this.loadArticles(), this.loadArticleDetail()])
 
-    let listener = this.$store.subscribe((mutation, _) => {
-      // Listen to Language changes to refresh article list
-      if (mutation.type == "preferences/SET_PREFERENCE") this.loadArticles();
-    });
-
-    this.onDestroy = [...this.onDestroy, listener]
+    // let listener = this.$store.subscribe((mutation, _) => {
+    //   // Listen to Language changes to refresh article list
+    //   if (mutation.type == "preferences/SET_PREFERENCE") this.loadArticles();
+    // });
+    // this.onDestroy = [...this.onDestroy, listener]
 
     this.$nextTick(() => {
       if (!!this.$route.query.q){
@@ -171,11 +161,13 @@ export default {
 
   methods: {
     async loadArticles() {
-      let userLang = this.currentLang;
-
       this.$store.dispatch("content/clear");
-      await this.$store.dispatch("content/load", {params:{master__type:"HELP"}});
+
+      // Loading userlang?
+      // let userLang = this.currentLang;
       // await this.$store.dispatch("content/load", { params : {locale: userLang} });
+      
+      await this.$store.dispatch("content/load", {params:{master__type:"HELP"}});
       this.articles = this.$store.getters["content/all"];
     },
 

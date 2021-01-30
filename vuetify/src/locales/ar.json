@@ -2,25 +2,25 @@
   "pages": {
     "login": {
       "welcomeMessage": "InSPIRES مرحبًا بك في منصة",
-      "forgotPassword": "Forgot your password?",
-      "registerCTA": "Register now!"
+      "forgotPassword": "نسيت رقمك السري؟",
+      "registerCTA": "! سجل الآن "
     },
     "account": {
-      "title": "Account",
-      "accountCreated": "Your new account has been created successfully. You can now access all of the features of the platform.",
-      "saveProfile": "Save profile",
-      "editProfile": "Edit Profile",
-      "updateProfileSuccess": "Your profile has been updated",
-      "updateProfileFailure": "Could not update your profile.",
-      "myProjects": "My Projects",
-      "myStructures": "My Structures"
+      "title": "الحساب",
+      "accountCreated": "تم إنشاء حسابك الجديد بنجاح. يمكنك الآن الوصول إلى جميع ميزات النظام الأساسي.",
+      "saveProfile": "احفظ الملف",
+      "editProfile": "تعديل الملف الشخصي",
+      "updateProfileSuccess": "تم تحديث ملفك الشخصي",
+      "updateProfileFailure": "لا يمكن تحديث ملف التعريف الخاص بك.",
+      "myProjects": "مشاريعي",
+      "myStructures": "هياكلي"
     },
     "resetPassword": {
-      "title": "Finish resetting your password",
-      "introText": "This page will allow you to change your forgotten password. Please enter the new password you want to use from now on:",
-      "resetPassword": "Reset my password",
-      "goBackToLogin": "Go back to login",
-      "passwordChanged": "Your password has been changed successfully! You can go back to the login page with your new credentials."
+      "title": "إنهاء إعادة تعيين كلمة المرور الخاصة بك",
+      "introText": "ستسمح لك هذه الصفحة بتغيير كلمة المرور المنسية. الرجاء إدخال كلمة المرور الجديدة التي تريد استخدامها من الآن فصاعدًا:",
+      "resetPassword": "إعادة تعيين كلمة المرور الخاصة بي",
+      "goBackToLogin": "العودة إلى تسجيل الدخول",
+      "passwordChanged": "تم تغيير كلمة مرورك بنجاح! يمكنك العودة إلى صفحة تسجيل الدخول باستخدام بيانات اعتمادك الجديدة."
     },
     "register": {
       "titles": {
@@ -39,7 +39,9 @@
       "step3TOSAcceptance": "بالنقرعلى زر \"قبول الشروط والأحكام\" ، أقر بأنني قد أبلغت بشكل مناسب وأنني أوافق على معالجة بياناتي الشخصية للغرض المذكور.",
       "step3MessageAccepted": "رائع! يمكننا الاستمرار مع بقية التسجيل.",
       "step4Message": "يرجى مراجعة المعلومات التالية. إذا كان كل شيء يبدو صحيحًا ، يمكنك متابعة التسجيل. يمكنك العودة إلى أي من الخطوات ومراجعة المعلومات المقدمة.",
-      "step4MessageInvite": "خلال الفترة الأولى من الاختبار ، نقصر التسجيل على المدعوين شخصيًا. الرجاء إدخال الرمز المقدم لك أدناه:"
+      "step4MessageInvite": "خلال الفترة الأولى من الاختبار ، نقصر التسجيل على المدعوين شخصيًا. الرجاء إدخال الرمز المقدم لك أدناه",
+      "registrationFailure": "حدث خطأ ما في تسجيلك ، من فضلك حاول مرة أخرى",
+      "emailTaken": "هذا البريد الإلكتروني هو بالفعل في الاستخدام. جرب واحدة أخرى أو حاول استعادة كلمة السر الخاصة بك"
     },
     "home": {
       "mainTitle": "InSPIRES مرحبًا بك في ",
@@ -48,8 +50,14 @@
       "welcomeMessage": "مرحبًا بك في منصة  المفتوحة إنسبيرس. تتميز هذه المنصة بمشاريع البحث والابتكار التشاركية التي يقودها المواطن والتي تروج لها الهياكل ، مثل متاجر العلوم أو مجموعات أو وحدات علوم المواطن ، إلخ",
       "welcomeMessageLong": "كما يوفر أداة متكاملة لتقييم الأثر التعاوني من أجل تقييم عمليات ونتائج مشاريعك الخاصة مع احترام الآخرين. الهدف المنشود هو إنتاج تفكير مشترك وجماعي حول هذا النوع من المشاريع التعاونية من أجل التعلم والتفكير والغبطة والنمو كمجتمع ممارسة لتطوير مشاريع أفضل تهدف إلى تحسين حياة المواطنين ورفاههم.",
       "aboutLink": "!المزيد عنا",
-      "allProjects": "All Projects",
+      "allProjects": "جميع المشاريع",
       "projectsSeeMore": "انظر جميع المشاريع"
+    },
+    "help": {
+      "title": " مركز المساعدة ",
+      "description": "TODO: نص",
+      "allArticles": "جميع المقالات",
+      "articlesOtherLanguages": "مقالات بلغات أخرى"
     },
     "about": {
       "mainTitle": "حول منصة انسبايرس المفتوحة",
@@ -63,6 +71,11 @@
       "titleTeam": "فريق المنصة المفتوحة لانسبايرس",
       "teamContent": "   بقيادة تطوير هذا النظام الأساسي المفتوح بالتعاون الوثيق مع مجموعات أبحاث علوم البيانات ISGlobal قام  بجامعة برشلونة OpenSystems ونظام\n دورًا مهمًا في بدايته وتطوره INSPIRES  كما لعب جميع أعضاء اتحاد"
     },
+    "search": {
+      "searchResults": "البحث عن النتائج",
+      "searchResultsFor": " كلمة) البحث عن النتائج)",
+      "searchFound": "وجدنا عناصر مطابقة لسؤالك:"
+    },
     "admin": {
       "mainTitle": "لوحة معلومات الإدارة",
       "unauthorizedAccess": "انت غير مصرح لك بالوصول إلى لوحة معلومات الإدارة. إذا كنت تعتقد أنه يجب عليك ذلك ، فيرجى الاتصال بالمسؤول عن المنصة.",
@@ -73,35 +86,40 @@
       "validationFailure": ".فشل في التحقق من صحة الهيكل. يرجى الاتصال بخدمة الدعم"
     },
     "legal": {
-      "termsOfServiceTitle": "Terms of Service",
-      "termsOfService": "By accepting the terms of service you understand that:\n\nYour personal data will only be used by:\n\nFundación Privada Instituto de Salud Global Barcelona (ISGlobal)\nCIF: G65341695\nPostal address: Carrer Rosselló, number 132, 2nd, 5th and 7th floors - 08036 Barcelona\nTelephone: (+34) 932 271 806\nEmail: inspires@isglobal.org\n\nWe collect and process your personal data for the sole purpose of responding to your registration to the website https://app.inspiresproject.com.\n\nYour data will be used solely by the InSPIRES team of ISGlobal who require access to it to carry out their work and it will never, under any circumstances, be made available to third parties or transferred to third countries or international organisations.\n\nWe can only process your personal data with your consent, and it will be retained only as long as you do not withdraw consent.\n\nYou can exercise all your rights under current data protection regulations, including the right to access, correction, objection, erasure, portability and restriction, by writing to the Data Protection Officer (lopd@isglobal.org), attaching a copy of your national identity document or equivalent.\n\nYou have the right to withdraw your consent at any time. Withdrawal of consent does not affect the lawfulness of processing based on consent before its withdrawal. If you do not agree with the manner in which ISGlobal handles your data or you consider that your rights have been infringed, you can file a complaint at any time with the Spanish Data Protection Agency.",
-      "legalNoticeTitle": "Legal Notice",
-      "legalNotice": "### Owner of the website and the application\nFundación Privada Instituto de Salud Global Barcelona (ISGlobal)\nCIF: G65341695\nPostal address: C/ Rosselló, 132, 2ª, 5ª and 7ª - 08036 Barcelona\nRegistered in the Foundations Registry of the Directorate General of Law and Legal Entities of the Government of Catalonia under number 2,634\nTelephone number: (+34) 932 271 806\n\nThe website is the property of ISGlobal. \n\nUse of the website is subject to the following conditions of use. Please read them carefully. Accessing the website and using its content implies that you have read and accepted, without reservation, these conditions\n",
-      "conditionsOfUseTitle": "Conditions of Use",
-      "conditionsOfUse": "The website contains content prepared by ISGlobal solely for informational purposes. This content may not reflect the most up-to-date information on the matters addressed. Likewise, this material may be amended, extended or updated without notice.\n\nYou accessing this content does not create or imply any professional or trust relationship between ISGlobal and you. \n\nThe links on the website may take you to other websites, pages or applications managed by third parties over which ISGlobal has no control. ISGlobal is not responsible for the content or the state of these websites, pages and applications. Being able to access them via our website or application does not imply that ISGlobal recommends or approves their content.\n\n### Limitation of liability \n\nYou use our website at your own risk and expense. ISGlobal is not responsible for any errors or omissions in the content of the website, the application or any other sites you may access via the website or the application. ISGlobal is not liable for any damage arising from the use of our website or any action performed based on information provided on our website. \n\nISGlobal does not guarantee the absence of viruses or other harmful elements that could damage or alter your IT system, electronic documents or files on our website. As a result, ISGlobal does not accept any liability for any loss or damage that such elements could cause to you or a third party. \n\n[Updated on February 2019]",
-      "privacyPolicyTitle": "Privacy Policy",
-      "privacyPolicy": "**In accordance with the current data protection regulations**, ISGlobal informs you of the following:\n\nWhen you are requested to provide personal data for the provision of services, you will be informed of what data you must provide. \n\nIf you do not provide this required data, we will not be able to provide you with the services. The personal data you provide or that ISGlobal obtains as a result of your browsing, queries or requests via our website at www.isglobal.org (the “Website”) will be included in a file owned by ISGlobal for managing, storing and tracking your requests for information and/or contracting of goods or services offered via the website.\n\nThe information obtained from you by ISGlobal from the website when you sign up for a promotional event or send a form is processed with the utmost confidentiality for helping you to take part in the event in question or, in the second case, sending you the information you requested. The information obtained is not used for any other purpose. \n\nThe personal data provided will not be disclosed or transferred to third parties without your consent.\n\nInformation is only sent via the form(s) of the website after you have expressed your acceptance by selecting an \"ACCEPT/SEND\" (or similar) button, via which ISGlobal has proof that you gave your consent for it to process your personal data.\nIn all cases, you guarantee that the data you provide is true, exact, complete and up-to-date. ISGlobal may decline to provide the information or services requested to any user providing false data without prejudice to any other legal action open to it.\n\nIn virtue of Article 22 of Spanish Law 34/2002, of July 11, on the Information Society Services and Electronic Commerce, ISGlobal may store and retrieve \"cookies\" (data in a text file) from your machine, provided you have given consent and after we have provided you with clear and complete information on the use of these cookies. You may obtain complete information on the purpose for installing these cookies and what they are used for in the Cookies Policy page.\n\nThis does not prevent any technical storage or access for the sole purpose of carrying out or facilitating the transmission of a communication over an electronic communications network, or as strictly necessary to provide an information society service expressly requested by you. \n\nYou may exercise your rights of access, rectification, erasure, objection, portability and restriction of the processing by sending a request to lopd@isglobal.org or the ISGlobal postal address: c/ Rosselló, 132, 08036 Barcelona, Spain. The request must include your full name, address for notices, a photocopy of your ID document or passport and an indication of the right you want to exercise. \n\nIf you are unhappy with the processing done by ISGlobal or believe that your rights have been violated, you may file a claim with the Spanish Data Protection Agency at any time.\n\nIn accordance with Law 34/2002, of 11 July, on the Services of the Information Society and Electronic Commerce, if you do not wish to receive electronic commercial notices from ISGlobal in the future, you may inform us of this preference by sending an email to lopd@isglobal.org. \n\n[Updated on February 2019]",
-      "cookiePolicyTitle": "Cookie Policy",
-      "cookiePolicy": "Our website app.inspiresproject.com (the 'Website') uses cookies to collect information on how the Website is used.\n\nA cookie is a file downloaded onto your machine (computer or mobile device) for storing data that may be updated and retrieved by the entity that installed it.\n\nThe information collected via cookies may include the date and time you visited the website, the pages you viewed, the time you spent on our website and the websites you visited before and after visiting our site.\n\nWe use cookies to facilitate your browsing of our Website, distinguish you from other users, provide you a better use experience and identify problems with our Website. If you provide your consent, we will use cookies to obtain information on your preferences and tailor our Website to your interests.\n\nThe purpose of this cookies policy is to provide you with clear and precise information on the cookies used on our Website (the 'Cookies Policy'). For more information on the cookies used on our Website, please email your questions to: lopd@isglobal.org.\n\n## Type of cookies used on the Website\n\nOur Website uses the cookies described below.\n\n### First-party cookies\n\nThese cookies are sent to your computer and handled only by us to improve the operation of the Website. Information collected is used to improve the quality of our service and your user experience. These cookies remain in your browser for longer. This allows us to recognise you when you return to the Website and tailor the content offered to your preferences.\n\n## Consent\n\nBy browsing and remaining on our Website, you provide consent for our use of the cookies described for the time periods specified under the conditions of this Cookies Policy.\n\n## Disabling and blocking cookies\n\nCookies are not required for using our Website. You can block and disable cookies by configuring your browser to block the installation of all or some cookies. Most browsers can be set to warn you of the presence of cookies or block them automatically. If you block cookies, you may continue using our Website. However, the use of some of its services may be limited, and your user experience may be diminished.\n\n## Withdrawing your consent\n\nIf at any time you want to withdraw the consent you gave under this Cookies Policy, delete the cookies stored on your machine (computer or mobile device) via the settings and configuration of your web browser.\n\nFor more information on deleting, disabling or blocking cookies, visit AllAboutCookies.org\n\n## Changing your browser's cookie configuration and settings\n\nUnless you have adjusted your browser's configuration, our system creates cookies when you visit our Website. All web browsers allow changing this configuration. Click on the links below for how to adjust the cookie configuration of the following browsers:\n\n- **Internet Explorer**:\n  - [Internet Explorer 5](https://support.microsoft.com/en-gb/help/196955)\n  - [Internet Explorer 6, 7, 8 and 9](https://support.microsoft.com/en-gb/help/260971/description-of-cookies)\n  - [Internet Explorer 11](https://support.microsoft.com/en-gb/help/17442/windows-internet-explorer-delete-manage-cookies)\n- **[Firefox](https://support.microsoft.com/en-gb/help/17442/windows-internet-explorer-delete-manage-cookies)**\n- **[Chrome](https://support.google.com/chrome/answer/95647?co=GENIE.Platform%3DDesktop&hl=en)**\n- **Safari**\n  - [For Windows](https://support.apple.com/kb/ph21411?locale=es_ES)\n  - [For Mac (iOS)](https://support.apple.com/es-es/HT201265)\n\n## Changes to the Cookies Policy\n\nWe may update the Cookies Policy of our Website from time to time. We recommend that you review this policy each time you visit our Website so that you are adequately informed on how and for what we use cookies. The Cookies Policy was last updated on July 6, 2018.\n\n## Contact\n\nFor any query, comment or suggestion regarding our Cookies Policy, please email: lopd@isglobal.org.\n\n[Updated on February 2019]",
-      "cookieToast": "This website uses first- and third-party cookies to obtain information on your search habits and to improve the quality of our services and your browsing on our website. To consent to our use of cookies, click 'Accept' or continue browsing."
+      "termsOfServiceTitle": "شروط الخدمة",
+      "termsOfService": "بقبول شروط الخدمة ، تفهم ما يلي:\n\nلن يتم استخدام بياناتك الشخصية إلا عن طريق:\n\nمؤسسة بريفادا معهد برشلونة الدولي (ISGlobal)\nCIF: G65341695\nالعنوان البريدي: كارير روسيلو ، رقم 132 ، الطابق الثاني ، الخامس والسابع - 08036 برشلونة\nالهاتف: 0034932271806\nالبريد الإلكتروني: inspires@isglobal.org\nنقوم بجمع ومعالجة البيانات الشخصية الخاصة بك لغرض وحيد هو الاستجابة لتسجيلك في الموقع https://app.inspiresproject.com.\n  سيتم إستخدام بياناتك فقط من قبل فريق إنسبايرس من إي أس قلوبال الذي يطلب الوصول إليها للقيام بعمله ولن يتم إتاحته ، تحت أي ظرف من الظروف ، لأطراف ثالثة أو نقله إلى دول ثالثة أو منظمات دولية.\nلا يمكننا معالجة بياناتك الشخصية إلا بموافقتك ، وسيتم الاحتفاظ بها فقط طالما أنك لا تسحب الموافقة.\nيمكنك ممارسة جميع حقوقك بموجب لوائح حماية البيانات الحالية ، بما في ذلك الحق في الوصول والتصحيح والاعتراض والمحو والقابلية والتقييد ، عن طريق الكتابة إلى مسؤول حماية البيانات (lopd@isglobal.org) ، وإرفاق نسخة من هويتك الوطنية وثيقة أو ما يعادلها.\nلديك الحق في سحب موافقتك في أي وقت. لا يؤثر انسحاب الموافقة على قانونية المعالجة بناءً على الموافقة قبل انسحابها. إذا كنت لا توافق على الطريقة التي تتعامل بها إي أس قلوبال مع بياناتك أو إذا كنت تعتقد أن حقوقك قد تم انتهاكها ، فيمكنك تقديم شكوى في أي وقت مع وكالة حماية البيانات الإسبانية.",
+      "legalNoticeTitle": "إشعار قانوني",
+      "legalNotice": "صاحب الموقع والتطبيق###\nمؤسسة بريفادا معهد برشلونة الدولي (ISGlobal)\nCIF: G65341695\nالعنوان البريدي: كارير روسيلو ، رقم 132 ، الطابق الثاني ، الخامس والسابع - 08036 برشلونة\nالهاتف: 0034932271806\n الموقع هو ملك ISGlobal.\nيخضع استخدام موقع الويب لشروط الاستخدام التالية. يرجى قراءتها بعناية. إن الوصول إلى موقع الويب واستخدام محتواه يعني أنك قد قرأت وقبلت هذه الشروط دون تحفظ",
+      "conditionsOfUseTitle": "شروط الإستخدام",
+      "conditionsOfUse": "يحتوي موقع الويب على محتوى اعدته إي أس قلوبال فقط لأغراض إعلامية. قد لا يعكس هذا المحتوى أحدث المعلومات عن المسائل التي تم تناولها. وبالمثل ، قد يتم تعديل هذه المادة أو تمديدها أو تحديثها دون إشعار.\n.إن الوصول إلى هذا المحتوى لا ينشئ أو يشير إلى أي علاقة مهنية أو علاقة ثقة بينك و بين إي أس قلوبال\nقد تنقلك الروابط الموجودة على موقع الويب إلى مواقع ويب أو صفحات أو تطبيقات أخرى تدار من قبل أطراف أخرى لا تتحكم فيها إي أس قلوبال. إن إي أس قلوبال ليست مسؤولة عن محتوى أو حالة هذه المواقع والصفحات والتطبيقات. أن تكون قادرًا على الوصول إليها عبر موقعنا الإلكتروني أو تطبيقنا لا يعني أن إي أس قلوبال توصي أو توافق على محتواها.\nتحديد المسؤولية ###\nيمكنك استخدام موقعنا على مسؤوليتك الخاصة وعلى نفقتك الخاصة. إي أس قلوبال ليست مسؤولة عن أي أخطاء أو سهو في محتوى الموقع أو التطبيق أو أي مواقع أخرى قد تصل إليها عبر الموقع الإلكتروني أو التطبيق. إي أس قلوبال ليست مسؤولة عن أي ضرر ناتج عن استخدام موقعنا على شبكة الإنترنت أو أي إجراء يتم تنفيذه على أساس المعلومات المقدمة على موقعنا.\nإي أس قلوبال ا تضمن عدم وجود فيروسات أو غيرها من العناصر الضارة التي يمكن أن تلحق الضرر أو تغيير نظام تكنولوجيا المعلومات الخاص بك أو المستندات الإلكترونية أو الملفات على موقعنا. نتيجة لذلك ، لا تتحمل\nإي أس قلوبال أي مسؤولية عن أي خسارة أو ضرر قد تسببه هذه العناصر لك أو لطرف ثالث.\n[تم التحديث في فبراير 2019].",
+      "privacyPolicyTitle": "سياسة خاصة",
+      "privacyPolicy": "وفقا لقواعد الحماية الحالية تعلمكم إي أس قلوبال بما يلي:\nعندما يُطلب منك تقديم بيانات شخصية لتوفير الخدمات ، سيتم إخبارك بالبيانات التي يجب عليك تقديمها.\nإذا لم تقدم هذه البيانات المطلوبة ، فلن نتمكن من تزويدك بالخدمات. سيتم تضمين البيانات الشخصية التي تقدمها أو التي تحصل عليها إي أس قلوبال نتيجة لتصفحك أو استفساراتك أو طلباتك عبر موقعنا على www.isglobal.org\nوالتي تملكه إي أس قلوبال لإدارة وتخزين وتتبع طلبات للحصول على معلومات و / أو التعاقد على السلع أو الخدمات المقدمة عبر الموقع الإلكتروني.\nتتم معالجة المعلومات التي حصلت عليها من إي أس قلوبال من موقع الويب عند الاشتراك في حدث ترويجي أو إرسال نموذج بأقصى قدر من السرية لمساعدتك على المشاركة في الحدث المعني أو في الحالة الثانية ، إرسال المعلومات إليك لقد طلبت. لا يتم استخدام المعلومات التي تم الحصول عليها لأي غرض آخر.\nلن يتم الكشف عن البيانات الشخصية المقدمة أو نقلها إلى أطراف ثالثة دون موافقتك.\nيتم إرسال المعلومات فقط عبر نموذج (نماذج) موقع الويب بعد أن تعبر عن موافقتك عن طريق اختيار زر إقبل/إبعث (أو ما شابه) ، والذي من خلاله إي أس قلوبال لديه دليل على موافقتك عليه لمعالجة بياناتك الشخصية .\nفي جميع الحالات ، تضمن أن البيانات التي تقدمها صحيحة ودقيقة وكاملة ومحدثة. قد ترفض إي أس قلوبال تقديم .المعلومات أو الخدمات المطلوبة لأي مستخدم يقدم بيانات خاطئة دون الإخلال بأي إجراء قانوني آخر مفتوح له\nبموجب المادة 22 من القانون الإسباني 34/2002 ، المؤرخ 11 يوليو ، بشأن خدمات مجتمع المعلومات والتجارة الإلكترونية ، يجوز لشركة إي أس قلوبال تخزين واسترجاع \"ملفات تعريف الارتباط\" (بيانات في ملف نصي) من جهازك ، شريطة أن تكون قد أعطيت موافقة و بعد أن قدمنا ​​لك معلومات واضحة وكاملة عن استخدام ملفات تعريف الارتباط هذه. يمكنك الحصول على معلومات كاملة حول الغرض من تثبيت ملفات تعريف الارتباط هذه وما تستخدمه في صفحة سياسة ملفات تعريف الارتباط.\nهذا لا يمنع أي تخزين فني أو وصول لغرض وحيد هو إجراء أو تسهيل إرسال اتصال عبر شبكة اتصالات إلكترونية أو حسب الضرورة القصوى لتوفير خدمة مجتمع معلومات تطلبها صراحةً.\n يمكنك ممارسة حقوقك في الوصول والتصحيح والمحو والاعتراض وإمكانية النقل وتقييد المعالجة عن طريق إرسال  \n أو العنوان البريدي lopd@isglobal.orgطلب إلى \nلإي أس قلوبال : ج / روسيلو ، 132 ، 08036 برشلونة ، إسبانيا.\nيجب أن يشتمل الطلب على اسمك الكامل وعنوانك للإشعارات ونسخة من مستند الهوية أو جواز السفر الخاص بك وإشارة إلى الحق الذي تريد ممارسةه.\nإذا لم تكن راضيًا عن المعالجة التي قامت بها إي أس قلوبال  أو كنت تعتقد أن حقوقك قد انتهكت ، فيمكنك رفع دعوى لدى وكالة حماية البيانات الإسبانية في أي وقت.\nوفقًا للقانون 34/2002 ، الصادر في 11 يوليو ، بشأن خدمات مجتمع المعلومات والتجارة الإلكترونية ، إذا كنت لا ترغب في تلقي إشعارات تجارية إلكترونية من إي أس قلوبال في المستقبل ، فيمكنك إعلامنا بهذا التفضيل عن طريق إرسال بريد إلكتروني إلى \nlopd@isglobal.org\n[تم التحديث في فبراير 2019]\n",
+      "cookiePolicyTitle": "سياسة ملفات الارتباط",
+      "cookiePolicy": " app.inspiresproject.com   يستخدم موقع الويب ملفات تعريف الارتباط لجمع معلومات حول كيفية استخدام موقع الويب\n\nملف تعريف الارتباط هو ملف تم تنزيله على جهازك (الكمبيوتر أو الجهاز المحمول) لتخزين البيانات التي قد يتم تحديثها واستردادها بواسطة الكيان الذي قام بتثبيتها.\n\nقد تتضمن المعلومات التي تم جمعها عبر ملفات تعريف الارتباط التاريخ والوقت اللذين قمت فيهما بزيارة الموقع والصفحات التي شاهدتها والوقت الذي قضيته على موقعنا ومواقع الويب التي قمت بزيارتها قبل وبعد زيارة موقعنا.\n\nنحن نستخدم ملفات تعريف الارتباط لتسهيل تصفحك لموقعنا على الويب ، ونميزك عن المستخدمين الآخرين ، ونوفر لك تجربة استخدام أفضل وتحديد المشكلات في موقعنا. إذا قدمت موافقتك ، فسنستخدم ملفات تعريف الارتباط للحصول على معلومات حول تفضيلاتك ونخصص موقع الويب الخاص بنا لمصالحك.\nالغرض من سياسة ملفات تعريف الارتباط هذه هو تزويدك بمعلومات واضحة ودقيقة عن ملفات تعريف الارتباط المستخدمة على موقعنا (\"سياسة ملفات تعريف الارتباط\"). لمزيد من المعلومات حول ملفات تعريف الارتباط المستخدمة على موقعنا ، يرجى إرسال أسئلتك عبر البريد الإلكتروني إلى: lopd@isglobal.org.\nنوع ملفات تعريف الارتباط المستخدمة على الموقع###\nيستخدم موقعنا ملفات تعريف الارتباط الموضحة أدناه.\nملفات تعريف ارتباط الطرف الأول###\nيتم إرسال ملفات تعريف الارتباط هذه إلى جهاز الكمبيوتر الخاص بك ولا يتم التعامل معها إلا من خلالنا لتحسين تشغيل الموقع. يتم استخدام المعلومات التي يتم جمعها لتحسين جودة خدماتنا وتجربة المستخدم الخاصة بك. تظل ملفات تعريف الارتباط هذه في متصفحك لفترة أطول. يتيح لنا ذلك التعرف عليك عند العودة إلى الموقع وتصميم المحتوى المقدم لتفضيلاتك.\nموافقة###\nمن خلال التصفح والبقاء على موقعنا ، فإنك توافق على استخدامنا لملفات تعريف الارتباط الموصوفة للفترات الزمنية المحددة بموجب شروط سياسة ملفات تعريف الارتباط هذه.\nتعطيل وحظر ملفات تعريف الارتباط###\nملفات تعريف الارتباط غير مطلوبة لاستخدام موقعنا. يمكنك حظر ملفات تعريف الارتباط وتعطيلها عن طريق تكوين المتصفح الخاص بك لمنع تثبيت جميع أو بعض ملفات تعريف الارتباط. يمكن ضبط معظم المتصفحات لتحذيرك من وجود ملفات تعريف الارتباط أو حظرها تلقائيًا. إذا قمت بحظر ملفات تعريف الارتباط ، يمكنك متابعة استخدام موقعنا. ومع ذلك ، قد يكون استخدام بعض خدماته محدودًا ، وقد تتضاءل تجربة المستخدم الخاصة بك.\nسحب موافقتك##\nإذا كنت ترغب في أي وقت في سحب الموافقة التي قدمتها بموجب سياسة ملفات تعريف الارتباط هذه ، فاحذف ملفات تعريف الارتباط المخزنة على جهازك (الكمبيوتر أو الجهاز المحمول) عبر إعدادات متصفح الويب وتكوينه.\n\nلمزيد من المعلومات حول حذف ملفات تعريف الارتباط أو تعطيلها أو حظرها ، تفضل بزيارة\nAllAboutCookies.org\nتغيير تكوين ملف تعريف الارتباط في المتصفح والإعدادات###\nما لم تقم بضبط تهيئة المستعرض الخاص بك ، يقوم نظامنا بإنشاء ملفات تعريف الارتباط عند زيارة موقعنا. جميع متصفحات الويب تسمح بتغيير هذا التكوين. انقر على الروابط أدناه لمعرفة كيفية ضبط تكوين ملفات تعريف الارتباط للمتصفحات التالية:\n- **Internet Explorer**:\n  - [Internet Explorer 5](https://support.microsoft.com/en-gb/help/196955)\n  - [Internet Explorer 6, 7, 8 and 9](https://support.microsoft.com/en-gb/help/260971/description-of-cookies)\n  - [Internet Explorer 11](https://support.microsoft.com/en-gb/help/17442/windows-internet-explorer-delete-manage-cookies)\n- **[Firefox](https://support.microsoft.com/en-gb/help/17442/windows-internet-explorer-delete-manage-cookies)**\n- **[Chrome](https://support.google.com/chrome/answer/95647?co=GENIE.Platform%3DDesktop&hl=en)**\n- **Safari**\n  - [For Windows](https://support.apple.com/kb/ph21411?locale=es_ES)\n  - [For Mac (iOS)](https://support.apple.com/es-es/HT201265)\nالتغييرات في سياسة ملفات تعريف الارتباط##\nقد نقوم بتحديث سياسة ملفات تعريف الارتباط لموقعنا من وقت لآخر. نوصيك بمراجعة هذه السياسة في كل مرة تقوم فيها بزيارة موقعنا على الويب حتى تكون على دراية كافية بكيفية استخدام ملفات تعريف الارتباط ولماذا. تم آخر تحديث لسياسة ملفات تعريف الارتباط في 6 يوليو 2018.\nللاتصال##\nلأي استفسار أو تعليق أو اقتراح بشأن سياسة ملفات تعريف الارتباط الخاصة بنا ، يرجى إرسال بريد إلكتروني \n lopd@isglobal.org.\n[تم التحديث في فبراير 2019] ",
+      "cookieToast": "يستخدم موقع الويب هذا ملفات تعريف ارتباط الطرف الأول والثالث للحصول على معلومات حول عادات البحث وتحسين جودة خدماتنا وتصفحك على موقعنا. للموافقة على استخدامنا لملفات تعريف الارتباط ، انقر فوق \"قبول\" أو تابع التصفح."
     },
     "projectDetail": {
       "about": "حول",
       "detailsTab": "معلومات",
       "evaluationTab": "تقييم المشروع",
-      "notApproved": "This project is not approved yet, it will not show up in public lists until it is registered to a Structure.",
+      "notApproved": "لم تتم الموافقة على هذا المشروع حتى الآن ، ولن يظهر في القوائم العامة حتى يتم تسجيله في الهيكل.",
       "projectNotYetEvaluated": "لم يتلق هذا المشروع تعليقات وتقييمات كافية من المشاركين فيه حتى الآن ، لذلك لا يمكننا أن نريك كيف يفعل. تحقق مرة أخرى في يوم آخر"
     },
     "structureDetail": {
-      "notApproved": "This structure is not approved yet, it will not show up in public lists until a site administratot validates it.",
+      "notApproved": "لم تتم الموافقة على هذه البنية حتى الآن ، ولن تظهر في القوائم العامة حتى يتحقق مسؤول الموقع من التحقق منها.",
       "about": "حول"
     },
     "structureList": {
-      "introText": "A Structure is a knowledge intermediary unit, which can be based within a univeristy, a research centre or others that promotes interactions and dialogues between the scientific community and civil society organizations in order to jointly co-create and implement participatory research projects.\n\nThere are many labelled used at the moment to define such structures: Science Shops, Campus-community office, Citizen Science units, Social Labs, Living Labs, etc. but also citizen action research, community-based participatory research, and citizen science. Therefore, we do not intend to be exclusatory but rather gather in this open platfor all the projects that work under the 5 principles we promote: Knowledge Democracy, Citizen-led Research, Participatory Dynamics, Integrity and Transformative Change. You will find here below all the structures registered in the Open Platform.",
-      "visitStructure": "Visit structure"
+      "introText": "الهيكل عبارة عن وحدة وسيطة للمعرفة ، يمكن أن يكون مقرها داخل جامعة أو مركز أبحاث أو غيره من الجهات التي تعزز التفاعلات والحوارات بين المجتمع العلمي ومنظمات المجتمع المدني من أجل المشاركة في إنشاء وتنفيذ مشاريع البحوث التشاركية.\nهناك العديد من العلامات المستخدمة في الوقت الحالي لتحديد مثل هذه الهياكل: متاجر العلوم ، مكتب الحرم الجامعي - المجتمع ، وحدات علوم المواطن ، المختبرات الاجتماعية ، مختبرات المعيشة ، وما إلى ذلك ، ولكن أيضًا أبحاث عمل المواطن ، البحوث التشاركية المجتمعية ، وعلوم المواطن. لذلك ، لا نعتزم أن نكون حصريين ، بل نجمع في هذه المنصة المفتوحة جميع المشاريع التي تعمل وفقًا للمبادئ الخمسة التي نشجعها: الديمقراطية المعرفية ، البحوث التي يقودها المواطنون ، ديناميات المشاركة ، النزاهة والتغيير التحويلي. ستجد هنا أدناه جميع الهياكل المسجلة في المنصة المفتوحة.",
+      "visitStructure": "هيكل الزيارة"
     },
     "structureManage": {
       "title": "إدارة هذا الهيكل",
+      "infoNotValidated": "لم يتم بعد التحقق من صحة هذا الهيكل ، وبالتالي لن يظهر في القوائم العامة. الرجاء الانتظار حتى وكيل منصة ينشط هذا الهيكل",
+      "infoTitle": "  تفاصيل الهيكل",
+      "infoDescription": "ملأ المعلومات الأساسية المتعلقة بهيكلك",
+      "infoAdministratorsTitle": "مدير الهيكل",
+      "infoAdministratorsDescription": "يتاح لمديري الهياكل الوصول الكامل إلى الهيكل ويمكنهم تحرير تفاصيل الهيكل فضلا عن إضافة المديرين والمشاركين وإزالتهم",
       "success": "تم حفظ الهيكل بنجاح!",
       "failure": "فشل  في حفظ  الهيكل. حاول مرة أخرى في وقت لاحق",
       "collaborationFailure": "فشل في الموافقة على المشروع. يرجى المحاولة مرة أخرى في وقت لاحق.",
@@ -120,21 +138,27 @@
       "failure": " فشل في إنشاء هيكل جديد. حاول مرّة أخرى لاحقا"
     },
     "projectList": {
-      "introText": "The InSPIRES Open Platform features participatory research and innovation projects promoted by different structures and organisations, such as Science Shops, Citizen Science offices, etc. You will find here bellow all the projects registered in the Open Platform.",
+      "introText": " تتميز المنصة لإنسبايرس بالبحوث التشاركية ومشاريع الابتكار التي تروج لها هياكل ومنظمات مختلفة ، مثل متاجر العلوم ، ومكاتب علوم المواطن وما إلى ذلك ، ستجد هنا جميع المشاريع المسجلة في المنصة المفتوحة.",
+      "showEvaluations": "أظهر نتائج التقييم",
       "noKASpecified": " لا مجال مختص ",
-      "visitProject": "Visit project",
+      "visitProject": "زيارة المشروع",
       "filterByArea": "(في مجال (المجال  "
     },
     "projectManage": {
       "title": "إدارة هذا المشروع",
+      "infoTitle": "تفاصيل المشروع",
+      "infoDescription": "ملأ المعلومات الأساسية المتعلقة بمشروعك",
+      "infoContactTitle": "المعلومات اللازمة للاتصال",
+      "infoAdditionalTitle": "معلومات إضافية",
+      "infoAdditionalDescription": "تفاصيل مفيدة أخرى بحيث يكون مشروعك محددا جيدا ويمكن العثور عليه في عمليات البحث",
       "success": "!تم حفظ الهيكل بنجاح ",
       "failure": " فشل في حفظ الهيكل . حاول مرّة أخرى لاحقا",
       "projectTab": "هذا المشروع",
       "participantsTab": "المشتركين",
       "phasesTab": "مراحل المشروع",
-      "changePhase": "Change the current Phase",
-      "currentPhase": "This project is currently at:",
-      "noCurrentPhase": "This project is not at any phase",
+      "changePhase": "تغيير المرحلة الحالية",
+      "currentPhase": "هذا المشروع حاليًا في:",
+      "noCurrentPhase": "هذا المشروع ليس في أي مرحلة",
       "phasesTabDescription": "تم تصميم مراحل التقييم لتزويدك بمعلومات حول التنفيذ المستمر للمشروع والنتائج. تتكون كل مرحلة من 6 أسئلة ، في المتوسط ، والتي سوف يأخذك حوالي 5 دقائق. بمجرد أن يستكمل جميع أعضاء الفريق تقييم المرحلة الحالية ، يتم تصور النتائج على مستوى مشروع معين ، وكذلك على المستوى الكلي.\n\nلتغيير المرحلة الحالية ، حدد مرحلة وانقر حفظ.",
       "hasPhase": "(هذا المشروع هو حاليا في هذه المرحلة منذ (تاريخ",
       "hadPhase": "(هذا المشروع هو حاليا في هذه المرحلة بداية من (تاريخ",
@@ -150,22 +174,48 @@
       "participantsIntro": "المشاركون هم كل من سيشارك مباشرة في المشروع. يمكنك إضافة أي عدد من المشاركين ، ولكن يجب أن يكون لكل مشارك دور في المشروع. سيحدد دور المشارك الأسئلة التي يجب عليهم الإجابة عليها في أداة تقييم التأثير.\n\nلإضافة مشارك ، يمكنك البحث عن المستخدمين باسمهم الكامل في المربع أدناه.",
       "searchUsers": ".تم سحب التعاون مع الهيكل",
       "evaluationSuccess": ".طلب التقييم بنجاح",
-      "evaluationFailure": "فشل في إرسال طلب التقييم. الرجاء إعادة المحاولة في وقت لاحق."
+      "evaluationFailure": "فشل في إرسال طلب التقييم. الرجاء إعادة المحاولة في وقت لاحق.",
+      "evalOpenUniqueLink": "افتح الاستبيان بصفة هذا الشخص",
+      "evalSendRequest": "أرسل طلب التقييم",
+      "evalConfirmResend": "هل أنت متأكد أنك تريد إعادة إرسال بريد إلكتروني لهذا الشخص ؟",
+      "evalResendRequest": "إعادة إرسال بريد إلكتروني",
+      "evalViewEvaluation": "عرض التقييم",
+      "evalComplete": "(انتهاء)",
+      "evalUpgradeAvailableTitle": "التقييم الجديد النسخة متوفّرة",
+      "evalUpgradeAvailable": "هناك نسخة جديدة من استبيانات التقييم متاحة لمشروعك.\n\nالرجاء التأكد من فهم كل الآثار المترتبة على تحديث نسختك لأنها قد تسبب لك فقدان البيانات عن التقييمات الحالية",
+      "evalConvertProject": " لتمكين النسخة الجديدة",
+      "evalUpgradeError": "فشل  تقييم المشروع ",
+      "evalUpgradeSuccess": "تحديث نسخة التقييم لهذا المشروع",
+      "evalConfirmUpdate": "هل أنت متأكد أنك تريد تحديث مشروعك إلى الإصدار 2 ؟ ستفقد جميع البيانات المتعلقة بتقييمات مشروعك.\n\nالرجاء قراءة صفحة المساعدة إذا كنت غير متأكد من العواقب",
+      "evalConfirmDismiss": "إذا رفضت هذا التنبيه هذا الخيار لن يكون متاحا لك بعد الآن",
+      "inviteParticipantsTitle": "دعوة مشارك في هذا المشروع",
+      "inviteParticipantsInfo": "إذا كان واحد أو أكثر من المشاركين غير قادرين على إنشاء حساب بأنفسهم ، أو كنت تفضل ملء التقييم باسمهم ، يمكنك استخدام هذه الاستمارة لإنشاء مستخدم في المنصة لهم.\n\n* * ملاحظة *: يجب التصديق على مشروعك وجزء من هيكل",
+      "attachmentsTab": "ملحقات الملف"
     },
     "evaluationDetail": {
-      "projectOverallPosition": "Project Overall Position",
-      "projectEvolution": "Project Evolution"
+      "heatchart": {
+        "title": "مشاركة",
+        "engagement": "التزام",
+        "responsiveness": "استجابة"
+      },
+      "projectOverallPosition": "الموقف العام للمشروع",
+      "projectEvolution": "تطور المشروع",
+      "commentsByParticipants": "التعليقات التي تركها المشاركون"
     },
     "evaluationEntry": {
       "mainTitle": "استبيان تقييم المشروع",
       "questionnaire": "استبيان",
-      "questionnaireDescription": "استطلاع",
+      "selfQuestionnaireTitle": "استبيان التأمل الذاتي",
+      "selfQuestionnaireDescription": "للمساعدة في تقييم المشروع ، نتكفل بالتحقق من استبيان التفكير الذاتي. يحتوي على بعض الأسئلة المحفزة للتفكير لتحصل على البدء. يمكنك تحميل الاستبيان هنا",
+      "questionnaireDescription": "الرجاء الإجابة على الأسئلة التالية بأمانة قدر الإمكان. المقياس يمثل 0 ل 'أنا أختلف تماما' على 7 ل 'أنا أوافق تماما'. والوقت المقدر للإجابة هو 5 دقائق",
       "questionnaireCompleted": ".هذا الاستبيان قد اكتمل بالفعل",
       "evaluationOverview": "نظرة عامة على التقييم",
       "evaluatedPhase": "مرحلة قد تم تقييمها",
       "evaluator": "مقيّم",
       "evaluationRole": "دور التقييم",
       "questionMultipleHelp": "(اختر كل ما يمكن تطبيقه)",
+      "answeringAsToken": "أنت تجيب {الأسم} الرجاء الحفاظ على هذه الصلة آمنة كما هو فريد من نوعه بالنسبة لكم.",
+      "manageProfileLink": "إذا أردت تحرير ملفك الشخصي أو تغيير خصوصيات ، يرجى الذهاب إلى هنا",
       "viewOnly": "يمكنك فقط عرض الردود ، وليس تعديلها",
       "submitSuccess": "!تم تسجيل إجابتك بشكل صحيح",
       "submitFailure": ".كانت هناك مشكلة في حفظ ردك. الرجاء معاودة المحاولة في وقت لاحق"
@@ -174,11 +224,20 @@
       "europeanFundingDisclaimer": "تلقى هذا المشروع تمويلًا من برنامج أفق 2020 للبحوث والابتكار التابع للاتحاد الأوروبي بموجب اتفاقية المنحة رقم 741677."
     }
   },
+  "components": {
+    "ImageUpload": {
+      "title": "تحميل صورة جديدة",
+      "selectFile": "حدد ملفًا",
+      "fileReady": "ملف {اسم} جاهز للتحميل",
+      "currentImage": "الصورة الحالية",
+      "upload": "تحميل الملف"
+    }
+  },
   "models": {
     "userGender": {
-      "male": "Male",
-      "female": "Female",
-      "other": "Other"
+      "male": "ذكر",
+      "female": "أنثى",
+      "other": "آخر"
     },
     "participationRole": {
       "scientist": "عالم",
@@ -187,24 +246,31 @@
       "projectManager": "مدير المشروع"
     },
     "educationLevel": {
-      "primary": "Primary",
-      "secondary": "Secondary",
-      "teriary": "Teriary (Labor market)",
-      "degree": "Bachelors or Degree",
-      "masters": "Masters",
-      "doctoral": "Doctoral"
+      "primary": "ابتدائي",
+      "secondary": "ثانوي",
+      "tertiary": "(بعد الثانوي ( سوق الشغل",
+      "degree": "البكالوريوس أو درجة",
+      "master": "حامل الماجيستير",
+      "doctoral": "حامل الدكتوراه"
     },
     "projectType": {
-      "research": "Research",
-      "participatoryResearch": "Participatory Research",
-      "participatoryActionResearch": "Participatory Action Research",
-      "citizenScience": "Citizen Science",
-      "publicEngagement": "Public Engagement",
-      "serviceLearning": "Service Learning",
-      "advocacy": "Advocacy",
-      "innovation": "Innovation",
-      "policyInnovation": "Policy Innovation",
-      "other": "Other"
+      "research": "ابحاث",
+      "participatoryResearch": "البحوث التشاركية",
+      "participatoryActionResearch": "بحوث العمل التشاركي",
+      "citizenScience": "علوم المواطن",
+      "publicEngagement": "المشاركة العامة",
+      "serviceLearning": "خدمة التعلم",
+      "advocacy": "مرافعة",
+      "innovation": "إبتكار",
+      "policyInnovation": "سياسة الابتكار",
+      "other": "آخر"
+    },
+    "structureType": {
+      "academicResearcg": "الأكاديمي و/أو البحوث",
+      "civilSocietyOrg": "جمعية مجتمع مدني ",
+      "ngoNonPofit": "منظمة غير حكومية و غير ربحية",
+      "companyForProfit": "الشركة أو من أجل الربح",
+      "governmentOrg": "كيان حكومي"
     },
     "projectPhase": {
       "phase": "مرحلة",
@@ -218,11 +284,11 @@
       "phase4Description": "لقد مرت ستة أشهر منذ انتهاء المشروع ، فأنت مدعو للتفكير في نتائج المشروع بشأن المعرفة العلمية ، وعلى مستوى التعلم الفردي ، و السياسات المحلية، ومن حيث القدرة الجماعية على تلبية مطالب المجتمع",
       "phase1Tag": "انطلاق",
       "phase2Tag": "التأمل الذاتي",
-      "phase3Tag": "End of Project",
+      "phase3Tag": "نهاية المشروع",
       "phase4Tag": "بعد ستة شهور"
     },
     "knowledgeArea": {
-      "logic": "Logic\n",
+      "logic": "منطق",
       "mathematics": "الرياضيات",
       "astronomyAndAstrophysics": "علم الفلك والفيزياء الفلكية",
       "physics": "علوم فيزيائية",
@@ -394,8 +460,6 @@
       "Q93": "أنت متحمس للمشاركة في مشاريع مماثلة.",
       "Q94": "وقد ساهمت دينامكيات المشاركة في بناء المزيد من المعرفة القوية اجتماعيا.",
       "Q95": "لقد شاركت أو دعيت إلى نشاط الاتصال النهائي حيث تم تقديم نتائج البحوث.",
-      "Q10XX": "لا تتردد في تضمين أي تعليقات أخرى متعلقة بهذه المرحلة.",
-      "Q10XY": "لا تتردد في تضمين أي تعليقات أخرى متعلقة ب (مرحلة) مرحلة .",
       "Q1001": "ما الذي دفعك للمشاركة في هذا المشروع؟",
       "Q1002": "كل شيء في المشروع يتطور كما كنت تتوقع؟ خلاف ذلك ، أخبرنا ما هو مختلف ولماذا. ما يمكن تحسينه؟",
       "Q1003": "يرجى وصف النتائج الرئيسية لهذا المشروع. ما الذي كان ضروريًا لتحقيق تلك النتائج؟ كيف كنت قد عالجت هذا الطلب من دون هذه المنظمة؟",
@@ -411,7 +475,73 @@
       "Q1013": "ما الذي دفعك للمشاركة في هذا المشروع؟",
       "Q1014": "كل شيء في المشروع يتطور كما كنت تتوقع؟ خلاف ذلك ، أخبرنا ما هو مختلف ولماذا. ما يمكن تحسينه؟",
       "Q1015": "يرجى وصف النتائج الرئيسية لهذا المشروع. ما الذي كان ضروريًا لتحقيق هذه النتائج؟",
-      "Q1016": "تشمل مشاريع العلوم المفتوحة المشاركة العامة. ما هي الكفاءات الجديدة التي اكتسبتها من خلال هذا المشروع؟"
+      "Q1016": "تشمل مشاريع العلوم المفتوحة المشاركة العامة. ما هي الكفاءات الجديدة التي اكتسبتها من خلال هذا المشروع؟",
+      "Q10XX": "لا تتردد في تضمين أي تعليقات أخرى متعلقة بهذه المرحلة.",
+      "Q10XY": "لا تتردد في تضمين أي تعليقات أخرى متعلقة ب (مرحلة) مرحلة .",
+      "Q10XZ": "لا تتردد في تضمين أي تعليق آخر حول انطباعاتك في هذه المرحلة من المشروع",
+      "v2": {
+        "Q01": "في اي من مراحل تكوين البحث كانت مشاركة المجتمع المدني فعالة ؟",
+        "Q05": "في اي من مراحل تكوبن البحث كان تشريك المجتمع المدني ايجابيا ؟ ",
+        "Q09": "لا يمكن تحقيق اهداف البحث بدون تشريك المجتمع المدني في مراحل التكوين",
+        "Q13": "اهداف البحث تقابل مستحقات، فعاليات، و اولويات المجتمع المدني",
+        "Q14": "انتم بصدد التعلم او تطوير معلوماتكم  في مجالات جديدة، معرفة و سلوكيات اثناء القيام بالبحث",
+        "Q15": "كانت المشاركة في ورشات العمل والمناقشات الجماعية والاجتماعات وعملية جمع البيانات بالاتصال عبر الانترنات المباشرسهلة وفعالة.",
+        "Q16": "أسهمت المشاركة في ورشات العمل ، والمناقشات الجماعية ، والاجتماعات ، وعملية جمع البيانات بالاتصال عبر الانترنات ، إسهاما إيجابيا في بناء معارف أقوى.",
+        "Q24a": "التمويل كان مناسبا للبحث",
+        "Q25a": "الموارد الشخصية كانت مناسبة للبحث",
+        "Q26": "لقد تعلمت او عززت مهارات و معارف و سلوكيات جديدة اثناء مشروع البحث ",
+        "Q27": "تقديم نتائج المشاريع لأصحاب المصلحة في شكل مفهوم مناسب.",
+        "Q27a": "تقديم نتائج المشاريع لعامة الناس في شكل مفهوم مناسب",
+        "Q30": "لقد أطلعتم أعضاء المجتمع المدني على ما ستستخدم البيانات من أجله ، وأين سيتم تخزين البيانات وتبادلها.",
+        "Q32": "يشمل المشروع منظورات وردود فعل من المجتمع المحلي طوال عملية البحث",
+        "Q35": "\nيمكن لمشاركة المجتمع المحلي في المشروع أن تسهم بشكل إيجابي في تلبية احتياجات المجتمع المحلي وشواغله وأولوياته",
+        "Q38": "يمكنك المساهمة في المشروع بالإعراب عن معرفتك وخبرتك",
+        "Q39": "تشعر بالثقة في المساهمة في مشروع البحث",
+        "Q41": "يمكن لمشاركتكم في المشروع ان تكون ذات مساهمة ايجابية في ما يتعلق في تلبية حاجيات المجتمع المدني و شواغله و اولوياته",
+        "Q42": "تشعر بالثقة في استخدام نتائج البحث لتحقيق اغراضك",
+        "Q47": "أنت راض عن أنشطة المشاركة ، مثل حلقات العمل التشاركية ، والمناقشات الجماعية ، والاجتماعات ، وعملية جمع البيانات عن طريق الإنترنت/التعاون ، للمشروع",
+        "Q54a": "لديك دوافع لمواصلة المشاركة في مشروع البحث",
+        "Q55": "تقديم نتائج البحث لاصحاب المصالح في شكل مناسب و مفهوم",
+        "Q55a": "تقديم نتائج البحث لعامة الناس في شكل مفهوم و مناسب",
+        "Q56": "أسهمت نتائج المشروع في توليد معارف جديدة ذات صلة بكل من أصحاب المصلحة",
+        "Q57": "بشمل المشروع منظورات و ردود فعل المجتمع المدني طوال عملية البحث ",
+        "Q59": "استجاب المشروع لاحتياجات المجتمع المدني وشواغله وأولوياته.",
+        "Q64": "تفي أهداف المشروع باحتياجات المجتمع المحلي وشواغله وأولوياته",
+        "Q69": "(أسهمت نتائج المشروع بنشاط في الخطاب العلمي (من خلال المنشورات العلمية والتقارير والمدونات وما إلى ذلك",
+        "Q70": "ساعد المشروع على تحديد أفضل الطرق التي يمكن بها تطبيق عمليات البحث للاستجابة للقضايا المجتمعية.",
+        "Q70a": "ساعد المشروع على تحديد أفضل الطرق التي يمكن بها تطبيق المعارف والممارسات المجتمعية لتحسين البحوث",
+        "Q71": "مشروع كهذا يمكن أن يزيد من احتمال الحصول على التمويل",
+        "Q72": "ادت أنشطة نشر نتائج البحوث ونواتجها في النظر في خيارات بديلة تتعلق بالسياسات أو البرامج أو العمليات أو المنتجات أو الخدمات",
+        "Q75": "أدت أنشطة النشر ونواتج نتائج البحوث إلى إدخال تحسينات على السياسات أو البرامج أو العمليات أو المنتجات أو الخدمات القائمة.",
+        "Q79": "(أسهمت نتائج المشروع بنشاط في الخطاب العلمي (من خلال المنشورات العلمية والمدونات وما إلى ذلك",
+        "Q80a": "ساعد المشروع على تحديد أفضل الطرق التي يمكن بها تطبيق المعارف والممارسات المجتمعية لتحسين البحوث",
+        "Q81": "أسهمت المهارات والمعارف والمواقف المكتسبة خلال المشروع إسهاما إيجابيا في دفع مسيرتك المهنية",
+        "Q82": "بفضل الأنشطة التشاركية ، مثل حلقات العمل التشاركية ، والمناقشات الجماعية ، والاجتماعات ، وعملية جمع البيانات عن طريق الإنترنت/التعاون ، تمكنتم من معالجة المشكلة.",
+        "Q83": "مشاركتك في المشروع غيرت سلوكك و/أو سلوكك",
+        "Q84a": "ساعد المشروع على تحديد أفضل للطرق التي يمكن بها تطبيق المعارف والممارسات المجتمعية لتحسين البحوث",
+        "Q85a": "قد زادت مشاركتك في المشروع من معرفتك بموضوع المشروع",
+        "Q86": "قد عززت المشاركة في المشروع ثقتكم في المساهمة في مشاريع بحثية متباينة مدفوعة بالاحتياجات الاجتماعية",
+        "Q87a": "أثار المشروع أسئلة بحثية جديدة ومشاريع جديدة و/أو مقترحات جديدة",
+        "Q88a": "ساعد المشروع على تحديد أفضل للطرق التي يمكن بها تطبيق المعارف والممارسات المجتمعية لتحسين البحوث",
+        "Q89": "(أسهمت نتائج المشروع بنشاط في الخطاب العلمي (من خلال المنشورات العلمية والمدونات وما إلى ذلك",
+        "Q90": "يشمل المشروع مجموعات مستبعدة تقليديا ، ومجموعات لا يمكنها الوصول إلى البحوث بطريقة أخرى و/أو مجموعات معينة تعبر عن مصالح واحتياجات محددة",
+        "Q91": "سيؤدي المشروع إلى نتائج علمية ذات صلة وزيادة المعرفة بالموضوع",
+        "Q94": "أسهمت الأنشطة القائمة على المشاركة ، مثل حلقات العمل ، والمناقشات الجماعية ، والاجتماعات ، وعملية جمع البيانات بالاتصال عبر الانترنات المباشر/التعاوني ، في بناء معارف أكثر أهمية من الناحية الاجتماعية",
+        "QN01": "لا يسترشد تصميم/توجيه المشروع بأفكار الخبراء الأكاديميين أو العلميين فحسب",
+        "QN03": "لم يسترشد تصميم/توجيه المشروع بأفكار الخبراء الأكاديميين والعلميين فحسب",
+        "QN08": "يبذل المشروع جهدا لإشراك مختلف التجارب الجنسانية وإعطاء أهمية متساوية لكل منها",
+        "QN12": "تم النظر في الآثار المحتملة للبحوث المتعلقة بعدم المساواة بين الجنسين (دور الجنسين ، والوصول ، والسيطرة على الموارد ، والمساواة)",
+        "QN19": "استندت المناقشات في المشروع إلى ما قيل ، وليس إلى من قال ذلك ، وتم تبادل الحجج بطريقة محترمة ولكنها عقلانية",
+        "QN23": "لقد تعلمتم أو عززتم مهارات ومعارف ومواقف جديدة في ممارسات المشاركة (مثل كيفية التواصل مع أعضاء المجتمع المدني ، وكيفية إدارة مجموعات التركيز وحلقات العمل ، وما إلى ذلك",
+        "QX01": "يتم توفير بروتوكول البحوث ووصف منهجيات البحث بوضوح ، بحيث يمكن للآخرين تكييفها أو إعادة استخدامها",
+        "QX02": "البيانات التي لا تنتهك الخصوصية أو غيرها من القيود الأخلاقية متاحة بطريقة \nو FAIR \n  هي بيانات تفي بمبادئ القابلية للختام ، وإمكانية الوصول ، وإمكانية التشغيل المتبادل ، وإمكانية إعادة الاستخدام",
+        "Q1003": "كيف تصف النتائج الرئيسية لهذا المشروع من منظورك وما الذي كفل تحقيق تلك النتائج ؟",
+        "Q1004": "هل كان هناك تغيرات في سياقك يمكنك أن تنسب لهذا المشروع ؟ إذا كان الأمر كذلك ، يرجى وصفها",
+        "Q1007": "الآن بعد الانتهاء من المشروع ، كيف تعتقد أنه كان يمكن تحسين تصميمه وتنفيذه ، على سبيل المثال فيما يتعلق بمشاركة مختلف أصحاب المصلحة ، واستخدام أساليب مختلفة ، وتنظيم أنشطة مختلفة ؟",
+        "Q1008": "كيف تصف فوائد هذا المشروع من منظورك وما الذي كفل هذه الإنجازات ؟",
+        "Q1011": "كيف تصف النتائج الرئيسية لهذا المشروع من منظورك وما الذي كفل هذه الإنجازات ؟",
+        "Q1016": "يرجى وصف الكفاءات الرئيسية التي اكتسبتموها من خلال هذا المشروع"
+      }
     }
   },
   "toolbar": {
@@ -422,17 +552,20 @@
   "navigation": {
     "links": {
       "home": "الصفحة الرئيسية",
-      "about": "حول"
+      "about": "حول",
+      "help": "مساعدة"
     }
   },
   "misc": {
     "timeAgo": "زمن) مضى)",
-    "notSpecified": "Not specified"
+    "optional": "اختياري",
+    "lastUpdated": "آخر تحديث (زمن) مضى",
+    "notSpecified": "غير محدد"
   },
   "actions": {
     "add": "اضف",
-    "accept": "Accept",
-    "submit": "خضع",
+    "accept": "قبول",
+    "submit": "قديم",
     "approve": "وافق",
     "validate": "وافق",
     "create": "خلق",
@@ -445,16 +578,24 @@
     "logout": "الخروج",
     "register": "تسجيل",
     "save": "حفظ",
+    "search": "بحث",
+    "loading": "تحميل",
     "close": "أغلق",
     "cancel": "إلغاء",
     "more": "أكثر من",
     "next": "التالى",
-    "manage": "Manage",
-    "clearFilter": "Clear filter",
+    "back": "رجوع",
+    "manage": "إدارة",
+    "invite": "دعوة",
+    "clearFilter": "فسخ المرشح",
     "moreInformation": "المزيد من المعلومات",
-    "manageName": "Manage this {name}",
-    "viewPublicPage": "View public page",
-    "exportAllData": "Export all data"
+    "manageName": " الإسم) إدارة هذا)",
+    "viewPublicPage": "عرض الصفحة العامة",
+    "exportAllData": "تحميل جميع البيانات",
+    "download": "تنزيل",
+    "downloadName": "  {تنزيل {الاسم",
+    "tellMeMore": "أخبرني بالمزيد",
+    "notInterested": "غير مهتم"
   },
   "states": {
     "enabled": "تمكين",
@@ -465,6 +606,7 @@
   },
   "noums": {
     "user": "المستخدم",
+    "stage": "المرحلة",
     "project": "مشروع",
     "projects": "مشاريع",
     "structure": "هيكل",
@@ -472,6 +614,7 @@
     "evaluation": "تقييم"
   },
   "errors": {
+    "couldNotLoad": "هناك مشكلة في تحميل هذه الصفحة. هل أنت متأكد من أن لديك الوصول ؟",
     "404": {
       "title": "عفوا! لم يتم العثور على هذه الصفحة",
       "text": "الصفحة في \"طريق\" غير موجودة. هل أنت متأكد أنك كتبت هذا بشكل صحيح؟"
@@ -479,56 +622,73 @@
   },
   "forms": {
     "titles": {
-      "login": "تسجيل الدخول"
+      "login": "تسجيل الدخول",
+      "newParticipant": "معلومات حول المشارك"
     },
     "rules": {
+      "invalidUsername": "اسم المستخدم غير صالح",
+      "invalidEmail": "هذا البريد الإلكتروني غير صالح",
       "requiredField": "هذا حقل مطلوب",
       "passwordField": "كلمة السر التي أدخلتها غير صحيحة",
       "passwordMatch": "كلمات السر اثنين لا تتطابق",
       "maximunLength": "يجب أن يكون (طول) الأحرف على الأكثر",
       "minimunLength": "يجب أن يكون (طول) الحروف على الأقل",
+      "usernameInUse": "اسم المستخدم قيد الاستخدام ,الرجاء اختيار واحد مختلف",
       "namedRequiredField": "الاسم) هو حقل مطلوب)",
       "mustBeStructure": "يرجى إدخال هيكل صالح",
       "mustBeUser": "يرجى إدخال قائمة صالحة من المستخدمين",
-      "mustBeURL": "Please enter a valid URL",
-      "mustBeCountry": "Please enter a valid Country",
-      "mustBeKnowledgeArea": "Please enter a valid Knowledge Area"
+      "mustBeURL": "أدخل رابط صحيح من فضلك",
+      "mustBeCountry": "الرجاء إدخال بلد صالح",
+      "mustBeKnowledgeArea": "الرجاء إدخال منطقة معرفة صالحة"
     },
     "errors": {
       "invalidCredentials": "بيانات اعتماد غير صالحة ، يرجى التحقق من اسم المستخدم وكلمة السر."
     },
     "toasts": {
+      "permissionError": "كان هناك خطأ أثناء الدخول إلى المورد ، قد لا يكون لديك إذن لعرض هذا",
+      "uploadError": "هناك خطأ في تحميل ملفك",
       "loggedOut": "لقد تم تسجيل خروجك",
-      "resetPasswordSubmitted": "A password reset email has been submitted to the user of this account.",
+      "resetPasswordSubmitted": "تم إرسال رسالة بريد إلكتروني لإعادة تعيين كلمة المرور إلى مستخدم هذا الحساب",
       "saveSuccess": "تم الحفظ بنجاح!",
       "saveFailure": "أخفق الحفظ ، أعد المحاولة لاحقًا",
+      "saveImageSuccess": "!تم تحميل الصورة بنجاح",
+      "saveImageFailure": "فشل في تحميل الصورة",
       "projectSaveSuccess": "تحديث بيانات المشروع!",
       "projectSaveFailure": "أخفق حفظ المشروع ، يرجى إعادة المحاولة لاحقًا",
       "structureSaveSuccess": "تحديث هيكل البيانات",
-      "structureSaveFailure": "أخفق حفظ الهيكل ، يرجى إعادة المحاولة لاحقًا",
-      "participantsSuccess": "الأشخاص الذين تم إنقاذهم يشاركون في المشروع",
-      "-": ""
+      "structureSaveFailure": "فشل في حفظ الهيكل ، يرجى إعادة المحاولة لاحقًا",
+      "inviteParticipantFailure": "فشل في دعوة هذا الشخص. الرجاء التحقق من صحة مشروعك. البريد الإلكتروني قد يكون مستخدم بالفعل",
+      "participantsSuccess": "حفظوا الأشخاص المشاركين في المشروع",
+      "inviteParticipantSuccess": "تم إنشاء الدعوة بنجاح",
+      "copiedToClipboard": "نسخ إلى الحافظة",
+      "errorClipboard": "لا يمكن النسخ إلى الحافظة الرجاء نسخ يدويا"
     },
     "fields": {
       "name": "لاسم",
       "firstName": "الاسم الاول",
       "lastName": "اللقب",
+      "isAnonymous": "مشارك مجهول",
       "email": "البريد الإلكتروني",
-      "education": "Education Level",
-      "institution": "Institution",
-      "genderIdentity": "Gender Identity",
+      "education": "مستوى التعليم",
+      "institution": "المعهد",
+      "genderIdentity": "الهوية الجنسية",
       "summary": "الملخص",
       "description": "وصف",
       "participants": "المشاركين",
       "managers": "المديرين",
+      "structureName": "اسم الهيكل",
+      "structureType": "نوع الهيكل",
+      "structureYearFounded": "عام انشاء الهيكل",
+      "structureAdministrators": "مدير الهيكل",
+      "structureCountry": "بلد تنفيذ المشروع",
       "projectName": "اسم المشروع",
-      "projectCountry": "Project country of action",
-      "projectImageURL": "العنوان اللأ لكتروني لصورة المشروع",
-      "projectSummary": "Project Summary",
       "projectAcronym": " الاسم المختصر للمشروع",
-      "socialNetwork": "Social Network",
-      "contactEmail": "الاتصال البريد الإلكتروني",
+      "projectType": "نوع المشروع",
+      "projectPhase": "مرحلة المشروع",
+      "projectCountry": "بلد العمل المشروع",
       "projectAdministrators": "مسؤولي المشروع",
+      "socialNetwork": "شبكة اجتماعية",
+      "contactEmail": "الاتصال البريد الإلكتروني",
       "contactWebsite": "موقع خارجي",
       "postalAddress": "العنوان البريدي",
       "username": "اسم المستخدم",
@@ -538,26 +698,38 @@
       "title": "عنوان",
       "role": "وظيفة",
       "invitationCode": "رمز الدعوة",
-      "projectPhase": "مرحلة المشروع",
-      "projectType": "نوع المشروع",
       "knowledgeArea": "مجال المعرفة",
-      "knowledgeAreas": "مجالات المعرفة"
+      "knowledgeAreas": "مجالات المعرفة",
+      "coverImage": "صورة الغلاف"
     },
     "labels": {
       "searchUsers": "بحث المستخدمين"
     },
+    "descriptions": {
+      "projectAdministrators": "يتاح لمديري المشاريع الوصول الكامل إلى المشروع ويمكنهم أن يحرروا تفاصيل المشروع فضلا عن إضافة وإبعاد المديرين والمشاركين الآخرين. هذه الأذون تنطبق فقط داخل المنصة."
+    },
     "hints": {
-      "projectImageURL": "العنوان الالكتروني للصورة التي تريد عرضها على صفحة مشروعك",
+      "isAnonymous": "إخفاء الاسم الحقيقي من الصفحات العامة",
+      "isAnonymousInvite": "إخفاء الاسم الحقيقي للمشترك على الصفحات العامة",
       "contactEmail": "كيف يجب أن يصل بك الناس بأسئلة حول المشروع؟",
       "contactWebsite": "العنوان الالكتروني إلى موقع خارجي حيث يمكن للناس رؤية المزيد عن مشروعك.",
+      "username": "(أدخل اسم المستخدم. إن الخيار الجيد يتلخص في الاسم.اللقب (جون.  دو).",
+      "structureName": "اختر الاسم الذي يميز هيكلك في أقل من 50 حرف",
+      "structureSummary": " ملخص قصير لهيكلك وماذا يغطي. اقترح الاحتفاظ ب 200 حرف",
+      "structureCountry": "البلد الذي يعمل فيه هذا الهيكل بصفة رئيسية",
+      "structureAdministrators": "أضف هنا جميع الأشخاص الذين سيتمكنون من الوصول الكامل إلى تحرير الهيكل والموافقة على المشاريع الجديدة. لا يمكن للمديرين التسلسل نقل الملكية. المديرون ليسوا مشاركين",
       "projectType": "كيف يتم تنظيم فريق المشروع الخاص بك؟",
       "projectName": "اختر اسمًا يميز مشروعك. أقل من 50 حرفا يوحي",
       "projectSummary": "ملخص قصير لمشروعك وماذا يغطي. اقترح الاحتفاظ بها تحت 200 حرف.",
-      "projectAdministrators": "أضف هنا جميع الأشخاص الذين سيكون لديهم حق الوصول الكامل إلى تحرير المشروع. لا يمكن لمسؤولي المشروع نقل الملكية",
+      "projectAdministrators": "أضف هنا جميع الأشخاص الذين سيكون لديهم حق الوصول الكامل إلى تحرير المشروع. لا يمكن لمسؤولي المشروع نقل الملكية ",
       "projectAcronym": "اختيار مشروع اختصار",
+      "projectCountry": "أين تم إنشاء أو تشغيل مشروعك ، بشكل رئيسي ؟",
+      "postalAddress": "إذا أرسل إليك شخص ما رسالة ، أين ستتم مخاطبتها ؟",
       "knowledgeArea": "مجال المعرفة في اليونسكو الذي يعرّف مشروعك على أفضل وجه.",
+      "knowledgeAreas": "اختر جميع مجالات المعرفة للبحوث في إطار هذا الهيكل",
       "summary": "وصف مشروع طويل لا يوجد حد للحرف",
-      "description": "وصف مشروع طويل لا يوجد حد للحرف",
+      "description": " . وصف مطول. عدد الحروف غير محدد. تخفيض السعرهو متاح للصياغة",
+      "descriptionTemplate": "يرجى اتباع القالب المثبت وعدم إزالة عناوين الأقسام (الخطوط التي تبدأ بـ \"# #\"). املأ تفاصيل مشروعك لتحل محل الخطوط التعليمية",
       "password": "يجب أن تتكون كلمة السر من 8 أحرف على الأقل ، وليست كلمة السر مشتركة وألا تحتوي على اسم المستخدم الخاص بك"
     }
   },

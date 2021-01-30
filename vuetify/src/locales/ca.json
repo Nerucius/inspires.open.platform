@@ -2,25 +2,25 @@
   "pages": {
     "login": {
       "welcomeMessage": "Benvingut/da a la Plataforma InSPIRES",
-      "forgotPassword": "Forgot your password?",
-      "registerCTA": "Register now!"
+      "forgotPassword": "Has oblidat la teva contrasenya?",
+      "registerCTA": "Registra't ara!"
     },
     "account": {
-      "title": "Account",
-      "accountCreated": "Your new account has been created successfully. You can now access all of the features of the platform.",
-      "saveProfile": "Save profile",
-      "editProfile": "Edit Profile",
+      "title": "Compte",
+      "accountCreated": "El teu compte s'ha creat satisfactòriament. Ara pots accedir a totes les funcionalitats de la plataforma.",
+      "saveProfile": "Desa el teu perfil",
+      "editProfile": "Edita el teu perfil",
       "updateProfileSuccess": "El teu perfil s'ha actualizat.",
       "updateProfileFailure": "No s'ha pogut actualizar el teu perfil.",
       "myProjects": "Els meus Projectes",
       "myStructures": "Les meves Estructures"
     },
     "resetPassword": {
-      "title": "Finish resetting your password",
-      "introText": "This page will allow you to change your forgotten password. Please enter the new password you want to use from now on:",
-      "resetPassword": "Reset my password",
-      "goBackToLogin": "Go back to login",
-      "passwordChanged": "Your password has been changed successfully! You can go back to the login page with your new credentials."
+      "title": "Acaba de restablir la vostra contrasenya",
+      "introText": "Aquesta pàgina et permetrà canviar la contrasenya. Introdueix la nova contrasenya que vulguis utilitzar a partir d'ara:",
+      "resetPassword": "Restableix la meva contrasenya",
+      "goBackToLogin": "Torna a iniciar sessió",
+      "passwordChanged": "La teva contrasenya s'ha canviat correctament. Pots tornar a la pàgina d'inici de sessió amb les noves credencials."
     },
     "register": {
       "titles": {
@@ -39,7 +39,9 @@
       "step3TOSAcceptance": "En el moment de fer clic en el botó \"Acepto els Termes i Condicions d'ús\", reconeixo que he estat informat/da debidament i que dono el meu consentiment pel tractament de les meves dades persones pel propòsit indicat. ",
       "step3MessageAccepted": "Molt bé! Podem continuar amb el registre.",
       "step4Message": "Per favor, revisa la següent informació. Si et sembla correcte, pots seguir amb l'últim pas del registre. Pots tornar enrere si ho desitges i revisar tota la informació proporcionada fins el moment. ",
-      "step4MessageInvite": "Durant el primer període de prova, estem restrigint el registre només a persones convidades. Per favor, introdueix el codi que se t'ha proporcionat més avall: "
+      "step4MessageInvite": "Durant el primer període de prova, estem restrigint el registre només a persones convidades. Si us plau, introdueix el codi que se t'ha proporcionat més avall: ",
+      "registrationFailure": "S'ha produït un error amb el registre. Torna-ho a provar.",
+      "emailTaken": "Aquest correu electrònic ja està en ús. Prova amb un altre o intenta recuperar la teva contrasenya."
     },
     "home": {
       "mainTitle": "Benvingut/da a InSPIRES",
@@ -48,8 +50,14 @@
       "welcomeMessage": "Benvingut a la base de dades en línia i a l'eina d'avaluació d'impacte d' InSPIRES. Aquesta plataforma presenta projectes participatius de recerca i innovació promoguts per diferents estructures com ara els Science Shops i grups o unitats de ciència ciutadana, entre d'altres.",
       "welcomeMessageLong": "També ofereix una eina integrada d'avaluació d'impacte col·laborativa que serveix per avaluar els processos i els resultats dels vostres projectes en relació als altres. L'objectiu principal de l'eina és dur a terme una reflexió col·laborativa al voltant d'aquests projectes col·laboratius i així aprendre, pensar, debatre i créixer com a comunitat de pràctica per dur a terme millors projectes dedicats a millorar la vida i el benestar de la ciutadania. ",
       "aboutLink": "Més sobre nosaltres!",
-      "allProjects": "All Projects",
+      "allProjects": "Tots els projectes ",
       "projectsSeeMore": "Veure tots els projectes"
+    },
+    "help": {
+      "title": "Centre d'ajuda",
+      "description": "TODO: Text",
+      "allArticles": "Tots els articles ",
+      "articlesOtherLanguages": "Articles en altres idiomes "
     },
     "about": {
       "mainTitle": "Sobre la Plataforma Oberta InSPIRES",
@@ -63,6 +71,11 @@
       "titleTeam": "L'equip involucrat en la Plataforma Oberta InSPIRES ",
       "teamContent": "El desenvolupament d'aquesta Plataforma Oberta ha estat liderada per ISGlobal en col·laboració amb els grups de Ciència de Dades i Open Systems de la Universitat de Barcelona. Els membres del consorci del projecte InSPIRES també han jugat un paper crucial en la seva creació i evolució. "
     },
+    "search": {
+      "searchResults": "Resultats de la cerca ",
+      "searchResultsFor": "Cerca resultats per '{term}'",
+      "searchFound": "Hem trobat '{number}' ítems que coincideixen per la teva cerca:"
+    },
     "admin": {
       "mainTitle": "Panell d'administració ",
       "unauthorizedAccess": "No estàs autoritzat a accedir al panell d'administració. Si creus que hauries de tenir accés, si us plau contacta amb l'administrador de la plataforma. ",
@@ -73,35 +86,40 @@
       "validationFailure": "Ha fallat la validació de l'estructura. Si us plau, contacta amb suport. "
     },
     "legal": {
-      "termsOfServiceTitle": "Terms of Service",
-      "termsOfService": "By accepting the terms of service you understand that:\n\nYour personal data will only be used by:\n\nFundación Privada Instituto de Salud Global Barcelona (ISGlobal)\nCIF: G65341695\nPostal address: Carrer Rosselló, number 132, 2nd, 5th and 7th floors - 08036 Barcelona\nTelephone: (+34) 932 271 806\nEmail: inspires@isglobal.org\n\nWe collect and process your personal data for the sole purpose of responding to your registration to the website https://app.inspiresproject.com.\n\nYour data will be used solely by the InSPIRES team of ISGlobal who require access to it to carry out their work and it will never, under any circumstances, be made available to third parties or transferred to third countries or international organisations.\n\nWe can only process your personal data with your consent, and it will be retained only as long as you do not withdraw consent.\n\nYou can exercise all your rights under current data protection regulations, including the right to access, correction, objection, erasure, portability and restriction, by writing to the Data Protection Officer (lopd@isglobal.org), attaching a copy of your national identity document or equivalent.\n\nYou have the right to withdraw your consent at any time. Withdrawal of consent does not affect the lawfulness of processing based on consent before its withdrawal. If you do not agree with the manner in which ISGlobal handles your data or you consider that your rights have been infringed, you can file a complaint at any time with the Spanish Data Protection Agency.",
+      "termsOfServiceTitle": "Termes del Servei",
+      "termsOfService": "En acceptar els Termes del Servei, entens que: \n\nLes teves dades personals només seran utilitzades per: \n\nFundación Privada Instituto de Salud Global Barcelona (ISGlobal)\nCIF: G65341695\nAdreça postal: Carrer Rosselló, número 132, 2a, 5a i 7a planta- 08036 Barcelona\nTelèfon: (+34) 932 271 806\nCorreu electrònic: inspires@isglobal.org\n\nRecopilem i processem les teves dades personals amb l’únic propòsit de respondre al teu registre al lloc web https://app.inspiresproject.com.\n\nLes teves dades seran utilitzades exclusivament per l’equip d'InSPIRES d’ISGlobal que requereixen l’accés a elles per desenvolupar la seva tasca i mai, en cap cas, es posarà a disposició de tercers ni es transferirà a tercers països o organitzacions internacionals.\n\nNomés podem processar les teves dades personals amb el teu consentiment i només es conservaran mentre no retiris el consentiment.\n\nPots exercir tots els teus drets segons la normativa vigent de protecció de dades, inclòs el dret d’accés, correcció, oposició, esborrament, portabilitat i restricció, escrivint al responsable de protecció de dades (lopd@isglobal.org), adjuntant una còpia del teu document d'identitat o equivalent. \n\nTens dret a retirar el teu consentiment en qualsevol moment. La retirada del consentiment no afecta a la legalitat del tractament basat en el consentiment abans de la seva retirada. Si no estàs d'acord amb la forma en què ISGlobal tracta les teves dades o consideres que s'han infringit els teus drets, pots presentar una reclamació en qualsevol moment a l'Agència Espanyola de Protecció de Dades.\n",
       "legalNoticeTitle": "Avís Legal",
       "legalNotice": "### Titular de la web i de l’aplicació:\n \nFundació Privada Institut de Salut Global Barcelona (ISGlobal)\nCIF: G65341695\nAdreça postal: carrer de Rosselló, número 132, 2a, 5a i 7a - 08036 Barcelona\nInscrita al Registre de Fundacions de la Direcció General de Dret i d’Entitats Jurídiques de la Generalitat de Catalunya amb el número 2.634\nNúm. de telèfon: (+34) 932 271 806\n \nEl lloc web és propietat d’ISGlobal.\n \nL’ús del lloc web està subjecte a les condicions d’ús següents. Li preguem que les llegeixi atentament. El fet d’accedir al web i utilitzar els materials que conté implica que vostè ha llegit i accepta, sense cap mena de reserva, aquestes condicions.\n",
       "conditionsOfUseTitle": "Condicions d’ús del web",
       "conditionsOfUse": "El lloc web conté material preparat per ISGlobal amb finalitats únicament informatives. L’usuari ha de tenir en compte que és possible que aquest material no reflecteixi l’estat més recent de les qüestions analitzades. Així mateix, aquest material pot ésser modificat, desenvolupat o actualitzat sense notificació prèvia.\n \nL’accés a aquest material no pretén constituir ni implica cap relació de confiança o  professional entre ISGlobal i l’usuari de la web.\n \nEls enllaços (o links) que conté el lloc web poden conduir l’usuari a altres llocs, pàgines web i/o aplicacions gestionats per tercers, sobre els quals ISGlobal no exerceix cap mena de control.\n \nISGlobal no respon ni del contingut ni de l’estat dels llocs, pàgines web i aplicacions en qüestió, i l’accés a aquests, a través del lloc web o de l’aplicació, tampoc no implica que ISGlobal en recomani o n’aprovi el contingut.\n \n### Limitació de responsabilitat\n \nQui utilitza la web ho fa sota la seva pròpia responsabilitat. ISGlobal no es fa responsable dels errors o omissions que pugui presentar el contingut d’aquestes o altres pàgines web a les quals es pugui accedir a través d’aquestes. ISGlobal tampoc podrà ser considerada responsable de cap dany derivat de l’ús del web, ni per qualsevol actuació duta a terme sobre la base de la informació que s’hi facilita.\n \nISGlobal no garanteix l’absència de virus o altres elements lesius que poguessin causar danys o alteracions al sistema informàtic, als documents electrònics o als fitxers de l’usuari del lloc web. Per tant, ISGlobal no respon dels danys i perjudicis que aquests elements poguessin causar a l’usuari o a tercers.\n\n[Actualitzat el febrer de 2019]",
       "privacyPolicyTitle": "Política de privacitat",
-      "privacyPolicy": "**Segons la normativa de protecció de dades vigent**, ISGlobal l’informa expressament del següent:\n \nQuan se li sol·licitin dades personals per a la prestació de serveis, s’informarà l’usuari del caràcter necessari d’aquells que siguin considerats imprescindibles.\n \nSi no es faciliten aquestes dades obligatòries, no serà possible la prestació dels serveis en qüestió. Les dades de caràcter personal que vostè faciliti o a les quals ISGlobal tingui accés com a conseqüència de la seva navegació, consulta i/o sol·licituds a través de la pàgina www.isglobal.org (el “Lloc Web”) s’incorporaran a un fitxer titularitat d’ISGlobal, amb la finalitat de gestionar, mantenir i controlar les seves sol·licituds d’informació i/o contractació dels béns i/o serveis oferts a través del Lloc Web. La informació que rep ISGlobal dels usuaris del lloc web a través de la subscripció a esdeveniments promocionals o de l’enviament de formularis es tracta amb la màxima confidencialitat, amb la finalitat d’atendre la seva participació a l’esdeveniment i d’enviar-li informació, en el segon cas. La informació rebuda no s’utilitza per a cap altra finalitat.\n \nLes dades personals facilitades no es comunicaran ni es cediran a tercers sense consentiment previ de l’interessat.\n \nL’enviament d’informació mitjançant el/els formularis del lloc web sempre va precedit de la conformitat voluntària mitjançant la selecció d’un botó “ACCEPTAR/ENVIAR” (o similar), per la qual cosa ISGlobal disposa de la prova del consentiment de l’usuari al tractament de les seves dades personals.\n \nL’usuari respondrà, en qualsevol cas, del fet que les dades facilitades siguin veritables, exactes, completes i actualitzades, i ISGlobal es reservarà el dret d’excloure de la informació o dels serveis sol·licitats a qualsevol usuari que hagi facilitat dades falses, sense perjudici d’altres accions legalment procedents.\n \nEn virtut d’allò que es disposa a l’article 22 de la LSSI, ISGlobal podrà utilitzar dispositius d’emmagatzematge i recuperació de dades (“cookies”) en equips terminals dels destinataris, amb la condició que aquests hagin donat el seu consentiment un cop se’ls hagi facilitat informació clara i completa sobre la seva utilització. Els usuaris podran obtenir tota la informació sobre la finalitat de la instal·lació de les cookies i els usos que se’ls donarà a la pàgina Política de cookies d’ISGlobal.\n \nTot allò descrit anteriorment no impedirà el possible emmagatzematge o accés de tipus tècnic amb l’única finalitat d’efectuar la transmissió d’una comunicació per una xarxa de comunicaciones electròniques o, en la mesura que resulti estrictament necessari, per a la prestació d’un servei de la societat de la informació sol·licitat expressament pel destinatari.\n \nL’usuari podrà exercir els drets d’accés, rectificació, supressió, oposició, portabilitat i limitació del tractament mitjançant una sol·licitud dirigida a  lopd@isglobal.org o per correu postal a l’adreça d’ISGlobal: c/ Rosselló, número 132, 08036 Barcelona. La sol·licitud haurà d’indicar el nom i cognoms de l’usuari, el domicili a efectes de notificacions, una fotocòpia del Document d’Identitat o passaport i la indicació del dret que s’exerceix.\n \nAixí mateix, si no està d’acord amb el tractament dut a terme per ISGlobal o considera que s’han vulnerat els seus drets, podrà presentar una reclamació en qualsevol moment a l’Agència Espanyola de Protecció de Dades.\n \nDe conformitat amb allò establert a la Llei 34/2002, d’11 de juliol, de Serveis de la Societat de la Informació i de Comerç Electrònic, en el supòsit que vostè no desitgi rebre comunicacions comercials electròniques en el futur, per part d’ISGlobal, podrà manifestar aquesta voluntat enviant un correu electrònic a l’adreça següent: lopd@isglobal.org.\n\n[Actualitzat el febrer de 2019]",
+      "privacyPolicy": "**Segons la normativa de protecció de dades vigent**, ISGlobal l’informa expressament del següent:\n \nQuan se li sol·licitin dades personals per a la prestació de serveis, s’informarà l’usuari del caràcter necessari d’aquells que siguin considerats imprescindibles.\n \nSi no es faciliten aquestes dades obligatòries, no serà possible la prestació dels serveis en qüestió. Les dades de caràcter personal que vostè faciliti o a les quals ISGlobal tingui accés com a conseqüència de la seva navegació, consulta i/o sol·licituds a través de la pàgina www.isglobal.org (el “Lloc Web”) s’incorporaran a un fitxer titularitat d’ISGlobal, amb la finalitat de gestionar, mantenir i controlar les seves sol·licituds d’informació i/o contractació dels béns i/o serveis oferts a través del Lloc Web. La informació que rep ISGlobal dels usuaris del lloc web a través de la subscripció a esdeveniments promocionals o de l’enviament de formularis es tracta amb la màxima confidencialitat, amb la finalitat d’atendre la seva participació a l’esdeveniment i d’enviar-li informació, en el segon cas. La informació rebuda no s’utilitza per a cap altra finalitat.\n \nLes dades personals facilitades no es comunicaran ni es cediran a tercers sense consentiment previ de l’interessat.\n \nL’enviament d’informació mitjançant el/els formularis del lloc web sempre va precedit de la conformitat voluntària mitjançant la selecció d’un botó “ACCEPTAR/ENVIAR” (o similar), per la qual cosa ISGlobal disposa de la prova del consentiment de l’usuari al tractament de les seves dades personals.\n \nL’usuari respondrà, en qualsevol cas, del fet que les dades facilitades siguin veritables, exactes, completes i actualitzades, i ISGlobal es reservarà el dret d’excloure de la informació o dels serveis sol·licitats a qualsevol usuari que hagi facilitat dades falses, sense perjudici d’altres accions legalment procedents.\n \nEn virtut d’allò que es disposa a l’article 22 de la LSSI, ISGlobal podrà utilitzar dispositius d’emmagatzematge i recuperació de dades (“cookies”) en equips terminals dels destinataris, amb la condició que aquests hagin donat el seu consentiment un cop se’ls hagi facilitat informació clara i completa sobre la seva utilització. Els usuaris podran obtenir tota la informació sobre la finalitat de la instal·lació de les cookies i els usos que se’ls donarà a la pàgina Política de cookies d’ISGlobal.\n \nTot allò descrit anteriorment no impedirà el possible emmagatzematge o accés de tipus tècnic amb l’única finalitat d’efectuar la transmissió d’una comunicació per una xarxa de comunicaciones electròniques o, en la mesura que resulti estrictament necessari, per a la prestació d’un servei de la societat de la informació sol·licitat expressament pel destinatari.\n \nL’usuari podrà exercir els drets d’accés, rectificació, supressió, oposició, portabilitat i limitació del tractament mitjançant una sol·licitud dirigida a  lopd@isglobal.org o per correu postal a l’adreça d’ISGlobal: c/ Rosselló, número 132, 08036 Barcelona. La sol·licitud haurà d’indicar el nom i cognoms de l’usuari, el domicili a efectes de notificacions, una fotocòpia del Document d’Identitat o passaport i la indicació del dret que s’exerceix.\n \nAixí mateix, si no està d’acord amb el tractament dut a terme per ISGlobal o considera que s’han vulnerat els seus drets, podrà presentar una reclamació en qualsevol moment a l’Agència Espanyola de Protecció de Dades.\n \nDe conformitat amb allò establert a la Llei 34/2002, d’11 de juliol, de Serveis de la Societat de la Informació i de Comerç Electrònic, en el supòsit que vostè no desitgi rebre comunicacions comercials electròniques en el futur, per part d’ISGlobal, podrà manifestar aquesta voluntat enviant un correu electrònic a l’adreça següent: lopd@isglobal.org.\n\n[Actualitzat a febrer de 2019]",
       "cookiePolicyTitle": "Política de cookies",
-      "cookiePolicy": "El nostre lloc web www.isglobal.org (el “Lloc Web”) utilitza una tecnologia denominada “cookies” amb la finalitat de poder recollir informació sobre l’ús del Lloc Web.\n \nUna cookie és un arxiu que es descarrega al seu equip (ordinador o dispositiu mòbil) amb la finalitat d’emmagatzemar dades que podran ser actualitzades i recuperades per l’entitat responsable de la seva instal·lació.\n \nLa informació aconseguida a través de les cookies pot incloure la data i l’hora de visites al Lloc Web, les pàgines vistes, el temps que ha passat al nostre Lloc Web i els llocs visitats just abans i just després d’aquest.\n \nL’informem que podem utilitzar cookies amb la finalitat de facilitar la seva navegació pel Lloc Web, proporcionar-li una millor experiència en navegar-hi, distingir-lo d’altres usuaris, i identificar problemes amb la finalitat de millorar el Lloc Web. Així mateix, en cas que vostè atorgui el seu consentiment, utilitzarem cookies que ens permetin obtenir més informació sobre les seves preferències i personalitzar el Lloc Web, d’acord amb els seus interessos individuals.\n \nLa present política de cookies té la finalitat d’informar-lo de manera clara i precisa sobre les cookies que s’utilitzen al nostre Lloc Web (la “Política de Cookies”). En cas que vulgui obtenir més informació sobre les cookies que utilitzem al Lloc Web, podrà enviar un correu electrònic a l’adreça següent: lopd@isglobal.org.\n \n## Tipus de cookies que s’utilitzen al Lloc Web\n \nEl nostre lloc web utiliza les cookies que es descriuen tot seguit:\n \n### Cookies pròpies\n \nSón les cookies que s’envien al seu ordinador i es gestionen exclusivament per nosaltres amb la finalitat d’assolir un millor funcionament del Lloc Web. La informació que recollim es fa servir per millorar la qualitat del nostre servei i la seva experiència com a usuari. Aquestes cookies romanen al seu navegador més temps, i ens permeten reconèixer-lo com a visitant periòdic del Lloc Web i adaptar-ne el contingut per poder oferir-li continguts que s’ajustin a les seves preferències.\n\n## Consentiment\n \nEn navegar i continuar al nostre Lloc Web estarà consentint l’ús de les cookies abans mencionades, pels terminis indicats i en les condicions contingudes en aquesta Política de Cookies.\n \n## Deshabilitar y bloquejar cookies\n \nCom que les cookies no són necessàries per a l’ús del nostre Lloc Web, l’informem que pot bloquejar-les o deshabilitar-les a través de la configuració del seu navegador que li permet rebutjar la instal·lació de totes les cookies o d’algunes. La majoria de navegadors permeten advertir la presència de cookies o rebutjar-les automàticament. Si les rebutja podrà seguir usant el nostre Lloc Web, encara que l’ús d’alguns dels seus serveis pot ser limitat i, per tant, la seva experiència al nostre Lloc Web pot resultar menys satisfactòria.\n \n## Retirar el meu consentiment\n \nSi, en qualsevol moment, volgués retirar el seu consentiment relacionat amb aquesta Política de Cookies, haurà d’eliminar les cookies emmagatzemades al seu equip (ordinador o dispositiu mòbil) a través dels ajustos i configuracions del navegador d’Internet. Per a més informació sobre l’eliminació, deshabilitació o bloqueig de les cookies, li recomanem que visiti: http://www.allaboutcookies.org/es/administrar-las-cookies/\n\n## Canvis en la Política de Cookies\n \nÉs possible que actualitzem la Política de Cookies del nostre Lloc Web. Per això, recomanem que revisi aquesta política cada cop que accedeixi al nostre Lloc Web amb la finalitat d’estar adequadament informat/da sobre com i per a què usem les cookies. La Política de Cookies va actualitzar-se per darrera vegada a data del 6 de juliol de 2018.\n \n## Contacte\n\nSi tingués cap dubte, comentari o suggeriment sobre la Política de Cookies, pot escriure’ns a: lopd@isglobal.org\n\n[Actualitzat el febrer de 2019]",
+      "cookiePolicy": "El nostre lloc web www.isglobal.org (el “Lloc Web”) utilitza una tecnologia denominada “cookies” amb la finalitat de poder recollir informació sobre l’ús del Lloc Web.\n \nUna cookie és un arxiu que es descarrega al seu equip (ordinador o dispositiu mòbil) amb la finalitat d’emmagatzemar dades que podran ser actualitzades i recuperades per l’entitat responsable de la seva instal·lació.\n \nLa informació recollida a través de les cookies pot incloure la data i l’hora de visites al Lloc Web, les pàgines vistes, el temps que ha passat al nostre Lloc Web i els llocs visitats just abans i just després d’aquest.\n \nEmprem les cookies per facilitar la navegació pel Lloc Web, proporcionar-li una millor experiència en navegar-hi, distingir-lo d’altres usuaris, i identificar problemes amb la finalitat de millorar el Lloc Web. En cas que vostè atorgui el seu consentiment, utilitzarem cookies que ens permetin obtenir més informació sobre les seves preferències i personalitzar el Lloc Web, d’acord amb els seus interessos individuals.\n \nLa present política de cookies té la finalitat d’informar-lo de manera clara i precisa sobre les cookies que s’utilitzen al nostre Lloc Web (la “Política de Cookies”). En cas que vulgui obtenir més informació sobre les cookies que utilitzem al Lloc Web, podrà enviar un correu electrònic a l’adreça següent: lopd@isglobal.org.\n \n## Tipus de cookies que s’utilitzen al Lloc Web\n \nEl nostre lloc web utiliza les cookies que es descriuen tot seguit:\n \n### Cookies pròpies\n \nAquestes cookies s’envien al seu ordinador i es gestionen exclusivament per nosaltres amb la finalitat d’assolir un millor funcionament del Lloc Web. La informació que recollim es fa servir per millorar la qualitat del nostre servei i la seva experiència com a usuari. Aquestes cookies romanen al seu navegador més temps, i ens permeten reconèixer-lo com a visitant periòdic del Lloc Web i adaptar-ne el contingut per poder oferir-li continguts que s’ajustin a les seves preferències.\n\n## Consentiment\n \nEn navegar i continuar al nostre Lloc Web estarà consentint l’ús de les cookies abans mencionades, pels terminis indicats i en les condicions contingudes en aquesta Política de Cookies.\n \n## Deshabilitar y bloquejar cookies\n \nCom que les cookies no són necessàries per a l’ús del nostre Lloc Web, l’informem que pot bloquejar-les o deshabilitar-les a través de la configuració del seu navegador que li permet rebutjar la instal·lació de totes les cookies o d’algunes. La majoria de navegadors permeten advertir la presència de cookies o rebutjar-les automàticament. Si les rebutja podrà seguir usant el nostre Lloc Web, encara que l’ús d’alguns dels seus serveis pot ser limitat i, per tant, la seva experiència al nostre Lloc Web pot resultar menys satisfactòria.\n \n## Retirar el meu consentiment\n \nSi, en qualsevol moment, volgués retirar el seu consentiment relacionat amb aquesta Política de Cookies, haurà d’eliminar les cookies emmagatzemades al seu equip (ordinador o dispositiu mòbil) a través dels ajustos i configuracions del navegador d’Internet.\nPer a més informació sobre l’eliminació, deshabilitació o bloqueig de les cookies, li recomanem que visiti: AllAboutCookies.org/\n\n## Canvis en la Política de Cookies\n \nLlevat que vostè hagi ajustat la configuració del seu navegador, el nostre sistema crea cookies quan visita el nostre lloc web. Tots els navegadors web permeten canviar aquesta configuració. Feu clic als enllaços següents per ajustar la configuració de cookies dels següents navegadors:\n\n- **Internet Explorer**:\n  - [Internet Explorer 5](https://support.microsoft.com/en-gb/help/196955)\n  - [Internet Explorer 6, 7, 8 and 9](https://support.microsoft.com/en-gb/help/260971/description-of-cookies)\n  - [Internet Explorer 11](https://support.microsoft.com/en-gb/help/17442/windows-internet-explorer-delete-manage-cookies)\n- **[Firefox](https://support.microsoft.com/en-gb/help/17442/windows-internet-explorer-delete-manage-cookies)**\n- **[Chrome](https://support.google.com/chrome/answer/95647?co=GENIE.Platform%3DDesktop&hl=en)**\n- **Safari**\n  - [Per Windows](https://support.apple.com/kb/ph21411?locale=es_ES)\n  - [Per Mac (iOS)](https://support.apple.com/es-es/HT201265)\n \n## Contacte\n\nSi tingués cap dubte, comentari o suggeriment sobre la Política de Cookies, pot escriure’ns a: lopd@isglobal.org\n\n[Actualitzat a febrer de 2019]",
       "cookieToast": "Aquest lloc web utilitza cookies pròpies i de tercers per obtenir informació dels seus hàbits de cerca i millorar la qualitat dels nostres serveis i de la navegació a través del nostre lloc web. Si hi està d’acord, faci clic a ACCEPTAR o continuï navegant."
     },
     "projectDetail": {
       "about": "Sobre nosaltres ",
       "detailsTab": "Informació",
       "evaluationTab": "Avaluació del projecte ",
-      "notApproved": "This project is not approved yet, it will not show up in public lists until it is registered to a Structure.",
+      "notApproved": "Aquest projecte encara no està aprovat, pel que no es compartirà amb altres persones fins que no estigui registrat en una Estructura.",
       "projectNotYetEvaluated": "Aquest projecte no ha rebut suficients comentaris ni avaluacions per part dels seus participants, pel que no podem mostrar la seva evolució. Comprova-ho un altre dia!"
     },
     "structureDetail": {
-      "notApproved": "This structure is not approved yet, it will not show up in public lists until a site administratot validates it.",
+      "notApproved": "Aquesta estructura encara no s'ha aprovat, no apareixerà en públic fins que l'administrador la validi. ",
       "about": "Sobre nosaltres "
     },
     "structureList": {
-      "introText": "A Structure is a knowledge intermediary unit, which can be based within a univeristy, a research centre or others that promotes interactions and dialogues between the scientific community and civil society organizations in order to jointly co-create and implement participatory research projects.\n\nThere are many labelled used at the moment to define such structures: Science Shops, Campus-community office, Citizen Science units, Social Labs, Living Labs, etc. but also citizen action research, community-based participatory research, and citizen science. Therefore, we do not intend to be exclusatory but rather gather in this open platfor all the projects that work under the 5 principles we promote: Knowledge Democracy, Citizen-led Research, Participatory Dynamics, Integrity and Transformative Change. You will find here below all the structures registered in the Open Platform.",
+      "introText": "Una estructura és una unitat intermediària de coneixement que es pot trobar dins d'una universitat, un centre de recerca o altres espais que promoguin interaccions i diàlegs entre la comunitat científica i les organitzacions de la societat civil per tal de co-crear i implementar projectes de recerca participatius. \n\nEn l'actualitat es poden definir de moltes maneres: Science Shops, Campus-community office, unitats de Ciència Ciutadana, Living Labs, etc., però també recerca ciutadana en acció, recerca participativa amb la comunitat i ciència ciutadana. Per aquesta raó, no busquem l'exclusió de projectes sinó reunir en aquesta plataforma oberta tots els projectes que funcionen sota els 5 principis que promovem: Democràcia del Coneixement, Recerca dirigida per la ciutadania, Dinàmiques participatives, Integritat i Canvi transformador. A continuació trobaràs totes les estructures registrades a la Plataforma Oberta. ",
       "visitStructure": "Veure la Estructura"
     },
     "structureManage": {
       "title": "Gestionar aquesta estructura",
+      "infoNotValidated": "Aquesta estructura encara no ha sigut encara validada pel que encara no apareixerà en les llistes públiques. Si us plau espera fins que un agent de la plataforma activa l'estructura. ",
+      "infoTitle": "Detalls de l'estructura ",
+      "infoDescription": "Completa informació bàsica relacionada amb la teva Estructura. ",
+      "infoAdministratorsTitle": "Administradors de l'estructura",
+      "infoAdministratorsDescription": "Els administradors de l'estructura tenen accés total a la teva estructura i poden editar els detalls de l'estructura, així com afegir i eliminar els gestors i els participants.",
       "success": "Estructura guardada satisfactòriament!",
       "failure": "No s'ha pogut guardar l'estructura. Torna a provar-ho més tard.",
       "collaborationFailure": "No s'ha pogut aprovar el projecte. Si us plau, torna prova-ho més tard. ",
@@ -120,13 +138,19 @@
       "failure": "Ha fallat la creació d'una nova estructura. Torna a provar-ho més endavant. "
     },
     "projectList": {
-      "introText": "The InSPIRES Open Platform features participatory research and innovation projects promoted by different structures and organisations, such as Science Shops, Citizen Science offices, etc. You will find here bellow all the projects registered in the Open Platform.",
+      "introText": "La plataforma oberta InSPIRES inclou projectes de recerca i innovació participatius promoguts per diferents estructures i organitzacions, com ara Science Shops, oficines de ciència ciutadana, etc. A continuació trobareu tots els projectes registrats a la Plataforma Oberta.",
+      "showEvaluations": "Mostra els resultats de l'avaluació",
       "noKASpecified": "No s'ha especificat una Àrea de Coneixement",
       "visitProject": "Veure el Projecte",
       "filterByArea": "a l'àrea de {area}"
     },
     "projectManage": {
       "title": "Gestiona aquest projecte",
+      "infoTitle": "Detalls del Projecte",
+      "infoDescription": "Completa amb informació bàsica relacionada amb el teu Projecte. ",
+      "infoContactTitle": "Informació de contacte ",
+      "infoAdditionalTitle": "Informació addicional ",
+      "infoAdditionalDescription": "Altra informació rellevant per a que el teu projecte estigui ben definit i pugui ser trobat mitjançant la cerca. ",
       "success": "Estructura desada satistactòriament! ",
       "failure": "No s'ha pogut desar l'Estructura. Torna a provar-ho més endavant. ",
       "projectTab": "Aquest Projecte",
@@ -135,37 +159,63 @@
       "changePhase": "Canvia la fase del projecte",
       "currentPhase": "Aquest projecte es troba actualment en:",
       "noCurrentPhase": "Aquest projecte no es troba actualment en cap fase.",
-      "phasesTabDescription": "The phases of the evaluation were conceived to provide you with information on the project ongoing implementation and outcomes. Each phase consists of 6 questions, on average, which will take you approximately 5 minutes. Once all team members complete the evaluation of the current phase, the results are visualized on a project-specific, as well as aggregated level.\n\nTo change the current phase, select one and click save.",
+      "phasesTabDescription": "Les diferents fases de l'avaluació es van concebre per proporcionar informació sobre l'execució i els resultats del projecte. Cada fase consisteix en 6 preguntes aproximadament que podràs contestar en uns 5 minuts. Una vegada es completa l'avaluació de la fase actual per part de tots els membres, els resultats es visualitzen en un nivell específic del projecte.\n\nPer canviar la fase actual, selecciona una nova fase i clica sobre Guardar.",
       "hasPhase": "Aquest projecte es troba actualment en aquesta fase des de {date}.",
       "hadPhase": "Aquest projecte estava en aquesta fase des de {date}.",
       "notHasPhase": "Aquest projecte no ha estat mai en aquesta fase.",
       "evaluationTab": "Avaluació",
       "evaluationTitle": "Avaluació del projecte ",
-      "evaluationTabDescription": "The impact evaluation tool builds on a self-reflection process which is divided into four phases: a kick-off phase at the beginning of the project, a mid-term evaluation, a final assessment by the end of the project, and a further evaluation 6 months later.",
+      "evaluationTabDescription": "L'eina d'avaluació d'impacte es basa en un procés d'autoreflexió dividit en quatre fases: una primera fase a l'inici del projecte, una avaluació a mig termini, una avaluació al finalitzar el projecte i una avaluació 6 mesos després una vegada finalitzat el projecte. ",
       "collaborationSuccess": "Col·laboració amb aquesta estructura sol·licitada amb èxit",
       "collaborationFailure": "No s'ha pogut demanar la col·laboració.",
       "deleteCollaborationAlert": "Estàs segur que vols cancel·lar la col·laboració?",
       "collaborationDeleted": "La col·laboració amb l'estructura s'ha retirat.",
       "participantsTitle": "Participants en aquest Projecte ",
-      "participantsIntro": "Participants are everyone who will be involved directly in the project. You can add any number of participants, but each participant must have a role within the project. The participant's role will determine the questions they have to answer in the impact evaluation tool.\n\nTo add a participant you can look up users by their full name in the box below.",
+      "participantsIntro": "Els participants són tots aquells que participaran directament en el projecte. Pots afegir qualsevol número de participants, però cada participant ha de tenir un rol dins del projecte. El rol del participant determinarà les preguntes que han de respondre a l'eina d'avaluació d'impacte.\n\nPer afegir un participant, pots cercar usuaris pel seu nom complet a la capsa següent.",
       "searchUsers": "La col·laboració amb l'estructura ha estat retirada. ",
       "evaluationSuccess": "Avaluació sol·licitada correctament.",
-      "evaluationFailure": "Ha fallat l'enviament de la sol·licitud d'avaluació. Si us plau, torna-ho a provar. "
+      "evaluationFailure": "Ha fallat l'enviament de la sol·licitud d'avaluació. Si us plau, torna-ho a provar. ",
+      "evalOpenUniqueLink": "Obre el qüestionari com aquesta persona",
+      "evalSendRequest": "Envia la sol·licitud d'avaluació",
+      "evalConfirmResend": "Estàs segur que vols tornar a enviar un correu electrònic a aquesta persona?",
+      "evalResendRequest": "Torna a enviar el correu",
+      "evalViewEvaluation": "Veure avaluació",
+      "evalComplete": "(completat)",
+      "evalUpgradeAvailableTitle": "Nova versió de l'avaluació disponible",
+      "evalUpgradeAvailable": "Hi ha una nova versió disponible dels qüestionaris d'avaluació per al teu projecte. Pots activar aquesta nova versió per a tots els participants.\n\nAssegura't que entens les implicacions d’actualitzar la versió actual, ja que podríes perdre les dades existents sobre les avaluacions. ",
+      "evalConvertProject": "Activa la nova versió",
+      "evalUpgradeError": "No s'ha pogut actualitzar la versió d'avaluació d'aquest projecte.",
+      "evalUpgradeSuccess": "S'ha actualitzat la versió d'avaluació d'aquest projecte.",
+      "evalConfirmUpdate": "Estàs segur que vols actualitzar el projecte a la versió 2? Perdràs TOTES les dades relacionades amb les avaluacions del projecte.\n\nSi us plau llegeix la pàgina d'ajuda en el cas que no tinguis clar quines són les conseqüències d'actualitzar a la versió 2. ",
+      "evalConfirmDismiss": "Si desactives aquesta alerta, aquesta opció ja no estarà disponible.",
+      "inviteParticipantsTitle": "Convida a un participant a aquest projecte ",
+      "inviteParticipantsInfo": "Si un o més dels teus participants no pot crear un compte per si mateix un compte, o prefereixes emplenar l'avaluació al seu nom, pots utilitzar aquest formulari per crear un usuari a la plataforma.\n\n** NOTA **: El teu projecte ha de ser validat i formar part d'una estructura.",
+      "attachmentsTab": "Fitxers adjunts"
     },
     "evaluationDetail": {
-      "projectOverallPosition": "Project Overall Position",
-      "projectEvolution": "Project Evolution"
+      "heatchart": {
+        "title": "Implicació",
+        "engagement": "Participació",
+        "responsiveness": "Capacitat de resposta "
+      },
+      "projectOverallPosition": "Posició general del projecte",
+      "projectEvolution": "Evolució del projecte ",
+      "commentsByParticipants": "Comentaris pels participants:"
     },
     "evaluationEntry": {
       "mainTitle": "Qüestionari d'Avaluació del Projecte",
       "questionnaire": "Qüestionari",
-      "questionnaireDescription": "Questionnaire",
+      "selfQuestionnaireTitle": "Qüestionari d'Auto-reflexió",
+      "selfQuestionnaireDescription": "Per ajudar a l'avaluació del projecte, et recomanem que consultis el qüestionari d'autoreflexió. Conté algunes preguntes motivadores per començar. Pots descarregar el qüestionari aquí:",
+      "questionnaireDescription": "Si us plau respon a les següents preguntes tan honestament com puguis. L'escala representa un 0 per a 'Estic completament en desacord' a 7 per 'Estic totalment d'acord'. El temps estimat per respondre és de 5 minuts.",
       "questionnaireCompleted": "Aquest qüestionari s'ha completat satisfactòriament.",
       "evaluationOverview": "Resum de l'Avaluació",
       "evaluatedPhase": "Fase avaluada",
       "evaluator": "Avaluador",
       "evaluationRole": "Rol de l'Avaluador",
-      "questionMultipleHelp": "(escull el que apliqui)",
+      "questionMultipleHelp": "(escull tots els que apliquin)",
+      "answeringAsToken": "Estàs responent com a {name}. Si us plau mantén aquest enllaç privat donat que és únicament per a tu. ",
+      "manageProfileLink": "Si vols editar el teu perfil o canviar la configuració d'anonimat, ves aquí: ",
       "viewOnly": "Només pots veure les respostes, no modificar-les",
       "submitSuccess": "La teva resposta s'ha enregistrat correctament!",
       "submitFailure": "Ha hagut un problema desant la teva resposta. Si us plau, torna a provar-ho més endavant. "
@@ -174,11 +224,20 @@
       "europeanFundingDisclaimer": "Aquest projecte ha rebut finançament del programa Europeu de recerca i innovació Horitzó 2020 sota l'acord de subvenció Nº 741677."
     }
   },
+  "components": {
+    "ImageUpload": {
+      "title": "Puja nova imatge",
+      "selectFile": "Selecciona un arxiu",
+      "fileReady": "Arxiu \"{name}\" preparat per ser pujat",
+      "currentImage": "Imatge actual",
+      "upload": "Puja document"
+    }
+  },
   "models": {
     "userGender": {
-      "male": "Male",
-      "female": "Female",
-      "other": "Other"
+      "male": "Home",
+      "female": "Dona",
+      "other": "Altre"
     },
     "participationRole": {
       "scientist": "Científic/a",
@@ -187,24 +246,31 @@
       "projectManager": "Gestor de projecte"
     },
     "educationLevel": {
-      "primary": "Primary",
-      "secondary": "Secondary",
-      "teriary": "Teriary (Labor market)",
-      "degree": "Bachelors or Degree",
-      "masters": "Masters",
-      "doctoral": "Doctoral"
+      "primary": "Primari",
+      "secondary": "Secondari",
+      "tertiary": "Terciari (mercat laboral)",
+      "degree": "Llicenciatura o Grau",
+      "master": "Màsters",
+      "doctoral": "Doctorat"
     },
     "projectType": {
-      "research": "Research",
-      "participatoryResearch": "Participatory Research",
-      "participatoryActionResearch": "Participatory Action Research",
-      "citizenScience": "Citizen Science",
-      "publicEngagement": "Public Engagement",
-      "serviceLearning": "Service Learning",
-      "advocacy": "Advocacy",
-      "innovation": "Innovation",
-      "policyInnovation": "Policy Innovation",
-      "other": "Other"
+      "research": "Recercra",
+      "participatoryResearch": "Recerca participativa",
+      "participatoryActionResearch": "Recerca participativa en acció",
+      "citizenScience": "Ciència ciutadana",
+      "publicEngagement": "Participació ",
+      "serviceLearning": "Aprenentatge servei",
+      "advocacy": "Incidència política",
+      "innovation": "Innovació",
+      "policyInnovation": "Innovació en Polítiques",
+      "other": "Altres"
+    },
+    "structureType": {
+      "academicResearcg": "Acadèmia i/o Recerca",
+      "civilSocietyOrg": "Associació de la Societat Civil ",
+      "ngoNonPofit": "ONG i sense ànim de lucre",
+      "companyForProfit": "Empresa o amb ànim de lucre",
+      "governmentOrg": "Entitat del govern"
     },
     "projectPhase": {
       "phase": "Fase",
@@ -218,7 +284,7 @@
       "phase4Description": "Han passat sis mesos des de que va finalitzar el projecte. Ara et convidem a que reflexionis sobre les resultats científics del projecte, el nivell d'aprenentatge individual, l'alineament polític i la capacitat col·lectiva per donar resposta a les demandes de la comunitat. ",
       "phase1Tag": "Inici del projecte",
       "phase2Tag": "Auto-reflexió",
-      "phase3Tag": "End of Project",
+      "phase3Tag": "Final del projecte",
       "phase4Tag": "Sis mesos després "
     },
     "knowledgeArea": {
@@ -394,8 +460,6 @@
       "Q93": "Estàs motivat a seguir involucrat en projectes similars.",
       "Q94": "Les dinàmiques de participació han contribut a crear coneixement més robust. ",
       "Q95": "Vas estar convidat o involucrat en la darrera activitat de comunicació en la qual es van presentar els resultats. ",
-      "Q10XX": "Si s'escau, no dubtis en incloure altres comentaris relacionats amb aquesta fase. ",
-      "Q10XY": "Feel free to include any other comments related to the {phase} phase.",
       "Q1001": "Què et va motivar a participar en aquest projecte?",
       "Q1002": "Tot el que s'està desenvolupant en el projecte està complint amb les expectatives? En cas contrari, explica què és diferent i per què. Què es podria millorar?",
       "Q1003": "Si us plau, descriu els objectius principals d'aquest projecte. Què ha sigut essencial per assolir aquests objectius? Com haguessis desenvolupat aquest projecte sense aquesta organització?",
@@ -411,7 +475,73 @@
       "Q1013": "Què et va motivar a participar en aquest projecte?",
       "Q1014": "Tot el que s'està desenvolupant en el projecte està complint amb les expectatives? En cas contrari, explica què és diferent i per què. Què es podria millorar?",
       "Q1015": "Si us plau, descriu els objectius principals d'aquest projecte. Què ha sigut essencial per assolir aquests objectius? ",
-      "Q1016": "Open Science projects include public participation. What new competencies have you acquired through this project?"
+      "Q1016": "Els projectes de Ciència Oberta inclouen la participació ciutadana. Quines competències has adquirit durant el projecte?",
+      "Q10XX": "Si s'escau, no dubtis en incloure altres comentaris relacionats amb aquesta fase. ",
+      "Q10XY": "Sigues lliure d'incloure altres comentaris relacionats amb la {fase} fase.",
+      "Q10XZ": "Sigues lliure d'incloure altres comentaris al voltant de les teves impressions en aquesta fase del projecte.",
+      "v2": {
+        "Q01": "En quines parts del procés de recerca la comunitat ha estat activament involucrada?",
+        "Q05": "En quines parts del procés de recerca t'ha resultat més efectiu involucrar a la comunitat?",
+        "Q09": "Els objectius de la recerca no es poden assolir sense involucrar a la comunitat en el procés de recerca ",
+        "Q13": "Els objectius del projecte adrecen les necessitats, les preocupacions i les prioritats de la comunitat.",
+        "Q14": "Estàs aprenent o millorant noves habilitats, coneixement i actituds durant la consecució del projecte. ",
+        "Q15": "La participació en els tallers, les discussions de grup, les reunions i el procés (online) col·laboratiu de recollida de dades ha sigut fàcil i efectiu",
+        "Q16": "La participació en els tallers, les discussions de grup, les reunions i el procés (online) col·laboratiu de dades ha contribuït positivament a construir un coneixement més robust.",
+        "Q24a": "Els recursos econòmics eren adequats pel projecte.",
+        "Q25a": "Els recursos humans eren adequats pel projecte.",
+        "Q26": "Has après o millorat noves habilitats, coneixement i actituds durant la consecució del projecte. ",
+        "Q27": "Els resultats del projecte es troben disponibles en un format apropiat i comprensible. ",
+        "Q27a": "Els resultats del projecte estan disponibles per al públic general en un format apropiat i comprensible. ",
+        "Q30": "Has informat als membres de la comunitat per a què s'utilitzaran les dades, on s'emmagatzemaran i com es compartiran. ",
+        "Q32": "El projecte inclou les diferents perspectives i comentaris de la comunitat en tot el procés de recerca. ",
+        "Q35": "La participació de la comunitat en el projecte pot contribuir positivament a donar resposta a les necessitats, preocupacions i prioritats de la comunitat. ",
+        "Q38": "Ets capaç de compartir el teu coneixement i experència per al projecte",
+        "Q39": "Et sents capaç de contribuir al projecte. ",
+        "Q41": "La teva participació en el projecte pot contribuir positivament a adreçar les necessitats, preocupacions i prioritats de la comunitat. ",
+        "Q42": "Et sents capaç d'emprar els resultats per assolir les teves finalitats. ",
+        "Q47": "Estàs satisfet amb la participació en les activitats, per exemple en els tallers participatius, discussions de grup, reunions i en el procés (online) col·laboratiu de recollida de dades del projecte",
+        "Q54a": "Estàs motivat a seguir involucrat en el projecte.",
+        "Q55": "Els resultats del projecte es troben disponibles en un format apropiat i comprensible. ",
+        "Q55a": "Els resultats del projecte estan disponibles per al públic general en un format apropiat i comprensible. ",
+        "Q56": "Els resultats del projecte han contribuit a generar nou coneixement rellevant per a cada actor social involucrat.",
+        "Q57": "El projecte inclou les diferents perspectives i comentaris de la comunitat en tot el procés de recerca. ",
+        "Q59": "El projecte ha respost a les necessitats, preocupacions i prioritats de la comunitat.",
+        "Q64": "Els objectius del projecte adrecen les necessitats, preocupacions i prioritats de la comunitat.",
+        "Q69": "Els resultats del projecte van contribuir activament a la ciència (a través de publicacions científiques, informes, blogs, etc.).",
+        "Q70": "El projecte va ajudar a identificar millor les maneres en què es poden aplicar els processos de recerca per donar resposta a problemes socials.",
+        "Q70a": "El projecte va ajudar a identificar millor les maneres en què el coneixement i les pràctiques provinents de l'àmbit social es poden aplicar per millorar la recerca.",
+        "Q71": "Un projecte com aquest pot augmentar la probabilitat d'obtenir finançament.",
+        "Q72": "Les activitats de difusió i els resultats de les conclusions de la recerca van fer possible que es poguessin considerar opcions polítiques alternatives, programes, processos, productes o serveis.",
+        "Q75": "Les activitats de difusió i els resultats de les conclusions de la recerca van conduir a millores en polítiques, programes, processos, productes o serveis existents.",
+        "Q79": "Els resultats del projecte van contribuir activament a la ciència (a través de publicacions científiques, blogs, etc.).",
+        "Q80a": "El projecte va ajudar a identificar millor les maneres en què el coneixement i les pràctiques provinents de l'àmbit social es poden aplicar per millorar la recerca.",
+        "Q81": "Les habilitats, coneixements i actituds adquirides durant el projecte han contribuit positivament a impulsar la teva carrera professional. ",
+        "Q82": "Gràcies a les activitats participatives, com ara els tallers participatius, discussions de grup, reunions i el procés (online) col·laboratiu de recollida de dades, t'ha sigut possible adreçar el repte del projecte.",
+        "Q83": "La participació en el projecte ha contribuït a fomentar un canvi en el teu comportament i/o actitud. ",
+        "Q84a": "El projecte va ajudar a identificar millor les maneres en què el coneixement i les pràctiques provinents de l'àmbit social es poden aplicar per millorar la recerca.",
+        "Q85a": "La participació en el projecte ha contribut a augmentar el teu coneixement sobre la temàtica que s'ha treballat. ",
+        "Q86": "La participació en el projecte ha fomentat la teva confiança per contribuir a projectes de recerca col·laborativa basats en necessitats socials",
+        "Q87a": "El projecte va generar noves preguntes de recerca, nous projectes i/o propostes. ",
+        "Q88a": "El projecte va ajudar a identificar millor les maneres en què el coneixement i les pràctiques provinents de l'àmbit social es poden aplicar per millorar la recerca.",
+        "Q89": "Els resultats del projecte van contribuir activament a la ciència (a través de publicacions científiques, blogs, etc.).",
+        "Q90": "El projecte inclou grups tradicionalment exclosos, grups que no tindrien accés a la recerca d'una altra manera i/o grups particulars que expressen interessos i necessitats específiques",
+        "Q91": "El projecte produirà resultats científics rellevants i augmentarà el coneixement entorn de repte del projecte.",
+        "Q94": "Les activitats participatives com ara els tallers participatius, les discussions de grup, les reunions i el procés (online) col·laboratiu de dades ha contribuït positivament a construir un coneixement més rellevant a nivell social.",
+        "QN01": "El disseny / orientació del projecte no està guiat només per les idees dels experts acadèmics o científics.",
+        "QN03": "El disseny / orientació del projecte no es va guiar només per les idees dels experts acadèmics o científics.",
+        "QN08": "El projecte fa un esforç per implicar experiències de gènere diverses i donar la mateixa importància a cadascuna d’elles.",
+        "QN12": "Es van considerar els possibles efectes de la recerca en les desigualtats de gènere (rol de gènere, accés, control de recursos, igualtat).",
+        "QN19": "Les discussions del projecte es basaven en el contingut i no en les persones involucrades, i els arguments es debatien de manera respectuosa però racional.",
+        "QN23": "Has après o millorat noves habilitats, coneixements i actituds al voltant de pràctiques que impliquin involucrar a actors socials (comunicació amb membres de la societat civil, dur a terme focus groups i tallers, etc.).",
+        "QX01": "Es posa a disposició del protocol de recerca i es descriuen amb claredat les metodologies de recerca, per tal que altres les puguin adaptar o reutilitzar-les.",
+        "QX02": "Les dades brutes que no infringeixen la privadesa o altres aspectes ètics es troben disponibles sota els principis FAIR (Findable, Accessibility, Interoperability, and Reusability). ",
+        "Q1003": "Com descriuries els principals resultats d’aquest projecte des de la teva perspectiva i què ha assegurat l’assoliment d’aquests resultats?",
+        "Q1004": "Hi va haver canvis en el teu context que podries haver atribuir a aquest projecte? Si és així, descriu-los.",
+        "Q1007": "Ara que el projecte ha finalitzat, com creus que es podria haver millorat el seu disseny, implementació, per exemple en quant a la participació de diferents grups d'interès, ús de diferents mètodes i l'organització de diferents activitats?",
+        "Q1008": "Com descriuries els beneficis d'aquest projecte des de la teva perspectiva, i què ha fet possible assolir aquests objectius?",
+        "Q1011": "Com descriuries els principals resultats d’aquest projecte des de la teva perspectiva i què ha fet possible assolir aquests objectius? ",
+        "Q1016": "Si us plau, descriu les principals competències adquirides durant aquest projecte"
+      }
     }
   },
   "toolbar": {
@@ -422,16 +552,19 @@
   "navigation": {
     "links": {
       "home": "Inici",
-      "about": "Al voltant de "
+      "about": "Al voltant de ",
+      "help": "Ajuda"
     }
   },
   "misc": {
-    "timeAgo": "{time} fa temps",
-    "notSpecified": "Not specified"
+    "timeAgo": "fa {time}",
+    "optional": "Opcional",
+    "lastUpdated": "Actualitzat fa {time} ",
+    "notSpecified": "No especificat"
   },
   "actions": {
     "add": "Afegeix",
-    "accept": "Accept",
+    "accept": "Acceptar",
     "submit": "Enviar",
     "approve": "Aprovar",
     "validate": "Validar",
@@ -445,16 +578,24 @@
     "logout": "Sortir de la sessió",
     "register": "Registrar",
     "save": "Desa",
+    "search": "Cerca",
+    "loading": "Carregant",
     "close": "Tanca",
     "cancel": "Cancel·la",
     "more": "Més",
     "next": "Següent",
-    "manage": "Manage",
-    "clearFilter": "Clear filter",
+    "back": "Torna enrere",
+    "manage": "Gestiona",
+    "invite": "Convida",
+    "clearFilter": "Esborra el filtre",
     "moreInformation": "Més Informació",
-    "manageName": "Manage this {name}",
-    "viewPublicPage": "View public page",
-    "exportAllData": "Export all data"
+    "manageName": "Gestiona aquest {name}",
+    "viewPublicPage": "Veure la pàgina pública",
+    "exportAllData": "Exporta totes les dades ",
+    "download": "Descarrega",
+    "downloadName": "Descarrega {name}",
+    "tellMeMore": "Explica'm més ",
+    "notInterested": "No interessat"
   },
   "states": {
     "enabled": "Habilitat",
@@ -465,6 +606,7 @@
   },
   "noums": {
     "user": "Usuari",
+    "stage": "Fase",
     "project": "Projecte",
     "projects": "Projectes ",
     "structure": "Estructura",
@@ -472,63 +614,81 @@
     "evaluation": "Avaluació"
   },
   "errors": {
+    "couldNotLoad": "Hi ha hagut un problema carregant aquesta pàgina. Estàs segur de que tens accés? ",
     "404": {
       "title": "Oops! No s'ha trobat aquesta pàgina",
-      "text": "La pàgina a'{route}' no existeix. Estàs segur que ho has escrit correctament? "
+      "text": "La pàgina a '{route}' no existeix. Estàs segur que ho has escrit correctament? "
     }
   },
   "forms": {
     "titles": {
-      "login": "Iniciar sessió"
+      "login": "Iniciar sessió",
+      "newParticipant": "Informació del participant"
     },
     "rules": {
+      "invalidUsername": "Aquest usuari no és vàlid",
+      "invalidEmail": "Aquest correu no és vàlid",
       "requiredField": "Aquest camp és obligatori",
       "passwordField": "La contrasenya introduïda no és correcte ",
       "passwordMatch": "Les dues contrasenyes no coincideixen",
       "maximunLength": "Ha de tenir com a màxim {length} caràcters",
       "minimunLength": "Ha de tenir com a mínim {length} caràcters",
+      "usernameInUse": "Aquest usuari ja existeix, si us plau escull un altre diferent. ",
       "namedRequiredField": "{name} és un camp obligatori",
       "mustBeStructure": "Si us plau, introdueix una estructura vàlida",
       "mustBeUser": "Si us plau, introdueix una llista d'usuaris vàlida",
-      "mustBeURL": "Please enter a valid URL",
-      "mustBeCountry": "Please enter a valid Country",
-      "mustBeKnowledgeArea": "Please enter a valid Knowledge Area"
+      "mustBeURL": "Si us plau introdueix una URL vàlida ",
+      "mustBeCountry": "Si us plau introdueix un país vàlid",
+      "mustBeKnowledgeArea": "Si us plau introdueix una àrea de coneixement vàlida"
     },
     "errors": {
       "invalidCredentials": "Credencials incorrectes, si us plau, verifica el teu nom d'usuari i contrasenya"
     },
     "toasts": {
+      "permissionError": "Ha hagut un error mentres accedies al recurs, el més probable és que no tinguis permís per accedir a aquest. ",
+      "uploadError": "Ha hagut un error mentre es pujava l'arxiu. ",
       "loggedOut": "Has sortit de la sessió",
-      "resetPasswordSubmitted": "A password reset email has been submitted to the user of this account.",
+      "resetPasswordSubmitted": "S'ha enviat un correu electrònic a l'usuari d'aquest compte per reiniciar la contrasenya.",
       "saveSuccess": "Desat correctament!",
       "saveFailure": "Error al desar, torna-ho a provar més endavant",
+      "saveImageSuccess": "Imatge carregada correctament!",
+      "saveImageFailure": "No s'ha pogut carregar la imatge ",
       "projectSaveSuccess": "Les dades del projecte han sigut actualitzades!",
       "projectSaveFailure": "Error al desar el Projecte, si us plau, torna-ho a provar més endavant ",
       "structureSaveSuccess": "Les dades de l'estructura han sigut actualitzades!",
-      "structureSaveFailure": "Error al desar l'Estructura, si us plau, torna-ho a provar més endavant",
-      "participantsSuccess": "Les persones involucrades en el projecte s'han guardat",
-      "-": ""
+      "structureSaveFailure": "No s'ha pogut desar l'Estructura, si us plau, torna-ho a provar més endavant",
+      "inviteParticipantFailure": "No s'ha pogut convidar a aquesta persona. Si us plau verifica que el projecte està validat. És possible que el correu electrònic ja s'estigui utilitzant. ",
+      "participantsSuccess": "S'ha guardat el llistat de persones involucrades en el projecte",
+      "inviteParticipantSuccess": "La invitació s'ha creat correctament. ",
+      "copiedToClipboard": "Copiat al porta-detalls! ",
+      "errorClipboard": "No s' ha pogut copiar al porta- retalls, si us plau copia-ho manualment."
     },
     "fields": {
       "name": "Nom",
       "firstName": "Primer cognom",
       "lastName": "Segon cognom",
+      "isAnonymous": "Participant anònim",
       "email": "Correu electrònic",
-      "education": "Education Level",
-      "institution": "Institution",
-      "genderIdentity": "Gender Identity",
+      "education": "Nivell educatiu",
+      "institution": "Institució ",
+      "genderIdentity": "Identitat de gènere",
       "summary": "Resum",
       "description": "Descripció",
       "participants": "Participants",
       "managers": "Gestors",
+      "structureName": "Nom de l'estructura ",
+      "structureType": "Tipus d'estructura ",
+      "structureYearFounded": "Any en que es va fundar l'estructura ",
+      "structureAdministrators": "Administradors de l'estructura ",
+      "structureCountry": "País d'actuació de l'estructura ",
       "projectName": "Nom del projecte",
-      "projectCountry": "Project country of action",
-      "projectImageURL": "URL de la imatge del Projecte",
-      "projectSummary": "Resum del Projecte",
       "projectAcronym": "Acrònim del Projecte",
-      "socialNetwork": "Social Network",
-      "contactEmail": "Correu electrònic de contacte",
+      "projectType": "Tipus de Projecte",
+      "projectPhase": "Fase del Projecte",
+      "projectCountry": "País d'actuació del projecte",
       "projectAdministrators": "Administradors del Projecte",
+      "socialNetwork": "Xarxa social",
+      "contactEmail": "Correu electrònic de contacte",
       "contactWebsite": "Pàgina web externa",
       "postalAddress": "Adreça postal",
       "username": "Nom d'usuari",
@@ -538,26 +698,38 @@
       "title": "Títol",
       "role": "Rol",
       "invitationCode": "Codi d'invitació",
-      "projectPhase": "Fase del Projecte",
-      "projectType": "Tipus de Projecte",
       "knowledgeArea": "Àrea de Coneixement",
-      "knowledgeAreas": "Àrees de Coneixement"
+      "knowledgeAreas": "Àrees de Coneixement",
+      "coverImage": "Imatge de portada "
     },
     "labels": {
       "searchUsers": "Cerca usuaris"
     },
+    "descriptions": {
+      "projectAdministrators": "Els administradors del projecte tenen accés complet al projecte i poden editar els detalls del projecte, així com afegir i eliminar altres administradors i participants. Aquests permisos només s'apliquen dins la plataforma.  "
+    },
     "hints": {
-      "projectImageURL": "URL d'una imatge que vulguis mostrar en la teva pàgina del projecte",
+      "isAnonymous": "Amaga el teu nom real en les pàgines públiques.",
+      "isAnonymousInvite": "Amaga el nom real d'aquest participant en les pàgines públiques.",
       "contactEmail": "On t'haurien de contactar les persones que tinguessin alguna pregunta sobre el projecte?",
       "contactWebsite": "URL a una pàgina web externa on altres persones poden veure més sobre el teu projecte",
+      "username": "Introdueix el teu nom d'usuari. Una bona opció és nom.cognom (és a dir, john.doe)",
+      "structureName": "Trai un nom que caracteritzi la teva estructura. Suggerim escriure menys de 50 caràcters",
+      "structureSummary": "Breu resum de la teva estructura i del que inclou. Suggerim escriure menys de 200 caràcters.",
+      "structureCountry": "País on opera principalment aquesta estructura",
+      "structureAdministrators": "Afegeix aquí a totes les persones que tindran accés a l'edició de l'Estructura. Els administradors de l'estructura no poden transmetre la propietat a altres persones. Els administradors no són participants. ",
       "projectType": "Com està estructurat el teu equip?",
       "projectName": "Escull un nom que caracteritzi el teu projecte. Suggerim que siguin menys de 50 caràcters. ",
       "projectSummary": "Presenta un breu resum del teu projecte i els seus objectius. Suggerim que l'explicació tingui menys de 200 caràcters. ",
-      "projectAdministrators": "Afegeix aquí a totes les persones que tindran accés a l'edició del projecte. Els administradors de projectes no poden transmetre la propietat a altres persones. ",
+      "projectAdministrators": "Afegeix aquí a totes les persones que tindran accés a l'edició del projecte. Els administradors de projectes no poden transmetre la propietat a altres persones. Els administradors no són participants. ",
       "projectAcronym": "Escull un Acrònim del Projecte",
+      "projectCountry": "Principalment on està establert el teu projecte o opera normalment? ",
+      "postalAddress": "Si algú t'hagués d'enviar una carta, on te l'enviaria? ",
       "knowledgeArea": "Àrea de Coneixement de la UNESCO que millor defineix el teu projecte",
+      "knowledgeAreas": "Selecciona totes les àrees de coneixement sota aquesta estructura. ",
       "summary": "Descripció extensa del projecte. Sense límit de caràcters.",
-      "description": "Descripció extensa del projecte. Sense límit de caràcters.",
+      "description": "Descripció extensa del projecte. Sense límit de caràcters. Markdown està disponible per l'estil",
+      "descriptionTemplate": "Si us plau segueix la plantilla i no eliminis les capçaleres de la secció (línies que comencen per '##'). Emplena els detalls del teu projecte substituint les línies d'instrucció.",
       "password": "La teva contrasenya ha de tenir al menys 8 caràcters, no ha de ser comuna i no ha de contenir el teu nom d'usuari"
     }
   },

@@ -69,6 +69,7 @@ class Content(TrackableModel):
         return f"{self.master.type} - {self.title}"
 
     def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.title)
+        # TODO: change slug on all saves? might avoid _weird_ slugs
+        # if not self.slug:
+        self.slug = slugify(self.title)
         return super().save(*args, **kwargs)

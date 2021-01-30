@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from backend import models
+from django.contrib.contenttypes.models import ContentType
 
 
 class TrackableModelSerializer(serializers.ModelSerializer):
@@ -192,10 +193,22 @@ class EvaluationSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
+class SimpleAttachmentSerializer(TrackableModelSerializer):
+    class Meta:
+        model = models.Attachment
+        fields = ["id", "name", "size","url"]
+
+
+class ContentTypeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ContentType
+        fields = "__all__"
+
+
 class AttachmentSerializer(TrackableModelSerializer):
     class Meta:
         model = models.Attachment
-        fields = ["id", "name", "mime_type", "url"]
+        fields = "__all__"
 
 
 class ContentMasterSerializer(TrackableModelSerializer):

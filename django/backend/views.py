@@ -10,7 +10,7 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.exceptions import PermissionDenied, AuthenticationFailed, NotFound
 
-from django.contrib.postgres.search import SearchVector
+from django.contrib.contenttypes.models import ContentType
 
 import json
 import datetime
@@ -407,6 +407,17 @@ class ContentVS(ListDetail, viewsets.ModelViewSet):
 
     lookup_field = "slug"
     filterset_fields = ["locale", "master", "master__type"]
+
+
+class ContentTypesVS(viewsets.ReadOnlyModelViewSet):
+    queryset = ContentType.objects.all()
+    serializer_class = serializers.ContentTypeSerializer
+
+
+class AttachmentsVS(ListDetail, viewsets.ModelViewSet):
+    queryset = models.Attachment.objects.all()
+    serializer_class = serializers.SimpleAttachmentSerializer
+    detail_serializer_class = serializers.AttachmentSerializer
 
 
 # ===========================

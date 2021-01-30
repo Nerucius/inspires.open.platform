@@ -4,16 +4,10 @@ from django.contrib.contenttypes.models import ContentType
 
 from backend.models import TrackableModel
 
-MIME_TYPES = [
-    ("image/png", "Image (PNG)"),
-    ("image/jpeg", "Image (JPG)"),
-    ("application/pdf", "PDF File"),
-]
-
-
 class Attachment(TrackableModel):
     name = models.CharField(max_length=512)
-    mime_type = models.CharField(max_length=128, choices=MIME_TYPES)
+    mime_type = models.CharField(max_length=128)
+    size = models.PositiveIntegerField(default=0)
     url = models.URLField()
 
     # Generic relation to any object

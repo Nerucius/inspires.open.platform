@@ -1,5 +1,5 @@
 <style scoped>
-  .v-image{ cursor: pointer; }
+  /* .v-image{ cursor: pointer; } */
   h2 > a{
     text-decoration: none;
     color:inherit;
@@ -55,7 +55,6 @@
         style="overflow: visible"
         :src="project.image_url"
         height="180"
-        @click="$router.push(project.link)"
       >
         <!-- <v-btn flat absolute style="padding: 0; font-size:160%; top:0px; right: 0px">
         <flag :iso="iso3toiso2(project.country_code)" :squared="false"/>

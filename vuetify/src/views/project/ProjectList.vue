@@ -156,6 +156,7 @@ export default {
   computed: {
     projects() {
       let projectList = this.$store.getters["project/all"].slice();
+      projectList.sort((a,b) => b.modified_at.localeCompare(a.modified_at))
       return projectList
     },
 

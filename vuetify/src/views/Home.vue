@@ -35,7 +35,7 @@
       </v-card>
     </v-flex>
 
-    <v-flex md4 class="hidden-sm-and-down">
+    <v-flex sm12 md4>
       <h1 class="mb-2">
         {{ $t('pages.home.mostActiveStructures') }}
       </h1>
@@ -71,7 +71,12 @@
 
     <v-flex v-else xs12>
       <h1>{{ $t('pages.home.latestTitle') }}</h1>
-      <ProjectGrid :hide-title="true" :projects="projects" />
+      <div class="hidden-sm-and-down">
+        <ProjectGrid :hide-title="true" :projects="projects" />
+      </div>
+      <div class="hidden-md-and-up">
+        <ProjectList :hide-title="true" :projects="projects" />
+      </div>
     </v-flex>
 
     <v-flex class="text-xs-center">
@@ -107,7 +112,8 @@ export default {
 
   computed: {
     projects() {
-      let projectList = this.$store.getters["project/all"]
+      let projectList = this.$store.getters["project/all"].slice()
+      projectList.sort((a,b) => b.modified_at.localeCompare(a.modified_at))
       return projectList.slice(0, 12);
     },
     structures(){

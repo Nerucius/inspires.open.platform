@@ -138,6 +138,7 @@ class SimpleStructureSerializer(serializers.ModelSerializer):
             "image_url",
             "year_founded",
             "knowledge_areas",
+            "collaborations"
         ]
 
 

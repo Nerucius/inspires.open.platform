@@ -83,12 +83,12 @@ export default {
         let items = response.results
 
         // Iteratively get all pages
-        let next = response.next
-        while(next){
-          response = (await Vue.http.get(next)).body
-          items = [...items, ...response.results]
-          next = response.next
-        }
+        // let next = response.next
+        // while(next){
+        //   response = (await Vue.http.get(next)).body
+        //   items = [...items, ...response.results]
+        //   next = response.next
+        // }
 
         context.commit("ADD", items)
       }

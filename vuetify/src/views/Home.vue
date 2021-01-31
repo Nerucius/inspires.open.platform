@@ -37,6 +37,18 @@
 
     <v-flex md4 class="hidden-sm-and-down">
       <h1 class="mb-2">
+        {{ $t('pages.home.mostActiveStructures') }}
+      </h1>
+      <v-card>
+        <v-sheet height="400" style="overflow-y:auto">
+          <!-- <Stru :projects="latestProjects" /> -->
+          <StructureList :structures="structures" />
+        </v-sheet>
+      </v-card>
+    </v-flex>
+    <!--
+    <v-flex md4 class="hidden-sm-and-down">
+      <h1 class="mb-2">
         {{ $t('pages.home.latestTitle') }}
       </h1>
       <v-card>
@@ -45,46 +57,36 @@
         </v-sheet>
       </v-card>
     </v-flex>
+    -->
 
     <v-flex v-if="countryFilterProjects" xs12>
-      <h2>
-        {{ countryFilter }} {{ $t('noums.projects') }}
-        <v-btn small color="grey lighten-2" class="elevation-0" @click="countryFilterProjects=null">
-          <v-icon left>
-            clear
-          </v-icon>
-          {{ $t('actions.clearFilter') }}
+      <h1>
+        {{ countryFilter }}
+        <v-btn color="grey lighten-2" class="elevation-0" @click="countryFilterProjects=null">
+          <v-icon left>clear</v-icon> {{ $t('actions.clearFilter') }}
         </v-btn>
-      </h2>
+      </h1>
       <ProjectGrid :hide-title="true" :projects="countryFilterProjects" />
     </v-flex>
 
     <v-flex v-else xs12>
-      <h2>{{ $t('pages.home.allProjects') }}</h2>
+      <h1>{{ $t('pages.home.latestTitle') }}</h1>
       <ProjectGrid :hide-title="true" :projects="projects" />
     </v-flex>
 
     <v-flex class="text-xs-center">
-      <v-btn large color="primary" to="/projects">
+      <v-btn large color="primary" :to="{name:'project-list'}">
         {{ $t('pages.home.projectsSeeMore') }}
       </v-btn>
     </v-flex>
 
-    <!--
-    <v-flex xs12>
-      <ProjectGrid :hide-title="true" :projects="projects" />
-      <p class="text-xs-center mt-3">
-        <v-btn large dark color="primary" :to="{name:'project-list'}">
-          {{ $t('pages.home.projectsSeeMore') }}
-        </v-btn>
-      </p>
-    </v-flex> -->
   </v-layout>
 </template>
 
 <script>
 import ProjectGrid from "@/components/project/ProjectGrid";
 import ProjectList from "@/components/project/ProjectList";
+import StructureList from "@/components/structure/StructureList";
 // import { GeoJSONCountries } from "@/plugins/i18n";
 import { GeoJSONCountriesDetail, Countries } from "@/plugins/i18n";
 
@@ -92,6 +94,7 @@ export default {
   components: {
     ProjectGrid,
     ProjectList,
+    StructureList,
   },
 
   data() {
@@ -104,36 +107,36 @@ export default {
 
   computed: {
     projects() {
-      let projectList = this.$store.getters["project/all"].slice();
-      projectList.sort( (a,b) => { return a.name.localeCompare(b.name) })
-      return projectList;
+      let projectList = this.$store.getters["project/all"]
+      return projectList.slice(0, 12);
     },
-
-    latestProjects(){
-      let projectList = this.$store.getters["project/all"].slice();
-      projectList.sort( (a,b) => {
-        return b.modified_at.localeCompare(a.modified_at)
-      })
-
-      return projectList.slice(0, 6)
+    structures(){
+      let structureList = this.$store.getters["structure/all"].slice()
+      structureList.sort((a,b) => b.collaborations.length - a.collaborations.length)
+      // Anmotate with Number of projects in the "summary" field
+      structureList = structureList.map(s => ({
+        ...s,
+        summary: this.$t("misc.registeredProjects", {n:s.collaborations.length})
+      }))
+      return structureList.slice(0,8)
     }
   },
 
   async created(){
-    await this.$store.dispatch("project/load", {params:{limit:999}})
+    // Load all projects (we only show the first page)
+    this.$store.dispatch("structure/load")
+    await this.$store.dispatch("project/load", { params: { limit:999, ordering:"-modified_at" } })
 
     setTimeout(() => {
       // Create Leaflet map
       this.createMap()
     }, 50);
-
-
   },
 
   methods: {
     createMap(){
-
-      let projectCCs = this.projects.map(p => p.country_code)
+      let allProjects = this.$store.getters['project/all']
+      let projectCCs = allProjects.map(p => p.country_code)
 
       GeoJSONCountriesDetail.features = GeoJSONCountriesDetail.features.filter(feature =>
         projectCCs.indexOf(feature.properties.ISO_A3) >= 0
@@ -147,7 +150,7 @@ export default {
 
 
       function getColor (value) {
-        return `rgba(0,121,107,${value * .9 / maxProjectPerCountry})`;
+        return `rgba(0,121,107,${(value * .9 / maxProjectPerCountry) +0.2})`;
       }
 
 

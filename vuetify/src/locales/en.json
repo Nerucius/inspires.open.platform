@@ -48,6 +48,7 @@
       "mainTitle": "Welcome to InSPIRES",
       "worldmapTitle": "World Map",
       "latestTitle": "Latest Updates",
+      "mostActiveStructures": "Active Structures",
       "welcomeMessage": "Welcome to the InSPIRES Open Platform. This platform features citizen-led participatory research and innovation projects promoted by knowledge intermediary units, such as Science Shops, Citizen Science groups or units, etc.",
       "welcomeMessageLong": "It also offers an integrated collaborative impact evaluation tool in order to assess the processes and outcomes of your own projects with respect others. The pursued objective is to produced a joint and collective reflection around this type of collaborative projects in order to learn, think, dabte and growth as a community of practice to develop better projects aiming at to improve citizens life and well-being.",
       "aboutLink": "More about us!",
@@ -589,6 +590,7 @@
     }
   },
   "misc": {
+    "registeredProjects": "{n} registered projects.",
     "timeAgo": "{time} ago",
     "optional": "Optional",
     "lastUpdated": "Last updated {time} ago",

@@ -152,7 +152,10 @@
       "failure": "Failed to create a new structure. Try again later."
     },
     "projectList": {
+      "introTitle": "Want to know more about projects?",
       "introText": "The InSPIRES Open Platform features participatory research and innovation projects promoted by different structures and organisations, such as Science Shops, Citizen Science offices, etc. You will find here bellow all the projects registered in the Open Platform.",
+      "showMore": "Show more Projects",
+      "noMoreProjects": "That's all the projects!",
       "showEvaluations": "Show evaluation results",
       "noKASpecified": "No Knowledge Area specified",
       "visitProject": "Visit project",
@@ -668,6 +671,7 @@
       "minimunLength": "Must be at least {length} characters long",
       "usernameInUse": "This username is already in use, please choose a different one.",
       "namedRequiredField": "{name} is a required field",
+      "mustNotBeEmail": "Please do not use an email as username as this information is public.",
       "mustBeStructure": "Please enter a valid Structure",
       "mustBeUser": "Please enter a valid list of Users",
       "mustBeURL": "Please enter a valid URL",

@@ -71,7 +71,7 @@
                               v-model="user.username"
                               :label="$t('forms.fields.username')"
                               :hint="$t('forms.hints.username')"
-                              :rules="[rules.required, rules.minimunLength6, rules.unusedUsername, rules.validUsername]"
+                              :rules="[rules.required, rules.minimunLength6, rules.unusedUsername, rules.isNotEmail, rules.validUsername]"
                               prepend-icon="person"
                               type="text"
                             />
@@ -301,6 +301,7 @@ export default {
         passwordValid: v => this.isValidPassword(v) || this.$t("forms.rules.passwordField"),
         passwordMatch: v => (this.user.password == this.user.password2) || this.$t("forms.rules.passwordMatch"),
         isEmail: v => this.isEmail(v) || this.$t("forms.rules.requiredField"),
+        isNotEmail: v => (!this.isEmail(v)) || this.$t("forms.rules.mustNotBeEmail"),
       }
     };
   },
@@ -332,7 +333,7 @@ export default {
     },
 
     isValidUsername(username){
-      return /^[a-zA-Z0-9@\.\+\-_]{6,32}$/.test(username)
+      return /^[a-zA-Z0-9\.\+\-_]{6,32}$/.test(username)
     },
 
     isUsernameFree(username){

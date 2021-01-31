@@ -318,6 +318,7 @@ class ProjectsVS(ListDetail, Orderable, viewsets.ModelViewSet):
         "participants",
         "knowledge_area",
         "country_code",
+        "project_type",
     ]
 
     serializer_class = serializers.SimpleProjectSerializer
@@ -477,6 +478,7 @@ class ResponseVS(viewsets.ModelViewSet):
     queryset = models.Response.objects.all()
     serializer_class = serializers.ResponseSerializer
     filterset_class = filters.ResponseFilter
+    # filterset_fields = ['evaluation__phase__project', 'question__answer_type']
 
     permission_classes = [IsAuthenticated]
 

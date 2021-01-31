@@ -5,9 +5,6 @@
         <v-flex grow>
           <h1>
             {{ $t('noums.projects') }}
-            <small v-if="filterKnowledgeArea">
-              | {{ $t('pages.projectList.filterByArea', {area:$t(filterKnowledgeArea.name)}) }}
-            </small>
           </h1>
         </v-flex>
 
@@ -24,7 +21,7 @@
         <v-expansion-panel-content>
           <template v-slot:header>
             <div class="subheading">
-              Want to know more about projects?
+              {{ $t('pages.projectList.introTitle') }}
             </div>
           </template>
           <v-card class="px-3 py-2">
@@ -35,19 +32,98 @@
     </v-flex>
 
     <v-flex xs12>
+      <v-card class="elevation-1">
+        <v-card-text>
+          <h3>{{ $t('actions.search') }}</h3>
+          <v-layout wrap>
+
+            <v-flex xs12 sm6 md4>
+              <v-select v-model="filters.knowledge_area"
+                :label="$t('forms.fields.knowledgeArea')"
+                :items="$store.getters['knowledgearea/all']"
+                :item-text="(i => $t(i.name))"
+                item-value="id"
+                clearable
+                single-line hide-details
+                @change="updateFilter"
+              />
+            </v-flex>
+
+            <v-flex xs12 sm6 md4>
+              <v-select v-model="filters.project_type"
+                :label="$t('forms.fields.projectType')"
+                :items="$store.getters['project/projectTypes'].slice(1)"
+                :item-text="(i => $t(i.name))"
+                item-value="value"
+                clearable
+                single-line hide-details
+                @change="updateFilter"
+              />
+            </v-flex>
+
+            <v-flex xs12 sm6 md4>
+              <v-combobox v-model="filters.country_code"
+                :label="$t('forms.fields.projectCountry')"
+                :items="countries"
+                :item-text="countryTl"
+                clearable
+                single-line hide-details
+                @change="updateFilter"
+              />
+            </v-flex>
+            
+            <v-flex xs12>
+              <v-combobox v-model="filters.collaboration__structure"
+                :label="$t('forms.fields.structureName')"
+                :items="$store.getters['structure/all']"
+                item-text="name"
+                clearable
+                single-line hide-details
+                @change="updateFilter"
+              />
+            </v-flex>
+
+          </v-layout>
+        </v-card-text>
+      </v-card>
+    </v-flex>
+
+    <v-flex xs12>
       <v-layout row wrap align-content-start>
         <v-flex v-for="project in projects" :key="project.id" xs12 sm6 md4 lg3 xl2 mb-3>
           <ProjectCard :show-evaluation="showEvaluations" :project="project" />
         </v-flex>
       </v-layout>
     </v-flex>
+
+    <v-flex xs12 mt-3 v-if="canLoadMore || loadMoreDisabled">
+      <v-layout justify-center>
+        <v-flex shrink>
+          <v-btn :loading="loadMoreDisabled" :disabled="loadMoreDisabled" @click="loadMoreProjects" color="primary">
+            {{ $t('pages.projectList.showMore') }}
+          </v-btn>
+        </v-flex>
+      </v-layout>
+    </v-flex>
+
+    <v-flex xs12 mt-3 v-else>
+      <v-layout justify-center>
+        <v-flex shrink>
+          <v-btn disabled>{{ $t('pages.projectList.noMoreProjects') }}</v-btn>
+        </v-flex>
+      </v-layout>
+    </v-flex>
+
   </v-layout>
+
 </template>
 
 
 <script>
 import ProjectCard from "@/components/project/ProjectCard";
 import { slug2id } from "@/plugins/utils";
+import { debounce } from "lodash";
+import { Countries } from "@/plugins/i18n";
 
 
 export default {
@@ -64,17 +140,23 @@ export default {
 
   data() {
     return {
+      countries: Countries,
+      
       showEvaluations: false,
+
+      filters : {},
+
+      projectPage: 0,
+      projectPagesize: 12,
+      canLoadMore: false,
+      loadMoreDisabled: false,
     };
   },
 
   computed: {
     projects() {
       let projectList = this.$store.getters["project/all"].slice();
-        projectList.sort( (a,b) => {
-        return a.name.localeCompare(b.name)
-      })
-      return projectList;
+      return projectList
     },
 
     filterKnowledgeArea(){
@@ -88,18 +170,78 @@ export default {
   },
 
   async created(){
-    await this.$store.dispatch("knowledgearea/load")
+    // Data we need
+    this.$store.dispatch("knowledgearea/load")
+    this.$store.dispatch("structure/load")
 
-    if (this.filterKnowledgeArea){
-      let knowledge_area = this.filterKnowledgeArea.id
-      this.$store.dispatch("project/clear")
-      // await this.$store.dispatch("project/load", {params:{limit:20, knowledge_area}})
-      await this.$store.dispatch("project/load", {params:{knowledge_area}})
-    }else{
-      // await this.$store.dispatch("project/load", {params:{limit:20}})
-      await this.$store.dispatch("project/load")
-    }
-  }
+    // debouncer
+    this.updateFilter = debounce(this.updateFilter, 250);
+  
+    // Load page 0
+    this.$store.dispatch('project/clear')
+    await this.loadProjectPage();
+  },
+  
+  methods: {
+    async loadProjectPage(){
+      let filters = this.filters;
+
+      let params = {
+        ordering: "-modified_at",
+        offset: this.projectPage * this.projectPagesize,
+        limit: this.projectPagesize
+      }
+
+      // TODO: multivalued filters?
+
+      params = {
+        ...params,
+        ...filters,
+      }
+
+      if(params.collaboration__structure)
+        params.collaboration__structure = params.collaboration__structure.id
+
+      if(params.country_code)
+        params.country_code = params.country_code.alpha3Code
+
+      // Enable or disable "load more" button here
+      let countBefore = this.$store.getters['project/all'].length
+
+      await this.$store.dispatch("project/load", { params })
+
+      let countAfter = this.$store.getters['project/all'].length
+      this.canLoadMore = countAfter - countBefore == this.projectPagesize
+
+      // special check on page 1
+      if(this.projectPage == 0)
+        this.canLoadMore = countAfter == this.projectPagesize;
+    },
+
+    async loadMoreProjects(){
+      this.loadMoreDisabled = true;
+      // Load next batch
+      this.projectPage += 1;
+      await this.loadProjectPage();
+      // Increase page
+      this.loadMoreDisabled = false;
+    },
+
+    async updateFilter(){
+      this.$store.dispatch('project/clear');
+      this.projectPage = 0;
+      this.loadProjectPage();
+    },
+
+    countryTl(country){
+      let lang = this.$i18n.locale
+      if(country.translations.hasOwnProperty(lang)){
+        return country.translations[lang]
+      }
+      return country.name
+    },
+  },
+
 };
 </script>
 

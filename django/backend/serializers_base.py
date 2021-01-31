@@ -170,6 +170,7 @@ class SimpleProjectSerializer(serializers.ModelSerializer):
             "country_code",
             "image_url",
             "knowledge_area",
+            "project_type",
             "structure",
         ]
 

@@ -24,8 +24,9 @@ Vue.http.interceptors.push(function (request) {
     for (let key of Object.keys(request.params.headers)) {
       request.headers.set(key, request.params.headers[key])
     }
-    delete request.params['headers']
   }
+  // Clean up parameters
+  if(request.params.headers !== undefined) { delete request.params['headers']; }
 
   // console.log("----------Final Request---------")
   // console.log(request)

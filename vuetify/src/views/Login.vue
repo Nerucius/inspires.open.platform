@@ -169,12 +169,12 @@ export default {
     },
   },
 
-  mounted(){
+  async created(){
 
     // Autologin
     if(this.$route.query.token){
       Cookies.set('authorization', this.$route.query.token, {sameSite:"Strict"});
-      this.$store.dispatch('user/load')
+      await this.$store.dispatch('user/load')
       this.redirectToPage();
     }
 

@@ -12,6 +12,7 @@
       "editProfile": "Edit Profile",
       "updateProfileSuccess": "Your profile has been updated",
       "updateProfileFailure": "Could not update your profile.",
+      "evaluationRequests": "Evaluation requests",
       "myProjects": "My Projects",
       "myStructures": "My Structures"
     },

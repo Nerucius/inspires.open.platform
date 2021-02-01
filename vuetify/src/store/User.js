@@ -4,6 +4,7 @@ import {
   API_SERVER,
   UserResource,
   CurrentUserResource,
+  CUEvaluationsResource,
 } from "../plugins/resource";
 import { obj2slug } from "../plugins/utils";
 
@@ -62,6 +63,10 @@ export default {
 
     SET_CURRENT(state, item){
       state.current = item
+    },
+
+    SET_CURRENT_EVALUATIONS(state, items){
+      state.current = {...state.current, evaluations: items}
     }
   },
 
@@ -107,6 +112,14 @@ export default {
         Cookies.remove('authorization')
         context.commit("SET_CURRENT", null)
       }
+    },
+
+    loadCurrentEvaluations: async function(context) {
+      try{
+        let response = await CUEvaluationsResource.get()
+        let evaluations = response.body.results
+        context.commit("SET_CURRENT_EVALUATIONS", evaluations);
+      }catch(err){ }
     },
 
     login: async function (context, credentials) {

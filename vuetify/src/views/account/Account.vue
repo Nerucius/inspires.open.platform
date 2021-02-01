@@ -26,7 +26,6 @@ th{
     </v-flex>
 
     <!-- Account Details -->
-
     <v-flex xs12>
       <v-card flat>
         <v-card-text v-if="!showEditForm">
@@ -146,16 +145,16 @@ th{
           >
             {{ $t('pages.account.saveProfile') }}
           </v-btn>
-          <v-btn v-else outline color="success" class="elevation-0" @click="showEditForm = true">
+          <v-btn v-else outline color="warning" class="elevation-0" @click="showEditForm = true">
+            <v-icon left>edit</v-icon>
             {{ $t('pages.account.editProfile') }}
           </v-btn>
         </v-card-actions>
       </v-card>
     </v-flex>
 
-
-    <!-- Evaluations 
-    <v-flex xs12>
+    <!-- Evaluation requests list -->
+    <v-flex xs12 v-if="isOwnUser && currentUser.evaluations">
       <v-card flat>
         <v-card-title>
           <h2 class="title">
@@ -163,36 +162,48 @@ th{
           </h2>
         </v-card-title>
         <v-card-text>
+          <v-sheet :max-height="300" style="overflow-y:auto; overflow-x:hidden">
+
           <v-list two-line>
-            <v-list-tile>
-              <v-list-tile-avatar>
-                <v-icon>mdi-student</v-icon>
-              </v-list-tile-avatar>
+            <template v-for="(evaluation, idx) in sortEvals(currentUser.evaluations)">
 
-              <v-list-tile-content>
-                <v-list-tile-title>
-                  <strong>
-                    evaluation.project
-                  </strong>
-                </v-list-tile-title>
-                <v-list-tile-sub-title>
-                  evaluation.project.summary
-                </v-list-tile-sub-title>
-              </v-list-tile-content>
+              <v-divider v-if="idx != 0" :key="idx+'-divider'" />
+              
+              <v-list-tile :key="evaluation.id">
+                <v-list-tile-avatar tile size="60" class="ma-0 pa-0 mr-3">
+                  <v-img :src="project(evaluation.project).image_url" ratio="1" />
+                </v-list-tile-avatar>
 
-              <v-list-tile-action>
-                <v-btn color="success" class="elevation-0 px-2">
-                  {{ $t('pages.projectManage.evalViewEvaluation') }}
-                </v-btn>
-              </v-list-tile-action>
-            </v-list-tile>
+                <v-list-tile-content>
+                  <v-list-tile-title>
+                    <strong>
+                      {{ project(evaluation.project).name }}
+                    </strong>
+                  </v-list-tile-title>
+                  <v-list-tile-sub-title>
+                    {{ $t(`models.projectPhase.phase${evaluation.project_phase}`) }}
+                  </v-list-tile-sub-title>
+                </v-list-tile-content>
 
-            <v-divider />
+                <v-list-tile-action>
+                  <v-btn
+                    color="success"
+                    class="elevation-0 px-2"
+                    :outline="!evaluation.is_complete"
+                    :to="{name:'evaluation-entry', params:{slug: evaluation.id }}">
+                    {{ $t('pages.projectManage.evalViewEvaluation') }}
+                    &nbsp; <span v-if="evaluation.is_complete">{{ $t('pages.projectManage.evalComplete') }}</span>
+                  </v-btn>
+                </v-list-tile-action>
+              </v-list-tile>
+
+            </template>
           </v-list>
+
+          </v-sheet>
         </v-card-text>
       </v-card>
     </v-flex>
-    -->
 
     <!-- Project and Structures -->
     <v-flex xs12>
@@ -355,6 +366,10 @@ export default {
       return this.userId == this.$store.getters['user/current'].id
     },
 
+    currentUser(){
+      return this.$store.getters['user/current']
+    },
+
     projectIds(){
       let pids = [
         ...this.user.owned_projects,
@@ -374,7 +389,7 @@ export default {
 
   },
 
-  async mounted(){
+  async created(){
     await this.$store.dispatch("user/load", [this.userId])
     this.editUser = cloneDeep(this.$store.getters['user/current'])
 
@@ -383,11 +398,29 @@ export default {
       this.$router.push({name:"home"})
     }
 
-    await this.$store.dispatch("project/load", this.projectIds)
-    await this.$store.dispatch("structure/load", this.structureIds)
+    if(this.isOwnUser){
+      this.$store.dispatch('user/loadCurrentEvaluations')
+    }
+    this.$store.dispatch("project/load", this.projectIds)
+    this.$store.dispatch("structure/load", this.structureIds)
   },
 
   methods:{
+
+    project(id){
+      return this.$store.getters['project/detail'](id);
+    },
+
+    structure(id){
+      return this.$store.getters['structure/detail'](id);
+    },
+
+    sortEvals(evals){
+      evals = evals.slice()
+      // Sort by incomplete first.
+      evals.sort((a,b) => (a.is_complete ? 1:0) - (b.is_complete ? 1:0));
+      return evals;
+    },
 
     async exportProjectsCSV(){
       let exportUrl = `${API_SERVER}/v1/csv/export/all_own_projects.csv`;

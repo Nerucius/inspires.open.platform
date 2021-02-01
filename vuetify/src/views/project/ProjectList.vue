@@ -8,7 +8,7 @@
           </h1>
         </v-flex>
 
-        <v-flex shrink>
+        <v-flex shrink v-if="$store.getters['user/isLoggedIn']">
           <v-switch v-model="showEvaluations"
                     color="primary"
                     class="mt-0 pa-0"

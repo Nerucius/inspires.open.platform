@@ -154,7 +154,7 @@ th{
     </v-flex>
 
 
-    <!-- Evaluations -->
+    <!-- Evaluations 
     <v-flex xs12>
       <v-card flat>
         <v-card-title>
@@ -164,7 +164,6 @@ th{
         </v-card-title>
         <v-card-text>
           <v-list two-line>
-            <!-- Project Export -->
             <v-list-tile>
               <v-list-tile-avatar>
                 <v-icon>mdi-student</v-icon>
@@ -193,6 +192,7 @@ th{
         </v-card-text>
       </v-card>
     </v-flex>
+    -->
 
     <!-- Project and Structures -->
     <v-flex xs12>

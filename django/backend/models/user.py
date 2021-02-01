@@ -86,6 +86,14 @@ class User(TrackableModel, AbstractUser):
             default,
         )
 
+    @property
+    def evaluations(self):
+        evaluations = []
+        for part in self.participation_set.all():
+            for eval in part.evaluation_set.all():
+                evaluations += [eval]
+        return evaluations
+
     def can_create(self, user, data):
         # Dedicated endpoint for this
         return False

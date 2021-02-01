@@ -244,17 +244,6 @@ class CustomObtainAuthToken(ObtainAuthToken):
         return super(CustomObtainAuthToken, self).post(request, args, kwargs)
 
 
-class CurrentUserVS(viewsets.ModelViewSet):
-    """ Returns the currently logged in user """
-
-    serializer_class = serializers.CurrentUserSerializer
-    permission_classes = [IsAuthenticated]
-
-    def get_queryset(self):
-        queryset = models.User.objects
-        return queryset.filter(pk=self.request.user.pk)
-
-
 # ===========================
 # Utility Mixins
 # ===========================
@@ -287,7 +276,7 @@ class Orderable(object):
 
 
 # ===========================
-# Default Objects Serializers
+# User Related Viewsets
 # ===========================
 
 
@@ -304,8 +293,29 @@ class GroupsVS(viewsets.ReadOnlyModelViewSet):
     serializer_class = serializers.SimpleGroupSerializer
 
 
+class CurrentUserVS(viewsets.ReadOnlyModelViewSet):
+    """ Returns the logged in user details. """
+
+    serializer_class = serializers.CurrentUserSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        queryset = models.User.objects
+        return queryset.filter(pk=self.request.user.pk)
+
+
+class CurrentUserEvaluationsVS(viewsets.ReadOnlyModelViewSet):
+    """ Returns the logged in user's Evaluations. """
+
+    serializer_class = serializers.EvaluationSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        return self.request.user.evaluations
+
+
 # ===========================
-# Custom Serializers
+# Datamodel Viewsets
 # ===========================
 
 
@@ -381,12 +391,12 @@ class KeywordsVS(ListDetail, viewsets.ModelViewSet):
     detail_serializer_class = serializers.KeywordSerializer
 
 
-class KnowledgeAreasVS(viewsets.ModelViewSet):
+class KnowledgeAreasVS(viewsets.ReadOnlyModelViewSet):
     queryset = models.KnowledgeArea.objects.all()
     serializer_class = serializers.KnowledgeAreaSerializer
 
 
-class ProjectPhasesVS(viewsets.ModelViewSet):
+class ProjectPhasesVS(viewsets.ReadOnlyModelViewSet):
     queryset = models.ProjectPhase.objects.all()
     serializer_class = serializers.ProjectPhaseSerializer
 
@@ -397,7 +407,7 @@ class ProjectAtPhasesVS(RequirePKMixin, viewsets.ModelViewSet):
 
 
 # ===========================
-# CONTENT ENDPOINT
+# Content Viewsets
 # ===========================
 
 
@@ -431,7 +441,7 @@ class EvaluationVS(RequirePKMixin, viewsets.ModelViewSet):
     serializer_class = serializers.EvaluationSerializer
 
 
-class ProjectEvaluationsVS(RequirePKMixin, viewsets.ModelViewSet):
+class ProjectEvaluationsVS(RequirePKMixin, viewsets.ReadOnlyModelViewSet):
     queryset = models.Project.objects.all()
     serializer_class = serializers.ProjectEvaluationsSerializer
     filterset_fields = ["participation__user"]
@@ -439,7 +449,7 @@ class ProjectEvaluationsVS(RequirePKMixin, viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated, HasWriteAccess]
 
 
-class ProjectEvaluationStatsVS(RequirePKMixin, viewsets.ModelViewSet):
+class ProjectEvaluationStatsVS(RequirePKMixin, viewsets.ReadOnlyModelViewSet):
     queryset = models.Project.objects.all()
     serializer_class = serializers.ProjectStatsSerializer
 
@@ -455,7 +465,6 @@ class EvaluationResponsesVS(RequirePKMixin, viewsets.ModelViewSet):
     queryset = models.Evaluation.objects.all()
     serializer_class = serializers.EvaluationResponsesSerializer
 
-    # TODO: Retrieve only your responses or all if Manager
     permission_classes = [IsAuthenticated]
 
 

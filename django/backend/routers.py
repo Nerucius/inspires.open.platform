@@ -5,7 +5,10 @@ from backend import views
 # Django REST Framework Router
 router = routers.DefaultRouter()
 
-router.register("user", views.CurrentUserVS, basename="users/current")
+router.register(
+    "user/evaluations", views.CurrentUserEvaluationsVS, basename="user/evaluations"
+)
+router.register("user", views.CurrentUserVS, basename="user/current")
 
 # CRUD Views
 router.register("users", views.UsersVS)

@@ -6,6 +6,54 @@
   }
 </style>
 
+<style>
+.markdown {
+  line-height: 180% !important;
+}
+
+.markdown h1 {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  color: darkblue;
+  margin: 40px 0;
+}
+
+.markdown h2 {
+  letter-spacing: 2px;
+  text-align: center;
+  color: teal;
+  margin: 30px 0;
+}
+
+.markdown p{
+  margin: 0;
+  padding: 15px;
+  text-align: justify;
+}
+
+/* Alternating colored Ps */
+.markdown p:nth-child(2n+1){
+  background-color: rgb(235,237,244);
+}
+
+/* Alternating colored Ps */
+.markdown table:nth-child(2n+1){
+  background-color: rgb(235,237,244);
+}
+
+.markdown blockquote{
+  background-color: rgb(48,65,147);
+  padding: 20px 30px;
+  color: white
+}
+.markdown blockquote p{
+  background-color: transparent !important;
+}
+
+
+</style>
+
 <template>
   <v-card flat>
     <!-- Toolbar -->

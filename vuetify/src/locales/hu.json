@@ -1,11 +1,30 @@
 {
   "pages": {
     "login": {
-      "welcomeMessage": "Üdvözöljük az InSPIRES Platformon"
+      "welcomeMessage": "Üdvözöljük az InSPIRES Platformon",
+      "forgotPassword": "Elfelejtette a jelszavát?",
+      "registerCTA": "Regisztráljon most!"
+    },
+    "account": {
+      "title": "Fiók",
+      "accountCreated": "Sikeresen létrehoztuk az új felhsználói fiókját. Mostantól hozzáférhet az oldal összes funkciójához.",
+      "saveProfile": "Profil mentése",
+      "editProfile": "Profil szerkesztése",
+      "updateProfileSuccess": "A profilja frissítésre került",
+      "updateProfileFailure": "A profilja frissítése sikertelen volt. ",
+      "myProjects": "Saját projektek",
+      "myStructures": "Szervezeteim"
+    },
+    "resetPassword": {
+      "title": "Fejezze be a jelszó visszaállítását",
+      "introText": "Ez az oldal lehetővé teszi az elfelejtett jelszó megváltoztatását. Kérjük, írja be az új jelszót, amelyet mostantól használni szeretne:",
+      "resetPassword": "Új jelszó igénylése",
+      "goBackToLogin": "Visszatérés a bejelentkezéshez",
+      "passwordChanged": "Jelszavát sikeresen megváltoztattuk! Az új hitelesítő adatokkal visszatérhet a bejelentkezési oldalra."
     },
     "register": {
       "titles": {
-        "step1": "Először is",
+        "step1": "Első lépések",
         "step2": "Kérjük, hogy mutatkozzon be",
         "step3": "Szolgáltatási feltételek",
         "step4": "Majdnem kész!"
@@ -20,16 +39,27 @@
       "step3TOSAcceptance": "A felhasználási feltételek elfogadásával elismerem, hogy megfelelően tájékoztattak, és belegyezek abba, hogy személyes adataimat a megadott célra felhasználják.",
       "step3MessageAccepted": "Nagyszerű! Folytatódhat a regisztráció. ",
       "step4Message": "Kérjük, ellenőrizze a megadott adatokat. Amennyiben nem talál hibát, folytathatja a regisztrációt. Bármelyik lépéshez visszatérhet, és átnézheti a megadott információkat.",
-      "step4MessageInvite": "A tesztelés első szakaszában kizárólag meghívott személyek regisztrálhatnak a platformra. Kérjük, adja meg a kódját: "
+      "step4MessageInvite": "A tesztelés első szakaszában kizárólag meghívott személyek regisztrálhatnak a platformra. Kérjük, adja meg a kódját: ",
+      "registrationFailure": "Hiba történt a regisztrációval, próbálkozzon újra.",
+      "emailTaken": "Ez az email cím már foglalt. Próbálkozzon másikkal, vagy próbálkozzon a jelszó helyreállításával."
     },
     "home": {
       "mainTitle": "Üdvözli az InSPIRES csapata",
       "worldmapTitle": "Térkép",
       "latestTitle": "Legutóbbi frissítések",
+      "mostActiveStructures": "Aktív Szervezetek",
       "welcomeMessage": "Üdvözöljük az InSPIRES online adatbázisában és hatásmérő platformján. Ezen az oldalon Science Shop-okhoz, Citizen Science csoportokhoz kötődő részvételi kutatási és fejlesztési projektek szerepelnek. ",
       "welcomeMessageLong": "Az InSPIRES Open Platform egy kollaboratív hatásmérő eszközt is kínál, amelynek segítségével a résztvevőkkel együtt értékelheti a projekt folyamatait és eredményeit. Célunk, hogy a közös értékelés, tanulás révén olyan projekteket alakítsunk ki a jövőben, amelyek még inkább hozzájárulnak az állampolgárok életminőségének és jóllétének javulásához.",
       "aboutLink": "További információ rólunk",
-      "projectsSeeMore": "Összes projekt"
+      "allProjects": "Összes projekt",
+      "projectsSeeMore": "Összes projekt megtekintése"
+    },
+    "help": {
+      "title": "Súgó",
+      "description": "TODO: szöveg",
+      "allArticles": "Minden cikk",
+      "articlesOtherLanguages": "Hírek más nyelveken",
+      "articleDoesNotExist": "A keresett cikk már nem létezik."
     },
     "about": {
       "mainTitle": "Bővebb információ az InSPIRES Open Platformjáról",
@@ -43,6 +73,11 @@
       "titleTeam": "Az InSPIRES Open Platform csapata",
       "teamContent": "Az Open platform fejlesztését az ISGlobal csapat vezette, együttműködésben a Barcelonai Egyetemen működő Data Science és OpenSystems kutatócsoportokkal. Emellett valamennyi InSPIRES konzorcium tag is fontos szerepet játszott a kialakításban. "
     },
+    "search": {
+      "searchResults": "Keresés eredménye",
+      "searchResultsFor": "Találatok a(z) '{term}' kifejezésre",
+      "searchFound": "{Number} megfelelő elemet találtunk a keresésére:"
+    },
     "admin": {
       "mainTitle": "Adminisztrációs felület",
       "unauthorizedAccess": "Nem jogosult az adminisztrációs felület elérésére. Ha úgy gondolja, hogy jogosult, kérjük, forduljon a platform adminisztrátorához. ",
@@ -52,17 +87,41 @@
       "validationSuccess": "A szervezet érvényesítése sikeres. Mostantól kezdve a nyilvános listákon is szerepel majd. ",
       "validationFailure": "A feltöltött szervezet érvényesítése sikertelen. Kérjük, vegye fel a kapcsolatot az oldalt működtető csapattal."
     },
+    "legal": {
+      "termsOfServiceTitle": "Szolgáltatási feltételek",
+      "termsOfService": "A szolgáltatási feltételek elfogadásával megértette, hogy:\n\nSzemélyes adatait csak a következő szervezet fogja kezelni:\n\nFundación Privada Instituto de Salud Global Barcelona (ISGlobal)\nCIF: G65341695\nPostai cím: Carrer Rosselló, 132. szám, 2., 5. és 7. emelet - 08036 Barcelona\nTelefon: (+34) 932 271 806\nE-mail: inspires@isglobal.org\n\nAz Ön személyes adatait kizárólag azzal a céllal gyűjtjük és kezeljük, hogy válaszoljunk a https://app.inspiresproject.com webhelyre történő regisztrációjára.\n\nAz Ön adatait kizárólag az ISGlobal InSPIRES csapata használja, akik munkájuk elvégzéséhez hozzáférést igényelnek, és azokat semmilyen körülmények között soha nem bocsátják harmadik felek rendelkezésére vagy továbbítják harmadik országoknak vagy nemzetközi szervezeteknek.\n\nSzemélyes adatait csak az Ön beleegyezésével kezelhetjük, és csak addig őrizzük meg, amíg Ön nem vonja vissza a beleegyezését.\n\nA jelenlegi adatvédelmi előírások alapján minden jogát gyakorolhatja, beleértve a hozzáféréshez, a helyesbítéshez, a kifogásokhoz, a törléshez, a hordozhatósághoz és a korlátozásokhoz való jogot, ha az adatvédelmi tisztviselőhöz (lopd@isglobal.org) ír, és csatolja nemzeti identitásának másolatát dokumentum vagy azzal egyenértékű dokumentum.\n\nÖnnek joga van bármikor visszavonni beleegyezését. A hozzájárulás visszavonása nem érinti a hozzájáruláson alapuló adatkezelés jogszerűségét annak visszavonása előtt. Ha nem ért egyet azzal, ahogyan az ISGlobal kezeli az adatait, vagy úgy gondolja, hogy jogait megsértették, bármikor panaszt nyújthat be a spanyol adatvédelmi ügynökségnél.",
+      "legalNoticeTitle": "Jogi közlemény",
+      "legalNotice": "### A webhely és az alkalmazás tulajdonosa\nFundación Privada Instituto de Salud Global Barcelona (ISGlobal)\nCIF: G65341695\nPostai cím: C / Rosselló, 132, 2ª, 5ª és 7ª - 08036 Barcelona\nBejegyezve a Katalónia Kormány Jogi és Jogi Személyek Főigazgatóságának Alapítványi Nyilvántartásába 2.634.\nTelefonszám: (+34) 932 271 806\n\nA weboldal az ISGlobal tulajdonát képezi.\n\nA weboldal használatára a következő felhasználási feltételek vonatkoznak. Kérjük, olvassa el figyelmesen. A weboldalra való belépés és annak tartalmának használata azt jelenti, hogy Ön elolvasta és fenntartás nélkül elfogadta ezeket a feltételeket",
+      "conditionsOfUseTitle": "Felhasználási feltételek",
+      "conditionsOfUse": "A weboldal az ISGlobal által kizárólag tájékoztatási célokra készített tartalmat tartalmaz. Előfordulhat, hogy ez a tartalom nem tükrözi a legfrissebb információkat a tárgyalt kérdésekről. Hasonlóképpen, ez az anyag előzetes értesítés nélkül módosítható, bővíthető vagy frissíthető.\n\nA tartalomhoz való hozzáférés nem hoz létre vagy nem utal szakmai vagy bizalmi kapcsolatra az ISGlobal és Ön között.\n\nA weboldalon található linkek más olyan webhelyekre, oldalakra vagy alkalmazásokra vezethetnek, amelyeket harmadik felek kezelnek, amelyek felett az ISGlobal nem rendelkezik ellenőrzéssel. Az ISGlobal nem felelős e weboldalak, oldalak és alkalmazások tartalmáért vagy állapotáért. Az, hogy weboldalunkon vagy alkalmazásunkon keresztül hozzájuk férhetünk, nem jelenti azt, hogy az ISGlobal ajánlja vagy jóváhagyja azok tartalmát.\n\n### Korlátolt felelősség\n\nWebhelyünket saját felelősségére és költségére használja. Az ISGlobal nem felelős a weboldal, az alkalmazás vagy bármely más webhely tartalmában előforduló hibákért vagy kihagyásokért, amelyekhez a weboldalon vagy az alkalmazáson keresztül férhet hozzá. Az ISGlobal nem vállal felelősséget semmilyen kárért, amely a weboldalunk használatából vagy a weboldalunkon található információk alapján végrehajtott bármely tevékenységből származik.\n\nAz ISGlobal nem garantálja, hogy nincsenek vírusok vagy egyéb káros elemek, amelyek károsíthatják vagy megváltoztathatják az informatikai rendszert, az elektronikus dokumentumokat vagy a fájlokat a weboldalunkon. Ennek eredményeként az ISGlobal nem vállal felelősséget semmilyen veszteségért vagy kárért, amelyet az ilyen elemek okozhatnak Önnek vagy harmadik félnek.\n\n[Frissítve 2019. február]",
+      "privacyPolicyTitle": "Adatvédelmi irányelvek",
+      "privacyPolicy": "** A jelenlegi adatvédelmi előírásoknak ** megfelelően az ISGlobal a következőkről tájékoztatja Önt:\n\nAmikor személyes adatok megadását kérik a szolgáltatások nyújtásához, tájékoztatást kap arról, hogy milyen adatokat kell megadnia.\n\nHa nem adja meg ezeket a szükséges adatokat, akkor nem tudjuk biztosítani Önnek a szolgáltatásokat. Az Ön által megadott vagy az ISGlobal által az Ön böngészése, lekérdezése vagy kérése eredményeként megszerzett személyes adatokat a https://app.inspiresproject.com webhelyen (a továbbiakban: „Webhely”) keresztül az ISGlobal tulajdonában lévő fájl tartalmazza a kezeléshez, az információkérések és / vagy a weboldalon kínált áruk vagy szolgáltatások szerződéskötése és tárolása.\n\nAzokat az információkat, amelyeket az ISGlobal szerzett Önnek a weboldalról, amikor regisztrált egy promóciós eseményre, vagy űrlapot küldött, a lehető legnagyobb bizalmasan kezeljük, hogy segítsen Önnek részt venni a szóban forgó eseményen, vagy a második esetben az információk elküldésével te kérted. A kapott információkat semmilyen más célra nem használják fel.\n\nA megadott személyes adatokat az Ön beleegyezése nélkül nem adjuk ki és nem továbbítjuk harmadik feleknek.\n\nAz információkat csak azután küldjük el a weboldal űrlapja (i) n keresztül, hogy Ön az \"ELFOGADÁS / KÜLDÉS\" (vagy hasonló) gomb kiválasztásával kifejezte elfogadását, amelyen keresztül az ISGlobal igazolja, hogy Ön beleegyezését adta személyes adatainak feldolgozásához. .\nMinden esetben garantálja, hogy a megadott adatok valósághűek, pontosak, teljesek és naprakészek. Az ISGlobal megtagadhatja a kért adatok vagy szolgáltatások nyújtását hamis adatokat szolgáltató bármely felhasználó számára, a rendelkezésére bocsátott egyéb jogi lépések sérelme nélkül.\n\nAz információs társadalommal összefüggő szolgáltatásokról és az elektronikus kereskedelemről szóló, július 11-i 34/2002-es spanyol törvény 22. cikke értelmében az ISGlobal „cookie-kat” (szöveges fájlban lévő adatokat) tárolhat és visszakereshet az Ön gépéről, feltéve, hogy Ön beleegyezését adta miután világos és teljes információt szolgáltattunk Önnek a sütik használatáról. A sütik telepítésének céljáról és arról, hogy mire szolgálnak, a sütikre vonatkozó irányelvekről teljes információt kaphat.\n\nEz nem akadályozza meg a műszaki tárolást vagy a hozzáférést, amelynek kizárólagos célja a kommunikáció elektronikus hírközlő hálózaton keresztüli továbbításának végrehajtása vagy megkönnyítése, vagy amely feltétlenül szükséges az Ön által kifejezetten kért információs társadalmi szolgáltatás nyújtásához.\n\nA hozzáféréshez, a helyesbítéshez, a törléshez, az ellenvetéshez, a hordozhatósághoz és a feldolgozás korlátozásához fűződő jogait gyakorolhatja, ha kérést küld a lopd@isglobal.org címre vagy az ISGlobal postacímre: c / Rosselló, 132, 08036 Barcelona, ​​Spanyolország. A kérelemnek tartalmaznia kell teljes nevét, az értesítések címét, személyi igazolványának vagy útlevelének fénymásolatát, valamint a gyakorolni kívánt jog megjelölését.\n\nHa elégedetlen az ISGlobal által végzett feldolgozással, vagy úgy gondolja, hogy jogait megsértették, bármikor igényt nyújthat be a spanyol adatvédelmi ügynökséghez.\n\nAz információs társadalom és az elektronikus kereskedelem szolgáltatásairól szóló, július 11-i 34/2002-es törvénynek megfelelően, ha a jövőben nem szeretne elektronikus kereskedelmi értesítéseket kapni az ISGlobaltól, e-mailben tájékoztathat minket erről a preferenciáról. a lopd@isglobal.org címre.\n\n[Frissítve 2019. február]",
+      "cookiePolicyTitle": "Cookie Policy\n",
+      "cookiePolicy": "Webhelyünk: https://app.inspiresproject.com (a továbbiakban: Weboldal) sütiket használ arra, hogy információkat gyűjtsön a Weboldal használatáról.\n\nA cookie a számítógépére (számítógépre vagy mobileszközre) letöltött fájl az adatok tárolására, amelyeket a telepítő entitás frissíthet és visszakereshet.\n\nA cookie-k útján gyűjtött információk magukban foglalhatják a weboldal látogatásának dátumát és idejét, az Ön által megtekintett oldalakat, a weboldalunkon töltött időt és azokat a webhelyeket, amelyeket a webhelyünk meglátogatása előtt és után meglátogattak.\n\nA sütiket azért használjuk, hogy megkönnyítsük a weboldalunk böngészését, megkülönböztessük Önt a többi felhasználótól, jobb felhasználói élményt nyújtsunk és azonosítsuk a weboldalunkkal kapcsolatos problémákat. Ha hozzájárulását adja, sütiket fogunk használni, hogy információkat szerezzünk az Ön preferenciáiról, és Weboldalunkat az Ön érdekeihez igazítsuk.\n\nA sütikre vonatkozó irányelv célja, hogy világos és pontos információkat nyújtson Önnek a Weboldalunkon használt sütikről (a továbbiakban: a sütikre vonatkozó irányelvek). Ha többet szeretne megtudni a weboldalunkon használt sütikről, kérjük, küldje el kérdéseit e-mailben: lopd@isglobal.org.\n\n## A Webhelyen használt sütik típusa\n\nWeboldalunk az alábbiakban ismertetett sütiket használja.\n\n### Első féltől származó sütik\n\nEzeket a sütiket az Ön számítógépére küldjük, és csak mi kezeljük a Weboldal működésének javítása érdekében. Az összegyűjtött információkat szolgáltatásunk minőségének és felhasználói élményének javítására használjuk fel. Ezek a sütik hosszabb ideig maradnak a böngészőben. Ez lehetővé teszi számunkra, hogy felismerjük Önt, amikor visszatér a Weboldalra, és a felajánlott tartalmat az Ön igényei szerint alakítja.\n\n## Beleegyezés\n\nA Weboldalunkon való böngészéssel és a webhelyen maradással hozzájárul a leírt sütik használatához a jelen sütikre vonatkozó feltételek szerint meghatározott időtartamokra.\n\n## A sütik letiltása és blokkolása\n\nWeboldalunk használatához sütik nem szükségesek. A cookie-kat letilthatja és letilthatja úgy, hogy a böngészőjét úgy konfigurálja, hogy blokkolja az összes vagy néhány sütik telepítését. A legtöbb böngésző beállítható úgy, hogy figyelmeztesse Önt a sütik jelenlétére, vagy automatikusan letiltsa őket. Ha letiltja a sütiket, akkor továbbra is használhatja Weboldalunkat. Egyes szolgáltatások használata korlátozott lehet, és a felhasználói élmény csökkenhet.\n\n## A hozzájárulás visszavonása\n\nHa bármikor visszavonja a jelen sütikre vonatkozó irányelv alapján adott beleegyezését, törölje a gépén (számítógépen vagy mobileszközön) tárolt sütiket a webböngésző beállításain és konfigurációján keresztül.\n\nTovábbi információ a sütik törléséről, letiltásáról vagy blokkolásáról az AllAboutCookies.org webhelyen található\n\n## A böngésző süti konfigurációjának és beállításainak módosítása\n\nHacsak nem módosította a böngésző konfigurációját, rendszerünk cookie-kat hoz létre, amikor meglátogatja Webhelyünket. Minden webböngésző lehetővé teszi ennek a konfigurációnak a módosítását. Kattintson az alábbi linkekre a következő böngészők sütikonfigurációjának beállításához:\n\n- **Internet böngésző**:\n  - [Internet Explorer 5] (https://support.microsoft.com/en-gb/help/196955)\n  - [Internet Explorer 6, 7, 8 és 9] (https://support.microsoft.com/en-gb/help/260971/description-of-cookies)\n  - [Internet Explorer 11] (https://support.microsoft.com/en-gb/help/17442/windows-internet-explorer-delete-manage-cookies)\n- ** [Firefox] (https://support.microsoft.com/en-gb/help/17442/windows-internet-explorer-delete-manage-cookies) **\n- ** [Chrome] (https://support.google.com/chrome/answer/95647?co=GENIE.Platform%3DDesktop&hl=hu) **\n- ** Safari **\n  - [Windows esetén] (https://support.apple.com/kb/ph21411?locale=es_ES)\n  - [Mac (iOS) esetén] (https://support.apple.com/es-es/HT201265)\n\n## A sütikre vonatkozó irányelvek módosítása\n\nIdőnként frissíthetjük weboldalunk sütikre vonatkozó irányelveit. Javasoljuk, hogy minden alkalommal, amikor meglátogatja weboldalunkat, olvassa el ezt az irányelvet, hogy megfelelő tájékoztatást kapjon arról, hogyan és mire használjuk a sütiket. A sütikre vonatkozó irányelveket utoljára 2018. július 6-án frissítették.\n\n## Kapcsolatba lépni\n\nHa bármilyen kérdése, észrevétele vagy javaslata van a sütikre vonatkozó irányelveinkkel kapcsolatban, kérjük, küldjön e-mailt a lopd@isglobal.org címre.\n\n[Frissítve 2019. február]",
+      "cookieToast": "Ez a weboldal első és harmadik féltől származó sütiket használ, hogy információkat szerezzen a keresési szokásairól, valamint javítsa szolgáltatásaink és a weboldalunkon történő böngészés minőségét. A sütik használatának jóváhagyásához kattintson az \"Elfogadás\" gombra, vagy folytassa a böngészést."
+    },
     "projectDetail": {
       "about": "További információ",
       "detailsTab": "Információ",
       "evaluationTab": "Projektértékelés",
+      "notApproved": "A projekt még nincs jóváhagyva, és csak akkor jelenik meg a nyilvános listákban, ha regisztrálják, hogy egy Szervezethez tartozik.",
       "projectNotYetEvaluated": "Ez a projekt még nem kapott elegendő visszajelzést és értékelést a résztvevőktől, így nem tudjuk megmutatni, hogyan áll jelenleg. Nézzen vissza később!"
     },
     "structureDetail": {
+      "notApproved": "Ezt a Szervezetet még nem hagyták jóvá, csak akkor jelenik meg nyilvános listákban, ha az oldal adminisztrátora már jóváhagyta.",
       "about": "További információ"
+    },
+    "structureList": {
+      "introText": "A Szervezet egy tudásközvetítő egység, amely egyetemen, kutatóközponton vagy másokon alapulhat, és elősegíti a tudományos közösség és a civil társadalmi szervezetek közötti interakciókat és párbeszédeket a részvételi kutatási projektek közös létrehozása és végrehajtása érdekében.\n\nJelenleg számos címkével használják az ilyen struktúrák meghatározását: tudományos üzletek, campus-közösségi iroda, Citizen Science egységek, Social Labs, Living Labs stb., De a polgárok akciókutatása, közösségi alapú részvételi kutatás és az állampolgári tudomány is. Ezért nem kívánunk kizárólagosak lenni, hanem inkább összegyűjtjük ebben a nyílt terepen az összes olyan projektet, amely az általunk támogatott 5 alapelv szerint működik: tudásdemokrácia, állampolgárok által vezetett kutatás, részvételi dinamika, integritás és átalakító változás. Itt találja az összes nyílt platformon regisztrált struktúrát.",
+      "visitStructure": "Szervezet megtekintése"
     },
     "structureManage": {
       "title": "Szerkesztés",
+      "infoNotValidated": "Ezt a Szervezetet még nem hagyták jóvá, úgyhogy nem jelenik meg a nyilvános listákban. Kérjük türelmét, amíg az az oldal aktiválja a szervezetet.",
+      "infoTitle": "Szervezet adatai",
+      "infoDescription": "Töltse ki a szervezetével kapcsolatos alapvető információkat.",
+      "infoAdministratorsTitle": "Szervezet adminisztrátorai",
+      "infoAdministratorsDescription": "A szervezet adminisztrátorai teljes hozzáféréssel rendelkeznek, és szerkeszthetik a szervezettel kapcsolatos információkat, valamint hozzáadhatják és eltávolíthatják a szervezethez kapcsolódó projektek vezetőit és résztvevőit.",
       "success": "A szervezet sikeresen mentve",
       "failure": "A szervezet feltöltése sikertelen. Próbálja újra később.",
       "collaborationFailure": "A projekt feltöltése sikertelen. Próbálja újra később.",
@@ -81,22 +140,37 @@
       "failure": "Új szervezet feltöltése sikertelen. Próbálja újra később."
     },
     "projectList": {
+      "introTitle": "Szeretne többet megtudni a projektekről?",
+      "introText": "Az InSPIRES Open Platform részvételi kutatási és innovációs projekteket tartalmaz, amelyeket különböző típusú szervezetek támogatnak, mint például a Science Shop-ok és civil kutatással foglalkozó csoportok, stb. Itt megtalálhatja az Open Platformon regisztrált összes projektet.",
+      "showMore": "További projektek mutatása",
+      "noMoreProjects": "Ez az összes projekt!",
+      "showEvaluations": "Értékelés eredménye",
       "noKASpecified": "Nincs meghatározott tudásterület.",
+      "visitProject": "Projekt megtekintése",
       "filterByArea": "a ............ területén"
     },
     "projectManage": {
       "title": "A projekt felelősei",
+      "infoTitle": "Projekt részletei",
+      "infoDescription": "Töltse ki a projektjével kapcsolatos alapvető információkat.",
+      "infoContactTitle": "Elérhetőség",
+      "infoAdditionalTitle": "További információk",
+      "infoAdditionalDescription": "Egyéb hasznos részletek, hogy a projekt jól körülhatárolható és megtalálható legyen a keresések során.",
       "success": "Szervezet mentése sikeres.",
       "failure": "Szervezet mentése sikertelen. Próbálja újra később.",
       "projectTab": "Ez a projekt",
       "participantsTab": "Résztvevők",
       "phasesTab": "Projektszakaszok",
+      "changePhase": "Projektfázis megváltoztatása",
+      "currentPhase": "Ez a projekt ebben a szakaszban tart:",
+      "noCurrentPhase": "Ez a projekt egyetlen projektfázishoz sincs hozzárendelve",
       "phasesTabDescription": "Az értékelés fázisai úgy készültek, hogy tájékoztatást adjanak a projekt működéséről és eredményeiről. Minden fázis átlagosan 6 kérdésből áll, amelyek megválaszolása  körülbelül 5 percet vesz igénybe. Miután az összes résztvevő elkészítette a jelenlegi fázis értékelését, az eredmények projekt-specifikus és aggregált szinten is megjelennek.\n\nAz aktuális szakasz megváltoztatásához, válasszon egy másikat, majd kattintson a Mentés gombra.",
       "hasPhase": "Ez a projekt ebben a szakaszban tart ettől az időponttól kezdve.",
       "hadPhase": "A projekt ebben a szakaszban volt ettől az időponttól kezdve.",
       "notHasPhase": "Ez a projekt soha nem tartott ebben a fázisban.",
       "evaluationTab": "Értékelés",
       "evaluationTitle": "Projektértékelés",
+      "evaluationsPerPhase": "Projektfázisonkénti értékelések",
       "evaluationTabDescription": "A hatásvizsgálati eszköz egy önreflexiós folyamatra épül, amely négy fázisra oszlik: a kick-off szakasz értékelése a projekt kezdetén, a félidei értékelés, a végső értékelés a projekt végén és egy további értékelés 6 hónappal később.",
       "collaborationSuccess": "A szervezettel való együttműködési kérelem elfogadásra került.",
       "collaborationFailure": "Együttműködési kérelem megtagadva\n",
@@ -106,7 +180,35 @@
       "participantsIntro": "Résztvevőnek tekintjük azt, aki közvetlenül bekapcsolódott/bekapcsolódik a projektbe. Bármennyi résztvevőt hozzáadhat a projekthez, de minden egyes résztvevőnek egy jól körülhatárolható szereppel kell rendelkeznie a projekten belül. A résztvevő szerepe határozza meg azt, hogy milyen kérdéseket kap majd a hatásmérés során.  \n\n Keressen résztvevőket a felhasználók között, írja be a teljes nevet a lenti mezőbe.",
       "searchUsers": "A szervezettel való együttműködés visszavonásra került.",
       "evaluationSuccess": "Értékelési kérelem küldése sikeres.",
-      "evaluationFailure": "Értékelési kérelem küldése sikertelen. Kérjük, próbálja újra később."
+      "evaluationFailure": "Értékelési kérelem küldése sikertelen. Kérjük, próbálja újra később.",
+      "evalOpenUniqueLink": "Kérdőív megnyitása, mint ez a személy",
+      "evalSendRequest": "Értékelésre való felkérés küldése",
+      "evalConfirmResend": "Biztosan újra el szeretné küldeni az emailt ennek a címzettnek?",
+      "evalResendRequest": "Email újraküldése",
+      "evalViewEvaluation": "Értékelés megtekintése\nÉrtékelés megtekintése\nView rating\nRészletek szervíz\nDetails service",
+      "evalViewEvaluationResults": "Értékelés eredményeinek megtekintése",
+      "evalViewPrintVersion": "Az összes kérdőív nyomtatott verziójának megtekintése",
+      "evalComplete": "(befejezve)",
+      "evalUpgradeAvailableTitle": "Az értékelés frissített verziója elérhető ",
+      "evalUpgradeAvailable": "Az értékelési kérdőívek új verziója érhető el a projektjéhez kapcsolódóan. Engedélyezheti az új verzió megtekintését az összes résztvevő számára.\n\nKérjük, győződjön meg róla, hogy megértette a verzió frissítésének minden következményét, mivel ez a meglévő értékelések adatainak elvesztését okozhatja.",
+      "evalConvertProject": "Új verzió engedélyezése",
+      "evalUpgradeError": "Nem sikerült frissíteni a projektértékelés verzióját.",
+      "evalUpgradeSuccess": "A projektértékelés verziója frissült. ",
+      "evalConfirmUpdate": "Biztosan frissíteni szeretné a projektjét a 2. Verzióra? Ezáltal a  projekt értékelésével kapcsolatos ÖSSZES adatot elveszíti.\n\nKérjük, olvassa el a Súgó oldalt, ha nem biztos a következményekben.",
+      "evalConfirmDismiss": "Ha elutasítja ezt a figyelmeztetést, ez a lehetőség a későbbiekben már nem lesz elérhető az Ön számára.",
+      "inviteParticipantsTitle": "Résztvevő meghívása a projektbe",
+      "attachmentsTab": "Fájl mellékletei"
+    },
+    "evaluationDetail": {
+      "heatchart": {
+        "title": "Bevonás ",
+        "real": "Valódi",
+        "effective": "Hatékony",
+        "engagement": "Elköteleződés",
+        "responsiveness": "Fogékonyság"
+      },
+      "projectEvolution": "Projekt fejlődés",
+      "commentsByParticipants": "Résztvevők kommentjei"
     },
     "evaluationEntry": {
       "mainTitle": "Projektértékelő kérdőív",
@@ -126,12 +228,54 @@
       "europeanFundingDisclaimer": "Ezt a projektet az Európai Unió Horizon 2020 kutatási és innovációs programja finanszírozza a 741677 számú megállapodás alapján. "
     }
   },
+  "components": {
+    "ImageUpload": {
+      "title": "Új Kép feltöltése",
+      "selectFile": "Fájl kiválasztása",
+      "fileReady": "\"{name}\" nevű fájl feltöltésre kész",
+      "currentImage": "Jelenlegi Kép",
+      "upload": "Fájl feltöltése"
+    },
+    "ProjectCard": {
+      "numberOfParticipants": "Résztvevők száma"
+    }
+  },
   "models": {
+    "userGender": {
+      "male": "Férfi",
+      "female": "Nő",
+      "other": "Egyéb"
+    },
     "participationRole": {
       "scientist": "Kutató",
       "student": "Diák/Hallgató",
       "civilSociety": "Civilek ",
       "projectManager": "Projektfelelős "
+    },
+    "educationLevel": {
+      "primary": "Elsődleges",
+      "secondary": "Másodlagos",
+      "tertiary": "Harmadlagos (munkaerőpiac)",
+      "degree": "Bachelors diploma vagy főiskolai végzettség",
+      "master": "Mester diploma",
+      "doctoral": "PhD"
+    },
+    "projectType": {
+      "research": "Kutatás",
+      "participatoryResearch": "Részvételi kutatás",
+      "participatoryActionResearch": "Részvételi Akció Kutatás",
+      "citizenScience": "Civil Tudomány",
+      "advocacy": "Képviselet",
+      "innovation": "Innováció",
+      "policyInnovation": "Szakpolitikai innováció",
+      "other": "Egyéb"
+    },
+    "structureType": {
+      "academicResearcg": "Akadémia és/vagy Kutatás",
+      "civilSocietyOrg": "Civilszervezet",
+      "ngoNonPofit": "Civil szervezet, non-profit",
+      "companyForProfit": "Vállalkozás, for-profit ",
+      "governmentOrg": "Kormányzati szerv"
     },
     "projectPhase": {
       "phase": "Szakasz",
@@ -145,7 +289,7 @@
       "phase4Description": "Hat hónap telt el a projekt lezárása óta. Most reflektálhat a projekt tudományos eredményeire az egyéni tanulás, a szakpolitika szintjén és a közösségi igények megválaszolása szempontjából.",
       "phase1Tag": "Kick-off",
       "phase2Tag": "Önreflexió",
-      "phase3Tag": "Eredmény",
+      "phase3Tag": "Projekt vége",
       "phase4Tag": "Hat hónappal később"
     },
     "knowledgeArea": {
@@ -339,21 +483,69 @@
       "Q1016": "Az Open Science projektek a nyilvánosság részvételével zajlanak. Milyen új kompetenciákat szerzett a projekt során?",
       "Q10XX": "Bármilyen további megjegyzést megadhat ezzel a projektszakasszal kapcsolatban.",
       "Q10XY": "Bármilyen további megjegyzést megadhat ezzel a projektszakasszal kapcsolatban.",
+      "Q10XZ": "Bármilyen további megjegyzést megadhat ezzel a projektszakasszal kapcsolatban.",
       "v2": {
-        "Q01": "A folyamat mely szakaszaiba vonták be aktívan a közösséget?",
+        "Q01": "A kutatási folyamat mely szakaszaiba vonták be aktívan a közösséget?",
         "Q05": "A folyamat mely szakaszaiban tudták a leghatékonyabban bevonni a közösséget?",
-        "Q09": "A tudományos célokat a közösségnek a kutatási folyamatba történő bevonása nélkül nem lehet elérni.",
-        "Q13": "A projekt céljai a közösség valós igényeihez igazodnak.",
-        "Q14": "A projekt során új készségeket sajátít el vagy fejleszt, új tudást sajátít el, illetve megváltozik a hozzáállása.",
+        "Q09": "A tudományos célokat a közösség kutatási folyamatba történő bevonása nélkül nem lehet elérni.",
+        "Q13": "A projekt céljai a közösség valós igényeihez és prioritásaihoz igazodnak.",
+        "Q14": "A projekt során új készségekre és ismeretekre teszt szert, meglévő készségeit fejleszti, vagy hozzáállásbeli változást tapasztal. ",
         "Q15": "A műhelybeszélgetéseken, csoportbeszélgetéseken, találkozókon, online és együttműködő adatgyűjtési folyamatokban való részvétel könnyen és hatékonyan valósult meg.",
         "Q16": "A műhelybeszélgetéseken, csoportbeszélgetéseken, találkozókon, online és együttműködő adatgyűjtési folyamatokban való részvétel sikeresen támogatta a tudásteremtést.",
         "Q24a": "A projekt pénzügyi erőforrásai kielégítőek voltak. ",
         "Q25a": "A személyi feltételek megfeleltek a projekt számára.",
-        "Q26": "A projekt során új készségeket sajátított el vagy fejlesztette meglévő készségeit, képességeit, új tudást sajátított el, illetve megváltozott a hozzáállása.",
+        "Q26": "A projekt során új készségekre és ismeretekre tett szert, meglévő készségeit fejlesztette, vagy hozzáállásbeli változást tapasztalt. ",
         "Q27": "A projekt eredményei érthető formában elérhetőek a közösség számára. ",
         "Q27a": "A projekt eredményei érthető formában elérhetőek a nagyközönség számára. ",
         "Q30": "A civil partnerek alapos tájékoztatást kaptak az adatgyűjtés céljáról, az adattárolás és adatmegosztás módjairól. ",
-        "Q32": "A kutatási folyamatban megjelentek a közösség nézőpontjai és visszajelzései."
+        "Q32": "A kutatási folyamatban megjelentek a közösség nézőpontjai és visszajelzései.",
+        "Q35": "A közösség részvétele a projektben elősegítheti a közösség szempontjainak és prioritásainak figyelembevételét, illetve a közösségi igények kielégítését.",
+        "Q38": "Van lehetősége tudása és tapasztalata megosztásával hozzájárulni a projekthez. ",
+        "Q39": "Magabiztosan kapcsolódik be a projektmunkába.",
+        "Q41": "Az Ön részvétele a projektben elősegítheti a közösség szempontjainak és prioritásainak figyelembevételét és a közösségi igények kielégítését.",
+        "Q42": "Magabiztosan használja a projekt eredményeit a saját céljainak elérése érdekében.",
+        "Q47": "Elégedett a projekt keretében megvalósuló részvételi eseményekkel (mint például, műhelybeszélgetések, részvételi workshopok, csoportbeszélgetések, találkozók, online és együttműködő adatgyűjtési folyamatok).",
+        "Q54a": "Továbbra is motiváltnak érzi magát ahhoz, hogy részt vegyen a projektben.",
+        "Q55": "A projekt eredményei érthető formában elérhetőek az érintettek számára. ",
+        "Q55a": "A projekt eredményei érthető formában elérhetőek a nagyközönség számára. ",
+        "Q56": "A projekt eredményei hozzájárultak ahhoz, hogy az egyes érintettek számára releváns új tudás jöjjön létre. ",
+        "Q57": "A kutatási folyamatban megjelennek a közösség nézőpontjai és visszajelzései.",
+        "Q59": "A projekt a közösség valós igényeire válaszolt.",
+        "Q64": "A projekt céljai a közösség valós igényeihez és prioritásaihoz igazodnak.",
+        "Q69": "A projekt eredményei aktívan hozzájárultak a tudományos diskurzushoz (tudományos publikációk, blogbejegyzések stb. révén).",
+        "Q70": "A projekt segített jobban meghatározni, hogy a kutatási folyamatok miként alkalmazhatók a társadalmi kérdések megválaszolására. ",
+        "Q70a": "A projekt segített jobban körülhatárolni, hogy a társadalmi tudás és gyakorlatok hogyan használhatóak a kutatási folyamatok javítására. ",
+        "Q71": "Az ehhez hasonló projektek növelhetik a további finanszírozási forrásokhoz jutás  valószínűségét.",
+        "Q72": "A kutatási eredmények és azok terjesztése alternatív szakpolitikai, program-, folyamat-, termék- vagy szolgáltatási lehetőségek megfontolását eredményezték.",
+        "Q75": "A kutatási eredmények és azok terjesztése meglévő szakpolitikai program(ok), folyamat(ok), termék(ek) vagy szolgáltatás(ok) fejlesztéséhez vezetett. ",
+        "Q79": "A projekt eredményei aktívan hozzájárultak a tudományos diskurzushoz (tudományos publikációk, blogbejegyzések stb. révén).",
+        "Q80a": "A projekt segített jobban körülhatárolni, hogy a társadalmi tudás és gyakorlatok hogyan használhatóak a kutatási folyamatok javítására. ",
+        "Q81": "A projekt során szerzett készségek, ismeretek pozitív irányba mozdították el szakmai karrierjét.",
+        "Q82": "A projekt keretében megvalósuló részvételi eseményeknek köszönhetően (mint például, műhelybeszélgetések, részvételi workshopok, csoportbeszélgetések, találkozók, online és együttműködő adatgyűjtési folyamatok) sikerült kezelni a problémát.",
+        "Q83": "A projektben való részvétel által változott viselkedése és/vagy hozzáállása. ",
+        "Q84a": "A projekt segített jobban körülhatárolni, hogy a társadalmi tudás és gyakorlatok hogyan használhatóak a kutatási folyamatok javítására. ",
+        "Q85a": "A projektben való részvétel növelte a projekt témával kapcsolatos tudását.",
+        "Q86": "A projektben való részvételnek köszönhetően a jövőben magabiztosabban kapcsolódna be társadalmi igény által vezérelt együttműködő kutatási projektekbe.",
+        "Q87a": "A projekt új kutatási kérdéseket, új projekteket, pályázatokat generált.",
+        "Q88a": "A projekt segített jobban körülhatárolni, hogy a társadalmi tudás és gyakorlatok hogyan használhatóak a kutatási folyamatok javítására. ",
+        "Q89": "A projekt eredményei aktívan hozzájárultak a tudományos diskurzushoz (tudományos publikációk, blogbejegyzések stb. révén).",
+        "Q90": "A projektben hagyományosan kirekesztett csoportok is részt vesznek, olyan csoportok, amelyek más módon nem férnének hozzá a kutatáshoz, és / vagy olyan közösségek, akik sajátos érdekeket képviselnek.",
+        "Q91": "A projekt releváns tudományos eredményeket hoz létre, és növeli a téma ismeretét.",
+        "Q94": "A projekt keretében megvalósuló részvételi események (mint például, műhelybeszélgetések, részvételi workshopok, csoportbeszélgetések, találkozók, online és együttműködő adatgyűjtési folyamatok) hozzájárultak a társadalmilag relevánsabb ismeretek létrehozásához.",
+        "QN01": "A projekt megtervezését / irányát nem csak a kutatók vagy tudományos szakértők ötletei vezérlik.",
+        "QN03": "A projekt megtervezését / irányát nem csak a kutatók vagy tudományos szakértők ötletei vezérelték.",
+        "QN08": "A projekt arra törekszik, hogy a nemek változatos tapasztalatait bevonja, és mindegyiknek azonos jelentőséget tulajdonítson.",
+        "QN12": "Figyelembe vették a kutatás nemi egyenlőtlenségekre gyakorolt lehetséges hatásait (nemi szerep, hozzáférés, erőforrások ellenőrzése, egyenlőség).",
+        "QN19": "A projekt megbeszélései során a tartalmon volt a fókusz, kerülték a személyeskedést és az érveket tiszteletteljes és racionális módon osztották meg egymással.",
+        "QN23": "A projekt során új készségekre és ismeretekre tett szert, meglévő készségeit fejlesztette, vagy hozzáállásbeli változást tapasztalt az érintettek bevonásával kapcsolatban. (pl. hogyan lehet kommunikálni a civil társadalom tagjaival, hogyan lehet fókuszcsoportokat és workshopokat tartani stb.).",
+        "QX01": "A kutatás módszertana világos és érthető formában dokumentált és szabadon hozzáférhető, így mások adaptálhatják vagy újra felhasználhatják őket.",
+        "QX02": "Azok a nyers adatok, amelyek nem sértik a magánéletet vagy más etikai elveket, a FAIR alapelvei mentén elérhetők. A FAIR adatok olyan adatok, amelyek megfelelnek a megtalálhatóság (Findability), az elérhetőség (Accessibility), az interoperabilitás (Interoperability) és az újrafelhasználhatóság (Reusability) elvének.",
+        "Q1003": "Kérjük, írja le, hogy az Ön szempontjából mik voltak a  projekt legfőbb eredményei. Mi segített abban, hogy elérjék ezeket az eredményeket? ",
+        "Q1004": "A projekt következtében tapasztalt változást a környezetében? Ha igen, kérjük, írja le ezeket.",
+        "Q1007": "Most, hogy a projekt befejeződött, hogyan lehetett volna mégjobb a tervezés és megvalósítás? (Válaszában kitérhet például az érintettek bevonására, a különböző módszerek alkalmazására, a tevékenységek megszervezésére, stb.)",
+        "Q1008": "Kérjük, írja le, hogy az Ön szempontjából mik voltak a a projekt fő hasznai. Mire volt szükség ahhoz, hogy realizálni tudják ezeket a hasznokat?",
+        "Q1011": "Kérjük, írja le, hogy az Ön szempontjából mik voltak a  projekt legfőbb eredményei. Mi segített abban, hogy elérjék ezeket az eredményeket? ",
+        "Q1016": "Kérjük, ossza meg a projekt során Ön által elsajátított legfontosabb készséget és képességeket. "
       }
     }
   },
@@ -365,14 +557,20 @@
   "navigation": {
     "links": {
       "home": "Főoldal",
-      "about": "További információ"
+      "about": "További információ",
+      "help": "Segítség"
     }
   },
   "misc": {
-    "timeAgo": "X idővel ezelőtt"
+    "registeredProjects": "{n} regisztrált projekt.",
+    "timeAgo": "X idővel ezelőtt",
+    "optional": "Opcionális",
+    "lastUpdated": "Legutóbbi frissítés {time} idővel ezelőtt",
+    "notSpecified": "Nincs megadva"
   },
   "actions": {
     "add": "Hozzáad",
+    "accept": "Elfogadás",
     "submit": "Feltölt",
     "approve": "Jóváhagy",
     "validate": "Érvényesít",
@@ -386,11 +584,26 @@
     "logout": "Kijelentkezés",
     "register": "Regisztráció",
     "save": "Mentés",
+    "search": "Keresés",
+    "loading": "Betöltés",
     "close": "Bezárás",
     "cancel": "Törlés",
     "more": "Több",
     "next": "Következő",
-    "moreInformation": "További információ"
+    "back": "Vissza",
+    "manage": "Szerkesztés",
+    "invite": "Meghív",
+    "clearFilter": "Szűrő törlése",
+    "moreInformation": "További információ",
+    "manageName": "{name} szerkesztése",
+    "viewPublicPage": "Nyilvános nézet",
+    "viewAndPrint": "Megtekintés és Nyomtatás",
+    "exportAllData": "Összes adat exportálása",
+    "print": "Oldal nyomtatása",
+    "download": "Letöltés",
+    "downloadName": "{name} letöltése",
+    "tellMeMore": "További információ",
+    "notInterested": "Nem érdekel"
   },
   "states": {
     "enabled": "Engedélyezett",
@@ -401,13 +614,17 @@
   },
   "noums": {
     "user": "Felhasználó",
+    "stage": "Stádium",
     "project": "Projekt",
     "projects": "Projektek",
     "structure": "Szervezet",
     "structures": "Szervezetek",
-    "evaluation": "Értékelés"
+    "evaluation": "Értékelés",
+    "attachment": "Csatolmány",
+    "attachments": "Csatolmányok"
   },
   "errors": {
+    "couldNotLoad": "Hiba történt az oldal betöltésekor. Biztosan rendelkezik hozzáféréssel?",
     "404": {
       "title": "Hoppá, ez az oldal nem található.",
       "text": "Ez az oldal nem található. Biztos, hogy helyesen adta meg?  "
@@ -415,45 +632,74 @@
   },
   "forms": {
     "titles": {
-      "login": "Belépés"
+      "login": "Belépés",
+      "newParticipant": "Részvevő adatai"
     },
     "rules": {
+      "invalidUsername": "Érvénytelen felhasználónév",
+      "invalidEmail": "Érvénytelen email cím",
       "requiredField": "Kötelező mező ",
       "passwordField": "A megadott jelszó nem érvényes",
       "passwordMatch": "A két jelszó nem azonos",
       "maximunLength": "Legfeljebb X karakter hosszúságú",
       "minimunLength": "Legalább X karakter hosszúságú",
+      "usernameInUse": "Ez az felhasználónév már foglalt, válasszon másikat. ",
       "namedRequiredField": "Kötelező mező",
+      "mustNotBeEmail": "Kérjük, ne használjon e-mailt felhasználónévként, mivel ezek az információk nyilvánosak.",
       "mustBeStructure": "Kérjük, adjon meg egy érvényes szervezetet",
-      "mustBeUser": "Kérjük, adjon egy érvényes listát a felhasználókról "
+      "mustBeUser": "Kérjük, adjon egy érvényes listát a felhasználókról ",
+      "mustBeURL": "Kérjük, adjon meg egy érvényes URL-t",
+      "mustBeCountry": "Kérjük, adjon meg egy érvényes Országot",
+      "mustBeKnowledgeArea": "Kérjük, adjon meg egy érvényes Tudás Területet"
     },
     "errors": {
       "invalidCredentials": "Érvénytelen "
     },
     "toasts": {
+      "permissionError": "Hiba történt a dokumentum elérése közben, lehet, hogy nincs engedélye ennek megtekintésére.",
+      "uploadError": "Hiba történt a fájl feltöltésekor",
       "loggedOut": "Kijelentkezett",
+      "resetPasswordSubmitted": "Jelszó-visszaállító e-mailt küldtünk a fiók felhasználójának.",
       "saveSuccess": "Sikeres mentés",
       "saveFailure": "A mentés sikertelen, kérjük, próbálja újra később.",
+      "saveImageSuccess": "Sikeres képfeltöltés!",
+      "saveImageFailure": "Sikertelen képfeltöltés",
       "projectSaveSuccess": "A projekt adatai frissültek!",
       "projectSaveFailure": "A projekt feltöltése sikertelen, kérjük, próbálja újra később.",
       "structureSaveSuccess": "A szervezet adatai frissültek!",
-      "structureSaveFailure": "A szervezet feltöltése sikertelen, kérjük, próbálja újra később.",
-      "participantsSuccess": "A projektben résztvevő emberek feltöltésre kerültek"
+      "structureSaveFailure": "A szervezet mentése sikertelen, kérjük, próbálja újra később.",
+      "inviteParticipantFailure": "Nem sikerült meghívni ezt a személyt. Kérjük, ellenőrizze, hogy a projekt elfogadásra került-e. Lehet, hogy az e-mail már használatban van.",
+      "participantsSuccess": "A projektben résztvevő emberek feltöltésre kerültek",
+      "inviteParticipantSuccess": "Sikeres meghívás.",
+      "copiedToClipboard": "A vágólapra másolva!",
+      "errorClipboard": "Nem sikerült másolni a vágólapra, kérjük, másolja át manuálisan."
     },
     "fields": {
       "name": "Név",
       "firstName": "Keresztnév",
       "lastName": "Családnév",
+      "isAnonymous": "névtelen résztvevő",
       "email": "E-mail cím",
+      "education": "Képzettségi szint",
+      "institution": "Intézmény",
+      "genderIdentity": "Nemi identitás",
       "summary": "Összefoglaló",
       "description": "Leírás",
       "participants": "Résztvevők",
       "managers": "Felelősök ",
+      "attachmentName": "Csatolmány neve",
+      "structureName": "Szervezet Neve",
+      "structureType": "Szervezet típusa",
+      "structureYearFounded": "Szervezet alapításának éve",
+      "structureAdministrators": "Szervezet adminisztrátorai",
+      "structureCountry": "Ország, ahol a szervezet aktív",
       "projectName": "Projektnév",
       "projectAcronym": "Projekt mozaikszó",
       "projectType": "Projekttípus ",
       "projectPhase": "Projektszakasz",
+      "projectCountry": "Ország, ahol a projekt megvalósul",
       "projectAdministrators": "Projekt adminisztrátorok ",
+      "socialNetwork": "Közösségi média",
       "contactEmail": "Kapcsolattartó e-mail címe",
       "contactWebsite": "Külső honlap",
       "postalAddress": "Postacím",
@@ -465,12 +711,15 @@
       "role": "Szerep",
       "invitationCode": "Meghívó kód",
       "knowledgeArea": "Tudományterület",
-      "knowledgeAreas": "Tudományterületek"
+      "knowledgeAreas": "Tudományterületek",
+      "coverImage": "Borítókép"
     },
     "labels": {
       "searchUsers": "Felhasználók keresése"
     },
     "hints": {
+      "isAnonymous": "Valódi nevének elrejtése a nyilvános oldalakon. ",
+      "isAnonymousInvite": "Ennek a résztvevőnek a valódi neve ne jelenjen meg a nyilvános oldalakon.",
       "contactEmail": "Hol fordulhatnak Önhöz kérdésekkel a projekt kapcsán? ",
       "contactWebsite": "URL egy külső honlaphoz, ahol további információ érhető el a projektről. ",
       "projectType": "Hogyan épül fel a projektcsapata? ",
@@ -478,9 +727,11 @@
       "projectSummary": "Rövid leírás a projektről. Kevesebb mint 200 karakter javasolt.",
       "projectAdministrators": "Adja meg azokat az embereket, akiknek teljes hozzáférésük lesz a projekt szerkesztéséhez. A projekt adminisztrátorok nem ruházhatják át ezt a jogot. ",
       "projectAcronym": "Válasszon egy projekt mozaikszót. ",
+      "postalAddress": "Ha valaki küldene Önnek egy levelet, hova címezné? ",
       "knowledgeArea": "UNESCO tudományterület, ami leginkább lehatárolja a projektet.",
       "summary": "Hosszú projektleírás. Nincs karakterkorlátozás.",
       "description": "Hosszú projektleírás. Nincs karakterkorlátozás.",
+      "descriptionTemplate": "Kérjük, kövesse a megadott sablont, és ne távolítsa el a szakaszfejléceket ('##' -vel kezdődő sorok). Töltse ki a projekt adatait a magyarázó szövegek helyére. ",
       "password": "A jelszónak legalább 8 karakterből kell állnia és nem tartalmazhatja a felhasználónevet."
     }
   },

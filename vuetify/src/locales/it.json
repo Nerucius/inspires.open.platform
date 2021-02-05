@@ -47,6 +47,7 @@
       "mainTitle": "Benvenuti su InSPIRES",
       "worldmapTitle": "Mappa del mondo",
       "latestTitle": "Ultimi aggiornamenti",
+      "mostActiveStructures": "Strutture attive",
       "welcomeMessage": "Benvenuti nella piattaforma aperta InSPIRES. Questa piattaforma presenta progetti di ricerca e di  innovazione partecipativi guidati dai cittadini promossi da unità di intermediazione della conoscenza, come gli sportelli della scienza, i gruppi di cittadini scientiziati, le unità ecc, ecc.",
       "welcomeMessageLong": "Offre anche uno strumento integrato di valutazione dell'impatto collaborativo al fine di valutare i processi e i risultati dei propri progetti rispetto agli altri. L'obiettivo perseguito è quello di produrre una riflessione congiunta e collettiva su questo tipo di progetti collaborativi per apprendere, pensare, discutere e crescere come comunità di pratica per sviluppare progetti migliori volti a migliorare la vita e il benessere dei cittadini",
       "aboutLink": "Di più su di noi!",
@@ -57,7 +58,8 @@
       "title": "Centro Assistenza",
       "description": "TODO: testo",
       "allArticles": "Tutti gli articoli",
-      "articlesOtherLanguages": "Articoli in altre lingue"
+      "articlesOtherLanguages": "Articoli in altre lingue",
+      "articleDoesNotExist": "L'articolo che stai cercando non esiste più"
     },
     "about": {
       "mainTitle": "Informazioni sulla Piattaforma Aperta InSPIRES",
@@ -138,7 +140,10 @@
       "failure": "Creazione della nuova struttura fallita. Per favore, riprova più tardi"
     },
     "projectList": {
+      "introTitle": "Vuoi sapere di più sui progetti?",
       "introText": "La piattaforma aperta InSPIRES comprende progetti di ricerca e innovazione partecipativi promossi da diverse strutture e organizzazioni, come i science Shop, uffici di Citizen Science, ecc. Di seguito troverai tutti i progetti registrati nella piattaforma aperta.",
+      "showMore": "Mostra più progetti",
+      "noMoreProjects": "Questi sono tutti i progetti!",
       "showEvaluations": "Mostra i  risultati della valutazione",
       "noKASpecified": "Nessuna area di conoscenza specificata",
       "visitProject": "Visita il progetto",
@@ -165,6 +170,7 @@
       "notHasPhase": "Questo progetto non è mai stato in questa fase",
       "evaluationTab": "Valutazione",
       "evaluationTitle": "Valutazione del Progetto",
+      "evaluationsPerPhase": "Valutazione per fasi",
       "evaluationTabDescription": "Lo strumento di valutazione dell'impatto si basa su un processo di autoriflessione suddiviso in quattro fasi: una fase preliminare all'inizio del progetto, una valutazione intermedia, una valutazione finale entro la fine del progetto e un'ulteriore valutazione 6 mesi dopo. Ci si aspetta che ogni membro del progetto risponda ad un questionario che valuta, su una scala da 0 a 7, diverse dimensioni dei principi al centro della piattaforma aperta InSPIRES.",
       "collaborationSuccess": "Collaborazione con la struttura richiesta con successo.",
       "collaborationFailure": "Richiesta di collaborazione fallita",
@@ -180,6 +186,8 @@
       "evalConfirmResend": "Sei sicuro di voler inviare nuovamente un'e-mail a questa persona?",
       "evalResendRequest": "Invia nuovamente l'e-mail",
       "evalViewEvaluation": "Visualizza la valutazione",
+      "evalViewEvaluationResults": "Vedi i risultati della valutazione",
+      "evalViewPrintVersion": "visualizza la versione stampabile di tutti i questionari",
       "evalComplete": "(completato)",
       "evalUpgradeAvailableTitle": "Nuova versione della valutazione disponibile",
       "evalUpgradeAvailable": "Una nuova versione dei questionari di valutazione è disponibile per il tuo progetto. Puoi scegliere di abilitare questa nuova versione per tutti i partecipanti.\n\nAssicurati di comprendere tutte le implicazioni dell'aggiornamento della tua versione in quanto potrebbe causare la perdita di dati sulle valutazioni esistenti.",
@@ -195,12 +203,30 @@
     "evaluationDetail": {
       "heatchart": {
         "title": "Coinvolgimento",
+        "real": "Reale",
+        "effective": "Effettivo",
         "engagement": "Impegno",
         "responsiveness": "Responsabilità"
       },
       "projectOverallPosition": "Posizione complessiva del progetto",
       "projectEvolution": "Evoluzione del progetto",
-      "commentsByParticipants": "Commenti lasciati dai partecipanti:"
+      "commentsByParticipants": "Commenti lasciati dai partecipanti:",
+      "help": {
+        "projectOverallPosition": "Il grafico della posizione complessiva del progetto riassume i punteggi della valutazione di tutte le dimensioni in un indicatore (valutazione) e calcola la differenza dei punteggi di valutazione tra i cinque principi (coerenza). Il progetto corrente è rappresentato dal punto giallo.\n\nAd esempio, se il punto giallo che rappresenta il tuo progetto è nell'angolo in alto a destra, significa che per tutte le dimensioni hai valutato abbastanza alto e che il punteggio tra le dimensioni è coerente.",
+        "projectEvolution": "Il grafico \"Evoluzione del Progetto\" mostra, per il progetto in corso, il punteggio aggregato per ciascuna delle quattro fasi del processo di valutazione rappresentate dalla linea gialla. Per ciascuna fase vengono visualizzati la mediana (il punto grigio) e i quartili Q1 (linea orizzontale inferiore) e Q3 (linea orizzontale superiore) della valutazione di tutti i progetti.",
+        "involvement": "Il grafico del coinvolgimento mostra la rilevanza e l'impatto durante le diverse fasi del progetto. Per ogni fase,  i Project Manager, gli Scienziati, gli Studenti e \n la Società Civile stimano quando è avvenuto il coinvolgimento della comunità (impegno reale). Allo stesso modo, per ogni fase valutano se la partecipazione della comunità è stata rilevante per lo sviluppo di quella fase del progetto (efficacia). Il valore di ogni fase varia da 0 (nessuna rilevanza o impatto) a 4 (impatto molto rilevante o massimo), rappresentato dall'intensità del colore.",
+        "bulletCharts": "Per ogni principio e per le diverse dimensioni che costituiscono ogni principio viene mostrata una metrica (grafico a punti). Il punto giallo rappresenta la valutazione del progetto corrente. Le ombre rappresentano la valutazione di altri progetti: un'ombra più chiara rappresenta i progetti con il punteggio di valutazione più basso e più alto, mentre un'ombra più opaca rappresenta i progetti all'interno del primo e del terzo quartile dei punteggi di valutazione. Il primo quartile (Q1) è definito come il valore medio tra il punteggio di valutazione più basso tra tutti i progetti e la mediana del set di dati. Il terzo quartile (Q3) è definito come il valore medio tra la mediana e il punteggio di valutazione più alto tra tutti i progetti. Viene assegnata una soglia arbitraria a \"3\" per richiamare l'attenzione sulle valutazioni al di sotto di questo valore.",
+        "bulletChart": {
+          "knowledgeDemocracy": "La democrazia della conoscenza copre la transdisciplinarità, l'apertura dei dati e dei risultati e la rilevanza scientifica del progetto.\nIl primo risultato mostra il punteggio aggregato per questa dimensione. Il seguente mostra i risultati aggregati per ciascuna sottodimensione sotto questa.",
+          "participatoryDynamics ": "Le ** dinamiche partecipative ** includono il grado di coinvolgimento della comunità e la qualità e l'impatto delle pratiche di coinvolgimento.\nIl primo risultato mostra il punteggio aggregato per questa dimensione. Il seguente mostra i risultati aggregati per ciascuna sottodimensione sotto questa.",
+          "citizenledResearch": "** Ricerca guidata dal cittadino ** si riferisce all'allineamento degli obiettivi del progetto alle richieste della comunità e all'efficacia dell'impegno della comunità nel processo scientifico.\nIl primo risultato mostra il punteggio aggregato per questa dimensione. Il seguente mostra i risultati aggregati per ciascuna sottodimensione sotto questa.",
+          "integrity": "** Integrità ** comprende l'allineamento delle aspettative, l'inclusione di gruppi vulnerabili, l'aggiunta  di prospettive etiche e di genere, la trasparenza della gestione dei dati, la coerenza del disegno del  progetto e la qualità delle risorse disponibili.\nIl primo risultato mostra il punteggio aggregato per questa dimensione. Il seguente mostra i risultati aggregati per ciascuna sottodimensione sotto questa.",
+          "transformativeChange ": "** Cambiamento trasformativo ** si riferisce all'apprendimento individuale e alla crescita personale, alla sostenibilità del progetto, alla reattività sociale del progetto e al suo impatto su politiche, programmi e / o servizi.\nIl primo risultato mostra il punteggio aggregato per questa dimensione. Il seguente mostra i risultati aggregati per ciascuna sottodimensione sotto questa."
+        },
+        "projectManagerCharts": "La visualizzazione del Project Manager non è accessibile ai partecipanti perché fornisce un dettaglio fine del processo di auto-riflessione fornendo al contempo una vista interna utile  per scopi di gestione.\n\nLa differenza tra questo livello di visualizzazione e quello accessibile ai partecipanti è che  questo rappresenta i risultati della valutazione in base al profilo degli intervistati. Permette di avere una migliore comprensione di cosa è successo e a chi.",
+        "publicEval": "La visualizzazione pubblica riflette la valutazione complessiva del progetto e mostra il punteggio aggregato per ciascuna delle dimensioni.\n\nOgni progetto è rappresentato da un Colibrì: un umile uccellino, ma estremamente attivo il cui piccolo movimento può contribuire al sistema eco-sociale complessivo:\n- La sua ala è associata al cambiamento trasformativo, perché è la parte più attiva del colibrì e quella che crea il movimento.\n- La testa è associata alla Democrazia della Conoscenza, seguendo il rapporto naturale tra testa, mente e conoscenza.\n- Il cuore (o parte inferiore del corpo) è associato alla ricerca condotta dai cittadini, perché la cittadinanza è il battito del cuore della scienza aperta.\n- La coda è associata alle dinamiche partecipative, perché funge da elmo. E, infine, la parte superiore del corpo è associata all'Integrità, perché senza di essa tutti gli altri aspetti cadrebbero a pezzi.",
+        "phaseParticipation": "La grafica del colibrì è accompagnata da quattro cerchi che corrispondono alle quattro fasi di valutazione nella loro sequenza ordinata: all'inizio del progetto, a metà percorso, alla fine del progetto e sei mesi dopo. Le fasi che sono state valutate sono rappresentate da una colorazione all'interno del cerchio. La colorazione riempie l'intero cerchio quando l'intera gamma di stakeholder (project manager, società civile, scienziato e studente) ha completato i questionari di valutazione. D'altra parte, il cerchio è rappresentato con un cerchio incompiuto quando alcuni dei diversi ruoli non hanno contribuito alla valutazione.\n\nAccanto ad essa, notate la \"N\": il numero di partecipanti, inclusi tutti i ruoli, che stanno partecipando ai questionari di valutazione."
+      }
     },
     "evaluationEntry": {
       "mainTitle": "Questionario di valutazione del Progetto",
@@ -231,6 +257,9 @@
       "fileReady": "File \"{name}\" pronto per il caricamento",
       "currentImage": "Immagine attuale",
       "upload": "Carica file"
+    },
+    "ProjectCard": {
+      "numberOfParticipants": "Numero di partecipanti"
     }
   },
   "models": {
@@ -345,6 +374,7 @@
         "scientificRelevance": "Rilevanza scientifica",
         "selfImprovement": "Auto-miglioramento",
         "transdisciplinarity": "Transdisciplinarità",
+        "knowledgeIntegration": "Integrazione delle conoscenze",
         "transparency": "Trasparenza"
       }
     },
@@ -557,6 +587,7 @@
     }
   },
   "misc": {
+    "registeredProjects": "{n} progetti registrati",
     "timeAgo": "{time} fa",
     "optional": "Opzionale",
     "lastUpdated": "Ultimo aggiornamento {tempo} fa",
@@ -591,7 +622,9 @@
     "moreInformation": "Più infomazioni",
     "manageName": "Gestisci questo {name}",
     "viewPublicPage": "Vedi la pagina pubblica",
+    "viewAndPrint": "Vedi e stampa",
     "exportAllData": "Esporta tutti i dati",
+    "print": "Stampa questa pagina",
     "download": "Download",
     "downloadName": "Download {name}",
     "tellMeMore": "Dimmi di più",
@@ -611,7 +644,9 @@
     "projects": "Progetti",
     "structure": "Struttura",
     "structures": "Strutture",
-    "evaluation": "Valutazione"
+    "evaluation": "Valutazione",
+    "attachment": "Allegato",
+    "attachments": "Allegati"
   },
   "errors": {
     "couldNotLoad": "  Si è verificato un problema durante il caricamento di questa pagina. Sei sicuro di avere accesso?",
@@ -635,6 +670,7 @@
       "minimunLength": "Deve contenere al massimo {length} caratteri",
       "usernameInUse": "Questo nome utente è già in uso, scegline uno diverso.",
       "namedRequiredField": "{name} è un campo obbligatorio",
+      "mustNotBeEmail": "Si prega di non utilizzare un'e-mail come nome utente poiché queste informazioni sono pubbliche.",
       "mustBeStructure": "Per favore inserisci una struttura valida",
       "mustBeUser": "Per favore inserisci una lista di utenti valida",
       "mustBeURL": "Per favore inserisci un indirizzo valido",
@@ -676,6 +712,7 @@
       "description": "Descrizione",
       "participants": "Partecipanti",
       "managers": "Gestori",
+      "attachmentName": "Titolo dell'allegato",
       "structureName": "Nome della struttura",
       "structureType": "Tipologia della struttura",
       "structureYearFounded": "Anno di fondazione della struttura",

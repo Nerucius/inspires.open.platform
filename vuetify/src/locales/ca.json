@@ -47,17 +47,19 @@
       "mainTitle": "Benvingut/da a InSPIRES",
       "worldmapTitle": "Mapa del món",
       "latestTitle": "Darreres actualitzacions",
+      "mostActiveStructures": "Estructures actives ",
       "welcomeMessage": "Benvingut a la base de dades en línia i a l'eina d'avaluació d'impacte d' InSPIRES. Aquesta plataforma presenta projectes participatius de recerca i innovació promoguts per diferents estructures com ara els Science Shops i grups o unitats de ciència ciutadana, entre d'altres.",
       "welcomeMessageLong": "També ofereix una eina integrada d'avaluació d'impacte col·laborativa que serveix per avaluar els processos i els resultats dels vostres projectes en relació als altres. L'objectiu principal de l'eina és dur a terme una reflexió col·laborativa al voltant d'aquests projectes col·laboratius i així aprendre, pensar, debatre i créixer com a comunitat de pràctica per dur a terme millors projectes dedicats a millorar la vida i el benestar de la ciutadania. ",
       "aboutLink": "Més sobre nosaltres!",
       "allProjects": "Tots els projectes ",
-      "projectsSeeMore": "Veure tots els projectes"
+      "projectsSeeMore": "Visualitza tots els projectes"
     },
     "help": {
       "title": "Centre d'ajuda",
       "description": "TODO: Text",
       "allArticles": "Tots els articles ",
-      "articlesOtherLanguages": "Articles en altres idiomes "
+      "articlesOtherLanguages": "Articles en altres idiomes ",
+      "articleDoesNotExist": "L'article que estàs buscant ja no existeix. "
     },
     "about": {
       "mainTitle": "Sobre la Plataforma Oberta InSPIRES",
@@ -138,7 +140,10 @@
       "failure": "Ha fallat la creació d'una nova estructura. Torna a provar-ho més endavant. "
     },
     "projectList": {
+      "introTitle": "Vols saber més sobre els projectes?",
       "introText": "La plataforma oberta InSPIRES inclou projectes de recerca i innovació participatius promoguts per diferents estructures i organitzacions, com ara Science Shops, oficines de ciència ciutadana, etc. A continuació trobareu tots els projectes registrats a la Plataforma Oberta.",
+      "showMore": "Mostra més projectes ",
+      "noMoreProjects": "Aquests són tots els projectes! ",
       "showEvaluations": "Mostra els resultats de l'avaluació",
       "noKASpecified": "No s'ha especificat una Àrea de Coneixement",
       "visitProject": "Veure el Projecte",
@@ -165,6 +170,7 @@
       "notHasPhase": "Aquest projecte no ha estat mai en aquesta fase.",
       "evaluationTab": "Avaluació",
       "evaluationTitle": "Avaluació del projecte ",
+      "evaluationsPerPhase": "Avaluacions per fase ",
       "evaluationTabDescription": "L'eina d'avaluació d'impacte es basa en un procés d'autoreflexió dividit en quatre fases: una primera fase a l'inici del projecte, una avaluació a mig termini, una avaluació al finalitzar el projecte i una avaluació 6 mesos després una vegada finalitzat el projecte. ",
       "collaborationSuccess": "Col·laboració amb aquesta estructura sol·licitada amb èxit",
       "collaborationFailure": "No s'ha pogut demanar la col·laboració.",
@@ -180,6 +186,8 @@
       "evalConfirmResend": "Estàs segur que vols tornar a enviar un correu electrònic a aquesta persona?",
       "evalResendRequest": "Torna a enviar el correu",
       "evalViewEvaluation": "Veure avaluació",
+      "evalViewEvaluationResults": "Veure resultats d'avaluació",
+      "evalViewPrintVersion": "Veure la versió d'impressió de tots els qüestionaris ",
       "evalComplete": "(completat)",
       "evalUpgradeAvailableTitle": "Nova versió de l'avaluació disponible",
       "evalUpgradeAvailable": "Hi ha una nova versió disponible dels qüestionaris d'avaluació per al teu projecte. Pots activar aquesta nova versió per a tots els participants.\n\nAssegura't que entens les implicacions d’actualitzar la versió actual, ja que podríes perdre les dades existents sobre les avaluacions. ",
@@ -195,12 +203,30 @@
     "evaluationDetail": {
       "heatchart": {
         "title": "Implicació",
+        "real": "Real",
+        "effective": "Efectiu",
         "engagement": "Participació",
         "responsiveness": "Capacitat de resposta "
       },
       "projectOverallPosition": "Posició general del projecte",
       "projectEvolution": "Evolució del projecte ",
-      "commentsByParticipants": "Comentaris pels participants:"
+      "commentsByParticipants": "Comentaris pels participants:",
+      "help": {
+        "projectOverallPosition": "El gràfic de la posició global del projecte condensa les puntuacions d’avaluació de totes les dimensions en un indicador (avaluació) i calcula la diferència de les puntuacions d’avaluació entre els cinc principis (coherència). El projecte actual es representa amb el punt groc.\n\nPer exemple, si el punt groc que representa el teu projecte es troba a l'extrem superior dret, significa que per a totes les dimensions heu puntuat bastant alt i que la puntuació entre les dimensions és coherent.",
+        "projectEvolution": "El gràfic de l' evolució del projecte mostra, per al projecte actual, la puntuació agregada de cadascuna de les quatre fases del procés d’avaluació representades per la línia groga. La mediana (el punt gris) i els quartils Q1 (línia horitzontal inferior) i Q3 (línia horitzontal superior) de l'avaluació de tots els projectes es mostren per a cada fase.",
+        "involvement": "El gràfic de participació mostra la rellevància i l’impacte durant les diferents etapes del projecte. Per a cada etapa, els gestors de projectes, investigadors, estudiants i la societat civil estimen la participació de la comunitat (participació real). Així mateix, per a cada etapa avaluen si la participació de la comunitat ha estat rellevant per al desenvolupament d'aquesta etapa del projecte (efectivitat). El valor de cada etapa oscil·la entre 0 (sense rellevància ni impacte) fins a 4 (impacte molt rellevant o màxim), representat per la intensitat del color.",
+        "bulletCharts": "Una mètrica (gràfic de vinyetes) es mostra per a cada principi i per a les diferents dimensions que constitueixen cada principi. El punt groc representa l'avaluació del projecte actual. Les ombres representen l'avaluació d'altres projectes: una ombra més clara representa els projectes amb les puntuacions d'avaluació més baixes i més altes, mentre que una ombra més opaca representa els projectes dins del primer i el tercer quartil de les puntuacions d'avaluació. El primer quartil (Q1) es defineix com el valor mitjà entre la puntuació d’avaluació més baixa entre tots els projectes i la mediana del conjunt de dades. El tercer quartil (Q3) es defineix com el valor mitjà entre la mediana i la puntuació d’avaluació més alta de tots els projectes. Es dóna un llindar arbitrari a \"3\" per ressaltar les avaluacions inferiors a aquest valor.",
+        "bulletChart": {
+          "knowledgeDemocracy": "Democràcia del coneixement cobreix la transdisciplinarietat, l'obertura de dades i resultats i la rellevància científica del projecte.\nEl primer resultat mostra la puntuació agregada per a aquesta dimensió. El següent mostra els resultats agregats per a cada subdimensió d'aquesta.",
+          "participatoryDynamics ": "** La Dinàmica Participativa** inclou el grau d’implicació de la comunitat i la qualitat i l’impacte de les pràctiques de participació.\nEl primer resultat mostra la puntuació agregada per a aquesta dimensió. El següent mostra els resultats agregats per a cada subdimensió d'aquesta.",
+          "citizenledResearch": "** La recerca dirigida per la ciutadania** es refereix a l'alineació dels objectius del projecte amb les demandes de la comunitat i a l'eficàcia de la participació de la comunitat en el procés de recerca.\nEl primer resultat mostra la puntuació agregada per a aquesta dimensió. El següent mostra els resultats agregats per a cada subdimensió d'aquesta.",
+          "integrity": "** Integritat ** inclou l'alineació de les expectatives, la inclusió de grups vulnerables, la incorporació de perspectives ètiques i de gènere, la transparència en la gestió de dades, la coherència del disseny de projectes i la qualitat dels recursos disponibles.\nEl primer resultat mostra la puntuació agregada per a aquesta dimensió. El següent mostra els resultats agregats per a cada subdimensió d'aquesta.",
+          "transformativeChange ": "** Canvi transformatiu** és l’aprenentatge individual i el creixement personal, la sostenibilitat del projecte, la capacitat de resposta social del projecte i el seu impacte en les polítiques, programes i / o serveis.\nEl primer resultat mostra la puntuació agregada per a aquesta dimensió. El següent mostra els resultats agregats per a cada subdimensió d'aquesta."
+        },
+        "projectManagerCharts": "La visualització que té el gestor de projecte no és accessible per als participants, ja que proporciona en detall el procés d’autoreflexió alhora que proporciona una visió interna per tal de gestionar el projecte correctament.\n\nLa diferència entre aquest nivell de visualització i l'accessible pels participants és que representa els resultats de l'avaluació per perfil dels enquestats. Permet conèixer millor el que ha passat i a qui.",
+        "publicEval": "La visualització pública reflecteix l'avaluació global del projecte i mostra la puntuació agregada de cadascuna de les dimensions.\n\nCada projecte està representat per un colibrí: un humil petit ocell, però extremadament actiu, el poc moviment del qual pot contribuir al sistema ecosocial general:\n- La seva ala està associada al canvi transformatiu, perquè és la part més activa del colibrí i la que crea moviment.\n- El cap s’associa amb la democràcia del coneixement, seguint la relació natural de cap, ment i coneixement.\n- El cor (o part inferior del cos) s’associa amb la investigació dirigida pel ciutadà, perquè la ciutadania és el batec del cor de la ciència oberta.\n- La cua està associada a la dinàmica de participació, perquè actua com a timó. I, finalment, la part superior del cos s’associa amb la integritat, perquè sense ella tots els altres aspectes s’esfondrarien.",
+        "phaseParticipation": "El gràfic del colibrí és acompanyat per quatre cercles que corresponen a les quatre fases d’avaluació: al començament del projecte, a mig termini, al final del projecte i sis mesos després. Les fases que s’han avaluat es representen mitjançant una coloració a l’interior del cercle. La coloració omple tot el cercle quan tota la gamma d'actors socials d'interès (gestor de projectes, societat civil, investigador i estudiant) han completat els qüestionaris d’avaluació. D’altra banda, el cercle es representa amb un cercle no complert quan alguns dels diferents rols no han contribuït a l’avaluació."
+      }
     },
     "evaluationEntry": {
       "mainTitle": "Qüestionari d'Avaluació del Projecte",
@@ -231,6 +257,9 @@
       "fileReady": "Arxiu \"{name}\" preparat per ser pujat",
       "currentImage": "Imatge actual",
       "upload": "Puja document"
+    },
+    "ProjectCard": {
+      "numberOfParticipants": "Nombre de participants "
     }
   },
   "models": {
@@ -345,6 +374,7 @@
         "scientificRelevance": "Rellevància científica",
         "selfImprovement": "Millora personal",
         "transdisciplinarity": "Transdisciplinarietat",
+        "knowledgeIntegration": "Integració de coneixement",
         "transparency": "Transparència"
       }
     },
@@ -557,6 +587,7 @@
     }
   },
   "misc": {
+    "registeredProjects": "{n} projectes registrats.",
     "timeAgo": "fa {time}",
     "optional": "Opcional",
     "lastUpdated": "Actualitzat fa {time} ",
@@ -591,7 +622,9 @@
     "moreInformation": "Més Informació",
     "manageName": "Gestiona aquest {name}",
     "viewPublicPage": "Veure la pàgina pública",
+    "viewAndPrint": "Visualitza i imprimeix ",
     "exportAllData": "Exporta totes les dades ",
+    "print": "Imprimeix aquesta pàgina",
     "download": "Descarrega",
     "downloadName": "Descarrega {name}",
     "tellMeMore": "Explica'm més ",
@@ -611,7 +644,9 @@
     "projects": "Projectes ",
     "structure": "Estructura",
     "structures": "Estructures ",
-    "evaluation": "Avaluació"
+    "evaluation": "Avaluació",
+    "attachment": "Adjunt",
+    "attachments": "Adjunts "
   },
   "errors": {
     "couldNotLoad": "Hi ha hagut un problema carregant aquesta pàgina. Estàs segur de que tens accés? ",
@@ -635,6 +670,7 @@
       "minimunLength": "Ha de tenir com a mínim {length} caràcters",
       "usernameInUse": "Aquest usuari ja existeix, si us plau escull un altre diferent. ",
       "namedRequiredField": "{name} és un camp obligatori",
+      "mustNotBeEmail": "Si us plau no facis servir el correu electrònic com a usuari ja que aquesta informació és pública.",
       "mustBeStructure": "Si us plau, introdueix una estructura vàlida",
       "mustBeUser": "Si us plau, introdueix una llista d'usuaris vàlida",
       "mustBeURL": "Si us plau introdueix una URL vàlida ",
@@ -676,6 +712,7 @@
       "description": "Descripció",
       "participants": "Participants",
       "managers": "Gestors",
+      "attachmentName": "Títol de l'adjunt",
       "structureName": "Nom de l'estructura ",
       "structureType": "Tipus d'estructura ",
       "structureYearFounded": "Any en que es va fundar l'estructura ",

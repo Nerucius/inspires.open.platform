@@ -9,16 +9,20 @@
       top: 2px;
       right: 4px
     }
+    .v-list a{
+    text-decoration: none;
+    color:inherit;
+  }
 </style>
 
 <template>
   <div>
     <v-list two-line>
-      <template v-for="(group, i) in groupedArticles">
+      <template v-for="group in groupedArticles">
         <v-divider :key="group.master_id + '-sep'" />
 
-        <v-list-tile :key="group.master_id" :to="group.article.link">
-          <v-flex shrink mr-5 class="hidden-xs-only text-xs-center">
+        <v-list-tile :key="group.master_id">
+          <v-flex xs2 lg1 mr-5 class="hidden-xs-only text-xs-center">
             <v-icon>mdi-school</v-icon><br>
             <small class="text-uppercase"><strong>{{ group.article.topic }}</strong></small>
           </v-flex>
@@ -32,23 +36,29 @@
             </div>
             <v-list-tile-title>
               <strong>
-                {{ group.article.title }}
+                <router-link  :to="group.article.link">
+                  {{ group.article.title }}
+                </router-link>
               </strong>
             </v-list-tile-title>
             <v-list-tile-sub-title>
               {{ group.article.summary }}
             </v-list-tile-sub-title>
           </v-list-tile-content>
+
           <v-list-tile-action v-if="flags" class="hidden-sm-and-down">
-            <!-- Flags for all available translated languages -->
+            <!-- Flag links for all available translated languages -->
             <v-layout row wrap style="max-width:Calc(32px*4)">
-              <v-flex v-for="flag in group.flags.sort()" :key="flag" shrink pa-1 class="text-xs-center">
-                <flag
-                  :iso="getFlagIso(flag)"
-                  :squared="false"
-                />
+              <v-flex v-for="other in group.others.sort()" :key="other.id" shrink pa-1 class="text-xs-center">
+                <router-link :to="other.link">
+                  <flag
+                    :iso="getFlagIso(other.locale)"
+                    :squared="false"
+                  />
+                </router-link>
               </v-flex>
             </v-layout>
+
           </v-list-tile-action>
         </v-list-tile>
 
@@ -85,7 +95,6 @@ export default {
         let grouped = masters.map(m => {
           let masterArticles = this.articles.filter(a => a.master == m)
 
-          let flags = masterArticles.map(a => a.locale)
           let userArticle
           // Decide the article we show to the user, if we can match the user's language, shwo that one, otherwise, find the english one.
           try {
@@ -97,7 +106,7 @@ export default {
           return {
             master_id: m,
             article: userArticle || masterArticles[0],
-            flags: flags
+            others: masterArticles
           }
         })
 
@@ -106,6 +115,8 @@ export default {
           if(grouped[i].article.topic != grouped[i+1].article.topic)
             grouped[i].spaceAfter = true;
         }
+
+        grouped.sort((a,b) => a.article.topic.localeCompare(b.article.topic) )
 
         return grouped
       }

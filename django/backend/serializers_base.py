@@ -138,7 +138,7 @@ class SimpleStructureSerializer(serializers.ModelSerializer):
             "image_url",
             "year_founded",
             "knowledge_areas",
-            "collaborations"
+            "collaborations",
         ]
 
 
@@ -198,7 +198,7 @@ class EvaluationSerializer(serializers.ModelSerializer):
 class SimpleAttachmentSerializer(TrackableModelSerializer):
     class Meta:
         model = models.Attachment
-        fields = ["id", "name", "size","url"]
+        fields = ["id", "name", "size", "url"]
 
 
 class ContentTypeSerializer(serializers.ModelSerializer):
@@ -221,12 +221,13 @@ class ContentMasterSerializer(TrackableModelSerializer):
 
 class SimpleContentSerializer(serializers.ModelSerializer):
     type = serializers.CharField(read_only=True)
-    # master = ContentMasterSerializer()
+    sorting = serializers.IntegerField(read_only=True)
 
     class Meta:
         model = models.Content
         fields = [
             "master",
+            "sorting",
             "type",
             "title",
             "topic",
@@ -239,6 +240,7 @@ class SimpleContentSerializer(serializers.ModelSerializer):
 
 class ContentSerializer(TrackableModelSerializer):
     attachments = AttachmentSerializer(read_only=True, many=True)
+    sorting = serializers.IntegerField(read_only=True)
 
     class Meta:
         model = models.Content

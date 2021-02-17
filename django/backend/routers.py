@@ -28,7 +28,7 @@ router.register("attachments", views.AttachmentsVS)
 
 # Content
 
-router.register("content", views.ContentVS)
+router.register("contents", views.ContentVS)
 
 # Evaluation Routes
 

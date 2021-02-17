@@ -4,6 +4,8 @@ from django.contrib.contenttypes.fields import GenericRelation
 
 from backend.models import TrackableModel
 
+import romanize3
+
 TYPE_BLOG = "BLOG"
 TYPE_NEWS = "NEWS"
 TYPE_HELP = "HELP"
@@ -28,6 +30,10 @@ LANGUAGES = [
 
 class ContentMaster(TrackableModel):
     type = models.CharField(max_length=64, choices=TYPE_CHOICES)
+    sorting = models.PositiveIntegerField(
+        default=1,
+        help_text="Sorting priority of this content. Lower numbers will be shown first.",
+    )
     name = models.CharField(
         max_length=512,
         unique=True,
@@ -36,6 +42,9 @@ class ContentMaster(TrackableModel):
 
     def __str__(self):
         return f"{self.type} - {self.name}"
+
+    class Meta:
+        ordering = ["sorting"]
 
 
 class Content(TrackableModel):
@@ -62,6 +71,10 @@ class Content(TrackableModel):
     class Meta:
         unique_together = ("master", "locale")
 
+    @property
+    def sorting(self):
+        return self.master.sorting
+
     def type(self):
         return self.master.type
 
@@ -71,5 +84,10 @@ class Content(TrackableModel):
     def save(self, *args, **kwargs):
         # TODO: change slug on all saves? might avoid _weird_ slugs
         # if not self.slug:
-        self.slug = slugify(self.title)
+        if self.locale == "ar":
+            romanized_title = romanize3.ara.convert(self.title)
+            self.slug = slugify(romanized_title)
+        else:
+            self.slug = slugify(self.title)
+
         return super().save(*args, **kwargs)

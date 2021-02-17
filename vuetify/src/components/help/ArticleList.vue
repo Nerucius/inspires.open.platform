@@ -22,7 +22,7 @@
         <v-divider :key="group.master_id + '-sep'" />
 
         <v-list-tile :key="group.master_id">
-          <v-flex xs2 lg1 mr-5 class="hidden-xs-only text-xs-center">
+          <v-flex xs2 xl1 mr-5 class="hidden-xs-only text-xs-center">
             <v-icon>mdi-school</v-icon><br>
             <small class="text-uppercase"><strong>{{ group.article.topic }}</strong></small>
           </v-flex>
@@ -110,13 +110,14 @@ export default {
           }
         })
 
+        // Sort by master-inheritet property `sorting`
+        grouped.sort((a,b) => a.article.sorting - b.article.sorting )
+
         // Dividers on topic change
         for(let i = 0; i < grouped.length-1; i++){
           if(grouped[i].article.topic != grouped[i+1].article.topic)
             grouped[i].spaceAfter = true;
         }
-
-        grouped.sort((a,b) => a.article.topic.localeCompare(b.article.topic) )
 
         return grouped
       }

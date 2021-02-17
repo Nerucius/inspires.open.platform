@@ -56,7 +56,7 @@ export const StructureResource = Vue.resource(API_SERVER + "/v1/structures{/id}/
 export const StructureValidationResource = Vue.resource(API_SERVER + "/v1/structures/validations{/id}/", {}, PATCH);
 export const CollaborationResource = Vue.resource(API_SERVER + "/v1/collaborations{/id}/", {}, PATCH);
 
-export const ContentResource = Vue.resource(API_SERVER + "/v1/content{/id}/", {}, PATCH);
+export const ContentResource = Vue.resource(API_SERVER + "/v1/contents{/id}/", {}, PATCH);
 
 export const ContentTypeResource = Vue.resource(API_SERVER + "/v1/contenttypes/");
 export const AttachmentResource = Vue.resource(API_SERVER + "/v1/attachments{/id}/", {}, PATCH);

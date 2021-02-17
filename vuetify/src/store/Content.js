@@ -5,6 +5,7 @@ const Resource = ContentResource
 
 export function createLink(obj){
   obj.link = {name:"help", params:{page:obj.slug}}
+  obj.topic = obj.topic.toLowerCase()
 
   return obj
 }

@@ -37,6 +37,10 @@
   background-color: rgb(235,237,244);
 }
 
+.markdown table{
+  width: 100%;
+}
+
 /* Alternating colored Ps */
 .markdown table:nth-child(2n+1){
   background-color: rgb(235,237,244);

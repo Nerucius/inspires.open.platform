@@ -321,15 +321,7 @@ class CurrentUserEvaluationsVS(viewsets.ReadOnlyModelViewSet):
 
 class ProjectsVS(ListDetail, Orderable, viewsets.ModelViewSet):
     queryset = models.Project.objects.all()
-    filterset_fields = [
-        "name",
-        "collaboration__structure",
-        "keywords",
-        "participants",
-        "knowledge_area",
-        "country_code",
-        "project_type",
-    ]
+    filterset_class = filters.ProjectFilter
 
     serializer_class = serializers.SimpleProjectSerializer
     detail_serializer_class = serializers.ProjectSerializer
@@ -347,7 +339,14 @@ class ProjectsVS(ListDetail, Orderable, viewsets.ModelViewSet):
 
 class StructuresVS(ListDetail, Orderable, viewsets.ModelViewSet):
     queryset = models.Structure.objects.all()
-    filterset_fields = ["name", "collaboration__project", "managers"]
+    filterset_fields = [
+        "name",
+        "collaboration__project",
+        "managers",
+        "structure_type",
+        "country_code",
+        "knowledge_areas",
+    ]
 
     serializer_class = serializers.SimpleStructureSerializer
     detail_serializer_class = serializers.StructureSerializer
@@ -487,7 +486,6 @@ class ResponseVS(viewsets.ModelViewSet):
     queryset = models.Response.objects.all()
     serializer_class = serializers.ResponseSerializer
     filterset_class = filters.ResponseFilter
-    # filterset_fields = ['evaluation__phase__project', 'question__answer_type']
 
     permission_classes = [IsAuthenticated]
 

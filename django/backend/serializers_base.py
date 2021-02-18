@@ -139,6 +139,7 @@ class SimpleStructureSerializer(serializers.ModelSerializer):
             "year_founded",
             "knowledge_areas",
             "collaborations",
+            "modified_at",
         ]
 
 

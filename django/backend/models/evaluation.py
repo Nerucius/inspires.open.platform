@@ -177,7 +177,7 @@ class Evaluation(TrackableModel):
         unique_together = ("participation", "phase")
 
 
-@receiver(models.signals.post_save)
+@receiver(models.signals.post_save, sender=Evaluation)
 def email_new_evaluation(
     sender, instance, raw, created, using, update_fields, **kwargs
 ):
@@ -194,8 +194,9 @@ def email_new_evaluation(
         if created or instance.resend_email:
             instance.resend_email = False
             instance.save()
-            
+
             from backend import email
+
             email.email_new_evaluation(instance)
             print("Sent email for new evaluation")
 
@@ -271,7 +272,7 @@ class Response(TrackableModel):
         )
 
 
-@receiver(models.signals.post_save)
+@receiver(models.signals.post_save, sender=Response)
 def invalidate_cache(sender, instance, raw, created, using, update_fields, **kwargs):
     """This receiver listes for any updated questionaire responses, and performs a
     cache invalidation of the entire CSV endpoint for evaluations."""
@@ -279,9 +280,12 @@ def invalidate_cache(sender, instance, raw, created, using, update_fields, **kwa
     if settings.CACHE_REDIS and isinstance(instance, Response):
         from django.core.cache import cache
 
-        # Destroy all cached generated CSVs
-        cache.delete_pattern("/v1/csv/eval/*")
+        try:
+            # Destroy all cached generated CSVs
+            cache.delete_pattern("/v1/csv/eval/*")
 
-        # Destroy response cache for this project
-        project_id = instance.evaluation.phase.project.id
-        cache.delete_pattern("/v1/csv/_responses/%d/*" % project_id)
+            # Destroy response cache for this project
+            project_id = instance.evaluation.phase.project.id
+            cache.delete_pattern("/v1/csv/_responses/%d/*" % project_id)
+        except Exception:
+            pass

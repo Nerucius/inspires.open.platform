@@ -46,7 +46,7 @@ class Collaboration(TrackableModel):
         return "Collab %s <-> %s" % (self.structure.name, self.project.name)
 
 
-@receiver(models.signals.post_save)
+@receiver(models.signals.post_save, sender=Collaboration)
 def email_new_collaboration(
     sender, instance, raw, created, using, update_fields, **kwargs
 ):
@@ -57,7 +57,7 @@ def email_new_collaboration(
         print("Sent email for new collaboration")
 
 
-@receiver(models.signals.post_save)
+@receiver(models.signals.post_save, sender=Collaboration)
 def email_collaboration_approved(
     sender, instance, raw, created, using, update_fields, **kwargs
 ):

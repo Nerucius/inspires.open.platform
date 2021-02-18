@@ -129,5 +129,5 @@ def save_trackable(sender, instance, created, raw, using, update_fields, **kwarg
             object_id=instance.id,
             object_repr=str(instance),
             action_flag=(ADDITION if created else CHANGE),
-            change_message="TrackableModel %s" % ("Created" if created else "Changed"),
+            change_message="Object %s" % ("Created" if created else "Changed"),
         )

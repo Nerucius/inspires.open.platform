@@ -60,17 +60,6 @@ class Structure(TrackableModel):
         return self.name
 
 
-@receiver(models.signals.post_save)
-def email_new_structure(sender, instance, raw, created, using, update_fields, **kwargs):
-    # TODO: Abort on shell scripts and such
-
-    if created and isinstance(instance, Structure):
-        from backend import email
-
-        email.email_new_structure(instance)
-        print("Sent email for new structure")
-
-
 class StructureValidation(TrackableModel):
     is_approved = models.BooleanField(default=True)
     structure = models.OneToOneField(
@@ -90,3 +79,28 @@ class Network(models.Model):
 
     def __str__(self):
         return self.name
+
+
+# Structure Data Triggers
+
+
+@receiver(models.signals.post_save, sender=Structure)
+def email_new_structure(sender, instance, raw, created, **kwargs):
+    if not created:
+        return
+
+    from backend import email
+
+    email.email_new_structure(instance)
+    print("Sent email for new structure")
+
+
+@receiver(models.signals.post_save, sender=StructureValidation)
+def email_validated_structure(sender, instance, raw, created, **kwargs):
+    if not instance.is_approved:
+        return
+
+    from backend import email
+
+    email.email_structure_validated(instance)
+    print("Sent email for validated structure")

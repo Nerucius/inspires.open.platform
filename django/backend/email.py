@@ -179,3 +179,35 @@ def email_new_evaluation(evaluation):
         subject, plain_message, email_from, [email_to], html_message=html_message
     )
 
+
+def email_structure_validated(validation):
+    if not settings.EMAIL_HOST:
+        return
+
+    structure = validation.structure
+
+    email_from = settings.EMAIL_FROM
+
+    # Get structure admins
+    structure_manager_emails = set()
+    structure_manager_emails.add(structure.owner.email)
+    structure_manager_emails |= {u.email for u in structure.managers.all()}
+
+    subject = _("Your structure has been validated")
+
+    cta_link = f"{settings.FRONTEND_URL}/structures/{structure.pk}"
+
+    context = {"structure": structure, "cta_link": cta_link}
+    wawp_link = create_wawp_link("email/structure_validated.html", context)
+    context["wawp_link"] = wawp_link
+
+    html_message = render_to_string("email/structure_validated.html", context)
+    plain_message = strip_tags(html_message)
+
+    mail.send_mail(
+        subject,
+        plain_message,
+        email_from,
+        structure_manager_emails,
+        html_message=html_message,
+    )

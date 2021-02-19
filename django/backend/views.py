@@ -452,8 +452,6 @@ class ProjectEvaluationStatsVS(RequirePKMixin, viewsets.ReadOnlyModelViewSet):
     queryset = models.Project.objects.all()
     serializer_class = serializers.ProjectStatsSerializer
 
-    permission_classes = [IsAuthenticated]
-
 
 class EvaluationQuestionsVS(RequirePKMixin, viewsets.ModelViewSet):
     queryset = models.Evaluation.objects.all()

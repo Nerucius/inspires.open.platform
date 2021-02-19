@@ -23,7 +23,7 @@
 
     <!-- Search box -->
     <v-flex xs12>
-      <v-card class="elevation-1">
+      <v-card flat>
         <v-card-text>
           <h3>{{ $t('actions.search') }}</h3>
           <v-layout wrap>
@@ -62,34 +62,48 @@
               />
             </v-flex>
             
-            <!-- <v-flex xs12>
-              <v-combobox v-model="filters.collaboration__structure"
-                :label="$t('forms.fields.structureName')"
-                :items="$store.getters['structure/all']"
-                item-text="name"
-                clearable
-                single-line hide-details
-                @change="updateFilter"
-              />
-            </v-flex> -->
           </v-layout>
         </v-card-text>
       </v-card>
     </v-flex>
 
-    <v-flex xs12>
+    <v-flex xs12 class="hidden-xs-only">
       <v-layout row wrap>
         <v-flex v-for="structure in structures" :key="structure.id" xs12 sm6 md4 lg3 xl2 mb-3>
           <StructureCard :structure="structure" />
         </v-flex>
       </v-layout>
     </v-flex>
+
+    <v-flex xs12 class="hidden-sm-and-up">
+      <ProjectList :projects="structures" />
+    </v-flex>
+
+    <v-flex v-if="canLoadMore || loadMoreDisabled" xs12 mt-3>
+      <v-layout justify-center>
+        <v-flex shrink>
+          <v-btn :loading="loadMoreDisabled" :disabled="loadMoreDisabled" color="primary" @click="loadMoreStructures">
+            {{ $t('pages.structureList.showMore') }}
+          </v-btn>
+        </v-flex>
+      </v-layout>
+    </v-flex>
+
+    <v-flex v-else xs12 mt-3>
+      <v-layout justify-center>
+        <v-flex shrink>
+          <v-btn disabled>{{ $t('pages.structureList.noMoreStructures') }}</v-btn>
+        </v-flex>
+      </v-layout>
+    </v-flex>
+
   </v-layout>
 </template>
 
 
 <script>
 import StructureCard from "@/components/structure/StructureCard";
+import ProjectList from "@/components/project/ProjectList";
 import { debounce } from "lodash";
 import { Countries } from "@/plugins/i18n";
 
@@ -102,7 +116,8 @@ export default {
   },
 
   components: {
-    StructureCard
+    StructureCard,
+    ProjectList
   },
 
   data() {
@@ -129,7 +144,6 @@ export default {
   async mounted(){
     // Data we need
     this.$store.dispatch("knowledgearea/load")
-    this.$store.dispatch("structure/load")
 
     // debouncer
     this.updateFilter = debounce(this.updateFilter, 250);
@@ -153,6 +167,7 @@ export default {
       params = {
         ...params,
         ...filters,
+        ordering:"-modified_at",
       }
 
       if(params.collaboration__structure)

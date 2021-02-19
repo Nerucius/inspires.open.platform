@@ -9,7 +9,7 @@
           </h1>
         </v-flex>
 
-        <v-flex shrink>
+        <v-flex shrink class="hidden-xs-only">
           <v-switch v-model="showEvaluations"
                     color="primary"
                     class="mt-0 pa-0"
@@ -34,7 +34,7 @@
 
     <!-- Search box -->
     <v-flex xs12>
-      <v-card class="elevation-1">
+      <v-card flat>
         <v-card-text>
           <h3>{{ $t('actions.search') }}</h3>
           <v-layout wrap>
@@ -88,12 +88,16 @@
       </v-card>
     </v-flex>
 
-    <v-flex xs12>
+    <v-flex xs12 class="hidden-xs-only">
       <v-layout row wrap align-content-start>
         <v-flex v-for="project in projects" :key="project.id" xs12 sm6 md4 lg3 xl2 mb-3>
           <ProjectCard :show-evaluation="showEvaluations" :project="project" />
         </v-flex>
       </v-layout>
+    </v-flex>
+
+    <v-flex xs12 class="hidden-sm-and-up">
+      <ProjectList :projects="projects" />
     </v-flex>
 
     <v-flex v-if="canLoadMore || loadMoreDisabled" xs12 mt-3>
@@ -113,12 +117,14 @@
         </v-flex>
       </v-layout>
     </v-flex>
+
   </v-layout>
 </template>
 
 
 <script>
 import ProjectCard from "@/components/project/ProjectCard";
+import ProjectList from "@/components/project/ProjectList";
 import { slug2id } from "@/plugins/utils";
 import { debounce } from "lodash";
 import { Countries } from "@/plugins/i18n";
@@ -133,7 +139,8 @@ export default {
   },
 
   components: {
-    ProjectCard
+    ProjectCard,
+    ProjectList
   },
 
   data() {
@@ -195,6 +202,7 @@ export default {
       params = {
         ...params,
         ...filters,
+        ordering:"-modified_at",
       }
 
       if(params.collaboration__structure)

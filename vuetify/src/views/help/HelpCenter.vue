@@ -36,7 +36,7 @@
 
     <!-- Article Page -->
     <v-flex v-if="isArticleDetail && !!article" xs12>
-      <ArticleContent :key="article.id" :article="article" :articlesSameMaster="articlesSameMaster(article.master)" />
+      <ArticleContent :key="article.id" :article="article" :articles-same-master="articlesSameMaster(article.master)" />
     </v-flex>
 
     <!-- Article List Page -->

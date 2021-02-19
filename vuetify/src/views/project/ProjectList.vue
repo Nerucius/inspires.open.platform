@@ -1,5 +1,6 @@
 <template>
   <v-layout row wrap align-content-start>
+    <!-- Title and know more -->
     <v-flex xs12>
       <v-layout>
         <v-flex grow>
@@ -8,7 +9,7 @@
           </h1>
         </v-flex>
 
-        <v-flex shrink v-if="$store.getters['user/isLoggedIn']">
+        <v-flex shrink>
           <v-switch v-model="showEvaluations"
                     color="primary"
                     class="mt-0 pa-0"
@@ -31,58 +32,57 @@
       </v-expansion-panel>
     </v-flex>
 
+    <!-- Search box -->
     <v-flex xs12>
       <v-card class="elevation-1">
         <v-card-text>
           <h3>{{ $t('actions.search') }}</h3>
           <v-layout wrap>
-
             <v-flex xs12 sm6 md4>
               <v-select v-model="filters.knowledge_area"
-                :label="$t('forms.fields.knowledgeArea')"
-                :items="$store.getters['knowledgearea/all']"
-                :item-text="(i => $t(i.name))"
-                item-value="id"
-                clearable
-                single-line hide-details
-                @change="updateFilter"
+                        :label="$t('forms.fields.knowledgeArea')"
+                        :items="$store.getters['knowledgearea/all']"
+                        :item-text="(i => $t(i.name))"
+                        item-value="id"
+                        clearable
+                        single-line hide-details
+                        @change="updateFilter"
               />
             </v-flex>
 
             <v-flex xs12 sm6 md4>
               <v-select v-model="filters.project_type"
-                :label="$t('forms.fields.projectType')"
-                :items="$store.getters['project/projectTypes'].slice(1)"
-                :item-text="(i => $t(i.name))"
-                item-value="value"
-                clearable
-                single-line hide-details
-                @change="updateFilter"
+                        :label="$t('forms.fields.projectType')"
+                        :items="$store.getters['project/projectTypes'].slice(1)"
+                        :item-text="(i => $t(i.name))"
+                        item-value="value"
+                        clearable
+                        single-line hide-details
+                        @change="updateFilter"
               />
             </v-flex>
 
             <v-flex xs12 sm6 md4>
               <v-combobox v-model="filters.country_code"
-                :label="$t('forms.fields.projectCountry')"
-                :items="countries"
-                :item-text="countryTl"
-                clearable
-                single-line hide-details
-                @change="updateFilter"
+                          :label="$t('forms.fields.projectCountry')"
+                          :items="countries"
+                          :item-text="countryTl"
+                          clearable
+                          single-line hide-details
+                          @change="updateFilter"
               />
             </v-flex>
             
             <v-flex xs12>
               <v-combobox v-model="filters.collaboration__structure"
-                :label="$t('forms.fields.structureName')"
-                :items="$store.getters['structure/all']"
-                item-text="name"
-                clearable
-                single-line hide-details
-                @change="updateFilter"
+                          :label="$t('forms.fields.structureName')"
+                          :items="$store.getters['structure/all']"
+                          item-text="name"
+                          clearable
+                          single-line hide-details
+                          @change="updateFilter"
               />
             </v-flex>
-
           </v-layout>
         </v-card-text>
       </v-card>
@@ -96,26 +96,24 @@
       </v-layout>
     </v-flex>
 
-    <v-flex xs12 mt-3 v-if="canLoadMore || loadMoreDisabled">
+    <v-flex v-if="canLoadMore || loadMoreDisabled" xs12 mt-3>
       <v-layout justify-center>
         <v-flex shrink>
-          <v-btn :loading="loadMoreDisabled" :disabled="loadMoreDisabled" @click="loadMoreProjects" color="primary">
+          <v-btn :loading="loadMoreDisabled" :disabled="loadMoreDisabled" color="primary" @click="loadMoreProjects">
             {{ $t('pages.projectList.showMore') }}
           </v-btn>
         </v-flex>
       </v-layout>
     </v-flex>
 
-    <v-flex xs12 mt-3 v-else>
+    <v-flex v-else xs12 mt-3>
       <v-layout justify-center>
         <v-flex shrink>
           <v-btn disabled>{{ $t('pages.projectList.noMoreProjects') }}</v-btn>
         </v-flex>
       </v-layout>
     </v-flex>
-
   </v-layout>
-
 </template>
 
 
@@ -230,6 +228,7 @@ export default {
 
     async updateFilter(){
       this.$store.dispatch('project/clear');
+      this.showEvaluations = false;
       this.projectPage = 0;
       this.loadProjectPage();
     },

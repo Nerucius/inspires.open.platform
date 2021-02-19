@@ -75,13 +75,12 @@ export default {
       }else{
         // No ids provided, just get list of all
         let params = payload.params || {}
-        // Disabled since ordering will be hammered by dictionary
-        // let query = {ordering: "-modified_at", ...params}
         let query = {...params}
 
         let response = (await Resource.get(query)).body
         let items = response.results
 
+        // NOTE: Disabled generally, use limit:999
         // Iteratively get all pages
         // let next = response.next
         // while(next){

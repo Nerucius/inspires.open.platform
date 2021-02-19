@@ -46,18 +46,6 @@
         </v-sheet>
       </v-card>
     </v-flex>
-    <!--
-    <v-flex md4 class="hidden-sm-and-down">
-      <h1 class="mb-2">
-        {{ $t('pages.home.latestTitle') }}
-      </h1>
-      <v-card>
-        <v-sheet height="400" style="overflow-y:auto">
-          <ProjectList :projects="latestProjects" />
-        </v-sheet>
-      </v-card>
-    </v-flex>
-    -->
 
     <v-flex v-if="countryFilterProjects" xs12>
       <h1>
@@ -70,7 +58,7 @@
     </v-flex>
 
     <v-flex v-else xs12>
-      <h1>{{ $t('pages.home.latestTitle') }}</h1>
+      <h1>{{ $t('pages.home.latestProjectsTitle') }}</h1>
       <div class="hidden-sm-and-down">
         <ProjectGrid :hide-title="true" :projects="projects" />
       </div>
@@ -84,7 +72,6 @@
         {{ $t('pages.home.projectsSeeMore') }}
       </v-btn>
     </v-flex>
-
   </v-layout>
 </template>
 

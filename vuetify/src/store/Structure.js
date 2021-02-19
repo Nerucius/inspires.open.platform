@@ -75,13 +75,14 @@ export default {
         let response = (await Resource.get(query)).body
         let items = response.results
 
+        // NOTE: Disabled generally, use limit:999
         // Iteratively get all pages
-        let next = response.next
-        while(next){
-          response = (await Vue.http.get(next)).body
-          items = [...items, ...response.results]
-          next = response.next
-        }
+        // let next = response.next
+        // while(next){
+        //   response = (await Vue.http.get(next)).body
+        //   items = [...items, ...response.results]
+        //   next = response.next
+        // }
 
         context.commit("ADD", items)
       }

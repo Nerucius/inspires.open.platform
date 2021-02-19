@@ -28,14 +28,14 @@
       <v-form ref="searchForm" @submit.prevent="search()">
         <v-text-field
           v-model="searchTerm"
-          class="pa-0"
+          class="pa-0 ma-0 px-1"
           color="grey lighten-3"
           hide-details
           single-line
           prepend-icon="search"
           browser-autocomplete="off"
           :rules="[rules.minimunLength]"
-          :placeholder="$t('toolbar.searchPlaceholder')"
+          :placeholder="$t('actions.search')"
         />
       </v-form>
     </v-flex>
@@ -63,32 +63,36 @@
     </v-toolbar-items>
 
     <!-- Mobile toolbar links -->
-    <v-menu bottom left class="hidden-md-and-up">
-      <v-btn slot="activator" large dark icon>
-        <v-icon>more_vert</v-icon>
-      </v-btn>
+    <v-toolbar-items class="hidden-md-and-up">
+      <LanguageSelector />
+      <v-menu bottom left>
+        <v-btn slot="activator" large dark icon>
+          <v-icon>more_vert</v-icon>
+        </v-btn>
 
-      <v-list class="pa-0">
-        <template v-for="(link,idx) in links">
-          <v-list-tile v-if="!link.divider"
-                       :key="link.name" exact :to="{name:link.name}"
-          >
-            {{ $t(link.label) }}
+        <v-list class="pa-0">
+          <template v-for="(link,idx) in links">
+            <v-list-tile v-if="!link.divider"
+                        :key="link.name" exact :to="{name:link.name}"
+            >
+              {{ $t(link.label) }}
+            </v-list-tile>
+
+            <v-divider v-else :key="idx" />
+          </template>
+
+          <v-divider />
+
+          <v-list-tile v-if="!userIsLoggedIn" exact :to="{name:'login'}">
+            {{ $t("actions.login") }}
           </v-list-tile>
+          <v-list-tile v-else @click="logout()">
+            {{ $t("actions.logout") }}
+          </v-list-tile>
+        </v-list>
+      </v-menu>
+    </v-toolbar-items>
 
-          <v-divider v-else :key="idx" />
-        </template>
-
-        <v-divider />
-
-        <v-list-tile v-if="!userIsLoggedIn" exact :to="{name:'login'}">
-          {{ $t("actions.login") }}
-        </v-list-tile>
-        <v-list-tile v-else @click="logout()">
-          {{ $t("actions.logout") }}
-        </v-list-tile>
-      </v-list>
-    </v-menu>
   </v-toolbar>
 </template>
 

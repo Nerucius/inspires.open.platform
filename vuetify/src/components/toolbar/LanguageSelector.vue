@@ -1,8 +1,14 @@
+<style scoped>
+  .v-btn{
+    min-width: auto;
+  }
+</style>
+
 <template>
   <v-menu offset-y>
-    <v-btn slot="activator" flat>
+    <v-btn slot="activator" flat class="px-2">
       {{ currentLanguage }}
-      <v-icon right>
+      <v-icon class="ml-1">
         expand_more
       </v-icon>
     </v-btn>

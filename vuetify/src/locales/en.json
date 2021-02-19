@@ -131,7 +131,9 @@
     },
     "structureList": {
       "introText": "A Structure is a knowledge intermediary unit, which can be based within a univeristy, a research centre or others that promotes interactions and dialogues between the scientific community and civil society organizations in order to jointly co-create and implement participatory research projects.\n\nThere are many labelled used at the moment to define such structures: Science Shops, Campus-community office, Citizen Science units, Social Labs, Living Labs, etc. but also citizen action research, community-based participatory research, and citizen science. Therefore, we do not intend to be exclusatory but rather gather in this open platfor all the projects that work under the 5 principles we promote: Knowledge Democracy, Citizen-led Research, Participatory Dynamics, Integrity and Transformative Change. You will find here below all the structures registered in the Open Platform.",
-      "visitStructure": "Visit structure"
+      "visitStructure": "Visit structure",
+      "showMore": "Show more structures",
+      "noMoreStructures": "That's all the structures!"
     },
     "structureManage": {
       "title": "Manage this Structure",
@@ -160,12 +162,12 @@
     "projectList": {
       "introTitle": "Want to know more about projects?",
       "introText": "The InSPIRES Open Platform features participatory research and innovation projects promoted by different structures and organisations, such as Science Shops, Citizen Science offices, etc. You will find here bellow all the projects registered in the Open Platform.",
-      "showMore": "Show more Projects",
-      "noMoreProjects": "That's all the projects!",
       "showEvaluations": "Show evaluation results",
       "noKASpecified": "No Knowledge Area specified",
       "visitProject": "Visit project",
-      "filterByArea": "in the area of {area}"
+      "filterByArea": "in the area of {area}",
+      "showMore": "Show more projects",
+      "noMoreProjects": "That's all the projects!"
     },
     "projectManage": {
       "title": "Manage this Project",

@@ -118,7 +118,7 @@ export default {
   async created(){
     // Load all projects (we only show the first page)
     this.$store.dispatch("structure/load")
-    await this.$store.dispatch("project/load", { params: { limit:999, ordering:"-modified_at" } })
+    await this.$store.dispatch("project/load")
 
     setTimeout(() => {
       // Create Leaflet map

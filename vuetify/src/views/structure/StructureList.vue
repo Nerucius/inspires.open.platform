@@ -144,7 +144,6 @@ export default {
       let filters = this.filters;
 
       let params = {
-        ordering: "-modified_at",
         offset: this.page * this.pagesize,
         limit: this.pagesize
       }

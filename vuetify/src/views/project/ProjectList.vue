@@ -153,9 +153,9 @@ export default {
 
   computed: {
     projects() {
-      let projectList = this.$store.getters["project/all"].slice();
-      projectList.sort((a,b) => b.modified_at.localeCompare(a.modified_at))
-      return projectList
+      let list = this.$store.getters["project/all"].slice();
+      list.sort((a,b) => b.modified_at.localeCompare(a.modified_at))
+      return list
     },
 
     filterKnowledgeArea(){
@@ -186,7 +186,6 @@ export default {
       let filters = this.filters;
 
       let params = {
-        ordering: "-modified_at",
         offset: this.projectPage * this.projectPagesize,
         limit: this.projectPagesize
       }

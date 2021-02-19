@@ -207,9 +207,7 @@ export default {
 
     async loadUnvalidatedStructures(){
       this.$store.dispatch("structure/clear")
-      await this.$store.dispatch("structure/load", {
-        params:{nonvalidated:true}
-      })
+      await this.$store.dispatch("structure/load", {params:{nonvalidated:true}})
     },
 
     async validate(structureId){

@@ -140,6 +140,7 @@ class SimpleStructureSerializer(serializers.ModelSerializer):
             "knowledge_areas",
             "collaborations",
             "modified_at",
+            "is_valid",
         ]
 
 

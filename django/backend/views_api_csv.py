@@ -10,6 +10,7 @@ from backend.models import Project, Evaluation, Response, Structure
 
 from datetime import datetime
 
+import json
 import pandas as pd
 
 # CONFIG
@@ -283,11 +284,19 @@ class CSVCachedAuthorizedView(View):
     def _get_content(self, request, *args, **kwargs):
         return ""
 
-    def _get_content_wrapper(self, request, *args, **kwargs):
-        try:
-            return self._get_content(request, *args, **kwargs)
-        except Exception:
-            return ""
+    def _get_content_cached(self, request, *args, **kwargs):
+        # Use cache
+        if self.cache_key:
+            content = cache.get(self.cache_key)
+            if not content:
+                content = self._get_content(request, *args, **kwargs)
+                cache.set(self.cache_key, content, timeout=CACHE_TIMEOUT)
+        # No cache
+        else:
+            content = self._get_content(request, *args, **kwargs)
+            cache.set(self.cache_key, content, timeout=CACHE_TIMEOUT)
+
+        return content
 
     def get(self, request, *args, **kwargs):
         project = None
@@ -297,18 +306,18 @@ class CSVCachedAuthorizedView(View):
         if not self.public_api:
             _authenticate_request(request, project)
 
-        # Use cache
-        if self.cache_key:
-            content = cache.get(self.cache_key)
-            if not content:
-                content = self._get_content(request, *args, **kwargs)
-                cache.set(self.cache_key, content, timeout=CACHE_TIMEOUT)
-        else:
-            content = self._get_content(request, *args, **kwargs)
-            cache.set(self.cache_key, content, timeout=CACHE_TIMEOUT)
+        content_type = "text/plain"
+        status_code = 200
+
+        try:
+            content = self._get_content_cached(request, *args, **kwargs)
+        except Exception as e:
+            content = json.dumps({"status": "error", "message": str(e)})
+            status_code = 503
+            content_type = "application/json"
 
         return shortcuts.HttpResponse(
-            content, content_type="text/plain", charset="utf8"
+            content, content_type=content_type, charset="utf8", status=status_code
         )
 
 
@@ -513,10 +522,26 @@ class CSVProjectTangram(CSVCachedAuthorizedView):
             project=ownProject,
             answer_type="DEGREE",
         )
-        df_all = _get_df_responses_all(answer_type="DEGREE")
 
         if df_self is None:
-            raise Exception("No data for project")
+            raise Exception("No evaluation data for this project")
+
+        if len(df_self.principle.unique()) != 5:
+            raise Exception(
+                "Not enough responses for this project (not all principles have responses)"
+            )
+
+        # Calculations for own project
+        df_self = df_self.groupby(
+            ["principle", "dimension", "phase", "role", "name"]
+        ).mean()
+        df_self = df_self.groupby(["principle", "dimension", "phase", "name"]).mean()
+        df_self = df_self.groupby(["principle", "dimension"]).mean()
+        df_self = df_self.groupby(["principle"]).mean()
+        df_self.columns = ["value"]
+
+        # Calcualte for all Projects
+        df_all = _get_df_responses_all(answer_type="DEGREE")
 
         df_all = df_all.groupby(
             ["project", "principle", "dimension", "phase", "role", "name"]
@@ -533,15 +558,6 @@ class CSVProjectTangram(CSVCachedAuthorizedView):
         )
         df_all.columns = QUANT_TITLES
 
-        # Calculate where
-        df_self = df_self.groupby(
-            ["principle", "dimension", "phase", "role", "name"]
-        ).mean()
-        df_self = df_self.groupby(["principle", "dimension", "phase", "name"]).mean()
-        df_self = df_self.groupby(["principle", "dimension"]).mean()
-        df_self = df_self.groupby(["principle"]).mean()
-        df_self.columns = ["value"]
-
         df_all["Quartile"] = 1
         df_all["Quartile"] = df_all["Quartile"] + (df_self.value > df_all.Q1) * 1
         df_all["Quartile"] = df_all["Quartile"] + (df_self.value > df_all.Q2) * 1
@@ -555,6 +571,8 @@ class CSVProjectTangram(CSVCachedAuthorizedView):
             "participation",
             "transform",
         ]
+
+        print(df_all)
 
         return df_all.to_csv(index=False)
 
@@ -970,63 +988,3 @@ class CSVAdminAllStructures(CSVCachedAuthorizedView):
 
         all_structures = Structure.objects.all()
         return _structures_to_csv_lines(all_structures)
-
-
-# =========================================
-#  FUNCTION BASED VIEWS
-# =========================================
-
-
-def csv_tangram(request, project):
-    """
-    Public evaluation results
-    ```
-    citizen,    integrity,  knowledge,  participation,  transform
-    2,          4,          2,          2,              4
-    ```
-    """
-    ownProject = Project.objects.get(pk=project)
-    _authenticate_request(request, project=None)
-
-    df_all = _get_df_responses_all(answer_type="DEGREE")
-    df_self = _get_dataframe_cache(
-        "/v1/csv/_responses/%d/DEGREE" % ownProject.id,
-        _get_df_responses_project,
-        project=ownProject,
-        answer_type="DEGREE",
-    )
-
-    if df_self is None:
-        return HttpResponseNotFound("Project not yet evaluated")
-
-    df_all = df_all.groupby(
-        ["project", "principle", "dimension", "phase", "role", "name"]
-    ).mean()
-    df_all = df_all.groupby(
-        ["project", "principle", "dimension", "phase", "name"]
-    ).mean()
-    df_all = df_all.groupby(["project", "principle", "dimension"]).mean()
-    df_all = df_all.groupby(["project", "principle"]).mean()
-    df_all = df_all.groupby(["principle"]).quantile(QUANT)
-    df_all = df_all.reset_index()
-    df_all = df_all.pivot_table(columns="level_1", values="response", index="principle")
-    df_all.columns = QUANT_TITLES
-
-    # Calculate where
-    df_self = df_self.groupby(
-        ["principle", "dimension", "phase", "role", "name"]
-    ).mean()
-    df_self = df_self.groupby(["principle", "dimension", "phase", "name"]).mean()
-    df_self = df_self.groupby(["principle", "dimension"]).mean()
-    df_self = df_self.groupby(["principle"]).mean()
-    df_self.columns = ["value"]
-
-    df_all["Quartile"] = 1
-    df_all["Quartile"] = df_all["Quartile"] + (df_self.value > df_all.Q1) * 1
-    df_all["Quartile"] = df_all["Quartile"] + (df_self.value > df_all.Q2) * 1
-    df_all["Quartile"] = df_all["Quartile"] + (df_self.value > df_all.Q3) * 1
-
-    df_all = df_all.pivot_table(values="Quartile", columns="principle")
-    df_all.columns = ["citizen", "integrity", "knowledge", "participation", "transform"]
-
-    return shortcuts.HttpResponse(df_all.to_csv(index=False), content_type="text/plain")

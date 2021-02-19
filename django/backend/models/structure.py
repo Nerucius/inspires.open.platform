@@ -59,6 +59,12 @@ class Structure(TrackableModel):
     def __str__(self):
         return self.name
 
+    @property
+    def is_valid(self) -> bool:
+        if hasattr(self, "validation"):
+            return self.validation.is_approved
+        return False
+
 
 class StructureValidation(TrackableModel):
     is_approved = models.BooleanField(default=True)

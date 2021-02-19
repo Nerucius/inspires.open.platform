@@ -90,10 +90,13 @@
       "mainTitle": "Administration Dashboard",
       "unauthorizedAccess": "You are not authorized to access the Administration Dashboard. If you believe you should, please contact a platform administrator.",
       "pendingApproval": "Structures pending approval",
+      "approvedStructures": "Structures approved",
       "instructionsText": "The following structures need to be validated before they will show up on the site's public lists. Please verify each one for validity of data and authenticity.\n\nVerify also that the person that claims to own the structure is who they claim, and they are allowed to put the information on the site.",
       "createdBy": "Created by {name}",
       "validationSuccess": "Structure validated successfully. It will now show up on public lists.",
-      "validationFailure": "Failed to validate the structure. Please contact support."
+      "validationFailure": "Failed to validate the structure. Please contact support.",
+      "retirementSuccess": "Structure retired from the platform correctly.",
+      "retirementFailure": "Failed to retire the structure. Please contact support."
     },
 
     "legal": {

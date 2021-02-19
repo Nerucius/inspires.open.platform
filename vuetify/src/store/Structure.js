@@ -112,9 +112,16 @@ export default {
     },
 
     validate: async function(context, id){
-      let result = ( await StructureValidationResource.save({structure:id}) )
+      let result = await StructureValidationResource.save({structure:id})
+      return result
+    },
+
+    retire: async function(context, id){
+      let validation = ( await StructureValidationResource.get({structure:id}) ).body.results[0]
+      let result = await StructureValidationResource.delete({id:validation.id})
       return result
     }
+
   },
 
   getters: {

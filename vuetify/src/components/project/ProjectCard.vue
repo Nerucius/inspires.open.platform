@@ -229,14 +229,17 @@ export default {
   },
 
   watch:{
-    async showEvaluation(){
-      // If the evaluation is requested, query for participations stats
-      var evalStats = (await ProjectEvaluationStatsResource.get({id: this.project.id})).body
-
-      this.evalStats = {
-        statN : evalStats.statN,
-        statPhases: evalStats.statPhases.split(';').map(parseFloat)
+    showEvaluation(){
+      // Load evaluation results if not already loaded
+      if(this.showEvaluation && this.evalStats == null){
+        this.loadEvaluation();
       }
+    }
+  },
+
+  mounted() {
+    if(this.showEvaluation){
+      this.loadEvaluation();
     }
   },
 
@@ -251,6 +254,16 @@ export default {
       let area = obj2slug(kaWithName)
       return {name:"project-list-byarea", params:{area}}
     },
+
+    async loadEvaluation(){
+      // If the evaluation is requested, query for participations stats
+      var evalStats = (await ProjectEvaluationStatsResource.get({id: this.project.id})).body
+
+      this.evalStats = {
+        statN : evalStats.statN,
+        statPhases: evalStats.statPhases.split(';').map(parseFloat)
+      }
+    }
 
   }
 };

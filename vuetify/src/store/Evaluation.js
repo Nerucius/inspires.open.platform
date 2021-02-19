@@ -115,9 +115,7 @@ export default {
 
       }else{
         // No ids provided, just get list of all
-        // let params = payload.params || {}
-        // let query = {ordering: "-modified_at", ...params}
-        let query = {}
+        let query = payload.params || {}
 
         let response = (await Resource.get(query)).body
         let items = response.results

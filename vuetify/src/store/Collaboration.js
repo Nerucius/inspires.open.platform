@@ -21,7 +21,7 @@ export default {
     load: async function (context, ids) {
       if (!ids){
         // No ids provided, just get list of all
-        let items = (await CollaborationResource.get({ordering: "-modified_at"})).body.results
+        let items = (await CollaborationResource.get()).body.results
         context.commit("SET", items)
       }else{
         // Ids provided, get detailed information on given pids

@@ -80,21 +80,22 @@ export default {
         let response = (await Resource.get(query)).body
         let items = response.results
 
-        // NOTE: Disabled generally, use limit:999
-        // Iteratively get all pages
-        // let next = response.next
-        // while(next){
-        //   response = (await Vue.http.get(next)).body
-        //   items = [...items, ...response.results]
-        //   next = response.next
-        // }
+        // Only get next pages if no parameters were set
+        if(params.limit === undefined && params.offset === undefined){
+          let next = response.next
+          while(next){
+            response = (await Vue.http.get(next)).body
+            items = [...items, ...response.results]
+            next = response.next
+          }
+        }
 
         context.commit("ADD", items)
       }
     },
 
-    search: async function (context, params) {
-      let query = {ordering: "-modified_at", ...params}
+    search: async function (context, params={}) {
+      let query = {...params}
 
       let response = (await Resource.get(query)).body
       let items = response.results

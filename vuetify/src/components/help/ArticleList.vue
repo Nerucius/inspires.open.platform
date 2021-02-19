@@ -36,7 +36,7 @@
             </div>
             <v-list-tile-title>
               <strong>
-                <router-link  :to="group.article.link">
+                <router-link :to="group.article.link">
                   {{ group.article.title }}
                 </router-link>
               </strong>
@@ -58,12 +58,10 @@
                 </router-link>
               </v-flex>
             </v-layout>
-
           </v-list-tile-action>
         </v-list-tile>
 
-        <v-divider class="mb-4" v-if="group.spaceAfter" :key="group.master_id + '-spacer'" />
-
+        <v-divider v-if="group.spaceAfter" :key="group.master_id + '-spacer'" class="mb-4" />
       </template>
       <v-divider />
     </v-list>

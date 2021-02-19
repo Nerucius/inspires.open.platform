@@ -76,7 +76,7 @@
       </v-btn>
 
       <!-- This article in other languages -->
-      <v-menu offset-y v-if="articlesSameMaster.length > 0">
+      <v-menu v-if="articlesSameMaster.length > 0" offset-y>
         <v-btn slot="activator" flat>
           {{ article.locale }}
           <v-icon right>
@@ -98,7 +98,7 @@
       </v-menu>
     </v-toolbar>
 
-    <v-layout ma-0 v-if="isPdf">
+    <v-layout v-if="isPdf" ma-0>
       <v-flex xs6 pa-1>
         <v-btn block flat outline :disabled="!viewAsPDF" @click="viewAsPDF = false">View as Text</v-btn>
       </v-flex>
@@ -108,7 +108,7 @@
     </v-layout>
     
     <!-- Article Content as TEXT -->
-    <v-card-text class="markdown" v-if="!viewAsPDF">
+    <v-card-text v-if="!viewAsPDF" class="markdown">
       <vue-markdown>{{ article.body }}</vue-markdown>
       <v-layout mt-3 justify-end>
         <v-flex shrink class="grey--text">
@@ -125,7 +125,7 @@
 
     <!-- Article Content as PDF -->
     <v-sheet v-else>
-      <iframe :src="pdfURL + '#toolbar=0'" width="100%" height="800px"></iframe>
+      <iframe :src="pdfURL + '#toolbar=0'" width="100%" height="800px" />
     </v-sheet>
 
     <!-- Attachments -->
@@ -136,10 +136,10 @@
         <AttachmentList :attachments="article.attachments" />
         <!-- Upload form for admins -->
         <template v-if="currentUser.is_administrator">
-          <br />
-          <br />
+          <br>
+          <br>
           <h3 mb-2>Upload Attachment</h3>
-          <AttachmentUpload model='content' :objectId='article.id' @upload="reloadArticle"/>
+          <AttachmentUpload model="content" :object-id="article.id" @upload="reloadArticle" />
         </template>
       </v-sheet>
     </v-card-text>
@@ -152,24 +152,18 @@ import AttachmentUpload from "@/components/input/AttachmentUpload";
 import AttachmentList from "@/components/attachment/AttachmentList";
 
 export default {
-  props : ["article", "articlesSameMaster"],
 
   components:{
     AttachmentUpload,
     AttachmentList
   },
+  props : ["article", "articlesSameMaster"],
 
   data(){
     return {
       moment,
       getFlagIso,
       viewAsPDF: false
-    }
-  },
-
-  created() {    
-    if(this.isPdf && !this.isSmallScreen){
-      this.viewAsPDF = true;
     }
   },
 
@@ -187,6 +181,12 @@ export default {
     },
     isSmallScreen(){
       return document.body.clientWidth < 950;
+    }
+  },
+
+  created() {    
+    if(this.isPdf && !this.isSmallScreen){
+      this.viewAsPDF = true;
     }
   },
 

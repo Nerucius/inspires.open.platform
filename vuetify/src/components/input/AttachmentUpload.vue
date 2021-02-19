@@ -20,37 +20,38 @@ input[type="file"] {
 
 
 <template>
-    <v-form ref="form" v-model="valid" @submit.prevent="uploadAttachment">
-      <v-layout wrap>
-        <v-flex xs12>
-          <v-text-field
-            single-line hide-details
-            v-model="attachment.name"
-            :rules="[rules.required]"
-            :label="$t('forms.fields.attachmentName')"
-          />
-        </v-flex>
-        <v-flex xs12 sm6>
-
-          <label
-            class="v-btn v-btn--block custom-file-upload"
-            for="file"
-          >
-            <div class="v-btn__content">
-              <v-icon left>cloud_upload</v-icon>
-              <span v-if="!file">{{
+  <v-form ref="form" v-model="valid" @submit.prevent="uploadAttachment">
+    <v-layout wrap>
+      <v-flex xs12>
+        <v-text-field
+          v-model="attachment.name" single-line
+          hide-details
+          :rules="[rules.required]"
+          :label="$t('forms.fields.attachmentName')"
+        />
+      </v-flex>
+      <v-flex xs12 sm6>
+        <label
+          class="v-btn v-btn--block custom-file-upload"
+          for="file"
+        >
+          <div class="v-btn__content">
+            <v-icon left>cloud_upload</v-icon>
+            <span v-if="!file">
+              {{
                 $t("components.ImageUpload.selectFile")
-              }}</span>
-              <span v-else>{{ file.name }}</span>
-            </div>
-          </label>
-          <input id="file" ref="file" type="file" @change="onFileChange" />
-        </v-flex>
-        <v-flex xs12 sm6>
-          <v-btn type="submit" :disabled="!valid || !file" block color="success">Upload</v-btn>
-        </v-flex>
-      </v-layout>
-    </v-form>
+              }}
+            </span>
+            <span v-else>{{ file.name }}</span>
+          </div>
+        </label>
+        <input id="file" ref="file" type="file" @change="onFileChange">
+      </v-flex>
+      <v-flex xs12 sm6>
+        <v-btn type="submit" :disabled="!valid || !file" block color="success">Upload</v-btn>
+      </v-flex>
+    </v-layout>
+  </v-form>
 </template>
 
 

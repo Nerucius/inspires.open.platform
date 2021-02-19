@@ -7,9 +7,9 @@
         </v-list-tile-avatar>
         <v-list-tile-content>
           {{ att.name }}
-          <small class="grey--text"
-            >{{ att.mime_type }}, {{ sizeToStr(att.size) }}</small
-          >
+          <small class="grey--text">
+            {{ att.mime_type }}, {{ sizeToStr(att.size) }}
+          </small>
         </v-list-tile-content>
         <v-list-tile-action style="flex-direction: unset">
           <v-btn
@@ -18,8 +18,9 @@
             :href="att.url"
             :download="att.name"
             target="_blank"
-            ><v-icon color="primary">download</v-icon></v-btn
           >
+            <v-icon color="primary">download</v-icon>
+          </v-btn>
           <template v-if="currentUser.is_administrator">
             <v-btn
               icon
@@ -27,11 +28,12 @@
               class="ml-1"
               :href="editAttachmentLink(att)"
               target="_blank"
-              ><v-icon color="orange">edit</v-icon></v-btn
             >
-            <v-btn icon ripple class="ml-1" @click="deleteAttachment(att)"
-              ><v-icon color="red">delete</v-icon></v-btn
-            >
+              <v-icon color="orange">edit</v-icon>
+            </v-btn>
+            <v-btn icon ripple class="ml-1" @click="deleteAttachment(att)">
+              <v-icon color="red">delete</v-icon>
+            </v-btn>
           </template>
         </v-list-tile-action>
       </v-list-tile>

@@ -139,7 +139,7 @@ export default {
         links.push(...this.$data.menuLinks)
 
         if(this.currentUser.is_administrator){
-          links.push({miniOnly: false, name:"help", label: "navigation.links.help"})
+          links.push({miniOnly: false, name:"help", label: "navigation.links.learn"})
         }
 
 

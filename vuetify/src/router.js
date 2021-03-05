@@ -123,7 +123,7 @@ const router = new Router({
         },
         // ======= Evaluation =======
         {
-            path: "/help-center/:page?",
+            path: "/learn/:page?",
             name: "help",
             component: () => import( /* webpackChunkName: "help" */ "./views/help/HelpCenter.vue"),
         },

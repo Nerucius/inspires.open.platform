@@ -1,17 +1,17 @@
 <style>
-.markdown {
-  line-height: 250%;
-}
+  .markdown {
+    line-height: 250%;
+  }
 
-.markdown h1 {
-  font-size: 1.5em;
-}
-.markdown h2 {
-  font-size: 1.3em;
-}
-.markdown h3 {
-  font-size: 1.1em;
-}
+  .markdown h1 {
+    font-size: 1.5em;
+  }
+  .markdown h2 {
+    font-size: 1.3em;
+  }
+  .markdown h3 {
+    font-size: 1.1em;
+  }
 </style>
 
 <template>
@@ -169,6 +169,22 @@ export default {
     this.$nextTick(() => {
       if (!!this.$route.query.q){
         this.searchTerm = this.$route.query.q
+      }
+
+      if(!!this.$route.query.master){
+        let master = this.$route.query.master
+        let locale = this.$i18n.locale
+
+        // Try to match article by master and locale
+        let masterArticle = this.articles.filter(a => a.master == master && a.locale == locale)
+        if(masterArticle.length == 0)
+          masterArticle = this.articles.filter(a => a.master == master && a.locale == 'en')
+        
+        // If we found one, redirect
+        if(masterArticle.length != 0){
+          let goToArticle = masterArticle[0]
+          this.$router.push(goToArticle.link)
+        }
       }
     })
   },

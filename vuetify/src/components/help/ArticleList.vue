@@ -1,17 +1,24 @@
 <style scoped>
-    .flag-icon{
-        width: 24px; height:22px; display:inline-block
-    }
-    .topic-tag{
-      position: absolute;
-      font-size: 70%;
-      font-weight: 700;
-      top: 2px;
-      right: 4px
-    }
-    .v-list a{
+  .flag-icon{
+    width: 24px; height:22px; display:inline-block
+  }
+  .topic-tag{
+    position: absolute;
+    font-size: 70%;
+    font-weight: 700;
+    top: 2px;
+    right: 4px
+  }
+  .v-list a{
     text-decoration: none;
     color:inherit;
+  }
+</style>
+
+<style>
+  .v-list--two-line .v-list__tile{
+    height: auto !important;
+    min-height: 72px;
   }
 </style>
 
@@ -91,7 +98,8 @@ export default {
         let masters = this.articles.map(a => a.master).filter(unique).sort();
 
         let grouped = masters.map(m => {
-          let masterArticles = this.articles.filter(a => a.master == m)
+          // Articles from the same master, sorted by locale
+          let masterArticles = this.articles.filter(a => a.master == m).sort((a,b) => a.locale.localeCompare(b.locale))
 
           let userArticle
           // Decide the article we show to the user, if we can match the user's language, shwo that one, otherwise, find the english one.

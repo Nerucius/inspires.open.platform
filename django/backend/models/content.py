@@ -25,6 +25,7 @@ LANGUAGES = [
     ("hu", "Hungarian"),
     ("it", "Italian"),
     ("nl", "Dutch"),
+    ("pt", "Portuguese"),
 ]
 
 

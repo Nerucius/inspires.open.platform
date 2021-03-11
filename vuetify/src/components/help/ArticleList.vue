@@ -55,7 +55,7 @@
 
           <v-list-tile-action v-if="flags" class="hidden-sm-and-down">
             <!-- Flag links for all available translated languages -->
-            <v-layout row wrap style="max-width:Calc(32px*4)">
+            <v-layout row wrap style="max-width:Calc(32px*4); margin: 0px -12px">
               <v-flex v-for="other in group.others.sort()" :key="other.id" shrink pa-1 class="text-xs-center">
                 <router-link :to="other.link">
                   <flag

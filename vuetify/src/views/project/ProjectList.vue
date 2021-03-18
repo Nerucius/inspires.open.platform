@@ -34,7 +34,7 @@
 
     <!-- Search box -->
     <v-flex xs12>
-      <v-card flat>
+      <v-card>
         <v-card-text>
           <h3>{{ $t('actions.search') }}</h3>
           <v-layout wrap>
@@ -88,32 +88,36 @@
       </v-card>
     </v-flex>
 
-    <v-flex xs12 class="hidden-xs-only">
-      <v-layout row wrap align-content-start>
-        <v-flex v-for="project in projects" :key="project.id" xs12 sm6 md4 lg3 xl2 mb-3>
-          <ProjectCard :show-evaluation="showEvaluations" :project="project" />
-        </v-flex>
-      </v-layout>
+    <v-flex xs12 class="hidden-sm-and-down">
+      <ProjectGrid :showEvaluations="showEvaluations" :projects="projects" />
     </v-flex>
 
-    <v-flex xs12 class="hidden-sm-and-up">
-      <ProjectList :projects="projects" />
+    <v-flex xs12 class="hidden-md-and-up">
+      <v-card>
+        <ModelList :objects="projects" showLastModified="true" />
+      </v-card>
     </v-flex>
 
-    <v-flex v-if="canLoadMore || loadMoreDisabled" xs12 mt-3>
+    <!-- Load more buttons -->
+    <v-flex  xs12 mt-3>
       <v-layout justify-center>
         <v-flex shrink>
-          <v-btn :loading="loadMoreDisabled" :disabled="loadMoreDisabled" color="primary" @click="loadMoreProjects">
-            {{ $t('pages.projectList.showMore') }}
+
+          <v-btn
+            key="enabled"
+            v-if="canLoadMore || loadMoreDisabled"
+            :loading="loadMoreDisabled"
+            :disabled="loadMoreDisabled"
+            color="primary"
+            @click="loadMoreProjects">
+              {{ $t('pages.projectList.showMore') }}
           </v-btn>
-        </v-flex>
-      </v-layout>
-    </v-flex>
 
-    <v-flex v-else xs12 mt-3>
-      <v-layout justify-center>
-        <v-flex shrink>
-          <v-btn disabled>{{ $t('pages.projectList.noMoreProjects') }}</v-btn>
+          <v-btn
+            key="disabled"
+            v-else disabled>{{ $t('pages.projectList.noMoreProjects') }}
+          </v-btn>
+
         </v-flex>
       </v-layout>
     </v-flex>
@@ -123,8 +127,9 @@
 
 
 <script>
-import ProjectCard from "@/components/project/ProjectCard";
-import ProjectList from "@/components/project/ProjectList";
+import ProjectGrid from "@/components/project/ProjectGrid";
+import ModelList from "@/components/generic/ModelList";
+
 import { slug2id } from "@/plugins/utils";
 import { debounce } from "lodash";
 import { Countries } from "@/plugins/i18n";
@@ -139,8 +144,8 @@ export default {
   },
 
   components: {
-    ProjectCard,
-    ProjectList
+    ProjectGrid,
+    ModelList
   },
 
   data() {

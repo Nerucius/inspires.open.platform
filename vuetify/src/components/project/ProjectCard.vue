@@ -216,10 +216,10 @@ import { ProjectEvaluationStatsResource } from "@/plugins/resource";
 import ProjectTangram from "@/components/evaluation/ProjectTangram";
 
 export default {
-
   components:{
     ProjectTangram
   },
+  
   props: ['project', 'showEvaluation'],
 
   data(){

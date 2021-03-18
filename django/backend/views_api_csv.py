@@ -263,13 +263,81 @@ def _projects_to_csv_lines(projects):
     return CSV_LINE_SEPARATOR.join([headers] + lines)
 
 
+def _responses_to_csv_lines(project):
+    lines = []
+
+    responses = Response.objects.filter(evaluation__phase__project=project)
+
+    for response in responses:
+
+        if response.question.answer_type == "TEXT":
+            response_value = response.answer_text
+        if response.question.answer_type == "DEGREE":
+            response_value = response.answer_degree
+        # Multiple responses
+        if response.question.answer_type == "MULTIPLE":
+            response_value = ";".join(
+                [answer.name for answer in response.answer_multiple.all()]
+            )
+
+        line = [
+            response.evaluation.id,
+            response.evaluation.participation.user.full_name,
+            response.question.phase,
+            response.question.role,
+            response.question.axis,
+            response.question.principle,
+            response.question.dimension,
+            response.question.answer_type,
+            response.question.id,
+            response_value,
+        ]
+        line = map(str, line)
+        lines += [CSV_COLUMN_SEPARATOR.join(line)]
+
+    # CSV Headers
+    headers = CSV_COLUMN_SEPARATOR.join(
+        [
+            "evaluation_id",
+            "participant_name",
+            "phase",
+            "role",
+            "axis",
+            "principle",
+            "dimension",
+            "question_type",
+            "question_id",
+            "response",
+        ]
+    )
+
+    return CSV_LINE_SEPARATOR.join([headers] + lines)
+
+
 def download_headers_test(request):
-    """ Response headers that automatically download  """
+    """ Response headers that automatically downloads  """
     response = HttpResponse()
     response["Content-Type"] = "text/csv; charset=utf-8"
     response["Content-Disposition"] = 'attachment; filename="test_file.csv"'
 
     response.content = "col1,col2\ncol3,col4"
+
+    return response
+
+
+def export_project_evaluation(request, project):
+    """ Response headers that automatically downloads  """
+
+    project_obj = Project.objects.get(pk=project)
+    csv_lines = _responses_to_csv_lines(project_obj)
+
+    response = HttpResponse()
+    response["Content-Type"] = "text/csv; charset=utf-8"
+    response[
+        "Content-Disposition"
+    ] = f'attachment; filename="evaluation_export_{project_obj.name}.csv"'
+
+    response.content = csv_lines
 
     return response
 
@@ -941,6 +1009,19 @@ class CSVProjectSummaryExport(CSVCachedAuthorizedView):
             ]
         )
         return CSV_LINE_SEPARATOR.join([headers] + export)
+
+
+class CSVProjectEvaluationResponse(CSVCachedAuthorizedView):
+    #    cache_key = None
+
+    def _get_content(self, request, *args, **kwargs):
+        project_pk = kwargs["project"]
+        project = Project.objects.get(pk=project_pk)
+
+        if not project.can_write(request.user):
+            raise Exception("403 no access to project")
+
+        return _responses_to_csv_lines(project)
 
 
 class CSVAllOwnProjectsExport(CSVCachedAuthorizedView):

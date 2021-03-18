@@ -25,6 +25,51 @@
   }
 </style>
 
+<style scoped>
+  /* .v-image{ cursor: pointer; } */
+  .circle{
+    width: 24px;
+    height: 24px;
+    border: 1px solid darkslategray;
+    border-radius: 100%;
+    overflow:hidden;
+  }
+
+  .circle .circle__padding{
+    width: 22px;
+    height: 22px;
+    border: 2px solid white;
+    border-radius: 100%;
+    overflow:hidden;
+
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .circle .circle__fill{
+    width: 20px;
+    height: 20px;
+  }
+
+  .circle .circle__fill.p0{
+    background-color: teal;
+  }
+
+  .circle .circle__fill.p1{
+    background-color: teal;
+  }
+
+  .circle .circle__fill.p2{
+    background-color: teal;
+  }
+
+  .circle .circle__fill.p3{
+    background-color: teal;
+  }
+</style>
+
+
+
 <style>
   .v-list__tile__title p{
     margin-bottom: 0px;
@@ -40,6 +85,8 @@
 
 <template>
   <v-layout v-if="project" row wrap align-content-start>
+
+    <!-- Manage / Export buttons -->
     <v-flex v-if="canManage" pa-0 xs12 class="text-xs-right">
       <v-btn flat outline color="warning" :to="manageLink">
         <v-icon left>
@@ -274,20 +321,45 @@
                 </p>
               </template>
 
-
-              <div class="pa-3 text-xs-center">
-                <h3 class="display-1">
-                  {{ project.name }}
-                </h3>
-
-                <v-sheet height="600">
+              <!-- Public Evaluation Results -->
+              <v-layout wrap>
+                <v-flex xs12 lg6 py-5>
+                  <h3 class="text-xs-center">{{ project.name }}</h3>
                   <ProjectTangram :project="project">
                     <div class="subheading py-4">
                       {{ $t('pages.projectDetail.projectNotYetEvaluated') }}
                     </div>
                   </ProjectTangram>
-                </v-sheet>
-              </div>
+
+                  <!-- TODO: move this to own component -->
+                  <div style="display:flex; justify-content:space-around">
+                    <div style="flex: 0 0 auto; display:flex">
+                      <!-- Filled bullets -->
+                      <div v-for="(p,idx) in evalStats.statPhases" :key="idx" style="flex: 0 0 auto; margin: 0 8px">
+                        <div class="circle" :title="$t(`models.projectPhase.phase${idx+1}Tag`)">
+                          <div class="circle__padding">
+                            <div :class="{circle__fill:true, ['p'+idx]:true}" :style="{height: p*14+'px'}" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div :title="$t('components.ProjectCard.numberOfParticipants')" style="flex: 0 0 auto; line-height:22px; font-size: 20px;">
+                      N:<b>{{ evalStats.statN }}</b>
+                    </div>
+                  </div>
+
+                </v-flex>
+                <v-flex xs12 lg6>
+                  <h3 class="mb-2">Reading the Hummingbird</h3>
+                  <vue-markdown>{{ $t('pages.evaluationDetail.help.publicEval') }}</vue-markdown>
+                </v-flex>
+
+                <v-flex xs12>
+                  <h3 class="mb-2">Phase Participation points</h3>
+                  <vue-markdown>{{ $t('pages.evaluationDetail.help.phaseParticipation') }}</vue-markdown>
+                </v-flex>
+              </v-layout>
+
             </v-card-text>
           </v-card>
         </v-tab-item>
@@ -321,6 +393,7 @@ import { slug2id, obj2slug, onlyUnique } from "@/plugins/utils";
 import ProjectCardHorizontal from "@/components/project/ProjectCardHorizontal";
 import ProjectTangram from "@/components/evaluation/ProjectTangram";
 import { API_SERVER } from "@/plugins/resource";
+import { ProjectEvaluationStatsResource } from "@/plugins/resource";
 
 
 export default {
@@ -342,6 +415,7 @@ export default {
       iso3toiso2,
       project: null,
       structure: null,
+      evalStats : [],
       page:{
         tab: null,
         items:[
@@ -413,6 +487,8 @@ export default {
         error
       })
     }
+
+    this.loadEvaluation();
   },
 
   methods: {
@@ -435,6 +511,16 @@ export default {
     countryTranslation(iso3){
       let locale = this.$i18n.locale
       return translateCountryName(iso3, locale);
+    },
+
+    async loadEvaluation(){
+      // If the evaluation is requested, query for participations stats
+      var evalStats = (await ProjectEvaluationStatsResource.get({id: this.project.id})).body
+
+      this.evalStats = {
+        statN : evalStats.statN,
+        statPhases: evalStats.statPhases.split(';').map(parseFloat)
+      }
     },
 
     async exportCSV(){

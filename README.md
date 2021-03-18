@@ -1,5 +1,114 @@
 # InSPIRES Platform Web Application
 
+## 2021-03-05 Meeting with Durwin / Eduardo
+
+- Durwin: 
+	Joined less than a years ago. Supporting the work package and developing the learing materials for science shops.
+- Eduardo:
+	Part of Inspires / Systems professor now in charge of developing learning materials
+	
+Host educational materials in the inspires platform (E-learning modules).
+5 Modules and some videos showing the competences.
+
+Landing page with some Intro text and the modules list
+
+Per module page:
+	- Introduction
+	- Learning Goals
+
+
+## 2021-02-22 Inspires Help Center - Irene
+
+- [ ] Self reflection questionnaire 1 & 2: Tabla enmarcada con colores.
+
+
+## 2021-02-05 Meeting
+
+- [X] Export entire evaluation from evaluation view page
+	- [ ] Review process
+
+- [ ] Project Public page:
+	- [X] Add "poetic" evaluation help to the public evaluation view
+
+- Project Manage
+	- [ ] Make more fields mandatory
+		- Fecha de creacion
+		- Tipo de estructura / proyectos
+		- Areas de conocimiento
+	- [ ] NEW FIELD: Year Started / Year Ended
+
+- Projects:
+	- [ ] Projects with more than 1 country
+		- Homepage map shows project on all countries
+	- ??? More than one structure (Partners)
+	
+- [ ] Project Management -> phases
+	- Add eval Q1
+	- Add eval Q2
+
+- [ ] Attachments en proyectos y estructuras validadas
+	- 10 attachments de maximo 5MB
+
+- [X] Evaluation Graph -> Involvement
+	- Change x-label to Real | Effective
+
+- [X] Colibri
+	- [ ] N and stats dont show on Edge / Safari
+
+- [ ] Account:
+	- Upload Image Avatars
+
+- Help center:
+	- [X] Arab slugs dont work
+	- [X] Language icons should be a link to that article in the language
+	- [X] Sort flag icons Help Center
+	- [X] Meeting with Dutch people to integrate eLearning module
+	
+	- Notas de Irene:
+		- En la  "Guide 1" los cuerpos de texto no quedan alineados. 
+		- En la "Guide 2", el fondo ha quedado en gris (no queda mal, ni es grave, pero no sé por qué esta guía ha quedado gris y en otras blancas). Además, las imágenes quedan muy desordenadas porque no están alineadas. 
+		- La "Guide 3", no está del todo mal. El icono del "plus" verde queda muy raro, pero quizás se puede quitar. Los textos e imágenes no están alineados
+		- La "Guide 4", no queda del todo mal pero el texto no está alineado. 
+		- En la "Guide 5", textos no alineados
+		- En la "Guide 6", textos no alineados
+		- En los "Self-reflection questionnaires", como comentamos, vendría bien añadir un sombreado alternado en las filas. Y mejorar el formato de la tabla para lograr mejor visibilidad del Self-reflection questionnaire 2.
+		
+- Home
+	- [X] Latest updates -> Latest project updates
+	
+- Structures
+	- [X] Add filter for KA, Country, Structure Type
+	
+- Project list
+	- [X] Make "Show evaluations" visible for general public??
+
+- Crear un nuevo email para cuando se valida una estructura
+	- [X] Enviar a los managers
+
+- Administracion:
+	- [X] Desvalidar estructuras
+	
+
+## 2021-01-22 Meeting
+
+- Ayuda para leer los graficos:
+	- Textos casi listos. Irene a enviarme el documento cuando este listos
+
+- Problema con los Emails:
+	- Joan Vericat
+	- Alberto Torres<alberto.torres@isglobal.org>
+	- Irene / Valeria / Sophie
+
+- Safari inconsistent evaluation results
+	- https://app.inspiresproject.com/projects/21
+	- In "All projects" page, safari loads all projects as "max score"
+	
+- SEO / Google Analitycs:
+	- Enviar export de datos a Irene
+	- Matomo goal attainment
+
+## README
+
 This repository contains the source files and build and deployment instructions for the InSPIRES Open Platform project, under the bigger european InSPIRES Project [(Ingenious Science shops to promote Participatory Innovation, Research and Equity in Science)](https://cordis.europa.eu/project/rcn/210055/factsheet/en).
 
 ## Architecture Overview

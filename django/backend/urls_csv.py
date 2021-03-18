@@ -33,6 +33,10 @@ urlpatterns = [
         "export/<int:project>/project_summary.csv",
         views.CSVProjectSummaryExport.as_view(),
     ),
+    path(
+        "export/<int:project>/project_evaluation.csv",
+        views.export_project_evaluation,
+    ),
     # TODO: Just a test
     path("export/test.csv", views.download_headers_test),
     path("export/all_own_projects.csv", views.CSVAllOwnProjectsExport.as_view()),

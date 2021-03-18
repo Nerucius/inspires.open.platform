@@ -1,12 +1,12 @@
 <style scoped>
-th{
-  text-align: left;
-  padding-right: 8px;
-  padding-bottom: 4px;
-}
-.gray-hover:hover{
-  background-color: #F8F8F8
-}
+  th{
+    text-align: left;
+    padding-right: 8px;
+    padding-bottom: 4px;
+  }
+  .gray-hover:hover{
+    background-color: #F8F8F8
+  }
 </style>
 
 
@@ -29,8 +29,26 @@ th{
     <v-flex xs12>
       <v-card flat>
         <v-card-text v-if="!showEditForm">
-          <v-layout row wrap>
-            <v-flex xs12 sm6>
+          <v-layout row wrap justify-center>
+            <v-flex shrink px-5>
+              <v-img width="130" :src="user.avatar_url"></v-img>
+              <br />
+              <table width="100%">
+                <tr>
+                  <th>{{ $t('forms.fields.username') }}</th>
+                  <td>{{ user.username }}</td>
+                </tr>
+                <tr>
+                  <th>{{ $t('noums.projects') }}</th>
+                  <td>{{ projectIds.length }} {{ $t('noums.projects') | lowercase }}</td>
+                </tr>
+                <tr>
+                  <th>{{ $t('noums.structures') }}</th>
+                  <td>{{ structureIds.length }} {{ $t('noums.structures') | lowercase }}</td>
+                </tr>
+              </table>
+            </v-flex>
+            <v-flex grow>
               <table width="100%">
                 <tr>
                   <th>{{ $t('forms.fields.firstName') }}</th>
@@ -57,18 +75,6 @@ th{
                   <th>{{ $t('forms.fields.genderIdentity') }}</th>
                   <td v-if="user.gender">{{ $t(`models.userGender.${user.gender.toLowerCase()}`) }}</td>
                   <td v-else>{{ $t('misc.notSpecified') }}</td>
-                </tr>
-              </table>
-            </v-flex>
-            <v-flex xs12 sm6>
-              <table width="100%">
-                <tr>
-                  <th>{{ $t('noums.projects') }}</th>
-                  <td>{{ projectIds.length }} {{ $t('noums.projects') | lowercase }}</td>
-                </tr>
-                <tr>
-                  <th>{{ $t('noums.structures') }}</th>
-                  <td>{{ structureIds.length }} {{ $t('noums.structures') | lowercase }}</td>
                 </tr>
               </table>
             </v-flex>
@@ -231,7 +237,9 @@ th{
                 <v-icon>add</v-icon>
               </v-btn>
 
-              <template v-for="(project,idx) in projects">
+              <ModelList :objects="projects" showLastModified="true" />
+
+              <!-- <template v-for="(project,idx) in projects">
                 <v-card
                   :key="project.id"
                   class="gray-hover"
@@ -245,13 +253,14 @@ th{
                   </v-card-text>
                 </v-card>
                 <v-divider :key="idx+'-div'" class="mb-3" />
-              </template>
+              </template> -->
+
             </v-card-text>
           </v-card>
         </v-flex>
 
         <!-- Own structures -->
-        <v-flex xs12 sm6>
+        <v-flex xs12 sm6 v-if="structures">
           <h2 class="mb-3">
             {{ $t('pages.account.myStructures') }}
           </h2>
@@ -276,7 +285,9 @@ th{
                 <v-icon>add</v-icon>
               </v-btn>
 
-              <template v-for="(structure,idx) in structures">
+              <ModelList :objects="structures" showLastModified="true" bigImages="true" />
+
+              <!-- <template v-for="(structure,idx) in structures">
                 <v-card
                   :key="structure.id"
                   class="gray-hover"
@@ -290,29 +301,28 @@ th{
                   </v-card-text>
                 </v-card>
                 <v-divider :key="idx+'-div'" class="mb-3" />
-              </template>
+              </template> -->
             </v-card-text>
           </v-card>
         </v-flex>
 
-        <!-- <v-flex xs12 sm6 md4>
-          <v-card flat>
-            <v-card-title>
-              <h3>Commissioners</h3>
-            </v-card-title>
-          </v-card>
-        </v-flex> -->
       </v-layout>
     </v-flex>
   </v-layout>
 </template>
 
 <script>
+import ModelList from "@/components/generic/ModelList";
+
 import { onlyUnique, slug2id, donwloadAsyncCSV } from "@/plugins/utils";
 import { API_SERVER } from "@/plugins/resource";
 import { cloneDeep } from "lodash";
 
 export default {
+
+  components: {
+    ModelList,
+  },
 
   metaInfo(){
     return {
@@ -351,12 +361,20 @@ export default {
 
     /** Projects the user has */
     projects(){
-      return this.projectIds.map(id => this.$store.getters['project/detail'](id))
+      let projects = this.projectIds.map(id => this.$store.getters['project/detail'](id))
+      projects = projects.filter(i => i.modified_at != null)
+      projects.sort((a,b) => b.modified_at.localeCompare(a.modified_at))
+
+      return projects
     },
 
     /** Structures the user participates in */
     structures(){
-      return this.structureIds.map(id => this.$store.getters['structure/detail'](id))
+      let structures = this.structureIds.map(id => this.$store.getters['structure/detail'](id))
+      structures = structures.filter(i => i.modified_at != null)
+      structures.sort((a,b) => b.modified_at.localeCompare(a.modified_at))
+
+      return structures
     },
 
     isOwnUser(){
@@ -398,8 +416,11 @@ export default {
     if(this.isOwnUser){
       this.$store.dispatch('user/loadCurrentEvaluations')
     }
-    this.$store.dispatch("project/load", this.projectIds)
-    this.$store.dispatch("structure/load", this.structureIds)
+
+    await Promise.all([
+      this.$store.dispatch("project/load", this.projectIds),
+      this.$store.dispatch("structure/load", this.structureIds)
+    ])
   },
 
   methods:{

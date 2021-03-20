@@ -28,6 +28,12 @@
       </v-flex>
     </template>
 
+    <v-flex xs12 class="text-xs-right" v-if="isUserProjectManager">
+      <v-btn flat outline color="black" :href="exportEvaluationURL">
+        <v-icon>mdi-database-export</v-icon>
+        {{ $t('actions.exportAllData') }}
+      </v-btn>
+    </v-flex>
 
     <v-flex xs12>
       <v-layout id="target-graph-area" row wrap>
@@ -411,6 +417,9 @@ export default {
       let isOwner = project.owner == userId
 
       return isManager || isPM || isOwner
+    },
+    exportEvaluationURL(){
+      return `${API_SERVER}/v1/csv/export/${this.projectId}/project_evaluation.csv`
     }
   },
 

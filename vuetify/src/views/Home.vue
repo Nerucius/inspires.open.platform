@@ -35,18 +35,19 @@
       </v-card>
     </v-flex>
 
+    <!-- Most Active structures -->
     <v-flex sm12 md4>
       <h1 class="mb-2">
         {{ $t('pages.home.mostActiveStructures') }}
       </h1>
       <v-card>
-        <v-sheet height="400" style="overflow-y:auto">
-          <!-- <Stru :projects="latestProjects" /> -->
-          <StructureList :structures="structures" />
+        <v-sheet style="max-height: 400px; overflow-y:auto">
+          <ModelList :objects="structures" />
         </v-sheet>
       </v-card>
     </v-flex>
 
+    <!-- Country filter cards -->
     <v-flex v-if="countryFilterProjects" xs12>
       <h1>
         {{ countryFilter }}
@@ -54,16 +55,25 @@
           <v-icon left>clear</v-icon> {{ $t('actions.clearFilter') }}
         </v-btn>
       </h1>
-      <ProjectGrid :hide-title="true" :projects="countryFilterProjects" />
+      <div class="hidden-sm-and-down">
+        <ProjectGrid :hide-title="true" :projects="countryFilterProjects" />
+      </div>
+      <div class="hidden-md-and-up">
+        <v-card>
+          <ModelList :objects="countryFilterProjects" />
+        </v-card>
+      </div>
     </v-flex>
 
     <v-flex v-else xs12>
-      <h1>{{ $t('pages.home.latestProjectsTitle') }}</h1>
+      <h1 class="mb-2">{{ $t('pages.home.latestProjectsTitle') }}</h1>
       <div class="hidden-sm-and-down">
         <ProjectGrid :hide-title="true" :projects="projects" />
       </div>
       <div class="hidden-md-and-up">
-        <ProjectList :hide-title="true" :projects="projects" />
+        <v-card>
+          <ModelList showLastModified="true" :objects="projects" />
+        </v-card>
       </div>
     </v-flex>
 
@@ -77,16 +87,14 @@
 
 <script>
 import ProjectGrid from "@/components/project/ProjectGrid";
-import ProjectList from "@/components/project/ProjectList";
-import StructureList from "@/components/structure/StructureList";
+import ModelList from "@/components/generic/ModelList";
 // import { GeoJSONCountries } from "@/plugins/i18n";
 import { GeoJSONCountriesDetail, Countries } from "@/plugins/i18n";
 
 export default {
   components: {
     ProjectGrid,
-    ProjectList,
-    StructureList,
+    ModelList,
   },
 
   data() {

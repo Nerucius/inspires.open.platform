@@ -76,7 +76,7 @@
     </v-flex>
 
     <v-flex xs12 class="hidden-sm-and-up">
-      <ProjectList :projects="structures" />
+      <ModelList :objects="structures" />
     </v-flex>
 
     <v-flex v-if="canLoadMore || loadMoreDisabled" xs12 mt-3>
@@ -103,7 +103,8 @@
 
 <script>
 import StructureCard from "@/components/structure/StructureCard";
-import ProjectList from "@/components/project/ProjectList";
+import ModelList from "@/components/generic/ModelList";
+
 import { debounce } from "lodash";
 import { Countries } from "@/plugins/i18n";
 
@@ -117,7 +118,7 @@ export default {
 
   components: {
     StructureCard,
-    ProjectList
+    ModelList
   },
 
   data() {

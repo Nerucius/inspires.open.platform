@@ -28,6 +28,14 @@ LANGUAGES = [
     ("pt", "Portuguese"),
 ]
 
+STYLES = [
+    ("", "No extra styles"),
+    ("grid", "Striped Tables with header"),
+    ("orange", "Orange theme"),
+    ("green", "Green theme"),
+    ("yellow", "Yellow theme"),
+]
+
 
 class ContentMaster(TrackableModel):
     type = models.CharField(max_length=64, choices=TYPE_CHOICES)
@@ -39,6 +47,9 @@ class ContentMaster(TrackableModel):
         max_length=512,
         unique=True,
         help_text="Internal use only. Create a name that identifies the content you will create.",
+    )
+    extra_style = models.CharField(
+        max_length=128, default="", blank=True, choices=STYLES
     )
 
     def __str__(self):

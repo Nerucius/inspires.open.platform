@@ -31,9 +31,9 @@ LANGUAGES = [
 STYLES = [
     ("", "No extra styles"),
     ("grid", "Striped Tables with header"),
-    ("orange", "Orange theme"),
-    ("green", "Green theme"),
-    ("yellow", "Yellow theme"),
+    ("orange-theme", "Orange theme"),
+    ("green-theme", "Green theme"),
+    ("yellow-theme", "Yellow theme"),
 ]
 
 

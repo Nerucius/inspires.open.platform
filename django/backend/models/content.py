@@ -87,6 +87,10 @@ class Content(TrackableModel):
     def sorting(self):
         return self.master.sorting
 
+    @property
+    def extra_style(self):
+        return self.master.extra_style
+
     def type(self):
         return self.master.type
 

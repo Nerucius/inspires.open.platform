@@ -224,12 +224,14 @@ class ContentMasterSerializer(TrackableModelSerializer):
 class SimpleContentSerializer(serializers.ModelSerializer):
     type = serializers.CharField(read_only=True)
     sorting = serializers.IntegerField(read_only=True)
+    extra_style = serializers.CharField(read_only=True)
 
     class Meta:
         model = models.Content
         fields = [
             "master",
             "sorting",
+            "extra_style",
             "type",
             "title",
             "topic",

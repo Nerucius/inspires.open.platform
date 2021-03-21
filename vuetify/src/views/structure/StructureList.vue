@@ -10,7 +10,7 @@
         <v-expansion-panel-content>
           <template v-slot:header>
             <div class="subheading">
-              Want to know more about structures?
+              {{ $t('pages.structureList.introTitle') }}
             </div>
           </template>
           <v-card class="px-3 py-2">
@@ -20,10 +20,9 @@
       </v-expansion-panel>
     </v-flex>
 
-
     <!-- Search box -->
     <v-flex xs12>
-      <v-card flat>
+      <v-card>
         <v-card-text>
           <h3>{{ $t('actions.search') }}</h3>
           <v-layout wrap>
@@ -67,7 +66,7 @@
       </v-card>
     </v-flex>
 
-    <v-flex xs12 class="hidden-xs-only">
+    <v-flex xs12 class="hidden-sm-and-down">
       <v-layout row wrap>
         <v-flex v-for="structure in structures" :key="structure.id" xs12 sm6 md4 lg3 xl2 mb-3>
           <StructureCard :structure="structure" />
@@ -75,24 +74,28 @@
       </v-layout>
     </v-flex>
 
-    <v-flex xs12 class="hidden-sm-and-up">
-      <ModelList :objects="structures" />
+    <v-flex xs12 class="hidden-md-and-up">
+      <v-card>
+        <ModelList :objects="structures" showLastModified="true" />
+      </v-card>
     </v-flex>
 
-    <v-flex v-if="canLoadMore || loadMoreDisabled" xs12 mt-3>
+    <!-- Load more buttons -->
+    <v-flex xs12 mt-3>
       <v-layout justify-center>
         <v-flex shrink>
-          <v-btn :loading="loadMoreDisabled" :disabled="loadMoreDisabled" color="primary" @click="loadMoreStructures">
+          <v-btn
+            v-if="canLoadMore || loadMoreDisabled"
+            :loading="loadMoreDisabled"
+            :disabled="loadMoreDisabled"
+            color="primary"
+            @click="loadMoreStructures">
             {{ $t('pages.structureList.showMore') }}
           </v-btn>
-        </v-flex>
-      </v-layout>
-    </v-flex>
 
-    <v-flex v-else xs12 mt-3>
-      <v-layout justify-center>
-        <v-flex shrink>
-          <v-btn disabled>{{ $t('pages.structureList.noMoreStructures') }}</v-btn>
+          <v-btn v-else disabled>
+            {{ $t('pages.structureList.noMoreStructures') }}
+          </v-btn>
         </v-flex>
       </v-layout>
     </v-flex>

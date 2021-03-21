@@ -102,9 +102,7 @@
     <v-flex  xs12 mt-3>
       <v-layout justify-center>
         <v-flex shrink>
-
           <v-btn
-            key="enabled"
             v-if="canLoadMore || loadMoreDisabled"
             :loading="loadMoreDisabled"
             :disabled="loadMoreDisabled"
@@ -113,11 +111,9 @@
               {{ $t('pages.projectList.showMore') }}
           </v-btn>
 
-          <v-btn
-            key="disabled"
-            v-else disabled>{{ $t('pages.projectList.noMoreProjects') }}
+          <v-btn v-else disabled>
+            {{ $t('pages.projectList.noMoreProjects') }}
           </v-btn>
-
         </v-flex>
       </v-layout>
     </v-flex>

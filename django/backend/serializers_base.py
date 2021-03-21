@@ -245,6 +245,7 @@ class SimpleContentSerializer(serializers.ModelSerializer):
 class ContentSerializer(TrackableModelSerializer):
     attachments = AttachmentSerializer(read_only=True, many=True)
     sorting = serializers.IntegerField(read_only=True)
+    extra_style = serializers.CharField(read_only=True)
 
     class Meta:
         model = models.Content

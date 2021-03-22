@@ -88,9 +88,12 @@ const unique = (value, index, self) => {
 
 export default {
   metaInfo() {
-    return {
-      title: this.$t("pages.help.title"),
-    };
+    var title;
+    if(!this.isArticleDetail)
+      title = this.$t("pages.help.title")
+    else
+      title = this.article.title
+    return {title }
   },
 
   components: {

@@ -61,7 +61,7 @@ export default {
     async deleteAttachment(att) {
       if (confirm("Are you sure you want to delete this attachment?")) {
         await this.$store.dispatch("attachment/delete", att.id);
-        this.reloadArticle();
+        this.$emit('change')
       }
     },
     sizeToStr(size) {

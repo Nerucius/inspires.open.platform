@@ -34,6 +34,7 @@ STYLES = [
     ("orange-theme", "Orange theme"),
     ("green-theme", "Green theme"),
     ("yellow-theme", "Yellow theme"),
+    ("white-theme", "White theme"),
 ]
 
 

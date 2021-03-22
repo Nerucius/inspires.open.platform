@@ -60,6 +60,15 @@ import { API_SERVER } from "@/plugins/resource";
 
 const VALID_MIME_TYPES = ["image/png", "image/jpeg", "application/pdf"];
 
+
+function normalizeName(str){
+  str = str.toLowerCase();
+  str = str.replace(' ', '-')
+  str = str.replace(/[^a-zA-Z0-9\_\-]/gi, '');
+
+  return str.slice(0,64)
+}
+
 export default {
   props: ["model", "objectId"],
 
@@ -104,7 +113,10 @@ export default {
       formData.append("file", this.file);
 
       let rand = Math.random().toString(36).substring(6);
-      var fileName = `${rand}-${this.file.name}`;
+      let normName = normalizeName(this.attachment.name)
+      let extension = this.file.name.split('.').pop()
+
+      var fileName = `${rand}-${normName}.${extension}`;
       console.log(fileName);
 
       try {

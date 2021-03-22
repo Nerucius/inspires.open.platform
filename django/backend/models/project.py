@@ -74,7 +74,7 @@ class Project(TrackableModel):
     name = models.CharField(max_length=254)
     summary = models.TextField(blank=True)
     description = models.TextField(blank=True, default=DEFAULT_DESCRIPTION)
-    country_code = models.CharField(max_length=16, blank=True)
+    country_code = models.CharField(max_length=512, blank=True)
 
     image_url = models.URLField(max_length=500, blank=True)
 

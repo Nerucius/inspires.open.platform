@@ -145,6 +145,28 @@
             </v-list-tile-content>
           </v-list-tile>
 
+          <!-- Knowledge Area -->
+          <v-list-tile v-if="project.knowledge_area">
+            <v-list-tile-avatar tile>
+              <v-icon>mdi-school</v-icon>
+            </v-list-tile-avatar>
+            <v-list-tile-content>
+              <v-list-tile-title>{{ knowledgeAreaTL(project.knowledge_area) }}</v-list-tile-title>
+              <v-list-tile-sub-title>{{ $t('forms.fields.knowledgeArea') }}</v-list-tile-sub-title>
+            </v-list-tile-content>
+          </v-list-tile>
+
+          <!-- Project Type -->
+          <v-list-tile v-if="project.project_type">
+            <v-list-tile-avatar tile>
+              <v-icon>mdi-office-building</v-icon>
+            </v-list-tile-avatar>
+            <v-list-tile-content>
+              <v-list-tile-title>{{ projectTypeTL(project.project_type) }}</v-list-tile-title>
+              <v-list-tile-sub-title>{{ $t('forms.fields.projectType') }}</v-list-tile-sub-title>
+            </v-list-tile-content>
+          </v-list-tile>
+
           <!-- Contact Social Facebook -->
           <v-list-tile v-if="project.contact_social_facebook" :href="project.contact_social_facebook" target="_blank">
             <v-list-tile-avatar>
@@ -224,12 +246,12 @@
             </v-list-tile-content>
           </v-list-tile>
 
+          <!-- Project participants -->
           <v-toolbar dense flat color="primary" dark class="mt-3">
             <h1 class="title">
               {{ $t('forms.fields.participants') }}
             </h1>
           </v-toolbar>
-
           <v-sheet :max-height="72*4.5" style="overflow-y:auto;">
             <template v-for="(part, idx) in project.participants">
               <v-list-tile :key="part.id" :to="user(part.user).link">
@@ -246,6 +268,7 @@
               <v-divider v-if="idx != project.participants.length - 1" :key="`div-${part.id}`" />
             </template>
           </v-sheet>
+
         </v-list>
       </v-card>
     </v-flex>
@@ -296,30 +319,40 @@
                 {{ $t('pages.projectDetail.evaluationTab') }}
               </h2>
 
-              <div v-if="isParticipant" class="my-4 text-xs-center">
-                <v-btn large dark color="grey darken-3"
-                       :to="{...project.link, name:'evaluation-detail'}"
-                       class="elevation-0"
-                >
-                  <v-icon left>
-                    mdi-school
-                  </v-icon>
-                  {{ $t('pages.projectManage.evalViewEvaluationResults') }}
-                </v-btn>
-              </div>
+              <div v-if="isParticipant">
+                <p>Since you are a participant of this project, you can view the detailed evaluation results at this page:</p>
+                <p class="text-xs-center">
+                  <v-btn dark color="grey darken-3"
+                        :to="{...project.link, name:'evaluation-detail'}"
+                        class="elevation-0"
+                  >
+                    <v-icon left>mdi-school</v-icon>
+                    {{ $t('pages.projectManage.evalViewEvaluationResults') }}
+                  </v-btn>
+                </p>
 
-              <template v-if="isParticipant">
                 <p>{{ $t('pages.evaluationEntry.selfQuestionnaireDescription') }}</p>
 
                 <p class="text-xs-center">
-                  <v-btn large dark color="red" href="https://app.inspiresproject.com/uploads/inspires-self-questionaire.pdf" target="_blank">
-                    <v-icon left>
-                      mdi-file-pdf
-                    </v-icon>
-                    {{ $t('actions.downloadName', {name: $t('pages.evaluationEntry.selfQuestionnaireTitle')}) }}
+                  <v-btn dark color="blue darken-1" href="/learn/?master=12">
+                    <v-icon left>mdi-file-pdf</v-icon>
+                    {{ $t('pages.evaluationEntry.viewQuestionnaire1') }}
+                  </v-btn>
+                  <br>
+                  <v-btn dark color="green darken-2" href="/learn/?master=13">
+                    <v-icon left>mdi-file-pdf</v-icon>
+                    {{ $t('pages.evaluationEntry.viewQuestionnaire3') }}
                   </v-btn>
                 </p>
-              </template>
+
+                <!-- <p class="text-xs-center">
+                  <v-btn dark color="red" href="https://app.inspiresproject.com/uploads/inspires-self-questionaire.pdf" target="_blank">
+                    <v-icon left>mdi-file-pdf</v-icon>
+                    {{ $t('actions.downloadName', {name: $t('pages.evaluationEntry.selfQuestionnaireTitle')}) }}
+                  </v-btn>
+                </p> -->
+                <hr class="my-5">
+              </div>
 
               <!-- Public Evaluation Results -->
               <v-layout wrap>
@@ -469,8 +502,13 @@ export default {
 
   async created() {
     try {
-      this.$store.dispatch("project/load");
-      await this.$store.dispatch("project/load", [this.projectId]);
+      // Load data
+      await Promise.all([
+        this.$store.dispatch("project/load"),
+        this.$store.dispatch("knowledgearea/load"),
+        this.$store.dispatch("project/load", [this.projectId]),
+      ])
+
       this.project = this.$store.getters["project/detail"](this.projectId);
 
       // If project has a collaboration, load structure
@@ -511,6 +549,18 @@ export default {
     countryTranslation(iso3){
       let locale = this.$i18n.locale
       return translateCountryName(iso3, locale);
+    },
+
+    projectTypeTL(ptId){
+      let pt = this.$store.getters['project/projectTypes'].filter(pt => pt.value == ptId)[0];
+
+      return this.$t(pt.name);
+    },
+
+    knowledgeAreaTL(kaId){
+      let ka = this.$store.getters['knowledgearea/get'](kaId)
+
+      return this.$t(ka.name)
     },
 
     async loadEvaluation(){

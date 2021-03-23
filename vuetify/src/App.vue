@@ -19,6 +19,12 @@
 
   #toast-container {padding-top: 10px}
   .v-snack { padding-top: 10px; }
+
+  hr {
+    border: 0;
+    border-top: 1px solid rgb(12, 77, 77);
+    height: 0px;
+  }
 </style>
 
 <style>

@@ -1,10 +1,18 @@
 <template>
   <v-form v-if="participants" ref="form" v-model="valid">
-    <h2 class="mb-2">
-      {{ $t('pages.projectManage.participantsTitle') }}
-    </h2>
+    <!-- Title -->
+    <v-layout>
+      <v-flex grow>
+        <h2>{{ $t('pages.projectManage.participantsTitle') }}</h2>
+      </v-flex>
+      <v-flex shrink>
+        <v-btn class="elevation-0" fab :outline="!showHelp" :dark="showHelp" small color="blue" @click="showHelp = !showHelp">
+          <v-icon>mdi-help</v-icon>
+        </v-btn>
+      </v-flex>
+    </v-layout>
 
-    <v-alert color="info" class="ma-4" :value="true" dismissible>
+    <v-alert color="info" class="ma-4" :value="showHelp">
       <v-layout row align-top>
         <v-flex shrink>
           <v-icon large dark>
@@ -82,6 +90,7 @@ export default {
 
   data() {
     return {
+      showHelp: false,
       valid: null,
       rules: {
         isUser: v => this.isUser(v) || this.$t("forms.rules.mustBeUser"),

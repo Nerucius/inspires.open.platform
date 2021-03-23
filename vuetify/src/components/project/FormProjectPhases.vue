@@ -1,18 +1,19 @@
 <template>
   <v-form ref="form" v-model="valid">
-    <h2 class="mb-2">
-      {{ $t('pages.projectManage.phasesTab') }}
-    </h2>
+    <!-- Title -->
+    <v-layout>
+      <v-flex grow>
+        <h2>{{ $t('pages.projectManage.phasesTab') }}</h2>
+      </v-flex>
+      <v-flex shrink>
+        <v-btn class="elevation-0" fab :outline="!showHelp" :dark="showHelp" small color="blue" @click="showHelp = !showHelp">
+          <v-icon>mdi-help</v-icon>
+        </v-btn>
+      </v-flex>
+    </v-layout>
 
-    <h3 v-if="!!currentPhase" class="my-4 headline text-xs-center">
-      <!-- <small>{{ $t('pages.projectManage.currentPhase') }}</small> -->
-      <b>{{ $t(currentPhase.name) }}</b>
-    </h3>
-    <h3 v-else class="my-4 headline text-xs-center">
-      {{ $t('pages.projectManage.noCurrentPhase') }}
-    </h3>
-
-    <v-alert color="info" class="ma-4" :value="true" dismissible>
+    <!-- Contextual help -->
+    <v-alert color="info" class="ma-4" :value="showHelp">
       <v-layout row align-top>
         <v-flex>
           <v-icon large dark>
@@ -24,6 +25,29 @@
         </v-flex>
       </v-layout>
     </v-alert>
+
+    <p>{{ $t('pages.evaluationEntry.selfQuestionnaireDescription') }}</p>
+
+    <p class="text-xs-center">
+      <v-btn dark color="blue darken-1" href="/learn/?master=12">
+        <v-icon left>mdi-file-pdf</v-icon>
+        {{ $t('pages.evaluationEntry.viewQuestionnaire1') }}
+      </v-btn>
+      <br>
+      <v-btn dark color="green darken-2" href="/learn/?master=13">
+        <v-icon left>mdi-file-pdf</v-icon>
+        {{ $t('pages.evaluationEntry.viewQuestionnaire3') }}
+      </v-btn>
+    </p>
+
+    <h3 v-if="!!currentPhase" class="my-4 headline text-xs-center">
+      <!-- <small>{{ $t('pages.projectManage.currentPhase') }}</small> -->
+      <b>{{ $t(currentPhase.name) }}</b>
+    </h3>
+
+    <h3 v-else class="my-4 headline text-xs-center">
+      {{ $t('pages.projectManage.noCurrentPhase') }}
+    </h3>
 
     <h3 class="mb-2">
       {{ $t('pages.projectManage.changePhase') }}
@@ -75,7 +99,6 @@
       </v-stepper>
     </v-card>
 
-
     <v-btn block large
            color="success"
            :disabled="!valid || processing"
@@ -97,6 +120,7 @@ export default {
 
   data() {
     return {
+      showHelp: false,
       valid: null,
       stepperPhase: null,
       processing: false,

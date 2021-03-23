@@ -1,20 +1,40 @@
 <template>
   <v-form v-if="project" ref="form" v-model="valid">
-    <h2 class="mb-2">
-      Associated Intermediation Structure
-    </h2>
+    <!-- Title -->
+    <v-layout>
+      <v-flex grow>
+        <h2>{{ $t('pages.projectManage.structureTitle') }}</h2>
+      </v-flex>
+      <v-flex shrink>
+        <v-btn class="elevation-0" fab :outline="!showHelp" :dark="showHelp" small color="blue" @click="showHelp = !showHelp">
+          <v-icon>mdi-help</v-icon>
+        </v-btn>
+      </v-flex>
+    </v-layout>
+
+        <!-- Contextual help -->
+    <v-alert color="info" class="ma-4" :value="showHelp">
+      <v-layout row align-top>
+        <v-flex>
+          <v-icon large dark>
+            info
+          </v-icon>
+        </v-flex>
+        <v-flex>
+          <vue-markdown>{{ $t('pages.projectManage.structureHelp') }}</vue-markdown>
+        </v-flex>
+      </v-layout>
+    </v-alert>
 
     <p class="subheading">
-      Select under which Intermediation Structure your project is established.
+      {{ $t('pages.projectManage.structureSubheading') }}
     </p>
 
     <v-alert color="info"
              :value="isReadOnly && !collaboration.is_approved"
              class="subheading mb-2"
     >
-      <v-icon dark>
-        info
-      </v-icon>
+      <v-icon dark>info</v-icon>
       The Structure has yet to approve your Project before it will be shown in
       the website.
     </v-alert>
@@ -72,6 +92,7 @@ export default {
 
   data() {
     return {
+      showHelp: false,
       valid: null,
       rules: {
         isStructure: v => this.isStructure(v) || this.$t("forms.rules.mustBeStructure"),

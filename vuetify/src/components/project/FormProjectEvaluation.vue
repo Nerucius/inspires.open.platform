@@ -7,14 +7,19 @@ table{
 
 <template>
   <div v-if="project" class="pb-4">
-    <h2 class="mb-2">
-      {{ $t('pages.projectManage.evaluationTitle') }}
-    </h2>
+    <!-- Title -->
+    <v-layout>
+      <v-flex grow>
+        <h2>{{ $t('pages.projectManage.evaluationTitle') }}</h2>
+      </v-flex>
+      <v-flex shrink>
+        <v-btn class="elevation-0" fab :outline="!showHelp" :dark="showHelp" small color="blue" @click="showHelp = !showHelp">
+          <v-icon>mdi-help</v-icon>
+        </v-btn>
+      </v-flex>
+    </v-layout>
 
-    <!-- Evaluation version alert -->
-    <!-- <EvaluationUpdateAlert v-if="currentUser.is_administrator" :project="project" /> -->
-
-    <v-alert color="info" class="ma-4" :value="true" dismissible>
+    <v-alert color="info" class="ma-4" :value="showHelp">
       <v-layout row align-top>
         <v-flex>
           <v-icon large dark>
@@ -188,6 +193,7 @@ export default {
 
   data() {
     return {
+      showHelp: false,
       window,
       panel: {1:[0],2:[0],3:[0],4:[0]},
       valid: null,

@@ -7,6 +7,7 @@
     /* Hide graphs going out of cards */
     overflow: hidden;
   }
+
 </style>
 
 <template>
@@ -45,6 +46,10 @@
                 <h2 class="title">
                   {{ $t('pages.evaluationDetail.projectOverallPosition') }}
                 </h2>
+                <HelpDialog
+                  :title="$t('pages.evaluationDetail.projectOverallPosition')"
+                  :text="$t('pages.evaluationDetail.help.projectOverallPosition')"
+                />
               </v-toolbar-title>
             </v-toolbar>
             <v-card-text id="reference-width">
@@ -63,6 +68,10 @@
                 <h2 class="title">
                   {{ $t('pages.evaluationDetail.projectEvolution') }}
                 </h2>
+                <HelpDialog
+                  :title="$t('pages.evaluationDetail.projectEvolution')"
+                  :text="$t('pages.evaluationDetail.help.projectEvolution')"
+                />
               </v-toolbar-title>
             </v-toolbar>
             <v-card-text>
@@ -81,6 +90,10 @@
                 <h2 class="title">
                   {{ $t('pages.evaluationDetail.heatchart.title') }}
                 </h2>
+                <HelpDialog
+                  :title="$t('pages.evaluationDetail.heatchart.title')"
+                  :text="$t('pages.evaluationDetail.help.involvement')"
+                />
               </v-toolbar-title>
             </v-toolbar>
             <v-card-text>
@@ -101,6 +114,10 @@
                 <h2 class="title">
                   {{ $t('models.evaluation.principle.transform') }}
                 </h2>
+                <HelpDialog
+                  :title="$t('models.evaluation.principle.transform')"
+                  :text="$t('pages.evaluationDetail.help.bulletChart.transformativeChange')"
+                />
               </v-toolbar-title>
             </v-toolbar>
             <v-card-text>
@@ -155,6 +172,11 @@
                 <h2 class="title">
                   {{ $t('models.evaluation.principle.knowledge') }}
                 </h2>
+                <HelpDialog
+                  color="white blue--text"
+                  :title="$t('models.evaluation.principle.knowledge')"
+                  :text="$t('pages.evaluationDetail.help.bulletChart.knowledgeDemocracy')"
+                />
               </v-toolbar-title>
             </v-toolbar>
             <v-card-text>
@@ -205,6 +227,11 @@
                 <h2 class="title">
                   {{ $t('models.evaluation.principle.participation') }}
                 </h2>
+                <HelpDialog
+                  color="white blue--text"
+                  :title="$t('models.evaluation.principle.participation')"
+                  :text="$t('pages.evaluationDetail.help.bulletChart.participatoryDynamics')"
+                />
               </v-toolbar-title>
             </v-toolbar>
             <v-card-text>
@@ -259,6 +286,11 @@
                 <h2 class="title">
                   {{ $t('models.evaluation.principle.integrity') }}
                 </h2>
+                <HelpDialog
+                  color="white blue--text"
+                  :title="$t('models.evaluation.principle.integrity')"
+                  :text="$t('pages.evaluationDetail.help.bulletChart.integrity')"
+                />
               </v-toolbar-title>
             </v-toolbar>
             <v-card-text>
@@ -321,6 +353,11 @@
                 <h2 class="title">
                   {{ $t('models.evaluation.principle.citizen') }}
                 </h2>
+                <HelpDialog
+                  color="white blue--text"
+                  :title="$t('models.evaluation.principle.citizen')"
+                  :text="$t('pages.evaluationDetail.help.bulletChart.citizenledResearch')"
+                />
               </v-toolbar-title>
             </v-toolbar>
             <v-card-text>
@@ -369,6 +406,7 @@
 
 <script>
 import EvaluationTextResponses from "@/components/evaluation/EvaluationTextResponses";
+import HelpDialog from "@/components/generic/HelpDialog";
 
 import { createCommonGraphs, createParticipantBulletGraph, createManagerBulletGraph } from "@/plugins/vega.evaluation";
 import { slug2id, obj2slug } from "@/plugins/utils";
@@ -383,13 +421,17 @@ export default {
   },
 
   components:{
-    EvaluationTextResponses
+    EvaluationTextResponses,
+    HelpDialog
   },
 
   data() {
     return {
-      bulletChartRoles: false,
       obj2slug,
+      help: {
+        overallPosition: false,
+      },
+      bulletChartRoles: false,
       project: null,
     };
   },

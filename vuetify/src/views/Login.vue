@@ -82,7 +82,7 @@
               <v-form
                 ref="formResetPassword"
                 v-model="validResetPassword"
-                @submit.prevent="submitResetPassword()"
+                @submit.prevent="submitResetPassword"
               >
                 <v-text-field
                   v-model="credentials.username"
@@ -91,7 +91,6 @@
                   :rules="rules"
                   type="text"
                 />
-              </v-form>
 
               <v-layout mt-5 wrap justify-space-between>
                 <v-flex shrink>
@@ -99,12 +98,15 @@
                     {{ $t("pages.resetPassword.goBackToLogin") }}
                   </v-btn>
                 </v-flex>
+
                 <v-flex shrink>
                   <v-btn type="submit" :disabled="!validResetPassword || resetPasswordSubmitted" color="primary">
                     {{ $t("pages.resetPassword.resetPassword") }}
                   </v-btn>
                 </v-flex>
               </v-layout>
+
+              </v-form>
             </v-flex>
           </v-layout>
         </v-card-text>
@@ -117,16 +119,6 @@
           </v-flex>
           <v-spacer />
 
-          <!-- <v-flex v-if="!resetPassword" shrink>
-            <v-btn :disabled="!valid" color="primary" @click="submitLogin()">
-              {{ $t("actions.login") }}
-            </v-btn>
-          </v-flex>
-          <v-flex v-else shrink>
-            <v-btn :disabled="!validResetPassword || resetPasswordSubmitted" color="primary" @click="submitResetPassword()">
-              {{ $t("pages.resetPassword.resetPassword") }}
-            </v-btn>
-          </v-flex> -->
         </v-card-actions>
       </v-card>
     </v-flex>
@@ -195,6 +187,7 @@ export default {
     },
 
     async submitResetPassword() {
+      console.log("submit");
       if (this.$refs.formResetPassword.validate()) {
         try{
           await this.$store.dispatch("user/resetPassword", this.credentials)
@@ -206,8 +199,8 @@ export default {
             error
           })
         }
-
-
+      }else{
+        console.log("invalid form");
       }
     },
 

@@ -115,6 +115,7 @@ export default {
         // {name: "help", label:"navigation.links.help"},
         {name: "project-list", label:"noums.projects"},
         {name: "structure-list", label:"noums.structures"},
+        {name:"help", label: "navigation.links.learn"}
       ],
       rules: {
         minimunLength: v => (!v || v.length >= 3) || this.$t("forms.rules.minimunLength", {'length':3}),
@@ -136,11 +137,6 @@ export default {
 
         links.push({miniOnly: true, divider:true})
         links.push(...this.$data.menuLinks)
-
-        if(this.currentUser.is_administrator){
-          links.push({miniOnly: false, name:"help", label: "navigation.links.learn"})
-        }
-
 
         return links
       }

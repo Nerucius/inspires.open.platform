@@ -74,7 +74,7 @@
                 </v-card-text>
               </v-card>
               <v-flex xs12 />
-              <v-card v-if="currentUser.is_administrator" flat>
+              <v-card flat>
                 <v-card-text>
                   <FromProjectInviteParticipant v-if="dataReady" :project="project" />
                 </v-card-text>

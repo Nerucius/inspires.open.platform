@@ -26,7 +26,8 @@
       </v-card>
     </v-flex>
 
-    <v-flex md8 sm12>
+    <!-- World map -->
+    <v-flex xs12 md8>
       <h1 class="mb-2">
         {{ $t('pages.home.worldmapTitle') }}
       </h1>
@@ -36,7 +37,7 @@
     </v-flex>
 
     <!-- Most Active structures -->
-    <v-flex sm12 md4>
+    <v-flex xs12 md4>
       <h1 class="mb-2">
         {{ $t('pages.home.mostActiveStructures') }}
       </h1>

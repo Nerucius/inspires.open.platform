@@ -15,9 +15,9 @@
 </style>
 
 <template>
-  <v-layout row wrap align-content-start>
+  <v-layout row wrap align-content-start justify-center>
     <!-- Title bar -->
-    <v-flex xs12>
+    <v-flex xs12 xl8>
       <v-layout row wrap justify-end pa-2>
         <v-flex grow pa-0 pl-1>
           <h1>{{ $t("pages.help.title") }}</h1>
@@ -35,12 +35,12 @@
     </v-flex>
 
     <!-- Article Page -->
-    <v-flex v-if="isArticleDetail && !!article" xs12>
+    <v-flex v-if="isArticleDetail && !!article" xs12 xl8>
       <ArticleContent :key="article.id" :article="article" :articles-same-master="articlesSameMaster(article.master)" />
     </v-flex>
 
     <!-- Article List Page -->
-    <v-flex v-else xs12>
+    <v-flex v-else xs12 xl8>
       <v-card flat class="pb-3">
         <v-toolbar dense flat dark color="grey darken-3">
           <v-toolbar-title>{{ $t("pages.help.allArticles") }}</v-toolbar-title>
@@ -48,7 +48,7 @@
 
         <v-card-text>
           <v-layout justify-center>
-            <v-flex xs12 sm9 md6>
+            <v-flex xs12 sm9 md9 lg6>
               <v-text-field
                 v-model="searchTerm"
                 outline

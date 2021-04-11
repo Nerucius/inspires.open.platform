@@ -26,7 +26,7 @@
               :label="$t('forms.fields.role')"
             />
           </v-flex>
-          <v-flex sm12 md4>
+          <v-flex xs12 sm12 md4>
             <v-btn block dark color="red" type="submit">
               <v-icon left>print</v-icon>
               {{ $t("actions.viewAndPrint") }}

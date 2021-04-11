@@ -127,9 +127,59 @@
               <td>{{ $t(role(evaluation.role).name) }}</td>
             </tr>
             <tr>
-              <th>{{ $t('pages.evaluationEntry.evaluator') }}</th>
+              <th>{{ $t('forms.fields.firstName') }}</th>
               <td>
                 <v-text-field single-line hide-details readonly />
+              </td>
+            </tr>
+            <tr>
+              <th>{{ $t('forms.fields.lastName') }}</th>
+              <td>
+                <v-text-field single-line hide-details readonly />
+              </td>
+            </tr>
+            <tr><td colspan="2">&nbsp;</td></tr>
+            <tr>
+              <th>{{ $t('forms.fields.genderIdentity') }}</th>
+              <td>
+                <v-layout wrap justify-space-between>
+                  <v-flex shrink>
+                    <v-icon>mdi-circle-outline</v-icon> {{ $t('models.userGender.male') }}<br>
+                  </v-flex>
+                  <v-flex shrink>
+                    <v-icon>mdi-circle-outline</v-icon> {{ $t('models.userGender.female') }}<br>
+                  </v-flex>
+                  <v-flex shrink>
+                    <v-icon>mdi-circle-outline</v-icon> {{ $t('models.userGender.other') }}<br>
+                  </v-flex>
+                </v-layout>
+              </td>
+            </tr>
+            <tr><td colspan="2">&nbsp;</td></tr>
+            <tr>
+              <th>{{ $t('forms.fields.education') }}</th>
+              <td>
+                <v-layout wrap justify-space-between>
+                  <v-flex shrink>
+                    <v-icon>mdi-circle-outline</v-icon> {{ $t('models.educationLevel.primary') }}<br>
+                  </v-flex>
+                  <v-flex shrink>
+                    <v-icon>mdi-circle-outline</v-icon> {{ $t('models.educationLevel.secondary') }}<br>
+                  </v-flex>
+                  <v-flex shrink>
+                    <v-icon>mdi-circle-outline</v-icon> {{ $t('models.educationLevel.tertiary') }}<br>
+                  </v-flex>
+                  <v-flex shrink>
+                    <v-icon>mdi-circle-outline</v-icon> {{ $t('models.educationLevel.degree') }}<br>
+                  </v-flex>
+                  <v-flex shrink>
+                    <v-icon>mdi-circle-outline</v-icon> {{ $t('models.educationLevel.master') }}<br>
+                  </v-flex>
+                  <v-flex shrink>
+                    <v-icon>mdi-circle-outline</v-icon> {{ $t('models.educationLevel.doctoral') }}<br>
+                  </v-flex>
+                </v-layout>
+
               </td>
             </tr>
           </table>

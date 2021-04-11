@@ -76,6 +76,9 @@ class InviteProjectParticipant(View):
             hide_realname="hide_realname" in request_data
             and request_data["hide_realname"],
             gender=request_data["gender"] if "gender" in request else "",
+            education_level=request_data["education_level"]
+            if "education_level" in request
+            else "",
             institution=request_data["institution"] if "institution" in request else "",
         )
         try:

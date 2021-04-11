@@ -283,6 +283,8 @@ def _responses_to_csv_lines(project):
         line = [
             response.evaluation.id,
             response.evaluation.participation.user.full_name,
+            response.evaluation.participation.user.education_level,
+            response.evaluation.participation.user.gender,
             response.question.phase,
             response.question.role,
             response.question.axis,
@@ -300,6 +302,8 @@ def _responses_to_csv_lines(project):
         [
             "evaluation_id",
             "participant_name",
+            "participant_education",
+            "participant_gender",
             "phase",
             "role",
             "axis",

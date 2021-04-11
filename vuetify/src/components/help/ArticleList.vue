@@ -26,16 +26,21 @@
   <div>
     <v-list two-line>
       <template v-for="group in groupedArticles">
-        <v-divider :key="group.master_id + '-sep'" />
+
+        <h2 v-if="group.header" :key="group.master_id + '-header'" class="hidden-xs-only">
+          <small class="text-uppercase"><strong>{{ group.article.topic }}</strong></small>
+        </h2>
+
+        <v-divider :key="group.master_id + '-sep'" v-if="!group.header" />
 
         <v-list-tile :key="group.master_id">
-          <v-flex xs2 xl1 mr-5 class="hidden-xs-only text-xs-center">
+          <!-- <v-flex xs2 xl1 mr-4 class="hidden-xs-only text-xs-center">
             <v-icon>mdi-school</v-icon><br>
             <small class="text-uppercase"><strong>{{ group.article.topic }}</strong></small>
-          </v-flex>
-          <!-- <v-list-tile-avatar>
-            <v-icon>mdi-book</v-icon>
-          </v-list-tile-avatar> -->
+          </v-flex> -->
+          <v-list-tile-avatar>
+            <v-icon>mdi-school</v-icon>
+          </v-list-tile-avatar>
 
           <v-list-tile-content>
             <div class="hidden-sm-and-up text-uppercase topic-tag">
@@ -55,7 +60,7 @@
 
           <v-list-tile-action v-if="flags" class="hidden-sm-and-down">
             <!-- Flag links for all available translated languages -->
-            <v-layout row wrap style="max-width:Calc(32px*5); margin: 0px -12px">
+            <v-layout ml-2 row wrap style="max-width:Calc(34px*5); margin: 0px -12px">
               <v-flex v-for="other in group.others.sort()" :key="other.id" shrink pa-1 class="text-xs-center">
                 <router-link :to="other.link">
                   <flag
@@ -68,9 +73,9 @@
           </v-list-tile-action>
         </v-list-tile>
 
-        <v-divider v-if="group.spaceAfter" :key="group.master_id + '-spacer'" class="mb-4" />
+        <div v-if="group.spaceAfter" :key="group.master_id + '-spacer'" class="mb-4" />
       </template>
-      <v-divider />
+
     </v-list>
   </div>
 </template>
@@ -97,6 +102,9 @@ export default {
         let userLang = this.$store.getters['preferences/lang'];
         let masters = this.articles.map(a => a.master).filter(unique).sort();
 
+        // Quick exit while loading
+        if(masters.length == 0) return [];
+
         let grouped = masters.map(m => {
           // Articles from the same master, sorted by locale
           let masterArticles = this.articles.filter(a => a.master == m).sort((a,b) => a.locale.localeCompare(b.locale))
@@ -119,10 +127,13 @@ export default {
         // Sort by master-inheritet property `sorting`
         grouped.sort((a,b) => a.article.sorting - b.article.sorting )
 
-        // Dividers on topic change
+        // Dividers on topic change and Topic Headers
+        grouped[0].header = true
         for(let i = 0; i < grouped.length-1; i++){
-          if(grouped[i].article.topic != grouped[i+1].article.topic)
+          if(grouped[i].article.topic != grouped[i+1].article.topic){
             grouped[i].spaceAfter = true;
+            grouped[i+1].header = true;
+          }
         }
 
         return grouped

@@ -35,7 +35,7 @@ class ResponseFilter(FilterSet):
 
 
 class ProjectFilter(FilterSet):
-    knowledge_area = CharInFilter(field_name="knowledge_area", lookup_expr="in")
+    country_code = CharFilter(field_name="country_code", lookup_expr="contains")
 
     class Meta:
         model = models.Project
@@ -45,6 +45,19 @@ class ProjectFilter(FilterSet):
             "keywords",
             "participants",
             "knowledge_area",
-            "country_code",
             "project_type",
+        ]
+
+
+class StructureFilter(FilterSet):
+    country_code = CharFilter(field_name="country_code", lookup_expr="contains")
+    knowledge_areas = CharInFilter(field_name="knowledge_areas")
+
+    class Meta:
+        model = models.Structure
+        fields = [
+            "name",
+            "collaboration__project",
+            "managers",
+            "structure_type",
         ]

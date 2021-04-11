@@ -339,14 +339,7 @@ class ProjectsVS(ListDetail, Orderable, viewsets.ModelViewSet):
 
 class StructuresVS(ListDetail, Orderable, viewsets.ModelViewSet):
     queryset = models.Structure.objects.all()
-    filterset_fields = [
-        "name",
-        "collaboration__project",
-        "managers",
-        "structure_type",
-        "country_code",
-        "knowledge_areas",
-    ]
+    filterset_class = filters.StructureFilter
 
     serializer_class = serializers.SimpleStructureSerializer
     detail_serializer_class = serializers.StructureSerializer

@@ -96,17 +96,21 @@
         :items="knowledgeAreas"
         :label="$t('forms.fields.knowledgeArea')"
         :hint="$t('forms.hints.knowledgeArea')"
-        :item-text="kaName"
+        :item-text="knowledgeAreaTL"
         item-value="id"
       />
 
-      <v-select v-model="editedProject.country_code"
-                box
-                :items="Countries"
-                :item-text="localizedCountryName"
-                item-value="alpha3Code"
-                :label="$t('forms.fields.projectCountry')"
-                :hint="$t('forms.hints.projectCountry')"
+      <v-combobox v-model="editedProject.country_code"
+        ref='countriesCB'
+        box multiple
+        chips deletable-chips
+        :items="Countries"
+        :item-text="countryTL"
+        item-value="alpha3Code"
+        :rules="[rules.isCountry]"
+        :label="$t('forms.fields.projectCountry')"
+        :hint="$t('forms.hints.projectCountry')"
+        @input="clearSearch('countriesCB')"
       />
 
       <v-select
@@ -208,6 +212,7 @@ export default {
         isTwitter: v => !v || v.indexOf('twitter.com') >= 0 || this.$t("forms.rules.mustBeURL"),
         isFacebook: v => !v || v.indexOf('facebook.com') >= 0 || this.$t("forms.rules.mustBeURL"),
         isEmail: v => regexIsEmail(v) || this.$t("forms.rules.mustBeEmail"),
+        isCountry: v => this.isCountry(v) || this.$t("forms.rules.mustBeCountry"),
       },
       userSearch: [],
       editedProject: {},
@@ -247,7 +252,7 @@ export default {
       return this.$store.getters['user/get'](uid)
     },
 
-    kaName(knowledgeArea){
+    knowledgeAreaTL(knowledgeArea){
       return `[${knowledgeArea.code}] ${this.$t(knowledgeArea.name)}`
     },
 
@@ -260,10 +265,15 @@ export default {
         ({...this.user(part.user), role: part.role, partId: part.id})
       )
 
+      // Countries string to objects
+      loadedProject.country_code = loadedProject.country_code.split(',').map(cc =>
+        this.Countries.filter(c => c.alpha3Code == cc)[0]
+      ).filter(i => i != undefined)
+
       return loadedProject
     },
 
-    localizedCountryName(country){
+    countryTL(country){
       let locale = this.$i18n.locale
       return country.translations[locale] || country.name
     },
@@ -285,6 +295,7 @@ export default {
       this.processing = true
       let project = cloneDeep(this.editedProject);
       project.managers = project.managers.map(u => u.id)
+      project.country_code = project.country_code.map(c => c.alpha3Code).join()
 
       // In the case of no id, send event to parent to create project
       if(!project.id){
@@ -320,6 +331,10 @@ export default {
       // Check that all object are user instances
       if (!value) return true
       return !value.map(item => item.id == undefined).some(v => !!v)
+    },
+
+    isCountry(values){
+      return values.every(v => v.hasOwnProperty('alpha3Code'))
     },
 
     clearSearch(ref) {

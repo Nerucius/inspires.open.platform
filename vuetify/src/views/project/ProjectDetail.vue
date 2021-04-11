@@ -132,19 +132,6 @@
             </v-list-tile-content>
           </v-list-tile>
 
-          <!-- Country -->
-          <!-- TODO: Add link to structure list page filtered by country -->
-          <v-list-tile v-if="project.country_code">
-            <v-list-tile-avatar tile>
-              <flag style="font-size:40px" :squared="false" :iso="iso3toiso2(project.country_code)" />
-              <!-- <v-img :src="structure.image_url" /> -->
-            </v-list-tile-avatar>
-            <v-list-tile-content>
-              <v-list-tile-title>{{ countryTranslation(project.country_code) }}</v-list-tile-title>
-              <v-list-tile-sub-title>{{ $t('forms.fields.projectCountry') }}</v-list-tile-sub-title>
-            </v-list-tile-content>
-          </v-list-tile>
-
           <!-- Knowledge Area -->
           <v-list-tile v-if="project.knowledge_area">
             <v-list-tile-avatar tile>
@@ -304,6 +291,22 @@
             <div class="px-4 pt-4 pb-2 grey lighten-4 subheading" style="font-spacing:110%">
               <vue-markdown>{{ project.summary }}</vue-markdown>
             </div>
+
+            <!-- Active country list -->
+            <v-card-text v-if="project.country_code">
+              <h3>{{ $tc('pages.projectDetail.activeCountries'
+                , project.country_code.split(',').length
+                , {n : project.country_code.split(',').length} ) }}</h3>
+              <v-layout row wrap>
+                <v-flex pa-0 ma-2 shrink v-for="cc in project.country_code.split(',')" :key="cc">
+                  <v-btn color="grey lighten-4" class="elevation-0 px-3 py-4" exact :to="{name:'project-list', query:{country_code:cc}}">
+                    <flag style="font-size:24px" :squared="false" :iso="iso3toiso2(cc)" />
+                    <i class="mx-2"></i>
+                    {{ countryTranslation(cc) }}
+                  </v-btn>
+                </v-flex>
+              </v-layout>
+            </v-card-text>
 
             <v-card-text>
               <vue-markdown>{{ project.description }}</vue-markdown>

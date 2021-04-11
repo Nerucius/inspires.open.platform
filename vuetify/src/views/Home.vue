@@ -91,6 +91,7 @@ import ProjectGrid from "@/components/project/ProjectGrid";
 import ModelList from "@/components/generic/ModelList";
 // import { GeoJSONCountries } from "@/plugins/i18n";
 import { GeoJSONCountriesDetail, Countries } from "@/plugins/i18n";
+import { flatten } from "lodash";
 
 export default {
   components: {
@@ -138,7 +139,10 @@ export default {
   methods: {
     createMap(){
       let allProjects = this.$store.getters['project/all']
-      let projectCCs = allProjects.map(p => p.country_code)
+
+      // To support multiple countries per project, split the country code, then flatten the array
+      let projectCCs = allProjects.map(p => p.country_code.split(','))
+      projectCCs = flatten(projectCCs)
 
       GeoJSONCountriesDetail.features = GeoJSONCountriesDetail.features.filter(feature =>
         projectCCs.indexOf(feature.properties.ISO_A3) >= 0

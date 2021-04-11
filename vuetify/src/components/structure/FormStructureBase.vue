@@ -75,15 +75,17 @@
         :hint="$t('forms.hints.structureType')"
       />
 
-
-      <v-select
-        v-model="editedStructure.country_code"
-        box
+      <v-combobox v-model="editedStructure.country_code"
+        ref='countriesCB'
+        box multiple
+        chips deletable-chips
         :items="Countries"
-        :item-text="localizedCountryName"
+        :item-text="countryTL"
         item-value="alpha3Code"
+        :rules="[rules.isCountry]"
         :label="$t('forms.fields.structureCountry')"
         :hint="$t('forms.hints.structureCountry')"
+        @input="clearSearch('countriesCB')"
       />
 
       <v-text-field
@@ -205,11 +207,7 @@ export default {
       processing: false,
       valid: null,
       rules: {
-        // required: v => true,
-        // isUser: v => true,
-        // isURL: v => true,
         isEmail: v => true,
-        isCountry: v => true,
         isKnowledgeArea: v => true,
         minlen: v => true,
 
@@ -218,6 +216,7 @@ export default {
         isURL: v => regexIsURL(v) || this.$t("forms.rules.mustBeURL"),
         isTwitter: v => !v || v.indexOf('twitter.com') >= 0 || this.$t("forms.rules.mustBeURL"),
         isFacebook: v => !v || v.indexOf('facebook.com') >= 0 || this.$t("forms.rules.mustBeURL"),
+        isCountry: v => this.isCountry(v) || this.$t("forms.rules.mustBeCountry"),
 
         // isEmail: v => regexIsEmail(v) || this.$t("forms.rules.mustBeEmail"),
         // isCountry: v => this.isCountry(v) || this.$t("forms.rules.mustBeCountry"),
@@ -277,6 +276,12 @@ export default {
       loadedStructure.managers = (loadedStructure.managers || []).map(id => this.user(id))
       loadedStructure.knowledge_areas = (loadedStructure.knowledge_areas || []).map(id => this.knowledgeArea(id))
 
+      // Countries string to objects
+      loadedStructure.country_code = loadedStructure.country_code.split(',').map(cc =>
+        this.Countries.filter(c => c.alpha3Code == cc)[0]
+      ).filter(i => i != undefined)
+
+
       return loadedStructure
     },
 
@@ -297,6 +302,7 @@ export default {
       this.processing = true
       let structure = cloneDeep(this.editedStructure);
       structure.managers = structure.managers.map(u => u.id)
+      structure.country_code = structure.country_code.map(c => c.alpha3Code).join()
 
       // In the case of no id, send event to parent to create structure
       if(!structure.id){
@@ -358,6 +364,15 @@ export default {
       // Check that all object are user instances
       if (!value) return true
       return !value.map(item => item.id == undefined).some(v => !!v)
+    },
+
+    isCountry(values){
+      return values.every(v => v.hasOwnProperty('alpha3Code'))
+    },
+
+    countryTL(country){
+      let locale = this.$i18n.locale
+      return country.translations[locale] || country.name
     },
 
     clearSearch(ref) {

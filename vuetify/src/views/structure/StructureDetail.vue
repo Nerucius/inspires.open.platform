@@ -52,19 +52,6 @@
             </h1>
           </v-toolbar>
 
-
-          <!-- Country -->
-          <v-list-tile v-if="structure.country_code" :to="structure.link">
-            <v-list-tile-avatar tile>
-              <flag style="font-size:40px" :squared="false" :iso="iso3toiso2(structure.country_code)" />
-              <!-- <v-img :src="structure.image_url" /> -->
-            </v-list-tile-avatar>
-            <v-list-tile-content>
-              <v-list-tile-title>{{ countryTranslation(structure.country_code) }}</v-list-tile-title>
-              <v-list-tile-sub-title>{{ $t('forms.fields.structureCountry') }}</v-list-tile-sub-title>
-            </v-list-tile-content>
-          </v-list-tile>
-
           <!-- Contact Social Facebook -->
           <v-list-tile v-if="structure.contact_social_facebook" :href="structure.contact_social_facebook" target="_blank">
             <v-list-tile-avatar>
@@ -199,6 +186,22 @@
         <div class="px-4 pt-4 pb-2 grey lighten-4" style="font-spacing:110%">
           <vue-markdown>{{ structure.summary }}</vue-markdown>
         </div>
+
+        <!-- Active country list -->
+        <v-card-text v-if="structure.country_code != ''">
+          <h3>{{ $tc('pages.structureDetail.activeCountries'
+            , structure.country_code.split(',').length
+            , {n : structure.country_code.split(',').length} ) }}</h3>
+          <v-layout row wrap>
+            <v-flex pa-0 ma-2 shrink v-for="cc in structure.country_code.split(',')" :key="cc">
+              <v-btn color="grey lighten-4" class="elevation-0 px-3 py-4" exact :to="{name:'structure-list', query:{country_code:cc}}">
+                <flag style="font-size:24px" :squared="false" :iso="iso3toiso2(cc)" />
+                <i class="mx-2"></i>
+                {{ countryTranslation(cc) }}
+              </v-btn>
+            </v-flex>
+          </v-layout>
+        </v-card-text>
 
         <v-card-text style="max-height:400px; overflow-y:auto">
           <vue-markdown>{{ structure.description }}</vue-markdown>

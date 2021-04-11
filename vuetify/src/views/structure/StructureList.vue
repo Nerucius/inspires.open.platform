@@ -151,6 +151,12 @@ export default {
 
     // debouncer
     this.updateFilter = debounce(this.updateFilter, 250);
+
+    // Get URL parameters
+    let queryParams = this.$route.query;
+    if(queryParams.country_code){
+      this.filters.country_code = this.countries.filter(c => c.alpha3Code == queryParams.country_code)[0]
+    }
   
     // Load page 0
     this.$store.dispatch("structure/clear")

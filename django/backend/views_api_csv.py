@@ -644,8 +644,6 @@ class CSVProjectTangram(CSVCachedAuthorizedView):
             "transform",
         ]
 
-        print(df_all)
-
         return df_all.to_csv(index=False)
 
 

@@ -70,17 +70,21 @@ class InviteProjectParticipant(View):
         # Create user including empty field defaults
         newUser = User(
             username=user_username,
+            email=user_email,
             first_name=request_data["first_name"],
             last_name=request_data["last_name"],
-            email=user_email,
-            hide_realname="hide_realname" in request_data
-            and request_data["hide_realname"],
-            gender=request_data["gender"] if "gender" in request else "",
-            education_level=request_data["education_level"]
-            if "education_level" in request
-            else "",
-            institution=request_data["institution"] if "institution" in request else "",
         )
+
+        # Optional fields
+        if "gender" in request_data:
+            newUser.gender = request_data["gender"]
+        if "education_level" in request_data:
+            newUser.education_level = request_data["education_level"]
+        if "institution" in request_data:
+            newUser.institution = request_data["institution"]
+        if "hide_realname" in request_data and request_data["hide_realname"]:
+            newUser.hide_realname = True
+
         try:
             newUser.save()
             userGroup = Group.objects.get(name="Users")

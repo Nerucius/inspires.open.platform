@@ -89,17 +89,17 @@
     </v-flex>
 
     <v-flex xs12 class="hidden-sm-and-down">
-      <ProjectGrid :showEvaluations="showEvaluations" :projects="projects" />
+      <ProjectGrid :show-evaluations="showEvaluations" :projects="projects" />
     </v-flex>
 
     <v-flex xs12 class="hidden-md-and-up">
       <v-card>
-        <ModelList :objects="projects" showLastModified="true" />
+        <ModelList :objects="projects" show-last-modified="true" />
       </v-card>
     </v-flex>
 
     <!-- Load more buttons -->
-    <v-flex  xs12 mt-3>
+    <v-flex xs12 mt-3>
       <v-layout justify-center>
         <v-flex shrink>
           <v-btn
@@ -107,8 +107,9 @@
             :loading="loadMoreDisabled"
             :disabled="loadMoreDisabled"
             color="primary"
-            @click="loadMoreProjects">
-              {{ $t('pages.projectList.showMore') }}
+            @click="loadMoreProjects"
+          >
+            {{ $t('pages.projectList.showMore') }}
           </v-btn>
 
           <v-btn v-else disabled>
@@ -117,7 +118,6 @@
         </v-flex>
       </v-layout>
     </v-flex>
-
   </v-layout>
 </template>
 

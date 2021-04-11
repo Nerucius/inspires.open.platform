@@ -60,7 +60,6 @@
                           @change="updateFilter"
               />
             </v-flex>
-            
           </v-layout>
         </v-card-text>
       </v-card>
@@ -76,7 +75,7 @@
 
     <v-flex xs12 class="hidden-md-and-up">
       <v-card>
-        <ModelList :objects="structures" showLastModified="true" />
+        <ModelList :objects="structures" show-last-modified="true" />
       </v-card>
     </v-flex>
 
@@ -89,7 +88,8 @@
             :loading="loadMoreDisabled"
             :disabled="loadMoreDisabled"
             color="primary"
-            @click="loadMoreStructures">
+            @click="loadMoreStructures"
+          >
             {{ $t('pages.structureList.showMore') }}
           </v-btn>
 
@@ -99,7 +99,6 @@
         </v-flex>
       </v-layout>
     </v-flex>
-
   </v-layout>
 </template>
 

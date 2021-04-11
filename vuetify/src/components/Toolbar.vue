@@ -73,7 +73,7 @@
         <v-list class="pa-0">
           <template v-for="(link,idx) in links">
             <v-list-tile v-if="!link.divider"
-                        :key="link.name" exact :to="{name:link.name}"
+                         :key="link.name" exact :to="{name:link.name}"
             >
               {{ $t(link.label) }}
             </v-list-tile>
@@ -92,7 +92,6 @@
         </v-list>
       </v-menu>
     </v-toolbar-items>
-
   </v-toolbar>
 </template>
 

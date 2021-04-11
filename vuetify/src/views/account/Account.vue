@@ -31,8 +31,8 @@
         <v-card-text v-if="!showEditForm">
           <v-layout row wrap justify-center>
             <v-flex shrink px-5>
-              <v-img width="130" :src="user.avatar_url"></v-img>
-              <br />
+              <v-img width="130" :src="user.avatar_url" />
+              <br>
               <table width="100%">
                 <tr>
                   <th>{{ $t('forms.fields.username') }}</th>
@@ -237,7 +237,7 @@
                 <v-icon>add</v-icon>
               </v-btn>
 
-              <ModelList :objects="projects" showLastModified="true" />
+              <ModelList :objects="projects" show-last-modified="true" />
 
               <!-- <template v-for="(project,idx) in projects">
                 <v-card
@@ -254,13 +254,12 @@
                 </v-card>
                 <v-divider :key="idx+'-div'" class="mb-3" />
               </template> -->
-
             </v-card-text>
           </v-card>
         </v-flex>
 
         <!-- Own structures -->
-        <v-flex xs12 sm6 v-if="structures">
+        <v-flex v-if="structures" xs12 sm6>
           <h2 class="mb-3">
             {{ $t('pages.account.myStructures') }}
           </h2>
@@ -285,7 +284,7 @@
                 <v-icon>add</v-icon>
               </v-btn>
 
-              <ModelList :objects="structures" showLastModified="true" bigImages="true" />
+              <ModelList :objects="structures" show-last-modified="true" big-images="true" />
 
               <!-- <template v-for="(structure,idx) in structures">
                 <v-card
@@ -305,7 +304,6 @@
             </v-card-text>
           </v-card>
         </v-flex>
-
       </v-layout>
     </v-flex>
   </v-layout>

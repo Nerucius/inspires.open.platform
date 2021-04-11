@@ -29,7 +29,7 @@
       </v-flex>
     </template>
 
-    <v-flex xs12 class="text-xs-right" v-if="isUserProjectManager">
+    <v-flex v-if="isUserProjectManager" xs12 class="text-xs-right">
       <v-btn flat outline color="black" :href="exportEvaluationURL">
         <v-icon>mdi-database-export</v-icon>
         {{ $t('actions.exportAllData') }}

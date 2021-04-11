@@ -75,17 +75,17 @@
         :hint="$t('forms.hints.structureType')"
       />
 
-      <v-combobox v-model="editedStructure.country_code"
-        ref='countriesCB'
-        box multiple
-        chips deletable-chips
-        :items="Countries"
-        :item-text="countryTL"
-        item-value="alpha3Code"
-        :rules="[rules.isCountry]"
-        :label="$t('forms.fields.structureCountry')"
-        :hint="$t('forms.hints.structureCountry')"
-        @input="clearSearch('countriesCB')"
+      <v-combobox ref="countriesCB"
+                  v-model="editedStructure.country_code"
+                  box multiple
+                  chips deletable-chips
+                  :items="Countries"
+                  :item-text="countryTL"
+                  item-value="alpha3Code"
+                  :rules="[rules.isCountry]"
+                  :label="$t('forms.fields.structureCountry')"
+                  :hint="$t('forms.hints.structureCountry')"
+                  @input="clearSearch('countriesCB')"
       />
 
       <v-text-field
@@ -339,19 +339,6 @@ export default {
     localizedCountryName(country){
       let locale = this.$i18n.locale
       return country.translations[locale] || country.name
-    },
-
-    isCountry(value){
-      // If no value enter, is valid
-      if(!value) return true;
-      // If random string entered, not valid
-      if(!value.name) return false;
-
-      // Compare entered
-      value = this.localizedCountryName(value)
-      let names = this.Countries.map(this.localizedCountryName)
-      let isCountry = names.indexOf(value)
-      return isCountry > -1
     },
 
     isUser(value){

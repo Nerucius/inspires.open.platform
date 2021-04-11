@@ -75,21 +75,21 @@
 
           <v-layout wrap>
             <v-flex xs12 sm6>
-              <v-select persistent-hint
-                v-model="inviteUser.gender"
-                :item-text="e => $t(e.name)"
-                :items="$store.getters['user/genders']"
-                :label="$t('forms.fields.genderIdentity')"
-                :hint="$t('misc.optional')"
+              <v-select v-model="inviteUser.gender"
+                        persistent-hint
+                        :item-text="e => $t(e.name)"
+                        :items="$store.getters['user/genders']"
+                        :label="$t('forms.fields.genderIdentity')"
+                        :hint="$t('misc.optional')"
               />
             </v-flex>
             <v-flex xs12 sm6>
-              <v-select persistent-hint
-                v-model="inviteUser.education_level"
-                :item-text="e => $t(e.name)"
-                :items="$store.getters['user/educationLevels']"
-                :label="$t('forms.fields.education')"
-                :hint="$t('misc.optional')"
+              <v-select v-model="inviteUser.education_level"
+                        persistent-hint
+                        :item-text="e => $t(e.name)"
+                        :items="$store.getters['user/educationLevels']"
+                        :label="$t('forms.fields.education')"
+                        :hint="$t('misc.optional')"
               />
             </v-flex>
           </v-layout>

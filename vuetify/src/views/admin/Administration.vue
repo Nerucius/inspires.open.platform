@@ -134,7 +134,6 @@
           </h2>
         </v-card-title>
         <v-card-text>
-
           <v-list two-line>
             <template v-for="(structure,idx) in structuresApproved">
               <v-list-tile :key="structure.id">
@@ -173,8 +172,6 @@
         </v-card-text>
       </v-card>
     </v-flex>
-
-
   </v-layout>
 
   <!-- Alert for unauthorized -->

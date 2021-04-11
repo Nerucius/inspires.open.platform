@@ -92,20 +92,19 @@
                   type="text"
                 />
 
-              <v-layout mt-5 wrap justify-space-between>
-                <v-flex shrink>
-                  <v-btn outline @click="resetPassword = false">
-                    {{ $t("pages.resetPassword.goBackToLogin") }}
-                  </v-btn>
-                </v-flex>
+                <v-layout mt-5 wrap justify-space-between>
+                  <v-flex shrink>
+                    <v-btn outline @click="resetPassword = false">
+                      {{ $t("pages.resetPassword.goBackToLogin") }}
+                    </v-btn>
+                  </v-flex>
 
-                <v-flex shrink>
-                  <v-btn type="submit" :disabled="!validResetPassword || resetPasswordSubmitted" color="primary">
-                    {{ $t("pages.resetPassword.resetPassword") }}
-                  </v-btn>
-                </v-flex>
-              </v-layout>
-
+                  <v-flex shrink>
+                    <v-btn type="submit" :disabled="!validResetPassword || resetPasswordSubmitted" color="primary">
+                      {{ $t("pages.resetPassword.resetPassword") }}
+                    </v-btn>
+                  </v-flex>
+                </v-layout>
               </v-form>
             </v-flex>
           </v-layout>
@@ -118,7 +117,6 @@
             </v-btn>
           </v-flex>
           <v-spacer />
-
         </v-card-actions>
       </v-card>
     </v-flex>

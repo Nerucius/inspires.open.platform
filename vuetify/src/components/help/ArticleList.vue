@@ -26,12 +26,11 @@
   <div>
     <v-list two-line>
       <template v-for="group in groupedArticles">
-
         <h2 v-if="group.header" :key="group.master_id + '-header'" class="hidden-xs-only">
           <small class="text-uppercase"><strong>{{ group.article.topic }}</strong></small>
         </h2>
 
-        <v-divider :key="group.master_id + '-sep'" v-if="!group.header" />
+        <v-divider v-if="!group.header" :key="group.master_id + '-sep'" />
 
         <v-list-tile :key="group.master_id">
           <!-- <v-flex xs2 xl1 mr-4 class="hidden-xs-only text-xs-center">
@@ -75,7 +74,6 @@
 
         <div v-if="group.spaceAfter" :key="group.master_id + '-spacer'" class="mb-4" />
       </template>
-
     </v-list>
   </div>
 </template>

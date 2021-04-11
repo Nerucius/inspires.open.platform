@@ -179,7 +179,6 @@
                     <v-icon>mdi-circle-outline</v-icon> {{ $t('models.educationLevel.doctoral') }}<br>
                   </v-flex>
                 </v-layout>
-
               </td>
             </tr>
           </table>

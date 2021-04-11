@@ -73,7 +73,7 @@
       </div>
       <div class="hidden-md-and-up">
         <v-card>
-          <ModelList showLastModified="true" :objects="projects" />
+          <ModelList show-last-modified="true" :objects="projects" />
         </v-card>
       </div>
     </v-flex>

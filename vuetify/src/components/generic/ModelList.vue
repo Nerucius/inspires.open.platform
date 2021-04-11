@@ -5,7 +5,6 @@
       :key="obj.id"
       :to="obj.link"
     >
-
       <v-list-tile-avatar tile size="60" class="ma-0 pa-0">
         <v-img :src="obj.image_url" :ratio="1" />
       </v-list-tile-avatar>

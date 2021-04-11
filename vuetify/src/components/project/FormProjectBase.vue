@@ -100,17 +100,17 @@
         item-value="id"
       />
 
-      <v-combobox v-model="editedProject.country_code"
-        ref='countriesCB'
-        box multiple
-        chips deletable-chips
-        :items="Countries"
-        :item-text="countryTL"
-        item-value="alpha3Code"
-        :rules="[rules.isCountry]"
-        :label="$t('forms.fields.projectCountry')"
-        :hint="$t('forms.hints.projectCountry')"
-        @input="clearSearch('countriesCB')"
+      <v-combobox ref="countriesCB"
+                  v-model="editedProject.country_code"
+                  box multiple
+                  chips deletable-chips
+                  :items="Countries"
+                  :item-text="countryTL"
+                  item-value="alpha3Code"
+                  :rules="[rules.isCountry]"
+                  :label="$t('forms.fields.projectCountry')"
+                  :hint="$t('forms.hints.projectCountry')"
+                  @input="clearSearch('countriesCB')"
       />
 
       <v-select

@@ -9,7 +9,6 @@ table{
   <div v-if="project" class="pb-4">
     <!-- Title -->
     <v-layout>
-
       <v-flex xs12>
         <h2>{{ $t('pages.projectManage.evaluationTitle') }}</h2>
       </v-flex>
@@ -18,7 +17,6 @@ table{
           <v-icon>mdi-help</v-icon>
         </v-btn>
       </v-flex>
-
     </v-layout>
 
     <v-alert color="info" class="ma-4" :value="showHelp">
@@ -33,8 +31,9 @@ table{
     </v-alert>
 
     <v-btn large block dark color="grey darken-3"
-      :to="{...project.link, name:'evaluation-detail'}"
-      class="elevation-0">
+           :to="{...project.link, name:'evaluation-detail'}"
+           class="elevation-0"
+    >
       <v-icon left>
         mdi-school
       </v-icon>

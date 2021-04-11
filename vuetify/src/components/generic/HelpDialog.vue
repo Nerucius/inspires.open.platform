@@ -13,7 +13,8 @@
 <template>
   <v-btn
     fab small dark :color="color || 'blue white--text'" absolute top right class="help__button elevation-0"
-    @click="showHelp = true">
+    @click="showHelp = true"
+  >
     <v-icon>mdi-help</v-icon>
     <!-- Dialog -->
     <v-dialog v-model="showHelp" max-width="600">

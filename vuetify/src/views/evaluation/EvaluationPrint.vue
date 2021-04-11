@@ -234,11 +234,9 @@
 
             <!-- TEXT Questions -->
             <div v-if="question.answer_type == 'TEXT'" :key="question.id" class="no-page-break mt-5">
-              <h3 class="">
+              <h3 class="mb-3">
                 <small>{{ question.id }}</small>
                 {{ $t(`${question.i18n}`) }}
-                <br>
-                <br>
                 {{ $t('models.question.Q10XY', {phase: $t(phase(evaluation.project_phase).tag)}) }}
               </h3>
 

@@ -59,7 +59,7 @@
     },
 
     "help": {
-      "title": "Help Center",
+      "title": "Learn Center",
       "description": "TODO: text",
       "allArticles": "All Articles",
       "articlesOtherLanguages": "Articles in other languages",
@@ -123,10 +123,12 @@
       "detailsTab": "Information",
       "evaluationTab": "Project Evaluation",
       "notApproved": "This project is not approved yet, it will not show up in public lists until it is registered to a Structure.",
-      "projectNotYetEvaluated": "This project has not received sufficient feedback and evaluations from it's participants yet, so we can't show you how it's doing. Check back another day!"
+      "projectNotYetEvaluated": "This project has not received sufficient feedback and evaluations from it's participants yet, so we can't show you how it's doing. Check back another day!",
+      "activeCountries": "This project is active in 1 country: | This project is active in {n} countries:"
     },
     "structureDetail": {
       "notApproved": "This structure is not approved yet, it will not show up in public lists until a site administratot validates it.",
+      "activeCountries": "This structure is active in 1 country: | This structure is active in {n} countries:",
       "about": "About"
     },
     "structureList": {
@@ -615,7 +617,7 @@
     "links": {
       "home": "Home",
       "about": "About",
-      "help": "Help",
+      "help": "Learn",
       "learn": "Learn"
     }
   },
@@ -787,7 +789,7 @@
       "isAnonymousInvite": "Hide this Participant's real name on Public pages.",
       "contactEmail": "Where should people reach you with questions about the project?",
       "contactWebsite": "URL to an external site where people can see more about your project.",
-
+      
       "username": "Enter your login user name. A good choice is firstname.lastname (i.e. john.doe)",
 
       "structureName": "Choose a name that characterizes your structure. Less than 50 characters suggested.",

@@ -18,9 +18,7 @@
           <v-icon large dark>info</v-icon>
         </v-flex>
         <v-flex>
-          <vue-markdown>{{
-              $t("pages.projectManage.inviteParticipantsInfo")
-            }}</vue-markdown>
+          <vue-markdown>{{ $t("pages.projectManage.inviteParticipantsInfo") }}</vue-markdown>
         </v-flex>
       </v-layout>
     </v-alert>
@@ -28,7 +26,7 @@
     <v-form ref="form" v-model="valid" @submit.prevent="attemptSubmit()">
       <v-card>
         <v-card-text>
-          <h2>{{ $t("forms.titles.newParticipant") }}</h2>
+          <h3>{{ $t("forms.titles.newParticipant") }}</h3>
 
           <v-select
             v-model="inviteUser.role"
@@ -65,6 +63,8 @@
             </v-flex>
           </v-layout>
 
+          <h3>{{ $t('misc.optional') }}</h3>
+
           <v-text-field
             v-model="inviteUser.email"
             :rules="[rules.isEmail]"
@@ -72,6 +72,28 @@
             :hint="$t('misc.optional')"
             persistent-hint
           />
+
+          <v-layout wrap>
+            <v-flex xs12 sm6>
+              <v-select persistent-hint
+                v-model="inviteUser.gender"
+                :item-text="e => $t(e.name)"
+                :items="$store.getters['user/genders']"
+                :label="$t('forms.fields.genderIdentity')"
+                :hint="$t('misc.optional')"
+              />
+            </v-flex>
+            <v-flex xs12 sm6>
+              <v-select persistent-hint
+                v-model="inviteUser.education_level"
+                :item-text="e => $t(e.name)"
+                :items="$store.getters['user/educationLevels']"
+                :label="$t('forms.fields.education')"
+                :hint="$t('misc.optional')"
+              />
+            </v-flex>
+          </v-layout>
+
           <v-text-field
             v-model="inviteUser.institution"
             :label="$t('forms.fields.institution')"

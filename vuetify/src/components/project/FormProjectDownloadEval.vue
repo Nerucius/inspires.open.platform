@@ -1,9 +1,10 @@
 <template>
   <!-- Questionnaire download tool -->
+  <div>
+
+  <h2 class="my-4">{{ $t('pages.projectManage.evalViewPrintVersion') }}</h2>
   <v-card>
     <v-card-text>
-      <h3>{{ $t('pages.projectManage.evalViewPrintVersion') }}</h3>
-
       <v-form ref="form" v-model="valid" @submit.prevent="downloadQuestionnaire">
         <v-layout wrap>
           <v-flex xs12 sm6 md4>
@@ -36,6 +37,7 @@
       </v-form>
     </v-card-text>
   </v-card>
+  </div>
 </template>
 
 <script>

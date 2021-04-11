@@ -9,7 +9,8 @@ table{
   <div v-if="project" class="pb-4">
     <!-- Title -->
     <v-layout>
-      <v-flex grow>
+
+      <v-flex xs12>
         <h2>{{ $t('pages.projectManage.evaluationTitle') }}</h2>
       </v-flex>
       <v-flex shrink>
@@ -17,6 +18,7 @@ table{
           <v-icon>mdi-help</v-icon>
         </v-btn>
       </v-flex>
+
     </v-layout>
 
     <v-alert color="info" class="ma-4" :value="showHelp">
@@ -30,19 +32,14 @@ table{
       </v-layout>
     </v-alert>
 
-    <v-layout pa-0 ma-0 mb-4 justify-center>
-      <v-flex grow pa-0 ma-0>
-        <v-btn large block dark color="grey darken-3"
-               :to="{...project.link, name:'evaluation-detail'}"
-               class="elevation-0"
-        >
-          <v-icon left>
-            mdi-school
-          </v-icon>
-          {{ $t('pages.projectManage.evalViewEvaluationResults') }}
-        </v-btn>
-      </v-flex>
-    </v-layout>
+    <v-btn large block dark color="grey darken-3"
+      :to="{...project.link, name:'evaluation-detail'}"
+      class="elevation-0">
+      <v-icon left>
+        mdi-school
+      </v-icon>
+      {{ $t('pages.projectManage.evalViewEvaluationResults') }}
+    </v-btn>
 
     <FormProjectDownloadEval :project="project" />
 

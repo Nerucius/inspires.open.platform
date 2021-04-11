@@ -15,10 +15,8 @@
     <!-- Contextual help -->
     <v-alert color="info" class="ma-4" :value="showHelp">
       <v-layout row align-top>
-        <v-flex>
-          <v-icon large dark>
-            info
-          </v-icon>
+        <v-flex shrink>
+          <v-icon large dark>info</v-icon>
         </v-flex>
         <v-flex>
           <vue-markdown>{{ $t('pages.projectManage.phasesTabDescription') }}</vue-markdown>

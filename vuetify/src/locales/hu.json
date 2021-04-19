@@ -12,6 +12,7 @@
       "editProfile": "Profil szerkesztése",
       "updateProfileSuccess": "A profilja frissítésre került",
       "updateProfileFailure": "A profilja frissítése sikertelen volt. ",
+      "evaluationRequests": "Evaluation requests",
       "myProjects": "Saját projektek",
       "myStructures": "Szervezeteim"
     },
@@ -47,6 +48,7 @@
       "mainTitle": "Üdvözli az InSPIRES csapata",
       "worldmapTitle": "Térkép",
       "latestTitle": "Legutóbbi frissítések",
+      "latestProjectsTitle": "Latest Project Updates",
       "mostActiveStructures": "Aktív Szervezetek",
       "welcomeMessage": "Üdvözöljük az InSPIRES online adatbázisában és hatásmérő platformján. Ezen az oldalon Science Shop-okhoz, Citizen Science csoportokhoz kötődő részvételi kutatási és fejlesztési projektek szerepelnek. ",
       "welcomeMessageLong": "Az InSPIRES Open Platform egy kollaboratív hatásmérő eszközt is kínál, amelynek segítségével a résztvevőkkel együtt értékelheti a projekt folyamatait és eredményeit. Célunk, hogy a közös értékelés, tanulás révén olyan projekteket alakítsunk ki a jövőben, amelyek még inkább hozzájárulnak az állampolgárok életminőségének és jóllétének javulásához.",
@@ -82,10 +84,13 @@
       "mainTitle": "Adminisztrációs felület",
       "unauthorizedAccess": "Nem jogosult az adminisztrációs felület elérésére. Ha úgy gondolja, hogy jogosult, kérjük, forduljon a platform adminisztrátorához. ",
       "pendingApproval": "A feltöltött szervezet jóváhagyásra vár",
+      "approvedStructures": "Structures approved",
       "instructionsText": "A következő szervezeteket érvényesíteni szükséges, mielőtt megjelennek az oldal nyilvános listáin. Kérjük, ellenőrizze a szervezetek adatainak érvényességét.  \nKérjük, ellenőrizze a szervezethez rendelt személyt is. \n",
       "createdBy": "Létrehozta",
       "validationSuccess": "A szervezet érvényesítése sikeres. Mostantól kezdve a nyilvános listákon is szerepel majd. ",
-      "validationFailure": "A feltöltött szervezet érvényesítése sikertelen. Kérjük, vegye fel a kapcsolatot az oldalt működtető csapattal."
+      "validationFailure": "A feltöltött szervezet érvényesítése sikertelen. Kérjük, vegye fel a kapcsolatot az oldalt működtető csapattal.",
+      "retirementSuccess": "Structure retired from the platform correctly.",
+      "retirementFailure": "Failed to retire the structure. Please contact support."
     },
     "legal": {
       "termsOfServiceTitle": "Szolgáltatási feltételek",
@@ -105,15 +110,20 @@
       "detailsTab": "Információ",
       "evaluationTab": "Projektértékelés",
       "notApproved": "A projekt még nincs jóváhagyva, és csak akkor jelenik meg a nyilvános listákban, ha regisztrálják, hogy egy Szervezethez tartozik.",
-      "projectNotYetEvaluated": "Ez a projekt még nem kapott elegendő visszajelzést és értékelést a résztvevőktől, így nem tudjuk megmutatni, hogyan áll jelenleg. Nézzen vissza később!"
+      "projectNotYetEvaluated": "Ez a projekt még nem kapott elegendő visszajelzést és értékelést a résztvevőktől, így nem tudjuk megmutatni, hogyan áll jelenleg. Nézzen vissza később!",
+      "activeCountries": "This project is active in 1 country: | This project is active in {n} countries:"
     },
     "structureDetail": {
       "notApproved": "Ezt a Szervezetet még nem hagyták jóvá, csak akkor jelenik meg nyilvános listákban, ha az oldal adminisztrátora már jóváhagyta.",
+      "activeCountries": "This structure is active in 1 country: | This structure is active in {n} countries:",
       "about": "További információ"
     },
     "structureList": {
+      "introTitle": "Want to know more about structures?",
       "introText": "A Szervezet egy tudásközvetítő egység, amely egyetemen, kutatóközponton vagy másokon alapulhat, és elősegíti a tudományos közösség és a civil társadalmi szervezetek közötti interakciókat és párbeszédeket a részvételi kutatási projektek közös létrehozása és végrehajtása érdekében.\n\nJelenleg számos címkével használják az ilyen struktúrák meghatározását: tudományos üzletek, campus-közösségi iroda, Citizen Science egységek, Social Labs, Living Labs stb., De a polgárok akciókutatása, közösségi alapú részvételi kutatás és az állampolgári tudomány is. Ezért nem kívánunk kizárólagosak lenni, hanem inkább összegyűjtjük ebben a nyílt terepen az összes olyan projektet, amely az általunk támogatott 5 alapelv szerint működik: tudásdemokrácia, állampolgárok által vezetett kutatás, részvételi dinamika, integritás és átalakító változás. Itt találja az összes nyílt platformon regisztrált struktúrát.",
-      "visitStructure": "Szervezet megtekintése"
+      "visitStructure": "Szervezet megtekintése",
+      "showMore": "Show more structures",
+      "noMoreStructures": "That's all the structures!"
     },
     "structureManage": {
       "title": "Szerkesztés",
@@ -142,12 +152,12 @@
     "projectList": {
       "introTitle": "Szeretne többet megtudni a projektekről?",
       "introText": "Az InSPIRES Open Platform részvételi kutatási és innovációs projekteket tartalmaz, amelyeket különböző típusú szervezetek támogatnak, mint például a Science Shop-ok és civil kutatással foglalkozó csoportok, stb. Itt megtalálhatja az Open Platformon regisztrált összes projektet.",
-      "showMore": "További projektek mutatása",
-      "noMoreProjects": "Ez az összes projekt!",
       "showEvaluations": "Értékelés eredménye",
       "noKASpecified": "Nincs meghatározott tudásterület.",
       "visitProject": "Projekt megtekintése",
-      "filterByArea": "a ............ területén"
+      "filterByArea": "a ............ területén",
+      "showMore": "További projektek mutatása",
+      "noMoreProjects": "Ez az összes projekt!"
     },
     "projectManage": {
       "title": "A projekt felelősei",
@@ -156,6 +166,9 @@
       "infoContactTitle": "Elérhetőség",
       "infoAdditionalTitle": "További információk",
       "infoAdditionalDescription": "Egyéb hasznos részletek, hogy a projekt jól körülhatárolható és megtalálható legyen a keresések során.",
+      "structureTitle": "Associated Intermediation Structure",
+      "structureSubheading": "Select under which Intermediation Structure your project is established.",
+      "structureHelp": "Every project in the platform has to be validated by an intermediation Structure that will give the project validity. Please select the Structure to which your project belongs.\n\nThe platform will notify the structure owners to review and approve your project so it will appear in public listings. We will let you know as soon as your project is approved.",
       "success": "Szervezet mentése sikeres.",
       "failure": "Szervezet mentése sikertelen. Próbálja újra később.",
       "projectTab": "Ez a projekt",
@@ -197,6 +210,7 @@
       "evalConfirmUpdate": "Biztosan frissíteni szeretné a projektjét a 2. Verzióra? Ezáltal a  projekt értékelésével kapcsolatos ÖSSZES adatot elveszíti.\n\nKérjük, olvassa el a Súgó oldalt, ha nem biztos a következményekben.",
       "evalConfirmDismiss": "Ha elutasítja ezt a figyelmeztetést, ez a lehetőség a későbbiekben már nem lesz elérhető az Ön számára.",
       "inviteParticipantsTitle": "Résztvevő meghívása a projektbe",
+      "inviteParticipantsInfo": "Ha a projekt bármely résztvevője nem képes saját fiókot létrehozni, vagy inkább Ön szeretné kitölteni az értékelést a nevükben, akkor ezt az űrlapot használva létrehozhat egy felhasználói fiókot számukra.\n\n** MEGJEGYZÉS **: A projektet érvényesíteni kell, és egy szervezethez kell tartozzon.",
       "attachmentsTab": "Fájl mellékletei"
     },
     "evaluationDetail": {
@@ -207,19 +221,42 @@
         "engagement": "Elköteleződés",
         "responsiveness": "Fogékonyság"
       },
+      "projectOverallPosition": "A Projekt Általános Megítélése",
       "projectEvolution": "Projekt fejlődés",
-      "commentsByParticipants": "Résztvevők kommentjei"
+      "commentsByParticipants": "Résztvevők kommentjei",
+      "help": {
+        "projectOverallPosition": "A Projekt Általános Megítélése diagram az összes dimenzió értékelési pontszámait egyetlen mutatóba (értékelés) sűríti, és kiszámítja az értékelési pontszámok eltérését az öt elv között (koherencia). A jelenlegi projektet a sárga pont jelöli az ábrán.\n\nPéldául, ha a projektet ábrázoló sárga pont a jobb felső sarokban van, az azt jelenti, hogy a projekt minden dimenzióban elég magas minősítést kapott, és hogy az egyes dimenziókra adott pontszámok között nincs jelentős eltérés.",
+        "projectEvolution": "A Projekt Értékelő diagram sárga vonallal mutatja az aktuális projekt esetében az értékelési folyamat négy szakaszának összesített pontszámát. Az egyes projektek értékelésének mediánja (a szürke pont) és a Q1 (alsó vízszintes vonal) és a Q3 (felső vízszintes vonal) kvartilis minden projektfázis esetében fel van tüntetve az ábrán.",
+        "involvement": "A Részvételi diagram megmutatja a projekt különböző szakaszainak hatását. A projekt vezetői, a kutatók, a hallgatók és a civil társadalom képviselői a projekt minden szakaszában megbecsülik, hogy az adott szakaszban történt-e közösségi bevonás (valódi bevonás). Hasonlóképpen, minden szakaszban felmérik, hogy a közösség részvétele releváns volt-e a projekt adott szakaszának fejlesztése szempontjából (eredményesség). Az egyes szakaszok értéke 0-tól (nincs hatás vagy egyáltalán nem releváns) 4-ig (nagyon releváns vagy maximális hatás) terjed, az értéket a színintenzitás változása jelöli.",
+        "bulletCharts": "Egy metrika (bullet chart) jelenik meg minden elvre és az egyes elveket alkotó különböző dimenziókra. A sárga pont az aktuális projekt értékelését jelenti. Az árnyékok a többi projektértékelést képviselik: egy világosabb árnyék a legalacsonyabb és a legmagasabb értékelési pontszámot képviselő projekteket jelenti, míg egy átláthatatlanabb árnyék az értékelési pontszámok első és harmadik kvartilisén belüli projekteket képviseli. Az első kvartilis (Q1) a középérték, amelyet az összes projekt közül a legalacsonyabb értékelési pontszám és az adatkészlet mediánja jelent. A harmadik kvartilis (Q3) a medián és a legmagasabb értékelési pontszám közötti középértékként van meghatározva az összes projekt között. Önkényes küszöbértéket ad meg a „3” -nál, hogy felhívják a figyelmet az ezen érték alatti értékelésekre.",
+        "bulletChart": {
+          "knowledgeDemocracy": "A ** Tudásdemokrácia ** dimenzióba tartozik a transzdiszciplinaritás, az adatok és az eredmények hozzáférhetősége, valamint a projekt tudományos relevanciája.\nAz első érték a dimenzió összesített pontszámát mutatja. Az azt követő értékek az aldimenziókra vonatkozó összesített eredményeket mutatják.",
+          "participatoryDynamics": "**Participatory Dynamics** include the degree of community involvement, and the quality and impact of engagement practices.\nThe first result shows the aggregated score for this dimension. The following one shows the aggregated results for each sub-dimensions under this one.",
+          "citizenledResearch": "Az ** Állampolgárok által vezetett kutatás ** dimenziója a projekt céljainak a közösségi igényekkel való összehangoltságára és a közösségi részvétel hatékonyságára utal a tudományos folyamat során.\nAz első érték a dimenzió összesített pontszámát mutatja. Az azt követő értékek az aldimenziókra vonatkozó összesített eredményeket mutatják.",
+          "integrity": "Az ** Integritás ** dimenziója magában foglalja az elvárások összehangolását, a kiszolgáltatott csoportok bevonását, az etikai és gender szempontok beépítését, az adatkezelés átláthatóságát, a projekt tervezésének következetességét és a rendelkezésre álló erőforrások minőségét.\nAz első érték a dimenzió összesített pontszámát mutatja. Az azt követő értékek az aldimenziókra vonatkozó összesített eredményeket mutatják.",
+          "transformativeChange": "**Transformative Change** relates to individual learning and personal growth, project sustainability, the societal responsiveness of the project and its impact on policies, programmes and/or services.\nThe first result shows the aggregated score for this dimension. The following one shows the aggregated results for each sub-dimensions under this one."
+        },
+        "projectManagerCharts": "A projektmenedzser képi megjelenítés nem érhető el a résztvevők számára, mert részletesen bemutatja az önreflexió folyamatát, miközben belső nézetet nyújt a menedzsment céljai érdekében.\n\nA vizualizáció ezen szintje és a résztvevők által elérhető szint közötti különbség az, hogy az értékelési eredményeket a válaszadók profilja szerint ábrázolja. Ez lehetővé teszi, hogy jobban megértsük, mi történt és kivel.",
+        "publicEval": "A nyilvános megjelenítés tükrözi a projekt átfogó értékelését, és megjeleníti az összes dimenzió összesített pontszámát.\n\nMinden projektet Kolibri képvisel: alázatos kismadár, de rendkívül aktív, akinek kevés mozgása hozzájárulhat az általános ökoszociális rendszerhez:\n- Szárnya a transzformatív változáshoz kapcsolódik, mert a Kolibri legaktívabb része, és amely mozgást hoz létre.\n- A fej a tudásdemokráciához kapcsolódik, a fej, az elme és a tudás természetes kapcsolatát követve.\n- A szív (vagy az alsó test) az állampolgárok által vezetett kutatáshoz kapcsolódik, mert az állampolgárság a Nyitott Tudomány szívdobbanása.\n- A farok a részvételi dinamikához kapcsolódik, mert kormányként működik. És végül a felsőtest társul az integritáshoz, mert enélkül az összes többi szempont szétesne.",
+        "phaseParticipation": "A kolibri grafikát négy kör kíséri, amelyek megfelelnek a négy értékelési szakasznak: Projekt indulás, Félidő, Projekt vége és Hat hónappal később. Az értékelt fázisokat a kör belsejében látható színezés mértéke mutatja. Ha az egész kör színes, az érintett felek (projektmenedzser, civil társadalom, kutatók és hallgatók) teljes köre kitöltötte az értékelési kérdőíveket. Ha a kör nincs teljesen kitöltve, a különböző érintettek egy része nem járult hozzá az értékeléshez.\n\nAz ábra melletti \"N\" jelölés szerepe: az értékelési kérdőíveket kitöltő résztvevők számát jelöli."
+      }
     },
     "evaluationEntry": {
       "mainTitle": "Projektértékelő kérdőív",
       "questionnaire": "Kérdőív",
-      "questionnaireDescription": "Kérdőív",
+      "selfQuestionnaireTitle": "Önreflexiós Kérdőív",
+      "selfQuestionnaireDescription": "A projekt értékelésének elősegítése érdekében javasoljuk az önreflexiós kérdőív kitöltését. A kérdőív néhány elgondolkodtató kérdést tartalmaz az induláshoz. A kérdőívet innen töltheti le:",
+      "viewQuestionnaire1": "View the self reflection questionnaire for Phase 1",
+      "viewQuestionnaire3": "View the self reflection questionnaire for Phase 3",
+      "questionnaireDescription": "Kérjük, a lehető legőszintébben válaszoljon a következő kérdésekre. A skálán a 0 érték az „egyáltalán nem értek egyet”, a 7 pedig a „teljesen egyetértek” kifejezést jelenti. A becsült válaszidő 5 perc.",
       "questionnaireCompleted": "Ez a kérdőív már elkészült. \n",
       "evaluationOverview": "Értékelés áttekintése",
       "evaluatedPhase": "Értékelt projektfázis",
       "evaluator": "Kiértékelő",
       "evaluationRole": "Kiértékelő szerep",
       "questionMultipleHelp": "válassza ki az összes érvényes állítást ",
+      "answeringAsToken": "{Name} néven válaszol. Kérjük, biztonságosan kezelje ezt a linket, mivel ez csak az Ön számára elérhető. ",
+      "manageProfileLink": "Ha szerkeszteni kívánja profilját vagy változtatna anonim státuszán, kérjük, látogasson el ide:",
       "viewOnly": "Csak a válaszokat tekintheti meg, nem módosíthatja őket. ",
       "submitSuccess": "Rögzítettük a válaszát. ",
       "submitFailure": "Hiba történt a válasz mentésekor. Kérjük, próbálja újra később."
@@ -265,6 +302,8 @@
       "participatoryResearch": "Részvételi kutatás",
       "participatoryActionResearch": "Részvételi Akció Kutatás",
       "citizenScience": "Civil Tudomány",
+      "publicEngagement": "Társadalmi bevonás",
+      "serviceLearning": "Önkéntességből való tanulás",
       "advocacy": "Képviselet",
       "innovation": "Innováció",
       "policyInnovation": "Szakpolitikai innováció",
@@ -350,6 +389,7 @@
         "scientificRelevance": "Tudományos jelentőség",
         "selfImprovement": "Önfejlesztés",
         "transdisciplinarity": "Transzdiszciplinaritás",
+        "knowledgeIntegration": "Tudás integráció",
         "transparency": "Átláthatóság"
       }
     },
@@ -534,7 +574,7 @@
         "Q94": "A projekt keretében megvalósuló részvételi események (mint például, műhelybeszélgetések, részvételi workshopok, csoportbeszélgetések, találkozók, online és együttműködő adatgyűjtési folyamatok) hozzájárultak a társadalmilag relevánsabb ismeretek létrehozásához.",
         "QN01": "A projekt megtervezését / irányát nem csak a kutatók vagy tudományos szakértők ötletei vezérlik.",
         "QN03": "A projekt megtervezését / irányát nem csak a kutatók vagy tudományos szakértők ötletei vezérelték.",
-        "QN08": "A projekt arra törekszik, hogy a nemek változatos tapasztalatait bevonja, és mindegyiknek azonos jelentőséget tulajdonítson.",
+        "QN08": "A projekt arra törekszik, hogy a nemek szerinti változatos tapasztalatokra reflektáljon, és minden szereplőnek egyenlő teret, megjelenést biztosítson.",
         "QN12": "Figyelembe vették a kutatás nemi egyenlőtlenségekre gyakorolt lehetséges hatásait (nemi szerep, hozzáférés, erőforrások ellenőrzése, egyenlőség).",
         "QN19": "A projekt megbeszélései során a tartalmon volt a fókusz, kerülték a személyeskedést és az érveket tiszteletteljes és racionális módon osztották meg egymással.",
         "QN23": "A projekt során új készségekre és ismeretekre tett szert, meglévő készségeit fejlesztette, vagy hozzáállásbeli változást tapasztalt az érintettek bevonásával kapcsolatban. (pl. hogyan lehet kommunikálni a civil társadalom tagjaival, hogyan lehet fókuszcsoportokat és workshopokat tartani stb.).",
@@ -558,7 +598,8 @@
     "links": {
       "home": "Főoldal",
       "about": "További információ",
-      "help": "Segítség"
+      "help": "Segítség",
+      "learn": "Segítség"
     }
   },
   "misc": {
@@ -669,7 +710,7 @@
       "structureSaveSuccess": "A szervezet adatai frissültek!",
       "structureSaveFailure": "A szervezet mentése sikertelen, kérjük, próbálja újra később.",
       "inviteParticipantFailure": "Nem sikerült meghívni ezt a személyt. Kérjük, ellenőrizze, hogy a projekt elfogadásra került-e. Lehet, hogy az e-mail már használatban van.",
-      "participantsSuccess": "A projektben résztvevő emberek feltöltésre kerültek",
+      "participantsSuccess": "A projektben résztvevő tagok feltöltésre kerültek.",
       "inviteParticipantSuccess": "Sikeres meghívás.",
       "copiedToClipboard": "A vágólapra másolva!",
       "errorClipboard": "Nem sikerült másolni a vágólapra, kérjük, másolja át manuálisan."
@@ -717,18 +758,28 @@
     "labels": {
       "searchUsers": "Felhasználók keresése"
     },
+    "descriptions": {
+      "projectAdministrators": "A projektadminisztrátorok teljes hozzáféréssel rendelkeznek a projekthez, és szerkeszthetik a projekt részleteit, valamint hozzáadhatnak és eltávolíthatnak más adminisztrátorokat és résztvevőket. Ezek a lehetőségek csak a platformon belül érvényesek."
+    },
     "hints": {
       "isAnonymous": "Valódi nevének elrejtése a nyilvános oldalakon. ",
       "isAnonymousInvite": "Ennek a résztvevőnek a valódi neve ne jelenjen meg a nyilvános oldalakon.",
       "contactEmail": "Hol fordulhatnak Önhöz kérdésekkel a projekt kapcsán? ",
       "contactWebsite": "URL egy külső honlaphoz, ahol további információ érhető el a projektről. ",
+      "username": "Írja be bejelentkezési felhasználónevét. Jó választás a keresztnév.vezetéknévnév (azaz, például aranka.varga)",
+      "structureName": "Válasszon egy nevet szervezetének. 50 karakternél rövidebb nevek javasoltak.",
+      "structureSummary": "Rövid összefoglaló a szervezetéről.  200 karakternél rövidebb leírás javasolt.",
+      "structureCountry": "Ország, ahol a szervezet aktív",
+      "structureAdministrators": "Itt adhatja hozzá azokat az embereket, akik teljes hozzáféréssel rendelkeznek, szerkeszthetik a Szervezet adatait és jóváhagyhatják az új Projekteket. A Szervezet adminisztrátorai nem ruházhatják át másnak ezt a jogot. Az adminisztrátorok NEM résztvevők.",
       "projectType": "Hogyan épül fel a projektcsapata? ",
       "projectName": "Válasszon egy nevet, amely a projektre jellemző. Kevesebb mint 50 karakter javasolt.",
       "projectSummary": "Rövid leírás a projektről. Kevesebb mint 200 karakter javasolt.",
-      "projectAdministrators": "Adja meg azokat az embereket, akiknek teljes hozzáférésük lesz a projekt szerkesztéséhez. A projekt adminisztrátorok nem ruházhatják át ezt a jogot. ",
+      "projectAdministrators": "Adja meg azokat az embereket, akiknek teljes hozzáférésük lesz a projekt szerkesztéséhez. A projekt adminisztrátorok nem ruházhatják át ezt a jogot. Az adminisztrátorok NEM résztvevők.",
       "projectAcronym": "Válasszon egy projekt mozaikszót. ",
+      "projectCountry": "Helyileg hol jött létre a projekt, vagy hol a legaktívabb?",
       "postalAddress": "Ha valaki küldene Önnek egy levelet, hova címezné? ",
       "knowledgeArea": "UNESCO tudományterület, ami leginkább lehatárolja a projektet.",
+      "knowledgeAreas": "Válassza ki szervzete kutatási területeit.",
       "summary": "Hosszú projektleírás. Nincs karakterkorlátozás.",
       "description": "Hosszú projektleírás. Nincs karakterkorlátozás.",
       "descriptionTemplate": "Kérjük, kövesse a megadott sablont, és ne távolítsa el a szakaszfejléceket ('##' -vel kezdődő sorok). Töltse ki a projekt adatait a magyarázó szövegek helyére. ",

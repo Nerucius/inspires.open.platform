@@ -12,13 +12,16 @@
       "editProfile": "Bewerk Profiel",
       "updateProfileSuccess": "Uw profiel is bijgewerkt ",
       "updateProfileFailure": "Profiel bijwerken is niet gelukt",
+      "evaluationRequests": "Evaluation requests",
       "myProjects": "Mijn Projecten",
       "myStructures": "Mijn Structuren"
     },
     "resetPassword": {
       "title": "Afronden herstellen van wachtwoord",
+      "introText": "Op deze pagina kunt u uw vergeten wachtwoord wijzigen. Voer het nieuwe wachtwoord in dat u vanaf nu wilt gebruiken:",
       "resetPassword": "Herstel mijn wachtwoord",
-      "goBackToLogin": "Ga terug naar inlog pagina"
+      "goBackToLogin": "Ga terug naar inlog pagina",
+      "passwordChanged": "Uw wachtwoord is succesvol gewijzigd! U kunt teruggaan naar de inlogpagina met uw nieuwe gegevens."
     },
     "register": {
       "titles": {
@@ -37,16 +40,28 @@
       "step3TOSAcceptance": "Door op de knop 'ALGEMENE VOORWAARDEN ACCEPTEREN' te klikken, bevestig ik dat ik op de juiste wijze ben geïnformeerd en dat ik toestemming geef voor de verwerking van mijn persoonlijke gegevens voor het aangegeven doel.",
       "step3MessageAccepted": "Geweldig! We kunnen nu doorgaan met de rest van de registratie. ",
       "step4Message": "Check onderstaande informatie. Als alles correct is, kunt u doorgaan met de registratie. U kunt teruggaan naar elke stap om de informatie aan te passen.",
-      "step4MessageInvite": "Tijdens de eerste testperiode beperken we de registratie tot degenen die persoonlijk zijn uitgenodigd. Voer de code die u heeft ontvangen hieronder in:"
+      "step4MessageInvite": "Tijdens de eerste testperiode beperken we de registratie tot degenen die persoonlijk zijn uitgenodigd. Voer de code die u heeft ontvangen hieronder in:",
+      "registrationFailure": "Er is iets misgegaan met uw registratie, probeer het opnieuw.",
+      "emailTaken": "Dit e-mailadres is al in gebruik. Probeer een andere of probeer uw wachtwoord te achterhalen."
     },
     "home": {
       "mainTitle": "Welkom bij InSPIRES",
       "worldmapTitle": "Wereldkaart",
       "latestTitle": "Laatste updates",
+      "latestProjectsTitle": "Latest Project Updates",
+      "mostActiveStructures": "Actieve structuren",
       "welcomeMessage": "Welkom op de online database- en impactevaluatietool van InSPIRES. Dit platform bevat participatieve onderzoeks- en innovatieprojecten die worden gepromoot door kennisuitwisselingseenheden, zoals Wetenschapswinkels.",
       "welcomeMessageLong": "Het biedt ook een geïntegreerde en collaboratieve impactevaluatietool voor het beoordelen van de processen en resultaten van uw eigen projecten in relatie tot anderen. Het doel is om een ​​gezamenlijke en collectieve reflectie voor dit type samenwerkingsprojecten te realiseren. Dit vormt de basis voor het uitwisselen van praktijkvoorbeelden om zodoende samen te kunnen leren, denken, debatteren en groeien, en om uiteindelijk betere projecten te kunnen ontwikkelen die gericht zijn op het verbeteren van het leven en welzijn van burgers. ",
       "aboutLink": "Meer over ons!",
-      "projectsSeeMore": "Zie alle projecten"
+      "allProjects": "Alle projecten",
+      "projectsSeeMore": "Bekijk alle projecten"
+    },
+    "help": {
+      "title": "Helpcentrum",
+      "description": "TODO: tekst",
+      "allArticles": "Alle artikelen",
+      "articlesOtherLanguages": "Artikelen in andere talen",
+      "articleDoesNotExist": "Het artikel dat u zoekt bestaat niet meer."
     },
     "about": {
       "mainTitle": "Over InSPIRES Open Platform",
@@ -60,26 +75,63 @@
       "titleTeam": "Het team achter InSPIRES Open Platform",
       "teamContent": "De ontwikkeling van dit Open Platform werd geleid door het ISGlobal-team in nauwe samenwerking met de onderzoeksgroepen Data Science en OpenSystems van de Universiteit van Barcelona. Alle InSPIRES-consortiumleden hebben tevens een belangrijke rol gespeeld bij de totstandkoming ​​en doorontwikkeling.  "
     },
+    "search": {
+      "searchResults": "Zoek resultaten",
+      "searchResultsFor": "Zoek resultaten voor '{term]'",
+      "searchFound": "We hebben {aantal} overeenkomstige items gevonden voor uw zoekopdracht:"
+    },
     "admin": {
       "mainTitle": "Beheer Dashboard",
       "unauthorizedAccess": "U bent niet bevoegd om toegang te krijgen tot het Beheer Dashboard. Als u denkt dat dit nodig is, neem dan contact op met de platformbeheerder.",
       "pendingApproval": "Structuren wachten op goedkeuring",
+      "approvedStructures": "Structures approved",
       "instructionsText": "De volgende structuren moeten worden goedgekeurd voordat ze worden weergegeven op de  website. Controleer ze allemaal op geldigheid van gegevens en authenticiteit.\n\nControleer ook of de persoon die beweert de eigenaar van de structuur te zijn, degene is die zij claimen te zijn en of ze de informatie op de site mogen plaatsen. ",
       "createdBy": "Gemaakt door {name}",
       "validationSuccess": "Structuur goedgekeurd en wordt nu weergegeven op de website.",
-      "validationFailure": "Kon de structuur niet goedkeuren. Neem contact op met de ondersteuning."
+      "validationFailure": "Kon de structuur niet goedkeuren. Neem contact op met de ondersteuning.",
+      "retirementSuccess": "Structure retired from the platform correctly.",
+      "retirementFailure": "Failed to retire the structure. Please contact support."
+    },
+    "legal": {
+      "termsOfServiceTitle": "Voorwaarden van de dienst",
+      "termsOfService": "Door het accepteren van de voorwaarden van de dienst begrijpt u dat:\n\nUw persoonlijke gegevens alleen zullen worden gebruikt door:\n\nFundación Privada Instituto de Salud Global Barcelona (ISGlobal)\nCIF: G65341695\nAdres en Postcode: Carrer Rosselló, number 132, 2nd, 5th and 7th floors - 08036 Barcelona\nTelefoonnummer: (+34) 932 271 806\nEmail: inspires@isglobal.org\n\nWij verzamelen en verwerken uw persoonsgegevens uitsluitend om te reageren op uw inschrijving bij de website https://app.inspiresproject.com.\n\nUw gegevens worden uitsluitend gebruikt door het InSPIRES team van ISGlobal die er toegang toe moeten hebben om hun werk te kunnen doen en ze zullen, in geen geval, aan derden ter beschikking worden gesteld of worden doorgegeven aan derden landen of internationale organisaties.\n\nWij kunnen uw persoonsgegevens alleen verwerken met uw toestemming, en deze zullen slechts worden bewaard zolang u uw toestemming niet intrekt.\n\nU kunt al uw rechten op grond van de huidige regelgeving inzake gegevensbescherming, waaronder het recht op toegang, correctie, bezwaar, wissen, overdraagbaarheid en beperking, uitoefenen door te schrijven naar de functionaris voor gegevensbescherming (lopd@isglobal.org), en daarbij een kopie van uw nationale identiteitsbewijs of een gelijkwaardig document te voegen.\n\nU hebt het recht uw toestemming te allen tijde in te trekken. Het intrekken van de toestemming heeft geen invloed op de rechtmatigheid van de verwerking op basis van de toestemming vóór de intrekking daarvan. Als u het niet eens bent met de manier waarop ISGlobal uw gegevens verwerkt of als u van mening bent dat uw rechten zijn geschonden, kunt u te allen tijde een klacht indienen bij het Spaanse Agentschap voor Gegevensbescherming (Spanish Data Protection Agency).\n\n\n",
+      "legalNoticeTitle": "Juridische kennisgeving",
+      "legalNotice": "### Eigenaar van de website en de applicatie\nFundación Privada Instituto de Salud Global Barcelona (ISGlobal)\nCIF: G65341695\nAdres en Postcode: C/ Rosselló, 132, 2ª, 5ª and 7ª - 08036 Barcelona\nIngeschreven in het Stichtingenregister van het Directoraat-generaal Recht en Rechtspersonen van de regering van Catalonië onder nummer 2,634\nTelefoonnummer: (+34) 932 271 806\n\nDe website is eigendom van ISGlobal. \n\nHet gebruik van de website is onderworpen aan de volgende gebruiksvoorwaarden. Leest u ze alstublieft zorgvuldig door. Toegang tot de website en het gebruik van de inhoud ervan houdt in dat u deze voorwaarden hebt gelezen en zonder voorbehoud hebt aanvaard",
+      "conditionsOfUseTitle": "Gebruiksvoorwaarden",
+      "conditionsOfUse": "De website bevat inhoud die door ISGlobal uitsluitend voor informatieve doeleinden is opgesteld. Het is mogelijk dat deze inhoud niet de meest actuele informatie over de behandelde onderwerpen weergeeft. Evenzo kan dit materiaal worden gewijzigd, uitgebreid of bijgewerkt zonder voorafgaande kennisgeving.\n\nUw toegang tot deze inhoud creëert of impliceert geen professionele of vertrouwensrelatie tussen ISGlobal en u. \n\nDe links op de website kunnen u doorverwijzen naar andere websites, pagina's of applicaties die beheerd worden door derden waarover ISGlobal geen controle heeft. ISGlobal is niet verantwoordelijk voor de inhoud of de staat van deze websites, pagina's en applicaties. Het feit dat ze toegankelijk zijn via onze website of applicatie impliceert niet dat ISGlobal de inhoud ervan aanbeveelt of goedkeurt.\n\n### Beperking van aansprakelijkheid \n\nU gebruikt onze website op eigen risico en voor eigen rekening. ISGlobal is niet verantwoordelijk voor fouten of weglatingen in de inhoud van de website, de applicatie of andere sites die u via de website of de applicatie kunt bezoeken. ISGlobal is niet aansprakelijk voor enige schade die voortvloeit uit het gebruik van onze website of enige handeling die is uitgevoerd op basis van informatie die op onze website is verstrekt. \n\nISGlobal garandeert niet de afwezigheid van virussen of andere schadelijke elementen die uw IT-systeem, elektronische documenten of bestanden op onze website zouden kunnen beschadigen of wijzigen. Bijgevolg aanvaardt ISGlobal geen aansprakelijkheid voor enig verlies of schade die dergelijke elementen bij u of een derde partij zouden kunnen veroorzaken. \n\n[Bijgewerkt op februari 2019]",
+      "privacyPolicyTitle": "Privacybeleid",
+      "privacyPolicy": "**In overeenstemming met de huidige regelgeving inzake gegevensbescherming** informeert ISGlobal u over het volgende:\n\nWanneer u wordt verzocht persoonsgegevens te verstrekken voor het verlenen van diensten, wordt u medegedeeld welke gegevens u moet verstrekken. \n\nAls u deze vereiste gegevens niet verstrekt, kunnen wij u de diensten niet verlenen. De persoonsgegevens die u verstrekt of die ISGlobal verkrijgt als gevolg van uw browsen, zoekopdrachten of verzoeken via onze website op https://app.inspiresproject.com (de \"Website\") zullen worden opgenomen in een bestand dat eigendom is van ISGlobal voor het beheren, opslaan en volgen van uw verzoeken om informatie en/of het contracteren van goederen of diensten die via de website worden aangeboden.\n\nDe informatie die ISGlobal van u verkrijgt via de website wanneer u zich inschrijft voor een promotie-evenement of een formulier instuurt, wordt met de grootst mogelijke vertrouwelijkheid verwerkt om u te helpen deel te nemen aan het evenement in kwestie of, in het tweede geval, om u de gevraagde informatie toe te sturen. De verkregen informatie wordt voor geen enkel ander doel gebruikt. \n\nDe verstrekte persoonsgegevens worden zonder uw toestemming niet bekendgemaakt of doorgegeven aan derden.\n\nInformatie wordt alleen verzonden via de formulieren van de website nadat u uw akkoord hebt gegeven door een \"ACCEPTEER/VERZEND\" (of soortgelijke) knop te selecteren, waarmee ISGlobal het bewijs heeft dat u haar toestemming hebt gegeven om uw persoonsgegevens te verwerken.\nIn alle gevallen garandeert u dat de gegevens die u verstrekt waarheidsgetrouw, juist, volledig en up-to-date zijn. ISGlobal kan weigeren de gevraagde informatie of diensten te leveren aan gebruikers die onjuiste gegevens verstrekken, onverminderd eventuele andere juridische stappen die zij kan ondernemen.\n\nOp grond van artikel 22 van de Spaanse Wet 34/2002, van 11 juli, betreffende de 'Information Society Services and Electronic Commerce', kan ISGlobal \"cookies\" (gegevens in een tekstbestand) op uw computer opslaan en ophalen, op voorwaarde dat u daarvoor toestemming hebt gegeven en nadat wij u duidelijke en volledige informatie hebben verstrekt over het gebruik van deze cookies. Volledige informatie over het doel van het installeren van deze cookies en waarvoor ze worden gebruikt, kunt u vinden op de pagina over het Cookiebeleid.\n\nDit vormt geen beletsel voor enige technische opslag of toegang met als enig doel de uitvoering of het faciliteren van de transmissie van een communicatie over een elektronisch communicatienetwerk, of indien strikt noodzakelijk voor de levering van een uitdrukkelijk door u gevraagde dienst van de informatiemaatschappij. \n\nU kunt uw recht op toegang, rectificatie, uitwissing, bezwaar, overdraagbaarheid en beperking van de verwerking uitoefenen door een verzoek te sturen naar lopd@isglobal.org of het postadres van ISGlobal: c/ Rosselló, 132, 08036 Barcelona, Spanje. Het verzoek moet uw volledige naam bevatten, het adres voor kennisgevingen, een fotokopie van uw identiteitsbewijs of paspoort en een aanduiding van het recht dat u wilt uitoefenen. \n\nAls u niet tevreden bent met de verwerking door ISGlobal of meent dat uw rechten zijn geschonden, kunt u te allen tijde een klacht indienen bij het Spaanse Agentschap voor Gegevensbescherming (Spanish Data Protection Agency).\n\nOvereenkomstig met Wet 34/2002, van 11 juli, betreffende de diensten van de 'Information Society and Electronic Commerce', kunt u, als u in de toekomst geen elektronische commerciële berichten van ISGlobal meer wenst te ontvangen, ons van deze voorkeur op de hoogte stellen door een e-mail te sturen naar lopd@isglobal.org. \n\n[Bijgewerkt op februari 2019]",
+      "cookiePolicyTitle": "Cookiebeleid",
+      "cookiePolicy": "Onze website https://app.inspiresproject.com (de \"Website\") maakt gebruik van cookies om informatie te verzamelen over hoe de Website wordt gebruikt.\n\nEen cookie is een bestand dat op uw machine (computer of mobiel apparaat) wordt gedownload om gegevens op te slaan die kunnen worden bijgewerkt en opgehaald door de entiteit die ze heeft geïnstalleerd.\n\nDe informatie die via cookies wordt verzameld, kan de datum en het tijdstip bevatten waarop u de website hebt bezocht, de pagina's die u hebt bekeken, de tijd die u op onze website hebt doorgebracht en de websites die u voor en na uw bezoek aan onze site hebt bezocht.\n\nWij gebruiken cookies om het surfen op onze website te vergemakkelijken, u van andere gebruikers te onderscheiden, u een betere gebruikservaring te bieden en problemen met onze website op te sporen. Indien u hiervoor toestemming geeft, zullen wij cookies gebruiken om informatie te verkrijgen over uw voorkeuren en om onze Website af te stemmen op uw interesses.\n\nHet doel van dit cookiebeleid is om u duidelijke en precieze informatie te verstrekken over de cookies die op onze Website worden gebruikt (het 'Cookiesbeleid'). Voor meer informatie over de cookies die op onze Website worden gebruikt, kunt u uw vragen mailen naar: lopd@isglobal.org.\n\n## Type cookies dat op de Website wordt gebruikt\n\nOnze Website maakt gebruik van de hieronder beschreven cookies.\n\n### First-party cookies\n\nDeze cookies worden naar uw computer gestuurd en alleen door ons verwerkt om de werking van de Website te verbeteren. De verzamelde informatie wordt gebruikt om de kwaliteit van onze service en uw gebruikerservaring te verbeteren. Deze cookies blijven langer in uw browser. Zo kunnen wij u herkennen wanneer u de Website opnieuw bezoekt en de aangeboden inhoud aan uw voorkeuren aanpassen.\n\n## Toestemming\n\nDoor op onze Website te surfen en te blijven, geeft u ons toestemming voor het gebruik van de beschreven cookies gedurende de periodes die onder de voorwaarden van dit Cookiesbeleid worden vermeld.\n\n## Uitschakelen en blokkeren van cookies\n\nCookies zijn niet vereist voor het gebruik van onze Website. U kunt cookies blokkeren en uitschakelen door uw browser zo in te stellen dat deze de installatie van alle of sommige cookies blokkeert. De meeste browsers kunnen worden ingesteld om u te waarschuwen voor de aanwezigheid van cookies of deze automatisch te blokkeren. Als u cookies blokkeert, kunt u onze Website blijven gebruiken. Het gebruik van sommige van haar diensten kan echter beperkt zijn en uw gebruikerservaring kan minder zijn.\n\n## Uw toestemming intrekken\n\nAls u op enig moment de toestemming die u onder dit Cookiebeleid hebt gegeven, wilt intrekken, verwijdert u de cookies die op uw machine (computer of mobiel apparaat) zijn opgeslagen via de instellingen en configuratie van uw webbrowser.\n\nVoor meer informatie over het verwijderen, uitschakelen of blokkeren van cookies, ga naar AllAboutCookies.org\n\n## De cookie-configuratie en -instellingen van uw browser wijzigen\n\nTenzij u de configuratie van uw browser hebt aangepast, maakt ons systeem cookies aan wanneer u onze Website bezoekt. Alle webbrowsers staan toe dat u deze configuratie wijzigt. Klik op de onderstaande links om te zien hoe u de cookieconfiguratie van de volgende browsers kunt aanpassen:\n\n- **Internet Explorer**:\n  - [Internet Explorer 5](https://support.microsoft.com/en-gb/help/196955)\n  - [Internet Explorer 6, 7, 8 and 9](https://support.microsoft.com/en-gb/help/260971/description-of-cookies)\n  - [Internet Explorer 11](https://support.microsoft.com/en-gb/help/17442/windows-internet-explorer-delete-manage-cookies)\n- **[Firefox](https://support.microsoft.com/en-gb/help/17442/windows-internet-explorer-delete-manage-cookies)**\n- **[Chrome](https://support.google.com/chrome/answer/95647?co=GENIE.Platform%3DDesktop&hl=en)**\n- **Safari**\n  - [For Windows](https://support.apple.com/kb/ph21411?locale=es_ES)\n  - [For Mac (iOS)](https://support.apple.com/es-es/HT201265)\n\n## Wijzigingen in het Cookiebeleid\n\nWij kunnen het Cookiesbeleid van onze Website van tijd tot tijd bijwerken. Wij raden u aan om dit beleid elke keer dat u onze Website bezoekt door te nemen, zodat u voldoende geïnformeerd bent over hoe en waarvoor wij cookies gebruiken. Het Cookiesbeleid is voor het laatst bijgewerkt op 6 juli 2018.\n\n## Contact\n\nVoor vragen, opmerkingen of suggesties met betrekking tot ons Cookiesbeleid kunt u een e-mail sturen naar: lopd@isglobal.org.\n\n[Bijgewerkt op februari 2019]",
+      "cookieToast": "Deze website maakt gebruik van first- en third-party cookies om informatie te verkrijgen over uw zoekgewoonten en om de kwaliteit van onze diensten en uw surfgedrag op onze website te verbeteren. Om akkoord te gaan met ons gebruik van cookies, klikt u op 'Accepteren' of surft u verder."
     },
     "projectDetail": {
       "about": "Over",
       "detailsTab": "Informatie",
       "evaluationTab": "Projectevaluatie",
-      "projectNotYetEvaluated": "Dit project heeft nog onvoldoende feedback en evaluaties ontvangen van de deelnemers, hierdoor kunnen we u nog niet laten zien hoe het gaat. Kom later nog eens terug!"
+      "notApproved": "Dit project is nog niet goedgekeurd, het zal niet in de publieke lijsten verschijnen totdat het geregistreerd is bij een Structuur.",
+      "projectNotYetEvaluated": "Dit project heeft nog onvoldoende feedback en evaluaties ontvangen van de deelnemers, hierdoor kunnen we u nog niet laten zien hoe het gaat. Kom later nog eens terug!",
+      "activeCountries": "This project is active in 1 country: | This project is active in {n} countries:"
     },
     "structureDetail": {
+      "notApproved": "Deze structuur is nog niet goedgekeurd, het zal niet verschijnen in de publieke lijsten totdat een sitebeheerder het valideert.",
+      "activeCountries": "This structure is active in 1 country: | This structure is active in {n} countries:",
       "about": "Over"
+    },
+    "structureList": {
+      "introTitle": "Want to know more about structures?",
+      "introText": "Een Structuur is een kennis-intermediaire eenheid, die gevestigd kan zijn binnen een universiteit, een onderzoekscentrum of andere, die interacties en dialogen bevordert tussen de wetenschappelijke gemeenschap en organisaties uit de maatschappelijke samenleving om gezamenlijk participatieve onderzoeksprojecten te creëren en uit te voeren.\n\nEr worden momenteel veel labels gebruikt om dergelijke structuren te definiëren: Science Shops, Campus-community office, Citizen Science units, Social Labs, Living Labs, enz. maar ook citizen action research, community-based participatory research, en citizen science. Daarom willen we niet exclusief zijn, maar eerder in dit open platform alle projecten verzamelen die werken volgens de 5 principes die wij promoten: Kennisdemocratie, Door Burgers Geleid Onderzoek, Participatieve Dynamiek, Integriteit en Transformatieve Verandering. Hieronder vindt u alle structuren die geregistreerd zijn in het Open Platform.\n",
+      "visitStructure": "Bekijk structuur",
+      "showMore": "Show more structures",
+      "noMoreStructures": "That's all the structures!"
     },
     "structureManage": {
       "title": "Beheer deze Structuur",
+      "infoNotValidated": "Deze structuur is nog niet gevalideerd en zal dus niet verschijnen in publieke lijsten. Gelieve te wachten tot een platform beheerder deze structuur activeert.",
+      "infoTitle": "Structuur Details",
+      "infoDescription": "Vul de basisinformatie met betrekking tot uw structuur in.",
+      "infoAdministratorsTitle": "Structuurbeheerders",
+      "infoAdministratorsDescription": "Structuurbeheerders hebben volledige toegang tot de structuur en kunnen de details van de structuur bewerken, alsmede managers en deelnemers toevoegen en verwijderen.",
       "success": "Structuur is succesvol opgeslagen. ",
       "failure": "Structuur opslaan is mislukt.",
       "collaborationFailure": "Kan het project niet goedkeuren. Probeer het later opnieuw.",
@@ -98,22 +150,40 @@
       "failure": "Kan geen nieuwe structuur aanmaken. Probeer het later opnieuw."
     },
     "projectList": {
+      "introTitle": "Wilt u meer weten over projecten?",
+      "introText": "Het InSPIRES Open Platform bevat projecten voor participatief onderzoek en innovatie die worden gepromoot door verschillende structuren en organisaties, zoals Science Shops, Citizen Science offices, enz. Hieronder vindt u alle projecten die in het Open Platform geregistreerd zijn.",
+      "showEvaluations": "Evaluatieresultaten tonen",
       "noKASpecified": "Geen kennisgebied opgegeven",
-      "filterByArea": "Op het gebied van {area}"
+      "visitProject": "Bekijk project",
+      "filterByArea": "Op het gebied van {area}",
+      "showMore": "Meer projecten tonen",
+      "noMoreProjects": "Dat zijn alle projecten!"
     },
     "projectManage": {
-      "title": "Beheer dit project",
+      "title": "Beheer dit Project",
+      "infoTitle": "Project details",
+      "infoDescription": "Vul basisinformatie in met betrekking tot uw Project.",
+      "infoContactTitle": "Contact Informatie",
+      "infoAdditionalTitle": "Aanvullende Informatie",
+      "infoAdditionalDescription": "Andere nuttige details zodat uw project goed omschreven is en gevonden kan worden in zoekopdrachten.",
+      "structureTitle": "Associated Intermediation Structure",
+      "structureSubheading": "Select under which Intermediation Structure your project is established.",
+      "structureHelp": "Every project in the platform has to be validated by an intermediation Structure that will give the project validity. Please select the Structure to which your project belongs.\n\nThe platform will notify the structure owners to review and approve your project so it will appear in public listings. We will let you know as soon as your project is approved.",
       "success": "Project succesvol opgeslagen.",
       "failure": "Het opslaan van de Unit is mislukt. Probeer het later opnieuw.",
       "projectTab": "Dit project",
       "participantsTab": "Deelnemers",
       "phasesTab": "Projectfasen",
+      "changePhase": "Verander de huidige fase",
+      "currentPhase": "Dit project is momenteel bij:",
+      "noCurrentPhase": "Dit project bevindt zich in geen enkele fase",
       "phasesTabDescription": "De evaluatiefasen zijn bedoeld om u informatie te geven over de doorlopende implementatie en uitkomsten van het project. Elke fase bestaat gemiddeld uit 6 vragen, het invullen kost u ongeveer 5 minuten. Zodra alle teamleden de evaluatie van de huidige fase hebben voltooid, worden de resultaten zowel op projectspecifiek als overkoepelend niveau gevisualiseerd. Wees alstublieft eerlijk en kritisch bij het beantwoorden van de vragenlijst.  \n\nAls u de huidige fase wilt wijzigen, selecteert u de fase en klikt u op opslaan. ",
       "hasPhase": "Dit project bevindt zich momenteel in deze fase sinds {date}.",
       "hadPhase": "Dit project was in deze fase vanaf {date}.",
       "notHasPhase": "Dit project is nog nooit in deze fase geweest.",
       "evaluationTab": "Evaluatie",
       "evaluationTitle": "Projectevaluatie",
+      "evaluationsPerPhase": "Evaluaties per fase",
       "evaluationTabDescription": "De impactevaluatietool bouwt voort op een zelfreflectieproces dat is verdeeld in vier fasen: een startfase aan het begin van het project, een tussentijdse evaluatie, een eindbeoordeling aan het einde van het project en een evaluatie na 6 maanden. ",
       "collaborationSuccess": "Samenwerking met structuur is met succes aangevraagd.",
       "collaborationFailure": "Kan samenwerking niet aanvragen.",
@@ -123,18 +193,70 @@
       "participantsIntro": "Deelnemers zijn diegenen die direct bij het project worden betrokken. U kunt elk gewenst aantal deelnemers toevoegen, maar elke deelnemer moet een rol binnen het project spelen. De rol van de deelnemer bepaalt de vragen die moeten worden beantwoord in de impactevaluatietool.\n\nAls u een deelnemer wilt toevoegen, kunt u binnen het plaform naar gebruikers zoeken door de volledige naam in het onderstaande vak in te vullen. ",
       "searchUsers": "Samenwerking met structuur is ingetrokken.",
       "evaluationSuccess": "Evaluatie met succes aangevraagd.",
-      "evaluationFailure": "Kan evaluatieverzoek niet verzenden. Probeer het later opnieuw."
+      "evaluationFailure": "Kan evaluatieverzoek niet verzenden. Probeer het later opnieuw.",
+      "evalOpenUniqueLink": "Open vragenlijst als deze persoon",
+      "evalSendRequest": "Verzoek om evaluatie sturen",
+      "evalConfirmResend": "Weet u zeker dat u opnieuw een e-mail wilt sturen naar deze persoon?",
+      "evalResendRequest": "E-mail opnieuw verzenden",
+      "evalViewEvaluation": "Bekijk evaluatie",
+      "evalViewEvaluationResults": "Bekijk evaluatieresultaten",
+      "evalViewPrintVersion": "Bekijk de print versie van alle vragenlijsten",
+      "evalComplete": "(voltooid)",
+      "evalUpgradeAvailableTitle": "Nieuwe evaluatieversie beschikbaar",
+      "evalUpgradeAvailable": "Er is een nieuwe versie van de evaluatievragenlijsten beschikbaar voor uw project. U kunt ervoor kiezen om deze nieuwe versie voor alle deelnemers te activeren.\n\nZorg ervoor dat u alle implicaties van het upgraden van uw versie begrijpt, aangezien u hierdoor gegevens over bestaande evaluaties kunt kwijtraken.",
+      "evalConvertProject": "Nieuwe versie activeren",
+      "evalUpgradeError": "Het bijwerken van de evaluatieversie van dit project is mislukt.",
+      "evalUpgradeSuccess": "De evaluatieversie van dit project bijgewerkt.",
+      "evalConfirmUpdate": "Weet u zeker dat u uw project wilt updaten naar versie 2? U zult ALLE gegevens met betrekking tot de evaluaties van uw project verliezen.\n\nLees de Help-pagina als u niet zeker bent van de gevolgen.",
+      "evalConfirmDismiss": "Indien u deze waarschuwing afwijst, zal deze optie niet langer voor u beschikbaar zijn.",
+      "inviteParticipantsTitle": "Nodig een deelnemer uit voor dit project",
+      "inviteParticipantsInfo": "Als een of meer van uw deelnemers niet in staat is om zelf een account aan te maken, of als u de evaluatie liever in hun naam invult, kunt u dit formulier gebruiken om voor hen een gebruiker in het platform aan te maken.\n\n**N.B.**: Uw Project moet gevalideerd zijn en deel uitmaken van een Structuur.",
+      "attachmentsTab": "Bestand bijvoegen"
+    },
+    "evaluationDetail": {
+      "heatchart": {
+        "title": "Betrokkenheid",
+        "real": "Echt",
+        "effective": "Effectief",
+        "engagement": "Verbintenis",
+        "responsiveness": "Responsiviteit"
+      },
+      "projectOverallPosition": "Algemene positie van het Project",
+      "projectEvolution": "Ontwikkeling van het Project",
+      "commentsByParticipants": "Opmerkingen van deelnemers:",
+      "help": {
+        "projectOverallPosition": "De grafiek van de Algemene positie van het Project condenseert de evaluatiescores van alle dimensies tot één indicator (evaluatie) en berekent het verschil van de evaluatiescores tussen de vijf principen (coherentie).  Het huidige project wordt weergegeven door de gele stip.\n\nVoorbeeld: Als de gele stip die uw project voorstelt in de rechterbovenhoek staat, betekent dit dat u voor alle dimensies behoorlijk hoog hebt gescoord en dat de score tussen de dimensies consistent is.",
+        "projectEvolution": "De Ontwikkeling van het Project-grafiek toont, voor het huidige project, de geaggregeerde score voor elk van de vier fasen van het evaluatieproces, weergegeven door de gele lijn. Voor elke fase worden de mediaan (de grijze stip) en de kwartielen Q1 (onderste horizontale lijn) en Q3 (bovenste horizontale lijn) van de evaluatie van alle projecten weergegeven.",
+        "involvement": "De Betrokkenheid-grafiek toont de relevantie en de impact tijdens de verschillende fasen van het project. Voor elke fase schatten de projectmanagers, wetenschappers, studenten en het maatschappelijk middenveld in wanneer de betrokkenheid van de gemeenschap heeft plaatsgevonden (echte verbintenis). Evenzo beoordelen zij voor elke fase of de betrokkenheid van de gemeenschap relevant is geweest voor de ontwikkeling van die fase van het project (effectiviteit). De waarde van elke fase varieert van 0 (helemaal geen relevantie of impact) tot 4 (zeer relevant of maximale impact), weergegeven door de kleurintensiteit.",
+        "bulletCharts": "Voor elk principe en voor de verschillende dimensies waaruit elk beginsel bestaat, wordt een metriek (cirkeldiagram) weergegeven. De gele stip vertegenwoordigt de evaluatie van het huidige project. De schaduwen staan voor de evaluatie van andere projecten: een lichtere schaduw staat voor de projecten met de laagste en de hoogste evaluatiescore, terwijl een meer ondoorzichtige schaduw staat voor de projecten binnen het eerste en het derde kwartiel van de evaluatiescores. Het eerste kwartiel (Q1) wordt gedefinieerd als de middelste waarde tussen de laagste evaluatiescore van alle projecten en de mediaan van de gegevensverzameling. Het derde kwartiel (Q3) is gedefinieerd als de waarde die het midden houdt tussen de mediaan en de hoogste evaluatiescore van alle projecten. Er wordt een arbitraire drempelwaarde van \"3\" gegeven om de aandacht te vestigen op evaluaties onder deze waarde.",
+        "bulletChart": {
+          "knowledgeDemocracy": "Kennisdemocratie omvat transdisciplinariteit, openheid van gegevens en resultaten, en de wetenschappelijke relevantie van het project.\nHet eerste resultaat toont de geaggregeerde score voor deze dimensie. Het volgende resultaat toont de geaggregeerde resultaten voor elke subdimensie onder deze dimensie.",
+          "participatoryDynamics": "**Participatory Dynamics** include the degree of community involvement, and the quality and impact of engagement practices.\nThe first result shows the aggregated score for this dimension. The following one shows the aggregated results for each sub-dimensions under this one.",
+          "citizenledResearch": "**Door Burgers Geleid Onderzoek** verwijst naar de afstemming van de projectdoelstellingen op de vraag van de gemeenschap en naar de doeltreffendheid van de betrokkenheid van de gemeenschap bij het wetenschappelijk proces.\nHet eerste resultaat toont de geaggregeerde score voor deze dimensie. De volgende toont de geaggregeerde resultaten voor elke subdimensie onder deze dimensie.",
+          "integrity": "**Integriteit** omvat de afstemming van verwachtingen, de integratie van kwetsbare groepen, de integratie van ethische en genderperspectieven, de transparantie van het gegevensbeheer, de consistentie van de projectopzet en de kwaliteit van de beschikbare middelen.\nHet eerste resultaat toont de geaggregeerde score voor deze dimensie. De volgende toont de geaggregeerde resultaten voor elke subdimensie onder deze dimensie.",
+          "transformativeChange": "**Transformative Change** relates to individual learning and personal growth, project sustainability, the societal responsiveness of the project and its impact on policies, programmes and/or services.\nThe first result shows the aggregated score for this dimension. The following one shows the aggregated results for each sub-dimensions under this one."
+        },
+        "projectManagerCharts": "De visualisatie van de Project Manager is niet toegankelijk voor de deelnemers omdat deze een verfijnd detail geeft van het zelfreflectieproces en tegelijkertijd een intern beeld geeft voor managementdoeleinden.\n\nHet verschil tussen dit visualisatie-niveau en het niveau dat toegankelijk is voor de deelnemers, is dat het de evaluatieresultaten per profiel van de respondenten weergeeft. Dit maakt het mogelijk beter te begrijpen wat er is gebeurd en met wie.",
+        "publicEval": "De openbare visualisatie weerspiegelt de algemene evaluatie van het project en toont de geaggregeerde score voor elk van de dimensies.\n\nElk project wordt voorgesteld als een Kolibrie: een bescheiden klein vogeltje, maar uiterst actief, wiens kleine beweging kan bijdragen aan het algehele eco-sociale systeem:\n- Zijn vleugel wordt geassocieerd met Transformatieve Verandering, omdat dit het meest actieve deel van de kolibrie is, en het deel dat beweging creëert.\n- De kop wordt geassocieerd met Kennisdemocratie, volgens de natuurlijke relatie van hoofd, geest en kennis.\n- Het hart (of onderlichaam) wordt geassocieerd met Door Burgers Geleid Onderzoek, omdat burgerschap de hartslag is van Open Wetenschap.\n- De staart wordt geassocieerd met Participatieve Dynamiek, omdat deze als roer fungeert. En het bovenlichaam tenslotte wordt geassocieerd met Integriteit, omdat zonder dit alle andere aspecten uit elkaar zouden vallen.",
+        "phaseParticipation": "De Kolibriegrafiek wordt vergezeld door vier cirkels die overeenkomen met de vier evaluatiefasen in hun geordende volgorde: aan het begin van het project, halverwege, aan het eind van het project en zes maanden later. De fasen die zijn geëvalueerd worden weergegeven door een kleuring binnen de cirkel. De inkleuring vult de hele cirkel als alle betrokkenen (projectmanager, maatschappelijke organisaties, wetenschapper en student) de evaluatievragenlijsten hebben ingevuld. Anderzijds wordt de cirkel weergegeven met een niet ingevulde cirkel wanneer sommige van de verschillende rollen niet hebben bijgedragen aan de evaluatie.\n\nErnaast staat een \"N\": het aantal deelnemers, inclusief alle rollen, die aan de evaluatievragenlijsten hebben meegewerkt."
+      }
     },
     "evaluationEntry": {
       "mainTitle": "Vragenlijst voor projectevaluatie",
       "questionnaire": "Vragenlijst",
-      "questionnaireDescription": "Vragenlijst",
+      "selfQuestionnaireTitle": "Zelfreflectie vragenlijst",
+      "selfQuestionnaireDescription": "Om te helpen bij de evaluatie van het Project, raden wij u aan de Zelfreflectie Vragenlijst  te bekijken. Deze bevat een aantal tot nadenken aanzettende vragen om u op weg te helpen. U kunt de vragenlijst hier downloaden:\n",
+      "viewQuestionnaire1": "View the self reflection questionnaire for Phase 1",
+      "viewQuestionnaire3": "View the self reflection questionnaire for Phase 3",
+      "questionnaireDescription": "Beantwoord de volgende vragen zo eerlijk als u kunt. De schaal loopt van een 0 voor \"helemaal mee oneens\" tot een 7 voor \"helemaal mee eens\". De geschatte antwoordtijd is 5 minuten.",
       "questionnaireCompleted": "Deze vragenlijst is al ingevuld.",
       "evaluationOverview": "Evaluatieoverzicht",
       "evaluatedPhase": "Geëvalueerde fase",
       "evaluator": "Beoordelaar",
       "evaluationRole": "Rol in de evaluatie ",
       "questionMultipleHelp": "(kies wat van toepassing is)",
+      "answeringAsToken": "U antwoordt als {naam}. Bewaar deze link goed, want hij is uniek voor u.",
+      "manageProfileLink": "Als u uw profiel wilt bewerken of uw anonimiteitsinstellingen wilt wijzigen, ga dan hierheen:",
       "viewOnly": "Je kan de antwoorden alleen bekijken, niet wijzigen",
       "submitSuccess": "Uw reactie is correct opgeslagen!",
       "submitFailure": "Er is een probleem opgetreden bij het opslaan van uw reactie. Probeer het later opnieuw."
@@ -143,12 +265,56 @@
       "europeanFundingDisclaimer": "Dit project heeft financiering ontvangen van het onderzoeks- en innovatieprogramma Horizon2020 van de Europese Unie onder subsidieovereenkomst nr. 741677."
     }
   },
+  "components": {
+    "ImageUpload": {
+      "title": "Upload nieuwe afbeelding",
+      "selectFile": "Selecteer een bestand",
+      "fileReady": "Bestand \"{naam}\" klaar om te uploaden",
+      "currentImage": "Huidige afbeelding",
+      "upload": "Upload bestand"
+    },
+    "ProjectCard": {
+      "numberOfParticipants": "Aantal deelnemers"
+    }
+  },
   "models": {
+    "userGender": {
+      "male": "Man",
+      "female": "Vrouw",
+      "other": "Anders"
+    },
     "participationRole": {
       "scientist": "Wetenschapper",
       "student": "Student",
       "civilSociety": "Maatschappij",
       "projectManager": "Projectleider"
+    },
+    "educationLevel": {
+      "primary": "Primair",
+      "secondary": "Secundair",
+      "tertiary": "Tertiair (Arbeidsmarkt)",
+      "degree": "Bachelors of diploma",
+      "master": "Master",
+      "doctoral": "Doctoraal"
+    },
+    "projectType": {
+      "research": "Onderzoek",
+      "participatoryResearch": "Participatieonderzoek",
+      "participatoryActionResearch": "Participatief Actieonderzoek",
+      "citizenScience": "Burgerwetenschap",
+      "publicEngagement": "Publieke betrokkenheid",
+      "serviceLearning": "Service Learning",
+      "advocacy": "Belangenbehartiging",
+      "innovation": "Innovatie",
+      "policyInnovation": "Beleidsinnovatie",
+      "other": "Overige"
+    },
+    "structureType": {
+      "academicResearcg": "Academisch en/of Onderzoek",
+      "civilSocietyOrg": "Vereniging van civiele samenleving",
+      "ngoNonPofit": "NGO en Non-Profit",
+      "companyForProfit": "Bedrijf en For-Profit",
+      "governmentOrg": "Overheidsinstantie"
     },
     "projectPhase": {
       "phase": "Fase",
@@ -162,7 +328,7 @@
       "phase4Description": "Zes maanden zijn verstreken sinds het project is afgelopen en u wordt uitgenodigd om te reflecteren op de projectresultaten wat betreft wetenschappelijke kennis, individueel leren, aansluiting bij beleid en de collectieve capaciteit om aan de behoeften van de gemeenschap te voldoen. ",
       "phase1Tag": "Start",
       "phase2Tag": "Zelfreflectie",
-      "phase3Tag": "Opbrengst",
+      "phase3Tag": "Einde Project",
       "phase4Tag": "Zes maanden later"
     },
     "knowledgeArea": {
@@ -223,6 +389,7 @@
         "scientificRelevance": "Wetenschappelijke relevantie",
         "selfImprovement": "Zelfverbetering",
         "transdisciplinarity": "Transdisciplinariteit",
+        "knowledgeIntegration": "Kennisintegratie",
         "transparency": "Transparantie"
       }
     },
@@ -356,6 +523,7 @@
       "Q1016": "Open Science-projecten maken gebruik van publieke participatie. Welke nieuwe competenties heeft u door dit project verworven?",
       "Q10XX": "Aarzel niet om eventuele andere opmerkingen met betrekking tot deze fase te benoemen.",
       "Q10XY": "Aarzel niet om eventuele andere opmerkingen met betrekking tot de {fase} fase te benoemen.",
+      "Q10XZ": "Voel je vrij om ook andere opmerkingen te maken over je indrukken in deze fase van het project.",
       "v2": {
         "Q01": "In welke stadia van het onderzoeksproces is de samenleving actief betrokken geweest?",
         "Q05": "In welke stadia van het onderzoeksproces was het voor u het meest effectief om de samenleving te betrekken?",
@@ -429,14 +597,21 @@
   "navigation": {
     "links": {
       "home": "Home",
-      "about": "Over"
+      "about": "Over",
+      "help": "Help",
+      "learn": "Help"
     }
   },
   "misc": {
-    "timeAgo": "{time} geleden"
+    "registeredProjects": "{n} geregistreerde projecten.",
+    "timeAgo": "{time} geleden",
+    "optional": "Optioneel",
+    "lastUpdated": "Laatst bijgewerkt {tijd} geleden",
+    "notSpecified": "Niet gespecificeerd"
   },
   "actions": {
     "add": "Toevoegen",
+    "accept": "Accepteer ",
     "submit": "Indienen",
     "approve": "Goedkeuren",
     "validate": "Goedkeuren",
@@ -450,11 +625,26 @@
     "logout": "Uitloggen",
     "register": "Registreren",
     "save": "Opslaan",
+    "search": "Zoek",
+    "loading": "Laden",
     "close": "Afsluiten",
     "cancel": "Annuleren",
     "more": "Meer",
     "next": "Volgende",
-    "moreInformation": "Meer informatie"
+    "back": "Ga terug",
+    "manage": "Beheer",
+    "invite": "Nodig uit",
+    "clearFilter": "Filter wissen",
+    "moreInformation": "Meer informatie",
+    "manageName": "Beheer deze {naam}",
+    "viewPublicPage": "Publieke pagina bekijken",
+    "viewAndPrint": "Bekijk en Print",
+    "exportAllData": "Alle gegevens exporteren",
+    "print": "Deze pagina afdrukken",
+    "download": "Download",
+    "downloadName": "Download {name}",
+    "tellMeMore": "Vertel mij meer",
+    "notInterested": "Geen interesse"
   },
   "states": {
     "enabled": "Activeren",
@@ -465,13 +655,17 @@
   },
   "noums": {
     "user": "Gebruiker",
+    "stage": "Stadium",
     "project": "Project",
     "projects": "Projecten",
     "structure": "Structuur",
     "structures": "Structuren",
-    "evaluation": "Evaluatie"
+    "evaluation": "Evaluatie",
+    "attachment": "Bijlage",
+    "attachments": "Bijlagen"
   },
   "errors": {
+    "couldNotLoad": "Er was een probleem met het laden van deze pagina. Weet u zeker dat u toegang heeft?",
     "404": {
       "title": "Oeps! Deze pagina is niet gevonden.",
       "text": "De pagina op '{route}' bestaat niet. Weet u zeker dat u het correct hebt getypt?"
@@ -479,45 +673,74 @@
   },
   "forms": {
     "titles": {
-      "login": "Inloggen"
+      "login": "Inloggen",
+      "newParticipant": "Deelnemers Informatie"
     },
     "rules": {
+      "invalidUsername": "Deze gebruikersnaam is ongeldig",
+      "invalidEmail": "Dit emailadres is ongeldig",
       "requiredField": "Dit is een verplicht veld",
       "passwordField": "Het ingevoerde wachtwoord is onjuist",
       "passwordMatch": "De twee wachtwoorden komen niet overeen",
       "maximunLength": "Mag maximaal {length} tekens lang zijn",
       "minimunLength": "Moet ten minste {length} tekens lang zijn",
+      "usernameInUse": "Deze gebruikersnaam is al in gebruik, kies een andere.",
       "namedRequiredField": "{name} is een verplicht veld",
+      "mustNotBeEmail": "Gebruik a.u.b. geen e-mail als gebruikersnaam, aangezien deze informatie openbaar is.",
       "mustBeStructure": "Voer een geldige Structuur in",
-      "mustBeUser": "Voer een geldige lijst met gebruikers in"
+      "mustBeUser": "Voer een geldige lijst met gebruikers in",
+      "mustBeURL": "Voer een geldige URL in",
+      "mustBeCountry": "Voer een geldig land in",
+      "mustBeKnowledgeArea": "Voer een geldig Kennisgebied in"
     },
     "errors": {
       "invalidCredentials": "Inloggegevens zijn onjuist. Check uw gebruikersnaam en wachtwoord."
     },
     "toasts": {
+      "permissionError": "Er is een fout opgetreden bij het openen van de bron, u hebt misschien geen toestemming om deze te bekijken.",
+      "uploadError": "Er is een fout opgetreden bij het uploaden van uw bestand",
       "loggedOut": "U bent uitgelogd",
+      "resetPasswordSubmitted": "De gebruiker van deze account heeft een e-mail ontvangen om zijn wachtwoord te resetten.",
       "saveSuccess": "Met succes opgeslagen!",
       "saveFailure": "Opslaan mislukt. Probeer het later opnieuw",
+      "saveImageSuccess": "Afbeelding succesvol geupload!",
+      "saveImageFailure": "Afbeelding uploaden mislukt",
       "projectSaveSuccess": "Projectgegevens bijgewerkt!",
       "projectSaveFailure": "Kan het project niet opslaan. Probeer het later opnieuw",
       "structureSaveSuccess": "Structuurgegevens bijgewerkt!",
-      "structureSaveFailure": "Kan de Structuur niet opslaan. Probeer het later opnieuw",
-      "participantsSuccess": "Bij het project betrokken mensen opgeslagen"
+      "structureSaveFailure": "Kan de Structuur niet opslaan, probeer het later opnieuw.",
+      "inviteParticipantFailure": "Mislukt om deze persoon uit te nodigen. Controleer of uw Project is gevalideerd. Het e-mailadres is misschien al in gebruik.",
+      "participantsSuccess": "Betrokkenen van het project opgeslagen.",
+      "inviteParticipantSuccess": "Uitnodiging succesvol aangemaakt.",
+      "copiedToClipboard": "Gekopieerd naar het klembord!",
+      "errorClipboard": "Kon niet naar klembord kopiëren, gelieve handmatig te kopiëren."
     },
     "fields": {
       "name": "Naam",
       "firstName": "Voornaam",
       "lastName": "Achternaam",
+      "isAnonymous": "Anonieme Deelnemer",
       "email": "Email",
+      "education": "Onderwijsniveau",
+      "institution": "Instelling",
+      "genderIdentity": "Geslacht Identiteit",
       "summary": "Samenvatting",
       "description": "Beschrijving",
       "participants": "Deelnemers",
       "managers": "Projectleiders",
+      "attachmentName": "Titel Bijlage",
+      "structureName": "Structuur Naam",
+      "structureType": "Structuur Type",
+      "structureYearFounded": "Jaar waarin deze Structuur is opgericht",
+      "structureAdministrators": "Structuur Beheerders",
+      "structureCountry": "Structuur land van actie",
       "projectName": "Projectnaam",
       "projectAcronym": "Projectacroniem",
       "projectType": "Projecttype",
       "projectPhase": "Projectfase",
+      "projectCountry": "Project land van actie",
       "projectAdministrators": "Projectbeheerders",
+      "socialNetwork": "Sociaal Netwerk",
       "contactEmail": "Contact E-mail",
       "contactWebsite": "Externe website",
       "postalAddress": "Postadres",
@@ -529,22 +752,37 @@
       "role": "Rol",
       "invitationCode": "Uitnodigingscode",
       "knowledgeArea": "Kennisgebied",
-      "knowledgeAreas": "Kennisgebieden"
+      "knowledgeAreas": "Kennisgebieden",
+      "coverImage": "Omslag Afbeelding"
     },
     "labels": {
       "searchUsers": "Zoek gebruikers"
     },
+    "descriptions": {
+      "projectAdministrators": "Projectbeheerders hebben volledige toegang tot het project en kunnen de details van het project bewerken en ook andere beheerders en deelnemers toevoegen en verwijderen. Deze permissies zijn alleen van toepassing binnen het platform."
+    },
     "hints": {
+      "isAnonymous": "Verberg uw echte naam op openbare pagina's.",
+      "isAnonymousInvite": "Verberg de echte naam van deze deelnemer op openbare pagina's.",
       "contactEmail": "Hoe kunnen mensen u bereiken voor vragen over het project?",
       "contactWebsite": "URL naar een externe website waar mensen meer informatie over uw project kunnen vinden.",
+      "username": "Voer uw gebruikersnaam in. Een goede keuze is voornaam.achternaam (bijv. john.doe)",
+      "structureName": "Kies een naam die uw structuur karakteriseert. Minder dan 50 tekens aanbevolen.",
+      "structureSummary": "Een korte samenvatting van uw structuur en wat die inhoudt. Aanbevolen wordt om het onder de 200 tekens te houden.",
+      "structureCountry": "Land waar deze structuur hoofdzakelijk werkzaam is",
+      "structureAdministrators": "Voeg hier alle mensen toe die volledige toegang zullen hebben om de Structuur te bewerken en nieuwe Projecten goed te keuren. Structuurbeheerders kunnen geen eigendom overdragen. Beheerders zijn GEEN deelnemers.",
       "projectType": "Hoe is uw projectteam gestructureerd?",
       "projectName": "Kies een naam die kenmerkend is voor uw project. Minder dan 50 tekens wordt geadviseerd.",
       "projectSummary": "Een korte samenvatting van uw project. Minder dan 200 tekens wordt geadviseerd.",
-      "projectAdministrators": "Voeg hier de mensen toe die volledige toegang hebben tot het bewerken van het project. Projectbeheerders kunnen het eigendom niet overdragen.",
+      "projectAdministrators": "Voeg hier alle mensen toe die volledige toegang zullen hebben om het Project te bewerken. Projectbeheerders kunnen geen eigendom overdragen. Beheerders zijn GEEN deelnemers.",
       "projectAcronym": "Kies een projectacroniem",
+      "projectCountry": "Waar is uw project voornamelijk gevestigd of werkzaam?",
+      "postalAddress": "Als iemand je een brief zou sturen, waar zou die dan geadresseerd zijn?",
       "knowledgeArea": "UNESCO-kennisgebied dat uw project het beste definieert.",
+      "knowledgeAreas": "Selecteer alle kennisgebieden van onderzoek onder deze structuur.",
       "summary": "Uitgebreide projectbeschrijving. Geen tekenlimiet.",
-      "description": "Uitgebreide projectbeschrijving. Geen tekenlimiet.",
+      "description": "Uitgebreide projectbeschrijving. Geen tekenlimiet. Markdown is beschikbaar voor styling.",
+      "descriptionTemplate": "Volg het bijgeleverde template en verwijder de sectiekoppen niet (Regels die beginnen met '##'). Vul uw projectspecificaties in en vervang de instructieregels.",
       "password": "Uw wachtwoord moet uit minimaal 8 tekens bestaan, geen veelvoorkomend wachtwoord zijn en uw gebruikersnaam niet bevatten."
     }
   },

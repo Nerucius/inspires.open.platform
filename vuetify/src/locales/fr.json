@@ -12,6 +12,7 @@
       "editProfile": "Modifier le profil",
       "updateProfileSuccess": "Votre profil a été mis à jour",
       "updateProfileFailure": "\nImpossible de mettre à jour votre profil.",
+      "evaluationRequests": "Evaluation requests",
       "myProjects": "Mes projets",
       "myStructures": "Mes structures"
     },
@@ -36,10 +37,10 @@
       "step2Message": "Indiquez votre nom complet et votre email afin qu'il puisse être affiché avec vos projets et autres activités sur la plateforme. Votre email ne sera utilisé que pour les alertes et les notifications",
       "step3Message": "Avant de pouvoir vous inscrire, vous devez accepter nos conditions d'utilisation pour la plateforme.",
       "readTOSHere": "Vous pouvez lire les conditions d'utilisation ici.",
-      "step3TOSAcceptance": "En cliquant sur le bouton \"ACCEPTER LES TERMES ET CONDITIONS\", je reconnais que j'ai été correctement informé et que je consens au traitement de mes données personnelles aux fins déclarées.",
+      "step3TOSAcceptance": "En cliquant sur le bouton \"ACCEPTER LES TERMES ET CONDITIONS\", je reconnais que j'ai été correctement informé et que je donne mon accord pour le traitement de mes données personnelles aux fins déclarées.",
       "step3MessageAccepted": "Parfait! Nous pouvons continuer avec le reste de l'enregistrement.",
-      "step4Message": "Merci de vérifier les informations suivantes. Si tout semble correct, vous pouvez procéder à l'enregistrement. Vous pouvez revenir à l’une des étapes et examiner les informations fournies.",
-      "step4MessageInvite": "Au cours de la première période de test, nous limitons l’enregistrement aux personnes invitées personnellement. Veuillez entrer le code fourni ci-dessous:",
+      "step4Message": "Merci de vérifier les informations suivantes. Si tout semble correct, vous pouvez procéder à l'enregistrement. Vous pouvez revenir à l’une des étapes antérieures et réviser les informations fournies si nécessaire.",
+      "step4MessageInvite": "Au cours de la première période de test, nous limitons l’enregistrement aux seules personnes invitées. Veuillez entrer le code fourni ci-dessous:",
       "registrationFailure": "Quelque chose s'est mal passé lors de votre inscription, essayez à nouveau SVP.",
       "emailTaken": "Cette adresse mail est déjà utilisée. Essayez une autre ou tentez de récupérer votre mot de passe."
     },
@@ -47,6 +48,8 @@
       "mainTitle": "Bienvenue à InSPIRES",
       "worldmapTitle": "Carte du monde",
       "latestTitle": "Dernières mises à jour",
+      "latestProjectsTitle": "Latest Project Updates",
+      "mostActiveStructures": "Structures en activité",
       "welcomeMessage": "Bienvenue sur la plateforme libre d' InSPIRES. Cette plateforme présente des projets de recherche participatifs et innovants menés par des citoyens et soutenus par des structures intermédiaires telles que les \"Science shops\" , les \"Boutiques de sciences\", les unités de science citoyenne, etc.",
       "welcomeMessageLong": "Elle offre également un outil collectif intégré d'évaluation d'impact pour analyser les processus et les résultats de vos propres projets dans le respect des autres. L'objectif poursuivi est de mener une réflexion commune et collective autour de ce type de projets  afin d'apprendre, penser, expérimenter et grandir ensemble en tant que communauté de pratique pour pouvoir développer des meilleurs projets qui permettent d' améliorer la vie et le bien-être des citoyens.",
       "aboutLink": "Plus sur nous!",
@@ -57,19 +60,20 @@
       "title": "centre d'assistance",
       "description": "texte",
       "allArticles": "Tous les articles",
-      "articlesOtherLanguages": "Articles dans d'autres langues"
+      "articlesOtherLanguages": "Articles dans d'autres langues",
+      "articleDoesNotExist": "L'article que vous recherchez n'existe plus."
     },
     "about": {
       "mainTitle": "A propos de la plateforme InSPIRES",
       "titleMission": "Notre mission",
-      "missionParagraph1": "InSPIRES s'est lancé dans l'aventure de développer une base de données en ligne, collective et alimentée par la communauté, regroupant les Science Shops, les structures similaires et leurs projets associés, tout en offrant un outil intégré d'évaluation d'impact capable de produire un rapport d'évaluation de projet en temps réel.",
+      "missionParagraph1": "InSPIRES s'est lancé dans l'aventure de développer une base de données en ligne, collective et alimentée par les utlisateurs , regroupant les Science Shops, les structures similaires et leurs projets associés, tout en offrant un outil intégré d'évaluation d'impact capable de produire en temps réel un rapport d'évaluation de projet.",
       "missionParagraph2": "La base de données en ligne et l'évaluation de l'impact d' InSPIRES ont pour objectifs:",
       "missionObjective1": "Identifiez et visualisez la taille des \"Science shops\" , \"Boutiques des sciences\"  et autres structures similaires dans le monde.",
-      "missionObjective2": "Enregistrer des projets collectifs de recherche et innovants , facilités par ces structures intermédiaires, pour montrer leurs objectifs, leurs connaissances et leurs zones géographiques d'action, ainsi que les principaux collaborateurs associés.",
-      "missionObjective3": "Fournir à la communauté un outil d’évaluation d’impact intuitif et personnalisable permettant de mesurer les résultats des processus et des actions de manière cohérente.",
-      "missionParagraph3": "À  la fin, nous souhaitons que la plateforme soutienne l'apprentissage mutuel de la communauté comprenant les coordinateurs des structures ainsi que les participants des projets dans le monde entier, par le partage des expériences de \"Science Shops\" et d'autres projets de recherche participative et innovants : les bonnes pratiques mais aussi les erreurs, les méthodes utilisées, etc.",
-      "titleTeam": "L'équipe responsable de la plateforme libre d'Inspires.",
-      "teamContent": "Le développement de cette plateforme libre a été dirigé par l'équipe d'ISGlobal en étroite collaboration avec les groupes de recherche Data Science et OpenSystems de l'Université de Barcelone. Tous les membres du consortium InSPIRES ont également joué un rôle important dans sa création et son évolution."
+      "missionObjective2": "Enregistrer des projets collectifs de recherche et innovants, qui ont transité par ces structures intermédiaires, dans le but de faire connaitre leurs objectifs, leurs savoirs acquis et leurs zones géographiques d'action, ainsi que les principaux collaborateurs associés à ces projets.",
+      "missionObjective3": "Mettre à disposition de la communauté d'utilisateurs un outil d’évaluation d’impact intuitif et personnalisable permettant de mesurer les résultats des processus et des actions de manière cohérente.",
+      "missionParagraph3": "Au final, nous espérons que la plateforme soutiendra la communauté des utilisateurs (coordinateurs des structures ainsi que les participants des projets dans le monde entier) dans leur apprentissage mutuel, via le partage des expériences des \"Boutiques des sciences\" et autres projets de recherche participative et innovants: les bonnes pratiques mais aussi les erreurs, les méthodes utilisées, etc.",
+      "titleTeam": "L'équipe responsable de la plateforme libre d'InSPIRES.",
+      "teamContent": "Le développement de cette plateforme libre a été mené par l'équipe d'ISGlobal en étroite collaboration avec les groupes de recherche en sciences de l'information et en systèmes informatiques de libre accès de l'Université de Barcelone. Tous les membres du consortium InSPIRES ont également joué un rôle important dans sa création et son évolution."
     },
     "search": {
       "searchResults": "resultas de recherche ",
@@ -78,12 +82,15 @@
     },
     "admin": {
       "mainTitle": "Tableau de bord administratif.",
-      "unauthorizedAccess": "Vous n'êtes pas autorisé à accéder au tableau de bord administratif. Si vous pensez que vous y devriez, veuillez contacter un administrateur de la plateforme.",
+      "unauthorizedAccess": "Vous n'êtes pas autorisé à accéder au tableau de bord administratif. Si vous pensez que vous y avez droit, veuillez contacter un administrateur de la plateforme.",
       "pendingApproval": "Structures en attente d'approbation.",
-      "instructionsText": "Les structures suivantes doivent être validées avant de pouvoir apparaître sur les listes publiques du site. Veuillez vérifier la validité des données et l'authenticité de chacun.\n\nVérifiez également que la personne qui prétend être propriétaire de la structure est bien celle qu'elle prétend et est autorisée à mettre les informations sur le site.",
+      "approvedStructures": "Structures approved",
+      "instructionsText": "Les structures suivantes doivent être validées avant de pouvoir apparaître sur les listes publiques du site. Veuillez vérifier la validité des données et l'authenticité de chacun.\n\nVérifiez également que la personne qui prétend être propriétaire de la structure est bien celle qu'elle prétend être et est autorisée à mettre les informations sur le site.",
       "createdBy": "Créé par {prénom}",
-      "validationSuccess": "Structure validée avec succès. Il apparaîtra maintenant sur les listes publiques.",
-      "validationFailure": "Échec de la validation de la structure. Veuillez contacter le support."
+      "validationSuccess": "Structure validée avec succès. Elle apparaîtra maintenant sur les listes publiques.",
+      "validationFailure": "Échec de la validation de la structure. Veuillez contacter le service d' assistance.",
+      "retirementSuccess": "Structure retired from the platform correctly.",
+      "retirementFailure": "Failed to retire the structure. Please contact support."
     },
     "legal": {
       "termsOfServiceTitle": "Conditions d'utilisation",
@@ -93,25 +100,30 @@
       "conditionsOfUseTitle": "Conditions d'utilisation",
       "conditionsOfUse": "Le site Web contient du contenu préparé par ISGlobal uniquement à des fins d'information. Ce contenu peut ne pas refléter les informations les plus récentes sur les sujets traités. De même, ce matériel peut être modifié, étendu ou mis à jour sans préavis.\n\nVotre accès à ce contenu ne crée ni n'implique aucune relation professionnelle ou de confiance entre ISGlobal et vous.\n\nLes liens sur le site Web peuvent vous mener à d'autres sites Web, pages ou applications gérées par des tiers sur lesquels ISGlobal n'a aucun contrôle. ISGlobal n'est pas responsable du contenu ou de l'état de ces sites Web, pages et applications. Le fait de pouvoir y accéder via notre site Web ou notre application ne signifie pas qu'ISGlobal recommande ou approuve leur contenu.\n\n### Limitation de responsabilité\n\nVous utilisez notre site à vos propres risques et périls. ISGlobal n'est pas responsable des erreurs ou des omissions dans le contenu du site Web, de l'application ou de tout autre site auquel vous pourriez accéder via le site Web ou l'application. ISGlobal n'est pas responsable des dommages résultant de l'utilisation de notre site Web ou de toute action effectuée sur la base des informations fournies sur notre site Web.\n\nISGlobal ne garantit pas l'absence de virus ou d'autres éléments nuisibles qui pourraient endommager ou altérer votre système informatique, vos documents électroniques ou les fichiers de notre site Web. En conséquence, ISGlobal décline toute responsabilité pour toute perte ou tout dommage que de tels éléments pourraient causer à vous ou à un tiers.\n\n[Mis à jour le février 2019]",
       "privacyPolicyTitle": "Politique de confidentialité",
-      "privacyPolicy": "** Conformément aux réglementations en vigueur sur la protection des données **, ISGlobal vous informe de ce qui suit:\nLorsqu'il vous est demandé de fournir des données à caractère personnel pour la prestation de services, vous serez informé des données que vous devez fournir.\nSi vous ne donnez pas les données requises, nous ne pourrons pas vous fournir les services. Les données personnelles que vous fournissez ou qu'ISGlobal obtient à la suite de votre navigation, de vos requêtes ou de vos requêtes via notre site Web à l'adresse www.isglobal.org (le «site Web») seront incluses dans un fichier appartenant à ISGlobal pour la gestion, le stockage et le suivi de vos données. demandes d'informations et / ou de contrats de biens ou de services proposés via le site internet.\nLes informations obtenues auprès de vous par ISGlobal sur le site Web lorsque vous vous inscrivez à un événement promotionnel ou envoyez un formulaire sont traitées avec la plus grande confidentialité pour vous aider à participer à l'événement en question ou, dans le second cas, à vous envoyer les informations. vous avez demandé. Les informations obtenues ne sont utilisées à aucune autre fin.\nLes données personnelles fournies ne seront ni divulguées ni transférées à des tiers sans votre consentement.\nLes informations ne sont envoyées via le (s) formulaire (s) du site Web qu'après que vous ayez exprimé votre accord en sélectionnant un bouton \"ACCEPTER / ENVOYER\" (ou similaire), via lequel ISGlobal a la preuve que vous avez donné votre accord pour le traitement de vos données personnelles.\nDans tous les cas, vous garantissez que les données que vous fournissez sont vraies, exactes, complètes et mises à jour. ISGlobal peut refuser de donner les informations ou services demandés à tout utilisateur fournissant de fausses données sans préjudice de toute autre action en justice qui pourrait lui être ouverte.\nEn vertu de l'article 22 de la Loi Espagnole 34/2002 du 11 juillet sur les services de la société d' information et sur le commerce électronique, ISGlobal peut stocker et récupérer des \"cookies\" (données dans un fichier texte) de votre ordinateur, sur base de votre consentement et après que nous vous ayions fourni des informations claires et complètes sur l’utilisation de ces cookies. Vous pouvez obtenir des informations complètes sur l'utilisation de ces cookies dans la page \"Politique des cookies\".\nCeci n'empêche pas le stockage technique ou l' accès aux données dans le seul but d'effectuer ou de faciliter la transmission d'une communication sur un réseau de communications électroniques, ou quand il est strictement nécessaire pour fournir un service de la société d' 'information que vous avez expressément demandé.\nVous pouvez exercer vos droits d'accès, de rectification, d'effacement, d'opposition, de transférabilité et de restriction du traitement des données en envoyant une demande à l'adresse lopd@isglobal.org ou à l'adresse postale d'ISGlobal: c/ Rosselló, 132, 08036 Barcelone, Espagne. La demande doit inclure votre nom complet, votre adresse de notification, une photocopie de votre pièce d'identité ou de votre passeport et une indication du droit que vous souhaitez exercer.\nSi vous n'êtes pas satisfait du traitement effectué par ISGlobal ou si vous pensez que vos droits ont été violés, vous pouvez à tout moment introduire une réclamation auprès de l'Agence Espagnole de Protection des Données.\nConformément à la loi 34/2002 du 11 juillet sur les services de la société d' information et du commerce électronique, si vous ne souhaitez plus recevoir d’avis commerciaux électroniques de la part d’ISGlobal, vous pouvez nous en informer par courrier électronique. à lopd@isglobal.org.\n[Mis à jour le février 2019]",
+      "privacyPolicy": "** Conformément aux réglementations en vigueur sur la protection des données **, ISGlobal vous informe de ce qui suit:\nLorsqu'il vous est demandé de fournir des données à caractère personnel pour la prestation de services, vous serez informé des données que vous devez fournir.\nSi vous ne donnez pas les données requises, nous ne pourrons pas vous fournir les services demandés. Les données personnelles que vous fournissez ou qu'ISGlobal obtient à la suite de votre navigation, de vos requêtes ou de vos requêtes via notre site Web à l'adresse www.isglobal.org (le «site Web») seront incluses dans un fichier appartenant à ISGlobal pour la gestion, le stockage et le suivi de vos données. demandes d'informations et / ou de contrats de biens ou de services proposés via le site internet.\nLes informations obtenues auprès de vous par ISGlobal sur le site Web lorsque vous vous inscrivez à un événement promotionnel ou envoyez un formulaire sont traitées avec la plus grande confidentialité pour vous aider à participer à l'événement en question ou, dans le second cas, à vous envoyer les informations. vous avez demandé. Les informations obtenues ne sont utilisées à aucune autre fin.\nLes données personnelles fournies ne seront ni divulguées ni transférées à des tiers sans votre consentement.\nLes informations ne sont envoyées via le (s) formulaire (s) du site Web qu'après que vous ayez exprimé votre accord en sélectionnant un bouton \"ACCEPTER / ENVOYER\" (ou similaire), via lequel ISGlobal a la preuve que vous avez donné votre accord pour le traitement de vos données personnelles.\nDans tous les cas, vous garantissez que les données que vous fournissez sont vraies, exactes, complètes et mises à jour. ISGlobal peut refuser de donner les informations ou services demandés à tout utilisateur fournissant de fausses données sans préjudice de toute autre action en justice qui pourrait lui être ouverte.\nEn vertu de l'article 22 de la Loi Espagnole 34/2002 du 11 juillet sur les services de la société d' information et sur le commerce électronique, ISGlobal peut stocker et récupérer des \"cookies\" (données dans un fichier texte) de votre ordinateur, sur base de votre consentement et après que nous vous ayions fourni des informations claires et complètes sur l’utilisation de ces cookies. Vous pouvez obtenir des informations complètes sur l'utilisation de ces cookies dans la page \"Politique des cookies\".\nCeci n'empêche pas le stockage technique ou l' accès aux données dans le seul but d'effectuer ou de faciliter la transmission d'une communication sur un réseau de communications électroniques, ou quand il est strictement nécessaire pour fournir un service de la société d' 'information que vous avez expressément demandé.\nVous pouvez exercer vos droits d'accès, de rectification, d'effacement, d'opposition, de transférabilité et de restriction du traitement des données en envoyant une demande à l'adresse lopd@isglobal.org ou à l'adresse postale d'ISGlobal: c/ Rosselló, 132, 08036 Barcelone, Espagne. La demande doit inclure votre nom complet, votre adresse de notification, une photocopie de votre pièce d'identité ou de votre passeport et une indication du droit que vous souhaitez exercer.\nSi vous n'êtes pas satisfait du traitement effectué par ISGlobal ou si vous pensez que vos droits ont été violés, vous pouvez à tout moment introduire une réclamation auprès de l'Agence Espagnole de Protection des Données.\nConformément à la loi 34/2002 du 11 juillet sur les services de la société d' information et du commerce électronique, si vous ne souhaitez plus recevoir d’avis commerciaux électroniques de la part d’ISGlobal, vous pouvez nous en informer par courrier électronique. à lopd@isglobal.org.\n[Mis à jour le février 2019]",
       "cookiePolicyTitle": "Politique de cookie",
       "cookiePolicy": "Notre site internet app.inspiresproject.com ('le site web') utilise des cookies pour collecter des informations sur l'utilisation du site.\nUn cookie est un fichier téléchargé sur votre ordinateur (ordinateur ou appareil mobile) pour stocker des données pouvant être mises à jour et récupérées par l'entité qui les a installées.\n\nLes informations collectées via les cookies peuvent inclure la date et l'heure de votre visite sur le site, les pages que vous avez consultées, le temps que vous avez passé sur notre site et les sites que vous avez visités avant et après votre visite sur notre site.\n\nNous utilisons des cookies pour faciliter votre navigation sur notre site, vous distinguer des autres utilisateurs, vous fournir une meilleure expérience d'utilisation et identifier les problèmes qui affectent notre site. Si vous donnez votre consentement, nous utiliserons des cookies pour obtenir des informations sur vos préférences et personnaliser notre site Web en fonction de vos intérêts.\n\nLe but de cette politique de cookies est de vous fournir des informations claires et précises sur les cookies utilisés sur notre site Web (la «politique de cookies»). Pour plus d'informations sur les cookies utilisés sur notre site Web, veuillez envoyer vos questions par courrier électronique à l'adresse suivante: lopd@isglobal.org.\n## Type de cookies utilisés sur le site\n\nNotre site Web utilise les cookies décrits ci-dessous.\n\n### Cookies propriétaires\n\nCes cookies sont envoyés à votre ordinateur et ne sont gérés que par nous pour améliorer le fonctionnement du site Web. Les informations collectées sont utilisées pour améliorer la qualité de notre service et votre expérience utilisateur. Ces cookies restent dans votre navigateur plus longtemps. Cela nous permet de vous reconnaître lorsque vous revenez sur le site Web et d'adapter le contenu proposé à vos préférences.\n\n## Consentement\n\nEn naviguant sur notre site et en restant sur notre site Web, vous consentez à notre utilisation des cookies décrits pour les périodes spécifiées dans les conditions de la présente politique de cookies.\n## Désactiver et bloquer les cookies\n\nLes cookies ne sont pas nécessaires pour utiliser notre site Web. Vous pouvez bloquer et désactiver les cookies en configurant votre navigateur pour bloquer l’installation de tout ou partie des cookies. La plupart des navigateurs peuvent être configurés pour vous avertir de la présence de cookies ou pour les bloquer automatiquement. Si vous bloquez les cookies, vous pouvez continuer à utiliser notre site Web. Cependant, l'utilisation de certains de ses services peut être limitée et votre expérience d'utilisateur peut être diminuée.\n\n## Retrait de votre consentement\n\nSi, à tout moment, vous souhaitez retirer le consentement que vous avez donné en vertu de cette politique de cookies, supprimez les cookies stockés sur votre ordinateur (ordinateur ou appareil mobile) via les paramètres et la configuration de votre navigateur Web.\nPour plus d'informations sur la suppression, la désactivation ou le blocage des cookies, visitez le site AllAboutCookies.org\n\n## Modification de la configuration et des paramètres des cookies de votre navigateur\n\nÀ moins que vous n'ayez ajusté la configuration de votre navigateur, notre système crée des cookies lorsque vous visitez notre site Web. Tous les navigateurs Web permettent de modifier cette configuration. Cliquez sur les liens ci-dessous pour savoir comment ajuster la configuration des cookies des navigateurs suivants:\n\n- **Internet Explorer**:\n  - [Internet Explorer 5] (https://support.microsoft.com/en-gb/help/196955)\n  - [Internet Explorer 6, 7, 8 et 9] (https://support.microsoft.com/en-gb/help/260971/description-of-cookies)\n  - [Internet Explorer 11] (https://support.microsoft.com/en-gb/help/17442/windows-internet-explorer-delete-manage-cookies)\n- ** [Firefox] (https://support.microsoft.com/en-gb/help/17442/windows-internet-explorer-delete-manage-cookies) **\n- ** [Chrome] (https://support.google.com/chrome/answer/95647?co=GENIE.Platform%3DDesktop&hl=fr) **\n- ** Safari **\n  - [Pour Windows] (https://support.apple.com/kb/ph21411?locale=es_ES)\n  - [Pour Mac (iOS)] (https://support.apple.com/es-es/HT201265)\n\n## Modifications de la politique de cookies\n\nNous pouvons mettre à jour la politique de cookies de notre site Web de temps à autre. Nous vous recommandons de consulter cette politique à chaque fois que vous visitez notre site Web, afin de vous informer de manière adéquate sur la manière et pour quoi nous utilisons les cookies. La politique de cookies a été mise à jour le 6 juillet 2018.\n\n## Contact\n\nPour toute question, commentaire ou suggestion concernant notre politique en matière de cookies, veuillez envoyer un courrier électronique à: lopd@isglobal.org.\n\n[Mis à jour le février 2019]\n",
-      "cookieToast": "Ce site Web utilise des cookies de premier ordre et de tiers pour obtenir des informations sur vos habitudes de recherche et pour améliorer la qualité de nos services ainsi que votre navigation sur notre site. Pour accepter l'utilisation de cookies, cliquez sur \"Accepter\" ou poursuivez votre navigation."
+      "cookieToast": "Ce site Web utilise des cookies de première génération et de tiers pour obtenir des informations sur vos habitudes de recherche et pour améliorer la qualité de nos services ainsi que votre navigation sur notre site. Pour accepter l'utilisation de cookies, cliquez sur \"Accepter\" ou poursuivez votre navigation."
     },
     "projectDetail": {
       "about": "À propos",
       "detailsTab": "Information",
       "evaluationTab": "Évaluation du projet",
       "notApproved": "Ce projet n'est pas encore approuvé, il n'apparaîtra pas dans les listes publiques tant qu'il n'aura pas été enregistré dans une structure.",
-      "projectNotYetEvaluated": "Ce projet n'a pas encore reçu suffisamment de commentaires et d'évaluations de la part de ses participants, nous ne pouvons donc pas vous montrer comment il va. Revenez un autre jour!"
+      "projectNotYetEvaluated": "Ce projet n'a pas encore reçu suffisamment de commentaires et d'évaluations de la part de ses participants, nous ne pouvons donc pas vous montrer comment il va. Revenez un autre jour!",
+      "activeCountries": "This project is active in 1 country: | This project is active in {n} countries:"
     },
     "structureDetail": {
-      "notApproved": "Cette structure n'est pas encore approuvée, elle n'apparaîtra pas dans les listes publiques tant qu'un administrateur du site ne la validera pas.",
+      "notApproved": "Cette structure n'est pas encore approuvée, elle n'apparaîtra pas dans les listes publiques tant qu'un administrateur du site ne l'aura pas validée.",
+      "activeCountries": "This structure is active in 1 country: | This structure is active in {n} countries:",
       "about": "À propos"
     },
     "structureList": {
+      "introTitle": "Want to know more about structures?",
       "introText": "Une structure est une unité intermédiaire de gestion du savoir, qui peut être basée dans une université, un centre de recherche ou autre, et qui favorise les interactions et le dialogue entre la communauté scientifique et les organisations de la société civile afin de co-créer et mettre en œuvre conjointement des projets de recherche participatifs.\nIl existe actuellement de nombreuses dénominations pour définir de telles structures: \"science shops\", \"boutiques des sciences\", \"unités de science citoyenne\", \"laboratoires sociaux\", \"laboratoires vivants\", etc., mais aussi \"recherche action citoyenne\",  \"recherche participative basée sur la communauté\" et \"science citoyenne\". Par conséquent, nous n’entendons pas être exclusifs, et nous cherchons plutôt à rassembler dans cette plateforme libre tous les projets qui fonctionnent selon les 5 principes suivants: Démocratie du savoir, Recherche menée par les citoyens, Dynamique participative, Intégrité et Changement transformateur. Vous trouverez ci-dessous toutes les structures enregistrées dans la plateforme.",
-      "visitStructure": "Visite de la structure"
+      "visitStructure": "Visite de la structure",
+      "showMore": "Show more structures",
+      "noMoreStructures": "That's all the structures!"
     },
     "structureManage": {
       "title": "Gérer cette structure",
@@ -129,20 +141,23 @@
     },
     "projectCreate": {
       "title": "Créer un nouveau projet",
-      "success": "Nouveau projet créé avec succès.",
-      "failure": "Échec de la création d'un nouveau projet. Réessayez plus tard."
+      "success": "Nouveau projet enregistré avec succès.",
+      "failure": "Échec d'enregistrement d'un nouveau projet. Réessayez plus tard."
     },
     "structureCreate": {
-      "title": "Créer une nouvelle structure.",
-      "success": "Nouvelle structure créée avec succès.",
-      "failure": "Échec de la création d'une nouvelle structure. Réessayez plus tard."
+      "title": "Enregistrer une nouvelle structure.",
+      "success": "Nouvelle structure enregistrée avec succès.",
+      "failure": "Échec d'enregistrement d'une nouvelle structure. Réessayez plus tard."
     },
     "projectList": {
+      "introTitle": "Vous voulez en savoir plus sur les projets ?",
       "introText": "La plateforme libre de InSPIRES regroupe des projets de recherche participatifs et innovants menés par différentes structures et organisations, telles que les Boutiques des Sciences, les Bureaux de Science Citoyenne, etc. Vous trouverez ci-dessous tous les projets enregistrés dans la plateforme.",
       "showEvaluations": "Afficher les résultats de l' évaluation",
       "noKASpecified": "Aucun domaine de connaissance n' est spécifié.",
       "visitProject": "Visiter le projet",
-      "filterByArea": "dans le domaine de {domaine}."
+      "filterByArea": "dans le domaine de {domaine}.",
+      "showMore": "Voir plus de Projets",
+      "noMoreProjects": "Voilà tous les projets!"
     },
     "projectManage": {
       "title": "Gérer ce projet.",
@@ -150,7 +165,10 @@
       "infoDescription": "Complétez les informations de base relatives à votre projet.",
       "infoContactTitle": "Information de contact",
       "infoAdditionalTitle": "Information complémentaire",
-      "infoAdditionalDescription": "Autres détails utiles pour que votre projet soit bien défini et qui peuvent être consultés dans les recherches.",
+      "infoAdditionalDescription": "Autres détails utiles pour mieux cerner votre projet et le rendre plus facilement accessible lors des recherches sur la plateforme.",
+      "structureTitle": "Associated Intermediation Structure",
+      "structureSubheading": "Select under which Intermediation Structure your project is established.",
+      "structureHelp": "Every project in the platform has to be validated by an intermediation Structure that will give the project validity. Please select the Structure to which your project belongs.\n\nThe platform will notify the structure owners to review and approve your project so it will appear in public listings. We will let you know as soon as your project is approved.",
       "success": "Structure sauvegardée avec succès!",
       "failure": "Échec de l'enregistrement de la structure. Réessayez plus tard.",
       "projectTab": "Ce projet",
@@ -158,13 +176,14 @@
       "phasesTab": "Les phases du projet",
       "changePhase": "Changer la phase en cours",
       "currentPhase": "Ce projet est actuellement à:",
-      "noCurrentPhase": "Ce projet n'est à aucun stade",
-      "phasesTabDescription": "Les phases de l'évaluation ont été conçues pour vous fournir des informations sur la mise en œuvre et les résultats en cours du projet. Chaque phase comprend 6 questions en moyenne, qui vous prendront environ 5 minutes. Une fois que tous les membres de l'équipe ont terminé l' évaluation de la phase en cours, les résultats sont affichés à un niveau spécifique du projet, ainsi qu'au niveau cumulé. \nPour changer la phase en cours, sélectionnez-en une et cliquez sur enregistrer.",
+      "noCurrentPhase": "Ce projet ne se trouve à aucune des phases définies",
+      "phasesTabDescription": "Les phases de l'évaluation ont été conçues pour vous fournir des informations sur la mise en œuvre et les résultats en cours du projet. Chaque phase comprend 6 questions en moyenne, qui vous prendront environ 5 minutes pour y répondre. Une fois que tous les membres de l'équipe ont terminé l' évaluation de la phase en cours, les résultats sont affichés au niveau spécifique du projet, ainsi qu'au niveau consolidé. \nPour changer la phase en cours, sélectionnez-en une et cliquez sur enregistrer.",
       "hasPhase": "Ce projet est actuellement à cette phase depuis le {date}.",
       "hadPhase": "Ce projet était sur cette phase à partir du {date}.",
-      "notHasPhase": "Ce projet n'a jamais été sur cette phase.",
+      "notHasPhase": "Ce projet n'a jamais été dans cette phase.",
       "evaluationTab": "Évaluation",
       "evaluationTitle": "Évaluation du projet",
+      "evaluationsPerPhase": "Evaluations par phase ",
       "evaluationTabDescription": "L’outil d’évaluation d’impact s’appuie sur un processus d’auto-réflexion divisé en quatre phases: une phase de lancement au début du projet, une évaluation à mi-parcours, une évaluation finale à la fin du projet et une évaluation supplémentaire. 6 mois plus tard.",
       "collaborationSuccess": "La collaboration avec la structure demandée a été acceptée. ",
       "collaborationFailure": "La demande de collaboration a échoué.",
@@ -180,9 +199,11 @@
       "evalConfirmResend": "Êtes-vous sûr de vouloir envoyer à nouveau un courriel à cette personne ?",
       "evalResendRequest": "Rénvoyer un courriel",
       "evalViewEvaluation": "Voir l' évaluation",
+      "evalViewEvaluationResults": "Voir les résultats de l'évaluation",
+      "evalViewPrintVersion": "Voir la version imprimée de tous les questionnaires",
       "evalComplete": "(complété)",
       "evalUpgradeAvailableTitle": "Nouvelle évaluation disponible",
-      "evalUpgradeAvailable": "Une nouvelle version des questionnaires d'évaluation est disponible pour votre projet. Vous pouvez choisir de la valider pour tous les participants.",
+      "evalUpgradeAvailable": "Une nouvelle version des questionnaires d'évaluation est disponible pour votre projet. Vous pouvez choisir de la mettre à disposition des participants.\n\nVeuillez vous assurer que vous avez bien compris toutes les implications de la mise à jour de votre version, car elle pourrait vous faire perdre des informations sur les évaluations existantes. ",
       "evalConvertProject": "Valider la nouvelle version",
       "evalUpgradeError": "Echec de la mise à jour de la version d'évaluation du projet",
       "evalUpgradeSuccess": "Mise à jour de la version d' évaluation du projet",
@@ -195,18 +216,38 @@
     "evaluationDetail": {
       "heatchart": {
         "title": "Participation",
+        "real": "Réel",
+        "effective": "Efficace",
         "engagement": "Engagement",
         "responsiveness": "Réactivité"
       },
       "projectOverallPosition": "Position globale du projet",
       "projectEvolution": "Evolution du projet",
-      "commentsByParticipants": "Commentaires des participants"
+      "commentsByParticipants": "Commentaires des participants",
+      "help": {
+        "projectOverallPosition": "Le tableau résume la position globale du projet et reprend les notes d'évaluation de toutes les dimensions en un seul indicateur (évaluation). Il calcule également la différence des notes d'évaluation selon les cinq principes (cohérence).  Le projet actuel est représenté par le point jaune.\n\nPar exemple, si le point jaune représentant votre projet se trouve dans le coin supérieur droit, cela signifie que pour toutes les dimensions, vous avez obtenu une note assez élevée et que le score entre les dimensions est cohérent.",
+        "projectEvolution": "Le tableau d'évolution du projet montre, pour le projet en cours, la note cumulée pour chacune des quatre phases du processus d'évaluation représentées par la ligne jaune. La médiane (le point gris) et les quartiles Q1 (ligne horizontale inférieure) et Q3 (ligne horizontale supérieure) de l'évaluation de tous les projets sont affichés pour chaque phase.",
+        "involvement": "Le tableau de participation montre la pertinence et l'impact au cours des différentes étapes du projet. Pour chaque étape, les chefs de projet, les scientifiques, les étudiants et la société civile indiquent quand l'engagement de la communauté a eu lieu (engagement réel). De même, pour chaque étape, ils évaluent si la participation de la communauté a été pertinente pour le développement de cette étape du projet (efficacité). La valeur de chaque étape va de 0 (aucune pertinence ou impact du tout) à 4 (très pertinent ou impact maximum), représenté par l'intensité de la couleur.",
+        "bulletCharts": "Une échelle de mesure (tableau à puces) est indiquée pour chaque principe et pour les différentes dimensions qui constituent chaque principe. Le point jaune représente l'évaluation du projet en cours. Les ombres représentent l'évaluation des autres projets : une ombre plus claire représente les projets ayant les notes d'évaluation les plus basses et les plus élevées, tandis qu'une ombre plus opaque représente les projets se situant dans le premier et le troisième quartile des notes d'évaluation. Le premier quartile (Q1) est défini comme la valeur moyenne entre la note d'évaluation la plus basse parmi tous les projets et la médiane de l'ensemble des données. Le troisième quartile (Q3) est défini comme la valeur moyenne entre la médiane et la note d'évaluation la plus élevée parmi tous les projets. Un seuil arbitraire est donné à \"3\" pour attirer l'attention sur les évaluations inférieures à cette valeur.",
+        "bulletChart": {
+          "knowledgeDemocracy": "La démocratie du savoir englobe la transdisciplinarité, la transparence des données et des résultats, et la pertinence scientifique du projet.\nLe premier résultat montre le score cumulé pour cette dimension. Le résultat suivant montre les résultats cumulés pour chacune des sous-dimensions de celle-ci.",
+          "participatoryDynamics": "**Participatory Dynamics** include the degree of community involvement, and the quality and impact of engagement practices.\nThe first result shows the aggregated score for this dimension. The following one shows the aggregated results for each sub-dimensions under this one.",
+          "citizenledResearch": "**La recherche menée par les citoyens** fait référence à l'alignement des objectifs du projet sur les demandes de la communauté, et à l'efficacité de l'engagement de la communauté dans le processus scientifique.\nLe premier résultat montre le score cumulé pour cette dimension. Le résultat suivant montre les résultats cumulés pour chaque sous-dimensions de celle-ci.",
+          "integrity": "**L'intégrité** englobe la conformité avec besoins exprimés, l'inclusion des groupes vulnérables, l'intégration de perspectives éthiques et de genre, la transparence de la gestion des données, la cohérence de la conception des projets et la qualité des ressources disponibles.\nLe premier résultat montre le score cumulé pour cette dimension. Le résultat suivant montre les résultats cumulés pour chacune des sous-dimensions de celle-ci.",
+          "transformativeChange": "**Transformative Change** relates to individual learning and personal growth, project sustainability, the societal responsiveness of the project and its impact on policies, programmes and/or services.\nThe first result shows the aggregated score for this dimension. The following one shows the aggregated results for each sub-dimensions under this one."
+        },
+        "projectManagerCharts": "L'information réservée au gestionnaire de projet n'est pas accessible aux participants car elle donne un aperçu détaillé du processus d'autoréflexion tout en offrant une perspective interne du projet à des fins de gestion.\nLa principale différence entre le niveau de visualisation du gestionnaire de projet et celui accessible par les participants est qu'il décrit les résultats de l'évaluation par profil des répondants. Il permet de mieux comprendre ce qui s'est réellement passé et à qui cela est arrivé.",
+        "publicEval": "L'information accessible au public correspond à l'évaluation globale du projet et affiche le score global pour chacune des dimensions.\n\nChaque projet est représenté par un colibri : un humble petit oiseau, mais extrêmement actif dont le petit mouvement peut contribuer à l'ensemble du système éco-social:\n-  Son aile est associée au Changement Transformateur, car c'est la partie la plus active du Colibri, et celle qui crée le mouvement\n- La tête est associée à la Démocratie du Savoir, suivant la relation naturelle entre la tête, l'esprit et le savoir.\n- Le cœur (ou le bas du corps) est associé à la Recherche Citoyenne, car la citoyenneté est le battement de cœur de la science ouverte (open science).\n- La queue est associée à la Dynamique Participative, parce qu'elle agit comme un gouvernail. \nEnfin, le haut du corps est associé à l'Intégrité, car sans elle, tous les autres aspects s'effondreraient.",
+        "phaseParticipation": "Le graphique du colibri est accompagné de quatre cercles qui correspondent aux quatre phases d'évaluation dans leur ordre de succession : au début du projet, à mi-parcours, à la fin du projet et six mois plus tard. Les phases qui ont été évaluées sont représentées par une couleur à l'intérieur du cercle. Cette couleur remplit tout le cercle lorsque l'ensemble des parties prenantes (gestionnaire de projet, société civile, scientifique et étudiant) ont rempli les questionnaires d'évaluation. D'autre part, le cercle est représenté par un cercle incomplet lorsque certains des différents acteurs n'ont pas contribué à l'évaluation.\n\nA côté du colibri, notez le \"N\": le nombre de participants qui participent aux questionnaires d'évaluation, y compris les différents rôles assignés à chacun."
+      }
     },
     "evaluationEntry": {
       "mainTitle": "Questionnaire d'évaluation du projet.",
       "questionnaire": "Questionnaire",
       "selfQuestionnaireTitle": "Questionnaire d'autoréflexion",
-      "selfQuestionnaireDescription": "Pour faciliter l'évaluation du projet, nous vous recommandons de consulter le questionnaire d'autoréflexion. Il contient quelques questions qui vous inciteront à réfléchir pour vous aider à démarrer. Vous pouvez télécharger le questionnaire ici :",
+      "selfQuestionnaireDescription": "Pour faciliter l'évaluation du projet, nous vous recommandons de consulter le questionnaire d'autoréflexion. Il contient quelques questions qui vous aideront à réfléchir pour vous aider à démarrer. Vous pouvez télécharger le questionnaire ici :",
+      "viewQuestionnaire1": "View the self reflection questionnaire for Phase 1",
+      "viewQuestionnaire3": "View the self reflection questionnaire for Phase 3",
       "questionnaireDescription": "Veuillez répondre aux questions suivantes aussi honnêtement que possible. L'échelle représente un 0 pour \"Je ne suis pas du tout d'accord\" à 7 pour \"Je suis tout à fait d'accord\". Le temps de réponse estimé est de 5 minutes.",
       "questionnaireCompleted": "Ce questionnaire a déjà été complété.",
       "evaluationOverview": "Aperçu de l'évaluation",
@@ -231,12 +272,15 @@
       "fileReady": "Fichier \"{nom}\" prêt à être téléchargé",
       "currentImage": "Image actuelle",
       "upload": "Télécharger le fichier"
+    },
+    "ProjectCard": {
+      "numberOfParticipants": "Nombre de participants"
     }
   },
   "models": {
     "userGender": {
-      "male": "Mâle",
-      "female": "Femelle",
+      "male": "Homme",
+      "female": "Femme",
       "other": "Autre"
     },
     "participationRole": {
@@ -258,7 +302,7 @@
       "participatoryResearch": "Recherche Participative",
       "participatoryActionResearch": "Recherche action participative",
       "citizenScience": "Science citoyenne",
-      "publicEngagement": "Engagement publique",
+      "publicEngagement": "Engagement public",
       "serviceLearning": "L'apprentissage par le service",
       "advocacy": "Plaidoyer",
       "innovation": "Innovation",
@@ -278,11 +322,11 @@
       "phase2": "Phase 2: progrès et auto-réflexion",
       "phase3": "Phase 3: Résultats de fin de projet",
       "phase4": "Phase 4: six mois plus tard",
-      "phase1Description": "La phase de lancement vise à définir clairement les attentes et à réfléchir à la valeur de l'engagement de la communauté pour atteindre les objectifs scientifiques tout en répondant aux demandes de la communauté.",
-      "phase2Description": "À ce stade, vous êtes au milieu du projet et il vous est demandé de réfléchir à la qualité de la dynamique participative et au degré d’inclusion des multiples  perspectives tout au long de la mise en œuvre du projet.",
-      "phase3Description": "Le projet est maintenant terminé et il est temps de réfléchir à l'alignement du projet sur les attentes des participants, à l'intégration d'une perspective éthique et de genre, à la qualité de la dynamique participative et à l'accessibilité des résultats du projet.",
-      "phase4Description": "Six mois se sont écoulés depuis la fin du projet et vous êtes invités à réfléchir aux résultats du projet au niveau des connaissances scientifiques, de l'apprentissage individuel,de  l'alignement des politiques et de la capacité collective à répondre aux demandes de la communauté.",
-      "phase1Tag": "Lancement",
+      "phase1Description": "La phase de lancement vise à définir clairement les attentes et à réfléchir à la valeur de l'engagement de la communauté pour atteindre les objectifs scientifiques tout en répondant aux demandes de celle-ci.",
+      "phase2Description": "À ce stade, vous êtes au milieu du projet et il vous est demandé de réfléchir à la qualité de la dynamique participative et au degré d’inclusion des différents points de vue tout au long de la mise en œuvre du projet.",
+      "phase3Description": "Le projet est maintenant terminé et il est temps de réfléchir aux points suivants: l'alignement du projet sur les attentes des participants, l'intégration d'une perspective éthique et de genre, la qualité de la dynamique participative et le niveau d'accessibilité des résultats du projet.",
+      "phase4Description": "Six mois se sont écoulés depuis la fin du projet et vous êtes invités à réfléchir aux points suivants: les résultats du projet du point de vue des connaissances scientifiques, l'apprentissage individuel, l'alignement des politiques et de la capacité collective à répondre aux demandes de la communauté.",
+      "phase1Tag": "Lancement du projet",
       "phase2Tag": "Auto-réflexion",
       "phase3Tag": "Fin du projet",
       "phase4Tag": "Six mois plus tard"
@@ -321,30 +365,31 @@
       },
       "principle": {
         "knowledge": "Démocratie du savoir",
-        "citizen": "Recherche menée par des citoyens",
+        "citizen": "Recherche Citoyenne",
         "participation": "Dynamique participative",
-        "transform": "Changement transformatif",
+        "transform": "Changement Transformateur",
         "integrity": "Intégrité"
       },
       "dimension": {
-        "CollectiveCapacity": "capacité collective",
-        "communityAlignment": "Rapprochement communautaire",
+        "CollectiveCapacity": "Capacité collective",
+        "communityAlignment": "Alignement sur (les besoins de) la communauté",
         "degreeOfEngagement": "Degré d'engagement",
-        "expectationAlignment": "Harmonisation des attentes",
+        "expectationAlignment": "Alignement sur les attentes (de tous les acteurs)",
         "genderPerspective": "Perspective de genre",
         "impactParticipatoryDynamics": "Impact de la dynamique participative",
         "inclusivity": "Inclusion",
         "knowledgeAndSkills": "Connaissances et compétences",
         "motivation": "Motivation",
         "openness": "Ouverture",
-        "policyImpact": "Impact politique",
+        "policyImpact": "Impact au niveau politique",
         "reflexivity": "Réflexivité",
         "resourceAvailability": "Disponibilité des ressources",
-        "responsivenessCommunityAlignment": "Réceptivité à un rapprochement avec la communauté",
+        "responsivenessCommunityAlignment": "Réactivité à l'alignement de la communauté",
         "satisfactionParticipatoryDynamics": "Satisfaction quant à la dynamique participative",
         "scientificRelevance": "Pertinence scientifique",
-        "selfImprovement": "Amélioration de soi-même",
+        "selfImprovement": "Amélioration au niveau personnel",
         "transdisciplinarity": "Transdisciplinarité",
+        "knowledgeIntegration": "Intégration des savoirs",
         "transparency": "Transparence"
       }
     },
@@ -402,7 +447,7 @@
       "Q35": "La participation de la communauté au projet peut contribuer de manière positive à répondre aux demandes de celle-ci.",
       "Q36": "La participation de la communauté au projet peut contribuer de manière positive à répondre aux demandes de celle-ci.",
       "Q37": "La participation de la communauté au projet peut contribuer de manière positive à répondre aux demandes de celle-ci.",
-      "Q38": "Vous connaissez le thème du projet.",
+      "Q38": "Vous connaissez la thématique du projet.",
       "Q39": "Vous vous sentez en confiance pour contribuer à la science.",
       "Q40": "Vous vous sentez en confiance pour contribuer à la science.",
       "Q41": "Votre participation au projet peut contribuer de manière positive à répondre aux demandes de la communauté.",
@@ -417,8 +462,8 @@
       "Q50": "Vous êtes satisfait de la dynamique participative du projet.",
       "Q51": "Vous êtes motivé pour participer à des projets similaires.",
       "Q52": "Vous êtes motivé pour participer à des projets similaires.",
-      "Q53": "Vous êtes motivé pour continuer à être impliqué dans le projet.",
-      "Q54": "Vous êtes motivé pour continuer à être impliqué dans le projet.",
+      "Q53": "Vous êtes motivé pour continuer à vous impliquer dans le projet.",
+      "Q54": "Vous êtes motivé pour continuer à vous impliquer dans le projet.",
       "Q55": "Les résultats du projet sont mis à la disposition de la communauté dans un format compréhensible et approprié.",
       "Q56": "Les résultats du projet ont contribué à générer des connaissances scientifiques pertinentes.",
       "Q57": "Le projet inclut les points de vue et les réactions de la communauté tout au long du processus scientifique.",
@@ -553,10 +598,12 @@
     "links": {
       "home": "Accueil",
       "about": "À propos",
-      "help": "Aide"
+      "help": "Aide",
+      "learn": "Aide"
     }
   },
   "misc": {
+    "registeredProjects": "{n} projets enregistrés",
     "timeAgo": "il y a {temps}",
     "optional": "Facultatif",
     "lastUpdated": "Dernière mise à jour le {date}",
@@ -591,7 +638,9 @@
     "moreInformation": "Plus d'information",
     "manageName": "Gérer ce {nom}",
     "viewPublicPage": "Voir la page publique",
+    "viewAndPrint": "Voir et imprimer ",
     "exportAllData": "Exporter toutes les données",
+    "print": "Imprimer cette page",
     "download": "Télécharger",
     "downloadName": "Télécharger {nom}",
     "tellMeMore": "Dites-moi plus",
@@ -611,12 +660,14 @@
     "projects": "Projets",
     "structure": "Structure",
     "structures": "Structures",
-    "evaluation": "Evaluation"
+    "evaluation": "Évaluation",
+    "attachment": "Pièce jointe",
+    "attachments": "Pièces jointes"
   },
   "errors": {
-    "couldNotLoad": "Il y a eu un problème de chargement de cette page. Êtes-vous sûr d'y avoir accès ?",
+    "couldNotLoad": "Il y a eu un problème lors du chargement de cette page. Êtes-vous sûr d'y avoir accès ?",
     "404": {
-      "title": "Oops! Cette page n'a pas été trouvée",
+      "title": "Oups! Cette page n'a pas été trouvée",
       "text": "La page à '{itinéraire}' n'existe pas. Êtes-vous sûr de l'avoir tapé correctement?"
     }
   },
@@ -627,15 +678,16 @@
     },
     "rules": {
       "invalidUsername": "Ce nom d'utilisateur n'est pas valable",
-      "invalidEmail": "Ce courriel n'est pas valide",
+      "invalidEmail": "Cette adresse mail n'est pas valable",
       "requiredField": "Ceci est un champ obligatoire",
-      "passwordField": "Le mot de passe que vous avez entré n'est pas valide",
-      "passwordMatch": "les deux mots de passe ne correspondent pas",
+      "passwordField": "Le mot de passe que vous avez entré n'est pas valable",
+      "passwordMatch": "Les deux mots de passe ne correspondent pas",
       "maximunLength": "Doit comporter au plus {longueur} caractères",
       "minimunLength": "Doit comporter au moins {longueur} caractères",
       "usernameInUse": "Ce nom d'utilisateur est déjà utilisé, veuillez en choisir un autre.",
       "namedRequiredField": "{prénom} est un champs obligatoire",
-      "mustBeStructure": "Veuillez entrer une structure valide",
+      "mustNotBeEmail": "Veuillez ne pas utiliser une adresse électronique comme nom d'utilisateur car cette information est publique.",
+      "mustBeStructure": "Veuillez entrer une structure validée",
       "mustBeUser": "Veuillez entrer une liste d'utilisateurs valide",
       "mustBeURL": "Veuillez entrer une URL valide",
       "mustBeCountry": "Veuillez entrer un pays valide",
@@ -645,7 +697,7 @@
       "invalidCredentials": "Informations d'identification non valides, veuillez vérifier votre nom d'utilisateur et votre mot de passe."
     },
     "toasts": {
-      "permissionError": "Il y a eu une erreur lors de l'accès à la ressource, vous n'avez peut-être pas la permission de la consulter.",
+      "permissionError": "Il y a eu une erreur lors de l'accès à la source d'information, vous n'avez peut-être pas la permission de la consulter.",
       "uploadError": "Il y a eu une erreur lors du téléchargement de votre fichier.",
       "loggedOut": "Vous avez été déconnecté",
       "resetPasswordSubmitted": "Un email de réinitialisation de mot de passe a été envoyé à l'utilisateur de ce compte.",
@@ -654,9 +706,9 @@
       "saveImageSuccess": "Image téléchargée avec succès !",
       "saveImageFailure": "Échec du téléchargement de l'image",
       "projectSaveSuccess": "Les données du projet ont été mises à jour!",
-      "projectSaveFailure": "Échec de la sauvegarde du projet. Veuillez réessayer ultérieurement.",
+      "projectSaveFailure": "Échec de la sauvegarde du projet. Veuillez réessayer plus tard.",
       "structureSaveSuccess": "Données de structure mises à jour!",
-      "structureSaveFailure": "Échec de l'enregistrement de la structure. Veuillez réessayer ultérieurement.",
+      "structureSaveFailure": "Échec de l'enregistrement de la structure. Veuillez réessayer plus tard.",
       "inviteParticipantFailure": "A échoué à inviter cette personne. Veuillez vérifier que votre projet est validé. Il se peut que l'adresse e-mail soit déjà utilisée.",
       "participantsSuccess": "Les personne impliquées dans le projet ont été enregistrées.",
       "inviteParticipantSuccess": "L'invitation a été faite avec succès.",
@@ -674,8 +726,9 @@
       "genderIdentity": "Identité de genre",
       "summary": "Résumé",
       "description": "Description",
-      "participants": "Participants",
+      "participants": "Les participants",
       "managers": "Gestionnaires",
+      "attachmentName": "Titre de la pièce jointe",
       "structureName": "Nom de la structure",
       "structureType": "Type de structure ",
       "structureYearFounded": "Année de fondation de la structure",
@@ -721,14 +774,14 @@
       "projectType": "Comment l'équipe de votre projet est-elle structurée?",
       "projectName": "Choisissez un nom pour définir votre projet. Moins de 50 caractères si possible.",
       "projectSummary": "Bref résumé de votre projet et de ce qu’il recouvre. Il est conseillé de ne pas dépasser 200 caractères.",
-      "projectAdministrators": "Ajoutez ici toutes les personnes qui auront un accès complet pour éditer le projet. Les administrateurs de projet ne peuvent pas transférer la propriété de celui-ci.",
+      "projectAdministrators": "Ajoutez ici toutes les personnes qui auront un accès complet pour éditer le projet. Les administrateurs de projet ne peuvent pas transférer la propriété de celui-ci.Les administrateurs NE SONT PAS des participants.",
       "projectAcronym": "Choisissez un acronyme pour votre projet",
       "projectCountry": "Où votre projet est-il basé et où opère t-il généralement?",
       "postalAddress": "Si quelqu'un vous envoie une lettre, où doit-elle être adressée ?",
       "knowledgeArea": "Domaine de connaissance selon l'UNESCO qui définit le mieux votre projet.",
       "knowledgeAreas": "Sélectionnez tous les domaines de connaissance de la recherche relevant de cette structure.",
       "summary": "Description détaillée du projet. Aucune limite de caractères",
-      "description": "Description détaillée du projet. Aucune limite de caractères",
+      "description": "Description détaillée du projet. Aucune limite de caractères. La annotation en marge est possible pour des raisons de style.",
       "descriptionTemplate": "Veuillez suivre le modèle approuvé et ne supprimez pas les en-têtes de section (lignes commençant par \"##\"). Remplissez les détails de votre projet en remplaçant les lignes d'instruction.",
       "password": "Votre mot de passe doit comporter au moins 8 caractères. Il ne doit pas être un mot de passe commun et ne pas contenir votre nom d'utilisateur."
     }
@@ -744,7 +797,7 @@
       "rowsPerPageAll": "Tout",
       "pageText": "{0}-{1} de {2}",
       "noResultsText": "Aucun fichier correspondant n'a été trouvé",
-      "nextPage": "Prochaine page",
+      "nextPage": "Page suivante",
       "prevPage": "Page précédente"
     },
     "dataTable": {

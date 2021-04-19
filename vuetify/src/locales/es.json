@@ -12,6 +12,7 @@
       "editProfile": "Editar perfil",
       "updateProfileSuccess": "Su perfil se ha actualizado",
       "updateProfileFailure": "No se ha podido actualizar su perfil",
+      "evaluationRequests": "Evaluation requests",
       "myProjects": "Mis Proyectos",
       "myStructures": "Mis Estructuras"
     },
@@ -47,6 +48,7 @@
       "mainTitle": "Bienvenido/a a InSPIRES",
       "worldmapTitle": "Mapa Global",
       "latestTitle": "Últimas actualizaciones",
+      "latestProjectsTitle": "Latest Project Updates",
       "mostActiveStructures": "Estructuras activas",
       "welcomeMessage": "Bienvenido a la Plataforma Abierta InSPIRES. Esta Plataforma presenta proyectos de investigación e innovación participativa liderados por ciudadanos y promovidos por unidades intermediarias del conocimiento, como Tiendas de la Ciencia, grupos o unidades de Ciencia Ciudadana, etc.",
       "welcomeMessageLong": "También ofrece una herramienta integrada de evaluación de impacto colaborativa con el fin de evaluar los procesos y resultados de sus propios proyectos con respecto a otros. El objetivo que se persigue es producir una reflexión conjunta y colectiva en torno a este tipo de proyectos de colaboración para aprender, pensar, trabajar y crecer como comunidad para desarrollar mejores proyectos que apunten a mejorar la vida y el bienestar de los ciudadanos.",
@@ -82,10 +84,13 @@
       "mainTitle": "Panel de administración",
       "unauthorizedAccess": "No está autorizado a acceder al Panel de Administración. Si cree que debería hacerlo, póngase en contacto con un administrador de la Plataforma.",
       "pendingApproval": "Estructuras pendientes de administración",
+      "approvedStructures": "Structures approved",
       "instructionsText": "Las siguientes estructuras deben ser validadas antes de que aparezcan en las listas públicas del portal. Por favor, verifique la validez de los datos y la autenticidad de cada uno de ellos.\n\nVerifique también que la persona que dice ser la dueña de la estructura es quien dice ser, y que se le permite poner la información en el portal.",
       "createdBy": "Creado por {name}",
       "validationSuccess": "Estructura validada con éxito. Ahora aparecerá en las listas públicas.",
-      "validationFailure": "No se ha podido validar la Estructura. Póngase en contacto con el servicio de asistencia."
+      "validationFailure": "No se ha podido validar la Estructura. Póngase en contacto con el servicio de asistencia.",
+      "retirementSuccess": "Structure retired from the platform correctly.",
+      "retirementFailure": "Failed to retire the structure. Please contact support."
     },
     "legal": {
       "termsOfServiceTitle": "Cláusulas y Condiciones",
@@ -105,15 +110,20 @@
       "detailsTab": "Información",
       "evaluationTab": "Evaluación de proyectos",
       "notApproved": "Este proyecto aún no está aprobado, no aparecerá en las listas públicas hasta que se registre en una Estructura.",
-      "projectNotYetEvaluated": "Este proyecto aún no ha recibido suficientes respuestas y evaluaciones de sus participantes, por lo que no podemos mostrarles cómo les está yendo. ¡Vuelve a consultar otro día!"
+      "projectNotYetEvaluated": "Este proyecto aún no ha recibido suficientes respuestas y evaluaciones de sus participantes, por lo que no podemos mostrarles cómo les está yendo. ¡Vuelve a consultar otro día!",
+      "activeCountries": "This project is active in 1 country: | This project is active in {n} countries:"
     },
     "structureDetail": {
       "notApproved": "Esta estructura aún no está aprobada, no aparecerá en las listas públicas hasta que un administrador del sitio web la valide.",
+      "activeCountries": "This structure is active in 1 country: | This structure is active in {n} countries:",
       "about": "Acerca de"
     },
     "structureList": {
+      "introTitle": "Want to know more about structures?",
       "introText": "Una estructura es una unidad de intermediación del conocimiento, que puede estar radicada en una universidad, un centro de investigación u otros, que promueve las interacciones y los diálogos entre la comunidad científica y las organizaciones de la sociedad civil con el fin de co-crear e implementar conjuntamente proyectos de investigación participativa.\n\nActualmente se utilizan muchas etiquetas para definir este tipo de estructuras: Tiendas de la Ciencia, Oficina Campus-Comunidad, Unidades de Ciencia Ciudadana, Laboratorios Sociales, Living Labs, etc. pero también investigación de acción ciudadana, investigación participativa basada en la comunidad y ciencia ciudadana. Por lo tanto, no pretendemos ser excluyentes sino reunir en esta Plataforma Abierta a todos los proyectos que trabajen bajo los 5 principios que promovemos: Democracia del Conocimiento, Investigación Ciudadana, Dinámica Participativa, Integridad y Cambio Transformador. A continuación encontrarás todas las estructuras registradas en la Plataforma Abierta.",
-      "visitStructure": "Ver la Estructura"
+      "visitStructure": "Ver la Estructura",
+      "showMore": "Show more structures",
+      "noMoreStructures": "That's all the structures!"
     },
     "structureManage": {
       "title": "Administrar esta Estructura",
@@ -142,12 +152,12 @@
     "projectList": {
       "introTitle": "¿Quiere saber más sobre los proyectos?",
       "introText": "La Plataforma Abierta InSPIRES recoge proyectos de investigación e innovación participativa promovidos por diferentes estructuras y organizaciones, como Tiendas de la Ciencia/Science Shops, oficinas de Ciencia Ciudadana, etc. A continuación encontrará todos los proyectos registrados en la Plataforma Abierta.",
-      "showMore": "Ver más proyectos",
-      "noMoreProjects": "Éstos son todos los proyectos.",
       "showEvaluations": "Mostrar resultados de la Evaluación",
       "noKASpecified": "No se especifica el área de conocimiento",
       "visitProject": "Ver Proyecto",
-      "filterByArea": "en el área de {area}"
+      "filterByArea": "en el área de {area}",
+      "showMore": "Ver más proyectos",
+      "noMoreProjects": "Éstos son todos los proyectos."
     },
     "projectManage": {
       "title": "Administrar este Proyecto",
@@ -156,6 +166,9 @@
       "infoContactTitle": "Información de contacto",
       "infoAdditionalTitle": "Información adicional",
       "infoAdditionalDescription": "Otros detalles útiles para que su proyecto esté bien definido y pueda ser encontrado en las búsquedas.",
+      "structureTitle": "Associated Intermediation Structure",
+      "structureSubheading": "Select under which Intermediation Structure your project is established.",
+      "structureHelp": "Every project in the platform has to be validated by an intermediation Structure that will give the project validity. Please select the Structure to which your project belongs.\n\nThe platform will notify the structure owners to review and approve your project so it will appear in public listings. We will let you know as soon as your project is approved.",
       "success": "¡Estructura guardada con éxito!",
       "failure": "No se pudo guardar esta Estructura. Inténtelo de nuevo más tarde. ",
       "projectTab": "Este Proyecto",
@@ -218,10 +231,10 @@
         "bulletCharts": "Se muestra una métrica (gráfico de barras) para cada principio y para las diferentes dimensiones que constituyen cada principio. El punto amarillo representa la evaluación del proyecto actual. Las sombras representan la evaluación de otros proyectos: una sombra más clara representa los proyectos con las puntuaciones de evaluación más bajas y más altas, mientras que una sombra más opaca representa los proyectos dentro del primer y el tercer cuartil de las puntuaciones de evaluación. El primer cuartil (Q1) se define como el valor medio entre la puntuación de evaluación más baja de todos los proyectos y la mediana del conjunto de datos. El tercer cuartil (Q3) se define como el valor medio entre la mediana y la puntuación de evaluación más alta de todos los proyectos. Se establece un umbral arbitrario de \"3\" para llamar la atención sobre las evaluaciones inferiores a este valor.",
         "bulletChart": {
           "knowledgeDemocracy": "La Democracia del Conocimiento abarca la transdisciplinariedad, la apertura de datos y resultados y la relevancia científica del proyecto.\nEl primer resultado muestra la puntuación agregada de esta dimensión. El siguiente muestra los resultados agregados de cada una de las subdimensiones que la componen.",
-          "participatoryDynamics ": "**Dinámicas participativas** incluye el grado de implicación de la comunidad y la calidad e impacto de las prácticas de implicación.\nEl primer resultado muestra la puntuación agregada para esta dimensión. El siguiente muestra los resultados agregados de cada una de las subdimensiones de esta dimensión.",
+          "participatoryDynamics": "**Participatory Dynamics** include the degree of community involvement, and the quality and impact of engagement practices.\nThe first result shows the aggregated score for this dimension. The following one shows the aggregated results for each sub-dimensions under this one.",
           "citizenledResearch": "**La investigación dirigida por los ciudadanos** se refiere a la adecuación de los objetivos del proyecto a las demandas de la comunidad y a la eficacia de la participación de la comunidad en el proceso científico.\nEl primer resultado muestra la puntuación agregada para esta dimensión. El siguiente muestra los resultados agregados para cada una de las subdimensiones de esta dimensión.",
           "integrity": "**La integridad** abarca la alineación de las expectativas, la inclusión de los grupos vulnerables, la incorporación de perspectivas éticas y de género, la transparencia de la gestión de los datos, la coherencia del diseño del proyecto y la calidad de los recursos disponibles.\nEl primer resultado muestra la puntuación agregada de esta dimensión. El siguiente muestra los resultados agregados para cada una de las subdimensiones bajo ésta.",
-          "transformativeChange ": "**El cambio transformador** está relacionado con el aprendizaje individual y el crecimiento personal, la sostenibilidad del proyecto, la capacidad de respuesta de la sociedad y su impacto en las políticas, programas y/o servicios.\nEl primer resultado muestra la puntuación agregada para esta dimensión. El siguiente muestra los resultados agregados para cada una de las subdimensiones de esta dimensión."
+          "transformativeChange": "**Transformative Change** relates to individual learning and personal growth, project sustainability, the societal responsiveness of the project and its impact on policies, programmes and/or services.\nThe first result shows the aggregated score for this dimension. The following one shows the aggregated results for each sub-dimensions under this one."
         },
         "projectManagerCharts": "La visualización del administrador de proyecto no es accesible para los participantes porque ofrece un detalle del proceso de autorreflexión, al tiempo que proporciona una visión interna con fines de gestión.\n\nLa diferencia entre este nivel de visualización y el accesible para los participantes es que representa los resultados de la evaluación por perfil de los encuestados. Permite tener una mejor comprensión de lo que ha sucedido desde la perspectiva de cada uno de los perfiles.",
         "publicEval": "La visualización pública refleja la evaluación global del proyecto y muestra la puntuación agregada de cada una de las dimensiones.\n\nCada proyecto está representado por un Colibrí: un humilde y pequeño pájaro, pero extremadamente activo cuyo pequeño movimiento puede contribuir al sistema eco-social global:\n- Su ala está asociada al Cambio Transformador, porque es la parte más activa del Colibrí, y la que crea movimiento.\n- La cabeza está asociada a la Democracia del Conocimiento, siguiendo la relación natural de la cabeza, la mente y el conocimiento.\n- El corazón (o parte inferior del cuerpo) se asocia a la Investigación Ciudadana, porque la ciudadanía es el latido de la Ciencia Abierta.\n- La cola se asocia a la Dinámica Participativa, porque actúa como timón. Y, por último, la parte superior del cuerpo se asocia a la Integridad, porque sin ella todos los demás aspectos se desmoronarían.",
@@ -233,6 +246,8 @@
       "questionnaire": "Cuestionario",
       "selfQuestionnaireTitle": "Cuestionario de Autorreflexión",
       "selfQuestionnaireDescription": "Para ayudar en la evaluación del Proyecto, recomendamos consultar el Cuestionario de Autorreflexión. Contiene algunas preguntas que invitan a la reflexión para empezar. Puede descargar el cuestionario aquí:",
+      "viewQuestionnaire1": "View the self reflection questionnaire for Phase 1",
+      "viewQuestionnaire3": "View the self reflection questionnaire for Phase 3",
       "questionnaireDescription": "Por favor, responda a las siguientes preguntas con la mayor sinceridad posible. La escala representa desde un 0 para \"estoy completamente en desacuerdo\" hasta un 7 para \"estoy completamente de acuerdo\". El tiempo estimado de respuesta es de 5 minutos.",
       "questionnaireCompleted": "Este cuestionario ya ha sido completado.",
       "evaluationOverview": "Resumen de la Evaluación",
@@ -583,7 +598,8 @@
     "links": {
       "home": "Inicio",
       "about": "Acerca de ",
-      "help": "Ayuda"
+      "help": "Ayuda",
+      "learn": "Ayuda"
     }
   },
   "misc": {

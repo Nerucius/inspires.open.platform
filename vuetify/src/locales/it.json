@@ -12,6 +12,7 @@
       "editProfile": "Modifica il Profilo",
       "updateProfileSuccess": "Il tuo profilo è stato aggiornato",
       "updateProfileFailure": "Impossibile aggiornare il profilo",
+      "evaluationRequests": "Evaluation requests",
       "myProjects": "I miei progetti",
       "myStructures": "Le mia strutture"
     },
@@ -47,6 +48,7 @@
       "mainTitle": "Benvenuti su InSPIRES",
       "worldmapTitle": "Mappa del mondo",
       "latestTitle": "Ultimi aggiornamenti",
+      "latestProjectsTitle": "Latest Project Updates",
       "mostActiveStructures": "Strutture attive",
       "welcomeMessage": "Benvenuti nella piattaforma aperta InSPIRES. Questa piattaforma presenta progetti di ricerca e di  innovazione partecipativi guidati dai cittadini promossi da unità di intermediazione della conoscenza, come gli sportelli della scienza, i gruppi di cittadini scientiziati, le unità ecc, ecc.",
       "welcomeMessageLong": "Offre anche uno strumento integrato di valutazione dell'impatto collaborativo al fine di valutare i processi e i risultati dei propri progetti rispetto agli altri. L'obiettivo perseguito è quello di produrre una riflessione congiunta e collettiva su questo tipo di progetti collaborativi per apprendere, pensare, discutere e crescere come comunità di pratica per sviluppare progetti migliori volti a migliorare la vita e il benessere dei cittadini",
@@ -82,10 +84,13 @@
       "mainTitle": "Pannello di amministrazione",
       "unauthorizedAccess": "Non sei autorizzato ad accedere al pannello di amministrazione. Se ritieni che dovresti, contatta un amministratore della piattaforma.",
       "pendingApproval": "Approvazione in sospeso della struttura",
+      "approvedStructures": "Structures approved",
       "instructionsText": "Le seguenti strutture devono essere convalidate prima che vengano visualizzate negli elenchi pubblici del sito. Si prega di verificare per ogni struttura  la validità dei dati e l'autenticità.\n\nVerificare anche che la persona che sostiene di possedere la struttura sia chi rivendica e che sia autorizzata a mettere le informazioni sul sito.",
       "createdBy": "Creato da {name}",
       "validationSuccess": "Struttura verificata con successo. Ora verrà visualizzata nelle liste pubbliche.",
-      "validationFailure": "Impossibile convalidare la struttura. Si prega di contattare l'assistenza."
+      "validationFailure": "Impossibile convalidare la struttura. Si prega di contattare l'assistenza.",
+      "retirementSuccess": "Structure retired from the platform correctly.",
+      "retirementFailure": "Failed to retire the structure. Please contact support."
     },
     "legal": {
       "termsOfServiceTitle": "Termini di servizio",
@@ -105,15 +110,20 @@
       "detailsTab": "Informazione",
       "evaluationTab": "Valutazione del Progetto",
       "notApproved": "Questo progetto non è ancora approvato, non apparirà negli elenchi pubblici finché non sarà registrato ad una Struttura.",
-      "projectNotYetEvaluated": "Questo progetto non ha ancora ricevuto feedback e valutazioni sufficienti dai partecipanti, quindi non possiamo mostrarti come sta andando. Torna un altro giorno!"
+      "projectNotYetEvaluated": "Questo progetto non ha ancora ricevuto feedback e valutazioni sufficienti dai partecipanti, quindi non possiamo mostrarti come sta andando. Torna un altro giorno!",
+      "activeCountries": "This project is active in 1 country: | This project is active in {n} countries:"
     },
     "structureDetail": {
       "notApproved": "Questa struttura non è ancora approvata, non verrà mostrata negli elenchi pubblici fino a quando un amministratore del sito non la convaliderà.",
+      "activeCountries": "This structure is active in 1 country: | This structure is active in {n} countries:",
       "about": "Intorno"
     },
     "structureList": {
+      "introTitle": "Want to know more about structures?",
       "introText": "Una Struttura è un'unità intermediaria della conoscenza, che può avere sede all'interno di un'università, un centro di ricerca o altre che promuove interazioni e dialoghi tra la comunità scientifica e le organizzazioni della società civile al fine di co-creare e attuare congiuntamente progetti di ricerca partecipativa.\n\nCi sono molte etichette utilizzate al momento per definire tali strutture: Science Shop, Campus-community office, Citizen Science units, Social Labs, Living Labs, ecc. Ma anche ricerca sull'azione dei cittadini, ricerca partecipativa basata sulla comunità e \"citizen science.\" Pertanto, non intendiamo essere esclusivi, ma piuttosto raccogliere in questa piattaforma aperta tutti i progetti che funzionano secondo i 5 principi che promuoviamo: democrazia della conoscenza, ricerca guidata dai cittadini, dinamiche partecipative, integrità e cambiamento trasformativo. Di seguito troverai tutte le strutture iscritte alla piattaforma",
-      "visitStructure": "Visita la struttura"
+      "visitStructure": "Visita la struttura",
+      "showMore": "Show more structures",
+      "noMoreStructures": "That's all the structures!"
     },
     "structureManage": {
       "title": "Gestisci questa struttura",
@@ -142,12 +152,12 @@
     "projectList": {
       "introTitle": "Vuoi sapere di più sui progetti?",
       "introText": "La piattaforma aperta InSPIRES comprende progetti di ricerca e innovazione partecipativi promossi da diverse strutture e organizzazioni, come i science Shop, uffici di Citizen Science, ecc. Di seguito troverai tutti i progetti registrati nella piattaforma aperta.",
-      "showMore": "Mostra più progetti",
-      "noMoreProjects": "Questi sono tutti i progetti!",
       "showEvaluations": "Mostra i  risultati della valutazione",
       "noKASpecified": "Nessuna area di conoscenza specificata",
       "visitProject": "Visita il progetto",
-      "filterByArea": "Nell aria di {area}"
+      "filterByArea": "Nell aria di {area}",
+      "showMore": "Mostra più progetti",
+      "noMoreProjects": "Questi sono tutti i progetti!"
     },
     "projectManage": {
       "title": "Gestisci questo progetto",
@@ -156,6 +166,9 @@
       "infoContactTitle": "Informazioni di contatto",
       "infoAdditionalTitle": "Informazioni aggiuntive",
       "infoAdditionalDescription": "Altri dettagli utili in modo che il tuo progetto sia ben definito e possa essere trovato nelle ricerche",
+      "structureTitle": "Associated Intermediation Structure",
+      "structureSubheading": "Select under which Intermediation Structure your project is established.",
+      "structureHelp": "Every project in the platform has to be validated by an intermediation Structure that will give the project validity. Please select the Structure to which your project belongs.\n\nThe platform will notify the structure owners to review and approve your project so it will appear in public listings. We will let you know as soon as your project is approved.",
       "success": "Struttura salvata con successo",
       "failure": "Impossibile salvare la struttura. riprova più tardi",
       "projectTab": "Questo Progetto",
@@ -218,10 +231,10 @@
         "bulletCharts": "Per ogni principio e per le diverse dimensioni che costituiscono ogni principio viene mostrata una metrica (grafico a punti). Il punto giallo rappresenta la valutazione del progetto corrente. Le ombre rappresentano la valutazione di altri progetti: un'ombra più chiara rappresenta i progetti con il punteggio di valutazione più basso e più alto, mentre un'ombra più opaca rappresenta i progetti all'interno del primo e del terzo quartile dei punteggi di valutazione. Il primo quartile (Q1) è definito come il valore medio tra il punteggio di valutazione più basso tra tutti i progetti e la mediana del set di dati. Il terzo quartile (Q3) è definito come il valore medio tra la mediana e il punteggio di valutazione più alto tra tutti i progetti. Viene assegnata una soglia arbitraria a \"3\" per richiamare l'attenzione sulle valutazioni al di sotto di questo valore.",
         "bulletChart": {
           "knowledgeDemocracy": "La democrazia della conoscenza copre la transdisciplinarità, l'apertura dei dati e dei risultati e la rilevanza scientifica del progetto.\nIl primo risultato mostra il punteggio aggregato per questa dimensione. Il seguente mostra i risultati aggregati per ciascuna sottodimensione sotto questa.",
-          "participatoryDynamics ": "Le ** dinamiche partecipative ** includono il grado di coinvolgimento della comunità e la qualità e l'impatto delle pratiche di coinvolgimento.\nIl primo risultato mostra il punteggio aggregato per questa dimensione. Il seguente mostra i risultati aggregati per ciascuna sottodimensione sotto questa.",
+          "participatoryDynamics": "**Participatory Dynamics** include the degree of community involvement, and the quality and impact of engagement practices.\nThe first result shows the aggregated score for this dimension. The following one shows the aggregated results for each sub-dimensions under this one.",
           "citizenledResearch": "** Ricerca guidata dal cittadino ** si riferisce all'allineamento degli obiettivi del progetto alle richieste della comunità e all'efficacia dell'impegno della comunità nel processo scientifico.\nIl primo risultato mostra il punteggio aggregato per questa dimensione. Il seguente mostra i risultati aggregati per ciascuna sottodimensione sotto questa.",
           "integrity": "** Integrità ** comprende l'allineamento delle aspettative, l'inclusione di gruppi vulnerabili, l'aggiunta  di prospettive etiche e di genere, la trasparenza della gestione dei dati, la coerenza del disegno del  progetto e la qualità delle risorse disponibili.\nIl primo risultato mostra il punteggio aggregato per questa dimensione. Il seguente mostra i risultati aggregati per ciascuna sottodimensione sotto questa.",
-          "transformativeChange ": "** Cambiamento trasformativo ** si riferisce all'apprendimento individuale e alla crescita personale, alla sostenibilità del progetto, alla reattività sociale del progetto e al suo impatto su politiche, programmi e / o servizi.\nIl primo risultato mostra il punteggio aggregato per questa dimensione. Il seguente mostra i risultati aggregati per ciascuna sottodimensione sotto questa."
+          "transformativeChange": "**Transformative Change** relates to individual learning and personal growth, project sustainability, the societal responsiveness of the project and its impact on policies, programmes and/or services.\nThe first result shows the aggregated score for this dimension. The following one shows the aggregated results for each sub-dimensions under this one."
         },
         "projectManagerCharts": "La visualizzazione del Project Manager non è accessibile ai partecipanti perché fornisce un dettaglio fine del processo di auto-riflessione fornendo al contempo una vista interna utile  per scopi di gestione.\n\nLa differenza tra questo livello di visualizzazione e quello accessibile ai partecipanti è che  questo rappresenta i risultati della valutazione in base al profilo degli intervistati. Permette di avere una migliore comprensione di cosa è successo e a chi.",
         "publicEval": "La visualizzazione pubblica riflette la valutazione complessiva del progetto e mostra il punteggio aggregato per ciascuna delle dimensioni.\n\nOgni progetto è rappresentato da un Colibrì: un umile uccellino, ma estremamente attivo il cui piccolo movimento può contribuire al sistema eco-sociale complessivo:\n- La sua ala è associata al cambiamento trasformativo, perché è la parte più attiva del colibrì e quella che crea il movimento.\n- La testa è associata alla Democrazia della Conoscenza, seguendo il rapporto naturale tra testa, mente e conoscenza.\n- Il cuore (o parte inferiore del corpo) è associato alla ricerca condotta dai cittadini, perché la cittadinanza è il battito del cuore della scienza aperta.\n- La coda è associata alle dinamiche partecipative, perché funge da elmo. E, infine, la parte superiore del corpo è associata all'Integrità, perché senza di essa tutti gli altri aspetti cadrebbero a pezzi.",
@@ -233,6 +246,8 @@
       "questionnaire": "Questionario",
       "selfQuestionnaireTitle": "Questionario di autoriflessione",
       "selfQuestionnaireDescription": "Per aiutare nella valutazione del progetto, si consiglia di consultare il Questionario di autoriflessione. Contiene alcune domande stimolanti per iniziare. Puoi scaricare il questionario qui:",
+      "viewQuestionnaire1": "View the self reflection questionnaire for Phase 1",
+      "viewQuestionnaire3": "View the self reflection questionnaire for Phase 3",
       "questionnaireDescription": "Rispondi alle seguenti domande nel modo più onesto possibile. La scala rappresenta uno 0 per \"Sono completamente in disaccordo\" a 7 per \"Sono completamente d'accordo\". Il tempo di risposta stimato è di 5 minuti.",
       "questionnaireCompleted": "Questo questionario è già stato completato",
       "evaluationOverview": "Panoramica sulla valutazione",
@@ -272,7 +287,7 @@
       "scientist": "Scienziato",
       "student": "Studente",
       "civilSociety": "Società civile",
-      "projectManager": "Project Manager"
+      "projectManager": "Manager del progetto"
     },
     "educationLevel": {
       "primary": "Primario",
@@ -286,7 +301,7 @@
       "research": "Ricerca",
       "participatoryResearch": "Ricerca partecipata",
       "participatoryActionResearch": "Ricerca e azione partecipata",
-      "citizenScience": "Citizen Science",
+      "citizenScience": "Scienza Cittadina",
       "publicEngagement": "Public Engagement",
       "serviceLearning": "Apprendimento del servizio",
       "advocacy": "Patrocinio",
@@ -583,7 +598,8 @@
     "links": {
       "home": "Home",
       "about": "Riguardo",
-      "help": "Aiuto"
+      "help": "Aiuto",
+      "learn": "Aiuto"
     }
   },
   "misc": {
@@ -724,7 +740,7 @@
       "projectPhase": "Fase del progetto",
       "projectCountry": "Paese di azione del progetto",
       "projectAdministrators": "Amministratore del progetto",
-      "socialNetwork": "Social Network",
+      "socialNetwork": "Rete sociale",
       "contactEmail": "email di contatto",
       "contactWebsite": "Sito web esterno",
       "postalAddress": "Indirizzo postale",

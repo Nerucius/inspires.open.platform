@@ -10,8 +10,9 @@
       "accountCreated": "El teu compte s'ha creat satisfactòriament. Ara pots accedir a totes les funcionalitats de la plataforma.",
       "saveProfile": "Desa el teu perfil",
       "editProfile": "Edita el teu perfil",
-      "updateProfileSuccess": "El teu perfil s'ha actualizat.",
-      "updateProfileFailure": "No s'ha pogut actualizar el teu perfil.",
+      "updateProfileSuccess": "El teu perfil s'ha actualitzat",
+      "updateProfileFailure": "No s'ha pogut actualitzar el teu perfil.",
+      "evaluationRequests": "Peticions d'evaluació",
       "myProjects": "Els meus Projectes",
       "myStructures": "Les meves Estructures"
     },
@@ -29,17 +30,17 @@
         "step3": "Termes del servei",
         "step4": "Quasi bé hem acabat!"
       },
-      "acceptTOS": "Acepto els Termes i Condicions d'ús",
-      "welcomeMessage": "Benvingut a la pàgina de registre de la Plataforma Oberta InSPIRES. Des d'aquí pots crear el seu usuari per iniciar sessió al portal, que et permetrà crear i/o participar en un projecte, enviar sol·licituds per tal de dur a terme la recerca, crear la teva pròpia estructura i també dur a terme de manera col·laborativa l'avaluació del projecte. ",
-      "welcomeMessage2": "Registrar-te et permet començar a contribuir en el portal! També es poden registrar estructures i projectes de recera al teu nom o al de la teva organització. ",
-      "step1Message": "Si us plau, indican's un nom d'usuari i contrasenya. El nom d'usuari escollit serà el que hauràs de fer servir per accedir a la plataforma. ",
+      "acceptTOS": "Accepto els Termes i Condicions d'ús",
+      "welcomeMessage": "Benvingut a la pàgina de registre de la Plataforma Oberta InSPIRES. Des d'aquí pots crear el seu usuari per iniciar sessió al portal, que et permetrà crear i/o participar en un projecte, enviar sol·licituds per tal de dur a terme la recerca, crear la teva pròpia estructura i també dur a terme de manera col·laborativa l'avaluació del projecte.",
+      "welcomeMessage2": "Registrar-te et permet començar a contribuir en el portal! També es poden registrar estructures i projectes de recera al teu nom o al de la teva organització.",
+      "step1Message": "Si us plau, indican's un nom d'usuari i contrasenya. El nom d'usuari escollit serà el que hauràs de fer servir per accedir a la plataforma.",
       "step2Message": "Indican's el teu nom complet i el teu correu electrònic per a que pugui ser mostrat en els diferents projectes i activitats que participis de la plataforma. El teu correu electrònic només serà utilitzat per enviar alertes i notificacions.",
-      "step3Message": "Abans de registrar-te, hauràs d'acceptar els termes de servei de la plataforma. ",
+      "step3Message": "Abans de registrar-te, hauràs d'acceptar els termes de servei de la plataforma.",
       "readTOSHere": "Pots llegir els termes de servei aquí.",
-      "step3TOSAcceptance": "En el moment de fer clic en el botó \"Acepto els Termes i Condicions d'ús\", reconeixo que he estat informat/da debidament i que dono el meu consentiment pel tractament de les meves dades persones pel propòsit indicat. ",
+      "step3TOSAcceptance": "En el moment de fer clic en el botó \"Acepto els Termes i Condicions d'ús\", reconeixo que he estat informat/da debidament i que dono el meu consentiment pel tractament de les meves dades persones pel propòsit indicat.",
       "step3MessageAccepted": "Molt bé! Podem continuar amb el registre.",
-      "step4Message": "Per favor, revisa la següent informació. Si et sembla correcte, pots seguir amb l'últim pas del registre. Pots tornar enrere si ho desitges i revisar tota la informació proporcionada fins el moment. ",
-      "step4MessageInvite": "Durant el primer període de prova, estem restrigint el registre només a persones convidades. Si us plau, introdueix el codi que se t'ha proporcionat més avall: ",
+      "step4Message": "Per favor, revisa la següent informació. Si et sembla correcte, pots seguir amb l'últim pas del registre. Pots tornar enrere si ho desitges i revisar tota la informació proporcionada fins el moment.",
+      "step4MessageInvite": "Durant el primer període de prova, estem restrigint el registre només a persones convidades. Si us plau, introdueix el codi que se t'ha proporcionat més avall:",
       "registrationFailure": "S'ha produït un error amb el registre. Torna-ho a provar.",
       "emailTaken": "Aquest correu electrònic ja està en ús. Prova amb un altre o intenta recuperar la teva contrasenya."
     },
@@ -47,51 +48,55 @@
       "mainTitle": "Benvingut/da a InSPIRES",
       "worldmapTitle": "Mapa del món",
       "latestTitle": "Darreres actualitzacions",
-      "mostActiveStructures": "Estructures actives ",
+      "latestProjectsTitle": "Últims projectes actualitzats",
+      "mostActiveStructures": "Estructures actives",
       "welcomeMessage": "Benvingut a la base de dades en línia i a l'eina d'avaluació d'impacte d' InSPIRES. Aquesta plataforma presenta projectes participatius de recerca i innovació promoguts per diferents estructures com ara els Science Shops i grups o unitats de ciència ciutadana, entre d'altres.",
-      "welcomeMessageLong": "També ofereix una eina integrada d'avaluació d'impacte col·laborativa que serveix per avaluar els processos i els resultats dels vostres projectes en relació als altres. L'objectiu principal de l'eina és dur a terme una reflexió col·laborativa al voltant d'aquests projectes col·laboratius i així aprendre, pensar, debatre i créixer com a comunitat de pràctica per dur a terme millors projectes dedicats a millorar la vida i el benestar de la ciutadania. ",
+      "welcomeMessageLong": "També ofereix una eina integrada d'avaluació d'impacte col·laborativa que serveix per avaluar els processos i els resultats dels vostres projectes en relació als altres. L'objectiu principal de l'eina és dur a terme una reflexió col·laborativa al voltant d'aquests projectes col·laboratius i així aprendre, pensar, debatre i créixer com a comunitat de pràctica per dur a terme millors projectes dedicats a millorar la vida i el benestar de la ciutadania.",
       "aboutLink": "Més sobre nosaltres!",
-      "allProjects": "Tots els projectes ",
+      "allProjects": "Tots els projectes",
       "projectsSeeMore": "Visualitza tots els projectes"
     },
     "help": {
       "title": "Centre d'ajuda",
       "description": "TODO: Text",
-      "allArticles": "Tots els articles ",
-      "articlesOtherLanguages": "Articles en altres idiomes ",
-      "articleDoesNotExist": "L'article que estàs buscant ja no existeix. "
+      "allArticles": "Tots els articles",
+      "articlesOtherLanguages": "Articles en altres idiomes",
+      "articleDoesNotExist": "L'article que estàs buscant ja no existeix."
     },
     "about": {
       "mainTitle": "Sobre la Plataforma Oberta InSPIRES",
       "titleMission": "La nostra missió",
-      "missionParagraph1": "InSPIRES s'ha iniciat en l'aventura de desenvolupar una base de dades col·laborativa en línia que recull els Science Shops o estructures similars i els projectes que aquestes duen a terme. La plataforma també ofereix una eina integrada d'avaluació d'impacte capaç de produir informes d'avaluació de projectes en temps real. ",
-      "missionParagraph2": "Els objectius de la base de dades en línia d'InSPIRES i l'eina d'avaluació d'impacte són: ",
+      "missionParagraph1": "InSPIRES s'ha iniciat en l'aventura de desenvolupar una base de dades col·laborativa en línia que recull els Science Shops o estructures similars i els projectes que aquestes duen a terme. La plataforma també ofereix una eina integrada d'avaluació d'impacte capaç de produir informes d'avaluació de projectes en temps real.",
+      "missionParagraph2": "Els objectius de la base de dades en línia d'InSPIRES i l'eina d'avaluació d'impacte són:",
       "missionObjective1": "Identificar i visualitzar el volum de Science Shops, altres estructures i moviments similars arreu del món.",
       "missionObjective2": "Registrar projectes de recerca i innovació col·laboratius facilitats per aquestes estructures per mostrar els seus objectius, el seu coneixement i àrees geogràfiques d'actuació, així com els principals col·laboradors involucrats. ",
-      "missionObjective3": "Proporcionar a la comunitat una eina d'avaluació d'impacte intuitiva i personalitzable per capturar els processos i els resultats de forma harmonitzada. ",
-      "missionParagraph3": "Finalment, esperem que la plataforma doni suport a l'aprenentatge mutu de la comunitat (tant als coordinadors de l'estructura com als participants del projecte arreu del món) gràcies al fet de compartir experiències de Science Shops i altres projectes de recerca i innovació participatius, així com també pràctiques o metodologies fallides, entre d'altres. ",
-      "titleTeam": "L'equip involucrat en la Plataforma Oberta InSPIRES ",
-      "teamContent": "El desenvolupament d'aquesta Plataforma Oberta ha estat liderada per ISGlobal en col·laboració amb els grups de Ciència de Dades i Open Systems de la Universitat de Barcelona. Els membres del consorci del projecte InSPIRES també han jugat un paper crucial en la seva creació i evolució. "
+      "missionObjective3": "Proporcionar a la comunitat una eina d'avaluació d'impacte intuitiva i personalitzable per capturar els processos i els resultats de forma harmonitzada.",
+      "missionParagraph3": "Finalment, esperem que la plataforma doni suport a l'aprenentatge mutu de la comunitat (tant als coordinadors de l'estructura com als participants del projecte arreu del món) gràcies al fet de compartir experiències de Science Shops i altres projectes de recerca i innovació participatius, així com també pràctiques o metodologies fallides, entre d'altres.",
+      "titleTeam": "L'equip involucrat en la Plataforma Oberta InSPIRES",
+      "teamContent": "El desenvolupament d'aquesta Plataforma Oberta ha estat liderada per ISGlobal en col·laboració amb els grups de Ciència de Dades i Open Systems de la Universitat de Barcelona. Els membres del consorci del projecte InSPIRES també han jugat un paper crucial en la seva creació i evolució."
     },
     "search": {
-      "searchResults": "Resultats de la cerca ",
+      "searchResults": "Resultats de la cerca",
       "searchResultsFor": "Cerca resultats per '{term}'",
       "searchFound": "Hem trobat '{number}' ítems que coincideixen per la teva cerca:"
     },
     "admin": {
-      "mainTitle": "Panell d'administració ",
+      "mainTitle": "Panell d'administració",
       "unauthorizedAccess": "No estàs autoritzat a accedir al panell d'administració. Si creus que hauries de tenir accés, si us plau contacta amb l'administrador de la plataforma. ",
       "pendingApproval": "Estructures pendents d'aprovació ",
+      "approvedStructures": "Estructures aprovades",
       "instructionsText": "Les següents estructures han de ser validades abans d'aparèixer en les llistes públiques de la pàgina. Si us plau, verifica cadascuna d'aquestes per poder validar les dades i la seva autenticitat.\nVerifica també que la persona responsable de l'estructura és realment la persona que reclama ser i si té permís per penjar la informació en la pàgina web. ",
       "createdBy": "Creat per {name}",
       "validationSuccess": "Estructura validada satisfactòriament. A partir d'ara apareixerà en les llistes públiques. ",
-      "validationFailure": "Ha fallat la validació de l'estructura. Si us plau, contacta amb suport. "
+      "validationFailure": "Ha fallat la validació de l'estructura. Si us plau, contacta amb suport. ",
+      "retirementSuccess": "Estructura retirada de la plataforma correctament.",
+      "retirementFailure": "Failed to retire the structure. Please contact support."
     },
     "legal": {
       "termsOfServiceTitle": "Termes del Servei",
       "termsOfService": "En acceptar els Termes del Servei, entens que: \n\nLes teves dades personals només seran utilitzades per: \n\nFundación Privada Instituto de Salud Global Barcelona (ISGlobal)\nCIF: G65341695\nAdreça postal: Carrer Rosselló, número 132, 2a, 5a i 7a planta- 08036 Barcelona\nTelèfon: (+34) 932 271 806\nCorreu electrònic: inspires@isglobal.org\n\nRecopilem i processem les teves dades personals amb l’únic propòsit de respondre al teu registre al lloc web https://app.inspiresproject.com.\n\nLes teves dades seran utilitzades exclusivament per l’equip d'InSPIRES d’ISGlobal que requereixen l’accés a elles per desenvolupar la seva tasca i mai, en cap cas, es posarà a disposició de tercers ni es transferirà a tercers països o organitzacions internacionals.\n\nNomés podem processar les teves dades personals amb el teu consentiment i només es conservaran mentre no retiris el consentiment.\n\nPots exercir tots els teus drets segons la normativa vigent de protecció de dades, inclòs el dret d’accés, correcció, oposició, esborrament, portabilitat i restricció, escrivint al responsable de protecció de dades (lopd@isglobal.org), adjuntant una còpia del teu document d'identitat o equivalent. \n\nTens dret a retirar el teu consentiment en qualsevol moment. La retirada del consentiment no afecta a la legalitat del tractament basat en el consentiment abans de la seva retirada. Si no estàs d'acord amb la forma en què ISGlobal tracta les teves dades o consideres que s'han infringit els teus drets, pots presentar una reclamació en qualsevol moment a l'Agència Espanyola de Protecció de Dades.\n",
       "legalNoticeTitle": "Avís Legal",
-      "legalNotice": "### Titular de la web i de l’aplicació:\n \nFundació Privada Institut de Salut Global Barcelona (ISGlobal)\nCIF: G65341695\nAdreça postal: carrer de Rosselló, número 132, 2a, 5a i 7a - 08036 Barcelona\nInscrita al Registre de Fundacions de la Direcció General de Dret i d’Entitats Jurídiques de la Generalitat de Catalunya amb el número 2.634\nNúm. de telèfon: (+34) 932 271 806\n \nEl lloc web és propietat d’ISGlobal.\n \nL’ús del lloc web està subjecte a les condicions d’ús següents. Li preguem que les llegeixi atentament. El fet d’accedir al web i utilitzar els materials que conté implica que vostè ha llegit i accepta, sense cap mena de reserva, aquestes condicions.\n",
+      "legalNotice": "### Titular de la web i de l’aplicació:\n \nFundació Privada Institut de Salut Global Barcelona (ISGlobal)\nCIF: G65341695\nAdreça postal: carrer de Rosselló, número 132, 2a, 5a i 7a - 08036 Barcelona\nInscrita al Registre de Fundacions de la Direcció General de Dret i d’Entitats Jurídiques de la Generalitat de Catalunya amb el número 2.634\nNúm. de telèfon: (+34) 932 271 806\n \nEl lloc web és propietat d’ISGlobal.\n \nL’ús del lloc web està subjecte a les condicions d’ús següents. Li preguem que les llegeixi atentament. El fet d’accedir al web i utilitzar els materials que conté implica que vostè ha llegit i accepta, sense cap mena de reserva, aquestes condicions.",
       "conditionsOfUseTitle": "Condicions d’ús del web",
       "conditionsOfUse": "El lloc web conté material preparat per ISGlobal amb finalitats únicament informatives. L’usuari ha de tenir en compte que és possible que aquest material no reflecteixi l’estat més recent de les qüestions analitzades. Així mateix, aquest material pot ésser modificat, desenvolupat o actualitzat sense notificació prèvia.\n \nL’accés a aquest material no pretén constituir ni implica cap relació de confiança o  professional entre ISGlobal i l’usuari de la web.\n \nEls enllaços (o links) que conté el lloc web poden conduir l’usuari a altres llocs, pàgines web i/o aplicacions gestionats per tercers, sobre els quals ISGlobal no exerceix cap mena de control.\n \nISGlobal no respon ni del contingut ni de l’estat dels llocs, pàgines web i aplicacions en qüestió, i l’accés a aquests, a través del lloc web o de l’aplicació, tampoc no implica que ISGlobal en recomani o n’aprovi el contingut.\n \n### Limitació de responsabilitat\n \nQui utilitza la web ho fa sota la seva pròpia responsabilitat. ISGlobal no es fa responsable dels errors o omissions que pugui presentar el contingut d’aquestes o altres pàgines web a les quals es pugui accedir a través d’aquestes. ISGlobal tampoc podrà ser considerada responsable de cap dany derivat de l’ús del web, ni per qualsevol actuació duta a terme sobre la base de la informació que s’hi facilita.\n \nISGlobal no garanteix l’absència de virus o altres elements lesius que poguessin causar danys o alteracions al sistema informàtic, als documents electrònics o als fitxers de l’usuari del lloc web. Per tant, ISGlobal no respon dels danys i perjudicis que aquests elements poguessin causar a l’usuari o a tercers.\n\n[Actualitzat el febrer de 2019]",
       "privacyPolicyTitle": "Política de privacitat",
@@ -105,15 +110,20 @@
       "detailsTab": "Informació",
       "evaluationTab": "Avaluació del projecte ",
       "notApproved": "Aquest projecte encara no està aprovat, pel que no es compartirà amb altres persones fins que no estigui registrat en una Estructura.",
-      "projectNotYetEvaluated": "Aquest projecte no ha rebut suficients comentaris ni avaluacions per part dels seus participants, pel que no podem mostrar la seva evolució. Comprova-ho un altre dia!"
+      "projectNotYetEvaluated": "Aquest projecte no ha rebut suficients comentaris ni avaluacions per part dels seus participants, pel que no podem mostrar la seva evolució. Comprova-ho un altre dia!",
+      "activeCountries": "Aquest projecte esta actiu en 1 país: | Aquest projecte esta actiu a {n} països:"
     },
     "structureDetail": {
       "notApproved": "Aquesta estructura encara no s'ha aprovat, no apareixerà en públic fins que l'administrador la validi. ",
+      "activeCountries": "Aquesta estructura esta activa en 1 país: | Aquesta estructura esta activa a {n} països:",
       "about": "Sobre nosaltres "
     },
     "structureList": {
+      "introTitle": "Want to know more about structures?",
       "introText": "Una estructura és una unitat intermediària de coneixement que es pot trobar dins d'una universitat, un centre de recerca o altres espais que promoguin interaccions i diàlegs entre la comunitat científica i les organitzacions de la societat civil per tal de co-crear i implementar projectes de recerca participatius. \n\nEn l'actualitat es poden definir de moltes maneres: Science Shops, Campus-community office, unitats de Ciència Ciutadana, Living Labs, etc., però també recerca ciutadana en acció, recerca participativa amb la comunitat i ciència ciutadana. Per aquesta raó, no busquem l'exclusió de projectes sinó reunir en aquesta plataforma oberta tots els projectes que funcionen sota els 5 principis que promovem: Democràcia del Coneixement, Recerca dirigida per la ciutadania, Dinàmiques participatives, Integritat i Canvi transformador. A continuació trobaràs totes les estructures registrades a la Plataforma Oberta. ",
-      "visitStructure": "Veure la Estructura"
+      "visitStructure": "Veure la Estructura",
+      "showMore": "Mostrar més estructures",
+      "noMoreStructures": "That's all the structures!"
     },
     "structureManage": {
       "title": "Gestionar aquesta estructura",
@@ -142,12 +152,12 @@
     "projectList": {
       "introTitle": "Vols saber més sobre els projectes?",
       "introText": "La plataforma oberta InSPIRES inclou projectes de recerca i innovació participatius promoguts per diferents estructures i organitzacions, com ara Science Shops, oficines de ciència ciutadana, etc. A continuació trobareu tots els projectes registrats a la Plataforma Oberta.",
-      "showMore": "Mostra més projectes ",
-      "noMoreProjects": "Aquests són tots els projectes! ",
       "showEvaluations": "Mostra els resultats de l'avaluació",
       "noKASpecified": "No s'ha especificat una Àrea de Coneixement",
       "visitProject": "Veure el Projecte",
-      "filterByArea": "a l'àrea de {area}"
+      "filterByArea": "a l'àrea de {area}",
+      "showMore": "Mostra més projectes ",
+      "noMoreProjects": "Aquests són tots els projectes! "
     },
     "projectManage": {
       "title": "Gestiona aquest projecte",
@@ -156,6 +166,9 @@
       "infoContactTitle": "Informació de contacte ",
       "infoAdditionalTitle": "Informació addicional ",
       "infoAdditionalDescription": "Altra informació rellevant per a que el teu projecte estigui ben definit i pugui ser trobat mitjançant la cerca. ",
+      "structureTitle": "Associated Intermediation Structure",
+      "structureSubheading": "Select under which Intermediation Structure your project is established.",
+      "structureHelp": "Every project in the platform has to be validated by an intermediation Structure that will give the project validity. Please select the Structure to which your project belongs.\n\nThe platform will notify the structure owners to review and approve your project so it will appear in public listings. We will let you know as soon as your project is approved.",
       "success": "Estructura desada satistactòriament! ",
       "failure": "No s'ha pogut desar l'Estructura. Torna a provar-ho més endavant. ",
       "projectTab": "Aquest Projecte",
@@ -218,10 +231,10 @@
         "bulletCharts": "Una mètrica (gràfic de vinyetes) es mostra per a cada principi i per a les diferents dimensions que constitueixen cada principi. El punt groc representa l'avaluació del projecte actual. Les ombres representen l'avaluació d'altres projectes: una ombra més clara representa els projectes amb les puntuacions d'avaluació més baixes i més altes, mentre que una ombra més opaca representa els projectes dins del primer i el tercer quartil de les puntuacions d'avaluació. El primer quartil (Q1) es defineix com el valor mitjà entre la puntuació d’avaluació més baixa entre tots els projectes i la mediana del conjunt de dades. El tercer quartil (Q3) es defineix com el valor mitjà entre la mediana i la puntuació d’avaluació més alta de tots els projectes. Es dóna un llindar arbitrari a \"3\" per ressaltar les avaluacions inferiors a aquest valor.",
         "bulletChart": {
           "knowledgeDemocracy": "Democràcia del coneixement cobreix la transdisciplinarietat, l'obertura de dades i resultats i la rellevància científica del projecte.\nEl primer resultat mostra la puntuació agregada per a aquesta dimensió. El següent mostra els resultats agregats per a cada subdimensió d'aquesta.",
-          "participatoryDynamics ": "** La Dinàmica Participativa** inclou el grau d’implicació de la comunitat i la qualitat i l’impacte de les pràctiques de participació.\nEl primer resultat mostra la puntuació agregada per a aquesta dimensió. El següent mostra els resultats agregats per a cada subdimensió d'aquesta.",
+          "participatoryDynamics": "**Participatory Dynamics** include the degree of community involvement, and the quality and impact of engagement practices.\nThe first result shows the aggregated score for this dimension. The following one shows the aggregated results for each sub-dimensions under this one.",
           "citizenledResearch": "** La recerca dirigida per la ciutadania** es refereix a l'alineació dels objectius del projecte amb les demandes de la comunitat i a l'eficàcia de la participació de la comunitat en el procés de recerca.\nEl primer resultat mostra la puntuació agregada per a aquesta dimensió. El següent mostra els resultats agregats per a cada subdimensió d'aquesta.",
           "integrity": "** Integritat ** inclou l'alineació de les expectatives, la inclusió de grups vulnerables, la incorporació de perspectives ètiques i de gènere, la transparència en la gestió de dades, la coherència del disseny de projectes i la qualitat dels recursos disponibles.\nEl primer resultat mostra la puntuació agregada per a aquesta dimensió. El següent mostra els resultats agregats per a cada subdimensió d'aquesta.",
-          "transformativeChange ": "** Canvi transformatiu** és l’aprenentatge individual i el creixement personal, la sostenibilitat del projecte, la capacitat de resposta social del projecte i el seu impacte en les polítiques, programes i / o serveis.\nEl primer resultat mostra la puntuació agregada per a aquesta dimensió. El següent mostra els resultats agregats per a cada subdimensió d'aquesta."
+          "transformativeChange": "**Transformative Change** relates to individual learning and personal growth, project sustainability, the societal responsiveness of the project and its impact on policies, programmes and/or services.\nThe first result shows the aggregated score for this dimension. The following one shows the aggregated results for each sub-dimensions under this one."
         },
         "projectManagerCharts": "La visualització que té el gestor de projecte no és accessible per als participants, ja que proporciona en detall el procés d’autoreflexió alhora que proporciona una visió interna per tal de gestionar el projecte correctament.\n\nLa diferència entre aquest nivell de visualització i l'accessible pels participants és que representa els resultats de l'avaluació per perfil dels enquestats. Permet conèixer millor el que ha passat i a qui.",
         "publicEval": "La visualització pública reflecteix l'avaluació global del projecte i mostra la puntuació agregada de cadascuna de les dimensions.\n\nCada projecte està representat per un colibrí: un humil petit ocell, però extremadament actiu, el poc moviment del qual pot contribuir al sistema ecosocial general:\n- La seva ala està associada al canvi transformatiu, perquè és la part més activa del colibrí i la que crea moviment.\n- El cap s’associa amb la democràcia del coneixement, seguint la relació natural de cap, ment i coneixement.\n- El cor (o part inferior del cos) s’associa amb la investigació dirigida pel ciutadà, perquè la ciutadania és el batec del cor de la ciència oberta.\n- La cua està associada a la dinàmica de participació, perquè actua com a timó. I, finalment, la part superior del cos s’associa amb la integritat, perquè sense ella tots els altres aspectes s’esfondrarien.",
@@ -233,6 +246,8 @@
       "questionnaire": "Qüestionari",
       "selfQuestionnaireTitle": "Qüestionari d'Auto-reflexió",
       "selfQuestionnaireDescription": "Per ajudar a l'avaluació del projecte, et recomanem que consultis el qüestionari d'autoreflexió. Conté algunes preguntes motivadores per començar. Pots descarregar el qüestionari aquí:",
+      "viewQuestionnaire1": "View the self reflection questionnaire for Phase 1",
+      "viewQuestionnaire3": "View the self reflection questionnaire for Phase 3",
       "questionnaireDescription": "Si us plau respon a les següents preguntes tan honestament com puguis. L'escala representa un 0 per a 'Estic completament en desacord' a 7 per 'Estic totalment d'acord'. El temps estimat per respondre és de 5 minuts.",
       "questionnaireCompleted": "Aquest qüestionari s'ha completat satisfactòriament.",
       "evaluationOverview": "Resum de l'Avaluació",
@@ -583,7 +598,8 @@
     "links": {
       "home": "Inici",
       "about": "Al voltant de ",
-      "help": "Ajuda"
+      "help": "Ajuda",
+      "learn": "Ajuda"
     }
   },
   "misc": {

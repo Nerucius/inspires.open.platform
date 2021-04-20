@@ -241,7 +241,7 @@
     </v-layout>
     
     <!-- Article Content as TEXT -->
-    <v-card-text v-if="!viewAsPDF" :class="['markdown', article.extra_style]">
+    <v-card-text v-if="!viewAsPDF" :dir="localeDir" :class="['markdown', article.extra_style]">
       <vue-markdown>{{ article.body }}</vue-markdown>
       <v-layout mt-3 justify-end>
         <v-flex shrink class="grey--text">
@@ -314,6 +314,10 @@ export default {
     },
     isSmallScreen(){
       return document.body.clientWidth < 950;
+    },
+    localeDir(){
+      if (this.article.locale == 'ar') return 'rtl';
+      return 'ltr';
     }
   },
 

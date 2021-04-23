@@ -9,11 +9,15 @@ import romanize3
 TYPE_BLOG = "BLOG"
 TYPE_NEWS = "NEWS"
 TYPE_HELP = "HELP"
+TYPE_COURSE = "COURSE"
+TYPE_MODULE = "MODULE"
 
 TYPE_CHOICES = [
     (TYPE_HELP, "Help Article"),
     (TYPE_NEWS, "News Article"),
     (TYPE_BLOG, "Blog Post"),
+    (TYPE_COURSE, "Course"),
+    (TYPE_MODULE, "Course Module"),
 ]
 
 LANGUAGES = [
@@ -40,6 +44,9 @@ STYLES = [
 
 class ContentMaster(TrackableModel):
     type = models.CharField(max_length=64, choices=TYPE_CHOICES)
+    parent = models.ForeignKey(
+        "ContentMaster", blank=True, null=True, on_delete=models.CASCADE
+    )
     sorting = models.PositiveIntegerField(
         default=1,
         help_text="Sorting priority of this content. Lower numbers will be shown first.",
@@ -87,6 +94,10 @@ class Content(TrackableModel):
     @property
     def sorting(self):
         return self.master.sorting
+
+    @property
+    def parent(self):
+        return self.master.parent.id
 
     @property
     def extra_style(self):

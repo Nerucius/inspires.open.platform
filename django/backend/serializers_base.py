@@ -215,20 +215,22 @@ class AttachmentSerializer(TrackableModelSerializer):
         fields = "__all__"
 
 
-class ContentMasterSerializer(TrackableModelSerializer):
-    class Meta:
-        model = models.ContentMaster
-        fields = ["id", "type", "name"]
+# class ContentMasterSerializer(TrackableModelSerializer):
+#     class Meta:
+#         model = models.ContentMaster
+#         fields = ["id", "type", "name"]
 
 
 class SimpleContentSerializer(serializers.ModelSerializer):
     type = serializers.CharField(read_only=True)
     sorting = serializers.IntegerField(read_only=True)
+    parent = serializers.IntegerField(read_only=True)
 
     class Meta:
         model = models.Content
         fields = [
             "master",
+            "parent",
             "sorting",
             "type",
             "title",
@@ -244,6 +246,7 @@ class ContentSerializer(TrackableModelSerializer):
     attachments = AttachmentSerializer(read_only=True, many=True)
     sorting = serializers.IntegerField(read_only=True)
     extra_style = serializers.CharField(read_only=True)
+    parent = serializers.CharField(read_only=True)
 
     class Meta:
         model = models.Content

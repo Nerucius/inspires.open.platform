@@ -409,7 +409,7 @@ class ContentVS(ListDetail, viewsets.ModelViewSet):
     detail_serializer_class = serializers.ContentSerializer
 
     lookup_field = "slug"
-    filterset_fields = ["locale", "master", "master__type"]
+    filterset_fields = ["locale", "master", "master__type", "master__parent"]
 
 
 class ContentTypesVS(viewsets.ReadOnlyModelViewSet):

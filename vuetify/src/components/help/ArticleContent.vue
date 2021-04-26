@@ -267,8 +267,8 @@
         <h2 class="mb-2">{{ $t('noums.attachments') }}</h2>
         <!-- List of attachments -->
         <AttachmentList :attachments="article.attachments" @change="reloadArticle" />
-        <!-- Upload form for admins -->
-        <template v-if="currentUser.is_administrator">
+        <!-- Upload form for editor -->
+        <template v-if="currentUser.is_editor">
           <br>
           <br>
           <h3 mb-2>Upload Attachment</h3>

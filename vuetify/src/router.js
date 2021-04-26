@@ -121,11 +121,21 @@ const router = new Router({
             name: "project-detail",
             component: () => import( /* webpackChunkName: "project-detail" */ "./views/project/ProjectDetail.vue")
         },
-        // ======= Evaluation =======
+        // ======= Help Content =======
         {
-            path: "/learn/:page?",
+            path: "/learn/",
             name: "help",
             component: () => import( /* webpackChunkName: "help" */ "./views/help/HelpCenter.vue"),
+        },
+        {
+            path: "/learn/article/:page",
+            name: "help-article",
+            component: () => import( /* webpackChunkName: "help-article" */ "./views/help/ArticleDetail.vue"),
+        },
+        {
+            path: "/learn/course/:page",
+            name: "help-course",
+            component: () => import( /* webpackChunkName: "help-course" */ "./views/help/CourseDetail.vue"),
         },
         // ======= Evaluation =======
         {

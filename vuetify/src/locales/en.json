@@ -62,8 +62,13 @@
       "title": "Learn Center",
       "description": "TODO: text",
       "allArticles": "All Articles",
+      "allCourses": "E-Learning Courses",
       "articlesOtherLanguages": "Articles in other languages",
-      "articleDoesNotExist": "The article you are looking for no longer exists."
+      "articleDoesNotExist": "The article you are looking for no longer exists.",
+      "courses":{
+        "main" : "Course",
+        "modules": "Modules in this Course"
+      }
     },
 
     "about": {

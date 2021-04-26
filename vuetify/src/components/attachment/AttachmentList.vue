@@ -21,7 +21,7 @@
           >
             <v-icon color="primary">download</v-icon>
           </v-btn>
-          <template v-if="currentUser.is_administrator">
+          <template v-if="currentUser.is_editor">
             <v-btn
               icon
               ripple

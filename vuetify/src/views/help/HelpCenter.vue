@@ -1,19 +1,3 @@
-<style>
-  .markdown {
-    line-height: 250%;
-  }
-
-  .markdown h1 {
-    font-size: 1.5em;
-  }
-  .markdown h2 {
-    font-size: 1.3em;
-  }
-  .markdown h3 {
-    font-size: 1.1em;
-  }
-</style>
-
 <template>
   <v-layout row wrap align-content-start justify-center>
     <!-- Title bar -->
@@ -23,24 +7,30 @@
           <h1>{{ $t("pages.help.title") }}</h1>
         </v-flex>
         <!-- Admin Controls -->
-        <template v-if="currentUser.is_administrator">
+        <template v-if="currentUser.is_editor">
           <v-flex shrink pa-0>
-            <v-btn outline color="success" :href="createContentURL" target="_blank">Create New Content</v-btn>
-          </v-flex>
-          <v-flex v-if="isArticleDetail" shrink pa-0>
-            <v-btn outline color="warning" :href="editContentURL" target="_blank">Edit This content</v-btn>
+            <v-btn outline color="success" :href="createContentURL" target="_blank">
+              <v-icon left>add</v-icon> Create New Content
+            </v-btn>
           </v-flex>
         </template>
       </v-layout>
     </v-flex>
 
-    <!-- Article Page -->
-    <v-flex v-if="isArticleDetail && !!article" xs12 xl8>
-      <ArticleContent :key="article.id" :article="article" :articles-same-master="articlesSameMaster(article.master)" />
+    <!-- Courses List section TODO: EDITOR ONLY-->
+    <v-flex xs12 xl8 v-if="currentUser.is_editor">
+      <v-card flat>
+        <v-toolbar dense flat dark color="grey darken-3">
+          <v-toolbar-title>{{ $t("pages.help.allCourses") }}</v-toolbar-title>
+        </v-toolbar>
+        <v-card-text>
+          <CourseList :courses="courses" :flags="true" />
+        </v-card-text>
+      </v-card>
     </v-flex>
 
-    <!-- Article List Page -->
-    <v-flex v-else xs12 xl8>
+    <!-- Article List Section -->
+    <v-flex xs12 xl8>
       <v-card flat class="pb-3">
         <v-toolbar dense flat dark color="grey darken-3">
           <v-toolbar-title>{{ $t("pages.help.allArticles") }}</v-toolbar-title>
@@ -61,24 +51,17 @@
               />
             </v-flex>
           </v-layout>
-
-          <!-- TODO: Filter by Topic -->
-          <!-- <v-layout mb-3 wrap>
-            <v-flex pa-0 ma-0 shrink v-for="topic in topics" :key="topic">
-              <v-btn @click="filterTopic = topic" :disabled="topic==filterTopic">{{ topic }}</v-btn>
-            </v-flex>
-          </v-layout> -->
-
           <ArticleList :articles="articleSearch" :flags="true" />
         </v-card-text>
       </v-card>
     </v-flex>
+
   </v-layout>
 </template>
 
 <script>
 import ArticleList from "@/components/help/ArticleList";
-import ArticleContent from "@/components/help/ArticleContent";
+import CourseList from "@/components/help/CourseList";
 import { getFlagIso } from "@/plugins/i18n";
 import { API_SERVER } from "@/plugins/resource";
 
@@ -88,26 +71,20 @@ const unique = (value, index, self) => {
 
 export default {
   metaInfo() {
-    var title;
-    if(!this.isArticleDetail)
-      title = this.$t("pages.help.title")
-    else
-      title = this.article.title
-    return {title }
+    return { title: this.$t("pages.help.title") }
   },
 
   components: {
     ArticleList,
-    ArticleContent,
+    CourseList,
   },
 
   data() {
     return {
       getFlagIso,
-      moment,
       searchTerm: '',
       filterTopic: '',
-      articles: [],
+      contents: [],
       onDestroy: [],
     };
   },
@@ -122,23 +99,14 @@ export default {
     createContentURL(){
       return API_SERVER + '/admin/backend/content/'
     },
-    editContentURL(){
-      if(!this.article) return ''
-      return API_SERVER + '/admin/backend/content/' + this.article.id + '/change/'
-    },
-    isArticleDetail(){
-      return !!this.$route.params.page
-    },
-    articleSlug() {
-      return this.$route.params.page;
-    },
     topics(){
       return this.articles.map(a => a.topic).filter(unique)
     },
-    article(){
-      if(this.articleSlug)
-        return this.$store.getters["content/detail"](this.articleSlug);
-      return null;
+    articles(){
+      return this.contents.filter(c => c.type == 'HELP')
+    },
+    courses(){
+      return this.contents.filter(c => c.type == 'COURSE')
     },
     articleSearch(){
       let articles = this.articles;
@@ -161,11 +129,11 @@ export default {
   },
 
   async created() {
-    await Promise.all([this.loadArticles(), this.loadArticleDetail()])
+    await Promise.all([this.loadContents()])
 
     // let listener = this.$store.subscribe((mutation, _) => {
     //   // Listen to Language changes to refresh article list
-    //   if (mutation.type == "preferences/SET_PREFERENCE") this.loadArticles();
+    //   if (mutation.type == "preferences/SET_PREFERENCE") this.loadContents();
     // });
     // this.onDestroy = [...this.onDestroy, listener]
 
@@ -192,39 +160,12 @@ export default {
     })
   },
 
-  destroyed() {
-    // cancel all subs
-    this.onDestroy.forEach((f) => f());
-    this.onDestroy = []
-  },
-
   methods: {
-    async loadArticles() {
+    async loadContents() {
       this.$store.dispatch("content/clear");
 
-      // Loading userlang?
-      // let userLang = this.currentLang;
-      // await this.$store.dispatch("content/load", { params : {locale: userLang} });
-      
-      await this.$store.dispatch("content/load", {params:{master__type:"HELP"}});
-      this.articles = this.$store.getters["content/all"];
-    },
-
-    async loadArticleDetail() {
-      if (!this.articleSlug) return;
-
-      // load current article
-      this.$store.dispatch("content/clear");
-      try {
-        await this.$store.dispatch("content/load", [this.articleSlug]);
-      } catch (error) {
-          this.$router.push({ name: 'help' });
-          this.$store.dispatch('toast/warning', this.$t('pages.help.articleDoesNotExist'))
-      }
-    },
-
-    articlesSameMaster(masterId) {
-      return this.articles.filter((a) => a.master == masterId);
+      await this.$store.dispatch("content/load");
+      this.contents = this.$store.getters["content/all"];
     },
   },
 };

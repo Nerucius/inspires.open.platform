@@ -4,7 +4,19 @@ import { ContentResource } from "../plugins/resource";
 const Resource = ContentResource
 
 export function createLink(obj){
-  obj.link = {name:"help", params:{page:obj.slug}}
+  // Help articles (standalone)
+  if(obj.type == 'HELP')
+    obj.link = {name:"help-article", params:{page:obj.slug}}
+  // eLearning Courses
+  if(obj.type == 'COURSE' || obj.type == 'MODULE')
+    obj.link = {name:"help-course", params:{page:obj.slug}}
+  // News
+  if(obj.type == 'NEWS')
+    obj.link = {name:"news", params:{page:obj.slug}}
+  // Blog
+  if(obj.type == 'BLOG')
+    obj.link = {name:"blog", params:{page:obj.slug}}
+
   obj.topic = obj.topic.toLowerCase()
 
   return obj

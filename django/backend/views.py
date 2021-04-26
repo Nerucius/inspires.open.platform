@@ -13,7 +13,6 @@ from rest_framework.exceptions import PermissionDenied, AuthenticationFailed, No
 from django.contrib.contenttypes.models import ContentType
 
 import json
-import datetime
 import uuid
 
 from . import email
@@ -135,6 +134,10 @@ def login(request):
     authUser = auth.authenticate(username=username, password=password)
     if authUser is not None:
         auth.login(request, authUser)
+
+        real_user = models.User.objects.get(pk=authUser.pk)
+        real_user.update_last_login()
+
         return HttpResponse("OK")
     else:
         return HttpResponse("Invalid Credentials", status=401)
@@ -239,9 +242,17 @@ class CustomObtainAuthToken(ObtainAuthToken):
                 user = models.User.objects.get(email=username)
                 request.data["username"] = user.username
             except:
-                return HttpResponse("Email not found", status=401)
+                return HttpResponse("Email not found", status=403)
 
-        return super(CustomObtainAuthToken, self).post(request, args, kwargs)
+        # Intercept response by base class to update the last_login
+        try:
+            response = super(CustomObtainAuthToken, self).post(request, args, kwargs)
+            real_user = models.User.objects.get(username=request.data["username"])
+            real_user.update_last_login()
+        except Exception as e:
+            raise e
+
+        return response
 
 
 # ===========================

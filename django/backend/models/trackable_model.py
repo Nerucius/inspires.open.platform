@@ -44,7 +44,7 @@ class TrackableModel(models.Model):
         related_name="owned_%(class)ss",
         related_query_name="owned_%(class)s",
         help_text="Owner of the instance. This user will be able to edit the\
-            instance or even delete it.",
+            instance or even delete it. Leave empty to set yourself as owner.",
     )
 
     @classmethod

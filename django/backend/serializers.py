@@ -62,8 +62,10 @@ class CurrentUserSerializer(serializers.ModelSerializer):
             "researched_projects",
             "managed_structures",
             "owned_structures",
-            "is_administrator",
+            "is_staff",
+            "is_editor",
             "is_superuser",
+            "is_administrator",
         ]
 
 

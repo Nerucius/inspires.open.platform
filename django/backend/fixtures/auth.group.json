@@ -12,4 +12,11 @@
         "name": "Administration",
         "permissions": []
     }
+}, {
+    "model": "auth.group",
+    "pk": 3,
+    "fields": {
+        "name": "Editors",
+        "permissions": []
+    }
 }]

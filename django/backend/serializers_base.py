@@ -223,6 +223,7 @@ class AttachmentSerializer(TrackableModelSerializer):
 
 class SimpleContentSerializer(serializers.ModelSerializer):
     type = serializers.CharField(read_only=True)
+    image_url = serializers.CharField(read_only=True)
     sorting = serializers.IntegerField(read_only=True)
     parent = serializers.IntegerField(read_only=True)
 
@@ -233,10 +234,11 @@ class SimpleContentSerializer(serializers.ModelSerializer):
             "parent",
             "sorting",
             "type",
-            "title",
-            "topic",
-            "summary",
             "slug",
+            "topic",
+            "title",
+            "summary",
+            "image_url",
             "locale",
             "published",
         ]
@@ -244,6 +246,7 @@ class SimpleContentSerializer(serializers.ModelSerializer):
 
 class ContentSerializer(TrackableModelSerializer):
     attachments = AttachmentSerializer(read_only=True, many=True)
+    image_url = serializers.CharField(read_only=True)
     sorting = serializers.IntegerField(read_only=True)
     extra_style = serializers.CharField(read_only=True)
     parent = serializers.CharField(read_only=True)

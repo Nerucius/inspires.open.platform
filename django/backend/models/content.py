@@ -60,6 +60,8 @@ class ContentMaster(TrackableModel):
         max_length=128, default="", blank=True, choices=STYLES
     )
 
+    attachments = GenericRelation("Attachment")
+
     def __str__(self):
         return f"{self.type} - {self.name}"
 
@@ -92,6 +94,10 @@ class Content(TrackableModel):
         unique_together = ("master", "locale")
 
     @property
+    def type(self):
+        return self.master.type
+
+    @property
     def sorting(self):
         return self.master.sorting
 
@@ -103,8 +109,20 @@ class Content(TrackableModel):
     def extra_style(self):
         return self.master.extra_style
 
-    def type(self):
-        return self.master.type
+    @property
+    def image_url(self):
+        """ Return the first attachment that is an image of this content's master """
+        if self.type != TYPE_COURSE:
+            return ""
+
+        master_images = ContentMaster.objects.get(pk=self.master.pk).attachments.filter(
+            mime_type__contains="image"
+        )
+        print("master Images")
+        print(master_images)
+        if len(master_images) > 0:
+            return master_images[0].url
+        return ""
 
     def __str__(self):
         return f"{self.master.type} - {self.title}"

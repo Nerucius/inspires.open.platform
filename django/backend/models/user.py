@@ -1,8 +1,10 @@
+from datetime import time
 from django.contrib.auth.models import AbstractUser
 from django.contrib.contenttypes.fields import GenericRelation
 from django.utils.translation import gettext_lazy as _
 
 from django.db import models
+from django.utils import timezone
 
 from backend.models import TrackableModel
 
@@ -61,6 +63,10 @@ class User(TrackableModel, AbstractUser):
         return self.groups.filter(name="Administration").exists()
 
     @property
+    def is_editor(self):
+        return self.is_staff and self.groups.filter(name="Editors").exists()
+
+    @property
     def first_name_anon(self):
         return self.first_name if not self.hide_realname else "Anonymous"
 
@@ -106,3 +112,7 @@ class User(TrackableModel, AbstractUser):
     def can_write(self, user):
         """ Only the own user can modify the user info """
         return self.pk == user.pk
+
+    def update_last_login(self):
+        self.last_login = timezone.now()
+        self.save()

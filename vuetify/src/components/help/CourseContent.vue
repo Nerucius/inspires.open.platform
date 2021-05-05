@@ -165,6 +165,22 @@
       </v-layout>
     </v-card-text>
 
+    <!-- Attachments -->
+    <v-card-text>
+      <v-sheet class="grey lighten-4 pa-3">
+        <h2 class="mb-2">{{ $t('noums.files') }}</h2>
+        <!-- List of attachments -->
+        <AttachmentList :attachments="content.attachments" @change="reloadContent" />
+        <!-- Upload form for editor -->
+        <template v-if="currentUser.is_editor">
+          <br>
+          <br>
+          <h3 mb-2>{{ $t('components.Attachment.upload') }}</h3>
+          <AttachmentUpload model="content" :object-id="content.id" @upload="reloadContent" />
+        </template>
+      </v-sheet>
+    </v-card-text>
+
   </v-card>
 </template>
 
@@ -203,6 +219,11 @@ export default {
   },
 
   methods: {
+
+    async reloadContent(){
+      console.log("Reloading article")
+      this.$store.dispatch('content/load', [this.content.slug])
+    }
 
   },
 

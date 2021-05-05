@@ -1,5 +1,5 @@
 <template>
-  <v-list>
+  <v-list v-if="attachments.length > 0">
     <transition-group name="list">
       <v-list-tile v-for="att in attachments" :key="att.id">
         <v-list-tile-avatar>
@@ -39,6 +39,11 @@
       </v-list-tile>
     </transition-group>
   </v-list>
+  <v-card v-else flat>
+    <v-card-text>
+      {{ $t('components.Attachment.noAttachments') }}
+    </v-card-text>
+  </v-card>
 </template>
 
 

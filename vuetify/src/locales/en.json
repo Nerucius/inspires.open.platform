@@ -293,6 +293,10 @@
     },
     "ProjectCard":{
       "numberOfParticipants": "Number of participants"
+    },
+    "Attachment": {
+      "upload": "Upload new file",
+      "noAttachments": "No files attached."
     }
   },
   "models": {
@@ -685,6 +689,8 @@
     "structure": "Structure",
     "structures": "Structures",
     "evaluation": "Evaluation",
+    "file": "File",
+    "files": "Files",
     "attachment": "Attachment",
     "attachments": "Attachments"
   },

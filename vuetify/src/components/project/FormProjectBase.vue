@@ -266,9 +266,14 @@ export default {
       )
 
       // Countries string to objects
-      loadedProject.country_code = loadedProject.country_code.split(',').map(cc =>
-        this.Countries.filter(c => c.alpha3Code == cc)[0]
-      ).filter(i => i != undefined)
+      try {
+        loadedProject.country_code = loadedProject.country_code.split(',').map(cc =>
+          this.Countries.filter(c => c.alpha3Code == cc)[0]
+        ).filter(i => i != undefined)
+      } catch (error) {
+        loadedProject.country_code = []
+      }
+
 
       return loadedProject
     },

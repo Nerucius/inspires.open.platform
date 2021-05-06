@@ -300,7 +300,9 @@ export default {
       this.processing = true
       let project = cloneDeep(this.editedProject);
       project.managers = project.managers.map(u => u.id)
-      project.country_code = project.country_code.map(c => c.alpha3Code).join()
+      if(project.country_code != null){
+        project.country_code = project.country_code.map(c => c.alpha3Code).join()
+      }
 
       // In the case of no id, send event to parent to create project
       if(!project.id){

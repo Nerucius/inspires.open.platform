@@ -302,7 +302,9 @@ export default {
       this.processing = true
       let structure = cloneDeep(this.editedStructure);
       structure.managers = structure.managers.map(u => u.id)
-      structure.country_code = structure.country_code.map(c => c.alpha3Code).join()
+      if(structure.country_code != null){
+        structure.country_code = structure.country_code.map(c => c.alpha3Code).join()
+      }
 
       // In the case of no id, send event to parent to create structure
       if(!structure.id){

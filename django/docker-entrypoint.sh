@@ -13,7 +13,7 @@ echo "Loading Fixtures..."
 
 # User and Group Fixtures
 # python manage.py loaddata auth.permission.json
-python manage.py loaddata auth.group.json
+# python manage.py loaddata auth.group.json
 # python manage.py loaddata auth.user.json
 
 # NOTE: Reenable the next lines on database rebuild

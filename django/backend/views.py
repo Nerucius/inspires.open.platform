@@ -381,6 +381,12 @@ class CollaborationsVS(viewsets.ModelViewSet):
     filterset_fields = ["project", "structure"]
 
 
+class NetworksVS(ListDetail, viewsets.ModelViewSet):
+    queryset = models.Network.objects.all()
+    serializer_class = serializers.SimpleNetworkSerializer
+    detail_serializer_class = serializers.NetworkSerializer
+
+
 class ParticipationVS(viewsets.ModelViewSet):
     queryset = models.Participation.objects.all()
     serializer_class = serializers.ParticipationSerializer

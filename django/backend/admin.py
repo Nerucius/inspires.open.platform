@@ -6,13 +6,21 @@ from django.contrib.contenttypes.models import ContentType
 
 from backend import models
 
-READONLY_FIELDS = ["password", "created_at", "created_by", "modified_at", "modified_by", "slug"]
+READONLY_FIELDS = [
+    "password",
+    "created_at",
+    "created_by",
+    "modified_at",
+    "modified_by",
+    "slug",
+]
 LIST_HIDDEN_FIELDS = [
     "password",
     "created_at",
     "created_by",
     "modified_at",
     "modified_by",
+    "summary",
     "description",
     "body",
 ]

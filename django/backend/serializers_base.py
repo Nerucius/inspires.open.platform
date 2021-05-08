@@ -152,6 +152,20 @@ class StructureValidationSerializer(serializers.ModelSerializer):
         fields = ["id", "structure", "created_by", "is_approved"]
 
 
+class SimpleNetworkSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Network
+        fields = ["id", "name", "summary", "structures"]
+
+
+class NetworkSerializer(serializers.ModelSerializer):
+    structures = SimpleStructureSerializer(read_only=True, many=True)
+
+    class Meta:
+        model = models.Network
+        fields = ["id", "name", "summary", "structures"]
+
+
 class SimpleProjectSerializer(serializers.ModelSerializer):
     class ProjectStructureSerializer(serializers.ModelSerializer):
         class Meta:
@@ -213,12 +227,6 @@ class AttachmentSerializer(TrackableModelSerializer):
     class Meta:
         model = models.Attachment
         fields = "__all__"
-
-
-# class ContentMasterSerializer(TrackableModelSerializer):
-#     class Meta:
-#         model = models.ContentMaster
-#         fields = ["id", "type", "name"]
 
 
 class SimpleContentSerializer(serializers.ModelSerializer):

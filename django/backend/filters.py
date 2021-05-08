@@ -1,7 +1,11 @@
 from django.db.models import F, query
 
 from django_filters import FilterSet
-from django_filters.filters import NumberFilter, CharFilter, BaseInFilter
+from django_filters.filters import (
+    NumberFilter,
+    CharFilter,
+    BaseInFilter,
+)
 
 from backend import models
 
@@ -60,4 +64,5 @@ class StructureFilter(FilterSet):
             "collaboration__project",
             "managers",
             "structure_type",
+            "networks",
         ]

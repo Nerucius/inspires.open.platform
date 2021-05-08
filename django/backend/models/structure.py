@@ -39,11 +39,8 @@ class Structure(TrackableModel):
     knowledge_areas = models.ManyToManyField("KnowledgeArea", blank=True)
     structure_type = models.CharField(max_length=254, blank=True, choices=TYPES)
 
-    # TODO: this will have to be like the form for "participants"
-    # funding = models.ManyToManyField("Funding")
-
     networks = models.ManyToManyField(
-        "Network", blank=True, related_name="projects", related_query_name="project"
+        "Network", blank=True, related_name="structures", related_query_name="structure"
     )
 
     contact_email = models.EmailField(blank=True)
@@ -79,9 +76,8 @@ class StructureValidation(TrackableModel):
 
 
 class Network(models.Model):
-
     name = models.CharField(max_length=254)
-    summary = models.TextField()
+    summary = models.TextField(blank=True)
 
     def __str__(self):
         return self.name

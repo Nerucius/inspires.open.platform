@@ -114,6 +114,9 @@ class StructureSerializer(TrackableModelSerializer):
     )
     validation = serializers.PrimaryKeyRelatedField(read_only=True)
     collaborations = CollaborationSerializer(many=True, read_only=True)
+    networks = serializers.PrimaryKeyRelatedField(
+        many=True, queryset=models.Network.objects
+    )
 
     class Meta:
         model = models.Structure

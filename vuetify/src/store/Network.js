@@ -1,7 +1,7 @@
 import Vue from "../plugins/resource";
-import { AttachmentResource } from "../plugins/resource";
+import { NetworkResource } from "../plugins/resource";
 
-const Resource = AttachmentResource
+const Resource = NetworkResource
 
 /** Function called on every object on load */
 export function handle(obj){
@@ -42,14 +42,32 @@ export default {
 
   actions: {
     load: async function (context, payload={}) {
-      if (!!payload && Array.isArray(payload)){
+      if (Array.isArray(payload)){
         // Ids provided, get detailed information on given pids
         let ids = payload
         let items = await Promise.all(ids.map(id => Resource.get({id})))
         items = items.map(i => i.body)
         context.commit("ADD_DETAIL", items)
+
       }else{
-        console.error('Object does not support load all: Attachment');
+        // No ids provided, just get list of all
+        let params = payload.params || {}
+        let query = {...params}
+
+        let response = (await Resource.get(query)).body
+        let items = response.results
+
+        // Only get next pages if no parameters were set
+        if(params.limit === undefined && params.offset === undefined){
+          let next = response.next
+          while(next){
+            response = (await Vue.http.get(next)).body
+            items = [...items, ...response.results]
+            next = response.next
+          }
+        }
+
+        context.commit("ADD", items)
       }
     },
 

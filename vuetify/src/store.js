@@ -10,6 +10,7 @@ import user from "./store/User";
 import project from "./store/Project";
 import knowledgearea from "./store/KnowledgeArea";
 import structure from "./store/Structure";
+import network from "./store/Network";
 import collaboration from "./store/Collaboration";
 
 import content from "./store/Content";
@@ -30,6 +31,7 @@ export default new Vuex.Store({
     project,
     knowledgearea,
     structure,
+    network,
     content,
     attachment,
     collaboration,

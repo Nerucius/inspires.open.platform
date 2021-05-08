@@ -27,11 +27,22 @@ Vue.http.interceptors.push(function (request) {
   }
   // Clean up parameters
   if(request.params.headers !== undefined) { delete request.params['headers']; }
-
-  // console.log("----------Final Request---------")
-  // console.log(request)
-  // console.log("---------/Final Request---------")
 });
+
+// Interceptor to convert aray parameters from
+// param[]=1&param[]=2 to:
+// param=1&param=2
+Vue.http.interceptors.push(function(request, next) {
+  if (request.method === "GET") {
+    let data = Object.assign({}, request.params);
+    for (let i = 0, key; key = Object.keys(data)[i]; i++){
+      if (Array.isArray(data[key])){
+        request.url+='{?'+key+'*}'
+      }
+    }
+  }
+  next();
+})
 
 // Add patch method to API resources
 const PATCH = {
@@ -53,6 +64,7 @@ export const ProjectAtPhaseResource = Vue.resource(API_SERVER + "/v1/projectatph
 export const KnowledgeAreaResource = Vue.resource(API_SERVER + "/v1/knowledgeareas{/id}/", {}, PATCH);
 export const ParticipationResource = Vue.resource(API_SERVER + "/v1/participations{/id}/", {}, PATCH);
 export const StructureResource = Vue.resource(API_SERVER + "/v1/structures{/id}/", {}, PATCH);
+export const NetworkResource = Vue.resource(API_SERVER + "/v1/networks{/id}/", {}, PATCH);
 export const StructureValidationResource = Vue.resource(API_SERVER + "/v1/structures/validations{/id}/", {}, PATCH);
 export const CollaborationResource = Vue.resource(API_SERVER + "/v1/collaborations{/id}/", {}, PATCH);
 

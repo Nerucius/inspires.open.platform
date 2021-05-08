@@ -80,7 +80,6 @@ export default {
         context.commit("ADD_DETAIL", items)
 
       }else{
-        await context.dispatch("loadCurrent")
         // No ids provided, just get list of all
         let params = payload.params || {}
         let query = {...params}

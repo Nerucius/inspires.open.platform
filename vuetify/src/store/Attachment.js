@@ -37,7 +37,7 @@ export default {
   },
 
   actions: {
-    load: async function (context, payload) {
+    load: async function (context, payload={}) {
       if (!!payload && Array.isArray(payload)){
         // Ids provided, get detailed information on given pids
         let ids = payload

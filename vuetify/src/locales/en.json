@@ -766,6 +766,8 @@
       "structureYearFounded": "Year this Structure was founded",
       "structureAdministrators": "Structure Administrators",
       "structureCountry": "Structure country of action",
+      "networks": "Networks",
+      "network": "Network",
 
       "projectName": "Project Name",
       "projectAcronym": "Project Acronym",
@@ -807,6 +809,7 @@
       "structureSummary": "A short summary of your structure and what it encompasses. Suggested to keep it under 200 characters.",
       "structureCountry": "Country where this structure operates mainly",
       "structureAdministrators": "Add here all the people who will have full access to edit the Structure and approve new Projects. Strcture Administrators can't transwer ownership. Administrators are NOT participants.",
+      "networks": "Select here all the networks that your structure is part of.",
 
       "projectType": "How is your project team structured?",
       "projectName": "Choose a name that characterizes your project. Less than 50 characters suggested.",

@@ -99,6 +99,27 @@
 
 
       <h3 class="mb-2">
+        {{ $t('forms.fields.networks') }}
+      </h3>
+
+      <p class="subheading">{{ $t('forms.hints.networks') }}</p>
+
+      <v-combobox
+        v-model="editedStructure.networks"
+        box
+        :label="$t('forms.fields.networks')"
+        :hint="$t('forms.hints.networks')"
+        multiple
+        chips
+        deletable-chips
+        :rules="[rules.isUser]"
+        :items="$store.getters['network/all']"
+        item-text="name"
+        item-value="id"
+      />
+
+
+      <h3 class="mb-2">
         {{ $t('forms.fields.knowledgeAreas') }}
       </h3>
 
@@ -110,8 +131,8 @@
         multiple
         chips
         deletable-chips
-        :rules="[rules.isKnowledgeArea]"
-        :items="knowledgeAreas"
+        :rules="[rules.isUser]"
+        :items="$store.getters['knowledgearea/all']"
         :item-text="kaName"
         item-value="id"
       />
@@ -208,9 +229,6 @@ export default {
       valid: null,
       rules: {
         isEmail: v => true,
-        isKnowledgeArea: v => true,
-        minlen: v => true,
-
         required: v => !!v || this.$t("forms.rules.requiredField"),
         isUser: v => this.isUser(v) || this.$t("forms.rules.mustBeUser"),
         isURL: v => regexIsURL(v) || this.$t("forms.rules.mustBeURL"),
@@ -221,7 +239,6 @@ export default {
         // isEmail: v => regexIsEmail(v) || this.$t("forms.rules.mustBeEmail"),
         // isCountry: v => this.isCountry(v) || this.$t("forms.rules.mustBeCountry"),
         // isKnowledgeArea: v => this.isKnowledgeArea(v) || this.$t("forms.rules.mustBeKnowledgeArea"),
-        // minlen: v =>
         //   v.length > 10 || this.$t("forms.rules.minimunLength", { length: 10 })
       },
       userSearch: [],
@@ -231,12 +248,9 @@ export default {
   },
 
   computed:{
-    knowledgeAreas(){
-      return this.$store.getters["knowledgearea/all"]
-    }
   },
 
-  mounted: async function() {
+  created: async function() {
 
     if (this.structure && this.structure.id) {
       // Editing existing structure
@@ -275,6 +289,7 @@ export default {
       // Transform attributes to be compatible with Form
       loadedStructure.managers = (loadedStructure.managers || []).map(id => this.user(id))
       loadedStructure.knowledge_areas = (loadedStructure.knowledge_areas || []).map(id => this.knowledgeArea(id))
+      loadedStructure.networks = (loadedStructure.networks || []).map(this.$store.getters['network/get'])
 
       // Countries string to objects
       loadedStructure.country_code = loadedStructure.country_code.split(',').map(cc =>
@@ -316,6 +331,7 @@ export default {
 
       // Map knowledge areas
       structure.knowledge_areas = structure.knowledge_areas.map(u => u.id)
+      structure.networks = structure.networks.map(u => u.id)
 
       try{
         await this.$store.dispatch("structure/update", structure)

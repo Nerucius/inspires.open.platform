@@ -14,7 +14,7 @@
         <v-list-tile-sub-title>{{ obj.summary }}</v-list-tile-sub-title>
       </v-list-tile-content>
 
-      <v-list-tile-action v-if="showLastModified" style="width:30px !important">
+      <v-list-tile-action v-if="showLastModified" class="hidden-xs-only" style="width:30px !important">
         <v-list-tile-action-text>
           {{ $t('misc.timeAgo', {time: moment(obj.modified_at).fromNow()}) }}
         </v-list-tile-action-text>

@@ -26,19 +26,8 @@
         <v-card-text>
           <h3>{{ $t('actions.search') }}</h3>
           <v-layout wrap>
-            <v-flex xs12 sm6 md4>
-              <v-select v-model="filters.knowledge_areas"
-                        :label="$t('forms.fields.knowledgeArea')"
-                        :items="$store.getters['knowledgearea/all']"
-                        :item-text="(i => $t(i.name))"
-                        item-value="id"
-                        clearable
-                        single-line hide-details
-                        @change="updateFilter"
-              />
-            </v-flex>
-
-            <v-flex xs12 sm6 md4>
+            <!-- Filter Form Fields -->
+            <v-flex xs12 sm6>
               <v-select v-model="filters.structure_type"
                         :label="$t('forms.fields.structureType')"
                         :items="$store.getters['structure/structureTypes'].slice(1)"
@@ -50,7 +39,7 @@
               />
             </v-flex>
 
-            <v-flex xs12 sm6 md4>
+            <v-flex xs12 sm6>
               <v-combobox v-model="filters.country_code"
                           :label="$t('forms.fields.structureCountry')"
                           :items="countries"
@@ -60,6 +49,32 @@
                           @change="updateFilter"
               />
             </v-flex>
+
+            <v-flex xs12 sm12 md6>
+              <v-select v-model="filters.networks"
+                        :label="$t('forms.fields.network')"
+                        :items="$store.getters['network/all']"
+                        :item-text="(i => $t(i.name))"
+                        item-value="id"
+                        clearable
+                        multiple
+                        single-line hide-details
+                        @change="updateFilter"
+              />
+            </v-flex>
+
+            <v-flex xs12 sm6>
+              <v-select v-model="filters.knowledge_areas"
+                        :label="$t('forms.fields.knowledgeArea')"
+                        :items="$store.getters['knowledgearea/all']"
+                        :item-text="(i => $t(i.name))"
+                        item-value="id"
+                        clearable
+                        single-line hide-details
+                        @change="updateFilter"
+              />
+            </v-flex>
+            <!-- End of Filters -->
           </v-layout>
         </v-card-text>
       </v-card>
@@ -107,7 +122,7 @@
 import StructureCard from "@/components/structure/StructureCard";
 import ModelList from "@/components/generic/ModelList";
 
-import { debounce } from "lodash";
+import { debounce, cloneDeep } from "lodash";
 import { Countries } from "@/plugins/i18n";
 
 export default {
@@ -147,6 +162,7 @@ export default {
   async mounted(){
     // Data we need
     this.$store.dispatch("knowledgearea/load")
+    this.$store.dispatch("network/load")
 
     // debouncer
     this.updateFilter = debounce(this.updateFilter, 250);
@@ -164,7 +180,7 @@ export default {
 
   methods: {
     async loadStructurePage(){
-      let filters = this.filters;
+      let filters = cloneDeep(this.filters);
 
       let params = {
         offset: this.page * this.pagesize,
@@ -172,6 +188,8 @@ export default {
       }
 
       // TODO: multivalued filters?
+      // if(filters.networks)
+      //   filters.networks = filters.networks.join(',')
 
       params = {
         ...params,

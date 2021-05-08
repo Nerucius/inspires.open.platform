@@ -68,8 +68,6 @@
   }
 </style>
 
-
-
 <style>
   .v-list__tile__title p{
     margin-bottom: 0px;
@@ -81,7 +79,6 @@
     min-height: 72px;
   }
 </style>
-
 
 <template>
   <v-layout v-if="project" row wrap align-content-start>
@@ -239,7 +236,7 @@
               {{ $t('forms.fields.participants') }}
             </h1>
           </v-toolbar>
-          <v-sheet :max-height="72*4.5" style="overflow-y:auto;">
+          <v-sheet :max-height="72*10.5" style="overflow-y:auto;">
             <template v-for="(part, idx) in project.participants">
               <v-list-tile :key="part.id" :to="user(part.user).link">
                 <v-list-tile-avatar>

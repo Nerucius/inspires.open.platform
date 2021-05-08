@@ -170,8 +170,11 @@ export default {
   async created() {
     // Important to await before moving on here
     await this.$store.dispatch("structure/load", [this.structureId])
-    await this.$store.dispatch("project/load", this.structure.collaborations.map( c => c.project ))
-    await this.$store.dispatch("knowledgearea/load")
+    await Promise.all([
+      this.$store.dispatch("project/load", this.structure.collaborations.map( c => c.project )),
+      this.$store.dispatch("knowledgearea/load"),
+      this.$store.dispatch("network/load")
+    ])
 
     let collabs = this.structure.collaborations
     this.hasPendingCollabs = collabs.filter(c => !c.is_approved).length

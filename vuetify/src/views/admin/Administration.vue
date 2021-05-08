@@ -11,166 +11,21 @@
     </v-flex>
 
     <v-flex xs12>
-      <v-card flat>
-        <v-card-title>
-          <h2 class="title">
-            OpenPlatform Data Exports
-          </h2>
-        </v-card-title>
-        <v-card-text>
-          <vue-markdown>Export all available data from the Platform in CSV format for usage in other tools</vue-markdown>
-
-          <v-list two-line>
-            <!-- Project Export -->
-            <v-list-tile>
-              <v-list-tile-avatar>
-                <v-icon>mdi-database-export</v-icon>
-              </v-list-tile-avatar>
-
-              <v-list-tile-content>
-                <v-list-tile-title>
-                  <strong>
-                    All Platform Projects
-                  </strong>
-                </v-list-tile-title>
-                <v-list-tile-sub-title>
-                  Download a CSV of all Projects currently in the platform.
-                </v-list-tile-sub-title>
-              </v-list-tile-content>
-
-              <v-list-tile-action>
-                <v-btn color="success" class="elevation-0" @click="exportProjectsCSV()">
-                  Export
-                </v-btn>
-              </v-list-tile-action>
-            </v-list-tile>
-
-            <v-divider />
-
-            <!-- Strucutre Export -->
-            <v-list-tile>
-              <v-list-tile-avatar>
-                <v-icon>mdi-database-export</v-icon>
-              </v-list-tile-avatar>
-
-              <v-list-tile-content>
-                <v-list-tile-title>
-                  <strong>
-                    All Platform Structures
-                  </strong>
-                </v-list-tile-title>
-                <v-list-tile-sub-title>
-                  Download a CSV of all Structures currently in the platform.
-                </v-list-tile-sub-title>
-              </v-list-tile-content>
-
-              <v-list-tile-action>
-                <v-btn color="success" class="elevation-0" @click="exportStructuresCSV()">
-                  Export
-                </v-btn>
-              </v-list-tile-action>
-            </v-list-tile>
-          </v-list>
-        </v-card-text>
-      </v-card>
+      <ManageNetworks />
     </v-flex>
 
     <!-- Pending structures -->
     <v-flex xs12>
-      <v-card flat>
-        <v-card-title>
-          <h2 class="title">
-            {{ $t('pages.admin.pendingApproval') }}
-          </h2>
-        </v-card-title>
-        <v-card-text>
-          <vue-markdown>{{ $t('pages.admin.instructionsText') }}</vue-markdown>
-
-          <v-list two-line>
-            <template v-for="(structure,idx) in structuresPending">
-              <v-list-tile :key="structure.id">
-                <!-- Structure Image -->
-                <v-list-tile-avatar>
-                  <!-- <img :src="getUser(structure.created_by).avatar_url"> -->
-                  <img :src="structure.image_url">
-                </v-list-tile-avatar>
-
-                <!-- Tile content -->
-                <v-list-tile-content>
-                  <v-list-tile-title>
-                    <router-link :to="structure.link">
-                      <strong>
-                        {{ structure.name }}
-                      </strong>
-                    </router-link>
-                  </v-list-tile-title>
-                  <v-list-tile-sub-title>
-                    <router-link :to="getUser(structure.created_by).link">
-                      {{ $t('pages.admin.createdBy', {name: getUser(structure.created_by).full_name}) }}
-                    </router-link>
-                  </v-list-tile-sub-title>
-                </v-list-tile-content>
-
-                <v-list-tile-action>
-                  <v-btn color="success" class="elevation-0" @click="validate(structure.id)">
-                    Validate
-                  </v-btn>
-                </v-list-tile-action>
-              </v-list-tile>
-
-              <v-divider v-if="idx != structuresPending.length-1" :key="`div-${structure.id}`" inset />
-            </template>
-          </v-list>
-        </v-card-text>
-      </v-card>
+      <PendingStructures @change="refreshStructures" />
     </v-flex>
 
-    <!-- Approved structures -->
+    <!-- Validated structures -->
     <v-flex xs12>
-      <v-card flat>
-        <v-card-title>
-          <h2 class="title">
-            {{ $t('pages.admin.approvedStructures') }}
-          </h2>
-        </v-card-title>
-        <v-card-text>
-          <v-list two-line>
-            <template v-for="(structure,idx) in structuresApproved">
-              <v-list-tile :key="structure.id">
-                <!-- Structure Image -->
-                <v-list-tile-avatar>
-                  <!-- <img :src="getUser(structure.created_by).avatar_url"> -->
-                  <img :src="structure.image_url">
-                </v-list-tile-avatar>
+      <ValidatedStructures @change="refreshStructures" />
+    </v-flex>
 
-                <!-- Tile content -->
-                <v-list-tile-content>
-                  <v-list-tile-title>
-                    <router-link :to="structure.link">
-                      <strong>
-                        {{ structure.name }}
-                      </strong>
-                    </router-link>
-                  </v-list-tile-title>
-                  <v-list-tile-sub-title>
-                    <router-link :to="getUser(structure.created_by).link">
-                      {{ $t('pages.admin.createdBy', {name: getUser(structure.created_by).full_name}) }}
-                    </router-link>
-                  </v-list-tile-sub-title>
-                </v-list-tile-content>
-
-                <v-list-tile-action>
-                  <v-btn color="error" class="elevation-0" @click="retire(structure.id)">
-                    Retire
-                  </v-btn>
-                </v-list-tile-action>
-              </v-list-tile>
-
-              <v-divider v-if="idx != structuresApproved.length-1" :key="`div-${structure.id}`" inset />
-            </template>
-          </v-list>
-        </v-card-text>
-      </v-card>
+    <v-flex xs12>
+      <DataExport />
     </v-flex>
   </v-layout>
 
@@ -194,9 +49,10 @@
 </template>
 
 <script>
-import { onlyUnique, slug2id, donwloadAsyncCSV } from "@/plugins/utils";
-import { cloneDeep } from "lodash";
-import { API_SERVER } from "@/plugins/resource";
+import DataExport from "@/components/admin/DataExport";
+import PendingStructures from "@/components/admin/PendingStructures";
+import ValidatedStructures from "@/components/admin/ValidatedStructures";
+import ManageNetworks from "@/components/admin/ManageNetworks";
 
 export default {
 
@@ -204,6 +60,13 @@ export default {
     return {
       title: this.$t("pages.admin.mainTitle")
     }
+  },
+
+  components:{
+    DataExport,
+    PendingStructures,
+    ValidatedStructures,
+    ManageNetworks,
   },
 
 
@@ -218,89 +81,26 @@ export default {
   },
 
   computed:{
-
     user(){
       return this.$store.getters['user/current']
     },
-
     authorized(){
       return this.user.is_administrator
     },
-
-    structuresPending(){
-      return this.$store.getters['structure/all'].filter(s => !s.is_valid)
-    },
-
-    structuresApproved(){
-      return this.$store.getters['structure/all'].filter(s => s.is_valid)
-    }
-
   },
 
 
   created(){
-    this.loadAllStructures()
+    this.refreshStructures()
   },
 
   methods:{
-
-    async exportProjectsCSV(){
-      let exportUrl = `${API_SERVER}/v1/csv/export/admin/all_projects.csv`;
-      await donwloadAsyncCSV(this, exportUrl, 'all_projects.csv');
-    },
-
-    async exportStructuresCSV(){
-      let exportUrl = `${API_SERVER}/v1/csv/export/admin/all_structures.csv`;
-      await donwloadAsyncCSV(this, exportUrl, 'all_structures.csv');
-    },
-
-    getUser(id){
-      return this.$store.getters['user/get'](id)
-    },
-
-    loadAllStructures(){
+    refreshStructures(){
       this.$store.dispatch("structure/clear")
       // Load all structures
       this.$store.dispatch("structure/load", )
       this.$store.dispatch("structure/load", {params:{nonvalidated:true}})
     },
-
-    async validate(structureId){
-      if (!confirm('Are you sure you want to validate this structure?')) return;
-
-      try{
-        await this.$store.dispatch("structure/validate", structureId);
-        this.$store.dispatch("toast/success", this.$t("pages.admin.validationSuccess"))
-
-      }catch(error){
-        this.$store.dispatch("toast/error", {
-          message: this.$t("pages.admin.validationFailure"),
-          error
-        })
-      }
-      
-      this.loadAllStructures();
-
-    },
-
-    async retire(structureId){
-      if (!confirm('Are you sure you want to retire this structure from the platform?')) return;
-
-      try{
-        await this.$store.dispatch("structure/retire", structureId);
-        this.$store.dispatch("toast/success", this.$t("pages.admin.retirementSuccess"))
-
-      }catch(error){
-        this.$store.dispatch("toast/error", {
-          message: this.$t("pages.admin.retirementFailure"),
-          error
-        })
-      }
-      
-      this.loadAllStructures();
-
-    }
-
   },
 
 

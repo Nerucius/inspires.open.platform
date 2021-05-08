@@ -177,7 +177,10 @@ export default {
     // }, 1000)
 
     // Block on the user status before allowing to show the app
-    await this.$store.dispatch("user/load");
+    await Promise.all([
+      this.$store.dispatch("user/load"),
+      this.$store.dispatch("user/loadCurrent")
+    ])
     this.loading = false;
 
     // Listener for language selection
@@ -197,7 +200,7 @@ export default {
     // Trigger SSR
     setTimeout(()=>{
       document.dispatchEvent(new Event('x-app-rendered'))
-    }, 100)
+    }, 500)
   },
 
   methods: {

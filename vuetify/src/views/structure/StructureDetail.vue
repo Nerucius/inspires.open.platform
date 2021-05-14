@@ -209,18 +209,19 @@
       </v-card>
     </v-flex>
 
-    <!-- Projects under the structure -->
-    <!-- <v-flex xs12>
-      <v-card flat>
-        <v-card-text>
-          <ProjectCardHorizontal v-for="project in projects" :key="project.id" :project="project" />
-        </v-card-text>
-      </v-card>
-    </v-flex> -->
+    <StructureNetworks :networks="networks" :skip="structure.id" />
 
+    <!-- Projects under the structure -->
     <v-flex xs12>
-      <h2>{{ $t('noums.projects') }}</h2>
-      <ProjectGrid :projects="projects" />
+      <h2 class="mb-2">{{ $t('noums.projects') }}</h2>
+      <div class="hidden-sm-and-down">
+        <ProjectGrid :hide-title="true" :projects="projects" />
+      </div>
+      <div class="hidden-md-and-up">
+        <v-card>
+          <ModelList show-last-modified="true" :objects="projects" />
+        </v-card>
+      </div>
     </v-flex>
   </v-layout>
 </template>
@@ -232,6 +233,8 @@ import { iso3toiso2, translateCountryName } from '@/plugins/countries'
 import { slug2id, obj2slug } from "@/plugins/utils";
 
 import ProjectGrid from "@/components/project/ProjectGrid";
+import StructureNetworks from "@/components/structure/StructureNetworks";
+import ModelList from "@/components/generic/ModelList";
 import { API_SERVER } from "@/plugins/resource";
 
 export default {
@@ -244,6 +247,8 @@ export default {
 
   components:{
     ProjectGrid,
+    ModelList,
+    StructureNetworks,
   },
 
   data(){
@@ -262,7 +267,10 @@ export default {
       return this.structure.collaborations.filter(c => c.is_approved).map(c => c.project)
     },
     projects(){
-      return this.projectIds.map(pid => this.$store.getters['project/get'](pid))
+      return this.projectIds.map(id => this.$store.getters['project/detail'](id))
+    },
+    networks(){
+      return this.structure.networks.map(id => this.$store.getters['network/detail'](id))
     },
     isApprovedStructure(){
       return true
@@ -286,15 +294,21 @@ export default {
 
   async created(){
     try{
-      await this.$store.dispatch("structure/load", [this.structureId])
-      await this.$store.dispatch("project/load")
-      await this.$store.dispatch("knowledgearea/load")
+      await Promise.all([
+        this.$store.dispatch("structure/load", [this.structureId]),
+        // this.$store.dispatch("project/load"),
+        this.$store.dispatch("knowledgearea/load"),
+      ])
 
       this.structure = this.$store.getters['structure/detail'](this.structureId)
-      // this.projects = this.projectIds.map(pid => this.$store.getters['project/get'](pid))
-    }catch(err){
-      // TODO: Show error instead
-      this.$router.push("/structure-not-found")
+
+      // Load projects / networks related to this structure
+      this.$store.dispatch('project/load', this.structure.collaborations.map(c => c.project))
+      this.$store.dispatch("network/load", this.structure.networks)
+
+    }catch(error){
+        this.$store.dispatch("toast/error", {message: this.$t("errors.404.title"), error})
+        this.$router.push({name:"structure-list"})
     }
   },
 

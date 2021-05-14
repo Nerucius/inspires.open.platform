@@ -4,7 +4,7 @@ import { obj2slug } from "@/plugins/utils";
 
 const Resource = ProjectResource
 
-export function createLink(obj){
+export function handle(obj){
   obj.link = {name:"project-detail", params:{slug:obj2slug(obj)}}
   obj.image_url = obj.image_url || "https://app.inspiresproject.com/img/static/project.jpg"
 
@@ -42,13 +42,13 @@ export default {
   mutations: {
     ADD(state, items){
       let newItems = {}
-      items.map(createLink).forEach(i => {newItems[i.id] = i})
+      items.map(handle).forEach(i => {newItems[i.id] = i})
       state.items = { ...state.items, ...newItems}
     },
 
     ADD_DETAIL(state, items) {
       let newItems = {}
-      items.map(createLink).forEach(i => {newItems[i.id] = i})
+      items.map(handle).forEach(i => {newItems[i.id] = i})
       state.itemsDetail = { ...state.itemsDetail, ...newItems }
     },
 
@@ -108,7 +108,7 @@ export default {
         next = response.next
       }
 
-      return items.map(createLink)
+      return items.map(handle)
     },
 
     clear: function(context, _){

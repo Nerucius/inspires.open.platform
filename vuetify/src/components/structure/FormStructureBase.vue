@@ -35,7 +35,25 @@
       :hint="$t('forms.hints.description')"
     />
 
-    <h2 class="mb-2">
+    <v-select
+      v-model="editedStructure.structure_type"
+      box
+      :rules="[rules.required]"
+      :items="$store.getters['structure/structureTypes']"
+      :item-text="e => $t(e.name)"
+      :label="$t('forms.fields.structureType')"
+      :hint="$t('forms.hints.structureType')"
+    />
+
+    <v-text-field
+      v-model="editedStructure.year_founded"
+      box
+      type="number"
+      :rules="[rules.required, rules.validYear]"
+      :label="$t('forms.fields.structureYearFounded')"
+    />
+
+    <h2 class="mt-4 mb-2">
       {{ $t('pages.structureManage.infoAdministratorsTitle') }}
     </h2>
     <p class="subheading">
@@ -60,20 +78,12 @@
       @input="clearSearch('managersCB')"
     />
 
+
     <!-- Expanded details, only after save -->
     <template v-if="editedStructure.id">
-      <h2 class="mb-2">
+      <h2 class="mt-4 mb-2">
         {{ $t('pages.projectManage.infoAdditionalTitle') }}
       </h2>
-
-      <v-select
-        v-model="editedStructure.structure_type"
-        box
-        :items="$store.getters['structure/structureTypes']"
-        :item-text="e => $t(e.name)"
-        :label="$t('forms.fields.structureType')"
-        :hint="$t('forms.hints.structureType')"
-      />
 
       <v-combobox ref="countriesCB"
                   v-model="editedStructure.country_code"
@@ -88,35 +98,29 @@
                   @input="clearSearch('countriesCB')"
       />
 
-      <v-text-field
-        v-model="editedStructure.year_founded"
-        box
-        min="500"
-        max="2100"
-        type="number"
-        :label="$t('forms.fields.structureYearFounded')"
-      />
+      <template>
+        <h3 class="mb-2">
+          {{ $t('forms.fields.networks') }}
+        </h3>
 
+        <p class="subheading">{{ $t('forms.hints.networks') }}</p>
 
-      <h3 class="mb-2">
-        {{ $t('forms.fields.networks') }}
-      </h3>
-
-      <p class="subheading">{{ $t('forms.hints.networks') }}</p>
-
-      <v-combobox
-        v-model="editedStructure.networks"
-        box
-        :label="$t('forms.fields.networks')"
-        :hint="$t('forms.hints.networks')"
-        multiple
-        chips
-        deletable-chips
-        :rules="[rules.isUser]"
-        :items="$store.getters['network/all']"
-        item-text="name"
-        item-value="id"
-      />
+        <v-combobox
+          ref="networksCB"
+          v-model="editedStructure.networks"
+          box
+          :label="$t('forms.fields.networks')"
+          :hint="$t('forms.hints.networks')"
+          multiple
+          chips
+          deletable-chips
+          :rules="[rules.isUser]"
+          :items="$store.getters['network/all']"
+          item-text="name"
+          item-value="id"
+          @input="clearSearch('networksCB')"
+        />
+      </template>
 
 
       <h3 class="mb-2">
@@ -145,14 +149,6 @@
         :title="`structure-cover-${structure.id}`"
         @change="saveImage($event)"
       />
-
-      <!-- <v-text-field
-        v-model="editedStructure.image_url"
-        box
-        :rules="[rules.isURL]"
-        label="URL to an image"
-        hint="Shown in listings as well as the structures's page"
-      /> -->
 
       <h3 class="mb-2">
         {{ $t('pages.projectManage.infoContactTitle') }}
@@ -198,7 +194,6 @@
       />
     </template>
 
-
     <!-- Save button -->
     <v-btn block large color="success"
            :disabled="!valid || processing"
@@ -235,6 +230,7 @@ export default {
         isTwitter: v => !v || v.indexOf('twitter.com') >= 0 || this.$t("forms.rules.mustBeURL"),
         isFacebook: v => !v || v.indexOf('facebook.com') >= 0 || this.$t("forms.rules.mustBeURL"),
         isCountry: v => this.isCountry(v) || this.$t("forms.rules.mustBeCountry"),
+        validYear: v => !v || (v >= 500 && v <= 2100) || this.$t("forms.rules.mustBeValidYear"),
 
         // isEmail: v => regexIsEmail(v) || this.$t("forms.rules.mustBeEmail"),
         // isCountry: v => this.isCountry(v) || this.$t("forms.rules.mustBeCountry"),
@@ -256,16 +252,15 @@ export default {
       // Editing existing structure
       this.editedStructure = this.loadStructure()
 
+      // Validate form in case required fields have changed
+      setTimeout(() => {this.$refs.form.validate()}, 1000);
+
     }else{
       // New structure
       this.editedStructure.managers = [
         this.$store.getters["user/current"]
       ];
     }
-
-    setTimeout(() => {
-      this.$refs.form.validate()
-    }, 500);
 
     // Initialize user search with all visible users
     // this.userSearch = [...this.editedStructure.participants, ...this.editedStructure.managers]

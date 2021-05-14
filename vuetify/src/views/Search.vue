@@ -34,8 +34,8 @@ import StructureCard from "@/components/structure/StructureCard";
 import ProjectCard from "@/components/project/ProjectCard";
 
 import {SearchResource} from "@/plugins/resource"
-import { createLink as createLinkProject } from "@/store/Project"
-import { createLink as createLinkStructure } from "@/store/Structure"
+import { handle as createLinkProject } from "@/store/Project"
+import { handle as createLinkStructure } from "@/store/Structure"
 
 export default {
 

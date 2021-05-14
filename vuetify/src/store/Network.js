@@ -1,10 +1,15 @@
 import Vue from "../plugins/resource";
 import { NetworkResource } from "../plugins/resource";
+import { handle as structureHandle } from "./Structure";
 
 const Resource = NetworkResource
 
 /** Function called on every object on load */
 export function handle(obj){
+  // Make links to all structures if this is a detail view
+  try {
+    obj.structures = obj.structures.map(s => structureHandle(s))
+  } catch (_) {}
   return obj
 }
 

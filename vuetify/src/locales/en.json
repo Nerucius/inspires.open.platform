@@ -297,6 +297,10 @@
     "Attachment": {
       "upload": "Upload new file",
       "noAttachments": "No files attached."
+    },
+    "StructureNetworks": {
+      "title": "Networks this Structure is part of:",
+      "otherStructures": "Other Structures in this Network:"
     }
   },
   "models": {
@@ -719,6 +723,7 @@
       "mustNotBeEmail": "Please do not use an email as username as this information is public.",
       "mustBeStructure": "Please enter a valid Structure",
       "mustBeUser": "Please enter a valid list of Users",
+      "mustBeValidYear": "Please enter a year between 500 and 2100",
       "mustBeURL": "Please enter a valid URL",
       "mustBeCountry": "Please enter a valid Country",
       "mustBeKnowledgeArea": "Please enter a valid Knowledge Area"

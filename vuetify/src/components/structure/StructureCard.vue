@@ -35,8 +35,7 @@
       </v-layout>
     </v-img>
 
-
-    <v-card-text class="pb-0">
+    <v-card-text v-if="summary == null || summary" class="pb-0">
       <v-sheet :height="7*21" class="overflow-hidden mb-2">
         <h2 style="font-size:125%" class="mb-2">
           <router-link :to="structure.link">
@@ -47,6 +46,17 @@
         {{ structure.summary }}
       </v-sheet>
     </v-card-text>
+
+    <v-card-text v-else>
+      <v-sheet :height="75" class="overflow-hidden mb-2">
+        <h2 style="font-size:125%" class="mb-2">
+          <router-link :to="structure.link">
+            {{ structure.name }} <small>| {{ structure.year_founded }}</small>
+          </router-link>
+        </h2>
+      </v-sheet>
+    </v-card-text>
+
 
     <v-card-actions>
       <v-btn flat block :to="structure.link">
@@ -61,7 +71,7 @@
 import { obj2slug } from "@/plugins/utils";
 
 export default {
-  props: ['structure'],
+  props: ['structure', 'summary'],
 
   data(){
     return{

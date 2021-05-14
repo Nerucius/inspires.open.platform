@@ -27,7 +27,9 @@ class Attachment(TrackableModel):
 
         # Max of 5 attachments per project
         # TODO: TEST THIS
-        if content_type == "project":
+        project_ct = ContentType.objects.get_for_model(Project)
+
+        if content_type == project_ct:
             project = Project.objects.get(pk=object_id)
             return project.can_write(user)
         #     attch_count = Attachment.objects.filter(

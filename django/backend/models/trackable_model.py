@@ -46,6 +46,7 @@ class TrackableModel(models.Model):
         help_text="Owner of the instance. This user will be able to edit the\
             instance or even delete it. Leave empty to set yourself as owner.",
     )
+    deleted = models.BooleanField(default=False)
 
     @classmethod
     def can_create(cls, user, data):

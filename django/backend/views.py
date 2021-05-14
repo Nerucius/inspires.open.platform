@@ -434,10 +434,11 @@ class ContentTypesVS(viewsets.ReadOnlyModelViewSet):
     serializer_class = serializers.ContentTypeSerializer
 
 
-class AttachmentsVS(ListDetail, viewsets.ModelViewSet):
-    queryset = models.Attachment.objects.all()
-    serializer_class = serializers.SimpleAttachmentSerializer
-    detail_serializer_class = serializers.AttachmentSerializer
+class AttachmentsVS(RequirePKMixin, viewsets.ModelViewSet):
+    queryset = models.Attachment.objects.filter(deleted=False)
+    serializer_class = serializers.AttachmentSerializer
+    # serializer_class = serializers.SimpleAttachmentSerializer
+    # detail_serializer_class = serializers.AttachmentSerializer
 
 
 # ===========================

@@ -69,7 +69,7 @@ class CurrentUserSerializer(serializers.ModelSerializer):
         ]
 
 
-class ProjectSerializer(TrackableModelSerializer):
+class ProjectSerializer(AttachmentFieldMixin, TrackableModelSerializer):
     eval_version = serializers.IntegerField(read_only=True)
     collaboration = CollaborationSerializer(read_only=True)
     participants = ParticipationSerializer(
@@ -84,9 +84,7 @@ class ProjectSerializer(TrackableModelSerializer):
     keywords = serializers.PrimaryKeyRelatedField(
         many=True, required=False, queryset=models.Keyword.objects
     )
-    attachments = AttachmentSerializer(read_only=True, many=True)
-
-    # structure = serializers.PrimaryKeyRelatedField(read_only=True)
+    attachments = serializers.SerializerMethodField(method_name="get_attachments")
 
     class Meta:
         model = models.Project

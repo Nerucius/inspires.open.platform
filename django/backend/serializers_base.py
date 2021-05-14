@@ -13,6 +13,19 @@ class TrackableModelSerializer(serializers.ModelSerializer):
     modified_at = serializers.DateTimeField(read_only=True)
 
 
+class AttachmentFieldMixin(object):
+    # Add this to the upstream serializer
+    # attachments = serializers.SerializerMethodField(method_name="get_attachments")
+
+    def get_attachments(self, object):
+        ct = ContentType.objects.get_for_model(object)
+        qs = models.Attachment.objects.filter(
+            deleted=False, object_id=object.pk, content_type=ct
+        )
+        serializer = AttachmentSerializer(instance=qs, read_only=True, many=True)
+        return serializer.data
+
+
 class SimpleGroupSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.Group
@@ -252,12 +265,12 @@ class SimpleContentSerializer(serializers.ModelSerializer):
         ]
 
 
-class ContentSerializer(TrackableModelSerializer):
-    attachments = AttachmentSerializer(read_only=True, many=True)
+class ContentSerializer(AttachmentFieldMixin, TrackableModelSerializer):
     image_url = serializers.CharField(read_only=True)
     sorting = serializers.IntegerField(read_only=True)
     extra_style = serializers.CharField(read_only=True)
     parent = serializers.CharField(read_only=True)
+    attachments = serializers.SerializerMethodField(method_name="get_attachments")
 
     class Meta:
         model = models.Content

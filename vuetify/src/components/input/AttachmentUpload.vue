@@ -115,6 +115,13 @@ export default {
       let rand = Math.random().toString(36).substring(6);
       let normName = normalizeName(this.attachment.name)
       let extension = this.file.name.split('.').pop()
+      let fileSize = this.file.size
+
+      if(fileSize > 10 * 1024*1024){
+        this.$store.dispatch("toast/error", {message: this.$t("forms.toasts.uploadErrorTooBig", {size:10})});
+        this.file = null
+        return;
+      }
 
       var fileName = `${rand}-${normName}.${extension}`;
       console.log(fileName);
@@ -129,7 +136,7 @@ export default {
         let attachmentData = {
           ...this.attachment,
           mime_type: this.file.type,
-          size: this.file.size,
+          size: fileSize,
           url: response.data.url,
           content_type: this.contentType,
           object_id: this.objectId,
@@ -150,10 +157,7 @@ export default {
         this.$emit('upload');
 
       } catch (error) {
-        this.$store.dispatch("toast/error", {
-          message: this.$t("forms.toasts.uploadError"),
-          error,
-        });
+        this.$store.dispatch("toast/error", {message: this.$t("forms.toasts.uploadError"), error,});
       }
     },
   },

@@ -396,6 +396,28 @@
             </v-card-text>
           </v-card>
         </v-tab-item>
+
+        <!-- TAB: Files -->
+        <v-tab-item key="noums.files">
+          <v-card flat>
+            <v-card-text>
+              <h2 class="mb-2">{{ $t('noums.files') }}</h2>
+              <p class="subheading">
+                {{ $t('pages.projectDetail.projectFiles') }}
+              </p>
+              <!-- List of attachments -->
+              <AttachmentList :attachments="project.attachments" @change="reloadProject" />
+              <!-- Upload form for editor -->
+              <template v-if="canManage">
+                <br>
+                <br>
+                <h3 mb-2>{{ $t('components.Attachment.upload') }}</h3>
+                <AttachmentUpload model="project" :object-id="project.id" @upload="reloadProject" />
+              </template>
+            </v-card-text>
+          </v-card>
+        </v-tab-item>
+        
       </v-tabs-items>
     </v-flex>
 
@@ -423,10 +445,13 @@
 <script>
 import { iso3toiso2, translateCountryName } from '@/plugins/countries'
 import { slug2id, obj2slug, onlyUnique } from "@/plugins/utils";
-import ProjectCardHorizontal from "@/components/project/ProjectCardHorizontal";
-import ProjectTangram from "@/components/evaluation/ProjectTangram";
 import { API_SERVER } from "@/plugins/resource";
 import { ProjectEvaluationStatsResource } from "@/plugins/resource";
+
+import AttachmentUpload from "@/components/input/AttachmentUpload";
+import AttachmentList from "@/components/attachment/AttachmentList";
+import ProjectCardHorizontal from "@/components/project/ProjectCardHorizontal";
+import ProjectTangram from "@/components/evaluation/ProjectTangram";
 
 
 export default {
@@ -439,6 +464,8 @@ export default {
   components: {
     ProjectCardHorizontal,
     ProjectTangram,
+    AttachmentList,
+    AttachmentUpload,
   },
 
   data() {
@@ -454,6 +481,7 @@ export default {
         items:[
           'pages.projectDetail.detailsTab',
           'pages.projectDetail.evaluationTab',
+          'noums.files',
         ]
       }
     };
@@ -559,6 +587,11 @@ export default {
       let ka = this.$store.getters['knowledgearea/get'](kaId)
 
       return this.$t(ka.name)
+    },
+
+    reloadProject(){
+      this.$store.dispatch("project/load", [this.projectId])
+      this.project = this.$store.getters["project/detail"](this.projectId);
     },
 
     async loadEvaluation(){

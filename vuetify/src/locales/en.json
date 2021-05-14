@@ -129,7 +129,8 @@
       "evaluationTab": "Project Evaluation",
       "notApproved": "This project is not approved yet, it will not show up in public lists until it is registered to a Structure.",
       "projectNotYetEvaluated": "This project has not received sufficient feedback and evaluations from it's participants yet, so we can't show you how it's doing. Check back another day!",
-      "activeCountries": "This project is active in 1 country: | This project is active in {n} countries:"
+      "activeCountries": "This project is active in 1 country: | This project is active in {n} countries:",
+      "projectFiles": "Find here any files that the Project's manager has uploaded to be publicly viewed"
     },
     "structureDetail": {
       "notApproved": "This structure is not approved yet, it will not show up in public lists until a site administratot validates it.",
@@ -734,6 +735,7 @@
     "toasts": {
       "permissionError": "There was an error while accessing the resource, you might not have permission to view this.",
       "uploadError": "There was an error uploading your file",
+      "uploadErrorTooBig": "This file is too big to upload. Please limit your file size to {size} MB.",
       "loggedOut": "You have been logged out",
       "resetPasswordSubmitted": "A password reset email has been submitted to the user of this account.",
       "saveSuccess": "Saved successfully!",

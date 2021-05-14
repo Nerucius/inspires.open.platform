@@ -400,20 +400,23 @@
         <!-- TAB: Files -->
         <v-tab-item key="noums.files">
           <v-card flat>
-            <v-card-text>
-              <h2 class="mb-2">{{ $t('noums.files') }}</h2>
-              <p class="subheading">
-                {{ $t('pages.projectDetail.projectFiles') }}
-              </p>
-              <!-- List of attachments -->
-              <AttachmentList :attachments="project.attachments" @change="reloadProject" />
-              <!-- Upload form for editor -->
-              <template v-if="canManage">
-                <br>
-                <br>
-                <h3 mb-2>{{ $t('components.Attachment.upload') }}</h3>
-                <AttachmentUpload model="project" :object-id="project.id" @upload="reloadProject" />
-              </template>
+            <v-card-text class="px-0">
+              <v-sheet class="grey lighten-4 pa-3 v-sheet theme--light">
+                <h2 class="mb-2">{{ $t('noums.files') }}</h2>
+                <p class="subheading">
+                  {{ $t('pages.projectDetail.projectFiles') }}
+                </p>
+
+                <!-- List of attachments -->
+                <AttachmentList :attachments="project.attachments" @change="reloadProject" />
+                <!-- Upload form for editor -->
+                <template v-if="canManage">
+                  <br>
+                  <br>
+                  <h3 mb-2>{{ $t('components.Attachment.upload') }}</h3>
+                  <AttachmentUpload model="project" :object-id="project.id" @upload="reloadProject" />
+                </template>
+              </v-sheet>
             </v-card-text>
           </v-card>
         </v-tab-item>
@@ -589,8 +592,8 @@ export default {
       return this.$t(ka.name)
     },
 
-    reloadProject(){
-      this.$store.dispatch("project/load", [this.projectId])
+    async reloadProject(){
+      await this.$store.dispatch("project/load", [this.projectId])
       this.project = this.$store.getters["project/detail"](this.projectId);
     },
 

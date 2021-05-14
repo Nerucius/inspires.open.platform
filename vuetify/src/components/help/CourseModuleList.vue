@@ -1,5 +1,5 @@
 <template>
-  <v-card flat v-if="modules">
+  <v-card v-if="modules" flat>
     <v-toolbar dense flat dark color="orange darken-3">
       <v-toolbar-title>
         {{ $t('pages.help.courses.modules') }}
@@ -8,7 +8,7 @@
 
     <v-card-text>
       <v-layout wrap>
-        <v-flex xs12 sm6 lg4 v-for="content in modules" :key="content.id">
+        <v-flex v-for="content in modules" :key="content.id" xs12 sm6 lg4>
           <v-card>
             <v-card-text>
               <!-- Title and text card, please note how we use a ref to get the title height -->
@@ -18,14 +18,14 @@
               </v-sheet>
             </v-card-text>
             <v-card-actions>
-                <v-spacer />
-                <v-btn flat color="primary" :to="content.link">Access Module</v-btn>
+              <v-spacer />
+              <v-btn flat color="primary" :to="content.link">Access Module</v-btn>
             </v-card-actions>
           </v-card>
         </v-flex>
       </v-layout>
     </v-card-text>
-    </v-card>
+  </v-card>
 </template>
 
 <script>

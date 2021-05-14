@@ -58,7 +58,15 @@ input[type="file"] {
 <script>
 import { API_SERVER } from "@/plugins/resource";
 
-const VALID_MIME_TYPES = ["image/png", "image/jpeg", "application/pdf"];
+const VALID_MIME_TYPES = [
+  "image/png", "image/jpeg", "video/mp4",
+  "application/pdf",
+  "application/vnd.ms-excel", // csv
+  "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", // xlsx
+  "application/vnd.openxmlformats-officedocument.wordprocessingml.document", // docx
+  "application/x-zip-compressed", // zip
+  "text/plain", "text/csv",
+];
 
 
 function normalizeName(str){

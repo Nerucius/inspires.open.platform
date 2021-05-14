@@ -62,7 +62,7 @@ export default {
     },
 
     delete: async function (context, id){
-      let result = (await Resource.delete({id}))
+      let result = (await Resource.update({id}, {deleted:true})).body
       context.commit("REMOVE", id)
       return result
     },

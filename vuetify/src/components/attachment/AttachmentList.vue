@@ -1,5 +1,5 @@
 <template>
-  <v-list v-if="attachments.length > 0">
+  <v-list v-if="!!attachments && attachments.length > 0">
     <transition-group name="list">
       <v-list-tile v-for="att in attachments" :key="att.id">
         <v-list-tile-avatar>

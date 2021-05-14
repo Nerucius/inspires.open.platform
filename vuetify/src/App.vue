@@ -177,10 +177,16 @@ export default {
     // }, 1000)
 
     // Block on the user status before allowing to show the app
-    await Promise.all([
-      this.$store.dispatch("user/load"),
-      this.$store.dispatch("user/loadCurrent")
-    ])
+    try {
+      await Promise.all([
+        this.$store.dispatch("user/load"),
+        this.$store.dispatch("user/loadCurrent")
+      ])
+    } catch (_) {
+      // Failed auth
+      await this.$store.dispatch("user/load")
+    }
+
     this.loading = false;
 
     // Listener for language selection
@@ -193,7 +199,6 @@ export default {
 
         console.log('Language Change request: '+ lang)
         setI18nLanguage(lang);
-
       }
     });
 

@@ -84,6 +84,8 @@ class ProjectSerializer(TrackableModelSerializer):
     keywords = serializers.PrimaryKeyRelatedField(
         many=True, required=False, queryset=models.Keyword.objects
     )
+    attachments = AttachmentSerializer(read_only=True, many=True)
+
     # structure = serializers.PrimaryKeyRelatedField(read_only=True)
 
     class Meta:

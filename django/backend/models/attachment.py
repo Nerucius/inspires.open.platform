@@ -1,8 +1,10 @@
+from backend.models.project import Project
 from django.db import models
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 
 from backend.models import TrackableModel
+
 
 class Attachment(TrackableModel):
     name = models.CharField(max_length=512)
@@ -18,6 +20,23 @@ class Attachment(TrackableModel):
     def __str__(self):
         return self.name
 
-        
+    @classmethod
+    def can_create(cls, user, data):
+        content_type = data["content_type"]
+        object_id = data["object_id"]
+
+        # Max of 5 attachments per project
+        # TODO: TEST THIS
+        if content_type == "project":
+            project = Project.objects.get(pk=object_id)
+            return project.can_write(user)
+        #     attch_count = Attachment.objects.filter(
+        #         content_type=content_type, object_id=object_id
+        #     ).count()
+        #     if attch_count > 5:
+        #         return False
+
+        return True
+
     class Meta:
         ordering = ["id"]

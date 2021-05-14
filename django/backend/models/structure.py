@@ -40,7 +40,10 @@ class Structure(TrackableModel):
     structure_type = models.CharField(max_length=254, blank=True, choices=TYPES)
 
     networks = models.ManyToManyField(
-        "Network", blank=True, related_name="structures", related_query_name="structure"
+        "Network",
+        blank=True,
+        related_name="structures",
+        related_query_name="structure",
     )
 
     contact_email = models.EmailField(blank=True)

@@ -44,6 +44,7 @@ class ProjectFilter(FilterSet):
     class Meta:
         model = models.Project
         fields = [
+            "id",
             "name",
             "collaboration__structure",
             "keywords",
@@ -60,6 +61,7 @@ class StructureFilter(FilterSet):
     class Meta:
         model = models.Structure
         fields = [
+            "id",  # TODO: Make this filter match with OR
             "name",
             "collaboration__project",
             "managers",

@@ -2,6 +2,8 @@ from django.db import models
 
 import backend.models
 from backend.models import TrackableModel, User
+from django.contrib.contenttypes.fields import GenericRelation
+
 
 DEFAULT_DESCRIPTION = """## Background
 
@@ -105,6 +107,8 @@ class Project(TrackableModel):
     # TODO: RequestForResearch
     # request = models.ForeignKey("RequestForReseach", null=True, blank=True, on_delete=models.SET_NULL)
     related_projects = models.ManyToManyField("Project", blank=True)
+
+    attachments = GenericRelation("Attachment")
 
     @property
     def evaluations(self):

@@ -195,7 +195,6 @@ class SimpleProjectSerializer(serializers.ModelSerializer):
             "modified_at",
             "name",
             "participants",
-            "keywords",
             "summary",
             "country_code",
             "image_url",

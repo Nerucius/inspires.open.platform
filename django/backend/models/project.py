@@ -149,6 +149,22 @@ class Project(TrackableModel):
 
         return ";".join(map(str, scores))
 
+    @property
+    def statNPhases(self):
+        phases = ProjectPhase.objects.all()
+
+        project_evals = backend.models.Evaluation.objects.filter(
+            participation__project=self.pk
+        )
+        scores = [0, 0, 0, 0]
+
+        for idx, phase in enumerate(phases):
+            evals = project_evals.filter(phase__project_phase=phase)
+            # Sum of the completed evals per phase
+            scores[idx] = len([e for e in evals if e.is_complete])
+
+        return ";".join(map(str, scores))
+
     def can_write(self, user):
         return self.owner == user or self.managers.filter(pk=user.pk).exists()
 

@@ -184,14 +184,18 @@ def _structures_to_csv_lines(structures):
         knowledge_areas = ";".join(
             [ka.name.split(".")[-1].upper() for ka in structure.knowledge_areas.all()]
         )
+        managers = ";".join(
+            [f"{m.full_name} <{m.email}>" for m in structure.managers.all()]
+        )
 
         line = [
             str(structure.id),
             structure.name,
             structure.structure_type,
+            managers,
             structure.country_code,
             _newline_to_br(structure.summary),
-            _newline_to_br(structure.description),
+            # _newline_to_br(structure.description),
             knowledge_areas,
         ]
         lines += [CSV_COLUMN_SEPARATOR.join(line)]
@@ -201,9 +205,10 @@ def _structures_to_csv_lines(structures):
             "id",
             "name",
             "structure_type",
+            "managers",
             "country_code",
             "summary",
-            "description",
+            # "description",
             "knowledge_areas",
         ]
     )
@@ -213,7 +218,9 @@ def _structures_to_csv_lines(structures):
 def _projects_to_csv_lines(projects):
     lines = []
     for project in projects:
-
+        managers = ";".join(
+            [f"{m.full_name} <{m.email}>" for m in project.managers.all()]
+        )
         knowledge_area = (
             project.knowledge_area.name.split(".")[-1].upper()
             if project.knowledge_area
@@ -234,11 +241,14 @@ def _projects_to_csv_lines(projects):
             str(project.id),
             project.name,
             project.project_type,
+            managers,
             knowledge_area,
             project.country_code,
             _newline_to_br(project.summary),
-            _newline_to_br(project.description),
+            # _newline_to_br(project.description),
             project_phase,
+            str(project.statN),
+            str(project.statNPhases),
             project.contact_website,
             participants,
         ]
@@ -251,11 +261,14 @@ def _projects_to_csv_lines(projects):
             "id",
             "name",
             "project_type",
+            "mangers",
             "knowledge_area",
             "country_code",
             "summary",
-            "description",
+            # "description",
             "current_phase",
+            "eval_n_participants",
+            "eval_n_per_phase",
             "contact_website",
             "participants",
         ]

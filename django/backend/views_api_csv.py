@@ -2,6 +2,7 @@ from django import shortcuts
 from django.db.models import Sum, Avg
 
 from django.core.cache import cache
+from django.http.request import HttpRequest
 from django.http.response import (
     HttpResponse,
     HttpResponseServerError,
@@ -27,7 +28,7 @@ CSV_LINE_SEPARATOR = "\n"
 CSV_COLUMN_SEPARATOR = "|"
 
 
-def _token_header(request):
+def _token_header(request: HttpRequest):
     try:
         header_auth = request.META["HTTP_AUTHORIZATION"]
     except:
@@ -35,7 +36,7 @@ def _token_header(request):
     return header_auth.split(" ")[-1]
 
 
-def _token_cookie(request):
+def _token_cookie(request: HttpRequest):
     try:
         cookies = request.META["HTTP_COOKIE"]
     except:
@@ -48,16 +49,29 @@ def _token_cookie(request):
     return None
 
 
-def _authenticate_request(request, project=None):
+def _token_get(request: HttpRequest):
+    try:
+        token = request.GET["token"]
+        return token
+    except:
+        return None
+
+
+def _authenticate_request(request: HttpRequest, project=None):
 
     token = _token_header(request)
     if not token:
         token = _token_cookie(request)
     if not token:
+        token = _token_get(request)
+    if not token:
         raise Exception("No user authentication provided")
 
-    user = Token.objects.get(pk=token).user
-    request.user = user
+    try:
+        user = Token.objects.get(pk=token).user
+        request.user = user
+    except:
+        raise Exception("Invalid token.")
 
     if user.is_superuser:
         # Superuser can view all
@@ -70,7 +84,7 @@ def _authenticate_request(request, project=None):
         return True
     else:
         # Otherwise fuck off
-        raise Exception("403 Forbidden")
+        raise Exception("403 Forbidden - User does not have access to this resource.")
 
 
 def _get_dataframe_cache(cache_key, factory, *args, **kwargs):
@@ -488,13 +502,13 @@ class CSVCachedAuthorizedView(View):
         if "project" in kwargs:
             project = Project.objects.get(pk=kwargs["project"])
 
-        if not self.public_api:
-            _authenticate_request(request, project)
-
         content_type = "text/csv; charset=utf-8"
         status_code = 200
 
         try:
+            if not self.public_api:
+                _authenticate_request(request, project)
+
             content = self._get_content_cached(request, *args, **kwargs)
         except Exception as e:
             content = json.dumps({"status": "error", "message": str(e)})
@@ -529,15 +543,16 @@ class FileAuthorizedView(View):
         if "project" in kwargs:
             project = Project.objects.get(pk=kwargs["project"])
 
-        if not self.public_api:
-            _authenticate_request(request, project)
-
         response = HttpResponse()
         response["Content-Type"] = self.content_type
         response["Content-Disposition"] = f'attachment; filename="{self.filename}"'
 
         status_code = 200
         try:
+            # Authorize request
+            if not self.public_api:
+                _authenticate_request(request, project)
+
             # Send response to be written to
             self._get_content(request, response, *args, **kwargs)
 

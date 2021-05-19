@@ -83,25 +83,27 @@
 </template>
 
 <script>
+import Cookies from 'js-cookie'
 import { donwloadAsyncCSV } from "@/plugins/utils";
 import { API_SERVER } from "@/plugins/resource";
-
 // TODO: downloadAsyncCSV can be avoided if django returns the correct headers on the CSV request
+
+const AUTH_TOKEN = Cookies.get("authorization")
 
 export default {
 
   computed:{
     exportProjectsCsvURL(){
-      return `${API_SERVER}/v1/csv/export/admin/projects/csv`;
+      return `${API_SERVER}/v1/csv/export/admin/projects/csv?token=${AUTH_TOKEN}`;
     },
     exportProjectsExcelURL(){
-      return `${API_SERVER}/v1/csv/export/admin/projects/xlsx`;
+      return `${API_SERVER}/v1/csv/export/admin/projects/xlsx?token=${AUTH_TOKEN}`;
     },
     exportStructuresCsvURL(){
-      return `${API_SERVER}/v1/csv/export/admin/structures/csv`;
+      return `${API_SERVER}/v1/csv/export/admin/structures/csv?token=${AUTH_TOKEN}`;
     },
     exportStructuresExcelURL(){
-      return `${API_SERVER}/v1/csv/export/admin/structures/xlsx`;
+      return `${API_SERVER}/v1/csv/export/admin/structures/xlsx?token=${AUTH_TOKEN}`;
     },
   },
 

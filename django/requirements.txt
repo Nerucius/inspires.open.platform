@@ -8,3 +8,5 @@ python-decouple>=3.1,<4
 psycopg2-binary>=2.7.7,<3
 requests>=2,<3
 romanize3==0.1.14
+django-auto-prefetching>=0.1.9,<1
+openpyxl>=3.0.7,<4

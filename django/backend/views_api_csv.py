@@ -2,13 +2,16 @@ from django import shortcuts
 from django.db.models import Sum, Avg
 
 from django.core.cache import cache
-from django.http.response import HttpResponseNotFound, HttpResponse
+from django.http.response import (
+    HttpResponse,
+    HttpResponseServerError,
+)
 from django.views import View
 
 from rest_framework.authtoken.models import Token
 from backend.models import Project, Evaluation, Response, Structure
 
-from datetime import datetime
+from datetime import date, datetime
 
 import json
 import pandas as pd
@@ -331,6 +334,103 @@ def _responses_to_csv_lines(project):
     return CSV_LINE_SEPARATOR.join([headers] + lines)
 
 
+def _projects_to_df(projects):
+    data = []
+
+    for project in projects:
+        managers = ";".join(
+            [f"{m.full_name} <{m.email}>" for m in project.managers.all()]
+        )
+        knowledge_area = (
+            project.knowledge_area.name.split(".")[-1].upper()
+            if project.knowledge_area
+            else ""
+        )
+        pap = project.phases.filter(projectatphase__is_active=True).first()
+        project_phase = str(pap) if pap else ""
+        participants = ";".join(
+            [
+                "%s (%s)" % (p.user.full_name, str(p.role).replace(" ", "").upper())
+                for p in project.participation_set.all()
+            ]
+        )
+
+        line = [
+            str(project.structure.id) if project.structure else "",
+            project.structure.name if project.structure else "",
+            str(project.id),
+            project.name,
+            project.project_type,
+            managers,
+            knowledge_area,
+            project.country_code,
+            _newline_to_br(project.summary),
+            # _newline_to_br(project.description),
+            project_phase,
+            str(project.statN),
+            str(project.statNPhases),
+            project.contact_website,
+            participants,
+        ]
+        data.append(line)
+
+        columns = [
+            "structure_id",
+            "structure",
+            "id",
+            "name",
+            "project_type",
+            "mangers",
+            "knowledge_area",
+            "country_code",
+            "summary",
+            # "description",
+            "current_phase",
+            "eval_n_participants",
+            "eval_n_per_phase",
+            "contact_website",
+            "participants",
+        ]
+
+    return pd.DataFrame(columns=columns, data=data)
+
+
+def _structures_to_df(structures):
+    data = []
+    for structure in structures:
+        knowledge_areas = ";".join(
+            [ka.name.split(".")[-1].upper() for ka in structure.knowledge_areas.all()]
+        )
+        managers = ";".join(
+            [f"{m.full_name} <{m.email}>" for m in structure.managers.all()]
+        )
+
+        line = [
+            str(structure.id),
+            structure.name,
+            structure.structure_type,
+            managers,
+            structure.country_code,
+            _newline_to_br(structure.summary),
+            # _newline_to_br(structure.description),
+            knowledge_areas,
+        ]
+        data.append(line)
+
+    columns = [
+        "id",
+        "name",
+        "structure_type",
+        "managers",
+        "country_code",
+        "summary",
+        # "description",
+        "knowledge_areas",
+    ]
+
+    return pd.DataFrame(columns=columns, data=data)
+
+
 def download_headers_test(request):
     """ Response headers that automatically downloads  """
     response = HttpResponse()
@@ -367,7 +467,7 @@ class CSVCachedAuthorizedView(View):
         return self.request.META["PATH_INFO"]
 
     def _get_content(self, request, *args, **kwargs):
-        return ""
+        raise Exception("Must implement `_get_content`")
 
     def _get_content_cached(self, request, *args, **kwargs):
         # Use cache
@@ -391,7 +491,7 @@ class CSVCachedAuthorizedView(View):
         if not self.public_api:
             _authenticate_request(request, project)
 
-        content_type = "text/plain"
+        content_type = "text/csv; charset=utf-8"
         status_code = 200
 
         try:
@@ -402,29 +502,70 @@ class CSVCachedAuthorizedView(View):
             content_type = "application/json"
 
         return shortcuts.HttpResponse(
-            content, content_type=content_type, charset="utf8", status=status_code
+            content, content_type=content_type, status=status_code, charset="utf8"
         )
 
 
-class CSVAllResponsesMultiple(CSVCachedAuthorizedView):
-    #    cache_key = None
+class FileAuthorizedView(View):
+    public_api = False
+    content_type = None
+    filename = None
 
+    @property
+    def cache_key(self):
+        return self.request.META["PATH_INFO"]
+
+    def _get_content(self, request, response, *args, **kwargs):
+        raise Exception("Must implement `_get_content`")
+
+    def get(self, request, *args, **kwargs):
+        if not self.filename or not self.content_type:
+            return HttpResponseServerError(
+                '{"error":"No content_type or filename configured"}',
+                content_type="application/json",
+            )
+
+        project = None
+        if "project" in kwargs:
+            project = Project.objects.get(pk=kwargs["project"])
+
+        if not self.public_api:
+            _authenticate_request(request, project)
+
+        response = HttpResponse()
+        response["Content-Type"] = self.content_type
+        response["Content-Disposition"] = f'attachment; filename="{self.filename}"'
+
+        status_code = 200
+        try:
+            # Send response to be written to
+            self._get_content(request, response, *args, **kwargs)
+
+        except Exception as e:
+            # Write error response
+            content = json.dumps({"status": "error", "message": str(e)})
+            status_code = 503
+            content_type = "application/json"
+            response = HttpResponse(
+                content, content_type=content_type, status=status_code, charset="utf8"
+            )
+
+        return response
+
+
+class CSVAllResponsesMultiple(CSVCachedAuthorizedView):
     def _get_content(self, request, *args, **kwargs):
         df = _get_df_responses_all(answer_type="MULTIPLE")
         return df.to_csv()
 
 
 class CSVAllResponsesDegree(CSVCachedAuthorizedView):
-    #    cache_key = None
-
     def _get_content(self, request, *args, **kwargs):
         df = _get_df_responses_all(answer_type="DEGREE")
         return df.to_csv()
 
 
 class CSVProjectResponsesMultiple(CSVCachedAuthorizedView):
-    #    cache_key = None
-
     def _get_content(self, request, *args, **kwargs):
         ownProject = Project.objects.get(pk=kwargs["project"])
         df = _get_df_responses_project(ownProject, answer_type="MULTIPLE")
@@ -432,8 +573,6 @@ class CSVProjectResponsesMultiple(CSVCachedAuthorizedView):
 
 
 class CSVProjectResponsesDegree(CSVCachedAuthorizedView):
-    #    cache_key = None
-
     def _get_content(self, request, *args, **kwargs):
         ownProject = Project.objects.get(pk=kwargs["project"])
         df = _get_df_responses_project(ownProject, answer_type="DEGREE")
@@ -441,8 +580,6 @@ class CSVProjectResponsesDegree(CSVCachedAuthorizedView):
 
 
 class CSVProjectOverallPosition(CSVCachedAuthorizedView):
-    #    cache_key = None
-
     def _get_content(self, request, *args, **kwargs):
         ownProject = Project.objects.get(pk=kwargs["project"])
 
@@ -476,8 +613,6 @@ class CSVProjectOverallPosition(CSVCachedAuthorizedView):
 
 
 class CSVProjectPhases(CSVCachedAuthorizedView):
-    #    cache_key = None
-
     def _get_content(self, request, *args, **kwargs):
         ownProject = Project.objects.get(pk=kwargs["project"])
 
@@ -540,8 +675,6 @@ class CSVProjectPhases(CSVCachedAuthorizedView):
 
 
 class CSVProjectHeatmap(CSVCachedAuthorizedView):
-    #    cache_key = None
-
     def _get_content(self, request, *args, **kwargs):
         ownProject = Project.objects.get(pk=kwargs["project"])
 
@@ -595,7 +728,6 @@ class CSVProjectHeatmap(CSVCachedAuthorizedView):
 
 
 class CSVProjectTangram(CSVCachedAuthorizedView):
-    #    cache_key = None
     public_api = True
 
     def _get_content(self, request, *args, **kwargs):
@@ -661,8 +793,6 @@ class CSVProjectTangram(CSVCachedAuthorizedView):
 
 
 class CSVProjectBulletPrinciples(CSVCachedAuthorizedView):
-    #    cache_key = None
-
     def _get_content(self, request, *args, **kwargs):
         ownProject = Project.objects.get(pk=kwargs["project"])
 
@@ -735,8 +865,6 @@ class CSVProjectBulletPrinciples(CSVCachedAuthorizedView):
 
 
 class CSVProjectBulletDimensions(CSVCachedAuthorizedView):
-    #    cache_key = None
-
     def _get_content(self, request, *args, **kwargs):
         ownProject = Project.objects.get(pk=kwargs["project"])
 
@@ -850,8 +978,6 @@ class CSVProjectBulletDimensions(CSVCachedAuthorizedView):
 
 
 class CSVProjectBulletRoles(CSVCachedAuthorizedView):
-    #    cache_key = None
-
     def _get_content(self, request, *args, **kwargs):
         ownProject = Project.objects.get(pk=kwargs["project"])
 
@@ -934,8 +1060,6 @@ class CSVProjectBulletRoles(CSVCachedAuthorizedView):
 
 
 class CSVStructureSummaryExport(CSVCachedAuthorizedView):
-    #    cache_key = None
-
     def _get_content(self, request, *args, **kwargs):
         structure_pk = kwargs["structure"]
         structure = Structure.objects.get(pk=structure_pk)
@@ -979,8 +1103,6 @@ class CSVStructureSummaryExport(CSVCachedAuthorizedView):
 
 
 class CSVProjectSummaryExport(CSVCachedAuthorizedView):
-    #    cache_key = None
-
     def _get_content(self, request, *args, **kwargs):
         project_pk = kwargs["project"]
         project = Project.objects.get(pk=project_pk)
@@ -1027,8 +1149,6 @@ class CSVProjectSummaryExport(CSVCachedAuthorizedView):
 
 
 class CSVProjectEvaluationResponse(CSVCachedAuthorizedView):
-    #    cache_key = None
-
     def _get_content(self, request, *args, **kwargs):
         project_pk = kwargs["project"]
         project = Project.objects.get(pk=project_pk)
@@ -1040,8 +1160,6 @@ class CSVProjectEvaluationResponse(CSVCachedAuthorizedView):
 
 
 class CSVAllOwnProjectsExport(CSVCachedAuthorizedView):
-    #    cache_key = None
-
     def _get_content(self, request, *args, **kwargs):
         user = request.user
         all_projects = user.owned_projects.all()
@@ -1053,8 +1171,6 @@ class CSVAllOwnProjectsExport(CSVCachedAuthorizedView):
 
 
 class CSVAllOwnStructresExport(CSVCachedAuthorizedView):
-    #    cache_key = None
-
     def _get_content(self, request, *args, **kwargs):
         user = request.user
         all_structures = user.owned_structures.all()
@@ -1064,23 +1180,71 @@ class CSVAllOwnStructresExport(CSVCachedAuthorizedView):
         return _structures_to_csv_lines(all_structures)
 
 
-class CSVAdminAllProjects(CSVCachedAuthorizedView):
-    #    cache_key = None
+class CSVAdminAllProjects(FileAuthorizedView):
+    content_type = "text/csv; charset=utf-8"
+    filename = f"OpenPlatform Projects Export {str(date.today())}.csv"
 
-    def _get_content(self, request, *args, **kwargs):
+    def _get_content(self, request, response, *args, **kwargs):
         if not request.user.is_administrator:
             raise Exception("Must be administrator")
 
+        # Write to response
         all_projects = Project.objects.all()
-        return _projects_to_csv_lines(all_projects)
+        projects_df = _projects_to_df(all_projects)
+
+        projects_df.to_csv(response, index=False)
 
 
-class CSVAdminAllStructures(CSVCachedAuthorizedView):
-    #    cache_key = None
+class CSVAdminAllStructures(FileAuthorizedView):
+    content_type = "text/csv; charset=utf-8"
+    filename = f"OpenPlatform Structures Export {str(date.today())}.csv"
 
-    def _get_content(self, request, *args, **kwargs):
+    def _get_content(self, request, response, *args, **kwargs):
         if not request.user.is_administrator:
             raise Exception("Must be administrator")
 
+        # Write to response
         all_structures = Structure.objects.all()
-        return _structures_to_csv_lines(all_structures)
+        structures_df = _structures_to_df(all_structures)
+
+        structures_df.to_csv(response, index=False)
+
+
+class XLSAdminAllProjects(FileAuthorizedView):
+    content_type = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    filename = f"OpenPlatform Projects Export {str(date.today())}.xlsx"
+
+    def _get_content(self, request, response, *args, **kwargs):
+        if not request.user.is_administrator:
+            raise Exception("Must be administrator")
+
+        # Write to response
+        all_projects = Project.objects.all()
+        projects_df = _projects_to_df(all_projects)
+
+        projects_df.to_excel(
+            response,
+            index=False,
+            freeze_panes=(1, 0),
+            sheet_name="OpenPlatform Projects",
+        )
+
+
+class XLSAdminAllStructures(FileAuthorizedView):
+    content_type = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    filename = f"OpenPlatform Structures Export {str(date.today())}.xlsx"
+
+    def _get_content(self, request, response, *args, **kwargs):
+        if not request.user.is_administrator:
+            raise Exception("Must be administrator")
+
+        # Write to response
+        all_structures = Structure.objects.all()
+        structures_df = _structures_to_df(all_structures)
+
+        structures_df.to_excel(
+            response,
+            index=False,
+            freeze_panes=(1, 0),
+            sheet_name="OpenPlatform Projects",
+        )

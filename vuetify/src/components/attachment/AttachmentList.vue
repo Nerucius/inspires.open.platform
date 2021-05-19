@@ -11,7 +11,7 @@
             {{ att.mime_type }}, {{ sizeToStr(att.size) }}
           </small>
         </v-list-tile-content>
-        <v-list-tile-action style="flex-direction: unset">
+        <v-list-tile-action style="flex-direction: row; align-items:center">
           <v-btn
             icon
             ripple

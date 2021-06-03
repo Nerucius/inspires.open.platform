@@ -2,6 +2,8 @@ from django.contrib import auth
 from django.middleware import csrf
 from django.http.response import HttpResponseBadRequest, HttpResponse
 
+# from django_auto_prefetching import AutoPrefetchViewSetMixin, prefetch as auto_prefetch
+
 from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework.renderers import JSONRenderer
@@ -222,7 +224,7 @@ def reset_password_submit(request):
         user.reset_password_token = ""
         user.set_password(password)
         # Remove the eval token used for "Invite" users. This user now becomes a real user
-        user.eval_token = ""
+        user.eval_token = None
         user.save()
 
     except Exception as e:
@@ -345,6 +347,12 @@ class ProjectsVS(ListDetail, Orderable, viewsets.ModelViewSet):
             queryset = queryset.filter(
                 collaboration__structure__validation__is_approved=True
             )
+
+        # print("get_queryset self.action")
+        # print(self.action)
+
+        # if self.action == "retrieve":
+        #     return auto_prefetch(queryset, self.get_serializer_class())
         return queryset
 
 

@@ -107,7 +107,7 @@ table{
                 <!-- Evaluation is sent, switch on invited / non-invited  -->
                 <template v-else>
                   <!-- Regular Users (no token) -->
-                  <template v-if="getEvaluation(phase, participant).user_eval_token == null">
+                  <template v-if="!getEvaluation(phase, participant).user_eval_token">
                     <v-layout wrap>
                       <!-- View Evaluation -->
                       <v-flex lg6 sm12 xs6>

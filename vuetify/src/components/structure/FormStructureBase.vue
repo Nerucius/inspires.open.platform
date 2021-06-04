@@ -21,7 +21,7 @@
       v-model="editedStructure.summary"
       box
       :rules="[rules.required]"
-      counter="200"
+      counter="400"
       :label="$t('forms.fields.summary')"
       :hint="$t('forms.hints.structureSummary')"
     />
@@ -53,7 +53,9 @@
       :label="$t('forms.fields.structureYearFounded')"
     />
 
-    <h2 class="mt-4 mb-2">
+    <div class="mb-4" />
+
+    <h2 class="mb-2">
       {{ $t('pages.structureManage.infoAdministratorsTitle') }}
     </h2>
     <p class="subheading">
@@ -78,9 +80,10 @@
       @input="clearSearch('managersCB')"
     />
 
-
     <!-- Expanded details, only after save -->
     <template v-if="editedStructure.id">
+      <div class="mb-4" />
+
       <h2 class="mt-4 mb-2">
         {{ $t('pages.projectManage.infoAdditionalTitle') }}
       </h2>
@@ -137,7 +140,7 @@
         deletable-chips
         :rules="[rules.isUser]"
         :items="$store.getters['knowledgearea/all']"
-        :item-text="kaName"
+        :item-text="knowledgeAreaTL"
         item-value="id"
       />
 
@@ -150,9 +153,9 @@
         @change="saveImage($event)"
       />
 
-      <h3 class="mb-2">
+      <h2 class="mb-2">
         {{ $t('pages.projectManage.infoContactTitle') }}
-      </h3>
+      </h2>
 
       <v-text-field
         v-model="editedStructure.contact_email"
@@ -231,11 +234,6 @@ export default {
         isFacebook: v => !v || v.indexOf('facebook.com') >= 0 || this.$t("forms.rules.mustBeURL"),
         isCountry: v => this.isCountry(v) || this.$t("forms.rules.mustBeCountry"),
         validYear: v => !v || (v >= 500 && v <= 2100) || this.$t("forms.rules.mustBeValidYear"),
-
-        // isEmail: v => regexIsEmail(v) || this.$t("forms.rules.mustBeEmail"),
-        // isCountry: v => this.isCountry(v) || this.$t("forms.rules.mustBeCountry"),
-        // isKnowledgeArea: v => this.isKnowledgeArea(v) || this.$t("forms.rules.mustBeKnowledgeArea"),
-        //   v.length > 10 || this.$t("forms.rules.minimunLength", { length: 10 })
       },
       userSearch: [],
       editedStructure: {},
@@ -246,7 +244,8 @@ export default {
   computed:{
   },
 
-  created: async function() {
+  async created() {
+    this.$store.dispatch("knowledgearea/load")
 
     if (this.structure && this.structure.id) {
       // Editing existing structure
@@ -275,12 +274,13 @@ export default {
       return this.$store.getters['knowledgearea/get'](id)
     },
 
-    kaName(knowledgeArea){
+    knowledgeAreaTL(knowledgeArea){
       return `[${knowledgeArea.code}] ${this.$t(knowledgeArea.name)}`
     },
 
     loadStructure: function(){
       let loadedStructure = cloneDeep(this.structure)
+
       // Transform attributes to be compatible with Form
       loadedStructure.managers = (loadedStructure.managers || []).map(id => this.user(id))
       loadedStructure.knowledge_areas = (loadedStructure.knowledge_areas || []).map(id => this.knowledgeArea(id))
@@ -290,7 +290,6 @@ export default {
       loadedStructure.country_code = loadedStructure.country_code.split(',').map(cc =>
         this.Countries.filter(c => c.alpha3Code == cc)[0]
       ).filter(i => i != undefined)
-
 
       return loadedStructure
     },
@@ -346,12 +345,6 @@ export default {
       }
 
       this.processing = false
-
-    },
-
-    localizedCountryName(country){
-      let locale = this.$i18n.locale
-      return country.translations[locale] || country.name
     },
 
     isUser(value){

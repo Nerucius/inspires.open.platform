@@ -257,7 +257,7 @@
       </v-card>
     </v-flex>
 
-
+    <!-- Main Body -->
     <v-flex xs12 sm8>
       <v-img :src="project.image_url" height="260">
         <v-toolbar flat style="background-color:rgba(0,0,0,.3)" dark>
@@ -267,7 +267,7 @@
         </v-toolbar>
       </v-img>
 
-
+      <!-- Tabs menu -->
       <v-tabs v-model="page.tab" grow>
         <v-tabs-slider color="primary" />
         <v-tab v-for="item in page.items" :key="item">
@@ -278,7 +278,7 @@
       <!-- Main Body -->
       <v-tabs-items v-model="page.tab">
         <!-- TAB: Project Details -->
-        <v-tab-item key="pages.projectDetail.detailsTab">
+        <v-tab-item key="pages.projectDetail.about">
           <v-card flat>
             <div class="py-1 px-3 text-xs-right">
               <small>
@@ -460,7 +460,13 @@ import ProjectTangram from "@/components/evaluation/ProjectTangram";
 export default {
   metaInfo() {
     return {
-      title: (this.project || {}).name
+      meta: [
+        {property: 'title', content: (this.project || {}).name},
+        {property: 'og:title', content: (this.project || {}).name},
+        {property: 'og:description', content: (this.project || {}).summary},
+        {property: 'og:image', content: (this.project || {}).image_url},
+        {property: 'og:type', content: 'website'},
+      ]
     };
   },
 
@@ -482,7 +488,7 @@ export default {
       page:{
         tab: null,
         items:[
-          'pages.projectDetail.detailsTab',
+          'pages.projectDetail.about',
           'pages.projectDetail.evaluationTab',
           'noums.files',
         ]

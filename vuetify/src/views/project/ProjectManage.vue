@@ -193,7 +193,7 @@ export default {
     }
   },
 
-  async mounted() {
+  async created() {
     // Important to await before moving on here
     await this.$store.dispatch("project/load", [this.projectId])
     this.dataReady = true

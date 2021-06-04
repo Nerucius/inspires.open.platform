@@ -31,10 +31,50 @@
       v-model="editedProject.summary"
       box
       :rules="[rules.required]"
-      counter="200"
+      counter="400"
       :label="$t('forms.fields.summary')"
       :hint="$t('forms.hints.projectSummary')"
     />
+
+    <v-select
+      v-model="editedProject.project_type"
+      box
+      :rules="[rules.required]"
+      :items="$store.getters['project/projectTypes']"
+      :item-text="e => $t(e.name)"
+      :label="$t('forms.fields.projectType')"
+      :hint="$t('forms.hints.projectType')"
+    />
+
+    <v-select
+      v-model="editedProject.knowledge_area"
+      box
+      :items="knowledgeAreas"
+      :rules="[rules.required]"
+      :label="$t('forms.fields.knowledgeArea')"
+      :hint="$t('forms.hints.knowledgeArea')"
+      :item-text="knowledgeAreaTL"
+      item-value="id"
+    />
+
+    <v-layout wrap>
+      <v-flex xs12 sm6>
+        <DateMenuSelector
+          v-model="editedProject.date_start"
+          :label="$t('forms.fields.projectDateStart')"
+          :rules="[rules.required]"
+        />
+      </v-flex>
+      <v-flex xs12 sm6>
+        <DateMenuSelector
+          v-model="editedProject.date_end"
+          :label="$t('forms.fields.projectDateEnd')"
+          :rules="[rules.required]"
+        />
+      </v-flex>
+    </v-layout>
+
+    <div class="mb-4" />
 
     <h3 class="mb-2">
       {{ $t('forms.fields.projectAdministrators') }}
@@ -61,10 +101,10 @@
       @input="clearSearch('managersCB')"
     />
 
-    <p class="mb-3" />
-
     <!-- Expanded details, only after save -->
     <template v-if="editedProject.id">
+      <div class="mb-4" />
+
       <h2 class="mb-2">
         {{ $t('pages.projectManage.infoAdditionalTitle') }}
       </h2>
@@ -90,15 +130,7 @@
         :hint="$t('forms.hints.description')"
       />
 
-      <v-select
-        v-model="editedProject.knowledge_area"
-        box
-        :items="knowledgeAreas"
-        :label="$t('forms.fields.knowledgeArea')"
-        :hint="$t('forms.hints.knowledgeArea')"
-        :item-text="knowledgeAreaTL"
-        item-value="id"
-      />
+
 
       <v-combobox ref="countriesCB"
                   v-model="editedProject.country_code"
@@ -113,15 +145,6 @@
                   @input="clearSearch('countriesCB')"
       />
 
-      <v-select
-        v-model="editedProject.project_type"
-        box
-        :items="$store.getters['project/projectTypes']"
-        :item-text="e => $t(e.name)"
-        :label="$t('forms.fields.projectType')"
-        :hint="$t('forms.hints.projectType')"
-      />
-
       <h3 class="mb-2">
         {{ $t('forms.fields.coverImage') }}
       </h3>
@@ -132,9 +155,9 @@
         @change="saveImage($event)"
       />
 
-      <h3 class="mb-2">
+      <h2 class="mb-2">
         {{ $t('pages.projectManage.infoContactTitle') }}
-      </h3>
+      </h2>
 
       <v-text-field
         v-model="editedProject.contact_email"
@@ -176,7 +199,6 @@
       />
     </template>
 
-
     <!-- Save button -->
     <v-btn block large color="success"
            :disabled="!valid || processing"
@@ -194,9 +216,13 @@ import { cloneDeep } from "lodash";
 import { Countries } from '@/plugins/i18n'
 import { regexIsURL, regexIsEmail } from '@/plugins/utils'
 import ImageUpload from "@/components/input/ImageUpload";
+import DateMenuSelector from "@/components/input/DateMenuSelector";
 
 export default {
-  components: {ImageUpload},
+  components: {
+    ImageUpload,
+    DateMenuSelector,
+  },
 
   props: ["project"],
 
@@ -222,15 +248,21 @@ export default {
   computed:{
     knowledgeAreas(){
       return this.$store.getters["knowledgearea/all"]
+    },
+    currentLanguage() {
+      return this.$store.getters["preferences/lang"];
     }
   },
 
-  mounted: async function() {
+  async created() {
+    this.$store.dispatch("knowledgearea/load")
 
     if (this.project && this.project.id) {
       // Editing existing project
       this.editedProject = this.loadProject()
-      this.$store.dispatch("knowledgearea/load")
+
+      // Validate form in case required fields have changed
+      setTimeout(() => {this.$refs.form.validate()}, 1000);
 
     }else{
       // New Project
@@ -238,10 +270,6 @@ export default {
         this.$store.getters["user/current"]
       ];
     }
-
-    setTimeout(() => {
-      this.$refs.form.validate()
-    }, 500);
 
     // Initialize user search with all visible users
     // this.userSearch = [...this.editedProject.participants, ...this.editedProject.managers]
@@ -269,7 +297,6 @@ export default {
       loadedProject.country_code = loadedProject.country_code.split(',').map(cc =>
         this.Countries.filter(c => c.alpha3Code == cc)[0]
       ).filter(i => i != undefined)
-
 
       return loadedProject
     },
@@ -312,8 +339,9 @@ export default {
         await this.$store.dispatch("project/update", project)
         this.$store.dispatch("toast/success", this.$t('forms.toasts.projectSaveSuccess'))
 
+        // Reload project to get updated IDS
         if(this.project.id){
-          // Reload project to get updated IDS
+          await this.$store.dispatch("project/load", [project.id])
           this.editedProject = this.loadProject()
         }
 
@@ -326,8 +354,6 @@ export default {
       }
 
       this.processing = false
-
-
     },
 
     isUser(value){

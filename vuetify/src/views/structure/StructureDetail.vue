@@ -183,29 +183,66 @@
           </v-layout>
         </v-img>
 
-        <div class="px-4 pt-4 pb-2 grey lighten-4" style="font-spacing:110%">
-          <vue-markdown>{{ structure.summary }}</vue-markdown>
-        </div>
+        <v-tabs v-model="page.tab" grow>
+          <v-tabs-slider color="primary" />
+          <v-tab v-for="item in page.items" :key="item">
+            {{ $t(item) }}
+          </v-tab>
+        </v-tabs>
 
-        <!-- Active country list -->
-        <v-card-text v-if="structure.country_code != ''">
-          <h3>{{ $tc('pages.structureDetail.activeCountries'
-            , structure.country_code.split(',').length
-            , {n : structure.country_code.split(',').length} ) }}</h3>
-          <v-layout row wrap>
-            <v-flex pa-0 ma-2 shrink v-for="cc in structure.country_code.split(',')" :key="cc">
-              <v-btn color="grey lighten-4" class="elevation-0 px-3 py-4" exact :to="{name:'structure-list', query:{country_code:cc}}">
-                <flag style="font-size:24px" :squared="false" :iso="iso3toiso2(cc)" />
-                <i class="mx-2"></i>
-                {{ countryTranslation(cc) }}
-              </v-btn>
-            </v-flex>
-          </v-layout>
-        </v-card-text>
+        <v-tabs-items v-model="page.tab">
+          <!-- About Tab -->
+          <v-tab-item key="pages.structureDetail.about">
+            <div class="px-4 pt-4 pb-2 grey lighten-4" style="font-spacing:110%">
+              <vue-markdown>{{ structure.summary }}</vue-markdown>
+            </div>
+            <!-- Active country list -->
+            <v-card-text v-if="structure.country_code != ''">
+              <h3>{{ $tc('pages.structureDetail.activeCountries'
+                , structure.country_code.split(',').length
+                , {n : structure.country_code.split(',').length} ) }}</h3>
+              <v-layout row wrap>
+                <v-flex pa-0 ma-2 shrink v-for="cc in structure.country_code.split(',')" :key="cc">
+                  <v-btn color="grey lighten-4" class="elevation-0 px-3 py-4" exact :to="{name:'structure-list', query:{country_code:cc}}">
+                    <flag style="font-size:24px" :squared="false" :iso="iso3toiso2(cc)" />
+                    <i class="mx-2"></i>
+                    {{ countryTranslation(cc) }}
+                  </v-btn>
+                </v-flex>
+              </v-layout>
+            </v-card-text>
+            <v-card-text style="max-height:400px; overflow-y:auto">
+              <vue-markdown>{{ structure.description }}</vue-markdown>
+            </v-card-text>
 
-        <v-card-text style="max-height:400px; overflow-y:auto">
-          <vue-markdown>{{ structure.description }}</vue-markdown>
-        </v-card-text>
+          </v-tab-item>
+          <!-- Files tab -->
+          <v-tab-item key="noums.files">
+            <v-card flat>
+              <v-card-text class="px-0">
+                <v-sheet class="grey lighten-4 pa-3 v-sheet theme--light">
+                  <h2 class="mb-2">{{ $t('noums.files') }}</h2>
+                  <p class="subheading">
+                    {{ $t('pages.structureDetail.structureFiles') }}
+                  </p>
+
+                  <!-- List of attachments -->
+                  <AttachmentList :attachments="structure.attachments" @change="reloadStructure" />
+                  <!-- Upload form for editor -->
+                  <template v-if="canManage">
+                    <br>
+                    <br>
+                    <h3 mb-2>{{ $t('components.Attachment.upload') }}</h3>
+                    <AttachmentUpload model="structure" :object-id="structure.id" @upload="reloadStructure" />
+                  </template>
+                </v-sheet>
+              </v-card-text>
+            </v-card>
+          </v-tab-item>
+        </v-tabs-items>
+
+
+
       </v-card>
     </v-flex>
 
@@ -231,24 +268,34 @@
 <script>
 import { iso3toiso2, translateCountryName } from '@/plugins/countries'
 import { slug2id, obj2slug } from "@/plugins/utils";
+import { API_SERVER } from "@/plugins/resource";
 
 import ProjectGrid from "@/components/project/ProjectGrid";
 import StructureNetworks from "@/components/structure/StructureNetworks";
 import ModelList from "@/components/generic/ModelList";
-import { API_SERVER } from "@/plugins/resource";
+import AttachmentUpload from "@/components/input/AttachmentUpload";
+import AttachmentList from "@/components/attachment/AttachmentList";
+
 
 export default {
-
-  metaInfo(){
+  metaInfo() {
     return {
-      title: (this.structure || {}).name
-    }
+      meta: [
+        {property: 'title', content: (this.structure || {}).name},
+        {property: 'og:title', content: (this.structure || {}).name},
+        {property: 'og:description', content: (this.structure || {}).summary},
+        {property: 'og:image', content: (this.structure || {}).image_url},
+        {property: 'og:type', content: 'website'},
+      ]
+    };
   },
 
   components:{
     ProjectGrid,
     ModelList,
     StructureNetworks,
+    AttachmentList,
+    AttachmentUpload,
   },
 
   data(){
@@ -256,6 +303,13 @@ export default {
       obj2slug,
       iso3toiso2,
       structure: null,
+      page:{
+        tab: null,
+        items: [
+          'pages.structureDetail.about',
+          'noums.files',
+        ]
+      }
     }
   },
 
@@ -324,6 +378,11 @@ export default {
     countryTranslation(iso3){
       let locale = this.$i18n.locale
       return translateCountryName(iso3, locale);
+    },
+
+    async reloadStructure(){
+      await this.$store.dispatch("strcture/load", [this.structureId])
+      this.project = this.$store.getters["strcture/detail"](this.structureId);
     },
 
     async exportCSV(){

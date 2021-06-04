@@ -1,7 +1,7 @@
 <template>
   <v-layout row wrap align-content-start>
     <v-flex xs12>
-      <h1>Create new Structure</h1>
+      <h1>{{ $t('pages.structureCreate.title') }}</h1>
     </v-flex>
 
     <v-flex xs12>
@@ -22,6 +22,12 @@ import { obj2slug } from "@/plugins/utils";
 
 export default {
 
+  metaInfo() {
+    return {
+      title: this.$t('pages.structureCreate.title')
+    };
+  },
+
   components:{
     FormStructureBase,
   },
@@ -36,10 +42,12 @@ export default {
     async createStructure(structureData){
       try{
         let structure = await this.$store.dispatch("structure/create", structureData)
-        let slug = obj2slug(structure)
-        this.$router.push({name:"structure-manage", params:{slug}})
+
+        this.$matomo && this.$matomo.trackEvent('structure', 'structure--create')
 
         this.$store.dispatch("toast/success", this.$t('pages.structureCreate.success'))
+        let slug = obj2slug(structure)
+        this.$router.push({name:"structure-manage", params:{slug}})
 
       } catch(error){
         this.$store.dispatch("toast/error", {
@@ -47,6 +55,7 @@ export default {
           error
         })
       }
+
     }
   }
 };

@@ -1,7 +1,7 @@
 <template>
   <v-layout row wrap align-content-start>
     <v-flex xs12>
-      <h1>Create new Project</h1>
+      <h1>{{ $t('pages.projectCreate.title') }}</h1>
     </v-flex>
 
     <v-flex xs12>
@@ -28,17 +28,12 @@ export default {
     };
   },
 
-
   components:{
     FormProjectBase,
   },
 
   data(){
     return{
-      snackbar: {
-        message:"",
-        active:false,
-      },
     }
   },
 
@@ -63,7 +58,6 @@ export default {
       }
 
     }
-
   }
 };
 </script>

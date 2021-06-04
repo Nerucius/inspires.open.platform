@@ -81,7 +81,9 @@
       "missionObjective3": "Provide to the community an intuitive and customizable impact evaluation tool to capture process and results outcomes in a harmonized manner.",
       "missionParagraph3": "In the end, we hope that the platform will support the community (structure coordinators and project’s participants around the world) mutual learning by sharing science Shops experiences and other participatory research and innovation projects good but also failed practices, methodologies, etc.",
       "titleTeam": "The team behind InSPIRES Open Platform",
-      "teamContent": "The development of this Open Platform has been led by the ISGlobal team in deep collaboration with the Data Science and OpenSystems research groups at the Barcelona University. All InSPIRES consortium members have also played an important role in its inception and evolution."
+      "teamContent": "The development of this Open Platform has been led by the ISGlobal team in deep collaboration with the Data Science and OpenSystems research groups at the Barcelona University. All InSPIRES consortium members have also played an important role in its inception and evolution.",
+      "titlePartners": "InSPIRES Partners",
+      "partnersContent": "We want to thank our partners who have collaborated with the design and testing of the platform. Without them this project would not be possible."
 
     },
 
@@ -632,7 +634,7 @@
   "navigation": {
     "links": {
       "home": "Home",
-      "about": "About",
+      "about": "About Us",
       "help": "Learn",
       "learn": "Learn"
     }

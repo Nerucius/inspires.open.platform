@@ -115,7 +115,8 @@ export default {
         // {name: "help", label:"navigation.links.help"},
         {name: "project-list", label:"noums.projects"},
         {name: "structure-list", label:"noums.structures"},
-        {name:"help", label: "navigation.links.learn"}
+        {name:"help", label: "navigation.links.learn"},
+        {name:"about", label: "navigation.links.about"},
       ],
       rules: {
         minimunLength: v => (!v || v.length >= 3) || this.$t("forms.rules.minimunLength", {'length':3}),

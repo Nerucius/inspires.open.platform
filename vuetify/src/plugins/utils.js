@@ -16,8 +16,9 @@ export const obj2slug = function(obj, nameAttr = "name") {
     "-" +
     value
       .toString()
-      .substring(0, 40)
+      .replace(/[^\w \d]/g, '')
       .replace(/\s/g, "-")
+      .substring(0, 60)
       .toLowerCase();
   return encodeURI(slug);
 };

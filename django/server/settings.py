@@ -193,6 +193,27 @@ AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
 ]
 
+# SQL Debugging
+
+
+if config("DEBUG_SQL", False, cast=bool):
+    LOGGING = {
+        "version": 1,
+        "disable_existing_loggers": False,
+        "handlers": {
+            "console": {
+                "level": "DEBUG",
+                "class": "logging.StreamHandler",
+            }
+        },
+        "loggers": {
+            "django.db.backends": {
+                "level": "DEBUG",
+                "handlers": ["console"],
+            },
+        },
+    }
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/

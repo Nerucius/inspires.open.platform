@@ -1,8 +1,8 @@
 from django.db import models
+from django.contrib.contenttypes.fields import GenericRelation
 
 import backend.models
 from backend.models import TrackableModel, User
-from django.contrib.contenttypes.fields import GenericRelation
 
 
 DEFAULT_DESCRIPTION = """## Background

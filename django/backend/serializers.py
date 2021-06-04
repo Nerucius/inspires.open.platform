@@ -108,7 +108,7 @@ class ProjectStatsSerializer(TrackableModelSerializer):
         fields = ["statN", "statPhases"]
 
 
-class StructureSerializer(TrackableModelSerializer):
+class StructureSerializer(AttachmentFieldMixin, TrackableModelSerializer):
     managers = serializers.PrimaryKeyRelatedField(
         many=True, queryset=models.User.objects
     )
@@ -117,6 +117,7 @@ class StructureSerializer(TrackableModelSerializer):
     networks = serializers.PrimaryKeyRelatedField(
         many=True, required=False, queryset=models.Network.objects
     )
+    attachments = serializers.SerializerMethodField(method_name="get_attachments")
 
     class Meta:
         model = models.Structure

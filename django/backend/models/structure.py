@@ -1,5 +1,6 @@
 from django.db import models
 from django.dispatch import receiver
+from django.contrib.contenttypes.fields import GenericRelation
 
 from backend.models import TrackableModel, User
 
@@ -52,6 +53,8 @@ class Structure(TrackableModel):
     contact_social_facebook = models.URLField(max_length=500, blank=True)
     contact_social_twitter = models.URLField(max_length=500, blank=True)
     contact_social_other = models.URLField(max_length=500, blank=True)
+
+    attachments = GenericRelation("Attachment")
 
     def can_write(self, user):
         return self.owner == user or self.managers.filter(pk=user.pk).exists()

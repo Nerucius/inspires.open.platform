@@ -130,12 +130,14 @@
       "notApproved": "This project is not approved yet, it will not show up in public lists until it is registered to a Structure.",
       "projectNotYetEvaluated": "This project has not received sufficient feedback and evaluations from it's participants yet, so we can't show you how it's doing. Check back another day!",
       "activeCountries": "This project is active in 1 country: | This project is active in {n} countries:",
-      "projectFiles": "Find here any files that the Project's manager has uploaded to be publicly viewed"
+      "projectFiles": "Find here any files that the Project's manager has uploaded to be publicly viewed."
     },
     "structureDetail": {
+      "about": "About",
       "notApproved": "This structure is not approved yet, it will not show up in public lists until a site administratot validates it.",
       "activeCountries": "This structure is active in 1 country: | This structure is active in {n} countries:",
-      "about": "About"
+      "structureFiles": "Find here any files that the Structure's manager has uploaded to be publicly viewed."
+
     },
     "structureList": {
       "introTitle": "Want to know more about structures?",
@@ -782,6 +784,8 @@
       "projectPhase": "Project Phase",
       "projectCountry": "Project country of action",
       "projectAdministrators": "Project Administrators",
+      "projectDateStart": "Date the project started",
+      "projectDateEnd": "Date the project will end",
 
       "socialNetwork": "Social Network",
       "contactEmail": "Contact Email",
@@ -813,14 +817,14 @@
       "username": "Enter your login user name. A good choice is firstname.lastname (i.e. john.doe)",
 
       "structureName": "Choose a name that characterizes your structure. Less than 50 characters suggested.",
-      "structureSummary": "A short summary of your structure and what it encompasses. Suggested to keep it under 200 characters.",
+      "structureSummary": "A short summary of your structure and what it encompasses. We recommend to keep it under 400 characters.",
       "structureCountry": "Country where this structure operates mainly",
       "structureAdministrators": "Add here all the people who will have full access to edit the Structure and approve new Projects. Strcture Administrators can't transwer ownership. Administrators are NOT participants.",
       "networks": "Select here all the networks that your structure is part of.",
 
       "projectType": "How is your project team structured?",
       "projectName": "Choose a name that characterizes your project. Less than 50 characters suggested.",
-      "projectSummary": "A short summary of your project and what it encompasses. Suggested to keep it under 200 characters.",
+      "projectSummary": "A short summary of your project and what it encompasses. We recommend to keep it under 400 characters.",
       "projectAdministrators": "Add here all the people who will have full access to edit the Project. Project Administrators can't transwer ownership. Administrators are NOT participants.",
       "projectAcronym": "Choose a Project Acronym",
       "projectCountry": "Where is your project established or operating, mainly?",

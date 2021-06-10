@@ -445,6 +445,52 @@ def _structures_to_df(structures):
     return pd.DataFrame(columns=columns, data=data)
 
 
+def _evaluations_to_df(evaluations):
+    data = []
+    for ev in evaluations:
+        # managers = ";".join(
+        #     [f"{m.full_name} <{m.email}>" for m in structure.managers.all()]
+        # )
+        if ev.project.structure == None:
+            continue
+
+        line = [
+            ev.project.structure.pk,
+            ev.project.pk,
+            ev.pk,
+            ev.project.structure.name,
+            ev.project.name,
+            str(ev.phase.project_phase),
+            ev.participation.role,
+            ev.participation.user.pk,
+            ev.participation.user.full_name,
+            ev.participation.user.education_level,
+            ev.participation.user.gender,
+            ev.is_complete,
+        ]
+        data.append(line)
+
+    columns = [
+        "structure_id",
+        "project_id",
+        "evaluation_id",
+        "structure_name",
+        "project_name",
+        "phase",
+        "role",
+        "participation_user_id",
+        "participation_user_name",
+        "participation_user_education_level",
+        "participation_user_gender",
+        "is_complete",
+    ]
+
+    print(len(data[0]))
+    print(len(columns))
+
+    return pd.DataFrame(columns=columns, data=data)
+
+
 def download_headers_test(request):
     """ Response headers that automatically downloads  """
     response = HttpResponse()
@@ -1262,4 +1308,24 @@ class XLSAdminAllStructures(FileAuthorizedView):
             index=False,
             freeze_panes=(1, 0),
             sheet_name="OpenPlatform Projects",
+        )
+
+
+class XLSAdminEvaluationReport(FileAuthorizedView):
+    content_type = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    filename = f"OpenPlatform Structures Export {str(date.today())}.xlsx"
+
+    def _get_content(self, request, response, *args, **kwargs):
+        if not request.user.is_administrator:
+            raise Exception("Must be administrator")
+
+        # Write to response
+        all_evaluations = Evaluation.objects.select_related().all()
+        evaluations_df = _evaluations_to_df(all_evaluations)
+
+        evaluations_df.to_excel(
+            response,
+            index=False,
+            freeze_panes=(1, 0),
+            sheet_name="OpenPlatform Evaluation",
         )

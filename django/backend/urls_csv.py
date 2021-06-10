@@ -45,4 +45,5 @@ urlpatterns = [
     path("export/admin/projects/xlsx", views.XLSAdminAllProjects.as_view()),
     path("export/admin/structures/csv", views.CSVAdminAllStructures.as_view()),
     path("export/admin/structures/xlsx", views.XLSAdminAllStructures.as_view()),
+    path("export/admin/evaluations/xlsx", views.XLSAdminEvaluationReport.as_view()),
 ]

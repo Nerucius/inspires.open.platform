@@ -77,6 +77,35 @@
             </v-btn>
           </v-list-tile-action>
         </v-list-tile>
+
+        <v-divider />
+
+        <!-- Evaluation Export -->
+        <v-list-tile>
+          <v-list-tile-avatar>
+            <v-icon>mdi-database-export</v-icon>
+          </v-list-tile-avatar>
+
+          <v-list-tile-content>
+            <v-list-tile-title>
+              <strong> All Evaluations from All Projects </strong>
+            </v-list-tile-title>
+            <v-list-tile-sub-title>
+              Download a file of all Evaluations currently in the platform.
+            </v-list-tile-sub-title>
+          </v-list-tile-content>
+
+          <v-list-tile-action style="flex-direction: row; align-items:center">
+            <v-btn
+              icon
+              ripple
+              title="Download as Excel file"
+              :href="exportEvaluationsExcelURL"
+            >
+              <v-icon color="primary">mdi-file-excel</v-icon>
+            </v-btn>
+          </v-list-tile-action>
+        </v-list-tile>
       </v-list>
     </v-card-text>
   </v-card>
@@ -104,6 +133,9 @@ export default {
     },
     exportStructuresExcelURL(){
       return `${API_SERVER}/v1/csv/export/admin/structures/xlsx?token=${AUTH_TOKEN}`;
+    },
+    exportEvaluationsExcelURL(){
+      return `${API_SERVER}/v1/csv/export/admin/evaluations/xlsx?token=${AUTH_TOKEN}`;
     },
   },
 

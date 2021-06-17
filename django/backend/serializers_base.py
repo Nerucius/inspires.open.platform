@@ -241,6 +241,12 @@ class AttachmentSerializer(TrackableModelSerializer):
         fields = "__all__"
 
 
+class FeedbackSerializer(TrackableModelSerializer):
+    class Meta:
+        model = models.Feedback
+        fields = "__all__"
+
+
 class SimpleContentSerializer(serializers.ModelSerializer):
     type = serializers.CharField(read_only=True)
     image_url = serializers.CharField(read_only=True)
@@ -258,9 +264,10 @@ class SimpleContentSerializer(serializers.ModelSerializer):
             "topic",
             "title",
             "summary",
-            "image_url",
             "locale",
             "published",
+            "image_url",
+            "theme_color",
         ]
 
 
@@ -269,6 +276,7 @@ class ContentSerializer(AttachmentFieldMixin, TrackableModelSerializer):
     sorting = serializers.IntegerField(read_only=True)
     extra_style = serializers.CharField(read_only=True)
     parent = serializers.CharField(read_only=True)
+    theme_color = serializers.CharField(read_only=True)
     attachments = serializers.SerializerMethodField(method_name="get_attachments")
 
     class Meta:

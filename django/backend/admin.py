@@ -23,6 +23,7 @@ LIST_HIDDEN_FIELDS = [
     "summary",
     "description",
     "body",
+    "text",
 ]
 
 
@@ -61,6 +62,7 @@ for model in [
     models.KnowledgeArea,
     models.ContentMaster,
     models.Content,
+    models.Feedback,
     models.Keyword,
     models.Evaluation,
     models.Question,

@@ -24,8 +24,11 @@ router.register("knowledgeareas", views.KnowledgeAreasVS)
 router.register("projectphases", views.ProjectPhasesVS)
 router.register("projectatphases", views.ProjectAtPhasesVS)
 
+# Misc
+
 router.register("contenttypes", views.ContentTypesVS)
 router.register("attachments", views.AttachmentsVS)
+router.register("feedback", views.FeedbackVS)
 
 # Content
 

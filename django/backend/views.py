@@ -445,8 +445,21 @@ class ContentTypesVS(viewsets.ReadOnlyModelViewSet):
 class AttachmentsVS(RequirePKMixin, viewsets.ModelViewSet):
     queryset = models.Attachment.objects.filter(deleted=False)
     serializer_class = serializers.AttachmentSerializer
-    # serializer_class = serializers.SimpleAttachmentSerializer
-    # detail_serializer_class = serializers.AttachmentSerializer
+
+
+class FeedbackVS(viewsets.ModelViewSet):
+    queryset = models.Feedback.objects.all()
+    serializer_class = serializers.FeedbackSerializer
+
+    filterset_fields = ["feedback_type", "object_id", "content_type"]
+
+    permission_classes = []
+
+    def list(self, request, *args, **kwargs):
+        if not request.user.is_administrator:
+            raise PermissionDenied("Only for administrators")
+
+        return super(FeedbackVS, self).list(request, *args, **kwargs)
 
 
 # ===========================

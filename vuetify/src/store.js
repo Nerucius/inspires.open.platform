@@ -15,6 +15,7 @@ import collaboration from "./store/Collaboration";
 
 import content from "./store/Content";
 import attachment from "./store/Attachment";
+import feedback from "./store/Feedback";
 
 import participation from "./store/Participation";
 import evaluation from "./store/Evaluation";
@@ -34,6 +35,7 @@ export default new Vuex.Store({
     network,
     content,
     attachment,
+    feedback,
     collaboration,
     participation,
     evaluation,

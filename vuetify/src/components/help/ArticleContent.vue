@@ -1,4 +1,4 @@
-<style>
+<style scoped>
   iframe{
     border: 0;
     margin: 0;
@@ -8,7 +8,7 @@
 
 <style>
 /* Generic Style */
-.markdown {
+.article-markdown {
   line-height: 180% !important;
   font-size: 110% !important;
 
@@ -24,12 +24,12 @@
   --bqBackground: rgb(48,65,147);
 }
 
-.markdown img{
+.article-markdown img{
   max-width: 100%;
 }
 
 /* Titles */
-.markdown h1 {
+.article-markdown h1 {
   font-size: 160% !important;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -38,7 +38,7 @@
   margin: 40px 0;
 }
 
-.markdown h2 {
+.article-markdown h2 {
   font-size: 140% !important;
   letter-spacing: 2px;
   text-align: center;
@@ -46,7 +46,7 @@
   margin: 30px 0;
 }
 
-.markdown h3 {
+.article-markdown h3 {
   text-transform: uppercase;
   padding: 12px 12px 12px 18px;
   line-height: 100%;
@@ -54,7 +54,7 @@
   background-color: var(--lightShade);
 }
 
-.markdown h3::first-letter {
+.article-markdown h3::first-letter {
   display: inline-block;
   line-height: 100%;
   vertical-align: -10%;
@@ -67,52 +67,52 @@
   margin-right: 8px;
 }
 
-.markdown p{
+.article-markdown p{
   margin: 0;
   padding: 15px;
   text-align: justify;
 }
 
-.markdown table{
+.article-markdown table{
   width: 100%;
   text-align: justify;
 }
 
-.markdown table th:empty{
+.article-markdown table th:empty{
   height: 0px;
   margin: 0px;
   padding: 0px;
 }
 
-.markdown table td{
+.article-markdown table td{
   padding: 12px;
 }
 
-.markdown table td:first-child{
+.article-markdown table td:first-child{
   width: 150px;
   text-align: center;
 }
 
-.markdown blockquote p{
+.article-markdown blockquote p{
   background-color: transparent !important;
 }
 
 
 /* Alternating colored tables and Ps */
-.markdown table:nth-child(2n+1){
+.article-markdown table:nth-child(2n+1){
   background-color: var(--lightShade);
 }
 
-.markdown p:nth-child(2n+1){
+.article-markdown p:nth-child(2n+1){
   background-color: var(--lightShade);
 }
 
 /* Color of table after blockquote */
-.markdown h3 + table, .markdown h3 + p{
+.article-markdown h3 + table, .article-markdown h3 + p{
   background-color: var(--darkShade) !important;
 }
 
-.markdown blockquote{
+.article-markdown blockquote{
   color: var(--bqText);
   background-color: var(--bqBackground);
   padding: 20px 30px;
@@ -123,30 +123,30 @@
 <style>
 /* Grid style for tables: '.grid' */
 
-.markdown.grid table td:first-child{
+.article-markdown.grid table td:first-child{
   width: auto;
 }
 
-.markdown.grid table{
+.article-markdown.grid table{
   border-spacing: 0;
   border-collapse: collapse;
 
   margin: 0 0 48px 0;
 }
 
-.markdown.grid table th{
+.article-markdown.grid table th{
   color: white;
   background-color: var(--bqBackground);
   border: 1px solid var(--bqBackground);
   padding: 8px;
 }
 
-.markdown.grid table td, th{
+.article-markdown.grid table td, th{
   /* border-bottom: 1px solid black; */
   padding: 8px 12px;
 }
 
-.markdown.grid table tr:nth-child(2n+1){
+.article-markdown.grid table tr:nth-child(2n+1){
   background-color: var(--lightShade);
 }
 
@@ -155,7 +155,7 @@
 
 <style>
 /* Green theme Style: 'green-theme' */
-.markdown.green-theme{
+.article-markdown.green-theme{
   --lightShade: rgb(236,242,241);
   --darkShade: rgb(198,239,222);
   --bqBackground: rgb(92,146,135);
@@ -163,8 +163,8 @@
 </style>
 
 <style>
-/* Green theme Style: 'yellow-theme' */
-.markdown.yellow-theme{
+/* Yellow theme Style: 'yellow-theme' */
+.article-markdown.yellow-theme{
   --lightShade: rgb(251,252,238);
   --darkShade: rgb(224,230,108);
 }
@@ -172,7 +172,7 @@
 
 <style>
 /* Orange theme Style: 'orange-theme' */
-.markdown.orange-theme{
+.article-markdown.orange-theme{
   --lightShade: rgb(253,251,235);
   --darkShade: rgb(247,206,168);
   --bqBackground: rgb(240,143,88);
@@ -181,7 +181,7 @@
 
 <style>
 /* White theme Style: 'white-theme' */
-.markdown.white-theme{
+.article-markdown.white-theme{
   --title3Color: white;
   --title3NumberColor: darkblue;
   --title3NumberBG: white;
@@ -197,7 +197,7 @@
     <v-toolbar dense flat dark color="grey darken-3">
       <v-toolbar-title>
         <span class="grey--text">
-          {{ article.topic }} |
+          {{ capitalize(article.topic) }} |
         </span>{{ article.title }}
       </v-toolbar-title>
       <v-spacer />
@@ -239,9 +239,9 @@
         <v-btn block flat outline :disabled=" viewAsPDF" @click="viewAsPDF = true">View as PDF</v-btn>
       </v-flex>
     </v-layout>
-    
+
     <!-- Article Content as TEXT -->
-    <v-card-text v-if="!viewAsPDF" :dir="localeDir" :class="['markdown', article.extra_style]">
+    <v-card-text v-if="!viewAsPDF" :dir="localeDir" :class="['article-markdown', article.extra_style]">
       <vue-markdown>{{ article.body }}</vue-markdown>
       <v-layout mt-3 justify-end>
         <v-flex shrink class="grey--text">
@@ -322,7 +322,7 @@ export default {
     }
   },
 
-  created() {    
+  created() {
     if(this.isPdf && !this.isSmallScreen){
       this.viewAsPDF = true;
     }
@@ -332,6 +332,11 @@ export default {
     async reloadContent(){
       console.log("Reloading article")
       this.$store.dispatch('content/load', [this.article.slug])
+    },
+    capitalize(str){
+      return str.toLowerCase().split(' ').map(function (word) {
+        return (word.charAt(0).toUpperCase() + word.slice(1));
+      }).join(' ');
     }
   },
 

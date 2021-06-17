@@ -1,6 +1,33 @@
 <style>
+  .v-expansion-panel__header{
+    font-size: 140%;
+    padding: 0;
+    flex-direction: row-reverse;
+  }
+
+  .v-expansion-panel__header__icon{
+    width: 48px;
+    text-align: center;
+    font-size: 120%;
+    background-color: transparent;
+  }
+
+  .v-expansion-panel__container > *{
+    margin: -1.5px;
+  }
+
+  .course-markdown table tr{
+    display: flex;
+  }
+  .course-markdown table td{
+    flex: 0 0 1fr;
+  }
+
+</style>
+
+<style>
 /* Generic Style */
-.markdown {
+.course-markdown {
   line-height: 180% !important;
   font-size: 110% !important;
 
@@ -16,12 +43,12 @@
   --bqBackground: rgb(48,65,147);
 }
 
-.markdown img{
+.course-markdown img{
   max-width: 100%;
 }
 
 /* Titles */
-.markdown h1 {
+.course-markdown h1 {
   font-size: 160% !important;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -30,128 +57,93 @@
   margin: 40px 0;
 }
 
-.markdown h2 {
+.course-markdown h2 {
   font-size: 140% !important;
   letter-spacing: 2px;
-  text-align: center;
-  color: var(--title2Color);
-  margin: 30px 0;
+  color:white;
+  /* color: var(--title2Color); */
+  margin: -16px;
+  padding: 24px;
 }
 
-.markdown h3 {
+.course-markdown h3 {
   text-transform: uppercase;
   padding: 12px 12px 12px 18px;
   line-height: 100%;
   color: var(--title3Color);
-  background-color: var(--lightShade);
 }
 
-.markdown h3::first-letter {
-  display: inline-block;
-  line-height: 100%;
-  vertical-align: -10%;
-  font-size: 160%;
-  border-radius: 100%;
-  font-weight: 500;
-  color: var(--title3NumberColor);
-  background-color: var(--title3NumberBG);
-  padding: 0 8px;
-  margin-right: 8px;
-}
 
-.markdown p{
+.course-markdown p{
   margin: 0;
   padding: 15px 0;
   text-align: justify;
 }
 
-.markdown blockquote{
+.course-markdown blockquote{
   border-left: 3px solid darkslategray;
   padding-left: 15px;
   margin: 15px 0;
 }
 
-.markdown table{
+.course-markdown table{
   width: 100%;
   text-align: justify;
   border-spacing: 0;
 }
 
 /* Flex tables for equal columns */
-.markdown table tr{
+.course-markdown table tr{
   display: flex;
 }
 
-.markdown table td, .markdown table th{
+.course-markdown table td, .course-markdown table th{
   flex: 1 0 0;
 }
 
-.markdown table th:empty{
+.course-markdown table th:empty{
   height: 0px;
   margin: 0px;
   padding: 0px;
 }
 
-.markdown table th{
+.course-markdown table th{
   background-color: rgb(37, 153, 212);
   color: snow;
   font-size: 110%;
 }
 
-.markdown table th, .markdown table td{
+.course-markdown table th, .course-markdown table td{
   padding: 12px;
 }
 </style>
 
 <template>
-  <v-card flat>
-    <!-- Toolbar -->
-    <v-toolbar dense flat dark color="grey darken-3">
-      <v-toolbar-title>
-        <span v-if="parent" class="grey--text hidden-sm-and-down">
-          {{ parent.title }} / 
-        </span>
-        {{ content.title }}
-      </v-toolbar-title>
-      <v-spacer />
-      <!-- Back button -->
-      <v-btn v-if="parent" flat exact :to="parent.link">
-        <v-icon left>
-          mdi-arrow-left
-        </v-icon>{{ $t("actions.back") }}
-      </v-btn>
-      <v-btn v-else flat exact :to="{name:'help'}">
-        <v-icon left>
-          mdi-arrow-left
-        </v-icon>{{ $t("actions.back") }}
-      </v-btn>
+  <div :dir="localeDir">
 
-      <!-- This article in other languages -->
-      <v-menu v-if="contentsSameMaster.length > 0" offset-y>
-        <v-btn slot="activator" flat>
-          {{ content.locale }}
-          <v-icon right>
-            expand_more
-          </v-icon>
-        </v-btn>
-        <v-list>
-          <v-list-tile v-for="a in contentsSameMaster" :key="a.slug" :to="a.link">
-            <v-list-tile-title>
-              <small>{{ a.locale | uppercase }}</small>
-            </v-list-tile-title>
-            <flag
-              :iso="getFlagIso(a.locale)"
-              :squared="false"
-              style="width: 40px"
-            />
-          </v-list-tile>
-        </v-list>
-      </v-menu>
-    </v-toolbar>
-    
     <!-- Course Content -->
-    <v-card-text :dir="localeDir" :class="['markdown', content.extra_style]">
-      <vue-markdown>{{ content.body }}</vue-markdown>
+    <div v-for="(section, i) in sections" :key="'section-'+i" flat class="my-5">
+      <v-expansion-panel v-model="panels[i]" class="elevation-0">
+
+        <v-expansion-panel-content>
+          <template v-slot:header>
+            <v-sheet flat dark :color="content.theme_color" class="pa-2 ma-0">
+              {{ section.title }}
+            </v-sheet>
+          </template>
+          <template v-slot:actions>
+            <v-icon large :color="content.theme_color">$vuetify.icons.expand</v-icon>
+          </template>
+          <v-card-text>
+            <vue-markdown :class="['course-markdown', content.extra_style]">{{ section.body }}</vue-markdown>
+          </v-card-text>
+        </v-expansion-panel-content>
+
+      </v-expansion-panel>
+
+    </div>
+
+    <v-card-text>
       <v-layout mt-3 justify-end>
         <v-flex shrink class="grey--text">
           <span :title="moment(content.modified_at).format('L LT')">
@@ -181,7 +173,7 @@
       </v-sheet>
     </v-card-text>
 
-  </v-card>
+  </div>
 </template>
 
 <script>
@@ -200,8 +192,9 @@ export default {
   data(){
     return {
       moment,
+      panels: [0],
       getFlagIso,
-      viewAsPDF: false
+      viewAsPDF: false,
     }
   },
 
@@ -212,6 +205,9 @@ export default {
     localeDir(){
       if (this.content.locale == 'ar') return 'rtl';
       return 'ltr';
+    },
+    sections(){
+      return this.splitIntoSections()
     }
   },
 
@@ -222,7 +218,32 @@ export default {
 
     async reloadContent(){
       console.log("Reloading article")
-      this.$store.dispatch('content/load', [this.content.slug])
+      await this.$store.dispatch('content/load', [this.content.slug])
+    },
+
+    splitIntoSections(){
+      var sections = [];
+
+      if(!this.content || !this.content.body)
+        return sections
+
+      // Split the content along '---'
+      var sectionSplits = this.content.body.split('---').map(s => s.trim())
+
+      // Convert each section to have its own title
+      sectionSplits.forEach(sec => {
+        var title, body
+        var firstLine = sec.split('\n')[0]
+        if(firstLine.startsWith('#')){
+          title = firstLine.replaceAll('#','');
+          body = sec.replace(firstLine,'')
+        }else{
+          title = 'Section'
+          body = sec
+        }
+        sections = [...sections, {title, body}]
+      });
+      return sections;
     }
 
   },

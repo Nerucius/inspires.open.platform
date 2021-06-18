@@ -43,17 +43,25 @@
 
       <!-- Tabulation Items -->
       <v-tabs-items v-model="page.tab">
-        <!-- Project Detalils Form -->
-        <v-tab-item key="pages.projectManage.projectTab">
+
+        <v-tab-item key="noums.Structure">
           <v-layout row wrap>
             <v-flex xs12>
               <v-card flat>
                 <v-card-text>
                   <FormProjectStructure v-if="dataReady" :project="project" />
+                  <div v-if="!!project.collaboration && project.collaboration.is_approved" class="mt-5">
+                    <FormProjectPartners v-if="dataReady" :project="project" />
+                  </div>
                 </v-card-text>
               </v-card>
             </v-flex>
+          </v-layout>
+        </v-tab-item>
 
+        <!-- Project Detalils Form -->
+        <v-tab-item key="pages.projectManage.projectTab">
+          <v-layout row wrap>
             <v-flex xs12>
               <v-card flat>
                 <v-card-text>
@@ -131,6 +139,7 @@ import FormProjectBase from "@/components/project/FormProjectBase";
 import FormProjectParticipants from "@/components/project/FormProjectParticipants";
 import FromProjectInviteParticipant from "@/components/project/FromProjectInviteParticipant";
 import FormProjectStructure from "@/components/project/FormProjectStructure";
+import FormProjectPartners from "@/components/project/FormProjectPartners";
 import FormProjectPhases from "@/components/project/FormProjectPhases";
 import FormProjectEvaluation from "@/components/project/FormProjectEvaluation";
 import FormProjectAttachments from "@/components/project/FormProjectAttachments";
@@ -139,7 +148,7 @@ import Cookies from 'js-cookie'
 import { slug2id } from "@/plugins/utils";
 
 function tabSlug(fullTabName){
-  return fullTabName.split('.')[2]
+  return fullTabName.split('.').slice(-1)
 }
 
 export default {
@@ -154,6 +163,7 @@ export default {
     FormProjectParticipants,
     FromProjectInviteParticipant,
     FormProjectStructure,
+    FormProjectPartners,
     FormProjectPhases,
     FormProjectEvaluation,
     // FormProjectAttachments,
@@ -165,6 +175,7 @@ export default {
       page: {
         tab: null,
         items: [
+          "noums.structure",
           "pages.projectManage.projectTab",
           "pages.projectManage.participantsTab",
           "pages.projectManage.phasesTab",
@@ -204,9 +215,9 @@ export default {
     }
 
     // Change tab on next tick
-    this.$nextTick(() => {
-      this.page.tab = this.getTabForName(this.$route.hash)
-    })
+    // this.$nextTick(() => {
+    //   this.page.tab = this.getTabForName(this.$route.hash)
+    // })
   },
 
   methods:{

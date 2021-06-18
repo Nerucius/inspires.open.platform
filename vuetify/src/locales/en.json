@@ -55,7 +55,9 @@
       "welcomeMessageLong": "It also offers an integrated collaborative impact evaluation tool in order to assess the processes and outcomes of your own projects with respect others. The pursued objective is to produced a joint and collective reflection around this type of collaborative projects in order to learn, think, dabte and growth as a community of practice to develop better projects aiming at to improve citizens life and well-being.",
       "aboutLink": "More about us!",
       "allProjects": "All Projects",
-      "projectsSeeMore": "View all projects"
+      "projectsSeeMore": "View all projects",
+      "useThePlatform": "Start using the platform",
+      "learnMore": "Learn more about"
     },
 
     "help": {
@@ -239,7 +241,9 @@
       "evalConfirmDismiss": "If you dismiss this alert this option will no longer be available to you.",
       "inviteParticipantsTitle": "Invite a Participant to this Project",
       "inviteParticipantsInfo": "If one or more of your participants is unable to create an account by themselves, or you would prefer to fill in the evaluation in their name, you can use this form to create a User in the platform for them.\n\n**NOTE**: Your Project must be validated and part of a Structure.",
-      "attachmentsTab": "File Attachments"
+      "attachmentsTab": "File Attachments",
+      "structurePartnersTitle": "Partnered Structures",
+      "structurePartnersSubheading": "Besides the main structure that governs this project, what other organizations do you participate with?"
     },
     "evaluationDetail": {
       "heatchart": {

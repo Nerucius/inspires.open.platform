@@ -47,6 +47,9 @@
       The Structure has approved your Project and is now public on the website.
     </v-alert>
 
+    <ModelList :show-last-modified="false" :objects="!! collaboration.structure ? [collaboration.structure] : []" />
+    <div class="mt-4" />
+
     <v-combobox
       ref="structureCB"
       v-model="collaboration.structure"
@@ -85,7 +88,13 @@
 
 
 <script>
+import ModelList from "@/components/generic/ModelList";
+
 export default {
+  components:{
+    ModelList
+  },
+
   props: ["project"],
 
   data() {

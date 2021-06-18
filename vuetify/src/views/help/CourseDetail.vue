@@ -22,39 +22,41 @@
     />
 
     <!-- Navigation Buttons -->
-    <v-layout justify-end>
-      <v-flex v-if="currentUser.is_editor" shrink>
-        <v-btn v-if="!isModule" color="success" :href="createModuleURL" target="_blank">
-          <v-icon left>add</v-icon> Create new Module
-        </v-btn>
-        <v-btn color="warning" :href="editContentURL" target="_blank">
-          <v-icon left>edit</v-icon> Edit This content
-        </v-btn>
-      </v-flex>
-      <v-flex shrink>
-        <v-btn v-if="parent" exact dark :to="parent.link">
-          <v-icon left>
-            mdi-arrow-left
-          </v-icon>{{ $t("actions.back") }}
-        </v-btn>
-        <v-btn v-else exact dark :to="{name:'help'}">
-          <v-icon left>
-            mdi-arrow-left
-          </v-icon>{{ $t("actions.back") }}
-        </v-btn>
-      </v-flex>
-    </v-layout>
+    <v-flex xs12 xl8>
+      <v-layout justify-end>
+        <v-flex v-if="currentUser.is_editor" shrink>
+          <v-btn v-if="!isModule" color="success" :href="createModuleURL" target="_blank">
+            <v-icon left>add</v-icon> Create new Module
+          </v-btn>
+          <v-btn color="warning" :href="editContentURL" target="_blank">
+            <v-icon left>edit</v-icon> Edit This content
+          </v-btn>
+        </v-flex>
+        <v-flex shrink>
+          <v-btn v-if="parent" exact dark :to="parent.link">
+            <v-icon left>
+              mdi-arrow-left
+            </v-icon>{{ $t("actions.back") }}
+          </v-btn>
+          <v-btn v-else exact dark :to="{name:'help'}">
+            <v-icon left>
+              mdi-arrow-left
+            </v-icon>{{ $t("actions.back") }}
+          </v-btn>
+        </v-flex>
+      </v-layout>
+    </v-flex>
 
     <!-- Course Modules grid -->
     <v-flex v-if="!isModule" xs12 xl8>
       <CourseModuleList :modules="modules" />
     </v-flex>
 
+    <!-- Course module Header -->
     <v-flex v-if="isModule" xs12 xl8 class="module-header">
       <!-- Top margin spacer -->
-      <v-spacer class="my-5 py-5"></v-spacer>
+      <v-spacer class="my-5 py-5" />
 
-      <!-- Course module Header -->
       <v-card flat dark :color="content.theme_color">
         <v-layout pa-0 ma-0 align-center justify-end wrap>
           <v-flex ma-1 pa-1 grow class="text-xs-center">

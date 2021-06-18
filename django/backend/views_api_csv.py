@@ -491,6 +491,68 @@ def _evaluations_to_df(evaluations):
     return pd.DataFrame(columns=columns, data=data)
 
 
+def _responses_to_df(responses):
+    data = []
+
+    for response in responses:
+
+        if response.question.answer_type == "TEXT":
+            response_value = response.answer_text
+        if response.question.answer_type == "DEGREE":
+            response_value = response.answer_degree
+        # Multiple responses
+        if response.question.answer_type == "MULTIPLE":
+            response_value = ";".join(
+                [answer.name for answer in response.answer_multiple.all()]
+            )
+
+        line = [
+            response.evaluation.participation.project.structure.id,
+            response.evaluation.participation.project.structure.name,
+            response.evaluation.participation.project.id,
+            response.evaluation.participation.project.name,
+            response.evaluation.id,
+            response.evaluation.participation.user.full_name,
+            response.evaluation.participation.user.education_level,
+            response.evaluation.participation.user.gender,
+            response.question.phase,
+            response.question.role,
+            response.question.axis,
+            response.question.principle,
+            response.question.dimension,
+            response.question.answer_type,
+            response.question.id,
+            response.question.i18n,
+            response_value,
+        ]
+        data.append(line)
+
+    columns = [
+        "structure_id",
+        "structure_name",
+        "project_id",
+        "project_name",
+        "evaluation_id",
+        "participant_name",
+        "participant_education",
+        "participant_gender",
+        "phase",
+        "role",
+        "axis",
+        "principle",
+        "dimension",
+        "question_type",
+        "question_id",
+        "question_i18n",
+        "response",
+    ]
+
+    print(len(data))
+    print(len(columns))
+
+    return pd.DataFrame(columns=columns, data=data)
+
+
 def download_headers_test(request):
     """ Response headers that automatically downloads  """
     response = HttpResponse()
@@ -1313,19 +1375,19 @@ class XLSAdminAllStructures(FileAuthorizedView):
 
 class XLSAdminEvaluationReport(FileAuthorizedView):
     content_type = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-    filename = f"OpenPlatform Structures Export {str(date.today())}.xlsx"
+    filename = f"OpenPlatform Evaluation Responses Export {str(date.today())}.xlsx"
 
     def _get_content(self, request, response, *args, **kwargs):
         if not request.user.is_administrator:
             raise Exception("Must be administrator")
 
         # Write to response
-        all_evaluations = Evaluation.objects.select_related().all()
-        evaluations_df = _evaluations_to_df(all_evaluations)
+        all_responses = Response.objects.select_related().all()
+        responses_df = _responses_to_df(all_responses)
 
-        evaluations_df.to_excel(
+        responses_df.to_excel(
             response,
             index=False,
             freeze_panes=(1, 0),
-            sheet_name="OpenPlatform Evaluation",
+            sheet_name="OpenPlatform Responses",
         )

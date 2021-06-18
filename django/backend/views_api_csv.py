@@ -485,9 +485,6 @@ def _evaluations_to_df(evaluations):
         "is_complete",
     ]
 
-    print(len(data[0]))
-    print(len(columns))
-
     return pd.DataFrame(columns=columns, data=data)
 
 
@@ -505,6 +502,10 @@ def _responses_to_df(responses):
             response_value = ";".join(
                 [answer.name for answer in response.answer_multiple.all()]
             )
+
+        # Skip projects without structure
+        if response.evaluation.participation.project.structure is None:
+            continue
 
         line = [
             response.evaluation.participation.project.structure.id,
@@ -547,8 +548,6 @@ def _responses_to_df(responses):
         "response",
     ]
 
-    print(len(data))
-    print(len(columns))
 
     return pd.DataFrame(columns=columns, data=data)
 

@@ -56,7 +56,7 @@ class CollaborationSerializer(serializers.ModelSerializer):
     project = serializers.PrimaryKeyRelatedField(queryset=models.Project.objects)
     structure = serializers.PrimaryKeyRelatedField(queryset=models.Structure.objects)
     partners = serializers.PrimaryKeyRelatedField(
-        many=True, required=False, queryset=models.Project.objects
+        many=True, required=False, queryset=models.Structure.objects
     )
 
     class Meta:

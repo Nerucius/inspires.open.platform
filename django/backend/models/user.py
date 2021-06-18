@@ -44,17 +44,17 @@ class User(TrackableModel, AbstractUser):
     email = models.EmailField(_("email address"), blank=True, unique=True)
     email_verification = models.BooleanField(default=False)
 
-    hide_realname = models.BooleanField(default=False)
-
     reset_password_token = models.CharField(max_length=128, blank=True, null=True)
-
     # Login token to log-in via URL
     eval_token = models.CharField(max_length=128, blank=True, null=True)
 
+    hide_realname = models.BooleanField(default=False)
+
+    # Profile
+    # avatar_image_url = models.URLField(blank=True)
     education_level = models.CharField(
         max_length=128, blank=True, choices=EDUCATION_LEVELS
     )
-
     institution = models.CharField(max_length=256, blank=True)
     gender = models.CharField(max_length=256, blank=True, choices=GENDER_CHOICES)
 

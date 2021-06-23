@@ -548,7 +548,6 @@ def _responses_to_df(responses):
         "response",
     ]
 
-
     return pd.DataFrame(columns=columns, data=data)
 
 

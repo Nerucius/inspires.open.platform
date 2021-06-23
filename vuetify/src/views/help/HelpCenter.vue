@@ -18,7 +18,7 @@
     </v-flex>
 
     <!-- Courses List section TODO: EDITOR ONLY-->
-    <v-flex xs12 xl8 v-if="currentUser.is_editor">
+    <v-flex v-if="currentUser.is_editor" xs12 xl8>
       <v-card flat>
         <v-toolbar dense flat dark color="grey darken-3">
           <v-toolbar-title>{{ $t("pages.help.allCourses") }}</v-toolbar-title>

@@ -45,12 +45,12 @@
           <v-layout pa-0 ma-0>
             <!-- Course Image -->
             <v-flex pa-0 ma-0 sm4 class="hidden-xs-only">
-              <v-img :src="group.content.image_url" height="200"></v-img>
+              <v-img :src="group.content.image_url" height="200" />
             </v-flex>
             <!-- Course Summary -->
             <v-flex sm8>
               <v-layout column>
-                <v-flex grow >
+                <v-flex grow>
                   <v-sheet class="overflow-hidden pa-0" :height="200-50-12">
                     <h3 class="headline mb-2">
                       <router-link :to="group.content.link">
@@ -69,7 +69,7 @@
                     :key="other.id"
                     :to="other.link"
                     class="px-1"
-                    >
+                  >
                     <flag
                       :iso="getFlagIso(other.locale)"
                       :squared="false"

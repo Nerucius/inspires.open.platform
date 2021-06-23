@@ -36,7 +36,7 @@
           <v-layout align-center justify-center fill-height>
             <v-flex shrink px-5>
               <!-- Title and text card, please note how we use a ref to get the title height -->
-              <h3 class="content-title" :ref="content.slug+'-title'">{{ content.title }}</h3>
+              <h3 :ref="content.slug+'-title'" class="content-title">{{ content.title }}</h3>
               <!-- <v-sheet :height="164 - refHeight(content.slug+'-title')" class="pr-3" style="overflow-y:auto; line-height: 170%">
                 {{ content.summary }}
               </v-sheet> -->

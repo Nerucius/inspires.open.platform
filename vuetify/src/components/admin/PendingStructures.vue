@@ -14,7 +14,7 @@
             <!-- Structure Image -->
             <v-list-tile-avatar>
               <!-- <img :src="getUser(structure.created_by).avatar_url"> -->
-              <img :src="structure.image_url" />
+              <img :src="structure.image_url">
             </v-list-tile-avatar>
 
             <!-- Tile content -->

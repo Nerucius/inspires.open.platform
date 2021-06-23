@@ -132,7 +132,7 @@
           <template v-if="!!partnerStructures && partnerStructures.length > 0">
 
             <v-list-tile v-for="partner in partnerStructures" :key="partner.id" :to="partner.link">
-              <v-list-tile-avatar tile class="px-3">
+              <v-list-tile-avatar tile>
                 <v-img :src="partner.image_url" />
               </v-list-tile-avatar>
               <v-list-tile-content>
@@ -306,13 +306,13 @@
             <!-- Active country list -->
             <v-card-text v-if="project.country_code">
               <h3>{{ $tc('pages.projectDetail.activeCountries'
-                , project.country_code.split(',').length
-                , {n : project.country_code.split(',').length} ) }}</h3>
+                         , project.country_code.split(',').length
+                         , {n : project.country_code.split(',').length} ) }}</h3>
               <v-layout row wrap>
-                <v-flex pa-0 ma-2 shrink v-for="cc in project.country_code.split(',')" :key="cc">
+                <v-flex v-for="cc in project.country_code.split(',')" :key="cc" pa-0 ma-2 shrink>
                   <v-btn color="grey lighten-4" class="elevation-0 px-3 py-4" exact :to="{name:'project-list', query:{country_code:cc}}">
                     <flag style="font-size:24px" :squared="false" :iso="iso3toiso2(cc)" />
-                    <i class="mx-2"></i>
+                    <i class="mx-2" />
                     {{ countryTranslation(cc) }}
                   </v-btn>
                 </v-flex>
@@ -337,8 +337,8 @@
                 <p>Since you are a participant of this project, you can view the detailed evaluation results at this page:</p>
                 <p class="text-xs-center">
                   <v-btn dark color="grey darken-3"
-                        :to="{...project.link, name:'evaluation-detail'}"
-                        class="elevation-0"
+                         :to="{...project.link, name:'evaluation-detail'}"
+                         class="elevation-0"
                   >
                     <v-icon left>mdi-school</v-icon>
                     {{ $t('pages.projectManage.evalViewEvaluationResults') }}

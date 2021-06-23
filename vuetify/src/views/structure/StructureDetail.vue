@@ -317,11 +317,14 @@ export default {
     structureId(){
       return slug2id(this.$route.params.slug)
     },
-    projectIds(){
-      return this.structure.collaborations.filter(c => c.is_approved).map(c => c.project)
-    },
     projects(){
-      return this.projectIds.map(id => this.$store.getters['project/detail'](id))
+      if(!this.structure) return [];
+
+      var allProjects = [
+        ...this.structure.collaborations.filter(c => c.is_approved).map(c => c.project),
+        ...this.$store.getters['collaboration/all'].map(c => c.project)
+      ]
+      return allProjects.map(id => this.$store.getters['project/detail'](id))
     },
     networks(){
       return this.structure.networks.map(id => this.$store.getters['network/detail'](id))
@@ -348,17 +351,22 @@ export default {
 
   async created(){
     try{
+      // Load structure / incident collaborations / knowledgearea info
       await Promise.all([
         this.$store.dispatch("structure/load", [this.structureId]),
-        // this.$store.dispatch("project/load"),
+        this.$store.dispatch("collaboration/load", {params: {partners:this.structureId}}),
         this.$store.dispatch("knowledgearea/load"),
       ])
 
+      // Set the current structure
       this.structure = this.$store.getters['structure/detail'](this.structureId)
 
       // Load projects / networks related to this structure
-      this.$store.dispatch('project/load', this.structure.collaborations.map(c => c.project))
       this.$store.dispatch("network/load", this.structure.networks)
+      this.$store.dispatch('project/load', [
+        ...this.structure.collaborations.map(c => c.project),
+        ...this.$store.getters['collaboration/all'].map(c => c.project)
+      ])
 
     }catch(error){
         this.$store.dispatch("toast/error", {message: this.$t("errors.404.title"), error})

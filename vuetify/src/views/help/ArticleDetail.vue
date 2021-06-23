@@ -1,25 +1,25 @@
 <template>
   <v-layout row wrap align-content-start justify-center>
 
-  <v-flex xs12 xl8>
-    <v-layout row wrap justify-end pa-2>
-      <v-flex grow pa-0 pl-1>
-        <h1>{{ $t("pages.help.title") }}</h1>
-      </v-flex>
-      <!-- Editor Controls -->
-      <template v-if="currentUser.is_editor">
-        <v-flex shrink pa-0>
-          <v-btn outline color="warning" :href="editContentURL" target="_blank">
-            <v-icon left>edit</v-icon> Edit This content
-          </v-btn>
+    <v-flex xs12 xl8>
+      <v-layout row wrap justify-end pa-2>
+        <v-flex grow pa-0 pl-1>
+          <h1>{{ $t("pages.help.title") }}</h1>
         </v-flex>
-      </template>
-    </v-layout>
-  </v-flex>
+        <!-- Editor Controls -->
+        <template v-if="currentUser.is_editor">
+          <v-flex shrink pa-0>
+            <v-btn outline color="warning" :href="editContentURL" target="_blank">
+              <v-icon left>edit</v-icon> Edit This content
+            </v-btn>
+          </v-flex>
+        </template>
+      </v-layout>
+    </v-flex>
 
-  <v-flex xs12 xl8>
-    <ArticleContent :key="article.id" :article="article" :articles-same-master="articles" />
-  </v-flex>
+    <v-flex xs12 xl8>
+      <ArticleContent :key="article.id" :article="article" :articles-same-master="articles" />
+    </v-flex>
 
   </v-layout>
 </template>
@@ -34,22 +34,15 @@ export default {
     return { title: this.article.title }
   },
 
+  components: {
+    ArticleContent,
+  },
+
   data() {
     return {
       articles: [],
       getFlagIso,
     }
-  },
-
-  components: {
-    ArticleContent,
-  },
-
-  async created(){
-    this.$store.dispatch("content/clear")
-    await this.loadArticleContent()
-
-    this.loadRelatedArticles()
   },
 
   computed:{
@@ -69,6 +62,13 @@ export default {
     article(){
       return this.$store.getters["content/detail"](this.articleSlug);
     },
+  },
+
+  async created(){
+    this.$store.dispatch("content/clear")
+    await this.loadArticleContent()
+
+    this.loadRelatedArticles()
   },
 
   methods:{

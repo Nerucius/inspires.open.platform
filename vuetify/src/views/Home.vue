@@ -57,7 +57,8 @@
                 style="margin-bottom:-6px"
                 :src="homeVideoURL"
                 title="Inspires Open Platform" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+        />
       </v-card>
     </v-flex>
 

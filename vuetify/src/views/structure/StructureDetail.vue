@@ -199,13 +199,13 @@
             <!-- Active country list -->
             <v-card-text v-if="structure.country_code != ''">
               <h3>{{ $tc('pages.structureDetail.activeCountries'
-                , structure.country_code.split(',').length
-                , {n : structure.country_code.split(',').length} ) }}</h3>
+                         , structure.country_code.split(',').length
+                         , {n : structure.country_code.split(',').length} ) }}</h3>
               <v-layout row wrap>
-                <v-flex pa-0 ma-2 shrink v-for="cc in structure.country_code.split(',')" :key="cc">
+                <v-flex v-for="cc in structure.country_code.split(',')" :key="cc" pa-0 ma-2 shrink>
                   <v-btn color="grey lighten-4" class="elevation-0 px-3 py-4" exact :to="{name:'structure-list', query:{country_code:cc}}">
                     <flag style="font-size:24px" :squared="false" :iso="iso3toiso2(cc)" />
-                    <i class="mx-2"></i>
+                    <i class="mx-2" />
                     {{ countryTranslation(cc) }}
                   </v-btn>
                 </v-flex>

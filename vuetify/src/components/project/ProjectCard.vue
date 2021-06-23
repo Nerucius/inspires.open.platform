@@ -219,7 +219,7 @@ export default {
   components:{
     ProjectTangram
   },
-  
+
   props: ['project', 'showEvaluation'],
 
   data(){
@@ -246,7 +246,17 @@ export default {
 
   methods:{
     users(userIds){
-      return userIds.map(uid => this.$store.getters["user/get"](uid) )
+      if(userIds.length == 0) return []
+
+      // Array of Ids
+      if(typeof userIds[0] == 'number')
+        return userIds.map(uid => this.$store.getters["user/get"](uid))
+      // Array of participation objects
+      if(typeof userIds[0] == 'object')
+        return userIds.map(part => this.$store.getters["user/get"](part.user))
+      // Can't understand format
+      return []
+
     },
 
     kaLink(knowledgeArea){

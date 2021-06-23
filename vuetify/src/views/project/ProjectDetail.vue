@@ -125,9 +125,23 @@
             </v-list-tile-avatar>
             <v-list-tile-content>
               <v-list-tile-title>{{ structure.name }}</v-list-tile-title>
-              <v-list-tile-sub-title>{{ $t('noums.structure') }}</v-list-tile-sub-title>
+              <v-list-tile-sub-title><b>{{ $t('noums.mainStructure') }}</b></v-list-tile-sub-title>
             </v-list-tile-content>
           </v-list-tile>
+
+          <template v-if="!!partnerStructures && partnerStructures.length > 0">
+
+            <v-list-tile v-for="partner in partnerStructures" :key="partner.id" :to="partner.link">
+              <v-list-tile-avatar tile class="px-3">
+                <v-img :src="partner.image_url" />
+              </v-list-tile-avatar>
+              <v-list-tile-content>
+                <v-list-tile-title>{{ partner.name }}</v-list-tile-title>
+                <v-list-tile-sub-title>{{ $t('noums.partnerStructure') }}</v-list-tile-sub-title>
+              </v-list-tile-content>
+            </v-list-tile>
+
+          </template>
 
           <!-- Knowledge Area -->
           <v-list-tile v-if="project.knowledge_area">
@@ -420,7 +434,7 @@
             </v-card-text>
           </v-card>
         </v-tab-item>
-        
+
       </v-tabs-items>
     </v-flex>
 
@@ -484,6 +498,7 @@ export default {
       iso3toiso2,
       project: null,
       structure: null,
+      partnerStructures: null,
       evalStats : [],
       page:{
         tab: null,
@@ -548,11 +563,17 @@ export default {
 
       this.project = this.$store.getters["project/detail"](this.projectId);
 
-      // If project has a collaboration, load structure
+      // If project has a collaboration, load related structures
       if(this.project.collaboration){
         let structureId = this.project.collaboration.structure
-        await this.$store.dispatch("structure/load", [structureId]);
+        let partnerStructureIds = this.project.collaboration.partners
+
+        console.log([structureId, ...partnerStructureIds]);
+
+        await this.$store.dispatch("structure/load", [structureId,...partnerStructureIds]);
+
         this.structure = this.$store.getters['structure/detail'](structureId)
+        this.partnerStructures = partnerStructureIds.map(sid => this.$store.getters['structure/detail'](sid))
       }
 
 

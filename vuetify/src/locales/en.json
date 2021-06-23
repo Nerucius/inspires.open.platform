@@ -705,6 +705,8 @@
     "project": "Project",
     "projects": "Projects",
     "structure": "Structure",
+    "mainStructure": "Main Structure",
+    "partnerStructure": "Partner Structure",
     "structures": "Structures",
     "evaluation": "Evaluation",
     "file": "File",

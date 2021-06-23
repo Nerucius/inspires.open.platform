@@ -54,14 +54,26 @@
       "welcomeMessageLong": "Az InSPIRES Open Platform egy kollaboratív hatásmérő eszközt is kínál, amelynek segítségével a résztvevőkkel együtt értékelheti a projekt folyamatait és eredményeit. Célunk, hogy a közös értékelés, tanulás révén olyan projekteket alakítsunk ki a jövőben, amelyek még inkább hozzájárulnak az állampolgárok életminőségének és jóllétének javulásához.",
       "aboutLink": "További információ rólunk",
       "allProjects": "Összes projekt",
-      "projectsSeeMore": "Összes projekt megtekintése"
+      "projectsSeeMore": "Összes projekt megtekintése",
+      "useThePlatform": "Start using the platform",
+      "learnMore": "Learn more about"
     },
     "help": {
       "title": "Súgó",
       "description": "TODO: szöveg",
       "allArticles": "Minden cikk",
+      "allCourses": "E-Learning Courses",
       "articlesOtherLanguages": "Hírek más nyelveken",
-      "articleDoesNotExist": "A keresett cikk már nem létezik."
+      "articleDoesNotExist": "A keresett cikk már nem létezik.",
+      "courses": {
+        "main": "Course",
+        "modules": "Modules in this Course",
+        "reccomendedMaterials": "Reccomended Materials",
+        "feedbackTitle": "We value your feedback",
+        "feedbackLabelStars": "How useful did you find the content of this module?",
+        "feedbackLabelTextbox": "Do you have any suggestions, comments or other feedback?",
+        "feedbackSubmitted": "Thanks for your feedback!"
+      }
     },
     "about": {
       "mainTitle": "Bővebb információ az InSPIRES Open Platformjáról",
@@ -73,7 +85,9 @@
       "missionObjective3": "Intuitív és személyre szabott hatásmérő eszköz biztosítása a közösség számára, hogy összehangolt módon rögzítse a projekt folyamatát és eredményeit.  ",
       "missionParagraph3": "Végül, reméljük, hogy a platform támogatja a közösséget (a szervezet koordinátorait és a projekt résztvevőit) a kölcsönös tanulás terén a Science Shop-ok tapasztalatainak, a  részvételi kutatási és innovációs projektek jó és rossz gyakorlatainak bemutatása révén.",
       "titleTeam": "Az InSPIRES Open Platform csapata",
-      "teamContent": "Az Open platform fejlesztését az ISGlobal csapat vezette, együttműködésben a Barcelonai Egyetemen működő Data Science és OpenSystems kutatócsoportokkal. Emellett valamennyi InSPIRES konzorcium tag is fontos szerepet játszott a kialakításban. "
+      "teamContent": "Az Open platform fejlesztését az ISGlobal csapat vezette, együttműködésben a Barcelonai Egyetemen működő Data Science és OpenSystems kutatócsoportokkal. Emellett valamennyi InSPIRES konzorcium tag is fontos szerepet játszott a kialakításban. ",
+      "titlePartners": "InSPIRES Partners",
+      "partnersContent": "We want to thank our partners who have collaborated with the design and testing of the platform. Without them this project would not be possible."
     },
     "search": {
       "searchResults": "Keresés eredménye",
@@ -111,12 +125,14 @@
       "evaluationTab": "Projektértékelés",
       "notApproved": "A projekt még nincs jóváhagyva, és csak akkor jelenik meg a nyilvános listákban, ha regisztrálják, hogy egy Szervezethez tartozik.",
       "projectNotYetEvaluated": "Ez a projekt még nem kapott elegendő visszajelzést és értékelést a résztvevőktől, így nem tudjuk megmutatni, hogyan áll jelenleg. Nézzen vissza később!",
-      "activeCountries": "This project is active in 1 country: | This project is active in {n} countries:"
+      "activeCountries": "This project is active in 1 country: | This project is active in {n} countries:",
+      "projectFiles": "Find here any files that the Project's manager has uploaded to be publicly viewed."
     },
     "structureDetail": {
+      "about": "További információ",
       "notApproved": "Ezt a Szervezetet még nem hagyták jóvá, csak akkor jelenik meg nyilvános listákban, ha az oldal adminisztrátora már jóváhagyta.",
       "activeCountries": "This structure is active in 1 country: | This structure is active in {n} countries:",
-      "about": "További információ"
+      "structureFiles": "Find here any files that the Structure's manager has uploaded to be publicly viewed."
     },
     "structureList": {
       "introTitle": "Want to know more about structures?",
@@ -211,7 +227,9 @@
       "evalConfirmDismiss": "Ha elutasítja ezt a figyelmeztetést, ez a lehetőség a későbbiekben már nem lesz elérhető az Ön számára.",
       "inviteParticipantsTitle": "Résztvevő meghívása a projektbe",
       "inviteParticipantsInfo": "Ha a projekt bármely résztvevője nem képes saját fiókot létrehozni, vagy inkább Ön szeretné kitölteni az értékelést a nevükben, akkor ezt az űrlapot használva létrehozhat egy felhasználói fiókot számukra.\n\n** MEGJEGYZÉS **: A projektet érvényesíteni kell, és egy szervezethez kell tartozzon.",
-      "attachmentsTab": "Fájl mellékletei"
+      "attachmentsTab": "Fájl mellékletei",
+      "structurePartnersTitle": "Partnered Structures",
+      "structurePartnersSubheading": "Besides the main structure that governs this project, what other organizations do you participate with?"
     },
     "evaluationDetail": {
       "heatchart": {
@@ -275,6 +293,14 @@
     },
     "ProjectCard": {
       "numberOfParticipants": "Résztvevők száma"
+    },
+    "Attachment": {
+      "upload": "Upload new file",
+      "noAttachments": "No files attached."
+    },
+    "StructureNetworks": {
+      "title": "Networks this Structure is part of:",
+      "otherStructures": "Other Structures in this Network:"
     }
   },
   "models": {
@@ -597,7 +623,7 @@
   "navigation": {
     "links": {
       "home": "Főoldal",
-      "about": "További információ",
+      "about": "About Us",
       "help": "Segítség",
       "learn": "Segítség"
     }
@@ -661,6 +687,8 @@
     "structure": "Szervezet",
     "structures": "Szervezetek",
     "evaluation": "Értékelés",
+    "file": "File",
+    "files": "Files",
     "attachment": "Csatolmány",
     "attachments": "Csatolmányok"
   },
@@ -689,6 +717,7 @@
       "mustNotBeEmail": "Kérjük, ne használjon e-mailt felhasználónévként, mivel ezek az információk nyilvánosak.",
       "mustBeStructure": "Kérjük, adjon meg egy érvényes szervezetet",
       "mustBeUser": "Kérjük, adjon egy érvényes listát a felhasználókról ",
+      "mustBeValidYear": "Please enter a year between 500 and 2100",
       "mustBeURL": "Kérjük, adjon meg egy érvényes URL-t",
       "mustBeCountry": "Kérjük, adjon meg egy érvényes Országot",
       "mustBeKnowledgeArea": "Kérjük, adjon meg egy érvényes Tudás Területet"
@@ -699,6 +728,7 @@
     "toasts": {
       "permissionError": "Hiba történt a dokumentum elérése közben, lehet, hogy nincs engedélye ennek megtekintésére.",
       "uploadError": "Hiba történt a fájl feltöltésekor",
+      "uploadErrorTooBig": "This file is too big to upload. Please limit your file size to {size} MB.",
       "loggedOut": "Kijelentkezett",
       "resetPasswordSubmitted": "Jelszó-visszaállító e-mailt küldtünk a fiók felhasználójának.",
       "saveSuccess": "Sikeres mentés",
@@ -734,12 +764,16 @@
       "structureYearFounded": "Szervezet alapításának éve",
       "structureAdministrators": "Szervezet adminisztrátorai",
       "structureCountry": "Ország, ahol a szervezet aktív",
+      "networks": "Networks",
+      "network": "Network",
       "projectName": "Projektnév",
       "projectAcronym": "Projekt mozaikszó",
       "projectType": "Projekttípus ",
       "projectPhase": "Projektszakasz",
       "projectCountry": "Ország, ahol a projekt megvalósul",
       "projectAdministrators": "Projekt adminisztrátorok ",
+      "projectDateStart": "Date the project started",
+      "projectDateEnd": "Date the project will end",
       "socialNetwork": "Közösségi média",
       "contactEmail": "Kapcsolattartó e-mail címe",
       "contactWebsite": "Külső honlap",
@@ -768,12 +802,13 @@
       "contactWebsite": "URL egy külső honlaphoz, ahol további információ érhető el a projektről. ",
       "username": "Írja be bejelentkezési felhasználónevét. Jó választás a keresztnév.vezetéknévnév (azaz, például aranka.varga)",
       "structureName": "Válasszon egy nevet szervezetének. 50 karakternél rövidebb nevek javasoltak.",
-      "structureSummary": "Rövid összefoglaló a szervezetéről.  200 karakternél rövidebb leírás javasolt.",
+      "structureSummary": "A short summary of your structure and what it encompasses. We recommend to keep it under 400 characters.",
       "structureCountry": "Ország, ahol a szervezet aktív",
       "structureAdministrators": "Itt adhatja hozzá azokat az embereket, akik teljes hozzáféréssel rendelkeznek, szerkeszthetik a Szervezet adatait és jóváhagyhatják az új Projekteket. A Szervezet adminisztrátorai nem ruházhatják át másnak ezt a jogot. Az adminisztrátorok NEM résztvevők.",
+      "networks": "Select here all the networks that your structure is part of.",
       "projectType": "Hogyan épül fel a projektcsapata? ",
       "projectName": "Válasszon egy nevet, amely a projektre jellemző. Kevesebb mint 50 karakter javasolt.",
-      "projectSummary": "Rövid leírás a projektről. Kevesebb mint 200 karakter javasolt.",
+      "projectSummary": "A short summary of your project and what it encompasses. We recommend to keep it under 400 characters.",
       "projectAdministrators": "Adja meg azokat az embereket, akiknek teljes hozzáférésük lesz a projekt szerkesztéséhez. A projekt adminisztrátorok nem ruházhatják át ezt a jogot. Az adminisztrátorok NEM résztvevők.",
       "projectAcronym": "Válasszon egy projekt mozaikszót. ",
       "projectCountry": "Helyileg hol jött létre a projekt, vagy hol a legaktívabb?",

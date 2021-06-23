@@ -54,14 +54,26 @@
       "welcomeMessageLong": "També ofereix una eina integrada d'avaluació d'impacte col·laborativa que serveix per avaluar els processos i els resultats dels vostres projectes en relació als altres. L'objectiu principal de l'eina és dur a terme una reflexió col·laborativa al voltant d'aquests projectes col·laboratius i així aprendre, pensar, debatre i créixer com a comunitat de pràctica per dur a terme millors projectes dedicats a millorar la vida i el benestar de la ciutadania.",
       "aboutLink": "Més sobre nosaltres!",
       "allProjects": "Tots els projectes",
-      "projectsSeeMore": "Visualitza tots els projectes"
+      "projectsSeeMore": "Visualitza tots els projectes",
+      "useThePlatform": "Comença a utilitzar la plataforma",
+      "learnMore": "Aprèn més sobre"
     },
     "help": {
       "title": "Centre d'ajuda",
       "description": "TODO: Text",
       "allArticles": "Tots els articles",
+      "allCourses": "Cursos e-learning",
       "articlesOtherLanguages": "Articles en altres idiomes",
-      "articleDoesNotExist": "L'article que estàs buscant ja no existeix."
+      "articleDoesNotExist": "L'article que estàs buscant ja no existeix.",
+      "courses": {
+        "main": "Curs",
+        "modules": "Mòduls en aquest curs",
+        "reccomendedMaterials": "Materials recomanats",
+        "feedbackTitle": "Ens agradaria conèixer la teva opinió",
+        "feedbackLabelStars": "Com d'útil has trobat el contingut d'aquest mòdul?",
+        "feedbackLabelTextbox": "Tens altres suggeriments o comentaris que voldries fer?",
+        "feedbackSubmitted": "Gràcies per la teva opinió!"
+      }
     },
     "about": {
       "mainTitle": "Sobre la Plataforma Oberta InSPIRES",
@@ -73,7 +85,9 @@
       "missionObjective3": "Proporcionar a la comunitat una eina d'avaluació d'impacte intuitiva i personalitzable per capturar els processos i els resultats de forma harmonitzada.",
       "missionParagraph3": "Finalment, esperem que la plataforma doni suport a l'aprenentatge mutu de la comunitat (tant als coordinadors de l'estructura com als participants del projecte arreu del món) gràcies al fet de compartir experiències de Science Shops i altres projectes de recerca i innovació participatius, així com també pràctiques o metodologies fallides, entre d'altres.",
       "titleTeam": "L'equip involucrat en la Plataforma Oberta InSPIRES",
-      "teamContent": "El desenvolupament d'aquesta Plataforma Oberta ha estat liderada per ISGlobal en col·laboració amb els grups de Ciència de Dades i Open Systems de la Universitat de Barcelona. Els membres del consorci del projecte InSPIRES també han jugat un paper crucial en la seva creació i evolució."
+      "teamContent": "El desenvolupament d'aquesta Plataforma Oberta ha estat liderada per ISGlobal en col·laboració amb els grups de Ciència de Dades i Open Systems de la Universitat de Barcelona. Els membres del consorci del projecte InSPIRES també han jugat un paper crucial en la seva creació i evolució.",
+      "titlePartners": "Els socis d'InSPIRES",
+      "partnersContent": "Ens agradaria donar les gràcies als socis del projecte que han col·laborat en el disseny i el testatge de la plataforma. Sense ells, aquest projecte no hagués sigut possible."
     },
     "search": {
       "searchResults": "Resultats de la cerca",
@@ -90,7 +104,7 @@
       "validationSuccess": "Estructura validada satisfactòriament. A partir d'ara apareixerà en les llistes públiques. ",
       "validationFailure": "Ha fallat la validació de l'estructura. Si us plau, contacta amb suport. ",
       "retirementSuccess": "Estructura retirada de la plataforma correctament.",
-      "retirementFailure": "Failed to retire the structure. Please contact support."
+      "retirementFailure": "Ha fallat l'eliminació de l'estructura. Si us plau, contacta amb suport."
     },
     "legal": {
       "termsOfServiceTitle": "Termes del Servei",
@@ -111,19 +125,21 @@
       "evaluationTab": "Avaluació del projecte ",
       "notApproved": "Aquest projecte encara no està aprovat, pel que no es compartirà amb altres persones fins que no estigui registrat en una Estructura.",
       "projectNotYetEvaluated": "Aquest projecte no ha rebut suficients comentaris ni avaluacions per part dels seus participants, pel que no podem mostrar la seva evolució. Comprova-ho un altre dia!",
-      "activeCountries": "Aquest projecte esta actiu en 1 país: | Aquest projecte esta actiu a {n} països:"
+      "activeCountries": "Aquest projecte esta actiu en 1 país: | Aquest projecte esta actiu a {n} països:",
+      "projectFiles": "Troba aquí els fitxers que el gestor del projecte ha pujat a la plataforma per fer-los públics."
     },
     "structureDetail": {
+      "about": "Sobre nosaltres ",
       "notApproved": "Aquesta estructura encara no s'ha aprovat, no apareixerà en públic fins que l'administrador la validi. ",
       "activeCountries": "Aquesta estructura esta activa en 1 país: | Aquesta estructura esta activa a {n} països:",
-      "about": "Sobre nosaltres "
+      "structureFiles": "Troba aquí els fitxers que el gestor de la estructura ha pujat a la plataforma per fer-los públics."
     },
     "structureList": {
-      "introTitle": "Want to know more about structures?",
+      "introTitle": "Vols saber més sobre les estructures?",
       "introText": "Una estructura és una unitat intermediària de coneixement que es pot trobar dins d'una universitat, un centre de recerca o altres espais que promoguin interaccions i diàlegs entre la comunitat científica i les organitzacions de la societat civil per tal de co-crear i implementar projectes de recerca participatius. \n\nEn l'actualitat es poden definir de moltes maneres: Science Shops, Campus-community office, unitats de Ciència Ciutadana, Living Labs, etc., però també recerca ciutadana en acció, recerca participativa amb la comunitat i ciència ciutadana. Per aquesta raó, no busquem l'exclusió de projectes sinó reunir en aquesta plataforma oberta tots els projectes que funcionen sota els 5 principis que promovem: Democràcia del Coneixement, Recerca dirigida per la ciutadania, Dinàmiques participatives, Integritat i Canvi transformador. A continuació trobaràs totes les estructures registrades a la Plataforma Oberta. ",
       "visitStructure": "Veure la Estructura",
       "showMore": "Mostrar més estructures",
-      "noMoreStructures": "That's all the structures!"
+      "noMoreStructures": "Aquestes són totes les estructures!"
     },
     "structureManage": {
       "title": "Gestionar aquesta estructura",
@@ -166,9 +182,9 @@
       "infoContactTitle": "Informació de contacte ",
       "infoAdditionalTitle": "Informació addicional ",
       "infoAdditionalDescription": "Altra informació rellevant per a que el teu projecte estigui ben definit i pugui ser trobat mitjançant la cerca. ",
-      "structureTitle": "Associated Intermediation Structure",
-      "structureSubheading": "Select under which Intermediation Structure your project is established.",
-      "structureHelp": "Every project in the platform has to be validated by an intermediation Structure that will give the project validity. Please select the Structure to which your project belongs.\n\nThe platform will notify the structure owners to review and approve your project so it will appear in public listings. We will let you know as soon as your project is approved.",
+      "structureTitle": "Estructura d'intermediació associada",
+      "structureSubheading": "Selecciona l'estructura d'intermediació del teu projecte.",
+      "structureHelp": "Cada projecte en la plataforma ha de ser validat per una estructura d'intermediació. Si us plau, selecciona l'estructura sota la qual s'implementa el teu projecte. \n\nLa plataforma notificarà als propietaris de l'estructura per a que revisin i aprovin el teu projecte, de manera que aparegui en la llista pública. T'avisarem l'abans possible quan el teu projecte estigui aprovat.",
       "success": "Estructura desada satistactòriament!",
       "failure": "No s'ha pogut desar l'Estructura. Torna a provar-ho més endavant.",
       "projectTab": "Aquest Projecte",
@@ -211,7 +227,9 @@
       "evalConfirmDismiss": "Si desactives aquesta alerta, aquesta opció ja no estarà disponible.",
       "inviteParticipantsTitle": "Convida a un participant a aquest projecte ",
       "inviteParticipantsInfo": "Si un o més dels teus participants no pot crear un compte per si mateix un compte, o prefereixes emplenar l'avaluació al seu nom, pots utilitzar aquest formulari per crear un usuari a la plataforma.\n\n** NOTA **: El teu projecte ha de ser validat i formar part d'una estructura.",
-      "attachmentsTab": "Fitxers adjunts"
+      "attachmentsTab": "Fitxers adjunts",
+      "structurePartnersTitle": "Partnered Structures",
+      "structurePartnersSubheading": "Besides the main structure that governs this project, what other organizations do you participate with?"
     },
     "evaluationDetail": {
       "heatchart": {
@@ -231,10 +249,10 @@
         "bulletCharts": "Una mètrica (gràfic de vinyetes) es mostra per a cada principi i per a les diferents dimensions que constitueixen cada principi. El punt groc representa l'avaluació del projecte actual. Les ombres representen l'avaluació d'altres projectes: una ombra més clara representa els projectes amb les puntuacions d'avaluació més baixes i més altes, mentre que una ombra més opaca representa els projectes dins del primer i el tercer quartil de les puntuacions d'avaluació. El primer quartil (Q1) es defineix com el valor mitjà entre la puntuació d’avaluació més baixa entre tots els projectes i la mediana del conjunt de dades. El tercer quartil (Q3) es defineix com el valor mitjà entre la mediana i la puntuació d’avaluació més alta de tots els projectes. Es dóna un llindar arbitrari a \"3\" per ressaltar les avaluacions inferiors a aquest valor.",
         "bulletChart": {
           "knowledgeDemocracy": "Democràcia del coneixement cobreix la transdisciplinarietat, l'obertura de dades i resultats i la rellevància científica del projecte.\nEl primer resultat mostra la puntuació agregada per a aquesta dimensió. El següent mostra els resultats agregats per a cada subdimensió d'aquesta.",
-          "participatoryDynamics": "**Participatory Dynamics** include the degree of community involvement, and the quality and impact of engagement practices.\nThe first result shows the aggregated score for this dimension. The following one shows the aggregated results for each sub-dimensions under this one.",
+          "participatoryDynamics": "**Dinàmiques de participació** inclou el grau d'implicació de la comunitat i la qualitat i l'impacte de les pràctiques de participació. \nEl primer resultat mostra la puntuació agregada per a aquesta dimensió. La següent mostra els resultats agregats per a cadascuna de les sub-dimensions.",
           "citizenledResearch": "** La recerca dirigida per la ciutadania** es refereix a l'alineació dels objectius del projecte amb les demandes de la comunitat i a l'eficàcia de la participació de la comunitat en el procés de recerca.\nEl primer resultat mostra la puntuació agregada per a aquesta dimensió. El següent mostra els resultats agregats per a cada subdimensió d'aquesta.",
           "integrity": "** Integritat ** inclou l'alineació de les expectatives, la inclusió de grups vulnerables, la incorporació de perspectives ètiques i de gènere, la transparència en la gestió de dades, la coherència del disseny de projectes i la qualitat dels recursos disponibles.\nEl primer resultat mostra la puntuació agregada per a aquesta dimensió. El següent mostra els resultats agregats per a cada subdimensió d'aquesta.",
-          "transformativeChange": "**Transformative Change** relates to individual learning and personal growth, project sustainability, the societal responsiveness of the project and its impact on policies, programmes and/or services.\nThe first result shows the aggregated score for this dimension. The following one shows the aggregated results for each sub-dimensions under this one."
+          "transformativeChange": "**Canvi transformatiu** està relacionat amb l'aprenentatge individual i personal, la sostenibilitat i la responsabilitat social del projecte, així com el seu impacte en polítiques, programes i/o serveis.\nEl primer resultat mostra la puntuació agregada per a aquesta dimensió. La següent mostra els resultats agregats per a cadascuna de les sub-dimensions."
         },
         "projectManagerCharts": "La visualització que té el gestor de projecte no és accessible per als participants, ja que proporciona en detall el procés d’autoreflexió alhora que proporciona una visió interna per tal de gestionar el projecte correctament.\n\nLa diferència entre aquest nivell de visualització i l'accessible pels participants és que representa els resultats de l'avaluació per perfil dels enquestats. Permet conèixer millor el que ha passat i a qui.",
         "publicEval": "La visualització pública reflecteix l'avaluació global del projecte i mostra la puntuació agregada de cadascuna de les dimensions.\n\nCada projecte està representat per un colibrí: un humil petit ocell, però extremadament actiu, el poc moviment del qual pot contribuir al sistema ecosocial general:\n- La seva ala està associada al canvi transformatiu, perquè és la part més activa del colibrí i la que crea moviment.\n- El cap s’associa amb la democràcia del coneixement, seguint la relació natural de cap, ment i coneixement.\n- El cor (o part inferior del cos) s’associa amb la investigació dirigida pel ciutadà, perquè la ciutadania és el batec del cor de la ciència oberta.\n- La cua està associada a la dinàmica de participació, perquè actua com a timó. I, finalment, la part superior del cos s’associa amb la integritat, perquè sense ella tots els altres aspectes s’esfondrarien.",
@@ -246,8 +264,8 @@
       "questionnaire": "Qüestionari",
       "selfQuestionnaireTitle": "Qüestionari d'Auto-reflexió",
       "selfQuestionnaireDescription": "Per ajudar a l'avaluació del projecte, et recomanem que consultis el qüestionari d'autoreflexió. Conté algunes preguntes motivadores per començar. Pots descarregar el qüestionari aquí:",
-      "viewQuestionnaire1": "View the self reflection questionnaire for Phase 1",
-      "viewQuestionnaire3": "View the self reflection questionnaire for Phase 3",
+      "viewQuestionnaire1": "Vegeu el qüestionari d'auto-reflexió per a la Fase 1",
+      "viewQuestionnaire3": "Vegeu el qüestionari d'auto-reflexió per a la Fase 3",
       "questionnaireDescription": "Si us plau respon a les següents preguntes tan honestament com puguis. L'escala representa un 0 per a 'Estic completament en desacord' a 7 per 'Estic totalment d'acord'. El temps estimat per respondre és de 5 minuts.",
       "questionnaireCompleted": "Aquest qüestionari s'ha completat satisfactòriament.",
       "evaluationOverview": "Resum de l'Avaluació",
@@ -275,6 +293,14 @@
     },
     "ProjectCard": {
       "numberOfParticipants": "Nombre de participants "
+    },
+    "Attachment": {
+      "upload": "Puja un fitxer nou",
+      "noAttachments": "No hi ha cap arxiu adjunt."
+    },
+    "StructureNetworks": {
+      "title": "Xarxes de les quals aquesta estructura forma part:",
+      "otherStructures": "Altres estructures en aquesta xarxa:"
     }
   },
   "models": {
@@ -597,7 +623,7 @@
   "navigation": {
     "links": {
       "home": "Inici",
-      "about": "Al voltant de ",
+      "about": "Sobre nosaltres",
       "help": "Ajuda",
       "learn": "Ajuda"
     }
@@ -661,6 +687,8 @@
     "structure": "Estructura",
     "structures": "Estructures ",
     "evaluation": "Avaluació",
+    "file": "Fitxer",
+    "files": "Fitxers",
     "attachment": "Adjunt",
     "attachments": "Adjunts "
   },
@@ -689,6 +717,7 @@
       "mustNotBeEmail": "Si us plau no facis servir el correu electrònic com a usuari ja que aquesta informació és pública.",
       "mustBeStructure": "Si us plau, introdueix una estructura vàlida",
       "mustBeUser": "Si us plau, introdueix una llista d'usuaris vàlida",
+      "mustBeValidYear": "Si us plau, introduïu un any entre 500 i 2100",
       "mustBeURL": "Si us plau introdueix una URL vàlida ",
       "mustBeCountry": "Si us plau introdueix un país vàlid",
       "mustBeKnowledgeArea": "Si us plau introdueix una àrea de coneixement vàlida"
@@ -699,6 +728,7 @@
     "toasts": {
       "permissionError": "Ha hagut un error mentres accedies al recurs, el més probable és que no tinguis permís per accedir a aquest. ",
       "uploadError": "Ha hagut un error mentre es pujava l'arxiu. ",
+      "uploadErrorTooBig": "Aquest arxiu és massa gran per pujar-lo. Si us plau, limiteu la mida del fitxer a {size} MB.",
       "loggedOut": "Has sortit de la sessió",
       "resetPasswordSubmitted": "S'ha enviat un correu electrònic a l'usuari d'aquest compte per reiniciar la contrasenya.",
       "saveSuccess": "Desat correctament!",
@@ -734,12 +764,16 @@
       "structureYearFounded": "Any en que es va fundar l'estructura ",
       "structureAdministrators": "Administradors de l'estructura ",
       "structureCountry": "País d'actuació de l'estructura ",
+      "networks": "Xarxes",
+      "network": "Xarxa",
       "projectName": "Nom del projecte",
       "projectAcronym": "Acrònim del Projecte",
       "projectType": "Tipus de Projecte",
       "projectPhase": "Fase del Projecte",
       "projectCountry": "País d'actuació del projecte",
       "projectAdministrators": "Administradors del Projecte",
+      "projectDateStart": "Data d'inici del projecte",
+      "projectDateEnd": "Data de finalització del projecte",
       "socialNetwork": "Xarxa social",
       "contactEmail": "Correu electrònic de contacte",
       "contactWebsite": "Pàgina web externa",
@@ -768,12 +802,13 @@
       "contactWebsite": "URL a una pàgina web externa on altres persones poden veure més sobre el teu projecte",
       "username": "Introdueix el teu nom d'usuari. Una bona opció és nom.cognom (és a dir, john.doe)",
       "structureName": "Trai un nom que caracteritzi la teva estructura. Suggerim escriure menys de 50 caràcters",
-      "structureSummary": "Breu resum de la teva estructura i del que inclou. Suggerim escriure menys de 200 caràcters.",
+      "structureSummary": "Breu resum de la teva estructura i del que inclou. Et suggerim escriure menys de 400 caràcters.",
       "structureCountry": "País on opera principalment aquesta estructura",
       "structureAdministrators": "Afegeix aquí a totes les persones que tindran accés a l'edició de l'Estructura. Els administradors de l'estructura no poden transmetre la propietat a altres persones. Els administradors no són participants. ",
+      "networks": "Selecciona aquí totes les xarxes de les quals la teva estructura forma part.",
       "projectType": "Com està estructurat el teu equip?",
       "projectName": "Escull un nom que caracteritzi el teu projecte. Suggerim que siguin menys de 50 caràcters. ",
-      "projectSummary": "Presenta un breu resum del teu projecte i els seus objectius. Suggerim que l'explicació tingui menys de 200 caràcters. ",
+      "projectSummary": "Breu resum del teu projecte i del que inclou. Et suggerim escriure menys de 400 caràcters.",
       "projectAdministrators": "Afegeix aquí a totes les persones que tindran accés a l'edició del projecte. Els administradors de projectes no poden transmetre la propietat a altres persones. Els administradors no són participants. ",
       "projectAcronym": "Escull un Acrònim del Projecte",
       "projectCountry": "Principalment on està establert el teu projecte o opera normalment? ",

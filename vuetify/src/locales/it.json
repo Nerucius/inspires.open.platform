@@ -12,7 +12,7 @@
       "editProfile": "Modifica il Profilo",
       "updateProfileSuccess": "Il tuo profilo è stato aggiornato",
       "updateProfileFailure": "Impossibile aggiornare il profilo",
-      "evaluationRequests": "Evaluation requests",
+      "evaluationRequests": "Risultato della valutazione",
       "myProjects": "I miei progetti",
       "myStructures": "Le mia strutture"
     },
@@ -48,20 +48,32 @@
       "mainTitle": "Benvenuti su InSPIRES",
       "worldmapTitle": "Mappa del mondo",
       "latestTitle": "Ultimi aggiornamenti",
-      "latestProjectsTitle": "Latest Project Updates",
+      "latestProjectsTitle": "Ultimi aggiornamenti del progetto",
       "mostActiveStructures": "Strutture attive",
       "welcomeMessage": "Benvenuti nella piattaforma aperta InSPIRES. Questa piattaforma presenta progetti di ricerca e di  innovazione partecipativi guidati dai cittadini promossi da unità di intermediazione della conoscenza, come gli sportelli della scienza, i gruppi di cittadini scientiziati, le unità ecc, ecc.",
       "welcomeMessageLong": "Offre anche uno strumento integrato di valutazione dell'impatto collaborativo al fine di valutare i processi e i risultati dei propri progetti rispetto agli altri. L'obiettivo perseguito è quello di produrre una riflessione congiunta e collettiva su questo tipo di progetti collaborativi per apprendere, pensare, discutere e crescere come comunità di pratica per sviluppare progetti migliori volti a migliorare la vita e il benessere dei cittadini",
       "aboutLink": "Di più su di noi!",
       "allProjects": "Tutti i progetti",
-      "projectsSeeMore": "Vedi tutti i progetti"
+      "projectsSeeMore": "Vedi tutti i progetti",
+      "useThePlatform": "Inizia a utilizzare la piattaforma",
+      "learnMore": "Scopri di più"
     },
     "help": {
       "title": "Centro Assistenza",
       "description": "TODO: testo",
       "allArticles": "Tutti gli articoli",
+      "allCourses": "Corsi E-Learning",
       "articlesOtherLanguages": "Articoli in altre lingue",
-      "articleDoesNotExist": "L'articolo che stai cercando non esiste più"
+      "articleDoesNotExist": "L'articolo che stai cercando non esiste più",
+      "courses": {
+        "main": "Corso",
+        "modules": "Moduli in questo corso",
+        "reccomendedMaterials": "Materiali Consigliati",
+        "feedbackTitle": "Apprezziamo il tuo feedback",
+        "feedbackLabelStars": "Quanto hai trovato utile il contenuto di questo modulo?",
+        "feedbackLabelTextbox": "Hai qualche suggerimento, commento o altro feedback?",
+        "feedbackSubmitted": "Grazie per il tuo feedback!"
+      }
     },
     "about": {
       "mainTitle": "Informazioni sulla Piattaforma Aperta InSPIRES",
@@ -73,7 +85,9 @@
       "missionObjective3": "Fornire alla comunità uno strumento di valutazione dell'impatto intuitivo e personalizzabile per acquisire i risultati di processo e i risultati in maniera armonizzata.",
       "missionParagraph3": "Alla fine, speriamo che la piattaforma supporti la comunità (i coordinatori della struttura e i partecipanti al progetto in tutto il mondo), l'apprendimento reciproco condividendo esperienze degli sportelli della Scienza e di altri progetti di ricerca e innovazione partecipativi, ma anche di pratiche fallite, di metodologie, ecc.",
       "titleTeam": "Il gruppo di lavoro della Piattaforma Aperta InSPIRES",
-      "teamContent": "Lo sviluppo di questa piattaforma aperta è stato guidato dal team ISGlobal in stretta collaborazione con i gruppi di ricerca \"Data Science\" e\" OpenSystems \"dell'Università di Barcellona. Tutti i membri del consorzio InSPIRES hanno anche svolto un ruolo importante nella sua nascita ed evoluzione"
+      "teamContent": "Lo sviluppo di questa piattaforma aperta è stato guidato dal team ISGlobal in stretta collaborazione con i gruppi di ricerca \"Data Science\" e\" OpenSystems \"dell'Università di Barcellona. Tutti i membri del consorzio InSPIRES hanno anche svolto un ruolo importante nella sua nascita ed evoluzione",
+      "titlePartners": "Partner Di InSPIRES",
+      "partnersContent": "Vogliamo ringraziare i nostri partner che hanno collaborato con la progettazione e il collaudo della piattaforma. Senza di loro questo progetto non sarebbe possibile."
     },
     "search": {
       "searchResults": "Risultati della ricerca",
@@ -84,13 +98,13 @@
       "mainTitle": "Pannello di amministrazione",
       "unauthorizedAccess": "Non sei autorizzato ad accedere al pannello di amministrazione. Se ritieni che dovresti, contatta un amministratore della piattaforma.",
       "pendingApproval": "Approvazione in sospeso della struttura",
-      "approvedStructures": "Structures approved",
+      "approvedStructures": "Strutture approvate",
       "instructionsText": "Le seguenti strutture devono essere convalidate prima che vengano visualizzate negli elenchi pubblici del sito. Si prega di verificare per ogni struttura  la validità dei dati e l'autenticità.\n\nVerificare anche che la persona che sostiene di possedere la struttura sia chi rivendica e che sia autorizzata a mettere le informazioni sul sito.",
       "createdBy": "Creato da {name}",
       "validationSuccess": "Struttura verificata con successo. Ora verrà visualizzata nelle liste pubbliche.",
       "validationFailure": "Impossibile convalidare la struttura. Si prega di contattare l'assistenza.",
-      "retirementSuccess": "Structure retired from the platform correctly.",
-      "retirementFailure": "Failed to retire the structure. Please contact support."
+      "retirementSuccess": "Struttura ritirata dalla piattaforma correttamente.",
+      "retirementFailure": "Impossibile ritirare la struttura. Si prega di contattare l'assistenza."
     },
     "legal": {
       "termsOfServiceTitle": "Termini di servizio",
@@ -99,31 +113,33 @@
       "legalNotice": "### Proprietario del sito web e dell'applicazione\nFundación Privada Instituto de Salud Global Barcelona (ISGlobal)\nCIF: G65341695\nIndirizzo postale: C / Rosselló, 132, 2ª, 5ª e 7ª - 08036 Barcelona\nIscritta nel registro delle fondazioni della direzione generale del diritto e delle persone giuridiche del governo della Catalogna con il numero 2.634\nNumero di telefono: (+34) 932271806\n\nIl sito web è di proprietà di ISGlobal.\n\nL'utilizzo del sito web è soggetto alle seguenti condizioni di utilizzo. Si prega di leggerli attentamente. L'accesso al sito Web e l'utilizzo del suo contenuto implica la lettura e l'accettazione, senza riserve, delle presenti condizioni",
       "conditionsOfUseTitle": "Condizioni d'uso",
       "conditionsOfUse": "Il sito web contiene contenuti preparati da ISGobal esclusivamente a scopo informativo. Questo contenuto potrebbe non riflettere le informazioni più aggiornate sugli argomenti trattati. Allo stesso modo, questo materiale può essere modificato, esteso o aggiornato senza preavviso.\n\nL'accesso a questo contenuto non crea né implica alcun rapporto professionale o di fiducia tra ISGlobal e te.\n\nI collegamenti sul sito Web possono indirizzare ad altri siti Web, pagine o applicazioni gestite da terze parti sui quali ISGlobal non ha alcun controllo. ISGlobal non è responsabile per il contenuto o lo stato di questi siti Web, pagine e applicazioni. La possibilità di accedervi tramite il nostro sito Web o l'applicazione non implica che ISGlobal ne raccomandi o approvi il contenuto.\n\n### Limitazione di responsabilità\n\nUtilizzi il nostro sito web a tuo rischio e a tue spese. ISGlobal non è responsabile per eventuali errori o omissioni nel contenuto del sito Web, dell'applicazione o di qualsiasi altro sito a cui si possa accedere tramite il sito Web o l'applicazione. ISGlobal non è responsabile per eventuali danni derivanti dall'uso del nostro sito web o da qualsiasi azione eseguita sulla base delle informazioni fornite sul nostro sito web.\n\nISGlobal non garantisce l'assenza di virus o altri elementi dannosi che potrebbero danneggiare o alterare il tuo sistema IT, documenti elettronici o file sul nostro sito web. Di conseguenza, ISGlobal non si assume alcuna responsabilità per eventuali perdite o danni che tali elementi potrebbero causare a te oa terzi.\n\n[Aggiornato a febbraio 2019]",
-      "privacyPolicyTitle": "Privacy Policy",
+      "privacyPolicyTitle": "Norme sulla privacy",
       "privacyPolicy": "** In conformità con le attuali normative sulla protezione dei dati **, ISGlobal ti informa di quanto segue:\n\nQuando ti viene richiesto di fornire dati personali per la fornitura di servizi, sarai informato su quali dati dovrai fornire.\n\nSe non fornisci questi dati richiesti, non saremo in grado di fornirti i servizi. I dati personali che fornisci o che ISGlobal ottiene a seguito della tua navigazione, query o richieste tramite il nostro sito Web all'indirizzo https://app.inspiresproject.com (il \"Sito Web\") saranno inclusi in un file di proprietà di ISGlobal per gestire, memorizzare e tracciare le tue richieste di informazioni e / o contrattazione di beni o servizi offerti tramite il sito web.\n\nLe informazioni ottenute da te da ISGlobal tramite il sito web quando ti iscrivi a un evento promozionale o invii un modulo sono trattate con la massima riservatezza per aiutarti a prendere parte all'evento in questione o, nel secondo caso, per inviarti le informazioni hai richiesto. Le informazioni ottenute non vengono utilizzate per nessun altro scopo.\n\nI dati personali forniti non saranno oggetto di diffusione o trasferimento a terzi senza il tuo consenso.\n\nLe informazioni vengono inviate tramite i moduli del sito Web solo dopo che hai espresso la tua accettazione selezionando un pulsante \"ACCETTA / INVIA\" ​​(o simile), tramite il quale ISGlobal ha la prova che hai dato il tuo consenso al trattamento dei tuoi dati personali .\nIn ogni caso, garantisci che i dati che fornisci sono veri, esatti, completi e aggiornati. ISGlobal può rifiutarsi di fornire le informazioni oi servizi richiesti a qualsiasi utente che fornisca dati falsi senza pregiudicare qualsiasi altra azione legale ad esso aperta.\n\nIn virtù dell'articolo 22 della legge spagnola 34/2002, dell'11 luglio, sui servizi della società dell'informazione e il commercio elettronico, ISGlobal può memorizzare e recuperare \"cookie\" (dati in un file di testo) dalla tua macchina, a condizione che tu abbia dato il consenso e dopo averti fornito informazioni chiare e complete sull'uso di questi cookie. È possibile ottenere informazioni complete sullo scopo dell'installazione di questi cookie e su cosa vengono utilizzati nella pagina Politica sui cookie.\n\nCiò non impedisce l'archiviazione tecnica o l'accesso al solo scopo di eseguire o facilitare la trasmissione di una comunicazione su una rete di comunicazione elettronica, o nella misura strettamente necessaria per fornire un servizio della società dell'informazione espressamente richiesto.\n\nPuoi esercitare i tuoi diritti di accesso, rettifica, cancellazione, opposizione, portabilità e limitazione del trattamento inviando una richiesta a lopd@isglobal.org o all'indirizzo postale ISGlobal: c / Rosselló, 132, 08036 Barcellona, ​​Spagna. La richiesta deve includere il tuo nome completo, indirizzo per gli avvisi, una fotocopia del tuo documento di identità o passaporto e un'indicazione del diritto che vuoi esercitare.\n\nSe non sei soddisfatto del trattamento effettuato da ISGlobal o ritieni che i tuoi diritti siano stati violati, puoi presentare un reclamo all'Agenzia spagnola per la protezione dei dati in qualsiasi momento.\n\nIn conformità con la legge 34/2002, dell'11 luglio, sui servizi della società dell'informazione e del commercio elettronico, se non desideri ricevere comunicazioni commerciali elettroniche da ISGlobal in futuro, puoi informarci di questa preferenza inviando un'e-mail a lopd@isglobal.org.\n\n[Aggiornato a febbraio 2019]",
       "cookiePolicyTitle": "cookie policy",
       "cookiePolicy": "Il nostro sito Web https://app.inspiresproject.com (il \"Sito Web\") utilizza i cookie per raccogliere informazioni su come viene utilizzato il sito Web.\n\nUn cookie è un file scaricato sul tuo computer (computer o dispositivo mobile) per memorizzare dati che possono essere aggiornati e recuperati dall'entità che lo ha installato.\n\nLe informazioni raccolte tramite i cookie possono includere la data e l'ora in cui hai visitato il sito Web, le pagine visualizzate, il tempo trascorso sul nostro sito Web e i siti Web visitati prima e dopo aver visitato il nostro sito.\n\nUtilizziamo i cookie per facilitare la navigazione del nostro sito Web, distinguerti dagli altri utenti, fornirti un'esperienza di utilizzo migliore e identificare i problemi con il nostro sito Web. Se fornisci il tuo consenso, utilizzeremo i cookie per ottenere informazioni sulle tue preferenze e adattare il nostro sito Web ai tuoi interessi.\n\nLo scopo di questa politica sui cookie è fornire informazioni chiare e precise sui cookie utilizzati nel nostro sito Web (la \"Politica sui cookie\"). Per ulteriori informazioni sui cookie utilizzati sul nostro sito Web, inviare le domande tramite e-mail a: lopd@isglobal.org.\n\n## Tipo di cookie utilizzati nel sito Web\n\nIl nostro sito Web utilizza i cookie descritti di seguito.\n\n### Cookie di prima parte\n\nQuesti cookie vengono inviati al tuo computer e gestiti solo da noi per migliorare il funzionamento del sito web. Le informazioni raccolte vengono utilizzate per migliorare la qualità del nostro servizio e la tua esperienza utente. Questi cookie rimangono nel tuo browser più a lungo. Questo ci consente di riconoscerti quando ritorni sul sito web e di adattare il contenuto offerto alle tue preferenze.\n\n## Consenso\n\nNavigando e rimanendo sul nostro sito Web, fornisci il consenso al nostro utilizzo dei cookie descritti per i periodi di tempo specificati nelle condizioni della presente Politica sui cookie.\n\n## Disabilitazione e blocco dei cookie\n\nI cookie non sono necessari per l'utilizzo del nostro sito web. Puoi bloccare e disabilitare i cookie configurando il tuo browser in modo da bloccare l'installazione di tutti o di alcuni cookie. La maggior parte dei browser può essere impostata per avvisare della presenza di cookie o bloccarli automaticamente. Se blocchi i cookie, puoi continuare a utilizzare il nostro sito web. Tuttavia, l'uso di alcuni dei suoi servizi potrebbe essere limitato e la tua esperienza utente potrebbe essere ridotta.\n\n## Ritiro del consenso\n\nSe in qualsiasi momento si desidera revocare il consenso fornito in base alla presente Politica sui cookie, eliminare i cookie memorizzati sul proprio computer (computer o dispositivo mobile) tramite le impostazioni e la configurazione del proprio browser web.\n\nPer ulteriori informazioni sull'eliminazione, la disabilitazione o il blocco dei cookie, visitare AllAboutCookies.org\n\n## Modifica della configurazione e delle impostazioni dei cookie del browser\n\nA meno che tu non abbia modificato la configurazione del tuo browser, il nostro sistema crea cookie quando visiti il ​​nostro sito web. Tutti i browser web consentono di modificare questa configurazione. Fare clic sui collegamenti sottostanti per sapere come regolare la configurazione dei cookie dei seguenti browser:\n\n- **Internet Explorer**:\n  - [Internet Explorer 5] (https://support.microsoft.com/en-gb/help/196955)\n  - [Internet Explorer 6, 7, 8 e 9] (https://support.microsoft.com/en-gb/help/260971/description-of-cookies)\n  - [Internet Explorer 11] (https://support.microsoft.com/en-gb/help/17442/windows-internet-explorer-delete-manage-cookies)\n- ** [Firefox] (https://support.microsoft.com/en-gb/help/17442/windows-internet-explorer-delete-manage-cookies) **\n- ** [Chrome] (https://support.google.com/chrome/answer/95647?co=GENIE.Platform%3DDesktop&hl=it) **\n- ** Safari **\n  - [Per Windows] (https://support.apple.com/kb/ph21411?locale=es_ES)\n  - [Per Mac (iOS)] (https://support.apple.com/es-es/HT201265)\n\n## Modifiche alla politica sui cookie\n\nDi tanto in tanto potremmo aggiornare la Politica sui cookie del nostro sito web. Ti consigliamo di rivedere questa politica ogni volta che visiti il ​​nostro sito Web in modo da essere adeguatamente informato su come e per cosa utilizziamo i cookie. La Cookie Policy è stata aggiornata l'ultima volta il 6 luglio 2018.\n\n## Contatto\n\nPer qualsiasi domanda, commento o suggerimento in merito alla nostra Politica sui cookie, inviare un'e-mail a: lopd@isglobal.org.\n\n[Aggiornato a febbraio 2019]",
       "cookieToast": "Questo sito web utilizza cookie di prima e terza parte per ottenere informazioni sulle tue abitudini di ricerca e per migliorare la qualità dei nostri servizi e la tua navigazione sul nostro sito web. Per acconsentire al nostro utilizzo dei cookie, fare clic su \"Accetta\" o continuare la navigazione."
     },
     "projectDetail": {
-      "about": "Intorno",
+      "about": "Riguardo",
       "detailsTab": "Informazione",
       "evaluationTab": "Valutazione del Progetto",
       "notApproved": "Questo progetto non è ancora approvato, non apparirà negli elenchi pubblici finché non sarà registrato ad una Struttura.",
       "projectNotYetEvaluated": "Questo progetto non ha ancora ricevuto feedback e valutazioni sufficienti dai partecipanti, quindi non possiamo mostrarti come sta andando. Torna un altro giorno!",
-      "activeCountries": "This project is active in 1 country: | This project is active in {n} countries:"
+      "activeCountries": "Questo progetto è attivo in un paese: <unk> Questo progetto è attivo in {n} paesi:",
+      "projectFiles": "Trova qui tutti i file che il project manager ha caricato per essere visualizzati pubblicamente."
     },
     "structureDetail": {
+      "about": "Intorno",
       "notApproved": "Questa struttura non è ancora approvata, non verrà mostrata negli elenchi pubblici fino a quando un amministratore del sito non la convaliderà.",
-      "activeCountries": "This structure is active in 1 country: | This structure is active in {n} countries:",
-      "about": "Intorno"
+      "activeCountries": "Questa struttura è attiva in 1 paese: <unk> Questa struttura è attiva in {n} paesi:",
+      "structureFiles": "Trova qui tutti i file che il manager della struttura  ha caricato per essere visualizzati pubblicamente."
     },
     "structureList": {
-      "introTitle": "Want to know more about structures?",
+      "introTitle": "Vuoi saperne di più sulle strutture?",
       "introText": "Una Struttura è un'unità intermediaria della conoscenza, che può avere sede all'interno di un'università, un centro di ricerca o altre che promuove interazioni e dialoghi tra la comunità scientifica e le organizzazioni della società civile al fine di co-creare e attuare congiuntamente progetti di ricerca partecipativa.\n\nCi sono molte etichette utilizzate al momento per definire tali strutture: Science Shop, Campus-community office, Citizen Science units, Social Labs, Living Labs, ecc. Ma anche ricerca sull'azione dei cittadini, ricerca partecipativa basata sulla comunità e \"citizen science.\" Pertanto, non intendiamo essere esclusivi, ma piuttosto raccogliere in questa piattaforma aperta tutti i progetti che funzionano secondo i 5 principi che promuoviamo: democrazia della conoscenza, ricerca guidata dai cittadini, dinamiche partecipative, integrità e cambiamento trasformativo. Di seguito troverai tutte le strutture iscritte alla piattaforma",
       "visitStructure": "Visita la struttura",
-      "showMore": "Show more structures",
-      "noMoreStructures": "That's all the structures!"
+      "showMore": "Mostra più strutture",
+      "noMoreStructures": "Queste sono tutte le strutture!"
     },
     "structureManage": {
       "title": "Gestisci questa struttura",
@@ -166,9 +182,9 @@
       "infoContactTitle": "Informazioni di contatto",
       "infoAdditionalTitle": "Informazioni aggiuntive",
       "infoAdditionalDescription": "Altri dettagli utili in modo che il tuo progetto sia ben definito e possa essere trovato nelle ricerche",
-      "structureTitle": "Associated Intermediation Structure",
-      "structureSubheading": "Select under which Intermediation Structure your project is established.",
-      "structureHelp": "Every project in the platform has to be validated by an intermediation Structure that will give the project validity. Please select the Structure to which your project belongs.\n\nThe platform will notify the structure owners to review and approve your project so it will appear in public listings. We will let you know as soon as your project is approved.",
+      "structureTitle": "Struttura di Intermediazione Associata",
+      "structureSubheading": "Seleziona sotto quale Struttura di Intermediazione è stabilito il tuo progetto.",
+      "structureHelp": "Ogni progetto della piattaforma deve essere convalidato da una struttura di intermediazione che conferisca la validità del progetto. Seleziona la struttura a cui appartiene il tuo progetto.\n\nLa piattaforma informerà i proprietari della struttura di rivedere e approvare il tuo progetto in modo da farla apparire negli elenchi pubblici. Ti informeremo non appena il tuo progetto sarà approvato.",
       "success": "Struttura salvata con successo",
       "failure": "Impossibile salvare la struttura. riprova più tardi",
       "projectTab": "Questo Progetto",
@@ -211,7 +227,9 @@
       "evalConfirmDismiss": "Se ignori questo avviso, questa opzione non sarà più disponibile.",
       "inviteParticipantsTitle": "Invita un partecipante a questo progetto",
       "inviteParticipantsInfo": "Se uno o più dei tuoi partecipanti non sono in grado di creare un account da soli, o preferisci compilare la valutazione a loro nome, puoi utilizzare questo modulo per creare un Utente nella piattaforma per loro.\n\n** NOTA **: il tuo progetto deve essere convalidato e parte di una struttura.",
-      "attachmentsTab": "Documenti allegati"
+      "attachmentsTab": "Documenti allegati",
+      "structurePartnersTitle": "Partnered Structures",
+      "structurePartnersSubheading": "Besides the main structure that governs this project, what other organizations do you participate with?"
     },
     "evaluationDetail": {
       "heatchart": {
@@ -231,10 +249,10 @@
         "bulletCharts": "Per ogni principio e per le diverse dimensioni che costituiscono ogni principio viene mostrata una metrica (grafico a punti). Il punto giallo rappresenta la valutazione del progetto corrente. Le ombre rappresentano la valutazione di altri progetti: un'ombra più chiara rappresenta i progetti con il punteggio di valutazione più basso e più alto, mentre un'ombra più opaca rappresenta i progetti all'interno del primo e del terzo quartile dei punteggi di valutazione. Il primo quartile (Q1) è definito come il valore medio tra il punteggio di valutazione più basso tra tutti i progetti e la mediana del set di dati. Il terzo quartile (Q3) è definito come il valore medio tra la mediana e il punteggio di valutazione più alto tra tutti i progetti. Viene assegnata una soglia arbitraria a \"3\" per richiamare l'attenzione sulle valutazioni al di sotto di questo valore.",
         "bulletChart": {
           "knowledgeDemocracy": "La democrazia della conoscenza copre la transdisciplinarità, l'apertura dei dati e dei risultati e la rilevanza scientifica del progetto.\nIl primo risultato mostra il punteggio aggregato per questa dimensione. Il seguente mostra i risultati aggregati per ciascuna sottodimensione sotto questa.",
-          "participatoryDynamics": "**Participatory Dynamics** include the degree of community involvement, and the quality and impact of engagement practices.\nThe first result shows the aggregated score for this dimension. The following one shows the aggregated results for each sub-dimensions under this one.",
+          "participatoryDynamics": "**Le dinamiche partecipative** includono il grado di coinvolgimento della comunità e la qualità e l'impatto delle pratiche di coinvolgimento.\nIl primo risultato mostra il punteggio aggregato per questa dimensione. Il seguente mostra i risultati aggregati per ciascuna sotto-dimensione.",
           "citizenledResearch": "** Ricerca guidata dal cittadino ** si riferisce all'allineamento degli obiettivi del progetto alle richieste della comunità e all'efficacia dell'impegno della comunità nel processo scientifico.\nIl primo risultato mostra il punteggio aggregato per questa dimensione. Il seguente mostra i risultati aggregati per ciascuna sottodimensione sotto questa.",
           "integrity": "** Integrità ** comprende l'allineamento delle aspettative, l'inclusione di gruppi vulnerabili, l'aggiunta  di prospettive etiche e di genere, la trasparenza della gestione dei dati, la coerenza del disegno del  progetto e la qualità delle risorse disponibili.\nIl primo risultato mostra il punteggio aggregato per questa dimensione. Il seguente mostra i risultati aggregati per ciascuna sottodimensione sotto questa.",
-          "transformativeChange": "**Transformative Change** relates to individual learning and personal growth, project sustainability, the societal responsiveness of the project and its impact on policies, programmes and/or services.\nThe first result shows the aggregated score for this dimension. The following one shows the aggregated results for each sub-dimensions under this one."
+          "transformativeChange": "**Cambiamento Trasformativo** riguarda l'apprendimento individuale e la crescita personale, la sostenibilità del progetto, la reattività sociale del progetto e il suo impatto su politiche, programmi e/o servizi.\nIl primo risultato mostra il punteggio aggregato per questa dimensione. Il seguente mostra i risultati aggregati per ciascuna sotto-dimensione."
         },
         "projectManagerCharts": "La visualizzazione del Project Manager non è accessibile ai partecipanti perché fornisce un dettaglio fine del processo di auto-riflessione fornendo al contempo una vista interna utile  per scopi di gestione.\n\nLa differenza tra questo livello di visualizzazione e quello accessibile ai partecipanti è che  questo rappresenta i risultati della valutazione in base al profilo degli intervistati. Permette di avere una migliore comprensione di cosa è successo e a chi.",
         "publicEval": "La visualizzazione pubblica riflette la valutazione complessiva del progetto e mostra il punteggio aggregato per ciascuna delle dimensioni.\n\nOgni progetto è rappresentato da un Colibrì: un umile uccellino, ma estremamente attivo il cui piccolo movimento può contribuire al sistema eco-sociale complessivo:\n- La sua ala è associata al cambiamento trasformativo, perché è la parte più attiva del colibrì e quella che crea il movimento.\n- La testa è associata alla Democrazia della Conoscenza, seguendo il rapporto naturale tra testa, mente e conoscenza.\n- Il cuore (o parte inferiore del corpo) è associato alla ricerca condotta dai cittadini, perché la cittadinanza è il battito del cuore della scienza aperta.\n- La coda è associata alle dinamiche partecipative, perché funge da elmo. E, infine, la parte superiore del corpo è associata all'Integrità, perché senza di essa tutti gli altri aspetti cadrebbero a pezzi.",
@@ -246,8 +264,8 @@
       "questionnaire": "Questionario",
       "selfQuestionnaireTitle": "Questionario di autoriflessione",
       "selfQuestionnaireDescription": "Per aiutare nella valutazione del progetto, si consiglia di consultare il Questionario di autoriflessione. Contiene alcune domande stimolanti per iniziare. Puoi scaricare il questionario qui:",
-      "viewQuestionnaire1": "View the self reflection questionnaire for Phase 1",
-      "viewQuestionnaire3": "View the self reflection questionnaire for Phase 3",
+      "viewQuestionnaire1": "Visualizza il questionario di auto-riflessione per la fase 1",
+      "viewQuestionnaire3": "Visualizza il questionario di auto-riflessione per la fase 3",
       "questionnaireDescription": "Rispondi alle seguenti domande nel modo più onesto possibile. La scala rappresenta uno 0 per \"Sono completamente in disaccordo\" a 7 per \"Sono completamente d'accordo\". Il tempo di risposta stimato è di 5 minuti.",
       "questionnaireCompleted": "Questo questionario è già stato completato",
       "evaluationOverview": "Panoramica sulla valutazione",
@@ -275,6 +293,14 @@
     },
     "ProjectCard": {
       "numberOfParticipants": "Numero di partecipanti"
+    },
+    "Attachment": {
+      "upload": "Carica un nuovo file",
+      "noAttachments": "Nessun file allegato."
+    },
+    "StructureNetworks": {
+      "title": "La presente struttura fa parte di:",
+      "otherStructures": "Altre strutture in questa rete:"
     }
   },
   "models": {
@@ -597,7 +623,7 @@
   "navigation": {
     "links": {
       "home": "Home",
-      "about": "Riguardo",
+      "about": "Chi Siamo",
       "help": "Aiuto",
       "learn": "Aiuto"
     }
@@ -642,7 +668,7 @@
     "exportAllData": "Esporta tutti i dati",
     "print": "Stampa questa pagina",
     "download": "Download",
-    "downloadName": "Download {name}",
+    "downloadName": "Scarica {name}",
     "tellMeMore": "Dimmi di più",
     "notInterested": "Non interessato"
   },
@@ -661,6 +687,8 @@
     "structure": "Struttura",
     "structures": "Strutture",
     "evaluation": "Valutazione",
+    "file": "File",
+    "files": "Files",
     "attachment": "Allegato",
     "attachments": "Allegati"
   },
@@ -689,6 +717,7 @@
       "mustNotBeEmail": "Si prega di non utilizzare un'e-mail come nome utente poiché queste informazioni sono pubbliche.",
       "mustBeStructure": "Per favore inserisci una struttura valida",
       "mustBeUser": "Per favore inserisci una lista di utenti valida",
+      "mustBeValidYear": "Si prega di inserire un anno tra 500 e 2100",
       "mustBeURL": "Per favore inserisci un indirizzo valido",
       "mustBeCountry": "Per favore inserisci un paese valido",
       "mustBeKnowledgeArea": "Per favore, inserisci una area di conoscenza valida"
@@ -699,6 +728,7 @@
     "toasts": {
       "permissionError": "Si è verificato un errore durante l'accesso alla risorsa, potresti non avere l'autorizzazione per visualizzarlo.",
       "uploadError": "Si è verificato un errore durante il caricamento del file",
+      "uploadErrorTooBig": "Questo file è troppo grande per essere caricato. Si prega di limitare la dimensione del file a {size} MB.",
       "loggedOut": "Sei stato disconnesso",
       "resetPasswordSubmitted": "All'utente di questo account è stata inviata un'e-mail di reimpostazione della password.",
       "saveSuccess": "Salvataggio avvenuto con successo",
@@ -734,12 +764,16 @@
       "structureYearFounded": "Anno di fondazione della struttura",
       "structureAdministrators": "Amministratori della struttura",
       "structureCountry": "Paese di azione della struttura",
+      "networks": "Reti",
+      "network": "Rete",
       "projectName": "Nome del progetto",
       "projectAcronym": "Acronimo del progetto",
       "projectType": "Tipo di progetto",
       "projectPhase": "Fase del progetto",
       "projectCountry": "Paese di azione del progetto",
       "projectAdministrators": "Amministratore del progetto",
+      "projectDateStart": "Data di inizio del progetto",
+      "projectDateEnd": "Data di fine del progetto",
       "socialNetwork": "Rete sociale",
       "contactEmail": "email di contatto",
       "contactWebsite": "Sito web esterno",
@@ -768,12 +802,13 @@
       "contactWebsite": "URL di un sito esterno nel quale le persone possono sapere di più sul tuo progetto.",
       "username": "Immettere il nome utente di accesso. Una buona scelta è il nome.cognome (ad esempio mario.rossi)",
       "structureName": "cegli un nome che caratterizzi la tua struttura. Si suggeriscono meno di 50 caratteri.)",
-      "structureSummary": "Un breve riassunto della tua struttura e di ciò che racchiude. Si consiglia di mantenerlo al di sotto dei 200 caratteri.",
+      "structureSummary": "Un breve riassunto della tua struttura e di ciò che riguarda. Si consiglia di mantenerlo al di sotto dei 400 caratteri.",
       "structureCountry": "Paese in cui questa struttura opera principalmente",
       "structureAdministrators": "Aggiungi qui tutte le persone che avranno pieno accesso per modificare la Struttura e approvare nuovi Progetti. Gli amministratori di struttura non possono trasferire la proprietà. Gli amministratori NON sono partecipanti.",
+      "networks": "Seleziona qui tutte le reti di cui fa parte la tua struttura.",
       "projectType": "Come è strutturato il team del tuo progetto?",
       "projectName": "Scegli un nome che caratterizza il tuo progetto. Meno di 50 caratteri suggeriti.",
-      "projectSummary": "Un breve riassunto del tuo progetto e di ciò che comprende. Suggerito di tenerlo sotto i 200 caratteri.",
+      "projectSummary": "Un breve riassunto del tuo progetto e di ciò che comprende. Si consiglia di tenerlo sotto i 400 caratteri.",
       "projectAdministrators": "Aggiungi qui tutte le persone che avranno pieno accesso alla modifica del progetto. Gli amministratori del progetto non possono trasferire la proprietà.",
       "projectAcronym": "Scegli un acronimo per il progetto",
       "projectCountry": "Dove si trova principalmente o opera il tuo progetto?",

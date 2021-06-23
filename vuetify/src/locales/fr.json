@@ -54,14 +54,26 @@
       "welcomeMessageLong": "Elle offre également un outil collectif intégré d'évaluation d'impact pour analyser les processus et les résultats de vos propres projets dans le respect des autres. L'objectif poursuivi est de mener une réflexion commune et collective autour de ce type de projets  afin d'apprendre, penser, expérimenter et grandir ensemble en tant que communauté de pratique pour pouvoir développer des meilleurs projets qui permettent d' améliorer la vie et le bien-être des citoyens.",
       "aboutLink": "Plus sur nous!",
       "allProjects": "Tous les projets",
-      "projectsSeeMore": "Découvrir tous les projets"
+      "projectsSeeMore": "Découvrir tous les projets",
+      "useThePlatform": "Start using the platform",
+      "learnMore": "Learn more about"
     },
     "help": {
       "title": "centre d'assistance",
       "description": "texte",
       "allArticles": "Tous les articles",
+      "allCourses": "E-Learning Courses",
       "articlesOtherLanguages": "Articles dans d'autres langues",
-      "articleDoesNotExist": "L'article que vous recherchez n'existe plus."
+      "articleDoesNotExist": "L'article que vous recherchez n'existe plus.",
+      "courses": {
+        "main": "Course",
+        "modules": "Modules in this Course",
+        "reccomendedMaterials": "Reccomended Materials",
+        "feedbackTitle": "We value your feedback",
+        "feedbackLabelStars": "How useful did you find the content of this module?",
+        "feedbackLabelTextbox": "Do you have any suggestions, comments or other feedback?",
+        "feedbackSubmitted": "Thanks for your feedback!"
+      }
     },
     "about": {
       "mainTitle": "A propos de la plateforme InSPIRES",
@@ -73,7 +85,9 @@
       "missionObjective3": "Mettre à disposition de la communauté d'utilisateurs un outil d’évaluation d’impact intuitif et personnalisable permettant de mesurer les résultats des processus et des actions de manière cohérente.",
       "missionParagraph3": "Au final, nous espérons que la plateforme soutiendra la communauté des utilisateurs (coordinateurs des structures ainsi que les participants des projets dans le monde entier) dans leur apprentissage mutuel, via le partage des expériences des \"Boutiques des sciences\" et autres projets de recherche participative et innovants: les bonnes pratiques mais aussi les erreurs, les méthodes utilisées, etc.",
       "titleTeam": "L'équipe responsable de la plateforme libre d'InSPIRES.",
-      "teamContent": "Le développement de cette plateforme libre a été mené par l'équipe d'ISGlobal en étroite collaboration avec les groupes de recherche en sciences de l'information et en systèmes informatiques de libre accès de l'Université de Barcelone. Tous les membres du consortium InSPIRES ont également joué un rôle important dans sa création et son évolution."
+      "teamContent": "Le développement de cette plateforme libre a été mené par l'équipe d'ISGlobal en étroite collaboration avec les groupes de recherche en sciences de l'information et en systèmes informatiques de libre accès de l'Université de Barcelone. Tous les membres du consortium InSPIRES ont également joué un rôle important dans sa création et son évolution.",
+      "titlePartners": "InSPIRES Partners",
+      "partnersContent": "We want to thank our partners who have collaborated with the design and testing of the platform. Without them this project would not be possible."
     },
     "search": {
       "searchResults": "resultas de recherche ",
@@ -111,12 +125,14 @@
       "evaluationTab": "Évaluation du projet",
       "notApproved": "Ce projet n'est pas encore approuvé, il n'apparaîtra pas dans les listes publiques tant qu'il n'aura pas été enregistré dans une structure.",
       "projectNotYetEvaluated": "Ce projet n'a pas encore reçu suffisamment de commentaires et d'évaluations de la part de ses participants, nous ne pouvons donc pas vous montrer comment il va. Revenez un autre jour!",
-      "activeCountries": "This project is active in 1 country: | This project is active in {n} countries:"
+      "activeCountries": "This project is active in 1 country: | This project is active in {n} countries:",
+      "projectFiles": "Find here any files that the Project's manager has uploaded to be publicly viewed."
     },
     "structureDetail": {
+      "about": "À propos",
       "notApproved": "Cette structure n'est pas encore approuvée, elle n'apparaîtra pas dans les listes publiques tant qu'un administrateur du site ne l'aura pas validée.",
       "activeCountries": "This structure is active in 1 country: | This structure is active in {n} countries:",
-      "about": "À propos"
+      "structureFiles": "Find here any files that the Structure's manager has uploaded to be publicly viewed."
     },
     "structureList": {
       "introTitle": "Want to know more about structures?",
@@ -211,7 +227,9 @@
       "evalConfirmDismiss": "Si vous rejetez ce message, cette option ne sera plus disponible pour vous.",
       "inviteParticipantsTitle": "Inviter un participant à ce projet",
       "inviteParticipantsInfo": "Si un ou plusieurs de vos participants ne sont pas en mesure de créer un compte par eux-mêmes, ou si vous préférez remplir l'évaluation à leur nom, vous pouvez utiliser ce formulaire pour créer un utilisateur dans la plateforme en leur nom.",
-      "attachmentsTab": "Fichiers joints"
+      "attachmentsTab": "Fichiers joints",
+      "structurePartnersTitle": "Partnered Structures",
+      "structurePartnersSubheading": "Besides the main structure that governs this project, what other organizations do you participate with?"
     },
     "evaluationDetail": {
       "heatchart": {
@@ -275,6 +293,14 @@
     },
     "ProjectCard": {
       "numberOfParticipants": "Nombre de participants"
+    },
+    "Attachment": {
+      "upload": "Upload new file",
+      "noAttachments": "No files attached."
+    },
+    "StructureNetworks": {
+      "title": "Networks this Structure is part of:",
+      "otherStructures": "Other Structures in this Network:"
     }
   },
   "models": {
@@ -597,7 +623,7 @@
   "navigation": {
     "links": {
       "home": "Accueil",
-      "about": "À propos",
+      "about": "About Us",
       "help": "Aide",
       "learn": "Aide"
     }
@@ -661,6 +687,8 @@
     "structure": "Structure",
     "structures": "Structures",
     "evaluation": "Évaluation",
+    "file": "File",
+    "files": "Files",
     "attachment": "Pièce jointe",
     "attachments": "Pièces jointes"
   },
@@ -689,6 +717,7 @@
       "mustNotBeEmail": "Veuillez ne pas utiliser une adresse électronique comme nom d'utilisateur car cette information est publique.",
       "mustBeStructure": "Veuillez entrer une structure validée",
       "mustBeUser": "Veuillez entrer une liste d'utilisateurs valide",
+      "mustBeValidYear": "Please enter a year between 500 and 2100",
       "mustBeURL": "Veuillez entrer une URL valide",
       "mustBeCountry": "Veuillez entrer un pays valide",
       "mustBeKnowledgeArea": "Veuillez entrer un domaine de connaissances valide"
@@ -699,6 +728,7 @@
     "toasts": {
       "permissionError": "Il y a eu une erreur lors de l'accès à la source d'information, vous n'avez peut-être pas la permission de la consulter.",
       "uploadError": "Il y a eu une erreur lors du téléchargement de votre fichier.",
+      "uploadErrorTooBig": "This file is too big to upload. Please limit your file size to {size} MB.",
       "loggedOut": "Vous avez été déconnecté",
       "resetPasswordSubmitted": "Un email de réinitialisation de mot de passe a été envoyé à l'utilisateur de ce compte.",
       "saveSuccess": "Enregistré avec succès!",
@@ -734,12 +764,16 @@
       "structureYearFounded": "Année de fondation de la structure",
       "structureAdministrators": "Administrateurs de la structure",
       "structureCountry": "Pays d' action de la structure",
+      "networks": "Networks",
+      "network": "Network",
       "projectName": "Nom du projet",
       "projectAcronym": "Acronyme du projet",
       "projectType": "Type de projet",
       "projectPhase": "Phase du projet",
       "projectCountry": "Pays d'action du projet",
       "projectAdministrators": "Administrateurs du projet",
+      "projectDateStart": "Date the project started",
+      "projectDateEnd": "Date the project will end",
       "socialNetwork": "Réseau social",
       "contactEmail": "Adresse électronique de contact",
       "contactWebsite": "Site web externe",
@@ -768,12 +802,13 @@
       "contactWebsite": "URL d'un site externe ou l'on peut en savoir plus sur votre projet",
       "username": "Entrez votre nom d'utilisateur. Un bon choix est de mettre votre prénom.nom (ex. jean.dupuis)",
       "structureName": "Choisissez un nom qui caractérise votre structure. Moins de 50 caractères si possible.",
-      "structureSummary": "Un bref résumé de votre structure et de ce qu'elle recouvre. Il est conseillé de ne pas dépasser 200 caractères.",
+      "structureSummary": "A short summary of your structure and what it encompasses. We recommend to keep it under 400 characters.",
       "structureCountry": "Pays où cette structure opère généralement",
       "structureAdministrators": "Ajoutez ici toutes les personnes qui auront un accès complet pour éditer la structure et approuver de nouveaux projets. Les administrateurs de la structure ne peuvent pas transférer la propriété de celle-ci. Les administrateurs ne sont PAS des participants.",
+      "networks": "Select here all the networks that your structure is part of.",
       "projectType": "Comment l'équipe de votre projet est-elle structurée?",
       "projectName": "Choisissez un nom pour définir votre projet. Moins de 50 caractères si possible.",
-      "projectSummary": "Bref résumé de votre projet et de ce qu’il recouvre. Il est conseillé de ne pas dépasser 200 caractères.",
+      "projectSummary": "A short summary of your project and what it encompasses. We recommend to keep it under 400 characters.",
       "projectAdministrators": "Ajoutez ici toutes les personnes qui auront un accès complet pour éditer le projet. Les administrateurs de projet ne peuvent pas transférer la propriété de celui-ci.Les administrateurs NE SONT PAS des participants.",
       "projectAcronym": "Choisissez un acronyme pour votre projet",
       "projectCountry": "Où votre projet est-il basé et où opère t-il généralement?",

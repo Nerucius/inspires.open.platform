@@ -54,14 +54,26 @@
       "welcomeMessageLong": "También ofrece una herramienta integrada de evaluación de impacto colaborativa con el fin de evaluar los procesos y resultados de sus propios proyectos con respecto a otros. El objetivo que se persigue es producir una reflexión conjunta y colectiva en torno a este tipo de proyectos de colaboración para aprender, pensar, trabajar y crecer como comunidad para desarrollar mejores proyectos que apunten a mejorar la vida y el bienestar de los ciudadanos.",
       "aboutLink": "¡Más sobre nosotros!",
       "allProjects": "Todos los Proyectos",
-      "projectsSeeMore": "Ver todos los proyectos"
+      "projectsSeeMore": "Ver todos los proyectos",
+      "useThePlatform": "Empieza con InSPIRES",
+      "learnMore": "Aprender más sobre"
     },
     "help": {
       "title": "Centro de Ayuda",
       "description": "TODO: texto",
       "allArticles": "Todos los Artículos",
+      "allCourses": "Cursos de E-Learning",
       "articlesOtherLanguages": "Artículos en otras lenguas",
-      "articleDoesNotExist": "El artículo que busca ya no existe."
+      "articleDoesNotExist": "El artículo que busca ya no existe.",
+      "courses": {
+        "main": "Curso",
+        "modules": "Modulos en este Curso",
+        "reccomendedMaterials": "Materiales recomendados",
+        "feedbackTitle": "Valoramos tu opinión",
+        "feedbackLabelStars": "¿Hasta qué punto has encontrado útil el contenido de este módulo?",
+        "feedbackLabelTextbox": "¿Tiene alguna sugerencia o comentarios?",
+        "feedbackSubmitted": "Gracias por tu opinión!"
+      }
     },
     "about": {
       "mainTitle": "Acerca de la Plataforma Abierta de InSPIRES",
@@ -73,7 +85,9 @@
       "missionObjective3": "Proporcionar a la comunidad una herramienta de evaluación de impacto intuitiva y personalizable para capturar los procesos y resultados de manera armonizada.",
       "missionParagraph3": "Al final, esperamos que la Plataforma apoye el aprendizaje mutuo de la comunidad (coordinadores de la estructura y participantes del proyecto en todo el mundo) compartiendo experiencias de Tiendas de Ciencia/Science Shops y otros proyectos participativos de investigación e innovación, buenas prácticas pero también prácticas fallidas, metodologías, etc.",
       "titleTeam": "El equipo que está detrás de la Plataforma Abierta InSPIRES",
-      "teamContent": "El desarrollo de esta Plataforma Abierta ha sido liderado por el equipo de ISGlobal en estrecha colaboración con los grupos de investigación de Data Science y OpenSystems de la Universidad de Barcelona. Todos los miembros del consorcio InSPIRES también han desempeñado un papel importante en su creación y evolución."
+      "teamContent": "El desarrollo de esta Plataforma Abierta ha sido liderado por el equipo de ISGlobal en estrecha colaboración con los grupos de investigación de Data Science y OpenSystems de la Universidad de Barcelona. Todos los miembros del consorcio InSPIRES también han desempeñado un papel importante en su creación y evolución.",
+      "titlePartners": "Partners de InSPIRES",
+      "partnersContent": "Queremos dar las gracias a nuestros Partners que han colaborado con el diseño y la prueba de la plataforma. Sin ellos este proyecto no sería posible."
     },
     "search": {
       "searchResults": "Resultados de la Búsqueda",
@@ -111,12 +125,14 @@
       "evaluationTab": "Evaluación de proyectos",
       "notApproved": "Este proyecto aún no está aprobado, no aparecerá en las listas públicas hasta que se registre en una Estructura.",
       "projectNotYetEvaluated": "Este proyecto aún no ha recibido suficientes respuestas y evaluaciones de sus participantes, por lo que no podemos mostrarles cómo les está yendo. ¡Vuelve a consultar otro día!",
-      "activeCountries": "Este proyecto está activo en 1 país: | Este proyecto está activo en {n} países:"
+      "activeCountries": "Este proyecto está activo en 1 país: | Este proyecto está activo en {n} países:",
+      "projectFiles": "Aquí puedes ver cualquier archivo que el Proyecto haya subido para ser visto públicamente."
     },
     "structureDetail": {
+      "about": "Acerca de",
       "notApproved": "Esta estructura aún no está aprobada, no aparecerá en las listas públicas hasta que un administrador del sitio web la valide.",
       "activeCountries": "Esta estructura está activa en 1 país: | Esta estructura está activa en {n} países:",
-      "about": "Acerca de"
+      "structureFiles": "Aquí puedes ver cualquier archivo que la Estructura haya subido para ser visto públicamente."
     },
     "structureList": {
       "introTitle": "¿Quieres saber más acerca de las estructuras?",
@@ -211,7 +227,9 @@
       "evalConfirmDismiss": "Si descartas esta alerta, esta opción dejará de estar disponible para ti.",
       "inviteParticipantsTitle": "Invitar a un Participante a este Proyecto",
       "inviteParticipantsInfo": "Si uno o varios de sus participantes no pueden crear una cuenta por sí mismos, o usted prefiere rellenar la evaluación en su nombre, puede utilizar este formulario para crear un usuario en la Plataforma para ellos.\n\n**NOTA**: Su proyecto debe estar validado y formar parte de una estructura.",
-      "attachmentsTab": "Archivos adjuntos"
+      "attachmentsTab": "Archivos adjuntos",
+      "structurePartnersTitle": "Estructuras Asociadas",
+      "structurePartnersSubheading": "Además de la estructura principal que rige este proyecto, ¿con qué otras organizaciones participa?"
     },
     "evaluationDetail": {
       "heatchart": {
@@ -275,6 +293,14 @@
     },
     "ProjectCard": {
       "numberOfParticipants": "Número de participantes"
+    },
+    "Attachment": {
+      "upload": "Subir archivo nuevo",
+      "noAttachments": "Ningún archivo adjuntado."
+    },
+    "StructureNetworks": {
+      "title": "Redes de las que esta estructura forma parte:",
+      "otherStructures": "Otras estructuras en esta Red:"
     }
   },
   "models": {
@@ -597,7 +623,7 @@
   "navigation": {
     "links": {
       "home": "Inicio",
-      "about": "Acerca de ",
+      "about": "Sobre nosotros",
       "help": "Ayuda",
       "learn": "Ayuda"
     }
@@ -661,6 +687,8 @@
     "structure": "Estructura",
     "structures": "Estructuras",
     "evaluation": "Evaluación",
+    "file": "Archivo",
+    "files": "Archivos",
     "attachment": "Adjunto",
     "attachments": "Adjuntos"
   },
@@ -689,6 +717,7 @@
       "mustNotBeEmail": "Por favor, no utilice un correo electrónico como nombre de usuario ya que esta información es pública.",
       "mustBeStructure": "Por favor, introduzca una Estructura válida",
       "mustBeUser": "Por favor, introduzca una lista válida de Usuarios",
+      "mustBeValidYear": "Introduce un año entre 500 y 2100",
       "mustBeURL": "Por favor, introduzca una URL válida",
       "mustBeCountry": "Por favor, introduzca un país válido",
       "mustBeKnowledgeArea": "Por favor, introduzca un área de conocimiento válida"
@@ -699,6 +728,7 @@
     "toasts": {
       "permissionError": "Se ha producido un error al acceder al recurso, es posible que no tenga permiso para verlo.",
       "uploadError": "Hubo un error al cargar su archivo",
+      "uploadErrorTooBig": "Este archivo es demasiado grande para subirlo. Por favor, limita el tamaño de tu archivo a {size} MB.",
       "loggedOut": "Ha salido del sistema",
       "resetPasswordSubmitted": "Se ha enviado un correo electrónico de restablecimiento de contraseña al usuario de esta cuenta.",
       "saveSuccess": "¡Guardado con éxito!",
@@ -734,12 +764,16 @@
       "structureYearFounded": "Año de creación de esta estructura",
       "structureAdministrators": "Administradores de la estructura",
       "structureCountry": "País de actuación de la estructura",
+      "networks": "Redes",
+      "network": "Red",
       "projectName": "Nombre del Proyecto",
       "projectAcronym": "Acrónimo del Proyecto",
       "projectType": "Tipo de Proyecto",
       "projectPhase": "Fase del Proyecto",
       "projectCountry": "País de actuación del proyecto",
       "projectAdministrators": "Administradores del Proyecto",
+      "projectDateStart": "Fecha de inicio del proyecto",
+      "projectDateEnd": "Fecha de fin del proyecto",
       "socialNetwork": "Red social",
       "contactEmail": "Email de Contacto",
       "contactWebsite": "Página web externa",
@@ -768,12 +802,13 @@
       "contactWebsite": "URL de una página web donde la gente pueda saber más sobre su proyecto.",
       "username": "Introduzca su nombre de usuario. Una buena opción es nombre.apellido (es decir, maria.garcia)",
       "structureName": "Elija un nombre que caracterice su estructura. Se sugieren menos de 50 caracteres.",
-      "structureSummary": "Un breve resumen de su estructura y lo que abarca. Se sugiere que no supere los 200 caracteres.",
+      "structureSummary": "Un breve resumen de su estructura y lo que abarca. Se sugiere que no supere los 400 caracteres.",
       "structureCountry": "País en el que opera principalmente esta estructura",
       "structureAdministrators": "Agregue aquí todas las personas que tendrán acceso completo para editar la estructura y aprobar nuevos proyectos. Los administradores de la estructura no pueden transferir la propiedad. Los administradores NO son participantes.",
+      "networks": "Selecciona aquí todas las redes de las que forma parte tu estructura.",
       "projectType": "¿Cómo esta estructurado el equipo de su proyecto?",
       "projectName": "Elija un nombre que caracterice su proyecto. Se sugieren menos de 50 caracteres. ",
-      "projectSummary": "Un breve resumen de su proyecto y de lo que engloba. Se sugiere que no supere los 200 caracteres.",
+      "projectSummary": "Un breve resumen de su estructura y lo que abarca. Se sugiere que no supere los 400 caracteres.",
       "projectAdministrators": "Agregue aquí todas las personas que tendrán acceso completo para editar el Proyecto. Los administradores del proyecto no pueden transferir la propiedad. Los administradores NO son participantes.",
       "projectAcronym": "Seleccione un Acrónimo del Proyecto",
       "projectCountry": "¿Dónde está establecido o actúa su proyecto, principalmente?",

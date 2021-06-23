@@ -54,14 +54,26 @@
       "welcomeMessageLong": "Het biedt ook een geïntegreerde en collaboratieve impactevaluatietool voor het beoordelen van de processen en resultaten van uw eigen projecten in relatie tot anderen. Het doel is om een ​​gezamenlijke en collectieve reflectie voor dit type samenwerkingsprojecten te realiseren. Dit vormt de basis voor het uitwisselen van praktijkvoorbeelden om zodoende samen te kunnen leren, denken, debatteren en groeien, en om uiteindelijk betere projecten te kunnen ontwikkelen die gericht zijn op het verbeteren van het leven en welzijn van burgers. ",
       "aboutLink": "Meer over ons!",
       "allProjects": "Alle projecten",
-      "projectsSeeMore": "Bekijk alle projecten"
+      "projectsSeeMore": "Bekijk alle projecten",
+      "useThePlatform": "Start using the platform",
+      "learnMore": "Learn more about"
     },
     "help": {
       "title": "Helpcentrum",
       "description": "TODO: tekst",
       "allArticles": "Alle artikelen",
+      "allCourses": "E-Learning Courses",
       "articlesOtherLanguages": "Artikelen in andere talen",
-      "articleDoesNotExist": "Het artikel dat u zoekt bestaat niet meer."
+      "articleDoesNotExist": "Het artikel dat u zoekt bestaat niet meer.",
+      "courses": {
+        "main": "Course",
+        "modules": "Modules in this Course",
+        "reccomendedMaterials": "Reccomended Materials",
+        "feedbackTitle": "We value your feedback",
+        "feedbackLabelStars": "How useful did you find the content of this module?",
+        "feedbackLabelTextbox": "Do you have any suggestions, comments or other feedback?",
+        "feedbackSubmitted": "Thanks for your feedback!"
+      }
     },
     "about": {
       "mainTitle": "Over InSPIRES Open Platform",
@@ -73,7 +85,9 @@
       "missionObjective3": "Zorgen voor een intuïtieve en aanpasbare impactevaluatietool voor gemeenschappen om proces- en uitkomstresultaten op een geharmoniseerde manier vast te leggen.",
       "missionParagraph3": "Uiteindelijk hopen we dat het platform de gemeenschap zal ondersteunen (structuur bieden voor coördinators en projectdeelnemers over de hele wereld) en het wederzijds leren zal stimuleren door ervaringen en goede, maar ook minder goede, voorbeelden van Wetenschapswinkels en andere participerende onderzoeks- en innovatieprojecten te delen. ",
       "titleTeam": "Het team achter InSPIRES Open Platform",
-      "teamContent": "De ontwikkeling van dit Open Platform werd geleid door het ISGlobal-team in nauwe samenwerking met de onderzoeksgroepen Data Science en OpenSystems van de Universiteit van Barcelona. Alle InSPIRES-consortiumleden hebben tevens een belangrijke rol gespeeld bij de totstandkoming ​​en doorontwikkeling.  "
+      "teamContent": "De ontwikkeling van dit Open Platform werd geleid door het ISGlobal-team in nauwe samenwerking met de onderzoeksgroepen Data Science en OpenSystems van de Universiteit van Barcelona. Alle InSPIRES-consortiumleden hebben tevens een belangrijke rol gespeeld bij de totstandkoming ​​en doorontwikkeling.  ",
+      "titlePartners": "InSPIRES Partners",
+      "partnersContent": "We want to thank our partners who have collaborated with the design and testing of the platform. Without them this project would not be possible."
     },
     "search": {
       "searchResults": "Zoek resultaten",
@@ -111,12 +125,14 @@
       "evaluationTab": "Projectevaluatie",
       "notApproved": "Dit project is nog niet goedgekeurd, het zal niet in de publieke lijsten verschijnen totdat het geregistreerd is bij een Structuur.",
       "projectNotYetEvaluated": "Dit project heeft nog onvoldoende feedback en evaluaties ontvangen van de deelnemers, hierdoor kunnen we u nog niet laten zien hoe het gaat. Kom later nog eens terug!",
-      "activeCountries": "This project is active in 1 country: | This project is active in {n} countries:"
+      "activeCountries": "This project is active in 1 country: | This project is active in {n} countries:",
+      "projectFiles": "Find here any files that the Project's manager has uploaded to be publicly viewed."
     },
     "structureDetail": {
+      "about": "Over",
       "notApproved": "Deze structuur is nog niet goedgekeurd, het zal niet verschijnen in de publieke lijsten totdat een sitebeheerder het valideert.",
       "activeCountries": "This structure is active in 1 country: | This structure is active in {n} countries:",
-      "about": "Over"
+      "structureFiles": "Find here any files that the Structure's manager has uploaded to be publicly viewed."
     },
     "structureList": {
       "introTitle": "Want to know more about structures?",
@@ -211,7 +227,9 @@
       "evalConfirmDismiss": "Indien u deze waarschuwing afwijst, zal deze optie niet langer voor u beschikbaar zijn.",
       "inviteParticipantsTitle": "Nodig een deelnemer uit voor dit project",
       "inviteParticipantsInfo": "Als een of meer van uw deelnemers niet in staat is om zelf een account aan te maken, of als u de evaluatie liever in hun naam invult, kunt u dit formulier gebruiken om voor hen een gebruiker in het platform aan te maken.\n\n**N.B.**: Uw Project moet gevalideerd zijn en deel uitmaken van een Structuur.",
-      "attachmentsTab": "Bestand bijvoegen"
+      "attachmentsTab": "Bestand bijvoegen",
+      "structurePartnersTitle": "Partnered Structures",
+      "structurePartnersSubheading": "Besides the main structure that governs this project, what other organizations do you participate with?"
     },
     "evaluationDetail": {
       "heatchart": {
@@ -275,6 +293,14 @@
     },
     "ProjectCard": {
       "numberOfParticipants": "Aantal deelnemers"
+    },
+    "Attachment": {
+      "upload": "Upload new file",
+      "noAttachments": "No files attached."
+    },
+    "StructureNetworks": {
+      "title": "Networks this Structure is part of:",
+      "otherStructures": "Other Structures in this Network:"
     }
   },
   "models": {
@@ -597,7 +623,7 @@
   "navigation": {
     "links": {
       "home": "Home",
-      "about": "Over",
+      "about": "About Us",
       "help": "Help",
       "learn": "Help"
     }
@@ -661,6 +687,8 @@
     "structure": "Structuur",
     "structures": "Structuren",
     "evaluation": "Evaluatie",
+    "file": "File",
+    "files": "Files",
     "attachment": "Bijlage",
     "attachments": "Bijlagen"
   },
@@ -689,6 +717,7 @@
       "mustNotBeEmail": "Gebruik a.u.b. geen e-mail als gebruikersnaam, aangezien deze informatie openbaar is.",
       "mustBeStructure": "Voer een geldige Structuur in",
       "mustBeUser": "Voer een geldige lijst met gebruikers in",
+      "mustBeValidYear": "Please enter a year between 500 and 2100",
       "mustBeURL": "Voer een geldige URL in",
       "mustBeCountry": "Voer een geldig land in",
       "mustBeKnowledgeArea": "Voer een geldig Kennisgebied in"
@@ -699,6 +728,7 @@
     "toasts": {
       "permissionError": "Er is een fout opgetreden bij het openen van de bron, u hebt misschien geen toestemming om deze te bekijken.",
       "uploadError": "Er is een fout opgetreden bij het uploaden van uw bestand",
+      "uploadErrorTooBig": "This file is too big to upload. Please limit your file size to {size} MB.",
       "loggedOut": "U bent uitgelogd",
       "resetPasswordSubmitted": "De gebruiker van deze account heeft een e-mail ontvangen om zijn wachtwoord te resetten.",
       "saveSuccess": "Met succes opgeslagen!",
@@ -734,12 +764,16 @@
       "structureYearFounded": "Jaar waarin deze Structuur is opgericht",
       "structureAdministrators": "Structuur Beheerders",
       "structureCountry": "Structuur land van actie",
+      "networks": "Networks",
+      "network": "Network",
       "projectName": "Projectnaam",
       "projectAcronym": "Projectacroniem",
       "projectType": "Projecttype",
       "projectPhase": "Projectfase",
       "projectCountry": "Project land van actie",
       "projectAdministrators": "Projectbeheerders",
+      "projectDateStart": "Date the project started",
+      "projectDateEnd": "Date the project will end",
       "socialNetwork": "Sociaal Netwerk",
       "contactEmail": "Contact E-mail",
       "contactWebsite": "Externe website",
@@ -768,12 +802,13 @@
       "contactWebsite": "URL naar een externe website waar mensen meer informatie over uw project kunnen vinden.",
       "username": "Voer uw gebruikersnaam in. Een goede keuze is voornaam.achternaam (bijv. john.doe)",
       "structureName": "Kies een naam die uw structuur karakteriseert. Minder dan 50 tekens aanbevolen.",
-      "structureSummary": "Een korte samenvatting van uw structuur en wat die inhoudt. Aanbevolen wordt om het onder de 200 tekens te houden.",
+      "structureSummary": "A short summary of your structure and what it encompasses. We recommend to keep it under 400 characters.",
       "structureCountry": "Land waar deze structuur hoofdzakelijk werkzaam is",
       "structureAdministrators": "Voeg hier alle mensen toe die volledige toegang zullen hebben om de Structuur te bewerken en nieuwe Projecten goed te keuren. Structuurbeheerders kunnen geen eigendom overdragen. Beheerders zijn GEEN deelnemers.",
+      "networks": "Select here all the networks that your structure is part of.",
       "projectType": "Hoe is uw projectteam gestructureerd?",
       "projectName": "Kies een naam die kenmerkend is voor uw project. Minder dan 50 tekens wordt geadviseerd.",
-      "projectSummary": "Een korte samenvatting van uw project. Minder dan 200 tekens wordt geadviseerd.",
+      "projectSummary": "A short summary of your project and what it encompasses. We recommend to keep it under 400 characters.",
       "projectAdministrators": "Voeg hier alle mensen toe die volledige toegang zullen hebben om het Project te bewerken. Projectbeheerders kunnen geen eigendom overdragen. Beheerders zijn GEEN deelnemers.",
       "projectAcronym": "Kies een projectacroniem",
       "projectCountry": "Waar is uw project voornamelijk gevestigd of werkzaam?",

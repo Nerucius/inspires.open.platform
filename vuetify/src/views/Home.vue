@@ -1,28 +1,63 @@
+<style scoped>
+.btn-rows .v-btn{
+  margin: 18px 0px;
+}
+</style>
+
 <template>
   <v-layout row wrap align-content-start>
-    <v-flex xs12>
-      <v-card flat>
-        <v-parallax
-          height="165"
-          src="/img/bg-homepage.jpg"
-        >
-          <div>
-            <h1 class="text-truncate mt-2 mb-2">
-              {{ $t('pages.home.mainTitle') }}
-            </h1>
-            <v-sheet :height="2*21" class="hidden-xs-only transparent white--text overflow-hidden mb-2">
-              {{ $t('pages.home.welcomeMessage') }}
-            </v-sheet>
-            <p class="text-xs-right ma-0">
-              <v-btn :to="{name:'about'}" flat outline dark color="grey lighten-1">
-                {{ $t('pages.home.aboutLink') }}
-              </v-btn>
-              <v-btn :to="{name:'register'}" flat outline dark>
-                {{ $t('pages.login.registerCTA') }}
-              </v-btn>
-            </p>
-          </div>
+
+    <v-flex xs12 sm12 md6>
+      <v-card>
+        <v-parallax src="/img/bg-homepage-2.jpg" height="400">
+          <v-layout ma-0 pa-0 fill-height column justify-space-between>
+
+            <v-flex shrink>
+              <!-- <v-parallax height="165" src="/img/bg-homepage.jpg"> -->
+              <h1 class="text-truncate mb-3">
+                {{ $t('pages.home.mainTitle') }}
+              </h1>
+              <p class="subheading pa-1 ma-0" style="background-color:rgba(0,0,0,0.4)">
+                {{ $t('pages.home.welcomeMessage') }}
+              </p>
+            </v-flex>
+
+            <v-flex shrink class="btn-rows" pb-2>
+              <v-layout row class="text-xs-center" style="background-color:rgba(0,0,0,0.4)">
+                <v-flex xs12>
+                  <h3 class="text-no-wrap">{{ $t('pages.home.useThePlatform') }}</h3>
+                  <v-btn flat dark outline block :to="{name:'register'}">
+                    {{ $t('pages.login.registerCTA') }}
+                  </v-btn>
+                  <v-btn flat dark outline block :to="{name:'project-create'}">
+                    {{ $t('pages.projectCreate.title') }}
+                  </v-btn>
+                </v-flex>
+
+                <v-flex xs12 class="hidden-xs-only hidden-md-only">
+                  <h3>{{ $t('pages.home.learnMore') }}</h3>
+                  <v-btn flat dark outline block :to="{name:'help', query:{master: 10}}">
+                    {{ $t('noums.evaluation') }}
+                  </v-btn>
+                  <v-btn flat dark outline block :to="{name:'about'}">
+                    {{ $t('navigation.links.about') }}
+                  </v-btn>
+                </v-flex>
+              </v-layout>
+            </v-flex>
+
+          </v-layout>
         </v-parallax>
+      </v-card>
+    </v-flex>
+
+    <v-flex xs12 sm12 md6>
+      <v-card :key="homeVideoURL">
+        <iframe width="100%" height="400px"
+                style="margin-bottom:-6px"
+                :src="homeVideoURL"
+                title="Inspires Open Platform" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
       </v-card>
     </v-flex>
 
@@ -122,6 +157,11 @@ export default {
         summary: this.$t("misc.registeredProjects", {n:s.collaborations.length})
       }))
       return structureList.slice(0,8)
+    },
+    homeVideoURL(){
+      if(this.$i18n.locale == 'es' || this.$i18n.locale == 'ca')
+        return 'https://www.youtube.com/embed/VwWsHhAJIDQ';
+      return 'https://www.youtube.com/embed/VrfG2oOrSVE';
     }
   },
 

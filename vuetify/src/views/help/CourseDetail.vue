@@ -25,15 +25,13 @@
       :src="content.image_url"
     />
 
-    <!-- Top margin spacer -->
-    <v-spacer class="my-5 py-5" />
-
     <!-- TODO: Header across the top with all modules -->
     <!-- <div class="cover-image">
     </div> -->
 
     <!-- Navigation Buttons -->
     <v-flex xs12 xl8>
+      <!-- Top margin spacer -->
       <v-layout justify-start>
 
         <!-- Editor controls -->
@@ -79,6 +77,8 @@
         </v-flex>
 
       </v-layout>
+
+      <v-spacer class="hidden-xs-only my-5 py-5" />
     </v-flex>
 
     <!-- Content of the Course Page -->
@@ -106,7 +106,7 @@
 
             <!-- This article in other languages -->
             <v-flex ma-1 pa-1 shrink>
-              <v-menu v-if="courses.length > 0" offset-y>
+              <v-menu offset-y>
                 <v-btn slot="activator" outline class="white--text">
                   {{ content.locale }}
                   <v-icon right>

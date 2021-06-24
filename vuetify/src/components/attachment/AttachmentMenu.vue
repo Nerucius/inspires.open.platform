@@ -3,7 +3,7 @@
     <v-expansion-panel-content>
       <!-- Trigger Slot -->
       <template v-slot:header>
-        <h1 class="title">{{ $t('pages.help.courses.reccomendedMaterials') }} ({{ content.attachments.length }})</h1>
+        <h1 class="title">{{ $t('pages.help.courses.recomendedMaterials') }} ({{ content.attachments.length }})</h1>
       </template>
 
       <v-sheet class="grey lighten-4 pa-4">

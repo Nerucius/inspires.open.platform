@@ -54,7 +54,7 @@ export default {
 
   methods : {
     onChange(){
-      this.$emit('change', content)
+      this.$emit('change')
     }
   }
 }

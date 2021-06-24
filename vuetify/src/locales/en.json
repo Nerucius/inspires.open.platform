@@ -310,6 +310,7 @@
     },
     "Attachment": {
       "upload": "Upload new file",
+      "externalResource": "External Resource",
       "noAttachments": "No files attached."
     },
     "StructureNetworks": {
@@ -749,6 +750,7 @@
     },
     "toasts": {
       "permissionError": "There was an error while accessing the resource, you might not have permission to view this.",
+      "invalidFileType": "You can't upload files of this type",
       "uploadError": "There was an error uploading your file",
       "uploadErrorTooBig": "This file is too big to upload. Please limit your file size to {size} MB.",
       "loggedOut": "You have been logged out",

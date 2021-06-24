@@ -143,58 +143,25 @@
 
     </div>
 
-    <v-card-text>
-      <v-layout mt-3 justify-end>
-        <v-flex shrink class="grey--text">
-          <span :title="moment(content.modified_at).format('L LT')">
-            {{
-              $t("misc.lastUpdated", {
-                time: moment(content.modified_at).fromNow(),
-              })
-            }}
-          </span>
-        </v-flex>
-      </v-layout>
-    </v-card-text>
-
-    <!-- Attachments -->
-    <v-card-text>
-      <v-sheet class="grey lighten-4 pa-3">
-        <h2 class="mb-2">{{ $t('noums.files') }}</h2>
-        <!-- List of attachments -->
-        <AttachmentList :attachments="content.attachments" @change="reloadContent" />
-        <!-- Upload form for editor -->
-        <template v-if="currentUser.is_editor">
-          <br>
-          <br>
-          <h3 mb-2>{{ $t('components.Attachment.upload') }}</h3>
-          <AttachmentUpload model="content" :object-id="content.id" @upload="reloadContent" />
-        </template>
-      </v-sheet>
-    </v-card-text>
-
   </div>
 </template>
 
 <script>
 import { getFlagIso } from "@/plugins/i18n";
-import AttachmentUpload from "@/components/input/AttachmentUpload";
-import AttachmentList from "@/components/attachment/AttachmentList";
 
 export default {
 
   components:{
-    AttachmentUpload,
-    AttachmentList
   },
+
   props : ["content", "parent", "contentsSameMaster"],
 
   data(){
     return {
       moment,
       panels: [0],
-      getFlagIso,
       viewAsPDF: false,
+      getFlagIso,
     }
   },
 
@@ -215,11 +182,6 @@ export default {
   },
 
   methods: {
-
-    async reloadContent(){
-      console.log("Reloading article")
-      await this.$store.dispatch('content/load', [this.content.slug])
-    },
 
     splitIntoSections(){
       var sections = [];

@@ -37,11 +37,11 @@
 
 <template>
   <v-layout pa-0 wrap>
-    
+
     <template v-for="group in groupedCourses">
 
-      <v-flex :key="group.master_id" ma-2 xs12 md6>
-        <v-card>
+      <v-flex :key="group.master_id" ma-0 xs12>
+        <v-card flat>
           <v-layout pa-0 ma-0>
             <!-- Course Image -->
             <v-flex pa-0 ma-0 sm4 class="hidden-xs-only">
@@ -50,13 +50,20 @@
             <!-- Course Summary -->
             <v-flex sm8>
               <v-layout column>
-                <v-flex grow>
+                <v-flex grow pt-2>
                   <v-sheet class="overflow-hidden pa-0" :height="200-50-12">
-                    <h3 class="headline mb-2">
+                    <h3 class="headline mb-2" style="line-height:200%">
                       <router-link :to="group.content.link">
+                        <span style="display: inline-block;position: relative;top: 3px;">
+                          <v-icon large color="primary">
+                            circle
+                          </v-icon>
+                          <v-icon color="white" style="position:absolute; left:5px; top:6px">mdi-school</v-icon>
+                        </span>
                         {{ group.content.title }}
                       </router-link>
                     </h3>
+                    <hr class="grey lighten-2 my-2" style="border-width:2px">
                     <div class="line-clamp" style="line-height: 180%">
                       {{ group.content.summary }}
                     </div>
@@ -76,17 +83,6 @@
                       style="width: 32px"
                     />
                   </router-link>
-                  <!-- <v-btn
-                    v-for="other in group.others"
-                    :key="other.id"
-                    :to="other.link"
-                    small flat class="pa-0 ma-0"
-                  >
-                    <v-avatar size="90%">
-                      <flag :iso="getFlagIso(other.locale)" :squared="false" style="width: 64px" />
-                    </v-avatar>
-                  </v-btn> -->
-                  <!-- <v-btn flat color="primary" :to="group.content.link">Access</v-btn> -->
                 </v-flex>
               </v-layout>
             </v-flex>
@@ -131,7 +127,7 @@
       </v-list-tile>
       -->
 
-      
+
     </template>
   </v-layout>
 </template>

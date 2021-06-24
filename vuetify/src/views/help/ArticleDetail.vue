@@ -1,6 +1,7 @@
 <template>
   <v-layout row wrap align-content-start justify-center>
 
+    <!-- Title and header -->
     <v-flex xs12 xl8>
       <v-layout row wrap justify-end pa-2>
         <v-flex grow pa-0 pl-1>
@@ -17,15 +18,30 @@
       </v-layout>
     </v-flex>
 
-    <v-flex xs12 xl8>
+    <!-- Content of the Article -->
+    <v-flex v-if="!!article" xs12 xl8>
       <ArticleContent :key="article.id" :article="article" :articles-same-master="articles" />
     </v-flex>
+
+    <!-- Attached Materials -->
+    <v-flex xs12 xl8>
+      <AttachmentMenu :expanded="article.attachments.length > 0" :content="article" @change="loadContent" />
+    </v-flex>
+
+    <!-- Feedback form -->
+    <v-flex xs12 xl8>
+      <FeedbackForm :title="article.title" feedback-type="ARTICLE_FEEDBACK" model="content" :object-id="article.id" />
+    </v-flex>
+
 
   </v-layout>
 </template>
 
 <script>
 import ArticleContent from "@/components/help/ArticleContent";
+import AttachmentMenu from "@/components/attachment/AttachmentMenu";
+import FeedbackForm from "@/components/input/FeedbackForm";
+
 import { getFlagIso } from "@/plugins/i18n";
 import { API_SERVER } from "@/plugins/resource";
 
@@ -36,6 +52,8 @@ export default {
 
   components: {
     ArticleContent,
+    AttachmentMenu,
+    FeedbackForm,
   },
 
   data() {
@@ -66,7 +84,7 @@ export default {
 
   async created(){
     this.$store.dispatch("content/clear")
-    await this.loadArticleContent()
+    await this.loadContent()
 
     this.loadRelatedArticles()
   },
@@ -77,7 +95,7 @@ export default {
       this.articles = this.$store.getters["content/all"];
     },
 
-    async loadArticleContent() {
+    async loadContent() {
       // load current article
       try {
         await this.$store.dispatch("content/load", [this.articleSlug]);

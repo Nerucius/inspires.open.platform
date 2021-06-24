@@ -28,7 +28,6 @@ export const slug2id = function(slug) {
 };
 
 // Async Download
-
 export const donwloadAsyncCSV = async function($vm, url, filename) {
   let data = (await $vm.$http.get(url)).bodyText;
 
@@ -51,6 +50,15 @@ export const donwloadAsyncCSV = async function($vm, url, filename) {
     }, 0);
   }
 };
+
+// Capitalize strings
+export const capitalize = function(str){
+  if(!str) return '';
+
+  return str.toLowerCase().split(' ').map(function (word) {
+    return (word.charAt(0).toUpperCase() + word.slice(1));
+  }).join(' ');
+}
 
 // ==================================
 //  REGEX TESTERS

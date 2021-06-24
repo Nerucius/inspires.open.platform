@@ -6,10 +6,14 @@
 </style>
 
 <template>
-  <v-card-text>
-    <v-sheet class="grey lighten-4 pa-3">
-      <h2 class="mb-2">{{ $t("pages.help.courses.feedbackTitle") }}</h2>
+  <div>
+    <!-- White header -->
+    <v-sheet color="white" class="pa-3">
+      <h1 class="title">{{ $t("pages.help.courses.feedbackTitle") }}</h1>
+    </v-sheet>
 
+    <!-- Gray textbox -->
+    <v-sheet class="grey lighten-4 pa-3">
       <p class="subheading">
         {{ $t("pages.help.courses.feedbackLabelStars") }}
       </p>
@@ -67,7 +71,8 @@
 
       </v-form>
     </v-sheet>
-  </v-card-text>
+
+  </div>
 </template>
 
 <script>

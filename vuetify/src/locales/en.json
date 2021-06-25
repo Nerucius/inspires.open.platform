@@ -70,7 +70,7 @@
       "courses": {
         "main": "Course",
         "modules": "Modules in this Course",
-        "reccomendedMaterials": "Reccomended Materials",
+        "recomendedMaterials": "Recomended Materials",
         "feedbackTitle": "We value your feedback",
         "feedbackLabelStars": "How useful did you find the content of this module?",
         "feedbackLabelTextbox": "Do you have any suggestions, comments or other feedback?",
@@ -277,7 +277,7 @@
       "mainTitle": "Project Evaluation Questionnaire",
       "questionnaire": "Questionnaire",
       "selfQuestionnaireTitle": "Self-reflection Questionnaire",
-      "selfQuestionnaireDescription": "To aid in the evaluation of the Project, we reccomend checking out the Self-reflection Questionnaire. It contains some thought-provoking questions to get you started. You can download the questionnaire here:",
+      "selfQuestionnaireDescription": "To aid in the evaluation of the Project, we recomend checking out the Self-reflection Questionnaire. It contains some thought-provoking questions to get you started. You can download the questionnaire here:",
       "viewQuestionnaire1": "View the self reflection questionnaire for Phase 1",
       "viewQuestionnaire3": "View the self reflection questionnaire for Phase 3",
       "questionnaireDescription": "Please answer the following questions as honestly as you can. The scale represents a 0 for 'I completely disagree' to 7 for 'I completely agree'. The estimated answer time is 5 minutes.",
@@ -310,6 +310,7 @@
     },
     "Attachment": {
       "upload": "Upload new file",
+      "externalResource": "External Resource",
       "noAttachments": "No files attached."
     },
     "StructureNetworks": {
@@ -705,6 +706,8 @@
     "project": "Project",
     "projects": "Projects",
     "structure": "Structure",
+    "mainStructure": "Main Structure",
+    "partnerStructure": "Partner Structure",
     "structures": "Structures",
     "evaluation": "Evaluation",
     "file": "File",
@@ -747,6 +750,7 @@
     },
     "toasts": {
       "permissionError": "There was an error while accessing the resource, you might not have permission to view this.",
+      "invalidFileType": "You can't upload files of this type",
       "uploadError": "There was an error uploading your file",
       "uploadErrorTooBig": "This file is too big to upload. Please limit your file size to {size} MB.",
       "loggedOut": "You have been logged out",

@@ -16,20 +16,48 @@ input[type="file"] {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.or--divider{
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: -12px;
+  font-size: 120%;
+  font-weight: bold;
+}
+.or--divider > span{
+  padding: 6px 12px;
+  color: darkslategrey
+}
 </style>
 
 
 <template>
-  <v-form ref="form" v-model="valid" @submit.prevent="uploadAttachment">
+  <v-form ref="form" v-model="valid" @submit.prevent="createAttachment">
     <v-layout wrap>
-      <v-flex xs12>
+      <v-flex xs12 mb-3>
         <v-text-field
           v-model="attachment.name" single-line
-          hide-details
           :rules="[rules.required]"
           :label="$t('forms.fields.attachmentName')"
         />
       </v-flex>
+
+      <v-flex xs12>
+        <v-text-field
+          v-model="link" single-line
+          :disabled="file != null"
+          :rules="[rules.isURL]"
+          label="Resource Link"
+        />
+      </v-flex>
+
+      <v-flex xs12 pt-3 px-5>
+        <hr class="grey lighten-2 text--grey">
+        <span class="or--divider">
+          <span class="grey lighten-4">OR</span>
+        </span>
+      </v-flex>
+
       <v-flex xs12 sm6>
         <label
           class="v-btn v-btn--block custom-file-upload"
@@ -45,10 +73,10 @@ input[type="file"] {
             <span v-else>{{ file.name }}</span>
           </div>
         </label>
-        <input id="file" ref="file" type="file" @change="onFileChange">
+        <input :disabled="link != ''" id="file" ref="file" type="file" @change="onFileChange">
       </v-flex>
       <v-flex xs12 sm6>
-        <v-btn type="submit" :disabled="!valid || !file" block color="success">Upload</v-btn>
+        <v-btn type="submit" :disabled="!valid || (!file && !link)" block color="success">Upload</v-btn>
       </v-flex>
     </v-layout>
   </v-form>
@@ -57,6 +85,7 @@ input[type="file"] {
 
 <script>
 import { API_SERVER } from "@/plugins/resource";
+import { regexIsURL } from '@/plugins/utils'
 
 const VALID_MIME_TYPES = [
   "image/png", "image/jpeg", "video/mp4",
@@ -83,11 +112,13 @@ export default {
   data() {
     return {
       file: null,
+      link: '',
       valid: null,
       contentType: null,
       attachment: {},
       rules: {
         required: v => !!v || this.$t("forms.rules.requiredField"),
+        isURL: v => regexIsURL(v) || this.$t("forms.rules.mustBeURL"),
       },
     };
   },
@@ -115,7 +146,61 @@ export default {
       }
     },
 
-    async uploadAttachment() {
+    async createAttachment() {
+      if(!this.file && !this.link){
+        return
+      }
+
+      let attachmentData;
+
+      if(!!this.file){
+        // File attachments
+        var fileLink = this.uploadFile()
+        if(!fileLink) return;
+
+        attachmentData = {
+          ...this.attachment,
+          mime_type: this.file.type,
+          size: fileSize,
+          url: fileLink,
+          content_type: this.contentType,
+          object_id: this.objectId,
+        };
+
+      }else if(!!this.link){
+        // Link attachments
+        attachmentData = {
+          ...this.attachment,
+          mime_type: 'text/link',
+          size: 0,
+          url: this.link,
+          content_type: this.contentType,
+          object_id: this.objectId,
+        };
+      }
+
+      try {
+        await this.$store.dispatch("attachment/create", attachmentData);
+
+        this.$store.dispatch(
+          "toast/success",
+          this.$t("forms.toasts.uploadSuccessful")
+        );
+
+        // Upload complete
+        this.file = null;
+        this.link = '';
+        this.attachment = {}
+        this.$refs.form.reset()
+
+        this.$emit('upload');
+
+      } catch (error) {
+        this.$store.dispatch("toast/error", {message: this.$t("forms.toasts.uploadError"), error,});
+      }
+    },
+
+    async uploadFile(){
       // Create form data object and add file
       let formData = new FormData();
       formData.append("file", this.file);
@@ -141,33 +226,12 @@ export default {
           formData, { headers: { "Content-Type": "multipart/form-data" } }
         );
 
-        let attachmentData = {
-          ...this.attachment,
-          mime_type: this.file.type,
-          size: fileSize,
-          url: response.data.url,
-          content_type: this.contentType,
-          object_id: this.objectId,
-        };
-
-        await this.$store.dispatch("attachment/create", attachmentData);
-
-        this.$store.dispatch(
-          "toast/success",
-          this.$t("forms.toasts.uploadSuccessful")
-        );
-
-        // Upload complete
-        this.file = null;
-        this.attachment = {}
-        this.$refs.form.reset()
-
-        this.$emit('upload');
+        return response.data.url;
 
       } catch (error) {
         this.$store.dispatch("toast/error", {message: this.$t("forms.toasts.uploadError"), error,});
       }
-    },
+    }
   },
 };
 </script>

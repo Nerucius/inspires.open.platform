@@ -18,15 +18,8 @@
     </v-flex>
 
     <!-- Courses List section TODO: EDITOR ONLY-->
-    <v-flex xs12 xl8 v-if="currentUser.is_editor">
-      <v-card flat>
-        <v-toolbar dense flat dark color="grey darken-3">
-          <v-toolbar-title>{{ $t("pages.help.allCourses") }}</v-toolbar-title>
-        </v-toolbar>
-        <v-card-text>
-          <CourseList :courses="courses" :flags="true" />
-        </v-card-text>
-      </v-card>
+    <v-flex v-if="currentUser.is_editor" xs12 xl8 mb-4>
+      <CourseList :courses="courses" :flags="true" />
     </v-flex>
 
     <!-- Article List Section -->
@@ -150,7 +143,7 @@ export default {
         let masterArticle = this.articles.filter(a => a.master == master && a.locale == locale)
         if(masterArticle.length == 0)
           masterArticle = this.articles.filter(a => a.master == master && a.locale == 'en')
-        
+
         // If we found one, redirect
         if(masterArticle.length != 0){
           let goToArticle = masterArticle[0]

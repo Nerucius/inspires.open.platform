@@ -31,9 +31,9 @@ Vue.filter('ellipsis', (value, maxChars, dots=true) => {
   value = value.toString()
   if (value.length < maxChars) return value
   if(dots)
-    return value.substring(0, maxChars-3) + '...'
+    return value.substring(0, maxChars-3).trim() + '...'
     else
-    return value.substring(0, maxChars)
+    return value.substring(0, maxChars).trim()
 })
 
 Vue.filter('localize', value => {

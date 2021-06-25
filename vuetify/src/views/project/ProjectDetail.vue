@@ -125,9 +125,23 @@
             </v-list-tile-avatar>
             <v-list-tile-content>
               <v-list-tile-title>{{ structure.name }}</v-list-tile-title>
-              <v-list-tile-sub-title>{{ $t('noums.structure') }}</v-list-tile-sub-title>
+              <v-list-tile-sub-title><b>{{ $t('noums.structure') }}</b></v-list-tile-sub-title>
             </v-list-tile-content>
           </v-list-tile>
+
+          <template v-if="!!partnerStructures && partnerStructures.length > 0">
+
+            <v-list-tile v-for="partner in partnerStructures" :key="partner.id" :to="partner.link">
+              <v-list-tile-avatar tile>
+                <v-img :src="partner.image_url" />
+              </v-list-tile-avatar>
+              <v-list-tile-content>
+                <v-list-tile-title>{{ partner.name }}</v-list-tile-title>
+                <v-list-tile-sub-title>{{ $t('noums.partnerStructure') }}</v-list-tile-sub-title>
+              </v-list-tile-content>
+            </v-list-tile>
+
+          </template>
 
           <!-- Knowledge Area -->
           <v-list-tile v-if="project.knowledge_area">
@@ -292,13 +306,13 @@
             <!-- Active country list -->
             <v-card-text v-if="project.country_code">
               <h3>{{ $tc('pages.projectDetail.activeCountries'
-                , project.country_code.split(',').length
-                , {n : project.country_code.split(',').length} ) }}</h3>
+                         , project.country_code.split(',').length
+                         , {n : project.country_code.split(',').length} ) }}</h3>
               <v-layout row wrap>
-                <v-flex pa-0 ma-2 shrink v-for="cc in project.country_code.split(',')" :key="cc">
+                <v-flex v-for="cc in project.country_code.split(',')" :key="cc" pa-0 ma-2 shrink>
                   <v-btn color="grey lighten-4" class="elevation-0 px-3 py-4" exact :to="{name:'project-list', query:{country_code:cc}}">
                     <flag style="font-size:24px" :squared="false" :iso="iso3toiso2(cc)" />
-                    <i class="mx-2"></i>
+                    <i class="mx-2" />
                     {{ countryTranslation(cc) }}
                   </v-btn>
                 </v-flex>
@@ -323,8 +337,8 @@
                 <p>Since you are a participant of this project, you can view the detailed evaluation results at this page:</p>
                 <p class="text-xs-center">
                   <v-btn dark color="grey darken-3"
-                        :to="{...project.link, name:'evaluation-detail'}"
-                        class="elevation-0"
+                         :to="{...project.link, name:'evaluation-detail'}"
+                         class="elevation-0"
                   >
                     <v-icon left>mdi-school</v-icon>
                     {{ $t('pages.projectManage.evalViewEvaluationResults') }}
@@ -420,7 +434,7 @@
             </v-card-text>
           </v-card>
         </v-tab-item>
-        
+
       </v-tabs-items>
     </v-flex>
 
@@ -484,6 +498,7 @@ export default {
       iso3toiso2,
       project: null,
       structure: null,
+      partnerStructures: null,
       evalStats : [],
       page:{
         tab: null,
@@ -548,11 +563,17 @@ export default {
 
       this.project = this.$store.getters["project/detail"](this.projectId);
 
-      // If project has a collaboration, load structure
+      // If project has a collaboration, load related structures
       if(this.project.collaboration){
         let structureId = this.project.collaboration.structure
-        await this.$store.dispatch("structure/load", [structureId]);
+        let partnerStructureIds = this.project.collaboration.partners
+
+        console.log([structureId, ...partnerStructureIds]);
+
+        await this.$store.dispatch("structure/load", [structureId,...partnerStructureIds]);
+
         this.structure = this.$store.getters['structure/detail'](structureId)
+        this.partnerStructures = partnerStructureIds.map(sid => this.$store.getters['structure/detail'](sid))
       }
 
 

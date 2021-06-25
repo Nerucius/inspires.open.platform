@@ -1,18 +1,40 @@
+<style scoped>
+  a {
+    text-decoration: none;
+  }
+</style>
+
 <template>
   <v-list v-if="!!attachments && attachments.length > 0">
     <transition-group name="list">
       <v-list-tile v-for="att in attachments" :key="att.id">
+        <!-- List icon -->
         <v-list-tile-avatar>
-          <v-icon>mdi-file</v-icon>
+          <v-icon v-if="att.mime_type == 'text/link'">mdi-link</v-icon>
+          <v-icon v-else>mdi-file</v-icon>
         </v-list-tile-avatar>
-        <v-list-tile-content>
+
+        <!-- Display for links -->
+        <v-list-tile-content v-if="att.mime_type == 'text/link'">
+          <a :href="att.url" target="_blank">
+            {{ att.name }}
+          </a>
+          <small class="grey--text">
+            {{ $t('components.Attachment.externalResource') }}
+          </small>
+        </v-list-tile-content>
+
+        <!-- Display for normal uploads -->
+        <v-list-tile-content v-else>
           {{ att.name }}
           <small class="grey--text">
             {{ att.mime_type }}, {{ sizeToStr(att.size) }}
           </small>
         </v-list-tile-content>
+
         <v-list-tile-action style="flex-direction: row; align-items:center">
           <v-btn
+            v-if="att.mime_type != 'text/link'"
             icon
             ripple
             :href="att.url"

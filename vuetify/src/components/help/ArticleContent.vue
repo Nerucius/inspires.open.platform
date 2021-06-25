@@ -90,7 +90,8 @@
 
 .article-markdown table td:first-child{
   width: 150px;
-  text-align: center;
+  /* TODO: check Removed center align */
+  /* text-align: center; */
 }
 
 .article-markdown blockquote p{
@@ -209,7 +210,7 @@
       </v-btn>
 
       <!-- This article in other languages -->
-      <v-menu v-if="articlesSameMaster.length > 0" offset-y>
+      <v-menu v-if="!!articlesSameMaster && articlesSameMaster.length > 0" offset-y>
         <v-btn slot="activator" flat>
           {{ article.locale }}
           <v-icon right>
@@ -261,42 +262,24 @@
       <iframe :src="pdfURL + '#toolbar=0'" width="100%" height="800px" />
     </v-sheet>
 
-    <!-- Attachments -->
-    <v-card-text>
-      <v-sheet class="grey lighten-4 pa-3">
-        <h2 class="mb-2">{{ $t('noums.files') }}</h2>
-        <!-- List of attachments -->
-        <AttachmentList :attachments="article.attachments" @change="reloadContent" />
-        <!-- Upload form for editor -->
-        <template v-if="currentUser.is_editor">
-          <br>
-          <br>
-          <h3 mb-2>{{ $t('components.Attachment.upload') }}</h3>
-          <AttachmentUpload model="content" :object-id="article.id" @upload="reloadContent" />
-        </template>
-      </v-sheet>
-    </v-card-text>
-
   </v-card>
 </template>
 
 <script>
 import { getFlagIso } from "@/plugins/i18n";
-import AttachmentUpload from "@/components/input/AttachmentUpload";
-import AttachmentList from "@/components/attachment/AttachmentList";
+import { capitalize } from "@/plugins/utils";
 
 export default {
-
   components:{
-    AttachmentUpload,
-    AttachmentList
   },
+
   props : ["article", "articlesSameMaster"],
 
   data(){
     return {
       moment,
       getFlagIso,
+      capitalize,
       viewAsPDF: false
     }
   },
@@ -306,7 +289,7 @@ export default {
       return this.$store.getters['user/current']
     },
     isPdf(){
-      if(!this.article.attachments || this.article.attachments.length == 0)
+      if(this.article.attachments.length == 0)
         return false;
       return this.article.attachments[0].mime_type == 'application/pdf';
     },
@@ -329,15 +312,6 @@ export default {
   },
 
   methods: {
-    async reloadContent(){
-      console.log("Reloading article")
-      this.$store.dispatch('content/load', [this.article.slug])
-    },
-    capitalize(str){
-      return str.toLowerCase().split(' ').map(function (word) {
-        return (word.charAt(0).toUpperCase() + word.slice(1));
-      }).join(' ');
-    }
   },
 
 }

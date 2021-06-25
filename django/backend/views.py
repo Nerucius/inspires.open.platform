@@ -386,7 +386,7 @@ class CollaborationsVS(viewsets.ModelViewSet):
     queryset = models.Collaboration.objects.all()
     serializer_class = serializers.CollaborationSerializer
 
-    filterset_fields = ["project", "structure"]
+    filterset_fields = ["project", "structure", "partners"]
 
 
 class NetworksVS(ListDetail, viewsets.ModelViewSet):

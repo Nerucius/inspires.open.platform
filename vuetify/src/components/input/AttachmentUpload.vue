@@ -76,7 +76,7 @@ input[type="file"] {
         <input :disabled="link != ''" id="file" ref="file" type="file" @change="onFileChange">
       </v-flex>
       <v-flex xs12 sm6>
-        <v-btn type="submit" :disabled="!valid || (!file && !link)" block color="success">Upload</v-btn>
+        <v-btn type="submit" :loading="loading" :disabled="!valid || (!file && !link)" block color="success">Upload</v-btn>
       </v-flex>
     </v-layout>
   </v-form>
@@ -114,6 +114,7 @@ export default {
       file: null,
       link: '',
       valid: null,
+      loading: false,
       contentType: null,
       attachment: {},
       rules: {
@@ -151,17 +152,27 @@ export default {
         return
       }
 
+      this.loading = true;
       let attachmentData;
 
       if(!!this.file){
         // File attachments
-        var fileLink = this.uploadFile()
-        if(!fileLink) return;
+        var fileLink = await this.uploadFile()
+
+        console.log("fileLink")
+        console.log(fileLink)
+
+
+        if(!fileLink){
+          console.log("cancelled upload")
+          this.loading = false;
+          return;
+        }
 
         attachmentData = {
           ...this.attachment,
           mime_type: this.file.type,
-          size: fileSize,
+          size: this.file.size,
           url: fileLink,
           content_type: this.contentType,
           object_id: this.objectId,
@@ -198,6 +209,8 @@ export default {
       } catch (error) {
         this.$store.dispatch("toast/error", {message: this.$t("forms.toasts.uploadError"), error,});
       }
+
+      this.loading = false;
     },
 
     async uploadFile(){

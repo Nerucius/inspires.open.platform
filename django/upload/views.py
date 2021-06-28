@@ -29,8 +29,10 @@ def _r(data, status=200):
 # Create your views here.
 class UploadFileView(View):
     def post(self, request, filename, *args, **kwargs):
-
         user = _get_request_user(request)
+
+        if len(settings.UPLOAD_SERVER) == 0:
+            return _r({"error": "Upload not supported by server."}, status=500)
 
         if not user.is_authenticated:
             return _r({"error": "User not authenticated"}, status=403)
@@ -48,5 +50,5 @@ class UploadFileView(View):
             file_url = "%s/%s" % (settings.UPLOAD_URL, filename)
             return _r({"url": file_url})
 
-        # Return error response
+        # Return error response directly
         return HttpResponse(response, content_type="application/json")

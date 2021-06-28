@@ -53,10 +53,19 @@
 
     </v-form>
 
+    <div v-if="currentUser.is_administrator" class="py-2">
+      <v-btn color="error" outline block target="_blank" :href="feedbackAdminURL">
+        View all Feedback (Admin)
+      </v-btn>
+    </div>
+
+
   </div>
 </template>
 
 <script>
+import { API_SERVER } from "@/plugins/resource";
+
 export default {
   props: ["model", "objectId", "title", "feedbackType"],
 
@@ -79,6 +88,9 @@ export default {
     currentUser(){
       return this.$store.getters['user/current']
     },
+    feedbackAdminURL(){
+      return `${API_SERVER}/admin/backend/feedback`
+    }
   },
 
   async created(){

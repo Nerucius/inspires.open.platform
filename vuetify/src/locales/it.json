@@ -56,7 +56,7 @@
       "allProjects": "Tutti i progetti",
       "projectsSeeMore": "Vedi tutti i progetti",
       "useThePlatform": "Inizia a utilizzare la piattaforma",
-      "learnMore": "Scopri di più"
+      "learnMore": "Learn more"
     },
     "help": {
       "title": "Centro Assistenza",
@@ -68,7 +68,7 @@
       "courses": {
         "main": "Corso",
         "modules": "Moduli in questo corso",
-        "reccomendedMaterials": "Materiali Consigliati",
+        "recomendedMaterials": "Recomended Materials",
         "feedbackTitle": "Apprezziamo il tuo feedback",
         "feedbackLabelStars": "Quanto hai trovato utile il contenuto di questo modulo?",
         "feedbackLabelTextbox": "Hai qualche suggerimento, commento o altro feedback?",
@@ -296,6 +296,7 @@
     },
     "Attachment": {
       "upload": "Carica un nuovo file",
+      "externalResource": "External Resource",
       "noAttachments": "Nessun file allegato."
     },
     "StructureNetworks": {
@@ -685,6 +686,8 @@
     "project": "Progetto",
     "projects": "Progetti",
     "structure": "Struttura",
+    "mainStructure": "Main Structure",
+    "partnerStructure": "Partner Structure",
     "structures": "Strutture",
     "evaluation": "Valutazione",
     "file": "File",
@@ -727,6 +730,7 @@
     },
     "toasts": {
       "permissionError": "Si è verificato un errore durante l'accesso alla risorsa, potresti non avere l'autorizzazione per visualizzarlo.",
+      "invalidFileType": "You can't upload files of this type",
       "uploadError": "Si è verificato un errore durante il caricamento del file",
       "uploadErrorTooBig": "Questo file è troppo grande per essere caricato. Si prega di limitare la dimensione del file a {size} MB.",
       "loggedOut": "Sei stato disconnesso",

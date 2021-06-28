@@ -56,7 +56,7 @@
       "allProjects": "Tous les projets",
       "projectsSeeMore": "Découvrir tous les projets",
       "useThePlatform": "Start using the platform",
-      "learnMore": "Learn more about"
+      "learnMore": "Learn more"
     },
     "help": {
       "title": "centre d'assistance",
@@ -68,7 +68,7 @@
       "courses": {
         "main": "Course",
         "modules": "Modules in this Course",
-        "reccomendedMaterials": "Reccomended Materials",
+        "recomendedMaterials": "Recomended Materials",
         "feedbackTitle": "We value your feedback",
         "feedbackLabelStars": "How useful did you find the content of this module?",
         "feedbackLabelTextbox": "Do you have any suggestions, comments or other feedback?",
@@ -296,6 +296,7 @@
     },
     "Attachment": {
       "upload": "Upload new file",
+      "externalResource": "External Resource",
       "noAttachments": "No files attached."
     },
     "StructureNetworks": {
@@ -685,6 +686,8 @@
     "project": "Projet",
     "projects": "Projets",
     "structure": "Structure",
+    "mainStructure": "Main Structure",
+    "partnerStructure": "Partner Structure",
     "structures": "Structures",
     "evaluation": "Évaluation",
     "file": "File",
@@ -727,6 +730,7 @@
     },
     "toasts": {
       "permissionError": "Il y a eu une erreur lors de l'accès à la source d'information, vous n'avez peut-être pas la permission de la consulter.",
+      "invalidFileType": "You can't upload files of this type",
       "uploadError": "Il y a eu une erreur lors du téléchargement de votre fichier.",
       "uploadErrorTooBig": "This file is too big to upload. Please limit your file size to {size} MB.",
       "loggedOut": "Vous avez été déconnecté",

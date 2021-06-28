@@ -56,7 +56,7 @@
       "allProjects": "جميع المشاريع",
       "projectsSeeMore": "انظرجميع المشاريع",
       "useThePlatform": "ابدأ باستخدام المنصة",
-      "learnMore": "اعرف المزيد عنّا"
+      "learnMore": "Learn more"
     },
     "help": {
       "title": "مركز المساعدة",
@@ -68,7 +68,7 @@
       "courses": {
         "main": "الدورة التدريبية",
         "modules": "وحدات في هذه الدورة التدريبية",
-        "reccomendedMaterials": "المواد المعدّلة",
+        "recomendedMaterials": "Recomended Materials",
         "feedbackTitle": "نحن بحاجة إلى رأيك وملاحظاتك",
         "feedbackLabelStars": "ما مدى فائدتك في العثور على محتوى هذه الوحدة؟",
         "feedbackLabelTextbox": "هل لديك أي اقتراحات أو تعليقات أو ملاحظات أخرى؟",
@@ -296,6 +296,7 @@
     },
     "Attachment": {
       "upload": "تحميل ملف جديد",
+      "externalResource": "External Resource",
       "noAttachments": "لا يوجد ملف مرفق."
     },
     "StructureNetworks": {
@@ -685,6 +686,8 @@
     "project": "مشروع",
     "projects": "مشاريع",
     "structure": "هيكل",
+    "mainStructure": "Main Structure",
+    "partnerStructure": "Partner Structure",
     "structures": "الهياكل",
     "evaluation": "تقييم",
     "file": "ملف",
@@ -727,6 +730,7 @@
     },
     "toasts": {
       "permissionError": "كان هناك خطأ أثناء الدخول إلى المورد ، قد لا يكون لديك إذن لعرض هذا",
+      "invalidFileType": "You can't upload files of this type",
       "uploadError": "هناك خطأ في تحميل ملفك",
       "uploadErrorTooBig": "هذا الملف كبير جدا للتحميل. الرجاء الحد من حجم الملف الخاص بك إلى {size} ميغابايت.",
       "loggedOut": "لقد تم تسجيل خروجك",

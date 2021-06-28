@@ -1,7 +1,7 @@
 <style>
   /* Remove top textarea margin (too big textarea box) */
   textarea{
-    margin-top: 0px !important
+    margin-top: 6px !important
   }
 </style>
 

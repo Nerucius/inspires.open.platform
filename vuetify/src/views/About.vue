@@ -82,6 +82,13 @@
             </v-flex>
           </v-layout>
 
+          <!-- ContactUs Form -->
+          <h2 class="mb-2">
+            {{ $t('pages.about.contactUsTitle') }}
+          </h2>
+
+          <ContactForm feedback-type="CONTACT_US" />
+
         </v-card-text>
       </v-card>
     </v-flex>
@@ -89,6 +96,7 @@
 </template>
 
 <script>
+import ContactForm from "@/components/input/ContactForm";
 
 export default {
 
@@ -98,7 +106,10 @@ export default {
     };
   },
 
-  components: {},
+  components: {
+    ContactForm
+  },
+
   data() {
     return {
       partners:[

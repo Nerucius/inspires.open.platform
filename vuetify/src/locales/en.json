@@ -70,7 +70,7 @@
       "courses": {
         "main": "Course",
         "modules": "Modules in this Course",
-        "recomendedMaterials": "Recomended Materials",
+        "recomendedMaterials": "Recommended Materials",
         "feedbackTitle": "We value your feedback",
         "feedbackLabelStars": "How useful did you find the content of this module?",
         "feedbackLabelTextbox": "Do you have any suggestions, comments or other feedback?",
@@ -90,8 +90,9 @@
       "titleTeam": "The team behind InSPIRES Open Platform",
       "teamContent": "The development of this Open Platform has been led by the ISGlobal team in deep collaboration with the Data Science and OpenSystems research groups at the Barcelona University. All InSPIRES consortium members have also played an important role in its inception and evolution.",
       "titlePartners": "InSPIRES Partners",
-      "partnersContent": "We want to thank our partners who have collaborated with the design and testing of the platform. Without them this project would not be possible."
-
+      "partnersContent": "We want to thank our partners who have collaborated with the design and testing of the platform. Without them this project would not be possible.",
+      "contactUsTitle": "Contact Us",
+      "contactUsContent": "Have anything to say about the platform? Let us know and we will get back to you."
     },
 
     "search": {
@@ -277,7 +278,7 @@
       "mainTitle": "Project Evaluation Questionnaire",
       "questionnaire": "Questionnaire",
       "selfQuestionnaireTitle": "Self-reflection Questionnaire",
-      "selfQuestionnaireDescription": "To aid in the evaluation of the Project, we recomend checking out the Self-reflection Questionnaire. It contains some thought-provoking questions to get you started. You can download the questionnaire here:",
+      "selfQuestionnaireDescription": "To aid in the evaluation of the Project, we recommend checking out the Self-reflection Questionnaire. It contains some thought-provoking questions to get you started. You can download the questionnaire here:",
       "viewQuestionnaire1": "View the self reflection questionnaire for Phase 1",
       "viewQuestionnaire3": "View the self reflection questionnaire for Phase 3",
       "questionnaireDescription": "Please answer the following questions as honestly as you can. The scale represents a 0 for 'I completely disagree' to 7 for 'I completely agree'. The estimated answer time is 5 minutes.",

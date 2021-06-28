@@ -27,8 +27,4 @@ class Feedback(models.Model):
     content_object = GenericForeignKey("content_type", "object_id")
 
     def __str__(self):
-        return "Feedback (%s) on %s [%i]" % (
-            self.feedback_type,
-            self.content_type.name,
-            self.rating,
-        )
+        return "Feedback [%s]" % (self.feedback_type,)

@@ -244,7 +244,7 @@
       "inviteParticipantsInfo": "If one or more of your participants is unable to create an account by themselves, or you would prefer to fill in the evaluation in their name, you can use this form to create a User in the platform for them.\n\n**NOTE**: Your Project must be validated and part of a Structure.",
       "attachmentsTab": "File Attachments",
       "structurePartnersTitle": "Partnered Structures",
-      "structurePartnersSubheading": "Besides the main structure that governs this project, what other organizations do you participate with?"
+      "structurePartnersSubheading": "Besides the main structure that governs this project, what other organizations participate in the project?"
     },
     "evaluationDetail": {
       "heatchart": {

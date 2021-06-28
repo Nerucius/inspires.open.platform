@@ -59,10 +59,11 @@ export default {
       if(isObject(params)) {
         message = params.message
         error = params.error
-        console.log("error")
+        console.log("error response:")
         console.log(error)
         try{
           let serverError = i18n.t(error.body.detail)
+          if(!serverError) serverError = i18n.t(error.body.error)
           message += `<br/><br/><tt><b>ERROR DETAIL:</b> ${serverError}</tt>`
         }catch(_){}
       }

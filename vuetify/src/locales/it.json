@@ -56,10 +56,10 @@
       "allProjects": "Tutti i progetti",
       "projectsSeeMore": "Vedi tutti i progetti",
       "useThePlatform": "Inizia a utilizzare la piattaforma",
-      "learnMore": "Learn more"
+      "learnMore": "Impara di più..."
     },
     "help": {
-      "title": "Centro Assistenza",
+      "title": "Centro di insegnamento",
       "description": "TODO: testo",
       "allArticles": "Tutti gli articoli",
       "allCourses": "Corsi E-Learning",
@@ -68,7 +68,7 @@
       "courses": {
         "main": "Corso",
         "modules": "Moduli in questo corso",
-        "recomendedMaterials": "Recomended Materials",
+        "recomendedMaterials": "Materiali Consigliati",
         "feedbackTitle": "Apprezziamo il tuo feedback",
         "feedbackLabelStars": "Quanto hai trovato utile il contenuto di questo modulo?",
         "feedbackLabelTextbox": "Hai qualche suggerimento, commento o altro feedback?",
@@ -228,8 +228,8 @@
       "inviteParticipantsTitle": "Invita un partecipante a questo progetto",
       "inviteParticipantsInfo": "Se uno o più dei tuoi partecipanti non sono in grado di creare un account da soli, o preferisci compilare la valutazione a loro nome, puoi utilizzare questo modulo per creare un Utente nella piattaforma per loro.\n\n** NOTA **: il tuo progetto deve essere convalidato e parte di una struttura.",
       "attachmentsTab": "Documenti allegati",
-      "structurePartnersTitle": "Partnered Structures",
-      "structurePartnersSubheading": "Besides the main structure that governs this project, what other organizations do you participate with?"
+      "structurePartnersTitle": "Strutture Associate",
+      "structurePartnersSubheading": "Oltre alla struttura principale che dirige questo progetto, con quale altre organizzazioni partecipate?"
     },
     "evaluationDetail": {
       "heatchart": {
@@ -296,7 +296,7 @@
     },
     "Attachment": {
       "upload": "Carica un nuovo file",
-      "externalResource": "External Resource",
+      "externalResource": "Risorsa esterna",
       "noAttachments": "Nessun file allegato."
     },
     "StructureNetworks": {
@@ -625,8 +625,8 @@
     "links": {
       "home": "Home",
       "about": "Chi Siamo",
-      "help": "Aiuto",
-      "learn": "Aiuto"
+      "help": "Apprendi",
+      "learn": "Apprendi"
     }
   },
   "misc": {
@@ -686,8 +686,8 @@
     "project": "Progetto",
     "projects": "Progetti",
     "structure": "Struttura",
-    "mainStructure": "Main Structure",
-    "partnerStructure": "Partner Structure",
+    "mainStructure": "Struttura Principale",
+    "partnerStructure": "Struttura Partner",
     "structures": "Strutture",
     "evaluation": "Valutazione",
     "file": "File",
@@ -730,7 +730,7 @@
     },
     "toasts": {
       "permissionError": "Si è verificato un errore durante l'accesso alla risorsa, potresti non avere l'autorizzazione per visualizzarlo.",
-      "invalidFileType": "You can't upload files of this type",
+      "invalidFileType": "Non è possibile caricare i file di questo tipo",
       "uploadError": "Si è verificato un errore durante il caricamento del file",
       "uploadErrorTooBig": "Questo file è troppo grande per essere caricato. Si prega di limitare la dimensione del file a {size} MB.",
       "loggedOut": "Sei stato disconnesso",

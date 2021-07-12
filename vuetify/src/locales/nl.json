@@ -59,7 +59,7 @@
       "learnMore": "Learn more"
     },
     "help": {
-      "title": "Helpcentrum",
+      "title": "Learn Center",
       "description": "TODO: tekst",
       "allArticles": "Alle artikelen",
       "allCourses": "E-Learning Courses",
@@ -625,8 +625,8 @@
     "links": {
       "home": "Home",
       "about": "About Us",
-      "help": "Help",
-      "learn": "Help"
+      "help": "Learn",
+      "learn": "Learn"
     }
   },
   "misc": {

@@ -296,7 +296,7 @@
     },
     "Attachment": {
       "upload": "Carregar um novo documento",
-      "externalResource": "External Resource",
+      "externalResource": "Recursos externos",
       "noAttachments": "Nenhum arquivo anexado."
     },
     "StructureNetworks": {
@@ -686,8 +686,8 @@
     "project": "Projeto",
     "projects": "Projetos",
     "structure": "Estrutura",
-    "mainStructure": "Main Structure",
-    "partnerStructure": "Partner Structure",
+    "mainStructure": "Estrutura Principal",
+    "partnerStructure": "Estruturas Parceiras",
     "structures": "Estruturas",
     "evaluation": "Avaliação",
     "file": "Arquivo",
@@ -730,7 +730,7 @@
     },
     "toasts": {
       "permissionError": "Ocorreu um erro ao acessar o recurso, você pode não ter permissão para visualizar isso.",
-      "invalidFileType": "You can't upload files of this type",
+      "invalidFileType": "Não é possível enviar documentos deste tipo.",
       "uploadError": "Houve um erro ao carregar o documento",
       "uploadErrorTooBig": "Este arquivo é muito grande para ser enviado. Por favor, limite o tamanho do seu arquivo para {size} MB.",
       "loggedOut": "Você está com a sessão encerrada",

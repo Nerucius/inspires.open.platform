@@ -1389,3 +1389,25 @@ class XLSAdminEvaluationReport(FileAuthorizedView):
             freeze_panes=(1, 0),
             sheet_name="OpenPlatform Responses",
         )
+
+
+class XLSTextAnswersReport(FileAuthorizedView):
+    content_type = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    filename = f"OpenPlatform Qualitative Responses Export {str(date.today())}.xlsx"
+
+    def _get_content(self, request, response, *args, **kwargs):
+        if not request.user.is_administrator:
+            raise Exception("Must be administrator")
+
+        # Write to response
+        all_responses = (
+            Response.objects.select_related().filter(question__answer_type="TEXT").all()
+        )
+        responses_df = _responses_to_df(all_responses)
+
+        responses_df.to_excel(
+            response,
+            index=False,
+            freeze_panes=(1, 0),
+            sheet_name="OpenPlatform Responses",
+        )

@@ -22,7 +22,7 @@ echo "Loading Fixtures..."
 # python manage.py loaddata backend.participationrole.json
 # python manage.py loaddata backend.projectphase.json
 # python manage.py loaddata backend.question.json
-# python manage.py loaddata backend.questionv2.json
+# python manage.py loaddata backend.question2.json
 
 
 # Start Server

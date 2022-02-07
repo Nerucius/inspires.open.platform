@@ -1,5 +1,6 @@
 # Project Config
 .env
+google_client_secret.json
 # Virtualenv
 /env*/
 

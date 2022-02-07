@@ -1,5 +1,6 @@
 # FROM python:3-alpine
-FROM amancevice/pandas:0.24.2-alpine
+# FROM amancevice/pandas:0.24.2-alpine
+FROM amancevice/pandas:0.25.3-alpine
 
 RUN mkdir /app
 WORKDIR /app

@@ -205,7 +205,7 @@ def reset_password(request):
 
         return HttpResponse("OK")
     else:
-        return HttpResponseBadRequest("No user found")
+        return HttpResponseBadRequest('{"detail":"No user found with that username or email."}')
 
 
 def reset_password_submit(request):

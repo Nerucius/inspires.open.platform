@@ -15,7 +15,6 @@ from rest_framework.authtoken.models import Token
 
 from backend.models import Project, Evaluation, Participation, ParticipationRole
 from backend.views_api_csv import _authenticate_request
-from backend.serializers import SimpleUserSerializer
 
 from backend.models import User, Group
 

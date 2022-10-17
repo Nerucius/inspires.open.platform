@@ -278,6 +278,11 @@ class ListDetail(object):
     for the rest of views. use `detail_serializer_class`."""
 
     def get_serializer_class(self):
+        # Dedicated Partial update Serializer
+        if self.action == 'partial_update':
+            if hasattr(self, 'update_serializer_class'):
+                return self.update_serializer_class
+        # Dedicated Non-list serializer
         if self.action != "list":
             if hasattr(self, "detail_serializer_class"):
                 return self.detail_serializer_class
@@ -298,6 +303,7 @@ class UsersVS(ListDetail, viewsets.ModelViewSet):
     filterset_fields = ["id", "username"]
 
     serializer_class = serializers.SimpleUserSerializer
+    update_serializer_class = serializers.CurrentUserSerializer
     detail_serializer_class = serializers.UserSerializer
 
 

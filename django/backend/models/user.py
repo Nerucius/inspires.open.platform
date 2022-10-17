@@ -9,6 +9,7 @@ from django.utils import timezone
 from backend.models import TrackableModel
 
 from hashlib import md5
+import urllib
 
 
 class User(TrackableModel, AbstractUser):
@@ -85,12 +86,13 @@ class User(TrackableModel, AbstractUser):
 
     @property
     def avatar_url(self):
-        email = self.email.encode("ascii")
+        email = self.email.lower.encode("ascii")
         default = "identicon"
-        return "https://www.gravatar.com/avatar/%s.jpg?s=128&d=%s&r=g" % (
-            md5(email).hexdigest(),
-            default,
-        )
+
+        gravatar_url = "https://www.gravatar.com/avatar/" + md5(email).hexdigest() + "?"
+        gravatar_url += urllib.urlencode({'d':default, 's':128})
+
+        return gravatar_url
 
     @property
     def evaluations(self):

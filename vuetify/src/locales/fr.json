@@ -12,7 +12,7 @@
       "editProfile": "Modifier le profil",
       "updateProfileSuccess": "Votre profil a été mis à jour",
       "updateProfileFailure": "\nImpossible de mettre à jour votre profil.",
-      "evaluationRequests": "Evaluation requests",
+      "evaluationRequests": "Demandes d'évaluation",
       "myProjects": "Mes projets",
       "myStructures": "Mes structures"
     },
@@ -48,31 +48,31 @@
       "mainTitle": "Bienvenue à InSPIRES",
       "worldmapTitle": "Carte du monde",
       "latestTitle": "Dernières mises à jour",
-      "latestProjectsTitle": "Latest Project Updates",
+      "latestProjectsTitle": "Dernières mises à jour du Projet",
       "mostActiveStructures": "Structures en activité",
       "welcomeMessage": "Bienvenue sur la plateforme libre d' InSPIRES. Cette plateforme présente des projets de recherche participatifs et innovants menés par des citoyens et soutenus par des structures intermédiaires telles que les \"Science shops\" , les \"Boutiques de sciences\", les unités de science citoyenne, etc.",
       "welcomeMessageLong": "Elle offre également un outil collectif intégré d'évaluation d'impact pour analyser les processus et les résultats de vos propres projets dans le respect des autres. L'objectif poursuivi est de mener une réflexion commune et collective autour de ce type de projets  afin d'apprendre, penser, expérimenter et grandir ensemble en tant que communauté de pratique pour pouvoir développer des meilleurs projets qui permettent d' améliorer la vie et le bien-être des citoyens.",
       "aboutLink": "Plus sur nous!",
       "allProjects": "Tous les projets",
       "projectsSeeMore": "Découvrir tous les projets",
-      "useThePlatform": "Start using the platform",
-      "learnMore": "Learn more about"
+      "useThePlatform": "Commencer à utiliser la plateforme",
+      "learnMore": "En savoir plus"
     },
     "help": {
       "title": "centre d'assistance",
       "description": "texte",
       "allArticles": "Tous les articles",
-      "allCourses": "E-Learning Courses",
+      "allCourses": "Cours en ligne",
       "articlesOtherLanguages": "Articles dans d'autres langues",
       "articleDoesNotExist": "L'article que vous recherchez n'existe plus.",
       "courses": {
-        "main": "Course",
-        "modules": "Modules in this Course",
-        "reccomendedMaterials": "Reccomended Materials",
-        "feedbackTitle": "We value your feedback",
-        "feedbackLabelStars": "How useful did you find the content of this module?",
-        "feedbackLabelTextbox": "Do you have any suggestions, comments or other feedback?",
-        "feedbackSubmitted": "Thanks for your feedback!"
+        "main": "Cours",
+        "modules": "Modules dans ce cours",
+        "recomendedMaterials": "Matériel recommandé",
+        "feedbackTitle": "Nous apprécions vos commentaires",
+        "feedbackLabelStars": "Dans quelle mesure avez-vous trouvé utile le contenu de ce module?",
+        "feedbackLabelTextbox": "Avez-vous des suggestions, des commentaires ou tout autre retour ?",
+        "feedbackSubmitted": "Merci pour vos commentaires!"
       }
     },
     "about": {
@@ -86,8 +86,8 @@
       "missionParagraph3": "Au final, nous espérons que la plateforme soutiendra la communauté des utilisateurs (coordinateurs des structures ainsi que les participants des projets dans le monde entier) dans leur apprentissage mutuel, via le partage des expériences des \"Boutiques des sciences\" et autres projets de recherche participative et innovants: les bonnes pratiques mais aussi les erreurs, les méthodes utilisées, etc.",
       "titleTeam": "L'équipe responsable de la plateforme libre d'InSPIRES.",
       "teamContent": "Le développement de cette plateforme libre a été mené par l'équipe d'ISGlobal en étroite collaboration avec les groupes de recherche en sciences de l'information et en systèmes informatiques de libre accès de l'Université de Barcelone. Tous les membres du consortium InSPIRES ont également joué un rôle important dans sa création et son évolution.",
-      "titlePartners": "InSPIRES Partners",
-      "partnersContent": "We want to thank our partners who have collaborated with the design and testing of the platform. Without them this project would not be possible."
+      "titlePartners": "Partenaires InSPIRES",
+      "partnersContent": "Nous tenons à remercier nos partenaires qui ont collaboré à la conception et à la mise à l’essai de la plateforme. Sans eux, ce projet ne serait pas possible."
     },
     "search": {
       "searchResults": "resultas de recherche ",
@@ -98,13 +98,13 @@
       "mainTitle": "Tableau de bord administratif.",
       "unauthorizedAccess": "Vous n'êtes pas autorisé à accéder au tableau de bord administratif. Si vous pensez que vous y avez droit, veuillez contacter un administrateur de la plateforme.",
       "pendingApproval": "Structures en attente d'approbation.",
-      "approvedStructures": "Structures approved",
+      "approvedStructures": "Structures approuvées",
       "instructionsText": "Les structures suivantes doivent être validées avant de pouvoir apparaître sur les listes publiques du site. Veuillez vérifier la validité des données et l'authenticité de chacun.\n\nVérifiez également que la personne qui prétend être propriétaire de la structure est bien celle qu'elle prétend être et est autorisée à mettre les informations sur le site.",
       "createdBy": "Créé par {prénom}",
       "validationSuccess": "Structure validée avec succès. Elle apparaîtra maintenant sur les listes publiques.",
       "validationFailure": "Échec de la validation de la structure. Veuillez contacter le service d' assistance.",
-      "retirementSuccess": "Structure retired from the platform correctly.",
-      "retirementFailure": "Failed to retire the structure. Please contact support."
+      "retirementSuccess": "Structure retirée de la plate-forme correctement.",
+      "retirementFailure": "Impossible de retirer la structure. Merci de contacter l'assistance."
     },
     "legal": {
       "termsOfServiceTitle": "Conditions d'utilisation",
@@ -121,25 +121,25 @@
     },
     "projectDetail": {
       "about": "À propos",
-      "detailsTab": "Information",
+      "detailsTab": "Informations",
       "evaluationTab": "Évaluation du projet",
       "notApproved": "Ce projet n'est pas encore approuvé, il n'apparaîtra pas dans les listes publiques tant qu'il n'aura pas été enregistré dans une structure.",
       "projectNotYetEvaluated": "Ce projet n'a pas encore reçu suffisamment de commentaires et d'évaluations de la part de ses participants, nous ne pouvons donc pas vous montrer comment il va. Revenez un autre jour!",
-      "activeCountries": "This project is active in 1 country: | This project is active in {n} countries:",
-      "projectFiles": "Find here any files that the Project's manager has uploaded to be publicly viewed."
+      "activeCountries": "Ce projet est actif dans 1 pays : | Ce projet est actif dans {n} pays :",
+      "projectFiles": "Trouvez ici tous les fichiers que le responsable du projet a téléchargés pour être consultés publiquement."
     },
     "structureDetail": {
       "about": "À propos",
       "notApproved": "Cette structure n'est pas encore approuvée, elle n'apparaîtra pas dans les listes publiques tant qu'un administrateur du site ne l'aura pas validée.",
-      "activeCountries": "This structure is active in 1 country: | This structure is active in {n} countries:",
-      "structureFiles": "Find here any files that the Structure's manager has uploaded to be publicly viewed."
+      "activeCountries": "Cette structure est active dans 1 pays : | Cette structure est active dans {n} pays :",
+      "structureFiles": "Trouvez ici tous les fichiers que le gestionnaire de la structure a téléchargés pour être consultés publiquement."
     },
     "structureList": {
-      "introTitle": "Want to know more about structures?",
+      "introTitle": "Vous voulez en savoir plus sur les structures ?",
       "introText": "Une structure est une unité intermédiaire de gestion du savoir, qui peut être basée dans une université, un centre de recherche ou autre, et qui favorise les interactions et le dialogue entre la communauté scientifique et les organisations de la société civile afin de co-créer et mettre en œuvre conjointement des projets de recherche participatifs.\nIl existe actuellement de nombreuses dénominations pour définir de telles structures: \"science shops\", \"boutiques des sciences\", \"unités de science citoyenne\", \"laboratoires sociaux\", \"laboratoires vivants\", etc., mais aussi \"recherche action citoyenne\",  \"recherche participative basée sur la communauté\" et \"science citoyenne\". Par conséquent, nous n’entendons pas être exclusifs, et nous cherchons plutôt à rassembler dans cette plateforme libre tous les projets qui fonctionnent selon les 5 principes suivants: Démocratie du savoir, Recherche menée par les citoyens, Dynamique participative, Intégrité et Changement transformateur. Vous trouverez ci-dessous toutes les structures enregistrées dans la plateforme.",
       "visitStructure": "Visite de la structure",
-      "showMore": "Show more structures",
-      "noMoreStructures": "That's all the structures!"
+      "showMore": "Afficher plus de structures",
+      "noMoreStructures": "C'est toutes les structures!"
     },
     "structureManage": {
       "title": "Gérer cette structure",
@@ -182,9 +182,9 @@
       "infoContactTitle": "Information de contact",
       "infoAdditionalTitle": "Information complémentaire",
       "infoAdditionalDescription": "Autres détails utiles pour mieux cerner votre projet et le rendre plus facilement accessible lors des recherches sur la plateforme.",
-      "structureTitle": "Associated Intermediation Structure",
-      "structureSubheading": "Select under which Intermediation Structure your project is established.",
-      "structureHelp": "Every project in the platform has to be validated by an intermediation Structure that will give the project validity. Please select the Structure to which your project belongs.\n\nThe platform will notify the structure owners to review and approve your project so it will appear in public listings. We will let you know as soon as your project is approved.",
+      "structureTitle": "Structure d'intermédiation associée",
+      "structureSubheading": "Sélectionnez sous quelle Structure Intermédiaire votre projet est établi.",
+      "structureHelp": "Chaque projet de la plateforme doit être validé par une Structure d’intermédiation qui lui donnera sa validité. Veuillez sélectionner la structure à laquelle appartient votre projet.\n\nLa plateforme informera les propriétaires de la structure afin d’examiner et d’approuver votre projet et qu’il apparaisse dans les listes publiques. Nous vous informerons dès que votre projet sera approuvé.",
       "success": "Structure sauvegardée avec succès!",
       "failure": "Échec de l'enregistrement de la structure. Réessayez plus tard.",
       "projectTab": "Ce projet",
@@ -228,8 +228,8 @@
       "inviteParticipantsTitle": "Inviter un participant à ce projet",
       "inviteParticipantsInfo": "Si un ou plusieurs de vos participants ne sont pas en mesure de créer un compte par eux-mêmes, ou si vous préférez remplir l'évaluation à leur nom, vous pouvez utiliser ce formulaire pour créer un utilisateur dans la plateforme en leur nom.",
       "attachmentsTab": "Fichiers joints",
-      "structurePartnersTitle": "Partnered Structures",
-      "structurePartnersSubheading": "Besides the main structure that governs this project, what other organizations do you participate with?"
+      "structurePartnersTitle": "Structures Partenaires",
+      "structurePartnersSubheading": "En plus de la structure principale qui régit ce projet, avec quelles autres organisations participez-vous?"
     },
     "evaluationDetail": {
       "heatchart": {
@@ -249,10 +249,10 @@
         "bulletCharts": "Une échelle de mesure (tableau à puces) est indiquée pour chaque principe et pour les différentes dimensions qui constituent chaque principe. Le point jaune représente l'évaluation du projet en cours. Les ombres représentent l'évaluation des autres projets : une ombre plus claire représente les projets ayant les notes d'évaluation les plus basses et les plus élevées, tandis qu'une ombre plus opaque représente les projets se situant dans le premier et le troisième quartile des notes d'évaluation. Le premier quartile (Q1) est défini comme la valeur moyenne entre la note d'évaluation la plus basse parmi tous les projets et la médiane de l'ensemble des données. Le troisième quartile (Q3) est défini comme la valeur moyenne entre la médiane et la note d'évaluation la plus élevée parmi tous les projets. Un seuil arbitraire est donné à \"3\" pour attirer l'attention sur les évaluations inférieures à cette valeur.",
         "bulletChart": {
           "knowledgeDemocracy": "La démocratie du savoir englobe la transdisciplinarité, la transparence des données et des résultats, et la pertinence scientifique du projet.\nLe premier résultat montre le score cumulé pour cette dimension. Le résultat suivant montre les résultats cumulés pour chacune des sous-dimensions de celle-ci.",
-          "participatoryDynamics": "**Participatory Dynamics** include the degree of community involvement, and the quality and impact of engagement practices.\nThe first result shows the aggregated score for this dimension. The following one shows the aggregated results for each sub-dimensions under this one.",
+          "participatoryDynamics": "Les **Dynamiques participatives** comprennent le degré d'implication de la communauté, la qualité et l'impact des pratiques d'engagement.\nLe premier résultat montre le score agrégé pour cette dimension. Le suivant montre les résultats agrégés pour chaque sous-dimension sous celle-ci.",
           "citizenledResearch": "**La recherche menée par les citoyens** fait référence à l'alignement des objectifs du projet sur les demandes de la communauté, et à l'efficacité de l'engagement de la communauté dans le processus scientifique.\nLe premier résultat montre le score cumulé pour cette dimension. Le résultat suivant montre les résultats cumulés pour chaque sous-dimensions de celle-ci.",
           "integrity": "**L'intégrité** englobe la conformité avec besoins exprimés, l'inclusion des groupes vulnérables, l'intégration de perspectives éthiques et de genre, la transparence de la gestion des données, la cohérence de la conception des projets et la qualité des ressources disponibles.\nLe premier résultat montre le score cumulé pour cette dimension. Le résultat suivant montre les résultats cumulés pour chacune des sous-dimensions de celle-ci.",
-          "transformativeChange": "**Transformative Change** relates to individual learning and personal growth, project sustainability, the societal responsiveness of the project and its impact on policies, programmes and/or services.\nThe first result shows the aggregated score for this dimension. The following one shows the aggregated results for each sub-dimensions under this one."
+          "transformativeChange": "**Changement transformatif** concerne l'apprentissage individuel et la croissance personnelle, la durabilité des projets, la réactivité sociétale du projet et son impact sur les politiques, les programmes et/ou les services.\nLe premier résultat montre le score agrégé pour cette dimension. Le suivant montre les résultats agrégés pour chaque sous-dimension sous celle-ci."
         },
         "projectManagerCharts": "L'information réservée au gestionnaire de projet n'est pas accessible aux participants car elle donne un aperçu détaillé du processus d'autoréflexion tout en offrant une perspective interne du projet à des fins de gestion.\nLa principale différence entre le niveau de visualisation du gestionnaire de projet et celui accessible par les participants est qu'il décrit les résultats de l'évaluation par profil des répondants. Il permet de mieux comprendre ce qui s'est réellement passé et à qui cela est arrivé.",
         "publicEval": "L'information accessible au public correspond à l'évaluation globale du projet et affiche le score global pour chacune des dimensions.\n\nChaque projet est représenté par un colibri : un humble petit oiseau, mais extrêmement actif dont le petit mouvement peut contribuer à l'ensemble du système éco-social:\n-  Son aile est associée au Changement Transformateur, car c'est la partie la plus active du Colibri, et celle qui crée le mouvement\n- La tête est associée à la Démocratie du Savoir, suivant la relation naturelle entre la tête, l'esprit et le savoir.\n- Le cœur (ou le bas du corps) est associé à la Recherche Citoyenne, car la citoyenneté est le battement de cœur de la science ouverte (open science).\n- La queue est associée à la Dynamique Participative, parce qu'elle agit comme un gouvernail. \nEnfin, le haut du corps est associé à l'Intégrité, car sans elle, tous les autres aspects s'effondreraient.",
@@ -264,8 +264,8 @@
       "questionnaire": "Questionnaire",
       "selfQuestionnaireTitle": "Questionnaire d'autoréflexion",
       "selfQuestionnaireDescription": "Pour faciliter l'évaluation du projet, nous vous recommandons de consulter le questionnaire d'autoréflexion. Il contient quelques questions qui vous aideront à réfléchir pour vous aider à démarrer. Vous pouvez télécharger le questionnaire ici :",
-      "viewQuestionnaire1": "View the self reflection questionnaire for Phase 1",
-      "viewQuestionnaire3": "View the self reflection questionnaire for Phase 3",
+      "viewQuestionnaire1": "Voir le questionnaire d'auto-réflexion pour la phase 1",
+      "viewQuestionnaire3": "Voir le questionnaire d'auto-réflexion pour la phase 3",
       "questionnaireDescription": "Veuillez répondre aux questions suivantes aussi honnêtement que possible. L'échelle représente un 0 pour \"Je ne suis pas du tout d'accord\" à 7 pour \"Je suis tout à fait d'accord\". Le temps de réponse estimé est de 5 minutes.",
       "questionnaireCompleted": "Ce questionnaire a déjà été complété.",
       "evaluationOverview": "Aperçu de l'évaluation",
@@ -295,12 +295,13 @@
       "numberOfParticipants": "Nombre de participants"
     },
     "Attachment": {
-      "upload": "Upload new file",
-      "noAttachments": "No files attached."
+      "upload": "Télécharger un nouveau fichier",
+      "externalResource": "Ressource externe",
+      "noAttachments": "Aucun fichier joint."
     },
     "StructureNetworks": {
-      "title": "Networks this Structure is part of:",
-      "otherStructures": "Other Structures in this Network:"
+      "title": "Réseaux dont cette structure fait partie :",
+      "otherStructures": "Autres structures de ce réseau :"
     }
   },
   "models": {
@@ -343,7 +344,7 @@
       "governmentOrg": "Entité gouvernementale"
     },
     "projectPhase": {
-      "phase": "Phase",
+      "phase": "Étape",
       "phase1": "Phase 1: lancement du projet et attentes",
       "phase2": "Phase 2: progrès et auto-réflexion",
       "phase3": "Phase 3: Résultats de fin de projet",
@@ -386,7 +387,7 @@
     "evaluation": {
       "axis": {
         "science": "Science",
-        "collective": "Collective",
+        "collective": "Collectif",
         "individial": "Individuel"
       },
       "principle": {
@@ -623,7 +624,7 @@
   "navigation": {
     "links": {
       "home": "Accueil",
-      "about": "About Us",
+      "about": "A propos",
       "help": "Aide",
       "learn": "Aide"
     }
@@ -685,10 +686,12 @@
     "project": "Projet",
     "projects": "Projets",
     "structure": "Structure",
-    "structures": "Structures",
+    "mainStructure": "Structure principale",
+    "partnerStructure": "Organisations Partenaires",
+    "structures": "Organisations",
     "evaluation": "Évaluation",
-    "file": "File",
-    "files": "Files",
+    "file": "Fichier",
+    "files": "Fichiers",
     "attachment": "Pièce jointe",
     "attachments": "Pièces jointes"
   },
@@ -717,7 +720,7 @@
       "mustNotBeEmail": "Veuillez ne pas utiliser une adresse électronique comme nom d'utilisateur car cette information est publique.",
       "mustBeStructure": "Veuillez entrer une structure validée",
       "mustBeUser": "Veuillez entrer une liste d'utilisateurs valide",
-      "mustBeValidYear": "Please enter a year between 500 and 2100",
+      "mustBeValidYear": "Veuillez entrer une année entre 500 et 2100",
       "mustBeURL": "Veuillez entrer une URL valide",
       "mustBeCountry": "Veuillez entrer un pays valide",
       "mustBeKnowledgeArea": "Veuillez entrer un domaine de connaissances valide"
@@ -727,8 +730,9 @@
     },
     "toasts": {
       "permissionError": "Il y a eu une erreur lors de l'accès à la source d'information, vous n'avez peut-être pas la permission de la consulter.",
+      "invalidFileType": "Vous ne pouvez pas charger un fichier de ce type",
       "uploadError": "Il y a eu une erreur lors du téléchargement de votre fichier.",
-      "uploadErrorTooBig": "This file is too big to upload. Please limit your file size to {size} MB.",
+      "uploadErrorTooBig": "Ce fichier est trop volumineux pour être envoyé. Veuillez limiter votre taille de fichier à {size} Mo.",
       "loggedOut": "Vous avez été déconnecté",
       "resetPasswordSubmitted": "Un email de réinitialisation de mot de passe a été envoyé à l'utilisateur de ce compte.",
       "saveSuccess": "Enregistré avec succès!",
@@ -764,16 +768,16 @@
       "structureYearFounded": "Année de fondation de la structure",
       "structureAdministrators": "Administrateurs de la structure",
       "structureCountry": "Pays d' action de la structure",
-      "networks": "Networks",
-      "network": "Network",
+      "networks": "Réseaux",
+      "network": "Réseau",
       "projectName": "Nom du projet",
       "projectAcronym": "Acronyme du projet",
       "projectType": "Type de projet",
       "projectPhase": "Phase du projet",
       "projectCountry": "Pays d'action du projet",
       "projectAdministrators": "Administrateurs du projet",
-      "projectDateStart": "Date the project started",
-      "projectDateEnd": "Date the project will end",
+      "projectDateStart": "Date de début du projet",
+      "projectDateEnd": "Date de fin du projet",
       "socialNetwork": "Réseau social",
       "contactEmail": "Adresse électronique de contact",
       "contactWebsite": "Site web externe",
@@ -799,16 +803,16 @@
       "isAnonymous": "Cachez votre vrai nom dans les pages publiques.",
       "isAnonymousInvite": "Cachez les vrais noms des participants dans les pages publiques.",
       "contactEmail": "Comment pouvons-nous vous joindre au sujet de votre projet?",
-      "contactWebsite": "URL d'un site externe ou l'on peut en savoir plus sur votre projet",
+      "contactWebsite": "URL d'un site externe où l'on peut en savoir plus sur votre projet",
       "username": "Entrez votre nom d'utilisateur. Un bon choix est de mettre votre prénom.nom (ex. jean.dupuis)",
       "structureName": "Choisissez un nom qui caractérise votre structure. Moins de 50 caractères si possible.",
-      "structureSummary": "A short summary of your structure and what it encompasses. We recommend to keep it under 400 characters.",
+      "structureSummary": "Un bref résumé de votre organisation et de ce qu'elle recouvre. Il est conseillé de ne pas dépasser 400 caractères.",
       "structureCountry": "Pays où cette structure opère généralement",
       "structureAdministrators": "Ajoutez ici toutes les personnes qui auront un accès complet pour éditer la structure et approuver de nouveaux projets. Les administrateurs de la structure ne peuvent pas transférer la propriété de celle-ci. Les administrateurs ne sont PAS des participants.",
-      "networks": "Select here all the networks that your structure is part of.",
+      "networks": "Sélectionnez ici tous les réseaux dont votre organisation fait partie.",
       "projectType": "Comment l'équipe de votre projet est-elle structurée?",
       "projectName": "Choisissez un nom pour définir votre projet. Moins de 50 caractères si possible.",
-      "projectSummary": "A short summary of your project and what it encompasses. We recommend to keep it under 400 characters.",
+      "projectSummary": "Un bref résumé de votre projet et de ce qu'il recouvre. Il est conseillé de ne pas dépasser 400 caractères.",
       "projectAdministrators": "Ajoutez ici toutes les personnes qui auront un accès complet pour éditer le projet. Les administrateurs de projet ne peuvent pas transférer la propriété de celui-ci.Les administrateurs NE SONT PAS des participants.",
       "projectAcronym": "Choisissez un acronyme pour votre projet",
       "projectCountry": "Où votre projet est-il basé et où opère t-il généralement?",

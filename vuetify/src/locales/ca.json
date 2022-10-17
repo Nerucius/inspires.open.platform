@@ -27,10 +27,10 @@
       "titles": {
         "step1": "Abans de començar",
         "step2": "Explica'ns una mica sobre tu",
-        "step3": "Termes del servei",
+        "step3": "Condicions d'ús",
         "step4": "Quasi bé hem acabat!"
       },
-      "acceptTOS": "Accepto els Termes i Condicions d'ús",
+      "acceptTOS": "Accepto les Condicions d'Ús",
       "welcomeMessage": "Benvingut a la pàgina de registre de la Plataforma Oberta InSPIRES. Des d'aquí pots crear el seu usuari per iniciar sessió al portal, que et permetrà crear i/o participar en un projecte, enviar sol·licituds per tal de dur a terme la recerca, crear la teva pròpia estructura i també dur a terme de manera col·laborativa l'avaluació del projecte.",
       "welcomeMessage2": "Registrar-te et permet començar a contribuir en el portal! També es poden registrar estructures i projectes de recera al teu nom o al de la teva organització.",
       "step1Message": "Si us plau, indican's un nom d'usuari i contrasenya. El nom d'usuari escollit serà el que hauràs de fer servir per accedir a la plataforma.",
@@ -56,11 +56,11 @@
       "allProjects": "Tots els projectes",
       "projectsSeeMore": "Visualitza tots els projectes",
       "useThePlatform": "Comença a utilitzar la plataforma",
-      "learnMore": "Aprèn més sobre"
+      "learnMore": "Aprèn més"
     },
     "help": {
-      "title": "Centre d'ajuda",
-      "description": "TODO: Text",
+      "title": "Centre d'aprenentatge",
+      "description": "TODO: text",
       "allArticles": "Tots els articles",
       "allCourses": "Cursos e-learning",
       "articlesOtherLanguages": "Articles en altres idiomes",
@@ -68,7 +68,7 @@
       "courses": {
         "main": "Curs",
         "modules": "Mòduls en aquest curs",
-        "reccomendedMaterials": "Materials recomanats",
+        "recomendedMaterials": "Materials recomanats",
         "feedbackTitle": "Ens agradaria conèixer la teva opinió",
         "feedbackLabelStars": "Com d'útil has trobat el contingut d'aquest mòdul?",
         "feedbackLabelTextbox": "Tens altres suggeriments o comentaris que voldries fer?",
@@ -228,8 +228,8 @@
       "inviteParticipantsTitle": "Convida a un participant a aquest projecte ",
       "inviteParticipantsInfo": "Si un o més dels teus participants no pot crear un compte per si mateix un compte, o prefereixes emplenar l'avaluació al seu nom, pots utilitzar aquest formulari per crear un usuari a la plataforma.\n\n** NOTA **: El teu projecte ha de ser validat i formar part d'una estructura.",
       "attachmentsTab": "Fitxers adjunts",
-      "structurePartnersTitle": "Partnered Structures",
-      "structurePartnersSubheading": "Besides the main structure that governs this project, what other organizations do you participate with?"
+      "structurePartnersTitle": "Estructures Colaboradores",
+      "structurePartnersSubheading": "A part de la Estructura principal que regeix aquest projecte, quines altres organitzacions participen?"
     },
     "evaluationDetail": {
       "heatchart": {
@@ -296,6 +296,7 @@
     },
     "Attachment": {
       "upload": "Puja un fitxer nou",
+      "externalResource": "Recurs extern",
       "noAttachments": "No hi ha cap arxiu adjunt."
     },
     "StructureNetworks": {
@@ -624,8 +625,8 @@
     "links": {
       "home": "Inici",
       "about": "Sobre nosaltres",
-      "help": "Ajuda",
-      "learn": "Ajuda"
+      "help": "Aprendre",
+      "learn": "Aprendre"
     }
   },
   "misc": {
@@ -685,6 +686,8 @@
     "project": "Projecte",
     "projects": "Projectes ",
     "structure": "Estructura",
+    "mainStructure": "Estructura Principal",
+    "partnerStructure": "Estructura Colaboradora",
     "structures": "Estructures ",
     "evaluation": "Avaluació",
     "file": "Fitxer",
@@ -727,6 +730,7 @@
     },
     "toasts": {
       "permissionError": "Ha hagut un error mentres accedies al recurs, el més probable és que no tinguis permís per accedir a aquest. ",
+      "invalidFileType": "No pots carregar fitxers d'aquest tipus",
       "uploadError": "Ha hagut un error mentre es pujava l'arxiu. ",
       "uploadErrorTooBig": "Aquest arxiu és massa gran per pujar-lo. Si us plau, limiteu la mida del fitxer a {size} MB.",
       "loggedOut": "Has sortit de la sessió",

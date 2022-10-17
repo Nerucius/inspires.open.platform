@@ -17,8 +17,8 @@
       </v-layout>
     </v-flex>
 
-    <!-- Courses List section TODO: EDITOR ONLY-->
-    <v-flex v-if="currentUser.is_editor" xs12 xl8 mb-4>
+    <!-- Courses List section-->
+    <v-flex xs12 xl8 mb-4>
       <CourseList :courses="courses" :flags="true" />
     </v-flex>
 

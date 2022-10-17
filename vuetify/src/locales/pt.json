@@ -56,7 +56,7 @@
       "allProjects": "Todos os projetos",
       "projectsSeeMore": "Ver todos os projetos",
       "useThePlatform": "Comece a usar a plataforma",
-      "learnMore": "Saiba mais sobre"
+      "learnMore": "Saiba mais"
     },
     "help": {
       "title": "Centro de Aprendizagem",
@@ -68,7 +68,7 @@
       "courses": {
         "main": "Curso",
         "modules": "Módulos neste Curso",
-        "reccomendedMaterials": "Materiais recomendados",
+        "recomendedMaterials": "Materiais recomendados",
         "feedbackTitle": "Nós valorizamos a sua opinião",
         "feedbackLabelStars": "Quão útil você achou o conteúdo deste módulo?",
         "feedbackLabelTextbox": "Você tem alguma sugestão, comentários ou outra opinião?",
@@ -296,6 +296,7 @@
     },
     "Attachment": {
       "upload": "Carregar um novo documento",
+      "externalResource": "Recursos externos",
       "noAttachments": "Nenhum arquivo anexado."
     },
     "StructureNetworks": {
@@ -685,6 +686,8 @@
     "project": "Projeto",
     "projects": "Projetos",
     "structure": "Estrutura",
+    "mainStructure": "Estrutura Principal",
+    "partnerStructure": "Estruturas Parceiras",
     "structures": "Estruturas",
     "evaluation": "Avaliação",
     "file": "Arquivo",
@@ -727,6 +730,7 @@
     },
     "toasts": {
       "permissionError": "Ocorreu um erro ao acessar o recurso, você pode não ter permissão para visualizar isso.",
+      "invalidFileType": "Não é possível enviar documentos deste tipo.",
       "uploadError": "Houve um erro ao carregar o documento",
       "uploadErrorTooBig": "Este arquivo é muito grande para ser enviado. Por favor, limite o tamanho do seu arquivo para {size} MB.",
       "loggedOut": "Você está com a sessão encerrada",

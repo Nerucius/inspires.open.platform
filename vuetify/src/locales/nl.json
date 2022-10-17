@@ -56,10 +56,10 @@
       "allProjects": "Alle projecten",
       "projectsSeeMore": "Bekijk alle projecten",
       "useThePlatform": "Start using the platform",
-      "learnMore": "Learn more about"
+      "learnMore": "Learn more"
     },
     "help": {
-      "title": "Helpcentrum",
+      "title": "Learn Center",
       "description": "TODO: tekst",
       "allArticles": "Alle artikelen",
       "allCourses": "E-Learning Courses",
@@ -68,7 +68,7 @@
       "courses": {
         "main": "Course",
         "modules": "Modules in this Course",
-        "reccomendedMaterials": "Reccomended Materials",
+        "recomendedMaterials": "Recomended Materials",
         "feedbackTitle": "We value your feedback",
         "feedbackLabelStars": "How useful did you find the content of this module?",
         "feedbackLabelTextbox": "Do you have any suggestions, comments or other feedback?",
@@ -296,6 +296,7 @@
     },
     "Attachment": {
       "upload": "Upload new file",
+      "externalResource": "External Resource",
       "noAttachments": "No files attached."
     },
     "StructureNetworks": {
@@ -624,8 +625,8 @@
     "links": {
       "home": "Home",
       "about": "About Us",
-      "help": "Help",
-      "learn": "Help"
+      "help": "Learn",
+      "learn": "Learn"
     }
   },
   "misc": {
@@ -685,6 +686,8 @@
     "project": "Project",
     "projects": "Projecten",
     "structure": "Structuur",
+    "mainStructure": "Main Structure",
+    "partnerStructure": "Partner Structure",
     "structures": "Structuren",
     "evaluation": "Evaluatie",
     "file": "File",
@@ -727,6 +730,7 @@
     },
     "toasts": {
       "permissionError": "Er is een fout opgetreden bij het openen van de bron, u hebt misschien geen toestemming om deze te bekijken.",
+      "invalidFileType": "You can't upload files of this type",
       "uploadError": "Er is een fout opgetreden bij het uploaden van uw bestand",
       "uploadErrorTooBig": "This file is too big to upload. Please limit your file size to {size} MB.",
       "loggedOut": "U bent uitgelogd",

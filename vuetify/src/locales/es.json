@@ -10,14 +10,14 @@
       "accountCreated": "Tu cuenta se ha creado correctamente. Ya puedes acceder a todas las funcionalidades de la Plataforma.",
       "saveProfile": "Guardar perfil",
       "editProfile": "Editar perfil",
-      "updateProfileSuccess": "Su perfil se ha actualizado",
+      "updateProfileSuccess": "Tu perfil se ha actualizado",
       "updateProfileFailure": "No se ha podido actualizar su perfil.",
       "evaluationRequests": "Solicitudes de evaluación",
       "myProjects": "Mis Proyectos",
       "myStructures": "Mis Estructuras"
     },
     "resetPassword": {
-      "title": "Acaba de reiniciar su contraseña",
+      "title": "Termina de reiniciar tu contraseña",
       "introText": "Esta pagina te permitirá cambiar tu contraseña olvidada. Por favor escriba su nueva contraseña:",
       "resetPassword": "Reestablecer contraseña",
       "goBackToLogin": "Volver al log-in",
@@ -56,7 +56,7 @@
       "allProjects": "Todos los Proyectos",
       "projectsSeeMore": "Ver todos los proyectos",
       "useThePlatform": "Empieza con InSPIRES",
-      "learnMore": "Aprender más sobre"
+      "learnMore": "Aprender más"
     },
     "help": {
       "title": "Centro de Ayuda",
@@ -68,7 +68,7 @@
       "courses": {
         "main": "Curso",
         "modules": "Modulos en este Curso",
-        "reccomendedMaterials": "Materiales recomendados",
+        "recomendedMaterials": "Materiales recomendados",
         "feedbackTitle": "Valoramos tu opinión",
         "feedbackLabelStars": "¿Hasta qué punto has encontrado útil el contenido de este módulo?",
         "feedbackLabelTextbox": "¿Tiene alguna sugerencia o comentarios?",
@@ -296,6 +296,7 @@
     },
     "Attachment": {
       "upload": "Subir archivo nuevo",
+      "externalResource": "Recurso externo",
       "noAttachments": "Ningún archivo adjuntado."
     },
     "StructureNetworks": {
@@ -685,6 +686,8 @@
     "project": "Proyecto",
     "projects": "Proyectos",
     "structure": "Estructura",
+    "mainStructure": "Estructura Principal",
+    "partnerStructure": "Estructura Colaboradora",
     "structures": "Estructuras",
     "evaluation": "Evaluación",
     "file": "Archivo",
@@ -727,6 +730,7 @@
     },
     "toasts": {
       "permissionError": "Se ha producido un error al acceder al recurso, es posible que no tenga permiso para verlo.",
+      "invalidFileType": "Este tipo de archivo no está permitido",
       "uploadError": "Hubo un error al cargar su archivo",
       "uploadErrorTooBig": "Este archivo es demasiado grande para subirlo. Por favor, limita el tamaño de tu archivo a {size} MB.",
       "loggedOut": "Ha salido del sistema",

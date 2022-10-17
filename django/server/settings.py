@@ -105,12 +105,14 @@ UPLOAD_URL = config("UPLOAD_URL", "")
 EMAIL_HOST = config("EMAIL_HOST", None)
 
 if EMAIL_HOST:
+    print("Seting up Email for host:", EMAIL_HOST)
     EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
     EMAIL_USE_TLS = config("EMAIL_USE_TLS", True, cast=bool)
     EMAIL_PORT = config("EMAIL_PORT", cast=int)
     EMAIL_HOST_USER = config("EMAIL_HOST_USER", "")
     EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD", "")
     EMAIL_FROM = "Inspires Platform <%s>" % EMAIL_HOST_USER
+    DEFAULT_FROM_EMAIL  = "Inspires Platform <%s>" % EMAIL_HOST_USER
 
 # Django REST Framework
 

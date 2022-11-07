@@ -86,11 +86,11 @@ class User(TrackableModel, AbstractUser):
 
     @property
     def avatar_url(self):
-        email = self.email.lower.encode("ascii")
+        email = self.email.lower().encode("ascii")
         default = "identicon"
 
-        gravatar_url = "https://www.gravatar.com/avatar/" + md5(email).hexdigest() + "?"
-        gravatar_url += urllib.urlencode({'d':default, 's':128})
+        gravatar_url = "https://www.gravatar.com/avatar/" + md5(email).hexdigest()
+        gravatar_url += f"?d={default}&s=128"
 
         return gravatar_url
 

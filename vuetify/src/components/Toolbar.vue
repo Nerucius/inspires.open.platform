@@ -6,6 +6,19 @@
 .v-toolbar__title .router-link:hover{
   background-color: rgba(255,255,255,0.1)
 }
+.op-logo__main{
+  text-transform: none;
+  font-size:110%;
+  line-height: 80%;
+}
+.op-logo__sub{
+  font-size:64%
+}
+.lk-logo__text{
+  width: 192px;
+  image-rendering: -webkit-optimize-contrast;
+
+}
 </style>
 
 
@@ -13,14 +26,27 @@
   <v-toolbar scroll-off-screen app dark flat color="primary" style="z-index:999">
     <v-toolbar-side-icon v-if="showToggleDrawer" @click="$emit('toggleDrawer')" />
     <v-toolbar-title class="headline text-uppercase">
+
+      <!-- Home logo link -->
       <router-link :to="{name:'home'}" active-class="router-link">
-        <span style="text-transform:none">
-          InSPIRES
-        </span>
-        <span style="font-size:70%" class="font-weight-light hidden-md-and-down">
-          &nbsp; Open Platform
-        </span>
+        <v-layout row fill-height align-center mt-1>
+          <v-flex class="op-logo__main">
+            InSPIRES 
+            <div class="op-logo__sub font-weight-light">
+              Open Platform
+            </div>
+          </v-flex>
+
+          <v-flex mx-3 hidden-md-and-down>
+            &times;
+          </v-flex>
+
+          <v-flex hidden-md-and-down mt-1>
+            <img class="lk-logo__text" src="/img/branding/lk_text_w_256.png" alt="LivingKnowledge">
+          </v-flex>
+        </v-layout>
       </router-link>
+
     </v-toolbar-title>
     <v-spacer />
 

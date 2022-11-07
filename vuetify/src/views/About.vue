@@ -172,7 +172,7 @@ export default {
       {
         name: "Living Knowledge - The International Science Shop Network",
         country: "International",
-        image_url: "https://www.livingknowledge.org/fileadmin/living-knowledge/templates/Resources/Public/Images/logo.jpg",
+        image_url: "/img/branding/lk_logo_text_512.png",
         url: "https://www.livingknowledge.org/",
         // structure_link: {name:"structure-detail", params:{slug:'19-fundacin-ceades-en-cochabamba-bolivia'}}
       },

@@ -50,7 +50,7 @@
 
           <p>
             <small>
-              <a href="https://cordis.europa.eu/project/rcn/106759/brief/en">
+              <a href="https://cordis.europa.eu/project/id/741677">
                 <!-- <v-img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Flag_of_Europe.svg/1280px-Flag_of_Europe.svg.png"
                 height="30" width="40" /> -->
                 {{ $t('pages.footer.europeanFundingDisclaimer') }}
